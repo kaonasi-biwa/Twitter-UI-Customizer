@@ -1,6 +1,6 @@
 {
     "name": "Twitter UI Customizer",
-    "version": "2.1.4",
+    "version": "2.1.5",
     "manifest_version": 2,
     "description": "TwitterのUI(の色)をある程度自由に選択できるようにします。",
     "icons": {
@@ -8,18 +8,28 @@
         "48": "icon/icon48.png",
         "128": "icon/icon128.png"
     },
-    "permissions": ["tabs", "declarativeContent","storage"],
-    "content_scripts": [{
-        "matches": ["*://*.twitter.com/*"],
-        "js": [
-            "scr/style.js"
-        ]
-    }],
-
+    "permissions": [
+        "tabs",
+        "declarativeContent",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/style.js"
+            ]
+        }
+    ],
     "background": {
-        "scripts": ["scr/background.js"],
+        "scripts": [
+            "scr/background.js"
+        ],
         "persistent": false
-    },    "page_action": {
+    },
+    "page_action": {
         "default_icon": {
             "16": "icon/icon16.png",
             "48": "icon/icon48.png",
@@ -30,4 +40,3 @@
     },
     "options_page": "scr/options.html"
 }
-
