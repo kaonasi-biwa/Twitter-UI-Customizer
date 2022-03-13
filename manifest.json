@@ -1,6 +1,6 @@
 {
     "name": "Twitter UI Customizer",
-    "version": "2.1.5",
+    "version": "2.1.6",
     "manifest_version": 2,
     "description": "TwitterのUI(の色)をある程度自由に選択できるようにします。",
     "icons": {
