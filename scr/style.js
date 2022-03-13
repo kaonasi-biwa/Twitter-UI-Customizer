@@ -31,7 +31,7 @@ const config = {
 observer.observe(target, config);
 
 let input_id = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-","profile-link-"]
-let color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
+var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
 "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
 "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
 "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
@@ -39,6 +39,14 @@ let color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
 "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
 "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
 "rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(255,255,255,1)"]
+let color2 = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
+"rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
+"rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+"rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
+"rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
+"rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
+"rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
+"rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(0,0,0,1)"]
 
 window.onload = function () {
     run_first()
@@ -46,13 +54,15 @@ window.onload = function () {
 
 
 function run_first() {
+    var TUIC_color = "rgba(255,255,255,1)"
     // 追加する要素を用意します。
     let add = document.createElement("style");
     add.classList.add("twitter_ui_customizer")
 
-    if (localStorage.getItem("unsent-tweet-background") == null) {
-        default_set()
-    }
+if(document.querySelector('body[style*=\"255\"]') != null){
+color = color2
+}
+
     var unsent_tweet_background = localStorage.getItem('unsent-tweet-background') ?? color[0]
     var unsent_tweet_border = localStorage.getItem('unsent-tweet-border') ?? color[1]
     var unsent_tweet_color = localStorage.getItem('unsent-tweet-color') ?? color[2]
@@ -77,6 +87,7 @@ function run_first() {
     var profile_link_background = localStorage.getItem('profile-link-background') ?? color[21]
     var profile_link_border = localStorage.getItem('profile-link-border') ?? color[22]
     var profile_link_color = localStorage.getItem('profile-link-color') ?? color[23]
+
 
 
     add.textContent = `
@@ -105,6 +116,7 @@ function run_first() {
     --twitter-profile-link-background: ${profile_link_background};
     --twitter-profile-link-border: ${profile_link_border};
     --twitter-profile-link-color: ${profile_link_color};
+    --twitter-TUIC-color: ${TUIC_color};
 }
 
 /*未送信ツイートの編集*/
@@ -271,6 +283,18 @@ div.r-xoduu5 > a.r-b88u0q{
 div.r-xoduu5 > a.r-b88u0q > span{
     color: var(--twitter-profile-link-color) !important;
 }
+
+/*設定画面の文字色*/
+#TUIC_setting > *{
+    color: var(--TUIC-color) !important;
+}
+#TUIC_setting > * > *{
+    color: var(--TUIC-color) !important;
+}
+#TUIC_setting > * > * > *{
+    color: var(--TUIC-color) !important;
+}
+
 `;
     let aa = document.getElementsByTagName("head")
     // 基準となる要素を指定します。
@@ -299,9 +323,11 @@ function display_setting() {
     let aa2 = document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md');
     let add_div2 = document.createElement("div");
     add_div2.classList.add("css-1dbjc4n", "r-kuekak", "r-109y4c4", "r-1p6iasa")
+    add_div2.id = "TUIC_setting"
     aa2.appendChild(add_div2)
 
     let div_h1 = document.createElement("div");
+    div_h1.id = "TUIC_setting"
     div_h1.classList.add("css-1dbjc4n", "r-1wtj0ep", "r-ymttw5", "r-1f1sjgu")
     let div_h2 = document.createElement("h2")
     div_h2.ariaLevel = "2"
@@ -444,6 +470,7 @@ function display_setting() {
     add_button2.textContent = "保存"
 
     add_div.classList.add("r-1f1sjgu", "r-1e081e0")
+    add_div.id = "TUIC_setting"
     add_div.appendChild(textarea_form)
     add_div.appendChild(add_button2)
     let result_button = add_div.appendChild(add_button)
@@ -521,33 +548,30 @@ function save_data() {
 
 
 function default_set() {
-    localStorage.setItem('unsent-tweet-background', color[0])
-    localStorage.setItem('unsent-tweet-border', color[1])
-    localStorage.setItem('unsent-tweet-color', color[2])
-    localStorage.setItem('not-following-background', color[3])
-    localStorage.setItem('not-following-border', color[4])
-    localStorage.setItem('not-following-color', color[5])
-    localStorage.setItem('following-background', color[6])
-    localStorage.setItem('following-border', color[7])
-    localStorage.setItem('following-color', color[8])
-    localStorage.setItem('un-following-background', color[9])
-    localStorage.setItem('un-following-border', color[10])
-    localStorage.setItem('un-following-color', color[11])
-    localStorage.setItem('profile-background', color[12])
-    localStorage.setItem('profile-border', color[13])
-    localStorage.setItem('profile-color', color[14])
-    localStorage.setItem('profile-save-background', color[15])
-    localStorage.setItem('profile-save-border', color[16])
-    localStorage.setItem('profile-save-color', color[17])
-    localStorage.setItem('birthday-background', color[18])
-    localStorage.setItem('birthday-border', color[19])
-    localStorage.setItem('birthday-color', color[20])
-    localStorage.setItem('profile-link-background', color[21])
-    localStorage.setItem('profile-link-border', color[22])
-    localStorage.setItem('profile-link-color', color[23])
-    if(localStorage.getItem('css') == null){
-        localStorage.setItem('css', "")
-    }
+    localStorage.removeItem('unsent-tweet-background')
+    localStorage.removeItem('unsent-tweet-border')
+    localStorage.removeItem('unsent-tweet-color')
+    localStorage.removeItem('not-following-background')
+    localStorage.removeItem('not-following-border')
+    localStorage.removeItem('not-following-color')
+    localStorage.removeItem('following-background')
+    localStorage.removeItem('following-border')
+    localStorage.removeItem('following-color')
+    localStorage.removeItem('un-following-background')
+    localStorage.removeItem('un-following-border')
+    localStorage.removeItem('un-following-color')
+    localStorage.removeItem('profile-background')
+    localStorage.removeItem('profile-border')
+    localStorage.removeItem('profile-color')
+    localStorage.removeItem('profile-save-background')
+    localStorage.removeItem('profile-save-border')
+    localStorage.removeItem('profile-save-color')
+    localStorage.removeItem('birthday-background')
+    localStorage.removeItem('birthday-border')
+    localStorage.removeItem('birthday-color')
+    localStorage.removeItem('profile-link-background')
+    localStorage.removeItem('profile-link-border')
+    localStorage.removeItem('profile-link-color')
 
     location.reload();
 }
