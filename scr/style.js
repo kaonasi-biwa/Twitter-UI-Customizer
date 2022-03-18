@@ -286,13 +286,13 @@ div.r-xoduu5 > a.r-b88u0q > span{
 
 /*設定画面の文字色*/
 #TUIC_setting > *{
-    color: var(--TUIC-color) !important;
+    color: var(--twitter-TUIC-color) !important;
 }
 #TUIC_setting > * > *{
-    color: var(--TUIC-color) !important;
+    color: var(--twitter-TUIC-color) !important;
 }
 #TUIC_setting > * > * > *{
-    color: var(--TUIC-color) !important;
+    color: var(--twitter-TUIC-color) !important;
 }
 
 `;
