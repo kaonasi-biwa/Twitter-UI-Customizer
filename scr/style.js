@@ -294,6 +294,11 @@ div.r-xoduu5 > a.r-b88u0q > span{
 #TUIC_setting > * > * > *{
     color: var(--twitter-TUIC-color) !important;
 }
+#TUIC_setting > button{
+    color: var(--twitter-TUIC-color) !important;
+    background: transparent !important;
+    
+}
 
 `;
     let aa = document.getElementsByTagName("head")
