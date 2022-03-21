@@ -47,5 +47,9 @@
     "options_page": "scr/options.html",
     "options_ui": {
         "page":"scr/options.html"
+    },
+    "developer": {
+      "name": "kaonasi_biwa",
+      "url": "https://github.com/kaonasi-biwa/Twitter-UI-Customizer"
     }
 }
