@@ -7,8 +7,26 @@ const target = document.getElementsByTagName("body").item(0);
 // オブザーバインスタンスを作成
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-        if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
+        if (localStorage.getItem("reply-button") == 1) {
+            $("[data-testid=\"reply\"]").parent('div').addClass("TUIC_DISPNONE");
+        }
+        if (localStorage.getItem("retweet-button") == 1) {
+            $("[data-testid=\"retweet\"]").parent('div').addClass("TUIC_DISPNONE");
+        }
 
+        if (localStorage.getItem("like-button") == 1) {
+            $("[data-testid=\"like\"]").parent('div').addClass("TUIC_DISPNONE");
+        }
+
+        if (localStorage.getItem("share-button") == 1) {
+            $("[aria-label=\"ツイートを共有\"]").parent('div').addClass("TUIC_DISPNONE");
+        }
+
+        if (localStorage.getItem("downvote-button") == 1) {
+            $("[data-testid=\"downvote\"]").parent('div').addClass("TUIC_DISPNONE");
+        }
+
+        if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
             display_run()
         }
 
@@ -30,23 +48,26 @@ const config = {
 // 対象ノードとオブザーバの設定を渡す
 observer.observe(target, config);
 
-let input_id = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-","profile-link-"]
-var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
-"rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
-"rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
-"rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
-"rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
-"rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
-"rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
-"rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(255,255,255,1)"]
-let color2 = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
-"rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
-"rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
-"rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
-"rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)", 
-"rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)", 
-"rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)", 
-"rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(0,0,0,1)"]
+let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-", "profile-link-"]
+let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン", "プロフィールへのリンク"]
+let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button"]
+let TUIC_input_checkbox_name = ["返信", "リツイート", "いいね", "自分向きではない", "共有"]
+var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+    "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
+    "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+    "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",
+    "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
+    "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+    "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",
+    "rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(255,255,255,1)"]
+let color2 = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+    "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
+    "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+    "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",
+    "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
+    "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
+    "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",
+    "rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(0,0,0,1)"]
 
 window.onload = function () {
     run_first()
@@ -56,12 +77,12 @@ window.onload = function () {
 function run_first() {
     var TUIC_color = "rgba(255,255,255,1)"
     // 追加する要素を用意します。
-    let add = document.createElement("style");
-    add.classList.add("twitter_ui_customizer")
+    let TUIC_css = document.createElement("style");
+    TUIC_css.classList.add("twitter_ui_customizer")
 
-if(document.querySelector('body[style*=\"255\"]') != null){
-color = color2
-}
+    if (document.querySelector('body[style*=\"255\"]') != null) {
+        color = color2
+    }
 
     var unsent_tweet_background = localStorage.getItem('unsent-tweet-background') ?? color[0]
     var unsent_tweet_border = localStorage.getItem('unsent-tweet-border') ?? color[1]
@@ -90,7 +111,7 @@ color = color2
 
 
 
-    add.textContent = `
+    TUIC_css.textContent = `
 :root{
     --twitter-unsent-tweet-background: ${unsent_tweet_background};
     --twitter-unsent-tweet-border: ${unsent_tweet_border};
@@ -300,195 +321,233 @@ div.r-xoduu5 > a.r-b88u0q > span{
     
 }
 
+.TUIC_DISPNONE{
+    display: none !important;
+}
+
 `;
-    let aa = document.getElementsByTagName("head")
+    let TWITTER_head = document.getElementsByTagName("head").item(0)
     // 基準となる要素を指定します。
 
 
-    let add2 = document.createElement("style");
-    add2.classList.add("twitter_ui_customizer_css")
-    add2.textContent = localStorage.getItem('css')
+    let TUIC_custom_css = document.createElement("style");
+    TUIC_custom_css.classList.add("twitter_ui_customizer_css")
+    TUIC_custom_css.textContent = localStorage.getItem('css')
 
-
-    let sample = aa.item(0)
-    let result = sample.appendChild(add);
-    let result2 = sample.appendChild(add2);
-
-
-    var pathname = location.pathname;
-
-
-
+    TWITTER_head.appendChild(TUIC_css);
+    TWITTER_head.appendChild(TUIC_custom_css);
 
 }
 
 
 
 function display_setting() {
-    let aa2 = document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md');
-    let add_div2 = document.createElement("div");
-    add_div2.classList.add("css-1dbjc4n", "r-kuekak", "r-109y4c4", "r-1p6iasa")
-    add_div2.id = "TUIC_setting"
-    aa2.appendChild(add_div2)
+    let TWITTER_setting_back = document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md');
 
-    let div_h1 = document.createElement("div");
-    div_h1.id = "TUIC_setting"
-    div_h1.classList.add("css-1dbjc4n", "r-1wtj0ep", "r-ymttw5", "r-1f1sjgu")
-    let div_h2 = document.createElement("h2")
-    div_h2.ariaLevel = "2"
-    div_h2.setAttribute("role", "heading")
-    div_h2.classList.add("css-4rbku5", "css-1dbjc4n", "r-18u37iz")
-    let div_div1 = document.createElement("div");
-    div_div1.classList.add("css-1dbjc4n", "r-k200y", "r-z80fyv", "r-1777fci", "r-1bymd8e")
-    let div_div2 = document.createElement("div");
-    div_div2.classList.add("css-901oao", "css-cens5h", "r-jwli3a", "r-1tl8opc", "r-adyw6z", "r-1vr29t4", "r-135wba7", "r-bcqeeo", "r-qvutc0")
-    div_div2.style = "-webkit-line-clamp: 3;"
-    let span = document.createElement("span");
-    span.classList.add("css-901oao", "css-16my406", "r-1tl8opc", "r-bcqeeo", "r-qvutc0")
-    span.textContent = "Twitter UI Customizer"
-    div_div2.appendChild(span)
-    div_h2.appendChild(div_div2)
-    div_h2.appendChild(div_div1)
-    div_h1.appendChild(div_h2)
-    aa2.appendChild(div_h1)
+    let TUIC_setting_title_back = document.createElement("div");
+    TUIC_setting_title_back.id = "TUIC_setting"
+    TUIC_setting_title_back.classList.add("css-1dbjc4n", "r-1wtj0ep", "r-ymttw5", "r-1f1sjgu")
 
-    let add_div = document.createElement("div");
+    let TUIC_setting_title_frame_h2 = document.createElement("h2")
+    TUIC_setting_title_frame_h2.ariaLevel = "2"
+    TUIC_setting_title_frame_h2.setAttribute("role", "heading")
+    TUIC_setting_title_frame_h2.classList.add("css-4rbku5", "css-1dbjc4n", "r-18u37iz")
 
-    let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン","プロフィールへのリンク"]
+    let TUIC_setting_title_text_back = document.createElement("div");
+    TUIC_setting_title_text_back.classList.add("css-901oao", "css-cens5h", "r-jwli3a", "r-1tl8opc", "r-adyw6z", "r-1vr29t4", "r-135wba7", "r-bcqeeo", "r-qvutc0")
+    TUIC_setting_title_text_back.style = "-webkit-line-clamp: 3;"
+
+    let TUIC_setting_title_text = document.createElement("span");
+    TUIC_setting_title_text.classList.add("css-901oao", "css-16my406", "r-1tl8opc", "r-bcqeeo", "r-qvutc0")
+    TUIC_setting_title_text.textContent = "Twitter UI Customizer"
+
+    TUIC_setting_title_text_back.appendChild(TUIC_setting_title_text)
+    TUIC_setting_title_frame_h2.appendChild(TUIC_setting_title_text_back)
+    TUIC_setting_title_back.appendChild(TUIC_setting_title_frame_h2)
+    TWITTER_setting_back.appendChild(TUIC_setting_title_back)
+
+    let TUIC_setting_main_back = document.createElement("div");
+
+    for (var i = 0; i < TUIC_input_color_title.length; i++) {
+        var TUIC_setting_main_title = document.createElement("h2")
+        TUIC_setting_main_title.textContent = input_name[i]
+        TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_title.style = "font-size:20px;"
+        TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
+        TUIC_setting_main_back.appendChild(document.createElement("br"))
 
 
-    for (var i = 0; i < input_id.length; i++) {
-        var main_h3 = document.createElement("h2")
-        main_h3.textContent = input_name[i]
-        main_h3.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        main_h3.style = "font-size:20px;"
-        add_div.appendChild(main_h3)
-        add_div.appendChild(document.createElement("br"))
+        var TUIC_setting_main_color = document.createElement("h4")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_color.textContent = "背景色:"
+        TUIC_setting_main_color.style = "font-size:15px;"
+        TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
 
-        var main_h4_1 = document.createElement("h4")
-        main_h4_1.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        main_h4_1.textContent = "背景色:"
-        main_h4_1.style = "font-size:15px;"
-        add_div.appendChild(main_h4_1)
-        var input = document.createElement("input")
-        input.type = "color"
-        input.id = input_id[i] + "background"
-        var temp2 = (localStorage.getItem(input_id[i] + "background") ?? color[i * 3]).replace("rgba(", "").replace(")", "").split(",")
-        input.value = rgb2hex([Number(temp2[0]), Number(temp2[1]), Number(temp2[2])])
-        add_div.appendChild(input)
-        var check = document.createElement("input")
-        check.type = "checkbox"
-        check.id = input_id[i] + "background-check"
-        if (temp2[3] == "0") {
-            check.checked = true
+        var TUIC_color_pick = document.createElement("input")
+        TUIC_color_pick.type = "color"
+        TUIC_color_pick.id = TUIC_input_color_title[i] + "background"
+
+        var TUIC_color = (localStorage.getItem(TUIC_input_color_title[i] + "background") ?? color[i * 3]).replace("rgba(", "").replace(")", "").split(",")
+        TUIC_color_pick.value = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+        TUIC_setting_main_back.appendChild(TUIC_color_pick)
+
+        var TUIC_checkbox = document.createElement("input")
+        TUIC_checkbox.type = "checkbox"
+        TUIC_checkbox.id = TUIC_input_color_title[i] + "background-check"
+        if (TUIC_color[3] == "0") {
+            TUIC_checkbox.checked = true
         } else {
-            check.checked = false
+            TUIC_checkbox.checked = false
         }
-        var label = document.createElement("label")
-        label.setAttribute("for", input_id[i] + "background-check")
-        label.textContent = "透明色にする"
-        label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        label.style = "font-size:15px;"
-        add_div.appendChild(check)
-        add_div.appendChild(label)
-        add_div.appendChild(document.createElement("br"))
 
-        var main_h4_2 = document.createElement("h4")
-        main_h4_2.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        main_h4_2.textContent = "枠色:"
-        main_h4_2.style = "font-size:15px;"
-        add_div.appendChild(main_h4_2)
-        var input2 = document.createElement("input")
-        input2.type = "color"
-        input2.id = input_id[i] + "border"
-        temp2 = (localStorage.getItem(input_id[i] + "border") ?? color[i * 3 + 1]).replace("rgba(", "").replace(")", "").split(",")
-        input2.value = rgb2hex([Number(temp2[0]), Number(temp2[1]), Number(temp2[2])])
-        add_div.appendChild(input2)
-        var check2 = document.createElement("input")
-        check2.type = "checkbox"
-        check2.id = input_id[i] + "border-check"
-        if (temp2[3] == "0") {
-            check2.checked = true
-        } else {
-            check2.checked = false
-        }
-        var label2 = document.createElement("label")
-        label2.setAttribute("for", input_id[i] + "border-check")
-        label2.textContent = "透明色にする"
-        label2.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        label2.style = "font-size:15px;"
-        add_div.appendChild(check2)
-        add_div.appendChild(label2)
-        add_div.appendChild(document.createElement("br"))
+        var TUIC_checkbox_label = document.createElement("label")
+        TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "background-check")
+        TUIC_checkbox_label.textContent = "透明色にする"
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.style = "font-size:15px;"
 
-        var main_h4_3 = document.createElement("h4")
-        main_h4_3.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        main_h4_3.textContent = "文字色:"
-        main_h4_3.style = "font-size:15px;"
-        add_div.appendChild(main_h4_3)
-        var input3 = document.createElement("input")
-        input3.type = "color"
-        input3.id = input_id[i] + "color"
-        temp2 = (localStorage.getItem(input_id[i] + "color") ?? color[i * 3 + 2]).replace("rgba(", "").replace(")", "").split(",")
-        input3.value = rgb2hex([Number(temp2[0]), Number(temp2[1]), Number(temp2[2])])
-        add_div.appendChild(input3)
-        var check3 = document.createElement("input")
-        check3.type = "checkbox"
-        check3.id = input_id[i] + "color-check"
-        if (temp2[3] == "0") {
-            check3.checked = true
+        TUIC_setting_main_back.appendChild(TUIC_checkbox)
+        TUIC_setting_main_back.appendChild(TUIC_checkbox_label)
+        TUIC_setting_main_back.appendChild(document.createElement("br"))
+
+
+        TUIC_setting_main_color = document.createElement("h4")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_color.textContent = "枠色:"
+        TUIC_setting_main_color.style = "font-size:15px;"
+        TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
+
+        TUIC_color_pick = document.createElement("input")
+        TUIC_color_pick.type = "color"
+        TUIC_color_pick.id = TUIC_input_color_title[i] + "border"
+
+        TUIC_color = (localStorage.getItem(TUIC_input_color_title[i] + "border") ?? color[i * 3 + 1]).replace("rgba(", "").replace(")", "").split(",")
+        TUIC_color_pick.value = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+
+        console.log(TUIC_setting_main_back.appendChild(TUIC_color_pick))
+
+        TUIC_checkbox = document.createElement("input")
+        TUIC_checkbox.type = "checkbox"
+        TUIC_checkbox.id = TUIC_input_color_title[i] + "border-check"
+        if (TUIC_color[3] == "0") {
+            TUIC_checkbox.checked = true
         } else {
-            check3.checked = false
+            TUIC_checkbox.checked = false
         }
-        var label3 = document.createElement("label")
-        label3.setAttribute("for", input_id[i] + "color-check")
-        label3.textContent = "透明色にする"
-        label3.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        label3.style = "font-size:15px;"
-        add_div.appendChild(check3)
-        add_div.appendChild(label3)
-        add_div.appendChild(document.createElement("br"))
-        add_div.appendChild(document.createElement("br"))
+
+        TUIC_checkbox_label = document.createElement("label")
+        TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "border-check")
+        TUIC_checkbox_label.textContent = "透明色にする"
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.style = "font-size:15px;"
+
+        TUIC_setting_main_back.appendChild(TUIC_checkbox)
+        TUIC_setting_main_back.appendChild(TUIC_checkbox_label)
+        TUIC_setting_main_back.appendChild(document.createElement("br"))
+
+
+        TUIC_setting_main_color = document.createElement("h4")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_color.textContent = "文字色:"
+        TUIC_setting_main_color.style = "font-size:15px;"
+        TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
+
+        TUIC_color_pick = document.createElement("input")
+        TUIC_color_pick.type = "color"
+        TUIC_color_pick.id = TUIC_input_color_title[i] + "color"
+
+        TUIC_color = (localStorage.getItem(TUIC_input_color_title[i] + "color") ?? color[i * 3 + 2]).replace("rgba(", "").replace(")", "").split(",")
+        TUIC_color_pick.value = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+        TUIC_setting_main_back.appendChild(TUIC_color_pick)
+
+        TUIC_checkbox = document.createElement("input")
+        TUIC_checkbox.type = "checkbox"
+        TUIC_checkbox.id = TUIC_input_color_title[i] + "color-check"
+        if (TUIC_color[3] == "0") {
+            TUIC_checkbox.checked = true
+        } else {
+            TUIC_checkbox.checked = false
+        }
+
+        TUIC_checkbox_label = document.createElement("label")
+        TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "color-check")
+        TUIC_checkbox_label.textContent = "透明色にする"
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.style = "font-size:15px;"
+
+        TUIC_setting_main_back.appendChild(TUIC_checkbox)
+        TUIC_setting_main_back.appendChild(TUIC_checkbox_label)
+        TUIC_setting_main_back.appendChild(document.createElement("br"))
+        TUIC_setting_main_back.appendChild(document.createElement("br"))
+    }
+
+    var TUIC_setting_main_title = document.createElement("h2")
+    TUIC_setting_main_title.textContent = "ボタンの非表示"
+    TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+    TUIC_setting_main_title.style = "font-size:20px;"
+    TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
+    TUIC_setting_main_back.appendChild(document.createElement("br"))
+    for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
+
+
+        var TUIC_checkbox = document.createElement("input")
+        TUIC_checkbox.type = "checkbox"
+        TUIC_checkbox.id = TUIC_input_checkbox_title[i]
+        if (localStorage.getItem(TUIC_input_checkbox_title[i]) == "1") {
+            TUIC_checkbox.checked = true
+        } else {
+            TUIC_checkbox.checked = false
+        }
+
+        var TUIC_checkbox_label = document.createElement("label")
+        TUIC_checkbox_label.setAttribute("for", TUIC_input_checkbox_title[i])
+        TUIC_checkbox_label.textContent = TUIC_input_checkbox_name[i]
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.style = "font-size:15px;"
+
+        TUIC_setting_main_back.appendChild(TUIC_checkbox)
+        TUIC_setting_main_back.appendChild(TUIC_checkbox_label)
+        TUIC_setting_main_back.appendChild(document.createElement("br"))
     }
 
 
-    var form_h2 = document.createElement("h2")
-    form_h2.textContent = "カスタムCSS"
-    form_h2.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-    form_h2.style = "font-size:20px;"
-    add_div.appendChild(form_h2)
-    add_div.appendChild(document.createElement("br"))
+    var TUIC_custom_css_textbox_title = document.createElement("h2")
+    TUIC_custom_css_textbox_title.textContent = "カスタムCSS"
+    TUIC_custom_css_textbox_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+    TUIC_custom_css_textbox_title.style = "font-size:20px;"
+    TUIC_setting_main_back.appendChild(TUIC_custom_css_textbox_title)
+    TUIC_setting_main_back.appendChild(document.createElement("br"))
 
-    let textarea_form = document.createElement("form");
-    let textarea = document.createElement("textarea");
-    textarea.style = "width:calc(100% - 10px);"
-    textarea.id = "css_textarea"
-    textarea.value = localStorage.getItem('css')
-    textarea_form.appendChild(textarea)
+    let TUIC_custom_css_textbox_frame = document.createElement("form");
+    let TUIC_custom_css_textbox = document.createElement("textarea");
+    TUIC_custom_css_textbox.style = "width:calc(100% - 10px);"
+    TUIC_custom_css_textbox.id = "css_textarea"
+    TUIC_custom_css_textbox.value = localStorage.getItem('css')
+    TUIC_custom_css_textbox_frame.appendChild(TUIC_custom_css_textbox)
 
-    let add_button = document.createElement("button");
-    add_button.id = "default_set"
-    add_button.textContent = "デフォルトに戻す"
+    let TUIC_default_button = document.createElement("button");
+    TUIC_default_button.id = "default_set"
+    TUIC_default_button.textContent = "デフォルトに戻す"
 
-    let add_button2 = document.createElement("button");
-    add_button2.id = "save"
-    add_button2.textContent = "保存"
+    let TUIC_save_button = document.createElement("button");
+    TUIC_save_button.id = "save"
+    TUIC_save_button.textContent = "保存"
 
-    add_div.classList.add("r-1f1sjgu", "r-1e081e0")
-    add_div.id = "TUIC_setting"
-    add_div.appendChild(textarea_form)
-    add_div.appendChild(add_button2)
-    let result_button = add_div.appendChild(add_button)
+    TUIC_setting_main_back.classList.add("r-1f1sjgu", "r-1e081e0")
+    TUIC_setting_main_back.id = "TUIC_setting"
+    TUIC_setting_main_back.appendChild(TUIC_custom_css_textbox_frame)
+    TUIC_setting_main_back.appendChild(TUIC_save_button)
+    TUIC_setting_main_back.appendChild(TUIC_default_button)
 
-    var add_h4 = document.createElement("h4")
-    add_h4.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-    add_h4.textContent = "※再読込します"
-    add_h4.style = "font-size:12px;"
-    add_div.appendChild(add_h4)
+    var TUIC_reload = document.createElement("h4")
+    TUIC_reload.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+    TUIC_reload.textContent = "※再読込します"
+    TUIC_reload.style = "font-size:12px;"
+    TUIC_setting_main_back.appendChild(TUIC_reload)
 
 
+    TWITTER_setting_back.appendChild(TUIC_setting_main_back);
 
-    aa2.appendChild(add_div);
 
     document.getElementById('save').addEventListener('click',
         save_data);
@@ -501,6 +560,7 @@ function display_run() {
         window.setTimeout(display_run, 10000)
     } else {
         display_setting()
+
     }
 
 
@@ -525,24 +585,32 @@ function hex2rgb(hex) {
 }
 
 function save_data() {
-    for (var i = 0; i < input_id.length; i++) {
-        var color = hex2rgb(document.getElementById(input_id[i] + "background").value)
-        if (document.getElementById(input_id[i] + "background-check").checked) {
-            localStorage.setItem(input_id[i] + "background", `rgba(${String(color[0])},${String(color[1])},${String(color[2])},0)`)
+    for (var i = 0; i < TUIC_input_color_title.length; i++) {
+        var color = hex2rgb(document.getElementById(TUIC_input_color_title[i] + "background").value)
+        if (document.getElementById(TUIC_input_color_title[i] + "background-check").checked) {
+            localStorage.setItem(TUIC_input_color_title[i] + "background", `rgba(${String(color[0])},${String(color[1])},${String(color[2])},0)`)
         } else {
-            localStorage.setItem(input_id[i] + "background", `rgba(${String(color[0])},${String(color[1])},${String(color[2])},1)`)
+            localStorage.setItem(TUIC_input_color_title[i] + "background", `rgba(${String(color[0])},${String(color[1])},${String(color[2])},1)`)
         }
-        var color2 = hex2rgb(document.getElementById(input_id[i] + "border").value)
-        if (document.getElementById(input_id[i] + "border-check").checked) {
-            localStorage.setItem(input_id[i] + "border", `rgba(${String(color2[0])},${String(color2[1])},${String(color2[2])},0)`)
+        var color2 = hex2rgb(document.getElementById(TUIC_input_color_title[i] + "border").value)
+        if (document.getElementById(TUIC_input_color_title[i] + "border-check").checked) {
+            localStorage.setItem(TUIC_input_color_title[i] + "border", `rgba(${String(color2[0])},${String(color2[1])},${String(color2[2])},0)`)
         } else {
-            localStorage.setItem(input_id[i] + "border", `rgba(${String(color2[0])},${String(color2[1])},${String(color2[2])},1)`)
+            localStorage.setItem(TUIC_input_color_title[i] + "border", `rgba(${String(color2[0])},${String(color2[1])},${String(color2[2])},1)`)
         }
-        var color3 = hex2rgb(document.getElementById(input_id[i] + "color").value)
-        if (document.getElementById(input_id[i] + "color-check").checked) {
-            localStorage.setItem(input_id[i] + "color", `rgba(${String(color3[0])},${String(color3[1])},${String(color3[2])},0)`)
+        var color3 = hex2rgb(document.getElementById(TUIC_input_color_title[i] + "color").value)
+        if (document.getElementById(TUIC_input_color_title[i] + "color-check").checked) {
+            localStorage.setItem(TUIC_input_color_title[i] + "color", `rgba(${String(color3[0])},${String(color3[1])},${String(color3[2])},0)`)
         } else {
-            localStorage.setItem(input_id[i] + "color", `rgba(${String(color3[0])},${String(color3[1])},${String(color3[2])},1)`)
+            localStorage.setItem(TUIC_input_color_title[i] + "color", `rgba(${String(color3[0])},${String(color3[1])},${String(color3[2])},1)`)
+        }
+    }
+
+    for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
+        if (document.getElementById(TUIC_input_checkbox_title[i]).checked) {
+            localStorage.setItem(TUIC_input_checkbox_title[i],"1")
+        } else {
+            localStorage.setItem(TUIC_input_checkbox_title[i],"0")
         }
     }
     localStorage.setItem("css", document.getElementById("css_textarea").value)
@@ -577,6 +645,11 @@ function default_set() {
     localStorage.removeItem('profile-link-background')
     localStorage.removeItem('profile-link-border')
     localStorage.removeItem('profile-link-color')
+    localStorage.removeItem('reply-button')
+    localStorage.removeItem('retweet-button')
+    localStorage.removeItem('like-button')
+    localStorage.removeItem('downvote-button')
+    localStorage.removeItem('share-button')
 
     location.reload();
 }
