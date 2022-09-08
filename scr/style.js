@@ -26,6 +26,10 @@ const observer = new MutationObserver((mutations) => {
             $("[data-testid=\"downvote\"]").parent('div').addClass("TUIC_DISPNONE");
         }
 
+        if (localStorage.getItem("tweet_analytics") == 1) {
+            $("[aria-label=\"ツイートアナリティクスを表示\"]").parent('div').addClass("TUIC_DISPNONE");
+        }
+
         if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
             display_run()
         }
@@ -50,8 +54,8 @@ observer.observe(target, config);
 
 let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-", "profile-link-"]
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン", "プロフィールへのリンク"]
-let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button"]
-let TUIC_input_checkbox_name = ["返信", "リツイート", "いいね", "自分向きではない", "共有"]
+let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button","tweet_analytics"]
+let TUIC_input_checkbox_name = ["返信", "リツイート", "いいね", "自分向きではない", "共有","ツイートアナリティクスを表示"]
 var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
     "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
@@ -108,8 +112,6 @@ function run_first() {
     var profile_link_background = localStorage.getItem('profile-link-background') ?? color[21]
     var profile_link_border = localStorage.getItem('profile-link-border') ?? color[22]
     var profile_link_color = localStorage.getItem('profile-link-color') ?? color[23]
-
-
 
     TUIC_css.textContent = `
 :root{
@@ -306,13 +308,229 @@ div.r-xoduu5 > a.r-b88u0q > span{
 }
 
 /*設定画面の文字色*/
-#TUIC_setting > *{
+#TUIC_setting > *:not(form){
     color: var(--twitter-TUIC-color) !important;
 }
-#TUIC_setting > * > *{
+#TUIC_setting > *:not(form) > *{
     color: var(--twitter-TUIC-color) !important;
 }
-#TUIC_setting > * > * > *{
+#TUIC_setting > *:not(form) > * > *{
+    color: var(--twitter-TUIC-color) !important;
+}
+#TUIC_setting > button{
+    color: var(--twitter-TUIC-color) !important;
+    background: transparent !important;
+    
+}
+
+.TUIC_DISPNONE{
+    display: none !important;
+}
+
+`;
+
+    let textContent_old = `
+:root{
+    --twitter-unsent-tweet-background: ${unsent_tweet_background};
+    --twitter-unsent-tweet-border: ${unsent_tweet_border};
+    --twitter-unsent-tweet-color: ${unsent_tweet_color};
+    --twitter-not-following-background: ${not_following_background};
+    --twitter-not-following-border: ${not_following_border};
+    --twitter-not-following-color: ${not_following_color};
+    --twitter-following-background: ${following_background};
+    --twitter-following-border: ${following_border};
+    --twitter-following-color: ${following_color};
+    --twitter-un-following-background: ${un_following_background};
+    --twitter-un-following-border: ${un_following_border};
+    --twitter-un-following-color: ${un_following_color};
+    --twitter-profile-background: ${profile_background};
+    --twitter-profile-border: ${profile_border};
+    --twitter-profile-color: ${profile_color};
+    --twitter-profile-save-background: ${profile_save_background};
+    --twitter-profile-save-border: ${profile_save_border};
+    --twitter-profile-save-color: ${profile_save_color};
+    --twitter-birthday-background: ${birthday_background};
+    --twitter-birthday-border: ${birthday_border};
+    --twitter-birthday-color: ${birthday_color};
+    --twitter-profile-link-background: ${profile_link_background};
+    --twitter-profile-link-border: ${profile_link_border};
+    --twitter-profile-link-color: ${profile_link_color};
+    --twitter-TUIC-color: ${TUIC_color};
+}
+
+/*未送信ツイートの編集*/
+.r-s8bhmr > .css-1dbjc4n > .r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4{
+    background-color: var(--twitter-unsent-tweet-background) !important;
+    border-color: var(--twitter-unsent-tweet-border) !important;
+}
+.r-s8bhmr > .css-1dbjc4n > .r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4 > .r-b88u0q{
+    color: var(--twitter-unsent-tweet-color) !important;
+}
+
+/*フォローしていない人をフォロー*/
+.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae){
+    background-color: var(--twitter-not-following-background) !important;
+    border-color: var(--twitter-not-following-border) !important;
+}
+.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae) > .r-b88u0q{
+    color: var(--twitter-not-following-color) !important;
+}
+.r-19u6a5r > .r-4wgw6l.r-42olwf.r-jc7xae{
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-19u6a5r > .r-4wgw6l.r-42olwf.r-jc7xae > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+/*プロフィールでも*/
+.r-6gpygo > .r-sdzlij.r-42olwf:not(.r-jc7xae){
+    background-color: var(--twitter-not-following-background) !important;
+    border-color: var(--twitter-not-following-border) !important;
+}
+.r-6gpygo > .r-sdzlij.r-42olwf:not(.r-jc7xae) > .r-b88u0q{
+    color: var(--twitter-not-following-color) !important;
+}
+.r-6gpygo > .r-sdzlij.r-42olwf.r-jc7xae{
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-6gpygo > .r-sdzlij.r-42olwf.r-jc7xae > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+/*画面上でも*/
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae){
+    background-color: var(--twitter-not-following-background) !important;
+    border-color: var(--twitter-not-following-border) !important;
+}
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae) > .r-b88u0q{
+    color: var(--twitter-not-following-color) !important;
+}
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf.r-jc7xae{
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf.r-jc7xae > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+/*(アカウントのアイコンにマウス持ってったら出てくるやつでも)*/
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp){
+    background-color: var(--twitter-not-following-background) !important;
+    border-color: var(--twitter-not-following-border) !important;
+}
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp) > .r-b88u0q{
+    color: var(--twitter-not-following-color) !important;
+}
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-jc7xae:not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp){
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-jc7xae:not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp) > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+/*フォロー中*/
+.r-19u6a5r > .r-4wgw6l.r-15ysp7h:not(.r-42olwf){
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-19u6a5r > .r-4wgw6l.r-15ysp7h:not(.r-42olwf) > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+
+.r-19u6a5r > .r-4wgw6l.r-15ysp7h.r-qqmkd0:not(.r-42olwf){
+    background-color: var(--twitter-un-following-background) !important;
+    border-color: var(--twitter-un-following-border) !important;
+}
+.r-19u6a5r > .r-4wgw6l.r-15ysp7h.r-qqmkd0:not(.r-42olwf) > .r-b88u0q{
+    color: var(--twitter-un-following-color) !important;
+}
+/*プロフィール画面でも*/
+.r-6gpygo > .r-ymttw5.r-1qi8awa:not(.r-42olwf){
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-6gpygo > .r-ymttw5.r-1qi8awa:not(.r-42olwf) > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+
+.r-6gpygo > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf){
+    background-color: var(--twitter-un-following-background) !important;
+    border-color: var(--twitter-un-following-border) !important;
+}
+.r-6gpygo > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf) > .r-b88u0q{
+    color: var(--twitter-un-following-color) !important;
+}
+/*画面上でも*/
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa:not(.r-42olwf){
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa:not(.r-42olwf) > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf){
+    background-color: var(--twitter-un-following-background) !important;
+    border-color: var(--twitter-un-following-border) !important;
+}
+.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf) > .r-b88u0q{
+    color: var(--twitter-un-following-color) !important;
+}
+/*上と同じように*/
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-1niwhzg:not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "]{
+    background-color: var(--twitter-following-background) !important;
+    border-color: var(--twitter-following-border) !important;
+}
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-1niwhzg:not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "] > .r-b88u0q{
+    color: var(--twitter-following-color) !important;
+}
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-qqmkd0:not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "]{
+    background-color: var(--twitter-un-following-background) !important;
+    border-color: var(--twitter-un-following-border) !important;
+}
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-qqmkd0:not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "] > .r-b88u0q{
+    color: var(--twitter-un-following-color) !important;
+}
+/*プロフィールを編集*/
+.r-1h0z5md > .r-1qi8awa{
+    background-color: var(--twitter-profile-background) !important;
+    border-color: var(--twitter-profile-border) !important;
+}
+.r-1h0z5md > .r-1qi8awa > .r-b88u0q{
+    color: var(--twitter-profile-color) !important;
+}
+/*プロフィールを保存*/
+.r-1ye8kvj > .r-s8bhmr > .r-15ysp7h{
+    background-color: var(--twitter-profile-save-background) !important;
+    border-color: var(--twitter-profile-save-border) !important;
+}
+.r-1ye8kvj > .r-s8bhmr > .r-15ysp7h > .r-b88u0q{
+    color: var(--twitter-profile-save-color) !important;
+}
+/*誕生日を設定*/
+.r-11c0sde > .r-42olwf.r-1ps3wis{
+    background-color: var(--twitter-birthday-background) !important;
+    border-color: var(--twitter-birthday-border) !important;
+}
+.r-11c0sde > .r-42olwf.r-1ps3wis > .r-b88u0q{
+    color: var(--twitter-birthday-color) !important;
+}
+/*プロフィールリンク*/
+div.r-xoduu5 > a.r-b88u0q{
+    background-color: var(--twitter-profile-link-background) !important;
+    border-color: var(--twitter-profile-link-border) !important;
+}
+div.r-xoduu5 > a.r-b88u0q > span{
+    color: var(--twitter-profile-link-color) !important;
+}
+
+/*設定画面の文字色*/
+#TUIC_setting > *:not(form){
+    color: var(--twitter-TUIC-color) !important;
+}
+#TUIC_setting > *:not(form) > *{
+    color: var(--twitter-TUIC-color) !important;
+}
+#TUIC_setting > *:not(form) > * > *{
     color: var(--twitter-TUIC-color) !important;
 }
 #TUIC_setting > button{
@@ -650,6 +868,7 @@ function default_set() {
     localStorage.removeItem('like-button')
     localStorage.removeItem('downvote-button')
     localStorage.removeItem('share-button')
+    localStorage.removeItem('tweet_analytics')
 
     location.reload();
 }
