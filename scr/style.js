@@ -1,61 +1,11 @@
 var urlchange = ""
 
-
-// 対象とするノードを取得
-const target = document.getElementsByTagName("body").item(0);
-
-// オブザーバインスタンスを作成
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (localStorage.getItem("reply-button") == 1) {
-            $("[data-testid=\"reply\"]").parent('div').addClass("TUIC_DISPNONE");
-        }
-        if (localStorage.getItem("retweet-button") == 1) {
-            $("[data-testid=\"retweet\"]").parent('div').addClass("TUIC_DISPNONE");
-        }
-
-        if (localStorage.getItem("like-button") == 1) {
-            $("[data-testid=\"like\"]").parent('div').addClass("TUIC_DISPNONE");
-        }
-
-        if (localStorage.getItem("share-button") == 1) {
-            $("[aria-label=\"ツイートを共有\"]").parent('div').addClass("TUIC_DISPNONE");
-        }
-
-        if (localStorage.getItem("downvote-button") == 1) {
-            $("[data-testid=\"downvote\"]").parent('div').addClass("TUIC_DISPNONE");
-        }
-
-        if (localStorage.getItem("tweet_analytics") == 1) {
-            $("[aria-label=\"ツイートアナリティクスを表示\"]").parent('div').addClass("TUIC_DISPNONE");
-        }
-
-        if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
-            display_run()
-        }
-
-        if (document.querySelector('style.twitter_ui_customizer') == null) {
-
-            run_first()
-        }
-
-
-    });
-});
-
-// オブザーバの設定
-const config = {
-    childList: true,
-    subtree: true
-};
-
-// 対象ノードとオブザーバの設定を渡す
-observer.observe(target, config);
-
 let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-", "profile-link-"]
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン", "プロフィールへのリンク"]
-let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button","tweet_analytics"]
-let TUIC_input_checkbox_name = ["返信", "リツイート", "いいね", "自分向きではない", "共有","ツイートアナリティクスを表示"]
+let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics"]
+let TUIC_input_checkbox_name = {"reply-button":"返信", "retweet-button":"リツイート", "like-button":"いいね", "downvote-button":"自分向きではない", "share-button":"共有", "tweet_analytics":"ツイートアナリティクスを表示"}
+let TUIC_input_checkbox_selector = {"reply-button":"[data-testid$=\"reply\"]", "retweet-button":"[data-testid$=\"retweet\"]", "like-button":"[data-testid$=\"like\"]", "downvote-button":"[data-testid$=\"downvote\"]", "share-button":"[aria-label=\"ツイートを共有\"]", "tweet_analytics":"[aria-label=\"ツイートアナリティクスを表示\"]"}
+let TUIC_input_checkbox_selector_three = ["share-button"]
 var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
     "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
@@ -72,11 +22,69 @@ let color2 = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(255,255,255,0)", "rgba(0,0,0,1)"]
+var visible_button = JSON.parse(localStorage.getItem('visible-button')) ?? TUIC_input_checkbox_title
+// 対象とするノードを取得
+const target = document.getElementsByTagName("body").item(0);
 
+// オブザーバインスタンスを作成
+const observer = new MutationObserver((mutations) => {
+    observer.disconnect();
+    let articles = document.querySelectorAll("article:not(.TUIC_CHECKED_ARTICLE)")
+    if (articles.length != 0) {
+        articles.forEach(function (elem) {
+            for (var i = 0; i < visible_button.length; i++) {
+
+                if(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]) != null) {
+                    console.log(visible_button[i])
+                    if(TUIC_input_checkbox_selector_three.includes(visible_button[i])){
+                        console.log(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.parentElement)
+                        elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.parentElement.appendChild(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement)
+                    }else{
+                        console.log(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement)
+                        elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.appendChild(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement)
+                    }
+
+                }
+            }
+
+            for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
+                if(!visible_button.includes(TUIC_input_checkbox_title[i])){
+                    if(elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]) != null)
+                    {
+                        if(TUIC_input_checkbox_selector_three.includes(TUIC_input_checkbox_title[i])){
+                            elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]).parentElement.parentElement.classList.add("TUIC_DISPNONE");
+                        }else{
+                            elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]).parentElement.classList.add("TUIC_DISPNONE");
+                        }
+
+                    }
+                }
+            }
+            elem.classList.add(".TUIC_CHECKED_ARTICLE")
+        })
+    }
+    if (document.querySelector('style.twitter_ui_customizer') == null) {
+
+        run_first()
+    }
+    if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
+        display_run()
+    }
+
+    observer.observe(target, config);
+});
+
+// オブザーバの設定
+const config = {
+    childList: true,
+    subtree: true
+};
+
+// 対象ノードとオブザーバの設定を渡す
+observer.observe(target, config);
 window.onload = function () {
     run_first()
 }
-
 
 function run_first() {
     var TUIC_color = "rgba(255,255,255,1)"
@@ -112,6 +120,8 @@ function run_first() {
     var profile_link_background = localStorage.getItem('profile-link-background') ?? color[21]
     var profile_link_border = localStorage.getItem('profile-link-border') ?? color[22]
     var profile_link_color = localStorage.getItem('profile-link-color') ?? color[23]
+
+
 
     TUIC_css.textContent = `
 :root{
@@ -308,21 +318,18 @@ div.r-xoduu5 > a.r-b88u0q > span{
 }
 
 /*設定画面の文字色*/
-#TUIC_setting > *:not(form){
+.TUIC_setting_text{
     color: var(--twitter-TUIC-color) !important;
 }
-#TUIC_setting > *:not(form) > *{
-    color: var(--twitter-TUIC-color) !important;
-}
-#TUIC_setting > *:not(form) > * > *{
-    color: var(--twitter-TUIC-color) !important;
-}
-#TUIC_setting > button{
-    color: var(--twitter-TUIC-color) !important;
+.TUIC_setting_button{
     background: transparent !important;
     
 }
-
+.TUIC_none_scroll{
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.TUIC_none_scroll::-webkit-scrollbar{display:none}
 .TUIC_DISPNONE{
     display: none !important;
 }
@@ -576,7 +583,7 @@ function display_setting() {
     TUIC_setting_title_text_back.style = "-webkit-line-clamp: 3;"
 
     let TUIC_setting_title_text = document.createElement("span");
-    TUIC_setting_title_text.classList.add("css-901oao", "css-16my406", "r-1tl8opc", "r-bcqeeo", "r-qvutc0")
+    TUIC_setting_title_text.classList.add("css-901oao", "css-16my406", "r-1tl8opc", "r-bcqeeo", "r-qvutc0","TUIC_setting_text")
     TUIC_setting_title_text.textContent = "Twitter UI Customizer"
 
     TUIC_setting_title_text_back.appendChild(TUIC_setting_title_text)
@@ -589,14 +596,14 @@ function display_setting() {
     for (var i = 0; i < TUIC_input_color_title.length; i++) {
         var TUIC_setting_main_title = document.createElement("h2")
         TUIC_setting_main_title.textContent = input_name[i]
-        TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_setting_main_title.style = "font-size:20px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
         TUIC_setting_main_back.appendChild(document.createElement("br"))
 
 
         var TUIC_setting_main_color = document.createElement("h4")
-        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_setting_main_color.textContent = "背景色:"
         TUIC_setting_main_color.style = "font-size:15px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
@@ -621,7 +628,7 @@ function display_setting() {
         var TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "background-check")
         TUIC_checkbox_label.textContent = "透明色にする"
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_checkbox_label.style = "font-size:15px;"
 
         TUIC_setting_main_back.appendChild(TUIC_checkbox)
@@ -630,7 +637,7 @@ function display_setting() {
 
 
         TUIC_setting_main_color = document.createElement("h4")
-        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_setting_main_color.textContent = "枠色:"
         TUIC_setting_main_color.style = "font-size:15px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
@@ -641,9 +648,7 @@ function display_setting() {
 
         TUIC_color = (localStorage.getItem(TUIC_input_color_title[i] + "border") ?? color[i * 3 + 1]).replace("rgba(", "").replace(")", "").split(",")
         TUIC_color_pick.value = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
-
-        console.log(TUIC_setting_main_back.appendChild(TUIC_color_pick))
-
+        TUIC_setting_main_back.appendChild(TUIC_color_pick)
         TUIC_checkbox = document.createElement("input")
         TUIC_checkbox.type = "checkbox"
         TUIC_checkbox.id = TUIC_input_color_title[i] + "border-check"
@@ -656,7 +661,7 @@ function display_setting() {
         TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "border-check")
         TUIC_checkbox_label.textContent = "透明色にする"
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_checkbox_label.style = "font-size:15px;"
 
         TUIC_setting_main_back.appendChild(TUIC_checkbox)
@@ -665,7 +670,7 @@ function display_setting() {
 
 
         TUIC_setting_main_color = document.createElement("h4")
-        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_setting_main_color.textContent = "文字色:"
         TUIC_setting_main_color.style = "font-size:15px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
@@ -690,7 +695,7 @@ function display_setting() {
         TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "color-check")
         TUIC_checkbox_label.textContent = "透明色にする"
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
         TUIC_checkbox_label.style = "font-size:15px;"
 
         TUIC_setting_main_back.appendChild(TUIC_checkbox)
@@ -700,38 +705,105 @@ function display_setting() {
     }
 
     var TUIC_setting_main_title = document.createElement("h2")
-    TUIC_setting_main_title.textContent = "ボタンの非表示"
-    TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+    TUIC_setting_main_title.textContent = "ツイート下ボタンの並び替え"
+    TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
     TUIC_setting_main_title.style = "font-size:20px;"
     TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
     TUIC_setting_main_back.appendChild(document.createElement("br"))
-    for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
 
 
-        var TUIC_checkbox = document.createElement("input")
-        TUIC_checkbox.type = "checkbox"
-        TUIC_checkbox.id = TUIC_input_checkbox_title[i]
-        if (localStorage.getItem(TUIC_input_checkbox_title[i]) == "1") {
-            TUIC_checkbox.checked = true
-        } else {
-            TUIC_checkbox.checked = false
-        }
+    let TUIC_setting_button_div_parent = document.createElement("div")
+    TUIC_setting_button_div_parent.style = "display:flex"
+    let TUIC_setting_button_div_left = document.createElement("div")
+    let TUIC_setting_button_div_center = document.createElement("div")
+    let TUIC_setting_button_div_right = document.createElement("div")
 
-        var TUIC_checkbox_label = document.createElement("label")
-        TUIC_checkbox_label.setAttribute("for", TUIC_input_checkbox_title[i])
-        TUIC_checkbox_label.textContent = TUIC_input_checkbox_name[i]
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
-        TUIC_checkbox_label.style = "font-size:15px;"
-
-        TUIC_setting_main_back.appendChild(TUIC_checkbox)
-        TUIC_setting_main_back.appendChild(TUIC_checkbox_label)
-        TUIC_setting_main_back.appendChild(document.createElement("br"))
+    let TUIC_setting_left_title = document.createElement("h2")
+    TUIC_setting_left_title.textContent = "表示"
+    TUIC_setting_left_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_setting_left_title.style = "font-size:15px;"
+    TUIC_setting_button_div_left.appendChild(TUIC_setting_left_title)
+    TUIC_setting_button_div_left.appendChild(document.createElement("br"))
+    let TUIC_setting_button_visible_box = document.createElement("select")
+    TUIC_setting_button_visible_box.id = "TUIC_visible"
+    TUIC_setting_button_visible_box.classList.add("TUIC_none_scroll")
+    for (var i = 0; i < visible_button.length; i++) {
+        TUIC_checkbox = document.createElement("option")
+        TUIC_checkbox.value = visible_button[i]
+        TUIC_checkbox.id = visible_button[i]
+        TUIC_checkbox.textContent = TUIC_input_checkbox_name[visible_button[i]]
+        TUIC_setting_button_visible_box.appendChild(TUIC_checkbox)
     }
+    TUIC_setting_button_visible_box.size = 6
+    TUIC_setting_button_div_left.appendChild(TUIC_setting_button_visible_box)
 
+    TUIC_setting_button_div_center.style = "text-align: center;"
+    TUIC_setting_button_div_center.appendChild(document.createElement("br"))
+    TUIC_setting_button_div_center.appendChild(document.createElement("br"))
+
+    let TUIC_setting_center_toleft = document.createElement("button");
+    TUIC_setting_center_toleft.id = "toleft"
+    TUIC_setting_center_toleft.style = "width:7em;"
+    TUIC_setting_center_toleft.textContent = "表示する"
+    TUIC_setting_center_toleft.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toleft)
+    TUIC_setting_button_div_center.appendChild(document.createElement("br"))
+
+    let TUIC_setting_center_toup = document.createElement("button");
+    TUIC_setting_center_toup.id = "toup"
+    TUIC_setting_center_toup.style = "width:7em;"
+    TUIC_setting_center_toup.textContent = "上へ"
+    TUIC_setting_center_toup.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toup)
+    TUIC_setting_button_div_center.appendChild(document.createElement("br"))
+
+    let TUIC_setting_center_todown = document.createElement("button");
+    TUIC_setting_center_todown.id = "todown"
+    TUIC_setting_center_todown.style = "width:7em;"
+    TUIC_setting_center_todown.textContent = "下へ"
+    TUIC_setting_center_todown.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_button_div_center.appendChild(TUIC_setting_center_todown)
+    TUIC_setting_button_div_center.appendChild(document.createElement("br"))
+
+    let TUIC_setting_center_toright = document.createElement("button");
+    TUIC_setting_center_toright.id = "toright"
+    TUIC_setting_center_toright.style = "width:7em;"
+    TUIC_setting_center_toright.textContent = "非表示にする"
+    TUIC_setting_center_toright.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toright)
+    TUIC_setting_button_div_center.appendChild(document.createElement("br"))
+
+
+    let TUIC_setting_right_title = document.createElement("h2")
+    TUIC_setting_right_title.textContent = "非表示"
+    TUIC_setting_right_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_setting_right_title.style = "font-size:15px;"
+    TUIC_setting_button_div_right.appendChild(TUIC_setting_right_title)
+    TUIC_setting_button_div_right.appendChild(document.createElement("br"))
+    let TUIC_setting_button_invisible_box = document.createElement("select")
+    TUIC_setting_button_invisible_box.classList.add("TUIC_none_scroll")
+    TUIC_setting_button_invisible_box.id = "TUIC_invisible"
+    for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
+        if(!visible_button.includes(TUIC_input_checkbox_title[i])){
+            TUIC_checkbox = document.createElement("option")
+            TUIC_checkbox.value = TUIC_input_checkbox_title[i]
+            TUIC_checkbox.id = TUIC_input_checkbox_title[i]
+            TUIC_checkbox.textContent = TUIC_input_checkbox_name[TUIC_input_checkbox_title[i]]
+            TUIC_setting_button_invisible_box.appendChild(TUIC_checkbox)
+        }
+    }
+    TUIC_setting_button_invisible_box.size = 6
+    TUIC_setting_button_div_right.appendChild(TUIC_setting_button_invisible_box)
+
+
+    TUIC_setting_button_div_parent.appendChild(TUIC_setting_button_div_left)
+    TUIC_setting_button_div_parent.appendChild(TUIC_setting_button_div_center)
+    TUIC_setting_button_div_parent.appendChild(TUIC_setting_button_div_right)
+    TUIC_setting_main_back.appendChild(TUIC_setting_button_div_parent)
 
     var TUIC_custom_css_textbox_title = document.createElement("h2")
     TUIC_custom_css_textbox_title.textContent = "カスタムCSS"
-    TUIC_custom_css_textbox_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+    TUIC_custom_css_textbox_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
     TUIC_custom_css_textbox_title.style = "font-size:20px;"
     TUIC_setting_main_back.appendChild(TUIC_custom_css_textbox_title)
     TUIC_setting_main_back.appendChild(document.createElement("br"))
@@ -746,10 +818,12 @@ function display_setting() {
     let TUIC_default_button = document.createElement("button");
     TUIC_default_button.id = "default_set"
     TUIC_default_button.textContent = "デフォルトに戻す"
+    TUIC_default_button.classList.add("TUIC_setting_text","TUIC_setting_button")
 
     let TUIC_save_button = document.createElement("button");
     TUIC_save_button.id = "save"
     TUIC_save_button.textContent = "保存"
+    TUIC_save_button.classList.add("TUIC_setting_text","TUIC_setting_button")
 
     TUIC_setting_main_back.classList.add("r-1f1sjgu", "r-1e081e0")
     TUIC_setting_main_back.id = "TUIC_setting"
@@ -758,7 +832,7 @@ function display_setting() {
     TUIC_setting_main_back.appendChild(TUIC_default_button)
 
     var TUIC_reload = document.createElement("h4")
-    TUIC_reload.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao")
+    TUIC_reload.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
     TUIC_reload.textContent = "※再読込します"
     TUIC_reload.style = "font-size:12px;"
     TUIC_setting_main_back.appendChild(TUIC_reload)
@@ -771,6 +845,14 @@ function display_setting() {
         save_data);
     document.getElementById('default_set').addEventListener('click',
         default_set);
+
+
+    document.getElementById('toleft').addEventListener('click',toleft);
+
+    document.getElementById('toright').addEventListener('click',toright);
+
+    document.getElementById('toup').addEventListener('click',toup);
+    document.getElementById('todown').addEventListener('click',todown);
 }
 
 function display_run() {
@@ -826,18 +908,22 @@ function save_data() {
 
     for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
         if (document.getElementById(TUIC_input_checkbox_title[i]).checked) {
-            localStorage.setItem(TUIC_input_checkbox_title[i],"1")
+            localStorage.setItem(TUIC_input_checkbox_title[i], "1")
         } else {
-            localStorage.setItem(TUIC_input_checkbox_title[i],"0")
+            localStorage.setItem(TUIC_input_checkbox_title[i], "0")
         }
     }
+
+    let visible_button_list = []
+    for(let i = 0;i < document.querySelector("#TUIC_visible").childNodes.length;i++){
+visible_button_list.push(document.querySelector("#TUIC_visible").childNodes[i].id)
+    }
+    localStorage.setItem("visible-button", JSON.stringify(visible_button_list))
+
     localStorage.setItem("css", document.getElementById("css_textarea").value)
 
     location.reload();
 }
-
-
-
 function default_set() {
     localStorage.removeItem('unsent-tweet-background')
     localStorage.removeItem('unsent-tweet-border')
@@ -869,6 +955,36 @@ function default_set() {
     localStorage.removeItem('downvote-button')
     localStorage.removeItem('share-button')
     localStorage.removeItem('tweet_analytics')
+    localStorage.removeItem('visible-button')
 
     location.reload();
+}
+
+function toleft(){
+    if(document.querySelector("#TUIC_invisible").selectedIndex != -1){
+        console.log(document.querySelector("#TUIC_invisible").selectedIndex)
+        document.querySelector("#TUIC_visible").appendChild(document.querySelector("#TUIC_invisible").childNodes[document.querySelector("#TUIC_invisible").selectedIndex])
+    }
+
+}
+
+function toright(){
+    if(document.querySelector("#TUIC_visible").selectedIndex != -1){
+        document.querySelector("#TUIC_invisible").appendChild(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex])
+    }
+
+}
+
+function toup(){
+    if(document.querySelector("#TUIC_visible").selectedIndex > 0){
+        document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex - 1])
+    }
+
+}
+
+function todown(){
+    if(document.querySelector("#TUIC_visible").selectedIndex < document.querySelector("#TUIC_visible").childNodes.length - 1){
+        document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex],document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
+    }
+
 }
