@@ -2,9 +2,9 @@ var urlchange = ""
 
 let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-", "profile-link-"]
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン", "プロフィールへのリンク"]
-let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics"]
-let TUIC_input_checkbox_name = {"reply-button":"返信", "retweet-button":"リツイート", "like-button":"いいね", "downvote-button":"自分向きではない", "share-button":"共有", "tweet_analytics":"ツイートアナリティクスを表示"}
-let TUIC_input_checkbox_selector = {"reply-button":"[data-testid$=\"reply\"]", "retweet-button":"[data-testid$=\"retweet\"]", "like-button":"[data-testid$=\"like\"]", "downvote-button":"[data-testid$=\"downvote\"]", "share-button":"[aria-label=\"ツイートを共有\"]", "tweet_analytics":"[aria-label=\"ツイートアナリティクスを表示\"]"}
+let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark"]
+let TUIC_input_checkbox_name = { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存" }
+let TUIC_input_checkbox_selector = { "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]", "share-button": "[aria-label=\"ツイートを共有\"]", "tweet_analytics": "[aria-label=\"ツイートアナリティクスを表示\"]" }
 let TUIC_input_checkbox_selector_three = ["share-button"]
 var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
@@ -29,18 +29,88 @@ const target = document.getElementsByTagName("body").item(0);
 // オブザーバインスタンスを作成
 const observer = new MutationObserver((mutations) => {
     observer.disconnect();
-    let articles = document.querySelectorAll("article:not(.TUIC_CHECKED_ARTICLE)")
+    let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"])`)
     if (articles.length != 0) {
         articles.forEach(function (elem) {
             for (var i = 0; i < visible_button.length; i++) {
+                if (visible_button[i] == "boolkmark" && elem.querySelector("[data-testid$=\"reply\"]") != null) {
+                    let div = document.createElement('div');
+                    div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
+                    div.classList.add("css-1dbjc4n")
+                    if (window.location.pathname == "/i/bookmarks") {
+                        div.innerHTML = `
+                    <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+                      <div
+                        aria-label="ブックマークから削除"
+                        role="button"
+                        tabindex="0"
+                        class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+                      >
+                        <div
+                          dir="ltr"
+                          class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0"
+                        >
+                          <div class="css-1dbjc4n r-xoduu5">
+                            <div
+                              class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                            ></div>
+                            <svg
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                            >
+                              <g>
+                              <g><path d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"></path><path d="M20.955 4.226l2.07-2.07c.293-.293.293-.768 0-1.06s-.768-.294-1.06 0l-2.07 2.07-2.07-2.07c-.294-.294-.77-.294-1.062 0s-.293.767 0 1.06l2.07 2.07-2.07 2.07c-.293.293-.293.768 0 1.06.146.147.338.22.53.22s.384-.072.53-.22l2.07-2.07 2.07 2.07c.146.147.338.22.53.22s.384-.072.53-.22c.293-.292.293-.767 0-1.06l-2.068-2.07z" class="TUIC_BOOKMARK"></path></g>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `
+                  div.childNodes[1].addEventListener("click", bookmark_delete)
+                    } else {
+                        div.innerHTML = `
+                    <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+                      <div
+                        aria-label="ブックマークに保存"
+                        role="button"
+                        tabindex="0"
+                        class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+                      >
+                        <div
+                          dir="ltr"
+                          class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0"
+                        >
+                          <div class="css-1dbjc4n r-xoduu5">
+                            <div
+                              class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                            ></div>
+                            <svg
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                            >
+                              <g>
+                                <path
+                                  d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"
+                                ></path>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `
+                  div.childNodes[1].addEventListener("click", bookmark)
+                    }
 
-                if(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]) != null) {
-                    console.log(visible_button[i])
-                    if(TUIC_input_checkbox_selector_three.includes(visible_button[i])){
-                        console.log(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.parentElement)
+                    elem.querySelector("[data-testid$=\"reply\"]").parentElement.parentElement.appendChild(div)
+
+                } else if (elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]) != null) {
+                    if (TUIC_input_checkbox_selector_three.includes(visible_button[i])) {
                         elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.parentElement.appendChild(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement)
-                    }else{
-                        console.log(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement)
+                    } else {
                         elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.appendChild(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement)
                     }
 
@@ -48,19 +118,18 @@ const observer = new MutationObserver((mutations) => {
             }
 
             for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
-                if(!visible_button.includes(TUIC_input_checkbox_title[i])){
-                    if(elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]) != null)
-                    {
-                        if(TUIC_input_checkbox_selector_three.includes(TUIC_input_checkbox_title[i])){
+                if (!visible_button.includes(TUIC_input_checkbox_title[i])) {
+                    if (elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]) != null) {
+                        if (TUIC_input_checkbox_selector_three.includes(TUIC_input_checkbox_title[i])) {
                             elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]).parentElement.parentElement.classList.add("TUIC_DISPNONE");
-                        }else{
+                        } else {
                             elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]).parentElement.classList.add("TUIC_DISPNONE");
                         }
 
                     }
                 }
             }
-            elem.classList.add(".TUIC_CHECKED_ARTICLE")
+            elem.setAttribute("TUIC_ARTICLE", "TUIC_CHECKED_ARTICLE")
         })
     }
     if (document.querySelector('style.twitter_ui_customizer') == null) {
@@ -70,7 +139,6 @@ const observer = new MutationObserver((mutations) => {
     if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
         display_run()
     }
-
     observer.observe(target, config);
 });
 
@@ -583,7 +651,7 @@ function display_setting() {
     TUIC_setting_title_text_back.style = "-webkit-line-clamp: 3;"
 
     let TUIC_setting_title_text = document.createElement("span");
-    TUIC_setting_title_text.classList.add("css-901oao", "css-16my406", "r-1tl8opc", "r-bcqeeo", "r-qvutc0","TUIC_setting_text")
+    TUIC_setting_title_text.classList.add("css-901oao", "css-16my406", "r-1tl8opc", "r-bcqeeo", "r-qvutc0", "TUIC_setting_text")
     TUIC_setting_title_text.textContent = "Twitter UI Customizer"
 
     TUIC_setting_title_text_back.appendChild(TUIC_setting_title_text)
@@ -596,14 +664,14 @@ function display_setting() {
     for (var i = 0; i < TUIC_input_color_title.length; i++) {
         var TUIC_setting_main_title = document.createElement("h2")
         TUIC_setting_main_title.textContent = input_name[i]
-        TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_setting_main_title.style = "font-size:20px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
         TUIC_setting_main_back.appendChild(document.createElement("br"))
 
 
         var TUIC_setting_main_color = document.createElement("h4")
-        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_setting_main_color.textContent = "背景色:"
         TUIC_setting_main_color.style = "font-size:15px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
@@ -628,7 +696,7 @@ function display_setting() {
         var TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "background-check")
         TUIC_checkbox_label.textContent = "透明色にする"
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_checkbox_label.style = "font-size:15px;"
 
         TUIC_setting_main_back.appendChild(TUIC_checkbox)
@@ -637,7 +705,7 @@ function display_setting() {
 
 
         TUIC_setting_main_color = document.createElement("h4")
-        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_setting_main_color.textContent = "枠色:"
         TUIC_setting_main_color.style = "font-size:15px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
@@ -661,7 +729,7 @@ function display_setting() {
         TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "border-check")
         TUIC_checkbox_label.textContent = "透明色にする"
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_checkbox_label.style = "font-size:15px;"
 
         TUIC_setting_main_back.appendChild(TUIC_checkbox)
@@ -670,7 +738,7 @@ function display_setting() {
 
 
         TUIC_setting_main_color = document.createElement("h4")
-        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_setting_main_color.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_setting_main_color.textContent = "文字色:"
         TUIC_setting_main_color.style = "font-size:15px;"
         TUIC_setting_main_back.appendChild(TUIC_setting_main_color)
@@ -695,7 +763,7 @@ function display_setting() {
         TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "color-check")
         TUIC_checkbox_label.textContent = "透明色にする"
-        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+        TUIC_checkbox_label.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
         TUIC_checkbox_label.style = "font-size:15px;"
 
         TUIC_setting_main_back.appendChild(TUIC_checkbox)
@@ -706,7 +774,7 @@ function display_setting() {
 
     var TUIC_setting_main_title = document.createElement("h2")
     TUIC_setting_main_title.textContent = "ツイート下ボタンの並び替え"
-    TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
     TUIC_setting_main_title.style = "font-size:20px;"
     TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
     TUIC_setting_main_back.appendChild(document.createElement("br"))
@@ -720,7 +788,7 @@ function display_setting() {
 
     let TUIC_setting_left_title = document.createElement("h2")
     TUIC_setting_left_title.textContent = "表示"
-    TUIC_setting_left_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_setting_left_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
     TUIC_setting_left_title.style = "font-size:15px;"
     TUIC_setting_button_div_left.appendChild(TUIC_setting_left_title)
     TUIC_setting_button_div_left.appendChild(document.createElement("br"))
@@ -745,7 +813,7 @@ function display_setting() {
     TUIC_setting_center_toleft.id = "toleft"
     TUIC_setting_center_toleft.style = "width:7em;"
     TUIC_setting_center_toleft.textContent = "表示する"
-    TUIC_setting_center_toleft.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_center_toleft.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toleft)
     TUIC_setting_button_div_center.appendChild(document.createElement("br"))
 
@@ -753,7 +821,7 @@ function display_setting() {
     TUIC_setting_center_toup.id = "toup"
     TUIC_setting_center_toup.style = "width:7em;"
     TUIC_setting_center_toup.textContent = "上へ"
-    TUIC_setting_center_toup.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_center_toup.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toup)
     TUIC_setting_button_div_center.appendChild(document.createElement("br"))
 
@@ -761,7 +829,7 @@ function display_setting() {
     TUIC_setting_center_todown.id = "todown"
     TUIC_setting_center_todown.style = "width:7em;"
     TUIC_setting_center_todown.textContent = "下へ"
-    TUIC_setting_center_todown.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_center_todown.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_todown)
     TUIC_setting_button_div_center.appendChild(document.createElement("br"))
 
@@ -769,14 +837,14 @@ function display_setting() {
     TUIC_setting_center_toright.id = "toright"
     TUIC_setting_center_toright.style = "width:7em;"
     TUIC_setting_center_toright.textContent = "非表示にする"
-    TUIC_setting_center_toright.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_setting_center_toright.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toright)
     TUIC_setting_button_div_center.appendChild(document.createElement("br"))
 
 
     let TUIC_setting_right_title = document.createElement("h2")
     TUIC_setting_right_title.textContent = "非表示"
-    TUIC_setting_right_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_setting_right_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
     TUIC_setting_right_title.style = "font-size:15px;"
     TUIC_setting_button_div_right.appendChild(TUIC_setting_right_title)
     TUIC_setting_button_div_right.appendChild(document.createElement("br"))
@@ -784,7 +852,7 @@ function display_setting() {
     TUIC_setting_button_invisible_box.classList.add("TUIC_none_scroll")
     TUIC_setting_button_invisible_box.id = "TUIC_invisible"
     for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
-        if(!visible_button.includes(TUIC_input_checkbox_title[i])){
+        if (!visible_button.includes(TUIC_input_checkbox_title[i])) {
             TUIC_checkbox = document.createElement("option")
             TUIC_checkbox.value = TUIC_input_checkbox_title[i]
             TUIC_checkbox.id = TUIC_input_checkbox_title[i]
@@ -803,7 +871,7 @@ function display_setting() {
 
     var TUIC_custom_css_textbox_title = document.createElement("h2")
     TUIC_custom_css_textbox_title.textContent = "カスタムCSS"
-    TUIC_custom_css_textbox_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_custom_css_textbox_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
     TUIC_custom_css_textbox_title.style = "font-size:20px;"
     TUIC_setting_main_back.appendChild(TUIC_custom_css_textbox_title)
     TUIC_setting_main_back.appendChild(document.createElement("br"))
@@ -818,12 +886,12 @@ function display_setting() {
     let TUIC_default_button = document.createElement("button");
     TUIC_default_button.id = "default_set"
     TUIC_default_button.textContent = "デフォルトに戻す"
-    TUIC_default_button.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_default_button.classList.add("TUIC_setting_text", "TUIC_setting_button")
 
     let TUIC_save_button = document.createElement("button");
     TUIC_save_button.id = "save"
     TUIC_save_button.textContent = "保存"
-    TUIC_save_button.classList.add("TUIC_setting_text","TUIC_setting_button")
+    TUIC_save_button.classList.add("TUIC_setting_text", "TUIC_setting_button")
 
     TUIC_setting_main_back.classList.add("r-1f1sjgu", "r-1e081e0")
     TUIC_setting_main_back.id = "TUIC_setting"
@@ -832,7 +900,7 @@ function display_setting() {
     TUIC_setting_main_back.appendChild(TUIC_default_button)
 
     var TUIC_reload = document.createElement("h4")
-    TUIC_reload.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao","TUIC_setting_text")
+    TUIC_reload.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
     TUIC_reload.textContent = "※再読込します"
     TUIC_reload.style = "font-size:12px;"
     TUIC_setting_main_back.appendChild(TUIC_reload)
@@ -847,12 +915,12 @@ function display_setting() {
         default_set);
 
 
-    document.getElementById('toleft').addEventListener('click',toleft);
+    document.getElementById('toleft').addEventListener('click', toleft);
 
-    document.getElementById('toright').addEventListener('click',toright);
+    document.getElementById('toright').addEventListener('click', toright);
 
-    document.getElementById('toup').addEventListener('click',toup);
-    document.getElementById('todown').addEventListener('click',todown);
+    document.getElementById('toup').addEventListener('click', toup);
+    document.getElementById('todown').addEventListener('click', todown);
 }
 
 function display_run() {
@@ -915,8 +983,8 @@ function save_data() {
     }
 
     let visible_button_list = []
-    for(let i = 0;i < document.querySelector("#TUIC_visible").childNodes.length;i++){
-visible_button_list.push(document.querySelector("#TUIC_visible").childNodes[i].id)
+    for (let i = 0; i < document.querySelector("#TUIC_visible").childNodes.length; i++) {
+        visible_button_list.push(document.querySelector("#TUIC_visible").childNodes[i].id)
     }
     localStorage.setItem("visible-button", JSON.stringify(visible_button_list))
 
@@ -960,31 +1028,43 @@ function default_set() {
     location.reload();
 }
 
-function toleft(){
-    if(document.querySelector("#TUIC_invisible").selectedIndex != -1){
+function toleft() {
+    if (document.querySelector("#TUIC_invisible").selectedIndex != -1) {
         console.log(document.querySelector("#TUIC_invisible").selectedIndex)
         document.querySelector("#TUIC_visible").appendChild(document.querySelector("#TUIC_invisible").childNodes[document.querySelector("#TUIC_invisible").selectedIndex])
     }
 
 }
 
-function toright(){
-    if(document.querySelector("#TUIC_visible").selectedIndex != -1){
+function toright() {
+    if (document.querySelector("#TUIC_visible").selectedIndex != -1) {
         document.querySelector("#TUIC_invisible").appendChild(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex])
     }
 
 }
 
-function toup(){
-    if(document.querySelector("#TUIC_visible").selectedIndex > 0){
+function toup() {
+    if (document.querySelector("#TUIC_visible").selectedIndex > 0) {
         document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex - 1])
     }
 
 }
 
-function todown(){
-    if(document.querySelector("#TUIC_visible").selectedIndex < document.querySelector("#TUIC_visible").childNodes.length - 1){
-        document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex],document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
+function todown() {
+    if (document.querySelector("#TUIC_visible").selectedIndex < document.querySelector("#TUIC_visible").childNodes.length - 1) {
+        document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
     }
 
+}
+
+function bookmark(e) {
+    console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
+    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(`[aria-label="ツイートを共有"]`).click()
+    document.querySelector(`[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
+}
+
+function bookmark_delete(e) {
+    console.log(e.target.parentElement.parentElement)
+    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(`[aria-label="ツイートを共有"]`).click()
+    document.querySelector(`[d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
 }
