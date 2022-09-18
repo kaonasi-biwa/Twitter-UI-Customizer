@@ -39,6 +39,7 @@ const observer = new MutationObserver((mutations) => {
                 if (visible_button[i] == "boolkmark" && elem.querySelector("[data-testid$=\"reply\"]") != null) {
                     let div = document.createElement('div');
                     div.classList.add("css-1dbjc4n")
+                    div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
                     if (window.location.pathname == "/i/bookmarks" || (document.domain == "tweetdeck.twitter.com" && elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector.boolkmark_tweetdeck) != null)) {
                         div.innerHTML = `
                     <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
