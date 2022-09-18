@@ -5,7 +5,7 @@
         }
       },
     "name": "Twitter UI Customizer",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "manifest_version": 2,
     "description": "TwitterのUIのカスタマイズ性を向上させます！",
     "icons": {
@@ -24,18 +24,10 @@
                 "*://*.twitter.com/*"
             ],
             "js": [
-                "scr/jquery-3.6.0.min.js",
                 "scr/style.js"
             ]
         }
     ],
-    "background": {
-        "scripts": [
-            "scr/background.js"
-        ],
-        "persistent": false
-    },
-
     "browser_action": {
         "default_icon": {
             "16": "icon/icon16.png",
