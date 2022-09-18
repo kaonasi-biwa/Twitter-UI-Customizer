@@ -4,7 +4,7 @@ let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン", "プロフィールへのリンク"]
 let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark"]
 let TUIC_input_checkbox_name = { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存" }
-let TUIC_input_checkbox_selector = { "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]", "share-button": "[aria-label=\"ツイートを共有\"]", "tweet_analytics": "[aria-label=\"ツイートアナリティクスを表示\"]" }
+let TUIC_input_checkbox_selector = { "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]", "share-button": "[aria-label=\"ツイートを共有\"]", "tweet_analytics": "[aria-label=\"ツイートアナリティクスを表示\"]","boolkmark_tweetdeck":"[aria-label$=\"ブックマーク\"]" }
 let TUIC_input_checkbox_selector_three = ["share-button"]
 var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
@@ -37,7 +37,7 @@ const observer = new MutationObserver((mutations) => {
                     let div = document.createElement('div');
                     div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
                     div.classList.add("css-1dbjc4n")
-                    if (window.location.pathname == "/i/bookmarks") {
+                    if (window.location.pathname == "/i/bookmarks" || (document.domain == "tweetdeck.twitter.com" && elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector.boolkmark_tweetdeck) != null)) {
                         div.innerHTML = `
                     <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                       <div
