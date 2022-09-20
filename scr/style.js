@@ -4,9 +4,11 @@ let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン", "プロフィールへのリンク"]
 let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark"]
 let TUIC_input_checkbox_name = { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存" }
-let TUIC_input_checkbox_selector = { "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]","boolkmark_tweetdeck":"[aria-label$=\"ブックマーク\"]",
-"share-button":    "[aria-label=\"ツイートを共有\"],[aria-label=\"Roinn an Tweet\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"Share Tweet\"],[aria-label=\"Condividi Tweet\"],[aria-label=\"Sebarkan Tweet\"],[aria-label=\"Поділитися твітом\"],[aria-label=\"ٹویٹ شیئر کریں\"],[aria-label=\"Tweet delen\"],[aria-label=\"Comparteix el tuit\"],[aria-label=\"Compartir chío\"],[aria-label=\"ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ\"],[aria-label=\"Κοινοποίηση Tweet\"],[aria-label=\"ટ્વીટ શેર કરો\"],[aria-label=\"Podijelite Tweet\"],[aria-label=\"Dela tweeten\"],[aria-label=\"Compartir Tweet\"],[aria-label=\"Zdieľať Tweet\"],[aria-label=\"Подели твит\"],[aria-label=\"แบ่งปันทวีต\"],[aria-label=\"கீச்சைப் பகிர்\"],[aria-label=\"Sdílet Tweet\"],[aria-label=\"Del tweetet\"],[aria-label=\"Tweet teilen\"],[aria-label=\"Tweet paylaş\"],[aria-label=\"Del tweeten\"],[aria-label=\"Partekatu txioa\"],[aria-label=\"Tweet megosztása\"],[aria-label=\"ट्वीट शेयर करें\"],[aria-label=\"Ibahagi ang Tweet\"],[aria-label=\"Jaa twiitti\"],[aria-label=\"Partager le Tweet\"],[aria-label=\"Споделяне на туита\"],[aria-label=\"Chia sẻ Tweet\"],[aria-label=\"שתף את הציוץ\"],[aria-label=\"هم‌رسانی توییت\"],[aria-label=\"টুইট শেয়ার করুন\"],[aria-label=\"Udostępnij Tweeta\"],[aria-label=\"Compartilhar Tweet\"],[aria-label=\"ट्विट शेअर करा\"],[aria-label=\"Kongsi Tweet\"],[aria-label=\"Distribuie Tweetul\"],[aria-label=\"Поделиться твитом\"],[aria-label=\"分享推文\"],[aria-label=\"分享推文\"],[aria-label=\"트윗 공유하기\"]",
-"tweet_analytics": "[aria-label=\"ツイートアナリティクスを表示\"],[aria-label=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label=\"عرض تحليلات Twitter\"],[aria-label=\"عرض تحليلات Twitter\"],[aria-label=\"View Tweet analytics\"],[aria-label=\"Visualizza statistiche Tweet\"],[aria-label=\"Lihat analitik Tweet\"],[aria-label=\"Переглянути аналітику твіта\"],[aria-label=\"View Tweet analytics\"],[aria-label=\"Tweet-analyses bekijken\"],[aria-label=\"Mostra les analítiques del tuit\"],[aria-label=\"Ver análises do chío\"],[aria-label=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label=\"Prikaži analitičke podatke o tweetovima\"],[aria-label=\"Visa Tweet-statistik\"],[aria-label=\"Ver estadísticas del Tweet\"],[aria-label=\"Zobraziť štatistiku Tweetu\"],[aria-label=\"Погледај аналитику твита\"],[aria-label=\"ดูการวิเคราะห์ทวีต\"],[aria-label=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label=\"Zobrazit analýzu tweetů\"],[aria-label=\"Vis Tweet-statistik\"],[aria-label=\"Tweet-Statistiken anzeigen\"],[aria-label=\"Tweet istatistiklerini görüntüle\"],[aria-label=\"Se tweetstatistikk\"],[aria-label=\"Ikusi txioen analisiak\"],[aria-label=\"Tweet-elemzések megtekintése\"],[aria-label=\"ट्वीट विश्लेषण देखें\"],[aria-label=\"Tingnan ang analytics ng Tweet\"],[aria-label=\"Näytä twiitin tilastot\"],[aria-label=\"Voir les statistiques des Tweets\"],[aria-label=\"Преглед на статистиката за туита\"],[aria-label=\"Xem phân tích Tweet\"],[aria-label=\"הצג את ניתוח הציוצים\"],[aria-label=\"مشاهده اطلاعات آماری توییت\"],[aria-label=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label=\"Ver estatísticas do Tweet\"],[aria-label=\"ट्विटची विश्लेषणे पहा\"],[aria-label=\"Lihat analitis Tweet\"],[aria-label=\"Vezi analiza Tweet\"],[aria-label=\"Смотреть аналитику твита\"],[aria-label=\"查看推文分析\"],[aria-label=\"查看推文分析\"],[aria-label=\"트윗 애널리틱스 보기\"]"
+let TUIC_input_checkbox_selector = {
+    "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]",
+    "boolkmark_tweetdeck": "[aria-label$=\"ブックマーク\"],[aria-label$=\"Amlíne: Leabharmharcanna\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"Cronologia: Segnalibri\"],[aria-label$=\"Timeline: Markah\"],[aria-label$=\"Стрічка: Закладки\"],[aria-label$=\"ٹائم لائن: بُک مارکس\"],[aria-label$=\"Tijdlijn: Bladwijzers\"],[aria-label$=\"Cronologia: Preferits\"],[aria-label$=\"Cronoloxía: Marcadores\"],[aria-label$=\"ಕಾಲರೇಖೆ: ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು\"],[aria-label$=\"Χρονολόγιο: Σελιδοδείκτες\"],[aria-label$=\"સમય અવધિ: બુકમાર્ક્સ\"],[aria-label$=\"Vremenska crta: Knjižne oznake\"],[aria-label$=\"Tidslinje: Bokmärken\"],[aria-label$=\"Cronología: Guardados\"],[aria-label$=\"Domovská časová os\"],[aria-label$=\"Временска трака: Обележивачи\"],[aria-label$=\"ลำดับเหตุการณ์: บุ๊คมาร์ก\"],[aria-label$=\"முகப்புக் காலவரிசை\"],[aria-label$=\"Časová osa: Záložky\"],[aria-label$=\"Tidslinje: Bogmærker\"],[aria-label$=\"Timeline: Lesezeichen\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Tidslinje: Bokmerker\"],[aria-label$=\"Denbora lerroa: Laster-markak\"],[aria-label$=\"Kezdőlap idővonala\"],[aria-label$=\"होम टाइमलाइन\"],[aria-label$=\"Timeline: Mga Bookmark\"],[aria-label$=\"Etusivun aikajana\"],[aria-label$=\"Fil d'actualités : Signets\"],[aria-label$=\"Хроника: Отметки\"],[aria-label$=\"Dòng thời gian: Dấu trang\"],[aria-label$=\"ציר הזמן של דף הבית\"],[aria-label$=\"خط زمان: نشانک‌ها\"],[aria-label$=\"সময়রেখা: বুকমার্কগুলি\"],[aria-label$=\"Oś czasu: Zakładki\"],[aria-label$=\"Timeline: Itens salvos\"],[aria-label$=\"टाइमलाइन: बुकमार्क्स\"],[aria-label$=\"Garis masa: Bookmark\"],[aria-label$=\"Cronologia principală\"],[aria-label$=\"Лента: Закладки\"],[aria-label$=\"时间线：书签\"],[aria-label$=\"時間軸：書籤\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"타임라인: 북마크\"]",
+    "share-button": "[aria-label=\"ツイートを共有\"],[aria-label=\"Roinn an Tweet\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"Share Tweet\"],[aria-label=\"Condividi Tweet\"],[aria-label=\"Sebarkan Tweet\"],[aria-label=\"Поділитися твітом\"],[aria-label=\"ٹویٹ شیئر کریں\"],[aria-label=\"Tweet delen\"],[aria-label=\"Comparteix el tuit\"],[aria-label=\"Compartir chío\"],[aria-label=\"ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ\"],[aria-label=\"Κοινοποίηση Tweet\"],[aria-label=\"ટ્વીટ શેર કરો\"],[aria-label=\"Podijelite Tweet\"],[aria-label=\"Dela tweeten\"],[aria-label=\"Compartir Tweet\"],[aria-label=\"Zdieľať Tweet\"],[aria-label=\"Подели твит\"],[aria-label=\"แบ่งปันทวีต\"],[aria-label=\"கீச்சைப் பகிர்\"],[aria-label=\"Sdílet Tweet\"],[aria-label=\"Del tweetet\"],[aria-label=\"Tweet teilen\"],[aria-label=\"Tweet paylaş\"],[aria-label=\"Del tweeten\"],[aria-label=\"Partekatu txioa\"],[aria-label=\"Tweet megosztása\"],[aria-label=\"ट्वीट शेयर करें\"],[aria-label=\"Ibahagi ang Tweet\"],[aria-label=\"Jaa twiitti\"],[aria-label=\"Partager le Tweet\"],[aria-label=\"Споделяне на туита\"],[aria-label=\"Chia sẻ Tweet\"],[aria-label=\"שתף את הציוץ\"],[aria-label=\"هم‌رسانی توییت\"],[aria-label=\"টুইট শেয়ার করুন\"],[aria-label=\"Udostępnij Tweeta\"],[aria-label=\"Compartilhar Tweet\"],[aria-label=\"ट्विट शेअर करा\"],[aria-label=\"Kongsi Tweet\"],[aria-label=\"Distribuie Tweetul\"],[aria-label=\"Поделиться твитом\"],[aria-label=\"分享推文\"],[aria-label=\"分享推文\"],[aria-label=\"트윗 공유하기\"]",
+    "tweet_analytics": "[aria-label=\"ツイートアナリティクスを表示\"],[aria-label=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label=\"عرض تحليلات Twitter\"],[aria-label=\"عرض تحليلات Twitter\"],[aria-label=\"View Tweet analytics\"],[aria-label=\"Visualizza statistiche Tweet\"],[aria-label=\"Lihat analitik Tweet\"],[aria-label=\"Переглянути аналітику твіта\"],[aria-label=\"View Tweet analytics\"],[aria-label=\"Tweet-analyses bekijken\"],[aria-label=\"Mostra les analítiques del tuit\"],[aria-label=\"Ver análises do chío\"],[aria-label=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label=\"Prikaži analitičke podatke o tweetovima\"],[aria-label=\"Visa Tweet-statistik\"],[aria-label=\"Ver estadísticas del Tweet\"],[aria-label=\"Zobraziť štatistiku Tweetu\"],[aria-label=\"Погледај аналитику твита\"],[aria-label=\"ดูการวิเคราะห์ทวีต\"],[aria-label=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label=\"Zobrazit analýzu tweetů\"],[aria-label=\"Vis Tweet-statistik\"],[aria-label=\"Tweet-Statistiken anzeigen\"],[aria-label=\"Tweet istatistiklerini görüntüle\"],[aria-label=\"Se tweetstatistikk\"],[aria-label=\"Ikusi txioen analisiak\"],[aria-label=\"Tweet-elemzések megtekintése\"],[aria-label=\"ट्वीट विश्लेषण देखें\"],[aria-label=\"Tingnan ang analytics ng Tweet\"],[aria-label=\"Näytä twiitin tilastot\"],[aria-label=\"Voir les statistiques des Tweets\"],[aria-label=\"Преглед на статистиката за туита\"],[aria-label=\"Xem phân tích Tweet\"],[aria-label=\"הצג את ניתוח הציוצים\"],[aria-label=\"مشاهده اطلاعات آماری توییت\"],[aria-label=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label=\"Ver estatísticas do Tweet\"],[aria-label=\"ट्विटची विश्लेषणे पहा\"],[aria-label=\"Lihat analitis Tweet\"],[aria-label=\"Vezi analiza Tweet\"],[aria-label=\"Смотреть аналитику твита\"],[aria-label=\"查看推文分析\"],[aria-label=\"查看推文分析\"],[aria-label=\"트윗 애널리틱스 보기\"]"
 }
 let TUIC_input_checkbox_selector_three = ["share-button"]
 var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
@@ -35,103 +37,111 @@ const observer = new MutationObserver((mutations) => {
     let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"])`)
     if (articles.length != 0) {
         articles.forEach(function (elem) {
-            for (var i = 0; i < visible_button.length; i++) {
-                if (visible_button[i] == "boolkmark" && elem.querySelector("[data-testid$=\"reply\"]") != null) {
-                    let div = document.createElement('div');
-                    div.classList.add("css-1dbjc4n")
-                    div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
-                    if (window.location.pathname == "/i/bookmarks" || (document.domain == "tweetdeck.twitter.com" && elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector.boolkmark_tweetdeck) != null)) {
-                        div.innerHTML = `
-                    <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
-                      <div
-                        aria-label="ブックマークから削除"
-                        role="button"
-                        tabindex="0"
-                        class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
-                      >
-                        <div
-                          dir="ltr"
-                          class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0"
-                        >
-                          <div class="css-1dbjc4n r-xoduu5">
-                            <div
-                              class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
-                            ></div>
-                            <svg
-                              viewBox="0 0 24 24"
-                              aria-hidden="true"
-                              class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255);") ? "r-14j79pv" :"r-1bwzh9t"}"
-                            >
-                              <g>
-                              <g><path d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"></path><path d="M20.955 4.226l2.07-2.07c.293-.293.293-.768 0-1.06s-.768-.294-1.06 0l-2.07 2.07-2.07-2.07c-.294-.294-.77-.294-1.062 0s-.293.767 0 1.06l2.07 2.07-2.07 2.07c-.293.293-.293.768 0 1.06.146.147.338.22.53.22s.384-.072.53-.22l2.07-2.07 2.07 2.07c.146.147.338.22.53.22s.384-.072.53-.22c.293-.292.293-.767 0-1.06l-2.068-2.07z" class="TUIC_BOOKMARK"></path></g>
-                              </g>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  `
-                  div.childNodes[1].addEventListener("click", bookmark_delete)
-                    } else {
-                        div.innerHTML = `
-                    <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
-                      <div
-                        aria-label="ブックマークに保存"
-                        role="button"
-                        tabindex="0"
-                        class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
-                      >
-                        <div
-                          dir="ltr"
-                          class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0"
-                        >
-                          <div class="css-1dbjc4n r-xoduu5">
-                            <div
-                              class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
-                            ></div>
-                            <svg
-                              viewBox="0 0 24 24"
-                              aria-hidden="true"
-                              class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255);") ? "r-14j79pv" :"r-1bwzh9t"}"
-                            >
-                              <g>
-                                <path
-                                  d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"
-                                ></path>
-                              </g>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  `
-                  div.childNodes[1].addEventListener("click", bookmark)
-                    }
-
-                    elem.querySelector("[data-testid$=\"reply\"]").parentElement.parentElement.appendChild(div)
-
-                } else if (elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]) != null) {
-                    if (TUIC_input_checkbox_selector_three.includes(visible_button[i])) {
-                        elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.parentElement.appendChild(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement)
-                    } else {
-                        elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement.parentElement.appendChild(elem.querySelector(TUIC_input_checkbox_selector[visible_button[i]]).parentElement)
-                    }
-
+            if (elem.querySelector("[data-testid$=\"reply\"]") != null && elem.querySelector("[data-testid$=\"like\"]") != null) {
+                let bar_base = elem.querySelector("[data-testid$=\"reply\"]")
+                while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
+                    bar_base = bar_base.parentElement
                 }
-            }
-
-            for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
-                if (!visible_button.includes(TUIC_input_checkbox_title[i])) {
-                    if (elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]) != null) {
-                        if (TUIC_input_checkbox_selector_three.includes(TUIC_input_checkbox_title[i])) {
-                            elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]).parentElement.parentElement.classList.add("TUIC_DISPNONE");
-                        } else {
-                            elem.querySelector(TUIC_input_checkbox_selector[TUIC_input_checkbox_title[i]]).parentElement.classList.add("TUIC_DISPNONE");
+                let bar_item = {}
+                for (const elem_item of bar_base.childNodes) {
+                    for (const sel in TUIC_input_checkbox_selector) {
+                        if (elem_item.querySelector(TUIC_input_checkbox_selector[sel]) != null) {
+                            bar_item[sel] = elem_item
+                            break
                         }
+                    }
+                }
+
+
+                for (var i = 0; i < visible_button.length; i++) {
+                    if (visible_button[i] in bar_item) {
+                            bar_base.appendChild(bar_item[visible_button[i]])
+                    }else if (visible_button[i] == "boolkmark") {
+                            let div = document.createElement('div');
+                            div.classList.add("css-1dbjc4n")
+                            div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
+                            if (window.location.pathname == "/i/bookmarks" || (document.domain == "tweetdeck.twitter.com" && elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector.boolkmark_tweetdeck) != null)) {
+                                div.innerHTML = `
+                            <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+                              <div
+                                aria-label="ブックマークから削除"
+                                role="button"
+                                tabindex="0"
+                                class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+                              >
+                                <div
+                                  dir="ltr"
+                                  class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0"
+                                >
+                                  <div class="css-1dbjc4n r-xoduu5">
+                                    <div
+                                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                                    ></div>
+                                    <svg
+                                      viewBox="0 0 24 24"
+                                      aria-hidden="true"
+                                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255);") ? "r-14j79pv" : "r-1bwzh9t"}"
+                                    >
+                                      <g>
+                                      <g><path d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"></path><path d="M20.955 4.226l2.07-2.07c.293-.293.293-.768 0-1.06s-.768-.294-1.06 0l-2.07 2.07-2.07-2.07c-.294-.294-.77-.294-1.062 0s-.293.767 0 1.06l2.07 2.07-2.07 2.07c-.293.293-.293.768 0 1.06.146.147.338.22.53.22s.384-.072.53-.22l2.07-2.07 2.07 2.07c.146.147.338.22.53.22s.384-.072.53-.22c.293-.292.293-.767 0-1.06l-2.068-2.07z" class="TUIC_BOOKMARK"></path></g>
+                                      </g>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          `
+                                div.childNodes[1].addEventListener("click", bookmark_delete)
+                            } else {
+                                div.innerHTML = `
+                            <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+                              <div
+                                aria-label="ブックマークに保存"
+                                role="button"
+                                tabindex="0"
+                                class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+                              >
+                                <div
+                                  dir="ltr"
+                                  class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0"
+                                >
+                                  <div class="css-1dbjc4n r-xoduu5">
+                                    <div
+                                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                                    ></div>
+                                    <svg
+                                      viewBox="0 0 24 24"
+                                      aria-hidden="true"
+                                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255);") ? "r-14j79pv" : "r-1bwzh9t"}"
+                                    >
+                                      <g>
+                                        <path
+                                          d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"
+                                        ></path>
+                                      </g>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          `
+                                div.childNodes[1].addEventListener("click", bookmark)
+                            }
+
+                            bar_base.appendChild(div)
+
 
                     }
                 }
+                for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
+                    if (!visible_button.includes(TUIC_input_checkbox_title[i]) && TUIC_input_checkbox_title[i] in bar_item) {
+                        bar_item[TUIC_input_checkbox_title[i]].add("TUIC_DISPNONE");
+                    }
+                }
+
             }
+
+console.log("aaa")
             elem.setAttribute("TUIC_ARTICLE", "TUIC_CHECKED_ARTICLE")
         })
     }
@@ -1062,12 +1072,12 @@ function todown() {
 
 function bookmark(e) {
     console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
-    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(`[aria-label="ツイートを共有"]`).click()
+    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
     document.querySelector(`[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
 }
 
 function bookmark_delete(e) {
     console.log(e.target.parentElement.parentElement)
-    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(`[aria-label="ツイートを共有"]`).click()
+    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
     document.querySelector(`[d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
 }
