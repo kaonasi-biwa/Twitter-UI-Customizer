@@ -135,10 +135,9 @@ const observer = new MutationObserver((mutations) => {
                 }
                 for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
                     if (!visible_button.includes(TUIC_input_checkbox_title[i]) && TUIC_input_checkbox_title[i] in bar_item) {
-                        bar_item[TUIC_input_checkbox_title[i]].add("TUIC_DISPNONE");
+                        bar_item[TUIC_input_checkbox_title[i]].classList.add("TUIC_DISPNONE");
                     }
                 }
-
             }
 
 console.log("aaa")
