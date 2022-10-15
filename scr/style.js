@@ -912,7 +912,7 @@ function display_setting() {
             TUIC_setting_button_invisible_box.appendChild(TUIC_checkbox)
         }
     }
-    TUIC_setting_button_invisible_box.size = TUIC_input_checkbox_titl.length
+    TUIC_setting_button_invisible_box.size = TUIC_input_checkbox_title.length
     TUIC_setting_button_div_right.appendChild(TUIC_setting_button_invisible_box)
 
 
