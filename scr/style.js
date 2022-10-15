@@ -61,7 +61,7 @@ const observer = new MutationObserver((mutations) => {
                         div.classList.add("css-1dbjc4n")
                         div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
                         if (window.location.pathname == "/i/bookmarks" || (document.domain == "tweetdeck.twitter.com" && elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector.boolkmark_tweetdeck) != null)) {
-                            div.innerHTML = `
+                            div.insertAdjacentHTML("beforeend",`
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                               <div
                                 aria-label="ブックマークから削除"
@@ -90,10 +90,10 @@ const observer = new MutationObserver((mutations) => {
                                 </div>
                               </div>
                             </div>
-                          `
+                          `)
                             div.childNodes[1].addEventListener("click", bookmark_delete)
                         } else {
-                            div.innerHTML = `
+                            div.insertAdjacentHTML("beforeend",`
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                               <div
                                 aria-label="ブックマークに保存"
@@ -124,7 +124,7 @@ const observer = new MutationObserver((mutations) => {
                                 </div>
                               </div>
                             </div>
-                          `
+                          `)
                             div.childNodes[1].addEventListener("click", bookmark)
                         }
 
@@ -135,7 +135,7 @@ const observer = new MutationObserver((mutations) => {
                         let div = document.createElement('div');
                         div.classList.add("css-1dbjc4n")
                         div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
-                        div.innerHTML = `
+                        div.insertAdjacentHTML("beforeend",`
                         <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
     <div
       aria-label="ツイートのリンクをコピー"
@@ -165,7 +165,7 @@ const observer = new MutationObserver((mutations) => {
       </div>
     </div>
   </div>
-                      `
+                      `)
                         div.childNodes[1].addEventListener("click", url_copy)
 
                         bar_base.appendChild(div)
@@ -912,7 +912,7 @@ function display_setting() {
             TUIC_setting_button_invisible_box.appendChild(TUIC_checkbox)
         }
     }
-    TUIC_setting_button_invisible_box.size = 6
+    TUIC_setting_button_invisible_box.size = TUIC_input_checkbox_titl.length
     TUIC_setting_button_div_right.appendChild(TUIC_setting_button_invisible_box)
 
 
