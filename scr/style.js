@@ -854,7 +854,7 @@ function display_setting() {
         TUIC_checkbox.textContent = TUIC_input_checkbox_name[visible_button[i]]
         TUIC_setting_button_visible_box.appendChild(TUIC_checkbox)
     }
-    TUIC_setting_button_visible_box.size = 6
+    TUIC_setting_button_visible_box.size = TUIC_input_checkbox_title.length
     TUIC_setting_button_div_left.appendChild(TUIC_setting_button_visible_box)
 
     TUIC_setting_button_div_center.style = "text-align: center;"
