@@ -8,7 +8,7 @@ jobs:
 
     - name: Archive
       run:  |
-      rm ./manifest_chrome.json
+      rm manifest_chrome.json
       zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
     - name: Publish
       uses: actions/upload-artifact@v3
@@ -24,8 +24,8 @@ jobs:
 
     - name: Archive
       run:  |
-      rm ./manifest.json
-      mv ./manifest_chrome.json ./manifest.json
+      rm manifest.json
+      mv manifest_chrome.json manifest.json
       zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
 
     - name: Publish
