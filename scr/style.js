@@ -441,7 +441,7 @@ function run_first() {
 }
 .TUIC_setting_button{
     background: transparent !important;
-    
+    border-color: var(--twitter-TUIC-color);
 }
 .TUIC_none_scroll{
     scrollbar-width: none;
