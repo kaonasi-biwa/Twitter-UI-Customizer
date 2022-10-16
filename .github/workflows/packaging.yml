@@ -1,0 +1,35 @@
+name: Build
+jobs:
+  Build Firefox:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Archive
+      run:  |
+      rm ./manifest_chrome.json
+      zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
+    - name: Publish
+      uses: actions/upload-artifact@v3
+      with:
+        name: Twitter_UI_Customizer_Firefox
+        path: Twitter_UI_Customizer_Firefox.xpi
+
+  Build Chromium:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Archive
+      run:  |
+      rm ./manifest.json
+      mv ./manifest_chrome.json ./manifest.json
+      zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
+
+    - name: Publish
+      uses: actions/upload-artifact@v3
+      with:
+        name: Twitter_UI_Customizer_Chromium
+        path: Twitter_UI_Customizer_Chromium.zip

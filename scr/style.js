@@ -470,6 +470,11 @@ function run_first() {
     color:var(--twitter-TUIC-color);
 }
 
+textarea#css_textarea {
+    width: calc(100% - 10px) !important;
+    height: 300px;
+}
+
 `;
     let TWITTER_head = document.getElementsByTagName("head").item(0)
     // 基準となる要素を指定します。
@@ -660,7 +665,7 @@ function display_setting() {
 
     let TUIC_setting_center_toleft = document.createElement("button");
     TUIC_setting_center_toleft.id = "toleft"
-    TUIC_setting_center_toleft.style = "width:7em;"
+    TUIC_setting_center_toleft.style = "width:8em;"
     TUIC_setting_center_toleft.textContent = "表示する"
     TUIC_setting_center_toleft.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toleft)
@@ -668,7 +673,7 @@ function display_setting() {
 
     let TUIC_setting_center_toup = document.createElement("button");
     TUIC_setting_center_toup.id = "toup"
-    TUIC_setting_center_toup.style = "width:7em;"
+    TUIC_setting_center_toup.style = "width:8em;"
     TUIC_setting_center_toup.textContent = "上へ"
     TUIC_setting_center_toup.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toup)
@@ -676,7 +681,7 @@ function display_setting() {
 
     let TUIC_setting_center_todown = document.createElement("button");
     TUIC_setting_center_todown.id = "todown"
-    TUIC_setting_center_todown.style = "width:7em;"
+    TUIC_setting_center_todown.style = "width:8em;"
     TUIC_setting_center_todown.textContent = "下へ"
     TUIC_setting_center_todown.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_todown)
@@ -684,7 +689,7 @@ function display_setting() {
 
     let TUIC_setting_center_toright = document.createElement("button");
     TUIC_setting_center_toright.id = "toright"
-    TUIC_setting_center_toright.style = "width:7em;"
+    TUIC_setting_center_toright.style = "width:8em;"
     TUIC_setting_center_toright.textContent = "非表示にする"
     TUIC_setting_center_toright.classList.add("TUIC_setting_text", "TUIC_setting_button")
     TUIC_setting_button_div_center.appendChild(TUIC_setting_center_toright)
@@ -727,7 +732,6 @@ function display_setting() {
 
     let TUIC_custom_css_textbox_frame = document.createElement("form");
     let TUIC_custom_css_textbox = document.createElement("textarea");
-    TUIC_custom_css_textbox.style = "width:calc(100% - 10px);"
     TUIC_custom_css_textbox.id = "css_textarea"
     TUIC_custom_css_textbox.value = localStorage.getItem('css')
     TUIC_custom_css_textbox_frame.appendChild(TUIC_custom_css_textbox)
