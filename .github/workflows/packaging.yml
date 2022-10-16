@@ -11,7 +11,6 @@ jobs:
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
         release_name: Twitter UI Customizer
         draft: false
         prerelease: false
