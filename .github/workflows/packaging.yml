@@ -1,6 +1,9 @@
 name: Build
+on: push
+
+
 jobs:
-  Build Firefox:
+  build_firefox:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
