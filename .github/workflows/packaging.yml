@@ -1,5 +1,8 @@
 name: Build
-on: push
+on:
+  push:
+    tags:
+      - "v[0-9]+\\.[0-9]+\\.[0-9]+"
 
 
 jobs:
@@ -36,6 +39,7 @@ jobs:
 
   make-release:
     runs-on: ubuntu-latest
+    needs: [build-firefox,build-chromium]
     steps:
     - name: Create Release
       id: create_release
@@ -43,8 +47,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: aaa
-        release_name: Twitter UI Customizer
+        tag_name: ${{ github.ref }}
+        release_name: Twitter UI Customizer ${{ github.ref }}
         draft: false
         prerelease: false
     - name: loadf
