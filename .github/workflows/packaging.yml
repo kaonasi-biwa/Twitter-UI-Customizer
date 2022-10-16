@@ -49,12 +49,12 @@ jobs:
         prerelease: false
     - name: loadf
       uses: actions/download-artifact@v2
-        with:
-          name: Twitter_UI_Customizer_Firefox
+      with:
+        name: Twitter_UI_Customizer_Firefox
     - name: loadf
       uses: actions/download-artifact@v2
-        with:
-          name: Twitter_UI_Customizer_Chromium
+      with:
+        name: Twitter_UI_Customizer_Chromium
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
