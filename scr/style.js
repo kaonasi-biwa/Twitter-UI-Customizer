@@ -1,6 +1,6 @@
 var urlchange = ""
 
-let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday-", "profile-link-"]
+let TUIC_input_color_title = ["unsent-tweet-", "not-following-", "following-", "un-following-", "profile-", "profile-save-", "birthday"]
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン"]
 let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"]
 let TUIC_input_checkbox_name = { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存", "url-copy": "ツイートのリンクをコピー" }
@@ -535,7 +535,6 @@ function display_setting() {
         } else {
             TUIC_checkbox.checked = false
         }
-
         var TUIC_checkbox_label = document.createElement("label")
         TUIC_checkbox_label.setAttribute("for", TUIC_input_color_title[i] + "background-check")
         TUIC_checkbox_label.textContent = "透明色にする"
@@ -614,7 +613,7 @@ function display_setting() {
         TUIC_setting_main_back.appendChild(document.createElement("br"))
         TUIC_setting_main_back.appendChild(document.createElement("br"))
     }
-
+    console.log("qiu")
     var TUIC_setting_main_title = document.createElement("h2")
     TUIC_setting_main_title.textContent = "ツイート下ボタンの並び替え"
     TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
