@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Archive
-      run:  |
+      run: |
       rm manifest_chrome.json
       zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
     - name: Publish
@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Archive
-      run:  |
+      run: |
       rm manifest.json
       mv manifest_chrome.json manifest.json
       zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
