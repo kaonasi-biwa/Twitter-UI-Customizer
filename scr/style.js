@@ -462,6 +462,13 @@ function run_first() {
 .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg{
     color:rgb(29,155,240)
 }
+#TUIC_invisible,#TUIC_visible{
+    background:transparent;
+}
+#TUIC_invisible > option,#TUIC_visible > option,#css_textarea{
+    background:transparent;
+    color:var(--twitter-TUIC-color);
+}
 
 `;
     let TWITTER_head = document.getElementsByTagName("head").item(0)
