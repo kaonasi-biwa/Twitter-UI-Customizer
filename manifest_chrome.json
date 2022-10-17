@@ -1,6 +1,6 @@
 {
     "name": "Twitter UI Customizer",
-    "version": "2.3.13",
+    "version": "2.3.14",
     "manifest_version": 3,
     "description": "TwitterのUIのカスタマイズ性を向上させます！",
     "icons": {
@@ -32,9 +32,5 @@
     },
     "options_ui": {
         "page":"scr/options.html"
-    },
-    "developer": {
-      "name": "kaonasi_biwa",
-      "url": "https://github.com/kaonasi-biwa/Twitter-UI-Customizer"
     }
 }
