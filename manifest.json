@@ -5,7 +5,7 @@
         }
       },
     "name": "Twitter UI Customizer",
-    "version": "2.3.14",
+    "version": "2.4.0",
     "manifest_version": 2,
     "description": "TwitterのUIのカスタマイズ性を向上させます！",
     "icons": {
@@ -14,7 +14,9 @@
         "128": "icon/icon128.png"
     },
     "permissions": [
-        "tabs"
+        "tabs",
+        "notifications",
+        "https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/*"
     ],
     "content_scripts": [
           {
@@ -37,6 +39,9 @@
     },
     "options_ui": {
         "page":"scr/options.html"
+    },
+    "background":{
+        "scripts":["background.js"]
     },
     "developer": {
       "name": "kaonasi_biwa",
