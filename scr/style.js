@@ -43,8 +43,8 @@ const observer = new MutationObserver((mutations) => {
                     }
                 }
 
-let needEmpty = bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null
-let lastButton
+                let needEmpty = bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null
+                let lastButton
                 for (var i = 0; i < visible_button.length; i++) {
                     let div = -1
                     if (visible_button[i] in bar_item) {
@@ -53,40 +53,8 @@ let lastButton
                         div = document.createElement('div');
                         div.classList.add("css-1dbjc4n")
                         div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
-                        if (window.location.pathname == "/i/bookmarks" || (document.domain == "tweetdeck.twitter.com" && elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector.boolkmark_tweetdeck) != null)) {
-                            div.insertAdjacentHTML("beforeend",`
-                            <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
-                              <div
-                                aria-label="ブックマークから削除"
-                                role="button"
-                                tabindex="0"
-                                class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
-                              >
-                                <div
-                                  dir="ltr"
-                                  class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2"
-                                >
-                                  <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
-                                    <div
-                                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
-                                    ></div>
-                                    <svg
-                                      viewBox="0 0 24 24"
-                                      aria-hidden="true"
-                                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255)") ? "r-14j79pv" : "r-1bwzh9t"}"
-                                    >
-                                      <g>
-                                      <g><path d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"></path><path d="M20.955 4.226l2.07-2.07c.293-.293.293-.768 0-1.06s-.768-.294-1.06 0l-2.07 2.07-2.07-2.07c-.294-.294-.77-.294-1.062 0s-.293.767 0 1.06l2.07 2.07-2.07 2.07c-.293.293-.293.768 0 1.06.146.147.338.22.53.22s.384-.072.53-.22l2.07-2.07 2.07 2.07c.146.147.338.22.53.22s.384-.072.53-.22c.293-.292.293-.767 0-1.06l-2.068-2.07z" class="TUIC_BOOKMARK"></path></g>
-                                      </g>
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          `)
-                            div.childNodes[1].addEventListener("click", bookmark_delete)
-                        } else {
-                            div.insertAdjacentHTML("beforeend",`
+
+                            div.insertAdjacentHTML("beforeend", `
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                               <div
                                 aria-label="ブックマークに保存"
@@ -119,7 +87,6 @@ let lastButton
                             </div>
                           `)
                             div.childNodes[1].addEventListener("click", bookmark)
-                        }
 
                         bar_base.appendChild(div)
 
@@ -128,7 +95,7 @@ let lastButton
                         div = document.createElement('div');
                         div.classList.add("css-1dbjc4n")
                         div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
-                        div.insertAdjacentHTML("beforeend",`
+                        div.insertAdjacentHTML("beforeend", `
                         <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
     <div
       aria-label="ツイートのリンクをコピー"
@@ -165,14 +132,14 @@ let lastButton
 
 
                     }
-                    if(div != -1){
-                        if (needEmpty && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.insertAdjacentHTML("beforeend",`<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`)
+                    if (div != -1) {
+                        if (needEmpty && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.insertAdjacentHTML("beforeend", `<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`)
                         lastButton = div
                         bar_base.appendChild(div)
                     }
 
                 }
-                if(lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null){
+                if (lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null) {
                     lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove()
                 }
 
@@ -191,7 +158,10 @@ let lastButton
 
         run_first()
     }
-    if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
+    if (window.location.pathname == "/tuic/safemode") {
+
+
+    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
         display_run()
     }
     observer.observe(target, config);
@@ -207,7 +177,7 @@ const config = {
 observer.observe(target, config);
 
 const bodyObserver = new MutationObserver(run_first)
-bodyObserver.observe(document.getElementsByTagName("body").item(0),{childList:false,subtree:false,attributes:true})
+bodyObserver.observe(document.getElementsByTagName("body").item(0), { childList: false, subtree: false, attributes: true })
 
 window.onload = function () {
     run_first()
@@ -215,8 +185,8 @@ window.onload = function () {
 
 function run_first() {
 
-    if(document.querySelector(".twitter_ui_customizer_css") != null) document.querySelector(".twitter_ui_customizer_css").remove()
-    if(document.querySelector(".twitter_ui_customizer") != null) document.querySelector(".twitter_ui_customizer").remove()
+    if (document.querySelector(".twitter_ui_customizer_css") != null) document.querySelector(".twitter_ui_customizer_css").remove()
+    if (document.querySelector(".twitter_ui_customizer") != null) document.querySelector(".twitter_ui_customizer").remove()
 
     var TUIC_color = "rgba(255,255,255,1)"
     // 追加する要素を用意します。
@@ -472,24 +442,37 @@ textarea#css_textarea {
     width: calc(100% - 10px) !important;
     height: 300px;
 }
-
 `;
     let TWITTER_head = document.getElementsByTagName("head").item(0)
     // 基準となる要素を指定します。
-
-    let TUIC_custom_css = document.createElement("style");
-    TUIC_custom_css.classList.add("twitter_ui_customizer_css")
-    TUIC_custom_css.textContent = localStorage.getItem('css')
     TWITTER_head.appendChild(TUIC_css);
-    TWITTER_head.appendChild(TUIC_custom_css);
+    if (window.location.pathname != "/tuic/safemode") {
+        let TUIC_custom_css = document.createElement("style");
+        TUIC_custom_css.classList.add("twitter_ui_customizer_css")
+        TUIC_custom_css.textContent = localStorage.getItem('css')
+
+        TWITTER_head.appendChild(TUIC_custom_css);
+    } else {
+        if (document.querySelector("#safemode") == null) {
+            document.querySelector("#react-root").style = "display:none !important;"
+            let safemode = document.createElement("div")
+            safemode.id = "safemode"
+            safemode.style = "height:100%;width:100%"
+            document.querySelector("body").appendChild(safemode)
+            if(document.querySelector(".twitter_ui_customizer_css") != null){
+                document.querySelector(".twitter_ui_customizer_css").remove()
+            }
+
+            display_setting('#safemode')
+        }
+    }
 
 }
 
 
 
-function display_setting() {
-    let TWITTER_setting_back = document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md');
-
+function display_setting(rootElement = "") {
+    let TWITTER_setting_back = document.querySelector(rootElement);
     let TUIC_setting_title_back = document.createElement("div");
     TUIC_setting_title_back.id = "TUIC_setting"
     TUIC_setting_title_back.classList.add("css-1dbjc4n", "r-1wtj0ep", "r-ymttw5", "r-1f1sjgu")
@@ -630,7 +613,6 @@ function display_setting() {
     TUIC_setting_main_title.style = "font-size:20px;"
     TUIC_setting_main_back.appendChild(TUIC_setting_main_title)
     TUIC_setting_main_back.appendChild(document.createElement("br"))
-
 
     let TUIC_setting_button_div_parent = document.createElement("div")
     TUIC_setting_button_div_parent.style = "display:flex"
@@ -778,7 +760,7 @@ function display_run() {
     if (document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') == null) {
         window.setTimeout(display_run, 10000)
     } else {
-        display_setting()
+        display_setting('section[aria-labelledby="detail-header"] > .r-1h0z5md')
 
     }
 
@@ -841,7 +823,12 @@ function save_data() {
 
     localStorage.setItem("css", document.getElementById("css_textarea").value)
 
-    location.reload();
+    if (window.location.pathname == "/tuic/safemode") {
+        window.location.href = `${window.location.protocol}//${window.location.hostname}`
+    } else {
+        location.reload();
+    }
+
 }
 function default_set() {
     localStorage.removeItem('unsent-tweet-background')
@@ -876,7 +863,11 @@ function default_set() {
     localStorage.removeItem('tweet_analytics')
     localStorage.removeItem('visible-button')
 
-    location.reload();
+    if (window.location.pathname == "/tuic/safemode") {
+        window.location.href = `${window.location.protocol}//${window.location.hostname}`
+    } else {
+        location.reload();
+    }
 }
 
 function toleft() {
@@ -910,21 +901,21 @@ function todown() {
 
 function bookmark(e) {
     e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    document.querySelector(`[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
-}
-
-function bookmark_delete(e) {
-    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    document.querySelector(`[d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
+    document.querySelector(`[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+    [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
+    [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+    [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
 }
 
 function url_copy(e) {
     e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    if(document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL)`) == null){
+    if (document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
+    [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`) == null) {
         console.log("aaa")
         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    }else{
+    } else {
         console.log("bbb")
-        document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL)`).parentNode.parentNode.parentNode.parentNode.click()
+        document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
+    [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`).parentNode.parentNode.parentNode.parentNode.click()
     }
 }
