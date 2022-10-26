@@ -18,6 +18,9 @@ var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
     "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",]
+let checkbox = ["osusume-user-timeline"]
+let invisibleCheckbox =      ["osusume-user-timeline"        ]
+let invisibleCheckboxLabel = ["タイムライン上のおすすめユーザー"]
 var visible_button = JSON.parse(localStorage.getItem('visible-button')) ?? TUIC_input_checkbox_title
 // 対象とするノードを取得
 const target = document.getElementsByTagName("body").item(0);
@@ -54,7 +57,7 @@ const observer = new MutationObserver((mutations) => {
                         div.classList.add("css-1dbjc4n")
                         div.style = "display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;"
 
-                            div.insertAdjacentHTML("beforeend", `
+                        div.insertAdjacentHTML("beforeend", `
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                               <div
                                 aria-label="ブックマークに保存"
@@ -86,7 +89,7 @@ const observer = new MutationObserver((mutations) => {
                               </div>
                             </div>
                           `)
-                            div.childNodes[1].addEventListener("click", bookmark)
+                        div.childNodes[1].addEventListener("click", bookmark)
 
                         bar_base.appendChild(div)
 
@@ -153,6 +156,28 @@ const observer = new MutationObserver((mutations) => {
             }
             elem.setAttribute("TUIC_ARTICLE", "TUIC_CHECKED_ARTICLE")
         })
+    }
+    if(localStorage.getItem('osusume-user-timeline') ?? "0" == "1"){
+        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"])`)
+        if (cells.length != 0) {
+            cells.forEach(function (elem) {
+                if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != "TUIC_CHECKED_ARTICLE") {
+                    elem.classList.add("TUIC_DISPNONE")
+                    if (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
+                        elem.previousElementSibling.classList.add("TUIC_DISPNONE")
+                        elem.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
+                        elem.previousElementSibling.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
+                    }
+                    let cellElement = elem.nextElementSibling
+                    while(cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null){
+    cellElement.classList.add("TUIC_DISPNONE")
+    cellElement = cellElement.nextElementSibling
+                    }
+                    cellElement.classList.add("TUIC_DISPNONE")
+    
+                }
+            })
+        }
     }
     if (document.querySelector('style.twitter_ui_customizer') == null) {
 
@@ -459,7 +484,7 @@ textarea#css_textarea {
             safemode.id = "safemode"
             safemode.style = "height:100%;width:100%"
             document.querySelector("body").appendChild(safemode)
-            if(document.querySelector(".twitter_ui_customizer_css") != null){
+            if (document.querySelector(".twitter_ui_customizer_css") != null) {
                 document.querySelector(".twitter_ui_customizer_css").remove()
             }
 
@@ -606,7 +631,6 @@ function display_setting(rootElement = "") {
         TUIC_setting_main_back.appendChild(document.createElement("br"))
         TUIC_setting_main_back.appendChild(document.createElement("br"))
     }
-    console.log("qiu")
     var TUIC_setting_main_title = document.createElement("h2")
     TUIC_setting_main_title.textContent = "ツイート下ボタンの並び替え"
     TUIC_setting_main_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
@@ -702,6 +726,31 @@ function display_setting(rootElement = "") {
     TUIC_setting_button_div_parent.appendChild(TUIC_setting_button_div_center)
     TUIC_setting_button_div_parent.appendChild(TUIC_setting_button_div_right)
     TUIC_setting_main_back.appendChild(TUIC_setting_button_div_parent)
+
+
+    TUIC_setting_main_back.appendChild(document.createElement("br"))
+    var TUIC_setting_invixible_title = document.createElement("h2")
+    TUIC_setting_invixible_title.textContent = "非表示設定"
+    TUIC_setting_invixible_title.classList.add("r-jwli3a", "r-1tl8opc", "r-qvutc0", "r-bcqeeo", "css-901oao", "TUIC_setting_text")
+    TUIC_setting_invixible_title.style = "font-size:20px;"
+    TUIC_setting_main_back.appendChild(TUIC_setting_invixible_title)
+    TUIC_setting_main_back.appendChild(document.createElement("br"))
+
+    for (var i = 0; i < invisibleCheckbox.length; i++) {
+        let invisibleCheckboxBase = document.createElement("div")
+        let invisibleCheckboxInputElement = document.createElement("input")
+        let invisibleCheckboxLabelElement = document.createElement("label")
+        invisibleCheckboxLabelElement.textContent = invisibleCheckboxLabel[i]
+        invisibleCheckboxLabelElement.setAttribute("for",invisibleCheckbox[i])
+        invisibleCheckboxLabelElement.classList.add("TUIC_setting_text")
+        invisibleCheckboxInputElement.id = invisibleCheckbox[i]
+        invisibleCheckboxInputElement.checked = localStorage.getItem(invisibleCheckbox[i]) == 1
+        invisibleCheckboxInputElement.type = "checkbox"
+        invisibleCheckboxBase.appendChild(invisibleCheckboxInputElement)
+        invisibleCheckboxBase.appendChild(invisibleCheckboxLabelElement)
+        TUIC_setting_main_back.appendChild(invisibleCheckboxBase)
+    }
+
 
     var TUIC_custom_css_textbox_title = document.createElement("h2")
     TUIC_custom_css_textbox_title.textContent = "カスタムCSS"
@@ -823,6 +872,10 @@ function save_data() {
 
     localStorage.setItem("css", document.getElementById("css_textarea").value)
 
+    for(let i = 0;i < checkbox.length;i++){
+localStorage.setItem(checkbox[i],document.getElementById(checkbox[i]).checked ? "1" : "0")
+    }
+
     if (window.location.pathname == "/tuic/safemode") {
         window.location.href = `${window.location.protocol}//${window.location.hostname}`
     } else {
@@ -862,6 +915,8 @@ function default_set() {
     localStorage.removeItem('share-button')
     localStorage.removeItem('tweet_analytics')
     localStorage.removeItem('visible-button')
+
+    localStorage.removeItem('osusume-user-timeline')
 
     if (window.location.pathname == "/tuic/safemode") {
         window.location.href = `${window.location.protocol}//${window.location.hostname}`
