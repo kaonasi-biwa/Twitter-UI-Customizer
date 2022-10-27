@@ -28,6 +28,7 @@ const target = document.getElementsByTagName("body").item(0);
 // オブザーバインスタンスを作成
 const observer = new MutationObserver((mutations) => {
     observer.disconnect();
+    let timeout = window.setTimeout(function(){observer.observe(target, config)}, 10000)
     let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"])`)
     if (articles.length != 0) {
         articles.forEach(function (elem) {
@@ -163,18 +164,17 @@ const observer = new MutationObserver((mutations) => {
             cells.forEach(function (elem) {
                 if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != "TUIC_CHECKED_ARTICLE") {
                     elem.classList.add("TUIC_DISPNONE")
-                    if (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
-                        elem.previousElementSibling.classList.add("TUIC_DISPNONE")
-                        elem.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
-                        elem.previousElementSibling.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
+                    if (elem.previousElementSibling != null && elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
+                        if (elem.previousElementSibling != null) elem.previousElementSibling.classList.add("TUIC_DISPNONE")
+                        if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
+                        if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
                     }
                     let cellElement = elem.nextElementSibling
-                    while(cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null){
+                    while(cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null){
     cellElement.classList.add("TUIC_DISPNONE")
     cellElement = cellElement.nextElementSibling
                     }
                     cellElement.classList.add("TUIC_DISPNONE")
-    
                 }
             })
         }
@@ -189,6 +189,7 @@ const observer = new MutationObserver((mutations) => {
     } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
         display_run()
     }
+window.clearTimeout(timeout)
     observer.observe(target, config);
 });
 
