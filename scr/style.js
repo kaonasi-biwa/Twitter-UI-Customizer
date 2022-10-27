@@ -167,7 +167,6 @@ const observer = new MutationObserver((mutations) => {
                     if (elem.previousElementSibling != null && elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
                         if (elem.previousElementSibling != null) elem.previousElementSibling.classList.add("TUIC_DISPNONE")
                         if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
-                        if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
                     }
                     let cellElement = elem.nextElementSibling
                     while(cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null){
