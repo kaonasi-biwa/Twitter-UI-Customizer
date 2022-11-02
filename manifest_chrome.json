@@ -1,6 +1,6 @@
 {
     "name": "Twitter UI Customizer",
-    "version": "2.4.4",
+    "version": "2.4.5",
     "manifest_version": 3,
     "description": "TwitterのUIのカスタマイズ性を向上させます！",
     "icons": {
@@ -8,10 +8,6 @@
         "48": "icon/icon48.png",
         "128": "icon/icon128.png"
     },
-    "permissions": [
-        "tabs",
-        "notifications"
-    ],
     "content_scripts": [
           {
             "matches": [
@@ -22,6 +18,13 @@
             ]
         }
     ],
+    "options_ui": {
+        "page":"scr/options.html"
+    },
+    "permissions": [
+        "tabs",
+        "notifications"
+    ],
     "action": {
         "default_icon": {
             "16": "icon/icon16.png",
@@ -30,9 +33,6 @@
         },
         "default_title": "Twitter UI Customizer",
         "default_popup": "scr/popup.html"
-    },
-    "options_ui": {
-        "page":"scr/options.html"
     },
     "background":{
         "service_worker":"background.js"

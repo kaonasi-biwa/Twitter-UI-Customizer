@@ -159,7 +159,7 @@ const observer = new MutationObserver((mutations) => {
         })
     }
     if(localStorage.getItem('osusume-user-timeline') ?? "0" == "1"){
-        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"])`)
+        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
         if (cells.length != 0) {
             cells.forEach(function (elem) {
                 if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != "TUIC_CHECKED_ARTICLE") {
@@ -173,7 +173,7 @@ const observer = new MutationObserver((mutations) => {
     cellElement.classList.add("TUIC_DISPNONE")
     cellElement = cellElement.nextElementSibling
                     }
-                    cellElement.classList.add("TUIC_DISPNONE")
+                    if(cellElement != null) cellElement.classList.add("TUIC_DISPNONE")
                 }
             })
         }
