@@ -158,7 +158,7 @@ const observer = new MutationObserver((mutations) => {
             elem.setAttribute("TUIC_ARTICLE", "TUIC_CHECKED_ARTICLE")
         })
     }
-    if(localStorage.getItem('osusume-user-timeline') ?? "0" == "1"){
+    if((localStorage.getItem('osusume-user-timeline') ?? "0") == "1" && location.search.indexOf("f=user") == -1){
         let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
         if (cells.length != 0) {
             cells.forEach(function (elem) {
