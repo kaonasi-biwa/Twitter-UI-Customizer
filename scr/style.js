@@ -159,7 +159,7 @@ const observer = new MutationObserver((mutations) => {
         })
     }
     if((localStorage.getItem('osusume-user-timeline') ?? "0") == "1" && location.search.indexOf("f=user") == -1){
-        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
+        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section,div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
         if (cells.length != 0) {
             cells.forEach(function (elem) {
                 if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != "TUIC_CHECKED_ARTICLE") {
@@ -199,12 +199,14 @@ const config = {
 };
 
 // 対象ノードとオブザーバの設定を渡す
-observer.observe(target, config);
+
+
+window.onload = function () {
+    if(!(document.location.hostname == "tweetdeck.twitter.com" && document.cookie.indexOf("tweetdeck_version=legacy") != -1))
+    observer.observe(target, config);
 
 const bodyObserver = new MutationObserver(run_first)
 bodyObserver.observe(document.getElementsByTagName("body").item(0), { childList: false, subtree: false, attributes: true })
-
-window.onload = function () {
     run_first()
 }
 
