@@ -19,7 +19,7 @@ var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",]
 let checkbox = ["osusume-user-timeline"]
-let invisibleCheckbox =      ["osusume-user-timeline"        ]
+let invisibleCheckbox = ["osusume-user-timeline"]
 let invisibleCheckboxLabel = ["タイムライン上のおすすめユーザー"]
 var visible_button = JSON.parse(localStorage.getItem('visible-button')) ?? TUIC_input_checkbox_title
 // 対象とするノードを取得
@@ -28,7 +28,7 @@ const target = document.getElementsByTagName("body").item(0);
 // オブザーバインスタンスを作成
 const observer = new MutationObserver((mutations) => {
     observer.disconnect();
-    let timeout = window.setTimeout(function(){observer.observe(target, config)}, 10000)
+    let timeout = window.setTimeout(function () { observer.observe(target, config) }, 10000)
     let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"])`)
     if (articles.length != 0) {
         articles.forEach(function (elem) {
@@ -158,7 +158,7 @@ const observer = new MutationObserver((mutations) => {
             elem.setAttribute("TUIC_ARTICLE", "TUIC_CHECKED_ARTICLE")
         })
     }
-    if((localStorage.getItem('osusume-user-timeline') ?? "0") == "1" && location.search.indexOf("f=user") == -1){
+    if ((localStorage.getItem('osusume-user-timeline') ?? "0") == "1" && location.search.indexOf("f=user") == -1) {
         let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section,div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
         if (cells.length != 0) {
             cells.forEach(function (elem) {
@@ -169,11 +169,11 @@ const observer = new MutationObserver((mutations) => {
                         if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add("TUIC_DISPNONE")
                     }
                     let cellElement = elem.nextElementSibling
-                    while(cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null){
-    cellElement.classList.add("TUIC_DISPNONE")
-    cellElement = cellElement.nextElementSibling
+                    while (cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null) {
+                        cellElement.classList.add("TUIC_DISPNONE")
+                        cellElement = cellElement.nextElementSibling
                     }
-                    if(cellElement != null) cellElement.classList.add("TUIC_DISPNONE")
+                    if (cellElement != null) cellElement.classList.add("TUIC_DISPNONE")
                 }
             })
         }
@@ -188,7 +188,7 @@ const observer = new MutationObserver((mutations) => {
     } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir="auto"]') != null && window.location.pathname == "/settings/display") {
         display_run()
     }
-window.clearTimeout(timeout)
+    window.clearTimeout(timeout)
     observer.observe(target, config);
 });
 
@@ -200,13 +200,12 @@ const config = {
 
 // 対象ノードとオブザーバの設定を渡す
 
-
-window.onload = function () {
-    if(!(document.location.hostname == "tweetdeck.twitter.com" && document.cookie.indexOf("tweetdeck_version=legacy") != -1))
+if (document.getElementById("react-root") != null) {
+    console.log("b")
     observer.observe(target, config);
 
-const bodyObserver = new MutationObserver(run_first)
-bodyObserver.observe(document.getElementsByTagName("body").item(0), { childList: false, subtree: false, attributes: true })
+    const bodyObserver = new MutationObserver(run_first)
+    bodyObserver.observe(document.getElementsByTagName("body").item(0), { childList: false, subtree: false, attributes: true })
     run_first()
 }
 
@@ -743,7 +742,7 @@ function display_setting(rootElement = "") {
         let invisibleCheckboxInputElement = document.createElement("input")
         let invisibleCheckboxLabelElement = document.createElement("label")
         invisibleCheckboxLabelElement.textContent = invisibleCheckboxLabel[i]
-        invisibleCheckboxLabelElement.setAttribute("for",invisibleCheckbox[i])
+        invisibleCheckboxLabelElement.setAttribute("for", invisibleCheckbox[i])
         invisibleCheckboxLabelElement.classList.add("TUIC_setting_text")
         invisibleCheckboxInputElement.id = invisibleCheckbox[i]
         invisibleCheckboxInputElement.checked = localStorage.getItem(invisibleCheckbox[i]) == 1
@@ -874,8 +873,8 @@ function save_data() {
 
     localStorage.setItem("css", document.getElementById("css_textarea").value)
 
-    for(let i = 0;i < checkbox.length;i++){
-localStorage.setItem(checkbox[i],document.getElementById(checkbox[i]).checked ? "1" : "0")
+    for (let i = 0; i < checkbox.length; i++) {
+        localStorage.setItem(checkbox[i], document.getElementById(checkbox[i]).checked ? "1" : "0")
     }
 
     if (window.location.pathname == "/tuic/safemode") {
