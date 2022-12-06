@@ -158,8 +158,8 @@ const observer = new MutationObserver((mutations) => {
             elem.setAttribute("TUIC_ARTICLE", "TUIC_CHECKED_ARTICLE")
         })
     }
-    if ((localStorage.getItem('osusume-user-timeline') ?? "0") == "1" && location.search.indexOf("f=user") == -1) {
-        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section,div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
+    if ((localStorage.getItem('osusume-user-timeline') ?? "0") == "1" && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
+        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="TUIC_CHECKED_ARTICLE"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
         if (cells.length != 0) {
             cells.forEach(function (elem) {
                 if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != "TUIC_CHECKED_ARTICLE") {
