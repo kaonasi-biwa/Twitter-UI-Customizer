@@ -4,6 +4,7 @@ let TUICParser = new DOMParser();
 
 let TUICIvisibleClass = "TUIC_DISPNONE"
 let TUICDidArticle = "TUIC_CHECKED_ARTICLE"
+let TUICScrollBottom = "TUIC_SCROLL_BOTTOM"
 
 let TUICColorTypeList = ["background","border","color"]
 let TUIC_input_color_title = ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"]
@@ -28,7 +29,7 @@ let checkbox = ["osusume-user-timeline"]
 let invisibleCheckbox = ["osusume-user-timeline"]
 let invisibleCheckboxLabel = {"osusume-user-timeline":"タイムライン上のおすすめユーザー"}
 
-const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false},"CSS":""}`
+const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false},"otherBoolSetting":{"bottomScroll":false},"CSS":""}`
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? defaultPref)
 // 対象とするノードを取得
 const target = document.getElementsByTagName("body").item(0);
@@ -45,6 +46,7 @@ const observer = new MutationObserver((mutations) => {
                 while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
                     bar_base = bar_base.parentElement
                 }
+                if(TUICPref.otherBoolSetting.bottomScroll) bar_base.classList.add(TUICScrollBottom)
                 let bar_item = {}
                 for (const elem_item of bar_base.childNodes) {
                     for (const sel in TUIC_input_checkbox_selector) {
@@ -254,6 +256,7 @@ if (document.getElementById("react-root") != null) {
 
         localStorage.setItem("TUIC",JSON.stringify(TUICPref))
     }
+    if(TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
     observer.observe(target, config);
 
     const bodyObserver = new MutationObserver(run_first)
@@ -386,6 +389,12 @@ ${settingInvisibleButton()}
             </div>
         </div>
         <br>
+        <div>
+        <input id="bottomScroll" ${TUICPref.otherBoolSetting["bottomScroll"] ? "checked" : ""} type="checkbox" class="otherBoolSetting"></input>
+            <label class="TUIC_setting_text" for="bottomScroll">ツイート下ボタンにスクロールバーを表示</label>
+        </div>
+        <br>
+        <br>
 
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">非表示設定</h2><br>
 ${TUICInvisibleCheckBox}
@@ -419,6 +428,10 @@ ${TUICInvisibleCheckBox}
     for(let elem of document.querySelectorAll(".TUICInvisibleItems")){
         elem.addEventListener('click',
         settingInvisibleItems);
+    }
+    for(let elem of document.querySelectorAll(".otherBoolSetting")){
+        elem.addEventListener('click',
+        settingOtherBoolSetting);
     }
     for(let elem of document.querySelector("#TUIC_visible").childNodes){
         if(elem.tagName != "OPTION") elem.remove()
@@ -507,6 +520,14 @@ TUICDidArticle += "_"
 TUICCss()
 }
 
+function settingOtherBoolSetting(event){
+    TUICPref.otherBoolSetting[event.target.id] = event.target.checked
+    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    TUICIvisibleClass += "_"
+    TUICDidArticle += "_"
+    TUICCss()
+    }
+
 function rgb2hex(rgb) {
     return "#" + rgb.map(function (value) {
         return ("0" + value.toString(16)).slice(-2);
@@ -594,6 +615,7 @@ function visibleButtonFunc(){
     localStorage.setItem("TUIC",JSON.stringify(TUICPref))
     TUICIvisibleClass += "_"
     TUICDidArticle += "_"
+    TUICScrollBottom += "_"
     TUICCss()
 }
 
@@ -874,6 +896,17 @@ function TUICCss(){
 textarea#css_textarea {
     width: calc(100% - 10px) !important;
     height: 300px;
+}
+
+.${TUICScrollBottom} {
+    overflow-x:auto;
+overflow-y:clip;
+scrollbar-width:thin;
+padding-right:8px
+}
+
+.${TUICScrollBottom}::-webkit-scrollbar {
+height:8px
 }
 `;
 }
