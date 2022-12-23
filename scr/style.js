@@ -398,16 +398,17 @@ ${settingInvisibleButton()}
 
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">非表示設定</h2><br>
 ${TUICInvisibleCheckBox}
-
+<br>
+<br>
+<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
+        <br><br>
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">カスタムCSS</h2><br>
         <form>
             <textarea id="css_textarea"></textarea>
         </form>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">保存</button>
-        <br><br>
-    </div>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">カスタムCSSを保存</button>
 
-    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
+    </div>
 </div>
 
 `,"text/html").querySelector("#TUIC_setting")
@@ -903,8 +904,8 @@ textarea#css_textarea {
 scrollbar-width:thin;
 padding-right:8px;
 padding-left:8px;
-padding-bottom:8px;
-margin-bottom:-8px;
+padding-bottom:16px;
+margin-bottom:-16px;
 }
 
 .${TUICScrollBottom}::-webkit-scrollbar {
