@@ -335,7 +335,7 @@ function display_setting(rootElement = "") {
 <input type="color" id="${TUIC_input_color_title[i] + "-color"}" value="${TUICColor3}" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color" class="TUICButtonColor"></input>
 <input type="checkbox" id="${TUIC_input_color_title[i] + "-color-check"}" ${TUIC_color3[3] == "0" ? "checked" : ""} TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color" class="TUICButtonColorCheck">
 <label for="${TUIC_input_color_title[i] + "-color-check"}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default" TUICDfaultColor TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color">デフォルトに戻す</button>
+<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color">デフォルトに戻す</button>
 <br>
 <br>
 `
@@ -485,7 +485,10 @@ function display_run() {
 
 function ButtonColor(event){
     let colorValue = hex2rgb(event.target.value)
-    if(TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown" == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
+    console.log(TUICPref)
+    console.log(event.target.getAttribute("TUICColor"))
+    console.log((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown")
+    if((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
 
     localStorage.setItem("TUIC",JSON.stringify(TUICPref))
@@ -494,7 +497,7 @@ function ButtonColor(event){
 
 function ButtonColorCheck(event){
     let colorValue = hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
-    if(TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown" == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
+    if((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
     localStorage.setItem("TUIC",JSON.stringify(TUICPref))
     TUICCustomCSS()
