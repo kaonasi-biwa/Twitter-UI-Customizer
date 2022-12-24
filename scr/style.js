@@ -189,8 +189,12 @@ const observer = new MutationObserver((mutations) => {
     if (window.location.pathname == "/tuic/safemode") {
 
 
-    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir]') != null && window.location.pathname == "/settings/display") {
-        display_run()
+    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display") ) {
+        console.log("aaa")
+        display_setting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
+    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display") ) {
+        console.log("aaa")
+        display_setting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
     }
     window.clearTimeout(timeout)
     observer.observe(target, config);
@@ -295,7 +299,7 @@ function run_first() {
                 document.querySelector(".twitter_ui_customizer_css").remove()
             }
 
-            display_setting('#safemode')
+            display_setting(document.querySelector('#safemode'))
         }
     }
 
@@ -304,7 +308,7 @@ function run_first() {
 
 
 function display_setting(rootElement = "") {
-    let TWITTER_setting_back = document.querySelector(rootElement);
+    let TWITTER_setting_back = rootElement;
 
     let TUICColors = ""
     for (var i = 0; i < TUIC_input_color_title.length; i++) {
@@ -357,6 +361,7 @@ let TUICPrefHTML = TUICParser.parseFromString(`
         <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">Twitter UI Customizer</span>
             </h2>
+${window.location.pathname == "/tuic/safemode" ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; 戻る</a>` : ""}
     </div>
 
     <div>
@@ -471,23 +476,8 @@ function settingInvisibleButton(){
     return TUICInvisibleButtons
 }
 
-function display_run() {
-    if (document.querySelector('section[aria-labelledby="detail-header"] > .r-1h0z5md > div[dir]') == null) {
-        window.setTimeout(display_run, 10000)
-    } else {
-        display_setting('section[aria-labelledby="detail-header"] > .r-1h0z5md')
-
-    }
-
-
-
-}
-
 function ButtonColor(event){
     let colorValue = hex2rgb(event.target.value)
-    console.log(TUICPref)
-    console.log(event.target.getAttribute("TUICColor"))
-    console.log((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown")
     if((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
 
@@ -506,7 +496,6 @@ function ButtonColorCheck(event){
 function ButtonColorDefault(event){
 
 let colorIndex = 3 * TUIC_input_color_title.indexOf(event.target.getAttribute("TUICColor")) + TUICColorTypeList.indexOf(event.target.getAttribute("TUICColorType"))
-console.log(colorIndex)
 let TUIC_color = (color[colorIndex]).replace("rgba(", "").replace(")", "").split(",")
 let TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
@@ -918,6 +907,7 @@ margin-bottom:-16px;
 height:8px
 }
 `;
+
 }
 
 function TUICCustomCSS(){
