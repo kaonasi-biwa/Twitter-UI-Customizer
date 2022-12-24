@@ -485,15 +485,16 @@ function display_run() {
 
 function ButtonColor(event){
     let colorValue = hex2rgb(event.target.value)
-    if(TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown" != "unknown") TUICPref[event.target.getAttribute("TUICColor")] = {}
+    if(TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown" == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
+
     localStorage.setItem("TUIC",JSON.stringify(TUICPref))
     TUICCustomCSS()
 }
 
 function ButtonColorCheck(event){
     let colorValue = hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
-    if(TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown" != "unknown") TUICPref[event.target.getAttribute("TUICColor")] = {}
+    if(TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown" == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
     localStorage.setItem("TUIC",JSON.stringify(TUICPref))
     TUICCustomCSS()
@@ -903,7 +904,9 @@ textarea#css_textarea {
     overflow-x:auto;
 scrollbar-width:thin;
 padding-right:8px;
+margin-right:-8px;
 padding-left:8px;
+margin-left:-8px;
 padding-bottom:16px;
 margin-bottom:-16px;
 }
