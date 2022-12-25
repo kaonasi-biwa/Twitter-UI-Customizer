@@ -3,17 +3,25 @@
 <head>
     <title>設定及び操作方法(Twitter UI Customizer)</title>
     <meta charset="utf-8">
-
+<script src="./options.js"></script>
 </head>
 <body>
     <h1>Twitter UI Customizerの設定</h1>
-    <p>色の設定はこちらからできます</p>
+    <h2>Twitterの設定:</h2>
     <a href="https://twitter.com/settings/display" target="_blank" rel="noopener noreferrer">(Twitterの設定→アクセシビリティ、表示、言語→表示)</a>
+    <h2>アップデート通知の設定:</h2>
+    <div>
+        <input type="checkbox" id="runBrowser"></input>
+        <label for="runBrowser">ブラウザを起動したときにアップデート通知する</label><br>
+    <input type="checkbox" id="iconClick"></input>
+    <label for="iconClick">アイコンをクリックしたときにアップデート通知する</label><br>
+    <input type="checkbox" id="openTwitter"></input>
+    <label for="openTwitter">Twitterを開いたときにアップデート通知する</label>
+</div>
     <h1>Twitter UI Customizerの操作方法</h1>
-    <p>色を変更するときは、上のページから色を選んで保存ボタンを押します。</p>
+    <p>上のURL先から設定を変えます</p>
+    <p>再起動は必要ありません</p>
     <p>デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。</p>
     <p>※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。</p>
-    <p>色を変える必要がないなら導入するのみで大丈夫です。</p>
-    <p>うまく色が変わらなければ再読込してください</p>
 </body>
 </html>

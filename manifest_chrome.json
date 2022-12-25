@@ -1,6 +1,6 @@
 {
     "name": "Twitter UI Customizer",
-    "version": "2.5.7",
+    "version": "2.5.8",
     "manifest_version": 3,
     "description": "TwitterのUIのカスタマイズ性を向上させます！",
     "icons": {
@@ -19,11 +19,13 @@
         }
     ],
     "options_ui": {
-        "page":"scr/options.html"
+        "page":"scr/options.html",
+        "browser_style":true
     },
     "permissions": [
         "tabs",
-        "notifications"
+        "notifications",
+        "storage"
     ],
     "action": {
         "default_icon": {

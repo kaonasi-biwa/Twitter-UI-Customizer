@@ -1,4 +1,5 @@
-updateCheck()
+let updateID = ""
+update1("runBrowser")
 
 async function updateCheck(){
   let res = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt")
@@ -20,5 +21,14 @@ async function updateCheck(){
 
 }
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-  updateCheck()
+  update1(message.updateType)
 });
+
+function update1(updateType){
+  updateID = updateType
+  chrome.storage.sync.get("TUIC",update2)
+}
+function update2(settingT){
+  setting = settingT.TUIC ?? {iconClick:true,runBrowser:true,openTwitter:true}
+  if(setting[updateID]) updateCheck()
+}
