@@ -1,5 +1,5 @@
 window.onload = function(){
-    chrome.runtime.sendMessage({popupOpen: true});
+    chrome.runtime.sendMessage({updateType:"iconClick"});
     document.getElementById("link1").onclick = function(){
         chrome.tabs.create({"url":"https://twitter.com/settings/display"})
     }
