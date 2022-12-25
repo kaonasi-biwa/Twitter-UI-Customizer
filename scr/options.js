@@ -13,7 +13,6 @@ window.onload= function(){
     for(const i of settingList){
 
       if(setting[i]){
-        console.log(setting[i])
         document.getElementById(i).checked = true
     }
       document.getElementById(i).addEventListener('change',
