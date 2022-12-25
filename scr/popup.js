@@ -6,5 +6,8 @@ window.onload = function(){
     document.getElementById("link2").onclick = function(){
         chrome.tabs.create({"url":"https://twitter.com/kaonasi_biwa_ar"})
     }
+    document.getElementById("link3").onclick = function(){
+        chrome.runtime.openOptionsPage()
+    }
 }
 
