@@ -309,46 +309,17 @@ function run_first() {
 
 
 function display_setting(rootElement = "") {
-  let TWITTER_setting_back = rootElement;
+    let TWITTER_setting_back = rootElement;
 
-  let TUICColors = "";
-  for (var i = 0; i < TUIC_input_color_title.length; i++) {
-    let TUIC_color = (
-      TUICPref.buttonColor[TUIC_input_color_title[i]]?.background ??
-      color[i * 3]
-    )
-      .replace("rgba(", "")
-      .replace(")", "")
-      .split(",");
-    let TUICColor1 = rgb2hex([
-      Number(TUIC_color[0]),
-      Number(TUIC_color[1]),
-      Number(TUIC_color[2]),
-    ]);
-    let TUIC_color2 = (
-      TUICPref.buttonColor[TUIC_input_color_title[i]]?.border ??
-      color[i * 3 + 1]
-    )
-      .replace("rgba(", "")
-      .replace(")", "")
-      .split(",");
-    let TUICColor2 = rgb2hex([
-      Number(TUIC_color2[0]),
-      Number(TUIC_color2[1]),
-      Number(TUIC_color2[2]),
-    ]);
-    let TUIC_color3 = (
-      TUICPref.buttonColor[TUIC_input_color_title[i]]?.color ?? color[i * 3 + 2]
-    )
-      .replace("rgba(", "")
-      .replace(")", "")
-      .split(",");
-    let TUICColor3 = rgb2hex([
-      Number(TUIC_color3[0]),
-      Number(TUIC_color3[1]),
-      Number(TUIC_color3[2]),
-    ]);
-    TUICColors += `
+    let TUICColors = ""
+    for (var i = 0; i < TUIC_input_color_title.length; i++) {
+        let TUIC_color = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.background ?? color[i * 3]).replace("rgba(", "").replace(")", "").split(",")
+        let TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+        let TUIC_color2 = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.border ?? color[i * 3 + 1]).replace("rgba(", "").replace(")", "").split(",")
+        let TUICColor2 = rgb2hex([Number(TUIC_color2[0]), Number(TUIC_color2[1]), Number(TUIC_color2[2])])
+        let TUIC_color3 = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.color ?? color[i * 3 + 2]).replace("rgba(", "").replace(")", "").split(",")
+        let TUICColor3 = rgb2hex([Number(TUIC_color3[0]), Number(TUIC_color3[1]), Number(TUIC_color3[2])])
+        TUICColors += `
 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${
       input_name[i]
     }</h2>
