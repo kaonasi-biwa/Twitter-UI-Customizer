@@ -185,9 +185,11 @@ const observer = new MutationObserver((mutations) => {
             })
         }
     }
-if(document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1){
-    setTwitterClientInfo();
-}
+    if(document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1){
+        setTwitterClientInfo();
+    }else if(document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo){
+        document.getElementById("client-info").remove()
+    }
 
     if (document.querySelector('style.twitter_ui_customizer') == null) {
 
@@ -1179,6 +1181,12 @@ margin-bottom:-16px;
 height:8px
 }
 `;
+
+if(document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1){
+    setTwitterClientInfo();
+}else if(document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo){
+    document.getElementById("client-info").remove()
+}
 }
 
 function TUICCustomCSS() {
