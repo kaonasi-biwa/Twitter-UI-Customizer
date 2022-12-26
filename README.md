@@ -6,3 +6,4 @@ Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui
 <br>
 ## Special Thanks (使い方あってるか知らんけど)
 - @GrapeApple0 (クライアント名表示)
+- @irhdevel (すばらしきデザイン)
