@@ -30,9 +30,7 @@ var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
 let checkbox = ["osusume-user-timeline", "client-info"]
 let invisibleCheckbox = ["osusume-user-timeline"]
 let invisibleCheckboxLabel = { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
-let clientInfoCheckbox = "client-info";
-let clientInfoCheckboxLabel = "クライアント情報を表示"
-const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false},"clientInfo":true,"otherBoolSetting":{"bottomScroll":false},"CSS":""}`
+const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false,"otherBoolSetting":true},"otherBoolSetting":{"bottomScroll":false},"CSS":""}`
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? defaultPref)
 // 対象とするノードを取得
 const target = document.getElementsByTagName("body").item(0);
@@ -187,6 +185,10 @@ const observer = new MutationObserver((mutations) => {
             })
         }
     }
+if(document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1){
+    setTwitterClientInfo();
+}
+
     if (document.querySelector('style.twitter_ui_customizer') == null) {
 
         run_first()
@@ -203,13 +205,7 @@ const observer = new MutationObserver((mutations) => {
     observer.observe(target, config);
 });
 
-setTimeout(() => { setTwitterClientInfo(); }, 5000);
 
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        setTwitterClientInfo();
-    }
-);
 
 // オブザーバの設定
 const config = {
@@ -220,11 +216,12 @@ const config = {
 // 対象ノードとオブザーバの設定を渡す
 if (document.getElementById("react-root") != null) {
     chrome.runtime.sendMessage({ updateType: "openTwitter" });
+
+    /*旧バージョンからのアップデート*/
     if ((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown") {
 
         TUICPref.CSS = localStorage.getItem('CSS');
         TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1";
-        TUICPref.clientInfo = (localStorage.getItem('client-info') ?? "0") == "1";
         TUICPref.visibleButtons = JSON.parse(localStorage.getItem('visible-button'))
         for (let i of TUIC_input_color_title) {
             let a = localStorage.getItem(`${i}-background`) ?? "unknown"
@@ -269,11 +266,11 @@ if (document.getElementById("react-root") != null) {
         localStorage.removeItem('tweet_analytics')
         localStorage.removeItem('visible-button')
         localStorage.removeItem('osusume-user-timeline')
-        localStorage.removeItem('client-info')
         localStorage.removeItem('CSS')
 
         localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     }
+    /*Fin 旧バージョンからのアップデート*/
     if (TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
     observer.observe(target, config);
 
@@ -369,13 +366,6 @@ function display_setting(rootElement = "") {
 </div>
 `
     }
-    let TUICClientInfoCheckBox = `
-    <div>
-        <input id=${i} ${TUICPref.clientInfo ? "checked" : ""} type="checkbox" class="TUICClientInfoItems"></input>
-        <label class="TUIC_setting_text" for="${i}">${clientInfoCheckboxLabel}</label>
-    </div>
-    `;
-
     let TUICPrefHTML = TUICParser.parseFromString(`
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0">
     <div style="-webkit-line-clamp: 3;" class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
@@ -425,8 +415,13 @@ ${settingInvisibleButton()}
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">非表示設定</h2><br>
 ${TUICInvisibleCheckBox}
 <br>
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">クライアント情報</h2><br>
-${TUICClientInfoCheckBox}
+
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">クライアント情報 (廃止される可能性があります)</h2><br>
+<div>
+<input id="clientInfo" ${TUICPref.otherBoolSetting.clientInfo ? "checked" : ""} type="checkbox" class=" otherBoolSetting"></input>
+<label class="TUIC_setting_text" for="clientInfo">クライアント情報を表示</label>
+</div>
+
 <br>
 <br>
 <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
@@ -458,10 +453,6 @@ ${TUICClientInfoCheckBox}
     for (let elem of document.querySelectorAll(".TUICInvisibleItems")) {
         elem.addEventListener('click',
             settingInvisibleItems);
-    }
-    for (let elem of document.querySelectorAll(".TUICClientInfoItems")) {
-        elem.addEventListener('click',
-            settingClientInfoItems);
     }
     for (let elem of document.querySelectorAll(".otherBoolSetting")) {
         elem.addEventListener('click',
@@ -542,13 +533,6 @@ function settingInvisibleItems(event) {
     TUICCss()
 }
 
-function settingClientInfoItems(event) {
-    TUICPref.clientInfo = event.target.checked
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICIvisibleClass += "_"
-    TUICDidArticle += "_"
-    TUICCss()
-}
 
 function settingOtherBoolSetting(event) {
     TUICPref.otherBoolSetting[event.target.id] = event.target.checked
@@ -558,34 +542,26 @@ function settingOtherBoolSetting(event) {
     TUICCss()
 }
 
-//クライアント情報の取得と適用
-function setTwitterClientInfo() {
-    var parser = new URL(location.href);
-    if (TUICPref.clientInfo === null) {
-        TUICPref.clientInfo = true;
-    }
-    if (!isNaN(parser.pathname.split('/')[3])) {
-        if (TUICPref.clientInfo) {
+//クライアント情報の取得と適用/*
+async function setTwitterClientInfo() {
             chrome.runtime.sendMessage(
                 {
-                    endpoint: 'https://mico.re/api/getclient.php?id=' + parser.pathname.split('/')[3]
+                    endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
                 },
                 (response) => {
-                    if (document.getElementById("client-info") != null) {
-                        document.getElementById("client-info").remove();
+                    if(document.getElementById("client-info") == null){
+                        json = response;
+                        var clientstr = json.source.replace("</a>", "").split(">")[1];
+                        var client = document.createElement("a");
+                        client.style.marginLeft = "2px";
+                        client.id = "client-info";
+                        client.appendChild(document.createTextNode(clientstr));
+                        client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
+                        document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2")[0].appendChild(client);
                     }
-                    json = response;
-                    var clientstr = json.source.replace("</a>", "").split(">")[1];
-                    var client = document.createElement("a");
-                    client.style.marginLeft = "2px";
-                    client.id = "client-info";
-                    client.appendChild(document.createTextNode(clientstr));
-                    client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
-                    document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2")[0].appendChild(client);
+
                 }
             );
-        }
-    }
 }
 
 function rgb2hex(rgb) {

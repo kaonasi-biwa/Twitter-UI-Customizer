@@ -18,44 +18,40 @@ async function updateCheck() {
       chrome.tabs.create({ url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases" });
     });
   }
-
 }
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.endpoint != "") {
-    fetch(message.endpoint, {
-      'method': 'GET'
-    }).then((response) => {
-      if (response && response.ok) {
-        response.json().then((json) => {
-          sendResponse(json);
-        });
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
-  } else {
+  if ((message.endpoint ?? "") != "") {
+    deviceMessage(message.endpoint,sendResponse)
+  } else if((message.updateType ?? "unknwon") != "unknown") {
     update1(message.updateType);
   }
   return true;
 });
 
-chrome.tabs.onUpdated.addListener(
-  function (tabId, changeInfo, tab) {
-    if (changeInfo.url) {
-      chrome.tabs.sendMessage(tabId, {
-        type: 'update',
-        url: changeInfo.url
-      })
-    }
-  }
-);
-
-function update1(updateType) {
+async function update1(updateType) {
   updateID = updateType
   chrome.storage.sync.get("TUIC", update2)
 }
 
 function update2(settingT) {
   setting = settingT.TUIC ?? { iconClick: true, runBrowser: true, openTwitter: true }
-  if (setting[updateID]) updateCheck()
+  if (setting[updateID]){
+    updateCheck()
+  }else{
+  }
+}
+
+async function deviceMessage(url,res){
+  console.log(url)
+  fetch(url, {
+    'method': 'GET'
+  }).then((response) => {
+    if (response && response.ok) {
+      response.json().then((json) => {
+        res(json);
+      });
+    }
+  }).catch((error) => {
+    console.log(error);
+  });
 }
