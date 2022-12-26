@@ -6,7 +6,7 @@ let TUICIvisibleClass = "TUIC_DISPNONE"
 let TUICDidArticle = "TUIC_CHECKED_ARTICLE"
 let TUICScrollBottom = "TUIC_SCROLL_BOTTOM"
 
-let TUICColorTypeList = ["background","border","color"]
+let TUICColorTypeList = ["background", "border", "color"]
 let TUIC_input_color_title = ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"]
 let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン"]
 let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"]
@@ -16,8 +16,8 @@ let TUIC_input_checkbox_selector = {
     "boolkmark_tweetdeck": "[aria-label$=\"ブックマーク\"],[aria-label$=\"Amlíne: Leabharmharcanna\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"Cronologia: Segnalibri\"],[aria-label$=\"Timeline: Markah\"],[aria-label$=\"Стрічка: Закладки\"],[aria-label$=\"ٹائم لائن: بُک مارکس\"],[aria-label$=\"Tijdlijn: Bladwijzers\"],[aria-label$=\"Cronologia: Preferits\"],[aria-label$=\"Cronoloxía: Marcadores\"],[aria-label$=\"ಕಾಲರೇಖೆ: ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು\"],[aria-label$=\"Χρονολόγιο: Σελιδοδείκτες\"],[aria-label$=\"સમય અવધિ: બુકમાર્ક્સ\"],[aria-label$=\"Vremenska crta: Knjižne oznake\"],[aria-label$=\"Tidslinje: Bokmärken\"],[aria-label$=\"Cronología: Guardados\"],[aria-label$=\"Domovská časová os\"],[aria-label$=\"Временска трака: Обележивачи\"],[aria-label$=\"ลำดับเหตุการณ์: บุ๊คมาร์ก\"],[aria-label$=\"முகப்புக் காலவரிசை\"],[aria-label$=\"Časová osa: Záložky\"],[aria-label$=\"Tidslinje: Bogmærker\"],[aria-label$=\"Timeline: Lesezeichen\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Tidslinje: Bokmerker\"],[aria-label$=\"Denbora lerroa: Laster-markak\"],[aria-label$=\"Kezdőlap idővonala\"],[aria-label$=\"होम टाइमलाइन\"],[aria-label$=\"Timeline: Mga Bookmark\"],[aria-label$=\"Etusivun aikajana\"],[aria-label$=\"Fil d'actualités : Signets\"],[aria-label$=\"Хроника: Отметки\"],[aria-label$=\"Dòng thời gian: Dấu trang\"],[aria-label$=\"ציר הזמן של דף הבית\"],[aria-label$=\"خط زمان: نشانک‌ها\"],[aria-label$=\"সময়রেখা: বুকমার্কগুলি\"],[aria-label$=\"Oś czasu: Zakładki\"],[aria-label$=\"Timeline: Itens salvos\"],[aria-label$=\"टाइमलाइन: बुकमार्क्स\"],[aria-label$=\"Garis masa: Bookmark\"],[aria-label$=\"Cronologia principală\"],[aria-label$=\"Лента: Закладки\"],[aria-label$=\"时间线：书签\"],[aria-label$=\"時間軸：書籤\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"타임라인: 북마크\"]",
     "share-button": "[aria-label=\"ツイートを共有\"],[aria-label=\"Roinn an Tweet\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"Share Tweet\"],[aria-label=\"Condividi Tweet\"],[aria-label=\"Sebarkan Tweet\"],[aria-label=\"Поділитися твітом\"],[aria-label=\"ٹویٹ شیئر کریں\"],[aria-label=\"Tweet delen\"],[aria-label=\"Comparteix el tuit\"],[aria-label=\"Compartir chío\"],[aria-label=\"ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ\"],[aria-label=\"Κοινοποίηση Tweet\"],[aria-label=\"ટ્વીટ શેર કરો\"],[aria-label=\"Podijelite Tweet\"],[aria-label=\"Dela tweeten\"],[aria-label=\"Compartir Tweet\"],[aria-label=\"Zdieľať Tweet\"],[aria-label=\"Подели твит\"],[aria-label=\"แบ่งปันทวีต\"],[aria-label=\"கீச்சைப் பகிர்\"],[aria-label=\"Sdílet Tweet\"],[aria-label=\"Del tweetet\"],[aria-label=\"Tweet teilen\"],[aria-label=\"Tweet paylaş\"],[aria-label=\"Del tweeten\"],[aria-label=\"Partekatu txioa\"],[aria-label=\"Tweet megosztása\"],[aria-label=\"ट्वीट शेयर करें\"],[aria-label=\"Ibahagi ang Tweet\"],[aria-label=\"Jaa twiitti\"],[aria-label=\"Partager le Tweet\"],[aria-label=\"Споделяне на туита\"],[aria-label=\"Chia sẻ Tweet\"],[aria-label=\"שתף את הציוץ\"],[aria-label=\"هم‌رسانی توییت\"],[aria-label=\"টুইট শেয়ার করুন\"],[aria-label=\"Udostępnij Tweeta\"],[aria-label=\"Compartilhar Tweet\"],[aria-label=\"ट्विट शेअर करा\"],[aria-label=\"Kongsi Tweet\"],[aria-label=\"Distribuie Tweetul\"],[aria-label=\"Поделиться твитом\"],[aria-label=\"分享推文\"],[aria-label=\"分享推文\"],[aria-label=\"트윗 공유하기\"]",
     "tweet_analytics": "[aria-label*=\"ツイートアナリティクスを表示\"],[aria-label*=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Visualizza statistiche Tweet\"],[aria-label*=\"Lihat analitik Tweet\"],[aria-label*=\"Переглянути аналітику твіта\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Tweet-analyses bekijken\"],[aria-label*=\"Mostra les analítiques del tuit\"],[aria-label*=\"Ver análises do chío\"],[aria-label*=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label*=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label*=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label*=\"Prikaži analitičke podatke o tweetovima\"],[aria-label*=\"Visa Tweet-statistik\"],[aria-label*=\"Ver estadísticas del Tweet\"],[aria-label*=\"Zobraziť štatistiku Tweetu\"],[aria-label*=\"Погледај аналитику твита\"],[aria-label*=\"ดูการวิเคราะห์ทวีต\"],[aria-label*=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label*=\"Zobrazit analýzu tweetů\"],[aria-label*=\"Vis Tweet-statistik\"],[aria-label*=\"Tweet-Statistiken anzeigen\"],[aria-label*=\"Tweet istatistiklerini görüntüle\"],[aria-label*=\"Se tweetstatistikk\"],[aria-label*=\"Ikusi txioen analisiak\"],[aria-label*=\"Tweet-elemzések megtekintése\"],[aria-label*=\"ट्वीट विश्लेषण देखें\"],[aria-label*=\"Tingnan ang analytics ng Tweet\"],[aria-label*=\"Näytä twiitin tilastot\"],[aria-label*=\"Voir les statistiques des Tweets\"],[aria-label*=\"Преглед на статистиката за туита\"],[aria-label*=\"Xem phân tích Tweet\"],[aria-label*=\"הצג את ניתוח הציוצים\"],[aria-label*=\"مشاهده اطلاعات آماری توییت\"],[aria-label*=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label*=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label*=\"Ver estatísticas do Tweet\"],[aria-label*=\"ट्विटची विश्लेषणे पहा\"],[aria-label*=\"Lihat analitis Tweet\"],[aria-label*=\"Vezi analiza Tweet\"],[aria-label*=\"Смотреть аналитику твита\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"트윗 애널리틱스 보기\"]",
-    "boolkmark":`[aria-label="ブックマークに保存"]`,
-    "url-copy":`[aria-label="ツイートのリンクをコピー"]`,
+    "boolkmark": `[aria-label="ブックマークに保存"]`,
+    "url-copy": `[aria-label="ツイートのリンクをコピー"]`,
 }
 let TUIC_input_checkbox_selector_three = ["share-button"]
 var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
@@ -27,11 +27,12 @@ var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
     "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
     "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",]
-let checkbox = ["osusume-user-timeline"]
+let checkbox = ["osusume-user-timeline", "client-info"]
 let invisibleCheckbox = ["osusume-user-timeline"]
-let invisibleCheckboxLabel = {"osusume-user-timeline":"タイムライン上のおすすめユーザー"}
-
-const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false},"otherBoolSetting":{"bottomScroll":false},"CSS":""}`
+let invisibleCheckboxLabel = { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
+let clientInfoCheckbox = "client-info";
+let clientInfoCheckboxLabel = "クライアント情報を表示"
+const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false},"clientInfo":true,"otherBoolSetting":{"bottomScroll":false},"CSS":""}`
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? defaultPref)
 // 対象とするノードを取得
 const target = document.getElementsByTagName("body").item(0);
@@ -48,7 +49,7 @@ const observer = new MutationObserver((mutations) => {
                 while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
                     bar_base = bar_base.parentElement
                 }
-                if(TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICScrollBottom)
+                if (TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICScrollBottom)
                 let bar_item = {}
                 for (const elem_item of bar_base.childNodes) {
                     for (const sel in TUIC_input_checkbox_selector) {
@@ -65,7 +66,7 @@ const observer = new MutationObserver((mutations) => {
                     if (i in bar_item) {
                         div = bar_item[i]
                     } else if (i == "boolkmark") {
-                        div =TUICParser.parseFromString(`
+                        div = TUICParser.parseFromString(`
                         <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                               <div
@@ -98,7 +99,7 @@ const observer = new MutationObserver((mutations) => {
                               </div>
                             </div>
                         </div>
-                          `,"text/html").querySelector(".css-1dbjc4n")
+                          `, "text/html").querySelector(".css-1dbjc4n")
                         div.childNodes[1].addEventListener("click", bookmark)
                         bar_base.appendChild(div)
 
@@ -136,7 +137,7 @@ const observer = new MutationObserver((mutations) => {
     </div>
   </div>
   </div>
-                      `,"text/html").querySelector(".css-1dbjc4n")
+                      `, "text/html").querySelector(".css-1dbjc4n")
                         div.childNodes[1].addEventListener("click", url_copy)
                         bar_base.appendChild(div)
 
@@ -165,6 +166,7 @@ const observer = new MutationObserver((mutations) => {
             elem.setAttribute("TUIC_ARTICLE", TUICDidArticle)
         })
     }
+
     if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
         let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="${TUICDidArticle}"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
         if (cells.length != 0) {
@@ -192,14 +194,22 @@ const observer = new MutationObserver((mutations) => {
     if (window.location.pathname == "/tuic/safemode") {
 
 
-    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display") ) {
+    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display")) {
         display_setting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
-    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display") ) {
+    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display")) {
         display_setting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
     }
     window.clearTimeout(timeout)
     observer.observe(target, config);
 });
+
+setTimeout(() => { setTwitterClientInfo(); }, 5000);
+
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        setTwitterClientInfo();
+    }
+);
 
 // オブザーバの設定
 const config = {
@@ -209,15 +219,16 @@ const config = {
 
 // 対象ノードとオブザーバの設定を渡す
 if (document.getElementById("react-root") != null) {
-    chrome.runtime.sendMessage({updateType:"openTwitter"});
-    if((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown"){
+    chrome.runtime.sendMessage({ updateType: "openTwitter" });
+    if ((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown") {
 
         TUICPref.CSS = localStorage.getItem('CSS');
-        TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1"
+        TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1";
+        TUICPref.clientInfo = (localStorage.getItem('client-info') ?? "0") == "1";
         TUICPref.visibleButtons = JSON.parse(localStorage.getItem('visible-button'))
-        for(let i of TUIC_input_color_title){
+        for (let i of TUIC_input_color_title) {
             let a = localStorage.getItem(`${i}-background`) ?? "unknown"
-            if(a != "unknown"){
+            if (a != "unknown") {
                 TUICPref.buttonColor[i] = {}
                 TUICPref.buttonColor[i].background = a
                 TUICPref.buttonColor[i].border = localStorage.getItem(`${i}-border`)
@@ -258,11 +269,12 @@ if (document.getElementById("react-root") != null) {
         localStorage.removeItem('tweet_analytics')
         localStorage.removeItem('visible-button')
         localStorage.removeItem('osusume-user-timeline')
+        localStorage.removeItem('client-info')
         localStorage.removeItem('CSS')
 
-        localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+        localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     }
-    if(TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
+    if (TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
     observer.observe(target, config);
 
     const bodyObserver = new MutationObserver(run_first)
@@ -357,7 +369,14 @@ function display_setting(rootElement = "") {
 </div>
 `
     }
-let TUICPrefHTML = TUICParser.parseFromString(`
+    let TUICClientInfoCheckBox = `
+    <div>
+        <input id=${i} ${TUICPref.clientInfo ? "checked" : ""} type="checkbox" class="TUICClientInfoItems"></input>
+        <label class="TUIC_setting_text" for="${i}">${clientInfoCheckboxLabel}</label>
+    </div>
+    `;
+
+    let TUICPrefHTML = TUICParser.parseFromString(`
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0">
     <div style="-webkit-line-clamp: 3;" class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
         <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
@@ -406,6 +425,9 @@ ${settingInvisibleButton()}
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">非表示設定</h2><br>
 ${TUICInvisibleCheckBox}
 <br>
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">クライアント情報</h2><br>
+${TUICClientInfoCheckBox}
+<br>
 <br>
 <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
         <br><br>
@@ -418,43 +440,47 @@ ${TUICInvisibleCheckBox}
     </div>
 </div>
 
-`,"text/html").querySelector("#TUIC_setting")
+`, "text/html").querySelector("#TUIC_setting")
 
     TWITTER_setting_back.appendChild(TUICPrefHTML);
-    for(let elem of document.querySelectorAll(".TUICButtonColor")){
+    for (let elem of document.querySelectorAll(".TUICButtonColor")) {
         elem.addEventListener('change',
-        ButtonColor);
+            ButtonColor);
     }
-    for(let elem of document.querySelectorAll(".TUICButtonColorCheck")){
+    for (let elem of document.querySelectorAll(".TUICButtonColorCheck")) {
         elem.addEventListener('change',
-        ButtonColorCheck);
+            ButtonColorCheck);
     }
-    for(let elem of document.querySelectorAll(".TUICDfaultColor")){
+    for (let elem of document.querySelectorAll(".TUICDfaultColor")) {
         elem.addEventListener('click',
-        ButtonColorDefault);
+            ButtonColorDefault);
     }
-    for(let elem of document.querySelectorAll(".TUICInvisibleItems")){
+    for (let elem of document.querySelectorAll(".TUICInvisibleItems")) {
         elem.addEventListener('click',
-        settingInvisibleItems);
+            settingInvisibleItems);
     }
-    for(let elem of document.querySelectorAll(".otherBoolSetting")){
+    for (let elem of document.querySelectorAll(".TUICClientInfoItems")) {
         elem.addEventListener('click',
-        settingOtherBoolSetting);
+            settingClientInfoItems);
     }
-    for(let elem of document.querySelector("#TUIC_visible").childNodes){
-        if(elem.tagName != "OPTION") elem.remove()
+    for (let elem of document.querySelectorAll(".otherBoolSetting")) {
+        elem.addEventListener('click',
+            settingOtherBoolSetting);
     }
-    for(let elem of document.querySelector("#TUIC_invisible").childNodes){
-        if(elem.tagName != "OPTION") elem.remove()
+    for (let elem of document.querySelector("#TUIC_visible").childNodes) {
+        if (elem.tagName != "OPTION") elem.remove()
+    }
+    for (let elem of document.querySelector("#TUIC_invisible").childNodes) {
+        if (elem.tagName != "OPTION") elem.remove()
     }
 
-    document.querySelector("#css_textarea").value =  TUICPref['CSS']
+    document.querySelector("#css_textarea").value = TUICPref['CSS']
     document.getElementById('save').addEventListener('click',
         save_data);
     document.getElementById('default_set').addEventListener('click',
         default_set);
 
-        document.getElementById('todefault').addEventListener('click', todefault);
+    document.getElementById('todefault').addEventListener('click', todefault);
     document.getElementById('toleft').addEventListener('click', toleft);
 
     document.getElementById('toright').addEventListener('click', toright);
@@ -463,14 +489,14 @@ ${TUICInvisibleCheckBox}
     document.getElementById('todown').addEventListener('click', todown);
 }
 
-function settingVisibleButton(){
+function settingVisibleButton() {
     let TUICVisibleButtons = ""
     for (let i of TUICPref.visibleButtons) {
         TUICVisibleButtons += `<option value="${i}" id="${i}">${TUIC_input_checkbox_name[i]}</option>`
     }
     return TUICVisibleButtons
 }
-function settingInvisibleButton(){
+function settingInvisibleButton() {
     let TUICInvisibleButtons = ""
     for (let i of TUIC_input_checkbox_title) {
         if (!TUICPref.visibleButtons.includes(i)) TUICInvisibleButtons += `<option value="${i}" id="${i}">${TUIC_input_checkbox_name[i]}</option>`
@@ -478,51 +504,89 @@ function settingInvisibleButton(){
     return TUICInvisibleButtons
 }
 
-function ButtonColor(event){
+function ButtonColor(event) {
     let colorValue = hex2rgb(event.target.value)
-    if((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
+    if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
 
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICCustomCSS()
 }
 
-function ButtonColorCheck(event){
+function ButtonColorCheck(event) {
     let colorValue = hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
-    if((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
+    if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICCustomCSS()
 }
 
-function ButtonColorDefault(event){
+function ButtonColorDefault(event) {
 
-let colorIndex = 3 * TUIC_input_color_title.indexOf(event.target.getAttribute("TUICColor")) + TUICColorTypeList.indexOf(event.target.getAttribute("TUICColorType"))
-let TUIC_color = (color[colorIndex]).replace("rgba(", "").replace(")", "").split(",")
-let TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
-document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
+    let colorIndex = 3 * TUIC_input_color_title.indexOf(event.target.getAttribute("TUICColor")) + TUICColorTypeList.indexOf(event.target.getAttribute("TUICColorType"))
+    let TUIC_color = (color[colorIndex]).replace("rgba(", "").replace(")", "").split(",")
+    let TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+    document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
 
-if(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked  != TUIC_color[3] == 0) document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked = TUIC_color[3] == 0
+    if (document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked != TUIC_color[3] == 0) document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked = TUIC_color[3] == 0
     TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = color[colorIndex]
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICCustomCSS()
 }
 
-function settingInvisibleItems(event){
-TUICPref.invisibleItems[event.target.id] = event.target.checked
-localStorage.setItem("TUIC",JSON.stringify(TUICPref))
-TUICIvisibleClass += "_"
-TUICDidArticle += "_"
-TUICCss()
-}
-
-function settingOtherBoolSetting(event){
-    TUICPref.otherBoolSetting[event.target.id] = event.target.checked
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+function settingInvisibleItems(event) {
+    TUICPref.invisibleItems[event.target.id] = event.target.checked
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICIvisibleClass += "_"
     TUICDidArticle += "_"
     TUICCss()
+}
+
+function settingClientInfoItems(event) {
+    TUICPref.clientInfo = event.target.checked
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+    TUICIvisibleClass += "_"
+    TUICDidArticle += "_"
+    TUICCss()
+}
+
+function settingOtherBoolSetting(event) {
+    TUICPref.otherBoolSetting[event.target.id] = event.target.checked
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+    TUICIvisibleClass += "_"
+    TUICDidArticle += "_"
+    TUICCss()
+}
+
+//クライアント情報の取得と適用
+function setTwitterClientInfo() {
+    var parser = new URL(location.href);
+    if (TUICPref.clientInfo === null) {
+        TUICPref.clientInfo = true;
     }
+    if (!isNaN(parser.pathname.split('/')[3])) {
+        if (TUICPref.clientInfo) {
+            chrome.runtime.sendMessage(
+                {
+                    endpoint: 'https://mico.re/api/getclient.php?id=' + parser.pathname.split('/')[3]
+                },
+                (response) => {
+                    if (document.getElementById("client-info") != null) {
+                        document.getElementById("client-info").remove();
+                    }
+                    json = response;
+                    var clientstr = json.source.replace("</a>", "").split(">")[1];
+                    var client = document.createElement("a");
+                    client.style.marginLeft = "2px";
+                    client.id = "client-info";
+                    client.appendChild(document.createTextNode(clientstr));
+                    client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
+                    document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2")[0].appendChild(client);
+                }
+            );
+        }
+    }
+}
 
 function rgb2hex(rgb) {
     return "#" + rgb.map(function (value) {
@@ -541,7 +605,7 @@ function hex2rgb(hex) {
 
 function save_data() {
     TUICPref.CSS = document.querySelector("#css_textarea").value
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICCustomCSS()
     /*
     for (let i = 0; i < checkbox.length; i++) {
@@ -550,13 +614,13 @@ function save_data() {
 
 }
 function default_set() {
-    localStorage.setItem("TUIC",defaultPref)
+    localStorage.setItem("TUIC", defaultPref)
     TUICPref = JSON.parse(defaultPref)
 
     if (window.location.pathname == "/tuic/safemode") {
         window.location.href = `${window.location.protocol}//${window.location.hostname}`
     } else {
-document.querySelector("#TUIC_setting").remove()
+        document.querySelector("#TUIC_setting").remove()
     }
 }
 
@@ -587,28 +651,28 @@ function toup() {
 function todown() {
     if (document.querySelector("#TUIC_visible").selectedIndex < document.querySelector("#TUIC_visible").childNodes.length - 1) {
         document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
-visibleButtonFunc()
+        visibleButtonFunc()
     }
 
 }
 
 function todefault() {
-    TUICPref.visibleButtons =JSON.parse(defaultPref).visibleButtons
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    TUICPref.visibleButtons = JSON.parse(defaultPref).visibleButtons
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     document.querySelector("#TUIC_visible").innerHTML = settingVisibleButton()
     document.querySelector("#TUIC_invisible").innerHTML = settingInvisibleButton()
-visibleButtonFunc()
+    visibleButtonFunc()
 
 }
 
-function visibleButtonFunc(){
+function visibleButtonFunc() {
     let visible_button_list = []
     let visibleButtonsT = document.querySelector("#TUIC_visible").querySelectorAll("option")
     for (let i = 0; i < visibleButtonsT.length; i++) {
         visible_button_list.push(visibleButtonsT[i].id)
     }
     TUICPref.visibleButtons = visible_button_list
-    localStorage.setItem("TUIC",JSON.stringify(TUICPref))
+    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICIvisibleClass += "_"
     TUICDidArticle += "_"
     TUICScrollBottom += "_"
@@ -634,7 +698,7 @@ function url_copy(e) {
     }
 }
 
-function TUICCss(){
+function TUICCss() {
     let TUIC_color = "rgba(255,255,255,1)"
     if (document.querySelector('body[style*=\"255\"]') != null) {
         TUIC_color = "rgba(0,0,0,1)"
@@ -912,6 +976,6 @@ height:8px
 
 }
 
-function TUICCustomCSS(){
+function TUICCustomCSS() {
     document.querySelector("#twitter_ui_customizer_css").textContent = TUICPref['CSS']
 }
