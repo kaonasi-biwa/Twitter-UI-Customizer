@@ -317,7 +317,6 @@ function run_first() {
 }
 
 
-
 function display_setting(rootElement = "") {
     let TWITTER_setting_back = rootElement;
 
@@ -330,90 +329,169 @@ function display_setting(rootElement = "") {
         let TUIC_color3 = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.color ?? color[i * 3 + 2]).replace("rgba(", "").replace(")", "").split(",")
         let TUICColor3 = rgb2hex([Number(TUIC_color3[0]), Number(TUIC_color3[1]), Number(TUIC_color3[2])])
         TUICColors += `
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">${input_name[i]}</h2>
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${
+      input_name[i]
+    }</h2>
 <br>
-<h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">背景色:</h4>
-<input type="color" id="${TUIC_input_color_title[i] + "-background"}" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="background" value="${TUICColor1}" class="TUICButtonColor"></input>
-<input type="checkbox" id="${TUIC_input_color_title[i] + "-background-check"}" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${TUIC_input_color_title[i]}" TUICColorType="background" class="TUICButtonColorCheck">
-<label for="${TUIC_input_color_title[i] + "-background-check"}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="background">デフォルトに戻す</button>
-<br>
+<div class="TUIC_col_setting_container">
+    <div class="TUIC_setting_color_colmn">
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">背景色</h4>
+        <div class="TUIC_setting_input_container">
+                <div class="TUIC_input_color_rounded__container">
+                <div class="TUIC_input_color_rounded">
+                    <input type="color" id="${
+                      TUIC_input_color_title[i] + "-background"
+                    }" TUICColor="${
+      TUIC_input_color_title[i]
+    }" TUICColorType="background" value="${TUICColor1}" class="TUICButtonColor">
+                    </input>
+                </div>
+            </div>
+            <input type="checkbox" id="${
+              TUIC_input_color_title[i] + "-background-check"
+            }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${
+      TUIC_input_color_title[i]
+    }" TUICColorType="background" class="TUICButtonColorCheck">
+            <label for="${
+              TUIC_input_color_title[i] + "-background-check"
+            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${
+              TUIC_input_color_title[i]
+            }" TUICColorType="background">デフォルトに戻す</button>
+        </div>
+    </div>
 
-<h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">枠色:</h4>
-<input type="color" id="${TUIC_input_color_title[i] + "-border"}" value="${TUICColor2}" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="border" class="TUICButtonColor"></input>
-<input type="checkbox" id="${TUIC_input_color_title[i] + "-border-check"}" ${TUIC_color2[3] == "0" ? "checked" : ""} TUICColor="${TUIC_input_color_title[i]}" TUICColorType="border" class="TUICButtonColorCheck">
-<label for="${TUIC_input_color_title[i] + "-border-check"}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="border">デフォルトに戻す</button>
-<br>
+    <div class="TUIC_setting_color_colmn">
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">枠色</h4>
+        <div class="TUIC_setting_input_container">
+            <div class="TUIC_input_color_rounded__container">
+                <div class="TUIC_input_color_rounded">
+                    <input type="color" id="${
+                      TUIC_input_color_title[i] + "-border"
+                    }" value="${TUICColor2}" TUICColor="${
+      TUIC_input_color_title[i]
+    }" TUICColorType="border" class="TUICButtonColor"></input>
+                </div>
+            </div>
+            <input type="checkbox" id="${
+              TUIC_input_color_title[i] + "-border-check"
+            }" ${TUIC_color2[3] == "0" ? "checked" : ""} TUICColor="${
+      TUIC_input_color_title[i]
+    }" TUICColorType="border" class="TUICButtonColorCheck">
+            <label for="${
+              TUIC_input_color_title[i] + "-border-check"
+            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${
+              TUIC_input_color_title[i]
+            }" TUICColorType="border">デフォルトに戻す</button>
+        </div>
+    </div>
 
-<h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">文字色:</h4>
-<input type="color" id="${TUIC_input_color_title[i] + "-color"}" value="${TUICColor3}" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color" class="TUICButtonColor"></input>
-<input type="checkbox" id="${TUIC_input_color_title[i] + "-color-check"}" ${TUIC_color3[3] == "0" ? "checked" : ""} TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color" class="TUICButtonColorCheck">
-<label for="${TUIC_input_color_title[i] + "-color-check"}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${TUIC_input_color_title[i]}" TUICColorType="color">デフォルトに戻す</button>
-<br>
-<br>
-`
-    }
-
-
-    let TUICInvisibleCheckBox = ""
-    for (let i of invisibleCheckbox) {
-        TUICInvisibleCheckBox += `
-<div>
-    <input id=${i} ${TUICPref.invisibleItems[i] ? "checked" : ""} type="checkbox" class="TUICInvisibleItems"></input>
-    <label class="TUIC_setting_text" for="${i}">${invisibleCheckboxLabel[i]}</label>
+    <div class="TUIC_setting_color_colmn">
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">文字色</h4>
+        <div class="TUIC_setting_input_container">
+            <div class="TUIC_input_color_rounded__container">
+                <div class="TUIC_input_color_rounded">
+                    <input type="color" id="${
+                      TUIC_input_color_title[i] + "-color"
+                    }" value="${TUICColor3}" TUICColor="${
+      TUIC_input_color_title[i]
+    }" TUICColorType="color" class="TUICButtonColor">
+                    </input>
+                </div>
+            </div>
+            <input type="checkbox" id="${
+              TUIC_input_color_title[i] + "-color-check"
+            }" ${TUIC_color3[3] == "0" ? "checked" : ""} TUICColor="${
+      TUIC_input_color_title[i]
+    }" TUICColorType="color" class="TUICButtonColorCheck">
+            <label for="${
+              TUIC_input_color_title[i] + "-color-check"
+            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${
+              TUIC_input_color_title[i]
+            }" TUICColorType="color">デフォルトに戻す</button>
+        </div>
+    </div>
 </div>
-`
-    }
-    let TUICPrefHTML = TUICParser.parseFromString(`
+`;
+  }
+
+  let TUICInvisibleCheckBox = "";
+  for (let i of invisibleCheckbox) {
+    TUICInvisibleCheckBox += `
+<div>
+    <input id=${i} ${
+      TUICPref.invisibleItems[i] ? "checked" : ""
+    } type="checkbox" class="TUICInvisibleItems"></input>
+    <label class="TUIC_setting_text" for="${i}">${
+      invisibleCheckboxLabel[i]
+    }</label>
+</div>
+`;
+  }
+  let TUICPrefHTML = TUICParser.parseFromString(
+    `
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0">
     <div style="-webkit-line-clamp: 3;" class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
         <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">Twitter UI Customizer</span>
             </h2>
-${window.location.pathname == "/tuic/safemode" ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; 戻る</a>` : ""}
+${
+  window.location.pathname == "/tuic/safemode"
+    ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; 戻る</a>`
+    : ""
+}
     </div>
 
     <div>
         <br>
 ${TUICColors}
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">ツイート下ボタンの並び替え</h2>
-        <br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">ツイート下ボタンの並び替え</h2>
 
-        <div style="display:flex">
-            <div>
-                <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">表示</h2><br>
-                <select id="TUIC_visible" class="TUIC_none_scroll" size="${TUIC_input_checkbox_title.length}">
-${settingVisibleButton()}
-                </select>
+        <div class="TUIC_col_setting_container">
+            <div style="display:flex">
+                <div>
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">表示</h2><br>
+                    <select id="TUIC_visible" class="TUIC_none_scroll TUIC_selectbox" size="${
+                      TUIC_input_checkbox_title.length
+                    }">
+    ${settingVisibleButton()}
+                    </select>
+                </div>
+                <div style="text-align: center;">
+                    <br>
+                    <br>
+                    <button id="toleft" style="width:8em" class="TUIC_setting_text TUIC_setting_button">表示する</button><br>
+                    <button id="toup" style="width:8em" class="TUIC_setting_text TUIC_setting_button">上へ</button><br>
+                    <button id="todown" style="width:8em" class="TUIC_setting_text TUIC_setting_button">下へ</button><br>
+                    <button id="toright" style="width:8em" class="TUIC_setting_text TUIC_setting_button">非表示にする</button><br><br>
+                    <button id="todefault" style="width:8em" class="TUIC_setting_text TUIC_setting_button">初期化</button><br>
+                </div>
+                <div>
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">非表示</h2><br>
+                    <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${
+                      TUIC_input_checkbox_title.length
+                    }">
+    ${settingInvisibleButton()}
+                    </select>
+                </div>
             </div>
-            <div style="text-align: center;">
-                <br>
-                <br>
-                <button id="toleft" style="width:8em" class="TUIC_setting_text TUIC_setting_button">表示する</button><br>
-                <button id="toup" style="width:8em" class="TUIC_setting_text TUIC_setting_button">上へ</button><br>
-                <button id="todown" style="width:8em" class="TUIC_setting_text TUIC_setting_button">下へ</button><br>
-                <button id="toright" style="width:8em" class="TUIC_setting_text TUIC_setting_button">非表示にする</button><br><br>
-                <button id="todefault" style="width:8em" class="TUIC_setting_text TUIC_setting_button">初期化</button><br>
-            </div>
+            <br>
             <div>
-                <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">非表示</h2><br>
-                <select id="TUIC_invisible" class="TUIC_none_scroll" size="${TUIC_input_checkbox_title.length}">
-${settingInvisibleButton()}
-                </select>
+            <input id="bottomScroll" ${
+              TUICPref.otherBoolSetting["bottomScroll"] ? "checked" : ""
+            } type="checkbox" class="otherBoolSetting"></input>
+                <label class="TUIC_setting_text" for="bottomScroll">ツイート下ボタンにスクロールバーを表示</label>
             </div>
         </div>
         <br>
-        <div>
-        <input id="bottomScroll" ${TUICPref.otherBoolSetting["bottomScroll"] ? "checked" : ""} type="checkbox" class="otherBoolSetting"></input>
-            <label class="TUIC_setting_text" for="bottomScroll">ツイート下ボタンにスクロールバーを表示</label>
-        </div>
-        <br>
         <br>
 
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">非表示設定</h2><br>
-${TUICInvisibleCheckBox}
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">非表示設定</h2><br>
+        <div class="TUIC_col_setting_container">
+            ${TUICInvisibleCheckBox}
+        </div>
 <br>
 
 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">クライアント情報 (廃止される可能性があります)</h2><br>
@@ -426,12 +504,13 @@ ${TUICInvisibleCheckBox}
 <br>
 <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
         <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">カスタムCSS</h2><br>
-        <form>
-            <textarea id="css_textarea"></textarea>
-        </form>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">カスタムCSSを保存</button>
-
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">カスタムCSS</h2><br>
+        <div class="TUIC_col_setting_container">
+            <form>
+                <textarea id="css_textarea"></textarea>
+            </form>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">カスタムCSSを保存</button>
+        </div>
     </div>
 </div>
 
@@ -565,63 +644,93 @@ async function setTwitterClientInfo() {
 }
 
 function rgb2hex(rgb) {
-    return "#" + rgb.map(function (value) {
+  return (
+    "#" +
+    rgb
+      .map(function (value) {
         return ("0" + value.toString(16)).slice(-2);
-    }).join("");
+      })
+      .join("")
+  );
 }
 function hex2rgb(hex) {
-    if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-    if (hex.length == 3) hex = hex.slice(0, 1) + hex.slice(0, 1) + hex.slice(1, 2) + hex.slice(1, 2) + hex.slice(2, 3) + hex.slice(2, 3);
+  if (hex.slice(0, 1) == "#") hex = hex.slice(1);
+  if (hex.length == 3)
+    hex =
+      hex.slice(0, 1) +
+      hex.slice(0, 1) +
+      hex.slice(1, 2) +
+      hex.slice(1, 2) +
+      hex.slice(2, 3) +
+      hex.slice(2, 3);
 
-    return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (str) {
-        return parseInt(str, 16);
-    });
-
+  return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (
+    str
+  ) {
+    return parseInt(str, 16);
+  });
 }
 
 function save_data() {
-    TUICPref.CSS = document.querySelector("#css_textarea").value
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICCustomCSS()
-    /*
+  TUICPref.CSS = document.querySelector("#css_textarea").value;
+  localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+  TUICCustomCSS();
+  /*
     for (let i = 0; i < checkbox.length; i++) {
         localStorage.setItem(checkbox[i], document.getElementById(checkbox[i]).checked ? "1" : "0")
     }*/
-
 }
 function default_set() {
-    localStorage.setItem("TUIC", defaultPref)
-    TUICPref = JSON.parse(defaultPref)
+  localStorage.setItem("TUIC", defaultPref);
+  TUICPref = JSON.parse(defaultPref);
 
-    if (window.location.pathname == "/tuic/safemode") {
-        window.location.href = `${window.location.protocol}//${window.location.hostname}`
-    } else {
-        document.querySelector("#TUIC_setting").remove()
-    }
+  if (window.location.pathname == "/tuic/safemode") {
+    window.location.href = `${window.location.protocol}//${window.location.hostname}`;
+  } else {
+    document.querySelector("#TUIC_setting").remove();
+  }
 }
 
 function toleft() {
-    if (document.querySelector("#TUIC_invisible").selectedIndex != -1) {
-        document.querySelector("#TUIC_visible").appendChild(document.querySelector("#TUIC_invisible").childNodes[document.querySelector("#TUIC_invisible").selectedIndex])
-        visibleButtonFunc()
-    }
-
+  if (document.querySelector("#TUIC_invisible").selectedIndex != -1) {
+    document
+      .querySelector("#TUIC_visible")
+      .appendChild(
+        document.querySelector("#TUIC_invisible").childNodes[
+          document.querySelector("#TUIC_invisible").selectedIndex
+        ]
+      );
+    visibleButtonFunc();
+  }
 }
 
 function toright() {
-    if (document.querySelector("#TUIC_visible").selectedIndex != -1) {
-        document.querySelector("#TUIC_invisible").appendChild(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex])
-        visibleButtonFunc()
-    }
-
+  if (document.querySelector("#TUIC_visible").selectedIndex != -1) {
+    document
+      .querySelector("#TUIC_invisible")
+      .appendChild(
+        document.querySelector("#TUIC_visible").childNodes[
+          document.querySelector("#TUIC_visible").selectedIndex
+        ]
+      );
+    visibleButtonFunc();
+  }
 }
 
 function toup() {
-    if (document.querySelector("#TUIC_visible").selectedIndex > 0) {
-        document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex - 1])
-        visibleButtonFunc()
-    }
-
+  if (document.querySelector("#TUIC_visible").selectedIndex > 0) {
+    document
+      .querySelector("#TUIC_visible")
+      .insertBefore(
+        document.querySelector("#TUIC_visible").childNodes[
+          document.querySelector("#TUIC_visible").selectedIndex
+        ],
+        document.querySelector("#TUIC_visible").childNodes[
+          document.querySelector("#TUIC_visible").selectedIndex - 1
+        ]
+      );
+    visibleButtonFunc();
+  }
 }
 
 function todown() {
@@ -662,11 +771,17 @@ function visibleButtonFunc() {
 }
 
 function bookmark(e) {
-    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    document.querySelector(`[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+  e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
+    .querySelector(TUIC_input_checkbox_selector["share-button"])
+    .click();
+  document
+    .querySelector(
+      `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
     [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
     [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-    [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`).parentNode.parentNode.parentNode.parentNode.click()
+    [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`
+    )
+    .parentNode.parentNode.parentNode.parentNode.click();
 }
 
 function url_copy(e) {
@@ -708,8 +823,38 @@ function TUICCss() {
     let birthday_border = TUICPref.buttonColor['birthday']?.border ?? color[19]
     let birthday_color = TUICPref.buttonColor['birthday']?.color ?? color[20]
 
+  // ここから：現在のTwitterのbodyタグの背景色からテーマ判定してTUICの設定画面の色設定(cookieの権限なしでできるのでゴリ押し)
+  let bgcolor_tw = document
+    .querySelector("body")
+    .style.backgroundColor.toString();
+  let themes_def = {
+    Light: 1,
+    dim: 2,
+    black: 3,
+  };
+  let twtheme =
+    (bgcolor_tw === "rgb(0, 0, 0)" && themes_def.black) ||
+    (bgcolor_tw === "rgb(21, 32, 43)" && themes_def.dim) ||
+    (bgcolor_tw === "rgb(255, 255, 255)" && themes_def.Light) ||
+    themes_def.Light;
 
-    document.querySelector("#twitter_ui_customizer").textContent = `
+  let TWIC_con_bg = "";
+  let TWIC_input_color_hov = "";
+
+  if (twtheme == 3) {
+    TWIC_con_bg = "rgb(22, 24, 28)";
+    TWIC_input_color_hov = "#ffffff40";
+  } else if (twtheme == 2) {
+    TWIC_con_bg = "rgb(30, 39, 50)";
+    TWIC_input_color_hov = "#ffffff30";
+  } else {
+    TWIC_con_bg = "rgb(247, 249, 249)";
+    TWIC_input_color_hov = "#00000040";
+  }
+  //console.log(TWIC_con_bg + twtheme + bgcolor_tw);
+  // ここまで
+
+  document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     --twitter-unsent-tweet-background: ${unsent_tweet_background};
     --twitter-unsent-tweet-border: ${unsent_tweet_border};
@@ -733,6 +878,8 @@ function TUICCss() {
     --twitter-birthday-border: ${birthday_border};
     --twitter-birthday-color: ${birthday_color};
     --twitter-TUIC-color: ${TUIC_color};
+    --TUIC-container-background: ${TWIC_con_bg};
+    --TUIC-color-hover-efect: ${TWIC_input_color_hov};
 }
 
 /*未送信ツイートの編集*/
@@ -892,21 +1039,93 @@ function TUICCss() {
     color: var(--twitter-birthday-color) !important;
 }
 
+/*色選択*/
+.TUIC_setting_color_colmn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/*無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく）*/
+.TUIC_col_setting_container input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transform: translate(-25%, -25%);
+    width: 200%;
+    height: 200%;
+}
+/*type=colorなinputタグを無理やり丸くするためのマスク*/
+.TUIC_input_color_rounded {
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    overflow: hidden;
+}
+/*ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ*/
+.TUIC_input_color_rounded__container {
+    padding: 4px;
+    width: 23px;
+    height: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: .3s;
+}
+.TUIC_input_color_rounded__container:hover {
+    background: var(--TUIC-color-hover-efect);
+}
+.TUIC_input_color_rounded__container:active {
+    transform: scale(0.8);
+}
+/*色設定項目の操作可能なオブジェクトのコンテナ*/
+.TUIC_setting_input_container {
+    display: flex;
+    align-items: center;
+}
+/*設定項目のタイトル*/
+.TUIC_setting_title {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #71767b !important;
+}
+/*設定用項目のコンテナ*/
+.TUIC_col_setting_container {
+    background: var(--TUIC-container-background);
+    margin-top: 8px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 1em;
+}
+/*表示非表示のセレクトボックス*/
+.TUIC_selectbox {
+    border: solid 1px #71767b;
+    border-radius: 6px;
+    margin-top: 10px;
+}
 /*設定画面の文字色*/
 .TUIC_setting_text{
-    color: var(--twitter-TUIC-color) !important;
+    color: var(--twitter-TUIC-color);
 }
 .TUIC_setting_button{
-    background: transparent !important;
+    background: transparent;
     border-color: var(--twitter-TUIC-color);
+    border: none;
+    border-radius: 9999px;
+    transition: .3s;
+    cursor: pointer;
+}
+.TUIC_setting_button:hover {
+    background: #ffffff40;
 }
 .TUIC_setting_button_width{
     width:100%;
 }
 .TUIC_setting_button_default{
     width:10em;
-    position:absolute;
-    right:20px
+    /*position:absolute;
+    right:20px*/
 }
 .TUIC_none_scroll{
     scrollbar-width: none;
@@ -938,6 +1157,9 @@ function TUICCss() {
 textarea#css_textarea {
     width: calc(100% - 10px) !important;
     height: 300px;
+    border: 1px solid #808080;
+    border-radius: 6px;
+    margin-bottom: 20px;
 }
 
 .${TUICScrollBottom} {
@@ -955,7 +1177,6 @@ margin-bottom:-16px;
 height:8px
 }
 `;
-
 }
 
 function TUICCustomCSS() {
