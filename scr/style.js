@@ -585,10 +585,16 @@ function toup() {
 }
 
 function todown() {
-    if (document.querySelector("#TUIC_visible").selectedIndex < document.querySelector("#TUIC_visible").childNodes.length - 1) {
-        document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
-visibleButtonFunc()
+    if(document.querySelector("#TUIC_visible").selectedIndex > -1){
+        if (document.querySelector("#TUIC_visible").selectedIndex <= document.querySelector("#TUIC_visible").childNodes.length - 3) {
+            document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
+    visibleButtonFunc()
+        }else if(document.querySelector("#TUIC_visible").selectedIndex == document.querySelector("#TUIC_visible").childNodes.length - 2){
+            document.querySelector("#TUIC_visible").appendChild(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex])
+            visibleButtonFunc()
+        }
     }
+
 
 }
 
