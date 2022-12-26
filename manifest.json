@@ -26,7 +26,8 @@
         "tabs",
         "notifications",
         "storage",
-        "https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/*"
+        "https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/*",
+        "https://*.mico.re/*"
     ],
     "browser_action": {
         "default_icon": {
