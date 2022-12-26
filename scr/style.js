@@ -495,9 +495,11 @@ ${TUICColors}
 <br>
 
 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">クライアント情報 (廃止される可能性があります)</h2><br>
+<div class="TUIC_col_setting_container">
 <div>
 <input id="clientInfo" ${TUICPref.otherBoolSetting.clientInfo ? "checked" : ""} type="checkbox" class=" otherBoolSetting"></input>
 <label class="TUIC_setting_text" for="clientInfo">クライアント情報を表示</label>
+</div>
 </div>
 
 <br>
@@ -1064,6 +1066,7 @@ function TUICCss() {
 }
 /*ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ*/
 .TUIC_input_color_rounded__container {
+    background-color:rgba(127,127,127,0.5);
     padding: 4px;
     width: 23px;
     height: 23px;
@@ -1111,7 +1114,6 @@ function TUICCss() {
 .TUIC_setting_button{
     background: transparent;
     border-color: var(--twitter-TUIC-color);
-    border: none;
     border-radius: 9999px;
     transition: .3s;
     cursor: pointer;
