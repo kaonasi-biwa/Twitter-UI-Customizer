@@ -867,6 +867,37 @@ function TUICCss() {
   let birthday_border = TUICPref.buttonColor["birthday"]?.border ?? color[19];
   let birthday_color = TUICPref.buttonColor["birthday"]?.color ?? color[20];
 
+  // ここから：現在のTwitterのbodyタグの背景色からテーマ判定してTUICの設定画面の色設定(cookieの権限なしでできるのでゴリ押し)
+  let bgcolor_tw = document
+    .querySelector("body")
+    .style.backgroundColor.toString();
+  let themes_def = {
+    Light: 1,
+    dim: 2,
+    black: 3,
+  };
+  let twtheme =
+    (bgcolor_tw === "rgb(0, 0, 0)" && themes_def.black) ||
+    (bgcolor_tw === "rgb(21, 32, 43)" && themes_def.dim) ||
+    (bgcolor_tw === "rgb(255, 255, 255)" && themes_def.Light) ||
+    themes_def.Light;
+
+  let TWIC_con_bg = "";
+  let TWIC_input_color_hov = "";
+
+  if (twtheme == 3) {
+    TWIC_con_bg = "rgb(22, 24, 28)";
+    TWIC_input_color_hov = "#ffffff40";
+  } else if (twtheme == 2) {
+    TWIC_con_bg = "rgb(30, 39, 50)";
+    TWIC_input_color_hov = "#ffffff30";
+  } else {
+    TWIC_con_bg = "rgb(247, 249, 249)";
+    TWIC_input_color_hov = "#00000040";
+  }
+  //console.log(TWIC_con_bg + twtheme + bgcolor_tw);
+  // ここまで
+
   document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     --twitter-unsent-tweet-background: ${unsent_tweet_background};
@@ -891,6 +922,8 @@ function TUICCss() {
     --twitter-birthday-border: ${birthday_border};
     --twitter-birthday-color: ${birthday_color};
     --twitter-TUIC-color: ${TUIC_color};
+    --TUIC-container-background: ${TWIC_con_bg};
+    --TUIC-color-hover-efect: ${TWIC_input_color_hov};
 }
 
 /*未送信ツイートの編集*/
@@ -1085,7 +1118,7 @@ function TUICCss() {
     transition: .3s;
 }
 .TUIC_input_color_rounded__container:hover {
-    background: #ffffff45;
+    background: var(--TUIC-color-hover-efect);
 }
 .TUIC_input_color_rounded__container:active {
     transform: scale(0.8);
@@ -1103,7 +1136,7 @@ function TUICCss() {
 }
 /*設定用項目のコンテナ*/
 .TUIC_col_setting_container {
-    background: rgb(22, 24, 28);
+    background: var(--TUIC-container-background);
     margin-top: 8px;
     padding: 10px 14px;
     border-radius: 14px;
