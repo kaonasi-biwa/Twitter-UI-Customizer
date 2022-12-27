@@ -2,9 +2,9 @@ let updateID = ""
 update1("runBrowser")
 
 async function updateCheck() {
-  let res = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt")
+  let res = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt",{cache: "no-store"})
   let githubVersion = await res.text()
-  let res2 = await fetch(chrome.runtime.getURL("./version.txt"))
+  let res2 = await fetch(chrome.runtime.getURL("./version.txt"),{cache: "no-store"})
   let extensionVersion = await res2.text()
   if (githubVersion != extensionVersion) {
     let options = {
