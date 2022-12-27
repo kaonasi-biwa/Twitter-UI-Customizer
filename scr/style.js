@@ -801,7 +801,7 @@ function url_copy(e) {
 
 function TUICCss() {
     let TUIC_color = "rgba(255,255,255,1)"
-    if (document.querySelector('body[style*=\"255\"]') != null) {
+    if (document.querySelector('body[style*=\"255\"]') != null || document.querySelector('body[style*=\"FF\"]') != null) {
         TUIC_color = "rgba(0,0,0,1)"
     }
 

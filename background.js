@@ -10,7 +10,7 @@ async function updateCheck() {
     let options = {
       type: "basic",
       title: "Twitter UI Customizer",
-      message: "新しいバージョンが公開されました。\rアップデートしてください。",
+      message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion + "→" + githubVersion,
       iconUrl: "icon/icon128.png"
     };
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`, options, function (notificationId) { });
