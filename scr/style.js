@@ -603,7 +603,7 @@ function ButtonColorDefault(event) {
     document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
 
     if (document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked != TUIC_color[3] == 0) document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked = TUIC_color[3] == 0
-    TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = color[colorIndex]
+    if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") != "unknown" && (TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] ?? "unknown") != "unknown") delete TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]
     localStorage.setItem("TUIC", JSON.stringify(TUICPref))
     TUICCustomCSS()
 }
