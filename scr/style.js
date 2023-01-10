@@ -1,287 +1,657 @@
-var urlchange = ""
-
 let TUICParser = new DOMParser();
 
-let TUICIvisibleClass = "TUIC_DISPNONE"
-let TUICDidArticle = "TUIC_CHECKED_ARTICLE"
-let TUICScrollBottom = "TUIC_SCROLL_BOTTOM"
-
-let TUICColorTypeList = ["background", "border", "color"]
-let TUIC_input_color_title = ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"]
-let input_name = ["未送信ツイートの編集ボタン", "フォローしていない人のフォローボタン", "フォローしている人のフォローボタン", "フォロー解除ボタン", "プロフィール編集ボタン", "プロフィールの保存ボタン", "最終決定ボタン"]
-let TUIC_input_checkbox_title = ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"]
-let TUIC_input_checkbox_name = { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存", "url-copy": "ツイートのリンクをコピー" }
-let TUIC_input_checkbox_selector = {
-    "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]",
-    "boolkmark_tweetdeck": "[aria-label$=\"ブックマーク\"],[aria-label$=\"Amlíne: Leabharmharcanna\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"Cronologia: Segnalibri\"],[aria-label$=\"Timeline: Markah\"],[aria-label$=\"Стрічка: Закладки\"],[aria-label$=\"ٹائم لائن: بُک مارکس\"],[aria-label$=\"Tijdlijn: Bladwijzers\"],[aria-label$=\"Cronologia: Preferits\"],[aria-label$=\"Cronoloxía: Marcadores\"],[aria-label$=\"ಕಾಲರೇಖೆ: ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು\"],[aria-label$=\"Χρονολόγιο: Σελιδοδείκτες\"],[aria-label$=\"સમય અવધિ: બુકમાર્ક્સ\"],[aria-label$=\"Vremenska crta: Knjižne oznake\"],[aria-label$=\"Tidslinje: Bokmärken\"],[aria-label$=\"Cronología: Guardados\"],[aria-label$=\"Domovská časová os\"],[aria-label$=\"Временска трака: Обележивачи\"],[aria-label$=\"ลำดับเหตุการณ์: บุ๊คมาร์ก\"],[aria-label$=\"முகப்புக் காலவரிசை\"],[aria-label$=\"Časová osa: Záložky\"],[aria-label$=\"Tidslinje: Bogmærker\"],[aria-label$=\"Timeline: Lesezeichen\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Tidslinje: Bokmerker\"],[aria-label$=\"Denbora lerroa: Laster-markak\"],[aria-label$=\"Kezdőlap idővonala\"],[aria-label$=\"होम टाइमलाइन\"],[aria-label$=\"Timeline: Mga Bookmark\"],[aria-label$=\"Etusivun aikajana\"],[aria-label$=\"Fil d'actualités : Signets\"],[aria-label$=\"Хроника: Отметки\"],[aria-label$=\"Dòng thời gian: Dấu trang\"],[aria-label$=\"ציר הזמן של דף הבית\"],[aria-label$=\"خط زمان: نشانک‌ها\"],[aria-label$=\"সময়রেখা: বুকমার্কগুলি\"],[aria-label$=\"Oś czasu: Zakładki\"],[aria-label$=\"Timeline: Itens salvos\"],[aria-label$=\"टाइमलाइन: बुकमार्क्स\"],[aria-label$=\"Garis masa: Bookmark\"],[aria-label$=\"Cronologia principală\"],[aria-label$=\"Лента: Закладки\"],[aria-label$=\"时间线：书签\"],[aria-label$=\"時間軸：書籤\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"타임라인: 북마크\"]",
-    "share-button": "[aria-label=\"ツイートを共有\"],[aria-label=\"Roinn an Tweet\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"Share Tweet\"],[aria-label=\"Condividi Tweet\"],[aria-label=\"Sebarkan Tweet\"],[aria-label=\"Поділитися твітом\"],[aria-label=\"ٹویٹ شیئر کریں\"],[aria-label=\"Tweet delen\"],[aria-label=\"Comparteix el tuit\"],[aria-label=\"Compartir chío\"],[aria-label=\"ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ\"],[aria-label=\"Κοινοποίηση Tweet\"],[aria-label=\"ટ્વીટ શેર કરો\"],[aria-label=\"Podijelite Tweet\"],[aria-label=\"Dela tweeten\"],[aria-label=\"Compartir Tweet\"],[aria-label=\"Zdieľať Tweet\"],[aria-label=\"Подели твит\"],[aria-label=\"แบ่งปันทวีต\"],[aria-label=\"கீச்சைப் பகிர்\"],[aria-label=\"Sdílet Tweet\"],[aria-label=\"Del tweetet\"],[aria-label=\"Tweet teilen\"],[aria-label=\"Tweet paylaş\"],[aria-label=\"Del tweeten\"],[aria-label=\"Partekatu txioa\"],[aria-label=\"Tweet megosztása\"],[aria-label=\"ट्वीट शेयर करें\"],[aria-label=\"Ibahagi ang Tweet\"],[aria-label=\"Jaa twiitti\"],[aria-label=\"Partager le Tweet\"],[aria-label=\"Споделяне на туита\"],[aria-label=\"Chia sẻ Tweet\"],[aria-label=\"שתף את הציוץ\"],[aria-label=\"هم‌رسانی توییت\"],[aria-label=\"টুইট শেয়ার করুন\"],[aria-label=\"Udostępnij Tweeta\"],[aria-label=\"Compartilhar Tweet\"],[aria-label=\"ट्विट शेअर करा\"],[aria-label=\"Kongsi Tweet\"],[aria-label=\"Distribuie Tweetul\"],[aria-label=\"Поделиться твитом\"],[aria-label=\"分享推文\"],[aria-label=\"分享推文\"],[aria-label=\"트윗 공유하기\"]",
-    "tweet_analytics": "[aria-label*=\"ツイートアナリティクスを表示\"],[aria-label*=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Visualizza statistiche Tweet\"],[aria-label*=\"Lihat analitik Tweet\"],[aria-label*=\"Переглянути аналітику твіта\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Tweet-analyses bekijken\"],[aria-label*=\"Mostra les analítiques del tuit\"],[aria-label*=\"Ver análises do chío\"],[aria-label*=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label*=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label*=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label*=\"Prikaži analitičke podatke o tweetovima\"],[aria-label*=\"Visa Tweet-statistik\"],[aria-label*=\"Ver estadísticas del Tweet\"],[aria-label*=\"Zobraziť štatistiku Tweetu\"],[aria-label*=\"Погледај аналитику твита\"],[aria-label*=\"ดูการวิเคราะห์ทวีต\"],[aria-label*=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label*=\"Zobrazit analýzu tweetů\"],[aria-label*=\"Vis Tweet-statistik\"],[aria-label*=\"Tweet-Statistiken anzeigen\"],[aria-label*=\"Tweet istatistiklerini görüntüle\"],[aria-label*=\"Se tweetstatistikk\"],[aria-label*=\"Ikusi txioen analisiak\"],[aria-label*=\"Tweet-elemzések megtekintése\"],[aria-label*=\"ट्वीट विश्लेषण देखें\"],[aria-label*=\"Tingnan ang analytics ng Tweet\"],[aria-label*=\"Näytä twiitin tilastot\"],[aria-label*=\"Voir les statistiques des Tweets\"],[aria-label*=\"Преглед на статистиката за туита\"],[aria-label*=\"Xem phân tích Tweet\"],[aria-label*=\"הצג את ניתוח הציוצים\"],[aria-label*=\"مشاهده اطلاعات آماری توییت\"],[aria-label*=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label*=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label*=\"Ver estatísticas do Tweet\"],[aria-label*=\"ट्विटची विश्लेषणे पहा\"],[aria-label*=\"Lihat analitis Tweet\"],[aria-label*=\"Vezi analiza Tweet\"],[aria-label*=\"Смотреть аналитику твита\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"트윗 애널리틱스 보기\"]",
-    "boolkmark": `[aria-label="ブックマークに保存"]`,
-    "url-copy": `[aria-label="ツイートのリンクをコピー"]`,
-}
-let TUIC_input_checkbox_selector_three = ["share-button"]
-var color = ["rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
-    "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
-    "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
-    "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",
-    "rgba(255,255,255,0)", "rgba(29,161,242,1)", "rgba(29,161,242,1)",
-    "rgba(29,161,242,1)", "rgba(29,161,242,1)", "rgba(255,255,255,1)",
-    "rgba(255,0,0,1)", "rgba(255,0,0,1)", "rgba(255,255,255,1)",]
-let checkbox = ["osusume-user-timeline", "client-info"]
-let invisibleCheckbox = ["osusume-user-timeline"]
-let invisibleCheckboxLabel = { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
-const defaultPref = `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false,"otherBoolSetting":true},"otherBoolSetting":{"bottomScroll":false},"CSS":""}`
-let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? defaultPref)
-// 対象とするノードを取得
-const target = document.getElementsByTagName("body").item(0);
-
-// オブザーバインスタンスを作成
-const observer = new MutationObserver((mutations) => {
-    observer.disconnect();
-    let timeout = window.setTimeout(function () { observer.observe(target, config) }, 10000)
-    let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICDidArticle}"])`)
-    if (articles.length != 0) {
-        articles.forEach(function (elem) {
-            if (elem.querySelector("[data-testid$=\"reply\"]") != null && elem.querySelector("[data-testid$=\"like\"]") != null) {
-                let bar_base = elem.querySelector("[data-testid$=\"reply\"]")
-                while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
-                    bar_base = bar_base.parentElement
-                }
-                if (TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICScrollBottom)
-                let bar_item = {}
-                for (const elem_item of bar_base.childNodes) {
-                    for (const sel in TUIC_input_checkbox_selector) {
-                        if (elem_item.querySelector(TUIC_input_checkbox_selector[sel]) != null) {
-                            bar_item[sel] = elem_item
-                            break
-                        }
-                    }
-                }
-                let needEmpty = bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null
-                let lastButton
-                for (let i of TUICPref.visibleButtons) {
-                    let div = -1
-                    if (i in bar_item) {
-                        div = bar_item[i]
-                    } else if (i == "boolkmark") {
-                        div = TUICParser.parseFromString(`
-                        <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
+let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICData.defaultPref)
+const TUICData = {
+    defaultPref: `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false,"otherBoolSetting":true},"otherBoolSetting":{"bottomScroll":false},"CSS":""}`,
+    settings: {
+        visibleButtons: {
+            all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
+            titles: { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存", "url-copy": "ツイートのリンクをコピー" }
+        },
+        colors: {
+            id: ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"],
+            title: { "unsent-tweet": "未送信ツイートの編集ボタン", "not-following": "フォローしていない人のフォローボタン", "following": "フォローしている人のフォローボタン", "un-following": "フォロー解除ボタン", "profile": "プロフィール編集ボタン", "profile-save": "プロフィールの保存ボタン", "birthday": "最終決定ボタン" }
+        }
+    }, colors: {
+        "unsent-tweet": {
+            "background": "rgba(29,161,242,1)",
+            "border": "rgba(29,161,242,1)",
+            "color": "rgba(255,255,255,1)"
+        },
+        "not-following": {
+            "background": "rgba(255,255,255,0)",
+            "border": "rgba(29,161,242,1)",
+            "color": "rgba(29,161,242,1)"
+        },
+        "following": {
+            "background": "rgba(29,161,242,1)",
+            "border": "rgba(29,161,242,1)",
+            "color": "rgba(255,255,255,1)"
+        },
+        "un-following": {
+            "background": "rgba(255,0,0,1)",
+            "border": "rgba(255,0,0,1)",
+            "color": "rgba(255,255,255,1)"
+        },
+        "profile": {
+            "background": "rgba(255,255,255,0)",
+            "border": "rgba(29,161,242,1)",
+            "color": "rgba(29,161,242,1)"
+        },
+        "profile-save": {
+            "background": "rgba(29,161,242,1)",
+            "border": "rgba(29,161,242,1)",
+            "color": "rgba(255,255,255,1)"
+        },
+        "birthday": {
+            "background": "rgba(255,0,0,1)",
+            "border": "rgba(255,0,0,1)",
+            "color": "rgba(255,255,255,1)"
+        }
+    },
+    visibleButtons: {
+        selectors: {
+            "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]",
+            "boolkmark_tweetdeck": "[aria-label$=\"ブックマーク\"],[aria-label$=\"Amlíne: Leabharmharcanna\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"الخطّ الزمنيّ: العلامات المرجعية\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"Cronologia: Segnalibri\"],[aria-label$=\"Timeline: Markah\"],[aria-label$=\"Стрічка: Закладки\"],[aria-label$=\"ٹائم لائن: بُک مارکس\"],[aria-label$=\"Tijdlijn: Bladwijzers\"],[aria-label$=\"Cronologia: Preferits\"],[aria-label$=\"Cronoloxía: Marcadores\"],[aria-label$=\"ಕಾಲರೇಖೆ: ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು\"],[aria-label$=\"Χρονολόγιο: Σελιδοδείκτες\"],[aria-label$=\"સમય અવધિ: બુકમાર્ક્સ\"],[aria-label$=\"Vremenska crta: Knjižne oznake\"],[aria-label$=\"Tidslinje: Bokmärken\"],[aria-label$=\"Cronología: Guardados\"],[aria-label$=\"Domovská časová os\"],[aria-label$=\"Временска трака: Обележивачи\"],[aria-label$=\"ลำดับเหตุการณ์: บุ๊คมาร์ก\"],[aria-label$=\"முகப்புக் காலவரிசை\"],[aria-label$=\"Časová osa: Záložky\"],[aria-label$=\"Tidslinje: Bogmærker\"],[aria-label$=\"Timeline: Lesezeichen\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Anasayfa zaman akışı\"],[aria-label$=\"Tidslinje: Bokmerker\"],[aria-label$=\"Denbora lerroa: Laster-markak\"],[aria-label$=\"Kezdőlap idővonala\"],[aria-label$=\"होम टाइमलाइन\"],[aria-label$=\"Timeline: Mga Bookmark\"],[aria-label$=\"Etusivun aikajana\"],[aria-label$=\"Fil d'actualités : Signets\"],[aria-label$=\"Хроника: Отметки\"],[aria-label$=\"Dòng thời gian: Dấu trang\"],[aria-label$=\"ציר הזמן של דף הבית\"],[aria-label$=\"خط زمان: نشانک‌ها\"],[aria-label$=\"সময়রেখা: বুকমার্কগুলি\"],[aria-label$=\"Oś czasu: Zakładki\"],[aria-label$=\"Timeline: Itens salvos\"],[aria-label$=\"टाइमलाइन: बुकमार्क्स\"],[aria-label$=\"Garis masa: Bookmark\"],[aria-label$=\"Cronologia principală\"],[aria-label$=\"Лента: Закладки\"],[aria-label$=\"时间线：书签\"],[aria-label$=\"時間軸：書籤\"],[aria-label$=\"Timeline: Bookmarks\"],[aria-label$=\"타임라인: 북마크\"]",
+            "share-button": "[aria-label=\"ツイートを共有\"],[aria-label=\"Roinn an Tweet\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"Share Tweet\"],[aria-label=\"Condividi Tweet\"],[aria-label=\"Sebarkan Tweet\"],[aria-label=\"Поділитися твітом\"],[aria-label=\"ٹویٹ شیئر کریں\"],[aria-label=\"Tweet delen\"],[aria-label=\"Comparteix el tuit\"],[aria-label=\"Compartir chío\"],[aria-label=\"ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ\"],[aria-label=\"Κοινοποίηση Tweet\"],[aria-label=\"ટ્વીટ શેર કરો\"],[aria-label=\"Podijelite Tweet\"],[aria-label=\"Dela tweeten\"],[aria-label=\"Compartir Tweet\"],[aria-label=\"Zdieľať Tweet\"],[aria-label=\"Подели твит\"],[aria-label=\"แบ่งปันทวีต\"],[aria-label=\"கீச்சைப் பகிர்\"],[aria-label=\"Sdílet Tweet\"],[aria-label=\"Del tweetet\"],[aria-label=\"Tweet teilen\"],[aria-label=\"Tweet paylaş\"],[aria-label=\"Del tweeten\"],[aria-label=\"Partekatu txioa\"],[aria-label=\"Tweet megosztása\"],[aria-label=\"ट्वीट शेयर करें\"],[aria-label=\"Ibahagi ang Tweet\"],[aria-label=\"Jaa twiitti\"],[aria-label=\"Partager le Tweet\"],[aria-label=\"Споделяне на туита\"],[aria-label=\"Chia sẻ Tweet\"],[aria-label=\"שתף את הציוץ\"],[aria-label=\"هم‌رسانی توییت\"],[aria-label=\"টুইট শেয়ার করুন\"],[aria-label=\"Udostępnij Tweeta\"],[aria-label=\"Compartilhar Tweet\"],[aria-label=\"ट्विट शेअर करा\"],[aria-label=\"Kongsi Tweet\"],[aria-label=\"Distribuie Tweetul\"],[aria-label=\"Поделиться твитом\"],[aria-label=\"分享推文\"],[aria-label=\"分享推文\"],[aria-label=\"트윗 공유하기\"]",
+            "tweet_analytics": "[aria-label*=\"ツイートアナリティクスを表示\"],[aria-label*=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Visualizza statistiche Tweet\"],[aria-label*=\"Lihat analitik Tweet\"],[aria-label*=\"Переглянути аналітику твіта\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Tweet-analyses bekijken\"],[aria-label*=\"Mostra les analítiques del tuit\"],[aria-label*=\"Ver análises do chío\"],[aria-label*=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label*=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label*=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label*=\"Prikaži analitičke podatke o tweetovima\"],[aria-label*=\"Visa Tweet-statistik\"],[aria-label*=\"Ver estadísticas del Tweet\"],[aria-label*=\"Zobraziť štatistiku Tweetu\"],[aria-label*=\"Погледај аналитику твита\"],[aria-label*=\"ดูการวิเคราะห์ทวีต\"],[aria-label*=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label*=\"Zobrazit analýzu tweetů\"],[aria-label*=\"Vis Tweet-statistik\"],[aria-label*=\"Tweet-Statistiken anzeigen\"],[aria-label*=\"Tweet istatistiklerini görüntüle\"],[aria-label*=\"Se tweetstatistikk\"],[aria-label*=\"Ikusi txioen analisiak\"],[aria-label*=\"Tweet-elemzések megtekintése\"],[aria-label*=\"ट्वीट विश्लेषण देखें\"],[aria-label*=\"Tingnan ang analytics ng Tweet\"],[aria-label*=\"Näytä twiitin tilastot\"],[aria-label*=\"Voir les statistiques des Tweets\"],[aria-label*=\"Преглед на статистиката за туита\"],[aria-label*=\"Xem phân tích Tweet\"],[aria-label*=\"הצג את ניתוח הציוצים\"],[aria-label*=\"مشاهده اطلاعات آماری توییت\"],[aria-label*=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label*=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label*=\"Ver estatísticas do Tweet\"],[aria-label*=\"ट्विटची विश्लेषणे पहा\"],[aria-label*=\"Lihat analitis Tweet\"],[aria-label*=\"Vezi analiza Tweet\"],[aria-label*=\"Смотреть аналитику твита\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"트윗 애널리틱스 보기\"]",
+            "boolkmark": `[aria-label="ブックマークに保存"]`,
+            "url-copy": `[aria-label="ツイートのリンクをコピー"]`,
+        },
+        buttonHTML: {
+            "bookmark": function () {
+                return `
+            <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
+                <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+                  <div
+                    aria-label="ブックマークに保存"
+                    role="button"
+                    tabindex="0"
+                    class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+                  >
+                    <div
+                      dir="ltr"
+                      class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2"
+                    >
+                      <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
+                        <div
+                          class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                        ></div>
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255)") ? "r-14j79pv" : "r-1bwzh9t"}"
+                        >
+                          <g>
+                            <path
+                              d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>`},
+            "url-copy": function () {
+                return `
+                            <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
-                              <div
-                                aria-label="ブックマークに保存"
-                                role="button"
-                                tabindex="0"
-                                class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
-                              >
-                                <div
-                                  dir="ltr"
-                                  class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2"
-                                >
-                                  <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
-                                    <div
-                                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
-                                    ></div>
-                                    <svg
-                                      viewBox="0 0 24 24"
-                                      aria-hidden="true"
-                                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255)") ? "r-14j79pv" : "r-1bwzh9t"}"
-                                    >
-                                      <g>
-                                        <path
-                                          d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z" class="TUIC_BOOKMARK"
-                                        ></path>
-                                      </g>
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                          `, "text/html").querySelector(".css-1dbjc4n")
-                        div.childNodes[1].addEventListener("click", bookmark)
-                        bar_base.appendChild(div)
-
-
-                    } else if (i == "url-copy") {
-                        div = TUICParser.parseFromString(`
-                        <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
-                        <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
-    <div
-      aria-label="ツイートのリンクをコピー"
-      role="button"
-      tabindex="0"
-      class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
-    >
-      <div
-        dir="ltr"
-        class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2"
-      >
-        <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
+        <div
+          aria-label="ツイートのリンクをコピー"
+          role="button"
+          tabindex="0"
+          class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+        >
           <div
-            class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
-          ></div>
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255)") ? "r-14j79pv" : "r-1bwzh9t"}">
-            <g>
-                <path d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z" class="TUIC_URL"></path><path d="M7.27 22.054c-1.61 0-3.197-.735-4.225-2.125-.832-1.127-1.176-2.51-.968-3.894s.943-2.605 2.07-3.438l1.478-1.094c.334-.245.805-.175 1.05.158s.177.804-.157 1.05l-1.48 1.095c-.803.593-1.326 1.464-1.475 2.45-.148.99.097 1.975.69 2.778 1.225 1.657 3.57 2.01 5.23.785l3.528-2.608c1.658-1.225 2.01-3.57.785-5.23-.498-.674-1.187-1.15-1.992-1.376-.4-.113-.633-.527-.52-.927.112-.4.528-.63.926-.522 1.13.318 2.096.986 2.794 1.932 1.717 2.324 1.224 5.612-1.1 7.33l-3.53 2.608c-.933.693-2.023 1.026-3.105 1.026z">
-
-                </path>
-            </g>
-          </svg>
+            dir="ltr"
+            class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-rjixqe r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2"
+          >
+            <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
+              <div
+                class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+              ></div>
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${document.body.style.backgroundColor == ("rgb(255, 255, 255)") ? "r-14j79pv" : "r-1bwzh9t"}">
+                <g>
+                    <path d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z" class="TUIC_URL"></path><path d="M7.27 22.054c-1.61 0-3.197-.735-4.225-2.125-.832-1.127-1.176-2.51-.968-3.894s.943-2.605 2.07-3.438l1.478-1.094c.334-.245.805-.175 1.05.158s.177.804-.157 1.05l-1.48 1.095c-.803.593-1.326 1.464-1.475 2.45-.148.99.097 1.975.69 2.778 1.225 1.657 3.57 2.01 5.23.785l3.528-2.608c1.658-1.225 2.01-3.57.785-5.23-.498-.674-1.187-1.15-1.992-1.376-.4-.113-.633-.527-.52-.927.112-.4.528-.63.926-.522 1.13.318 2.096.986 2.794 1.932 1.717 2.324 1.224 5.612-1.1 7.33l-3.53 2.608c-.933.693-2.023 1.026-3.105 1.026z">
+    
+                    </path>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  </div>
-                      `, "text/html").querySelector(".css-1dbjc4n")
-                        div.childNodes[1].addEventListener("click", url_copy)
-                        bar_base.appendChild(div)
-
-
-                    }
-                    if (div != -1) {
-                        if (needEmpty && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.insertAdjacentHTML("beforeend", `<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`)
-                        lastButton = div
-                        bar_base.appendChild(div)
-                    }
-
-
-                }
-                if (lastButton != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
-                    lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove()
-                }
-
-                for (var i = 0; i < TUIC_input_checkbox_title.length; i++) {
-                    if (!TUICPref.visibleButtons.includes(TUIC_input_checkbox_title[i]) && TUIC_input_checkbox_title[i] in bar_item) {
-                        bar_item[TUIC_input_checkbox_title[i]].classList.add(TUICIvisibleClass);
-                    }
-                }
-
-
-            }
-            elem.setAttribute("TUIC_ARTICLE", TUICDidArticle)
-        })
-    }
-
-    if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
-        let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="${TUICDidArticle}"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
-        if (cells.length != 0) {
-            cells.forEach(function (elem) {
-                if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICDidArticle) {
-                    elem.classList.add(TUICIvisibleClass)
-                    if (elem.previousElementSibling != null && elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
-                        if (elem.previousElementSibling != null) elem.previousElementSibling.classList.add(TUICIvisibleClass)
-                        if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add(TUICIvisibleClass)
-                    }
-                    let cellElement = elem.nextElementSibling
-                    while (cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null) {
-                        cellElement.classList.add(TUICIvisibleClass)
-                        cellElement = cellElement.nextElementSibling
-                    }
-                    if (cellElement != null) cellElement.classList.add(TUICIvisibleClass)
-                }
-            })
+            </div>`}
         }
-    }
-    if(document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1){
-        setTwitterClientInfo();
-    }else if(document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo){
-        document.getElementById("client-info").remove()
-    }
-
-    if (document.querySelector('style.twitter_ui_customizer') == null) {
-
-        run_first()
-    }
-    if (window.location.pathname == "/tuic/safemode") {
-
-
-    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display")) {
-        display_setting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
-    } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display")) {
-        display_setting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
-    }
-    window.clearTimeout(timeout)
-    observer.observe(target, config);
-});
-
-
-
-// オブザーバの設定
-const config = {
-    childList: true,
-    subtree: true
-};
-
-// 対象ノードとオブザーバの設定を渡す
-if (document.getElementById("react-root") != null) {
-    chrome.runtime.sendMessage({ updateType: "openTwitter" });
-
-    /*旧バージョンからのアップデート*/
-    if ((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown") {
-
-        TUICPref.CSS = localStorage.getItem('CSS');
-        TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1";
-        TUICPref.visibleButtons = JSON.parse(localStorage.getItem('visible-button'))
-        for (let i of TUIC_input_color_title) {
-            let a = localStorage.getItem(`${i}-background`) ?? "unknown"
-            if (a != "unknown") {
-                TUICPref.buttonColor[i] = {}
-                TUICPref.buttonColor[i].background = a
-                TUICPref.buttonColor[i].border = localStorage.getItem(`${i}-border`)
-                TUICPref.buttonColor[i].color = localStorage.getItem(`${i}-color`)
-            }
-        }
-
-        localStorage.removeItem('unsent-tweet-background')
-        localStorage.removeItem('unsent-tweet-border')
-        localStorage.removeItem('unsent-tweet-color')
-        localStorage.removeItem('not-following-background')
-        localStorage.removeItem('not-following-border')
-        localStorage.removeItem('not-following-color')
-        localStorage.removeItem('following-background')
-        localStorage.removeItem('following-border')
-        localStorage.removeItem('following-color')
-        localStorage.removeItem('un-following-background')
-        localStorage.removeItem('un-following-border')
-        localStorage.removeItem('un-following-color')
-        localStorage.removeItem('profile-background')
-        localStorage.removeItem('profile-border')
-        localStorage.removeItem('profile-color')
-        localStorage.removeItem('profile-save-background')
-        localStorage.removeItem('profile-save-border')
-        localStorage.removeItem('profile-save-color')
-        localStorage.removeItem('birthday-background')
-        localStorage.removeItem('birthday-border')
-        localStorage.removeItem('birthday-color')
-        localStorage.removeItem('profile-link-background')
-        localStorage.removeItem('profile-link-border')
-        localStorage.removeItem('profile-link-color')
-
-        localStorage.removeItem('reply-button')
-        localStorage.removeItem('retweet-button')
-        localStorage.removeItem('like-button')
-        localStorage.removeItem('downvote-button')
-        localStorage.removeItem('share-button')
-        localStorage.removeItem('tweet_analytics')
-        localStorage.removeItem('visible-button')
-        localStorage.removeItem('osusume-user-timeline')
-        localStorage.removeItem('CSS')
-
-        localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    }
-    /*Fin 旧バージョンからのアップデート*/
-    if (TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
-    observer.observe(target, config);
-
-    const bodyObserver = new MutationObserver(run_first)
-    bodyObserver.observe(document.getElementsByTagName("body").item(0), { childList: false, subtree: false, attributes: true })
-    run_first()
+    },
+    invisibles: {
+        all: ["osusume-user-timeline"],
+        titles: { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
+    },
 }
 
-function run_first() {
+const TUICLibrary = {
+    color: {
+        rgb2hex: function (rgb) {
+            return (
+                `#${rgb.map(function (value) { return ("0" + value.toString(16)).slice(-2); }).join("")}`
+            );
+        },
+        hex2rgb: function (hex) {
+            if (hex.slice(0, 1) == "#") hex = hex.slice(1);
+            return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (str) { return parseInt(str, 16); });
+        }
+    },
+    getClasses: {
+        TUICIvisibleClass: function () {
+            return "TUIC_DISPNONE" + this.query
+        },
+        TUICDidArticle: function () {
+            return "TUIC_CHECKED_ARTICLE" + this.query
+        },
+        TUICScrollBottom: function () {
+            return "TUIC_SCROLL_BOTTOM" + this.query
+        },
+        update: function () {
+            this.query += "_"
+            TUICCss()
+        },
+        query: ""
+    }
+}
+
+const TUICObserver = {
+    observer: new MutationObserver((mutations) => {
+        TUICObserver.observer.disconnect();
+        let timeout = window.setTimeout(function () { TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config) }, 10000)
+        let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"])`)
+        if (articles.length != 0) {
+            articles.forEach(function (elem) {
+                if (elem.querySelector("[data-testid$=\"reply\"]") != null && elem.querySelector("[data-testid$=\"like\"]") != null) {
+                    let bar_base = elem.querySelector("[data-testid$=\"reply\"]")
+                    while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
+                        bar_base = bar_base.parentElement
+                    }
+                    if (TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.TUICScrollBottom())
+                    let bar_item = {}
+                    for (const elem_item of bar_base.children) {
+                        for (const sel in TUICData.visibleButtons.selectors) {
+                            if (elem_item.querySelector(TUICData.visibleButtons.selectors[sel]) != null) {
+                                bar_item[sel] = elem_item
+                                break
+                            }
+                        }
+                    }
+                    let needEmpty = bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null
+                    let lastButton
+                    for (let i of TUICPref.visibleButtons) {
+                        let div = -1
+                        if (i in bar_item) {
+                            div = bar_item[i]
+                        } else if (i == "boolkmark") {
+                            div = TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML.bookmark(), "text/html").querySelector(".css-1dbjc4n")
+                            div.children[0].addEventListener("click", function (e) {
+                                e.currentTarget.parentElement.parentElement
+                                    .querySelector(TUICData.visibleButtons.selectors["share-button"])
+                                    .click();
+                                document
+                                    .querySelector(
+                                        `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+                                [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
+                                [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+                                [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`
+                                    )
+                                    .parentNode.parentNode.parentNode.parentNode.click();
+                            })
+                            bar_base.appendChild(div)
+
+
+                        } else if (i == "url-copy") {
+                            div = TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML["url-copy"](), "text/html").querySelector(".css-1dbjc4n")
+                            div.children[0].addEventListener("click", function (e) {
+                                let shareButtonClick = e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"]).click()
+                                if (document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
+                                [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`) == null) {
+                                    shareButtonClick()
+                                } else {
+                                    document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
+                                [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`).parentNode.parentNode.parentNode.parentNode.click()
+                                }
+                            })
+                            bar_base.appendChild(div)
+
+
+                        }
+                        if (div != -1) {
+                            if (needEmpty && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.insertAdjacentHTML("beforeend", `<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`)
+                            lastButton = div
+                            bar_base.appendChild(div)
+                        }
+
+
+                    }
+                    if (lastButton != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
+                        lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove()
+                    }
+
+                    for (var i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
+                        if (!TUICPref.visibleButtons.includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
+                            bar_item[TUICData.settings.visibleButtons.all[i]].classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
+                        }
+                    }
+
+                }
+                elem.setAttribute("TUIC_ARTICLE", TUICLibrary.getClasses.TUICDidArticle())
+            })
+        }
+
+        if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
+            let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
+            if (cells.length != 0) {
+                cells.forEach(function (elem) {
+                    if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICLibrary.getClasses.TUICDidArticle()) {
+                        elem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                        if (elem.previousElementSibling != null && elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
+                            if (elem.previousElementSibling != null) elem.previousElementSibling.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                            if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                        }
+                        let cellElement = elem.nextElementSibling
+                        while (cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null) {
+                            cellElement.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                            cellElement = cellElement.nextElementSibling
+                        }
+                        if (cellElement != null) cellElement.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                    }
+                })
+            }
+        }
+
+        if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
+            setTwitterClientInfo();
+        } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
+            document.getElementById("client-info").remove()
+        }
+
+        if (document.querySelector('style.twitter_ui_customizer') == null) {
+
+            TUICRunFirst()
+        }
+        if (window.location.pathname == "/tuic/safemode") {
+
+
+        } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display")) {
+            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
+        } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display")) {
+            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
+        }
+        window.clearTimeout(timeout)
+        TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
+    }),
+    config: {
+        childList: true,
+        subtree: true
+    },
+    target: document.getElementsByTagName("body").item(0)
+}
+
+const TUICOptionHTML = {
+    displaySetting: function (rootElement = "") {
+
+        let TWITTER_setting_back = rootElement;
+
+
+        let TUICPrefHTML = TUICParser.parseFromString(this.TUICOptionHTML(), "text/html").querySelector("#TUIC_setting")
+        TWITTER_setting_back.appendChild(TUICPrefHTML);
+
+        document.querySelector("#css_textarea").value = TUICPref['CSS']
+
+        this.eventHandle()
+
+    },
+    eventHandle: function () {
+        for (const elem in this.eventList) {
+            listItem = this.eventList[elem]
+            if (listItem.single) {
+                document.querySelector(elem).addEventListener(listItem.type, listItem.function)
+            } else {
+                for (let elm of document.querySelectorAll(elem)) {
+                    elm.addEventListener(listItem.type, listItem.function);
+                }
+            }
+        }
+    },
+    eventList: {
+        ".TUICButtonColor": {
+            "type": "change",
+            "function": function (event) {
+                let colorValue = TUICLibrary.color.hex2rgb(event.target.value)
+                if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
+                TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
+
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICCustomCSS()
+            },
+            "single": false
+        },
+        ".TUICButtonColorCheck": {
+            "type": "change",
+            "function": function (event) {
+                let colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
+                if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
+                TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICCustomCSS()
+            },
+            "single": false
+        },
+        ".TUICDfaultColor": {
+            "type": "click",
+            "function": function (event) {
+                let TUIC_color = (TUICData.colors[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]).replace("rgba(", "").replace(")", "").split(",")
+                let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+                document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
+
+                if (document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked != TUIC_color[3] == 0) document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked = TUIC_color[3] == 0
+                if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") != "unknown" && (TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] ?? "unknown") != "unknown") delete TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICCustomCSS()
+            },
+            "single": false
+        },
+        ".TUICInvisibleItems": {
+            "type": "click",
+            "function": function (event) {
+                TUICPref.invisibleItems[event.target.id] = event.target.checked
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICLibrary.getClasses.update()
+            },
+            "single": false
+        },
+        ".otherBoolSetting": {
+            "type": "click",
+            "function": function (event) {
+                TUICPref.otherBoolSetting[event.target.id] = event.target.checked
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICLibrary.getClasses.update()
+            },
+            "single": false
+        },
+        "#save": {
+            "type": "click",
+            "function": function () {
+                TUICPref.CSS = document.querySelector("#css_textarea").value;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICCustomCSS();
+            },
+            "single": true
+        },
+        "#default_set": {
+            "type": "click",
+            "function": function () {
+                localStorage.setItem("TUIC", TUICData.defaultPref);
+                TUICPref = JSON.parse(TUICData.defaultPref);
+
+                if (window.location.pathname == "/tuic/safemode") {
+                    window.location.href = `${window.location.protocol}//${window.location.hostname}`;
+                } else {
+                    document.querySelector("#TUIC_setting").remove();
+                }
+            },
+            "single": true
+        },
+        ".TUIC_up_down_list_to_left": {
+            "type": "click",
+            "function": function (event) {
+                parentBox = event.currentTarget.parentElement.parentElement
+                leftBox = parentBox.children[0].children[2]
+                rightBox = parentBox.children[2].children[2]
+
+                if (rightBox.selectedIndex != -1) {
+                    leftBox.appendChild(rightBox.children[rightBox.selectedIndex]);
+                    TUICOptionHTML.upDownListSetting(parentBox);
+                }
+            },
+            "single": false
+        },
+        ".TUIC_up_down_list_to_right": {
+            "type": "click",
+            "function": function (event) {
+                parentBox = event.currentTarget.parentElement.parentElement
+                leftBox = parentBox.children[0].children[2]
+                rightBox = parentBox.children[2].children[2]
+                if (leftBox.selectedIndex != -1) {
+                    rightBox.appendChild(leftBox.children[leftBox.selectedIndex]);
+                    TUICOptionHTML.upDownListSetting(parentBox);
+                }
+            },
+            "single": false
+        },
+        ".TUIC_up_down_list_to_up": {
+            "type": "click",
+            "function": function (event) {
+                parentBox = event.currentTarget.parentElement.parentElement
+                leftBox = parentBox.children[0].children[2]
+                if (leftBox.selectedIndex > 0) {
+                    leftBox.insertBefore(leftBox.children[leftBox.selectedIndex], leftBox.children[leftBox.selectedIndex - 1]);
+                    TUICOptionHTML.upDownListSetting(parentBox);
+                }
+            },
+            "single": false
+        },
+        ".TUIC_up_down_list_to_down": {
+            "type": "click",
+            "function": function (event) {
+                parentBox = event.currentTarget.parentElement.parentElement
+                leftBox = parentBox.children[0].children[2]
+                if (leftBox.selectedIndex > -1) {
+                    leftBox.insertBefore(leftBox.children[leftBox.selectedIndex], leftBox.children[leftBox.selectedIndex].nextSibling.nextSibling)
+                    TUICOptionHTML.upDownListSetting(parentBox)
+                }
+            },
+            "single": false
+        },
+        ".TUIC_up_down_list_to_default": {
+            "type": "click",
+            "function": function (event) {
+                parentBox = event.currentTarget.parentElement.parentElement
+                leftBox = parentBox.children[0].children[2]
+                rightBox = parentBox.children[2].children[2]
+
+
+                settingId = parentBox.getAttribute("TUICUDBox")
+                TUICPref.visibleButtons = JSON.parse(TUICData.defaultPref)[settingId]
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                let ListItem = TUICOptionHTML.upDownListItem(settingId, TUICData[settingId + "_all"], TUICData[settingId + "_title"])
+                leftBox.innerHTML = ListItem[0]
+                rightBox.innerHTML = ListItem[1]
+                TUICOptionHTML.upDownListSetting(parentBox)
+            },
+            "single": false
+        },
+    },
+    upDownListSetting(parentBox) {
+        id = parentBox.getAttribute("TUICUDBox")
+        let visible_button_list = []
+        let visibleButtonsT = parentBox.children[0].children[2].querySelectorAll("option")
+        for (let i = 0; i < visibleButtonsT.length; i++) {
+            visible_button_list.push(visibleButtonsT[i].id)
+        }
+        TUICPref[id] = visible_button_list
+        localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+        TUICLibrary.getClasses.update()
+        TUICCss()
+    },
+
+    TUICOptionHTML: function () {
+
+        return `
+<div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0">
+    <div style="-webkit-line-clamp: 3;" class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
+        <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
+            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">Twitter UI Customizer</span>
+            </h2>
+${this.safemodeReturnButton()}
+    </div>
+
+    <div>
+        <br><br>
+${this.colorsList()}
+${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", this.checkbox("bottomScroll", TUICPref.otherBoolSetting["bottomScroll"], "ツイート下ボタンにスクロールバーを表示", "otherBoolSetting"))}
+        <br><br>
+${this.checkboxList(TUICData.invisibles.all, TUICPref.invisibleItems, TUICData.invisibles.titles, "非表示設定", "TUICInvisibleItems")}
+${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.clientInfo }, { "clientInfo": "クライアント情報を表示" }, "クライアント情報 (廃止される可能性があります)", "otherBoolSetting")}
+        <br><br>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
+        <br><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">カスタムCSS</h2><br>
+        <div class="TUIC_col_setting_container">
+            <form>
+                <textarea id="css_textarea"></textarea>
+            </form>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">カスタムCSSを保存</button>
+        </div>
+    </div>
+</div>
+
+`
+    },
+    //セーフモードの戻るボタン(ただの条件分岐)
+    safemodeReturnButton: function () {
+        return window.location.pathname == "/tuic/safemode"
+            ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; 戻る</a>`
+            : ""
+    },
+    //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
+    colorSetting: function (id, type, color, text) {
+        let TUIC_color = color.replace("rgba(", "").replace(")", "").split(",")
+        let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+        return `
+        <div class="TUIC_setting_color_colmn">
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${text}</h4>
+        <div class="TUIC_setting_input_container">
+            <div class="TUIC_input_color_rounded__container">
+                <div class="TUIC_input_color_rounded">
+                    <input type="color" id="${id + "-" + type
+            }" TUICColor="${id}" TUICColorType="${type}" value="${TUICColor1}" class="TUICButtonColor">
+                    </input>
+                </div>
+            </div>
+            <input type="checkbox" id="${`${id}-${type}-check`
+            }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${id}"
+             TUICColorType="${type}" class="TUICButtonColorCheck">
+            <label for="${`${id}-${type}-check`
+            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor"
+             TUICColor="${id}" TUICColorType="${type}">デフォルトに戻す</button>
+        </div>
+    </div>`
+    },
+    //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
+    threeColorSetting: function (id) {
+        return `
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICData.settings.colors.title[id]
+            }
+</h2>
+<div class="TUIC_col_setting_container">
+${this.colorSetting(id, "background", TUICPref.buttonColor[id]?.background ?? TUICData.colors[id].background, "背景色")}
+${this.colorSetting(id, "border", TUICPref.buttonColor[id]?.border ?? TUICData.colors[id].border, "枠色")}
+${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.colors[id].color, "文字色")}
+</div>
+`;
+    },
+    //色の設定の全体。forぶん回してる
+    colorsList: function () {
+        let TUICColors = ""
+        for (const i of TUICData.settings.colors.id) {
+            TUICColors += this.threeColorSetting(i)
+        }
+        return TUICColors
+    },
+    //チェックボックスの一行。(id:設定のid value:Boolで値 name:設定の名前 type:設定の分類)
+    checkbox: function (id, value, name, type) {
+        return `
+        <div>
+            <input id=${id} ${value ? "checked" : ""
+            } type="checkbox" class="${type}"></input>
+            <label class="TUIC_setting_text" for="${id}">${name}</label>
+        </div>
+        `
+    },
+    //チェックボックスリスト(ids:ArrayでID values:Objectでbook names:Objectで名前 title:Stringでタイトル)
+    checkboxList: function (ids, values, names, title, type) {
+        let TUICInvisibleCheckBox = "";
+        for (let i of ids) {
+            TUICInvisibleCheckBox += this.checkbox(i, values[i], names[i], type)
+        }
+        return `
+          <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${title}</h2><br>
+          <div class="TUIC_col_setting_container">
+              ${TUICInvisibleCheckBox}
+          </div>
+          <br>
+          `
+    },
+    //アップダウンリスト(id:設定のID。TUICPref直下 title:設定の名前, option:下に表示する設定)
+    upDownList: function (id, title, option) {
+        const UDAllValue = TUICData.settings[id].all
+        let ListItem = this.upDownListItem(id)
+        let TUICVisibleButtons = ListItem[0]
+        let TUICInvisibleButtons = ListItem[1]
+        return `
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${title}</h2>
+
+        <div class="TUIC_col_setting_container">
+            <div style="display:flex" TUICUDBox="${id}">
+                <div>
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">表示</h2><br>
+                    <select id="TUIC_visible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length
+            }">
+${TUICVisibleButtons}
+                    </select>
+                </div>
+                <div style="text-align: center;">
+                    <br>
+                    <br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_left">表示する</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_up">上へ</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_down">下へ</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_right">非表示にする</button><br><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_default">初期化</button><br>
+                </div>
+                <div>
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">非表示</h2><br>
+                    <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length
+            }">
+    ${TUICInvisibleButtons}
+                    </select>
+                </div>
+            </div>
+            <br>
+            ${option}
+        </div>
+`
+    },
+    //アップダウンリストの内容(id:設定のID)
+    upDownListItem: function (id) {
+        let TUICVisibleButtons = ""
+        let TUICInvisibleButtons = ""
+        for (let i of TUICData.settings[id].all) {
+            if (TUICPref[id].includes(i)) {
+                TUICVisibleButtons += `<option value="${i}" id="${i}">${TUICData.settings[id].titles[i]}</option>`
+            } else {
+                TUICInvisibleButtons += `<option value="${i}" id="${i}">${TUICData.settings[id].titles[i]}</option>`
+            }
+        }
+        return [TUICVisibleButtons, TUICInvisibleButtons]
+
+    }
+}
+
+function TUICRunFirst() {
 
     if (document.querySelector("#twitter_ui_customizer_css") != null) document.querySelector("#twitter_ui_customizer_css").remove()
     if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove()
@@ -289,7 +659,7 @@ function run_first() {
     // 追加する要素を用意します。
     let TUIC_css = document.createElement("style");
     TUIC_css.id = "twitter_ui_customizer"
-    let TWITTER_head = document.getElementsByTagName("head").item(0)
+    let TWITTER_head = document.querySelector("head")
     // 基準となる要素を指定します。
     TWITTER_head.appendChild(TUIC_css);
     TUICCss()
@@ -312,491 +682,33 @@ function run_first() {
                 document.querySelector(".twitter_ui_customizer_css").remove()
             }
 
-            display_setting(document.querySelector('#safemode'))
+            TUICOptionHTML.displaySetting(document.querySelector('#safemode'))
         }
     }
 
-}
-
-
-function display_setting(rootElement = "") {
-    let TWITTER_setting_back = rootElement;
-
-    let TUICColors = ""
-    for (var i = 0; i < TUIC_input_color_title.length; i++) {
-        let TUIC_color = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.background ?? color[i * 3]).replace("rgba(", "").replace(")", "").split(",")
-        let TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
-        let TUIC_color2 = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.border ?? color[i * 3 + 1]).replace("rgba(", "").replace(")", "").split(",")
-        let TUICColor2 = rgb2hex([Number(TUIC_color2[0]), Number(TUIC_color2[1]), Number(TUIC_color2[2])])
-        let TUIC_color3 = (TUICPref.buttonColor[TUIC_input_color_title[i]]?.color ?? color[i * 3 + 2]).replace("rgba(", "").replace(")", "").split(",")
-        let TUICColor3 = rgb2hex([Number(TUIC_color3[0]), Number(TUIC_color3[1]), Number(TUIC_color3[2])])
-        TUICColors += `
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${
-      input_name[i]
-    }</h2>
-<br>
-<div class="TUIC_col_setting_container">
-    <div class="TUIC_setting_color_colmn">
-        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">背景色</h4>
-        <div class="TUIC_setting_input_container">
-                <div class="TUIC_input_color_rounded__container">
-                <div class="TUIC_input_color_rounded">
-                    <input type="color" id="${
-                      TUIC_input_color_title[i] + "-background"
-                    }" TUICColor="${
-      TUIC_input_color_title[i]
-    }" TUICColorType="background" value="${TUICColor1}" class="TUICButtonColor">
-                    </input>
-                </div>
-            </div>
-            <input type="checkbox" id="${
-              TUIC_input_color_title[i] + "-background-check"
-            }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${
-      TUIC_input_color_title[i]
-    }" TUICColorType="background" class="TUICButtonColorCheck">
-            <label for="${
-              TUIC_input_color_title[i] + "-background-check"
-            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${
-              TUIC_input_color_title[i]
-            }" TUICColorType="background">デフォルトに戻す</button>
-        </div>
-    </div>
-
-    <div class="TUIC_setting_color_colmn">
-        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">枠色</h4>
-        <div class="TUIC_setting_input_container">
-            <div class="TUIC_input_color_rounded__container">
-                <div class="TUIC_input_color_rounded">
-                    <input type="color" id="${
-                      TUIC_input_color_title[i] + "-border"
-                    }" value="${TUICColor2}" TUICColor="${
-      TUIC_input_color_title[i]
-    }" TUICColorType="border" class="TUICButtonColor"></input>
-                </div>
-            </div>
-            <input type="checkbox" id="${
-              TUIC_input_color_title[i] + "-border-check"
-            }" ${TUIC_color2[3] == "0" ? "checked" : ""} TUICColor="${
-      TUIC_input_color_title[i]
-    }" TUICColorType="border" class="TUICButtonColorCheck">
-            <label for="${
-              TUIC_input_color_title[i] + "-border-check"
-            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${
-              TUIC_input_color_title[i]
-            }" TUICColorType="border">デフォルトに戻す</button>
-        </div>
-    </div>
-
-    <div class="TUIC_setting_color_colmn">
-        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">文字色</h4>
-        <div class="TUIC_setting_input_container">
-            <div class="TUIC_input_color_rounded__container">
-                <div class="TUIC_input_color_rounded">
-                    <input type="color" id="${
-                      TUIC_input_color_title[i] + "-color"
-                    }" value="${TUICColor3}" TUICColor="${
-      TUIC_input_color_title[i]
-    }" TUICColorType="color" class="TUICButtonColor">
-                    </input>
-                </div>
-            </div>
-            <input type="checkbox" id="${
-              TUIC_input_color_title[i] + "-color-check"
-            }" ${TUIC_color3[3] == "0" ? "checked" : ""} TUICColor="${
-      TUIC_input_color_title[i]
-    }" TUICColorType="color" class="TUICButtonColorCheck">
-            <label for="${
-              TUIC_input_color_title[i] + "-color-check"
-            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor" TUICColor="${
-              TUIC_input_color_title[i]
-            }" TUICColorType="color">デフォルトに戻す</button>
-        </div>
-    </div>
-</div>
-`;
-  }
-
-  let TUICInvisibleCheckBox = "";
-  for (let i of invisibleCheckbox) {
-    TUICInvisibleCheckBox += `
-<div>
-    <input id=${i} ${
-      TUICPref.invisibleItems[i] ? "checked" : ""
-    } type="checkbox" class="TUICInvisibleItems"></input>
-    <label class="TUIC_setting_text" for="${i}">${
-      invisibleCheckboxLabel[i]
-    }</label>
-</div>
-`;
-  }
-  let TUICPrefHTML = TUICParser.parseFromString(
-    `
-<div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0">
-    <div style="-webkit-line-clamp: 3;" class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
-        <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
-            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">Twitter UI Customizer</span>
-            </h2>
-${
-  window.location.pathname == "/tuic/safemode"
-    ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; 戻る</a>`
-    : ""
-}
-    </div>
-
-    <div>
-        <br>
-${TUICColors}
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">ツイート下ボタンの並び替え</h2>
-
-        <div class="TUIC_col_setting_container">
-            <div style="display:flex">
-                <div>
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">表示</h2><br>
-                    <select id="TUIC_visible" class="TUIC_none_scroll TUIC_selectbox" size="${
-                      TUIC_input_checkbox_title.length
-                    }">
-    ${settingVisibleButton()}
-                    </select>
-                </div>
-                <div style="text-align: center;">
-                    <br>
-                    <br>
-                    <button id="toleft" style="width:8em" class="TUIC_setting_text TUIC_setting_button">表示する</button><br>
-                    <button id="toup" style="width:8em" class="TUIC_setting_text TUIC_setting_button">上へ</button><br>
-                    <button id="todown" style="width:8em" class="TUIC_setting_text TUIC_setting_button">下へ</button><br>
-                    <button id="toright" style="width:8em" class="TUIC_setting_text TUIC_setting_button">非表示にする</button><br><br>
-                    <button id="todefault" style="width:8em" class="TUIC_setting_text TUIC_setting_button">初期化</button><br>
-                </div>
-                <div>
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">非表示</h2><br>
-                    <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${
-                      TUIC_input_checkbox_title.length
-                    }">
-    ${settingInvisibleButton()}
-                    </select>
-                </div>
-            </div>
-            <br>
-            <div>
-            <input id="bottomScroll" ${
-              TUICPref.otherBoolSetting["bottomScroll"] ? "checked" : ""
-            } type="checkbox" class="otherBoolSetting"></input>
-                <label class="TUIC_setting_text" for="bottomScroll">ツイート下ボタンにスクロールバーを表示</label>
-            </div>
-        </div>
-        <br>
-        <br>
-
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">非表示設定</h2><br>
-        <div class="TUIC_col_setting_container">
-            ${TUICInvisibleCheckBox}
-        </div>
-<br>
-
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:20px;">クライアント情報 (廃止される可能性があります)</h2><br>
-<div class="TUIC_col_setting_container">
-<div>
-<input id="clientInfo" ${TUICPref.otherBoolSetting.clientInfo ? "checked" : ""} type="checkbox" class=" otherBoolSetting"></input>
-<label class="TUIC_setting_text" for="clientInfo">クライアント情報を表示</label>
-</div>
-</div>
-
-<br>
-<br>
-<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
-        <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">カスタムCSS</h2><br>
-        <div class="TUIC_col_setting_container">
-            <form>
-                <textarea id="css_textarea"></textarea>
-            </form>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">カスタムCSSを保存</button>
-        </div>
-    </div>
-</div>
-
-`, "text/html").querySelector("#TUIC_setting")
-
-    TWITTER_setting_back.appendChild(TUICPrefHTML);
-    for (let elem of document.querySelectorAll(".TUICButtonColor")) {
-        elem.addEventListener('change',
-            ButtonColor);
-    }
-    for (let elem of document.querySelectorAll(".TUICButtonColorCheck")) {
-        elem.addEventListener('change',
-            ButtonColorCheck);
-    }
-    for (let elem of document.querySelectorAll(".TUICDfaultColor")) {
-        elem.addEventListener('click',
-            ButtonColorDefault);
-    }
-    for (let elem of document.querySelectorAll(".TUICInvisibleItems")) {
-        elem.addEventListener('click',
-            settingInvisibleItems);
-    }
-    for (let elem of document.querySelectorAll(".otherBoolSetting")) {
-        elem.addEventListener('click',
-            settingOtherBoolSetting);
-    }
-    for (let elem of document.querySelector("#TUIC_visible").childNodes) {
-        if (elem.tagName != "OPTION") elem.remove()
-    }
-    for (let elem of document.querySelector("#TUIC_invisible").childNodes) {
-        if (elem.tagName != "OPTION") elem.remove()
-    }
-
-    document.querySelector("#css_textarea").value = TUICPref['CSS']
-    document.getElementById('save').addEventListener('click',
-        save_data);
-    document.getElementById('default_set').addEventListener('click',
-        default_set);
-
-    document.getElementById('todefault').addEventListener('click', todefault);
-    document.getElementById('toleft').addEventListener('click', toleft);
-
-    document.getElementById('toright').addEventListener('click', toright);
-
-    document.getElementById('toup').addEventListener('click', toup);
-    document.getElementById('todown').addEventListener('click', todown);
-}
-
-function settingVisibleButton() {
-    let TUICVisibleButtons = ""
-    for (let i of TUICPref.visibleButtons) {
-        TUICVisibleButtons += `<option value="${i}" id="${i}">${TUIC_input_checkbox_name[i]}</option>`
-    }
-    return TUICVisibleButtons
-}
-function settingInvisibleButton() {
-    let TUICInvisibleButtons = ""
-    for (let i of TUIC_input_checkbox_title) {
-        if (!TUICPref.visibleButtons.includes(i)) TUICInvisibleButtons += `<option value="${i}" id="${i}">${TUIC_input_checkbox_name[i]}</option>`
-    }
-    return TUICInvisibleButtons
-}
-
-function ButtonColor(event) {
-    let colorValue = hex2rgb(event.target.value)
-    if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
-    TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
-
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICCustomCSS()
-}
-
-function ButtonColorCheck(event) {
-    let colorValue = hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
-    if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref.buttonColor[event.target.getAttribute("TUICColor")] = {}
-    TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICCustomCSS()
-}
-
-function ButtonColorDefault(event) {
-
-    let colorIndex = 3 * TUIC_input_color_title.indexOf(event.target.getAttribute("TUICColor")) + TUICColorTypeList.indexOf(event.target.getAttribute("TUICColorType"))
-    let TUIC_color = (color[colorIndex]).replace("rgba(", "").replace(")", "").split(",")
-    let TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
-    document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
-
-    if (document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked != TUIC_color[3] == 0) document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked = TUIC_color[3] == 0
-    if ((TUICPref.buttonColor[event.target.getAttribute("TUICColor")] ?? "unknown") != "unknown" && (TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] ?? "unknown") != "unknown") delete TUICPref.buttonColor[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICCustomCSS()
-}
-
-function settingInvisibleItems(event) {
-    TUICPref.invisibleItems[event.target.id] = event.target.checked
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICIvisibleClass += "_"
-    TUICDidArticle += "_"
-    TUICCss()
-}
-
-
-function settingOtherBoolSetting(event) {
-    TUICPref.otherBoolSetting[event.target.id] = event.target.checked
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICIvisibleClass += "_"
-    TUICDidArticle += "_"
-    TUICCss()
 }
 
 //クライアント情報の取得と適用/*
 async function setTwitterClientInfo() {
-            chrome.runtime.sendMessage(
-                {
-                    endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
-                },
-                (response) => {
-                    if(document.getElementById("client-info") == null){
-                        json = response;
-                        var clientstr = json.source.replace("</a>", "").split(">")[1];
-                        var client = document.createElement("a");
-                        client.style.marginLeft = "2px";
-                        client.id = "client-info";
-                        client.appendChild(document.createTextNode(clientstr));
-                        client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
-                        document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2")[0].appendChild(client);
-                    }
-
+    chrome.runtime.sendMessage(
+        {
+            endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
+        },
+        (response) => {
+            if (document.getElementById("client-info") == null) {
+                json = response;
+                var client = document.createElement("a");
+                client.style.marginLeft = "2px";
+                client.id = "client-info";
+                if (json.source ?? "unknwon" != "unknwon") {
+                    client.textContent = json.source.replace("</a>", "").split(">")[1];
                 }
-            );
-}
+                client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
+                document.querySelector(".css-1dbjc4n.r-1d09ksm.r-1471scf.r-18u37iz.r-1wbh5a2").appendChild(client);
+            }
 
-function rgb2hex(rgb) {
-  return (
-    "#" +
-    rgb
-      .map(function (value) {
-        return ("0" + value.toString(16)).slice(-2);
-      })
-      .join("")
-  );
-}
-function hex2rgb(hex) {
-  if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-  if (hex.length == 3)
-    hex =
-      hex.slice(0, 1) +
-      hex.slice(0, 1) +
-      hex.slice(1, 2) +
-      hex.slice(1, 2) +
-      hex.slice(2, 3) +
-      hex.slice(2, 3);
-
-  return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (
-    str
-  ) {
-    return parseInt(str, 16);
-  });
-}
-
-function save_data() {
-  TUICPref.CSS = document.querySelector("#css_textarea").value;
-  localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-  TUICCustomCSS();
-  /*
-    for (let i = 0; i < checkbox.length; i++) {
-        localStorage.setItem(checkbox[i], document.getElementById(checkbox[i]).checked ? "1" : "0")
-    }*/
-}
-function default_set() {
-  localStorage.setItem("TUIC", defaultPref);
-  TUICPref = JSON.parse(defaultPref);
-
-  if (window.location.pathname == "/tuic/safemode") {
-    window.location.href = `${window.location.protocol}//${window.location.hostname}`;
-  } else {
-    document.querySelector("#TUIC_setting").remove();
-  }
-}
-
-function toleft() {
-  if (document.querySelector("#TUIC_invisible").selectedIndex != -1) {
-    document
-      .querySelector("#TUIC_visible")
-      .appendChild(
-        document.querySelector("#TUIC_invisible").childNodes[
-          document.querySelector("#TUIC_invisible").selectedIndex
-        ]
-      );
-    visibleButtonFunc();
-  }
-}
-
-function toright() {
-  if (document.querySelector("#TUIC_visible").selectedIndex != -1) {
-    document
-      .querySelector("#TUIC_invisible")
-      .appendChild(
-        document.querySelector("#TUIC_visible").childNodes[
-          document.querySelector("#TUIC_visible").selectedIndex
-        ]
-      );
-    visibleButtonFunc();
-  }
-}
-
-function toup() {
-  if (document.querySelector("#TUIC_visible").selectedIndex > 0) {
-    document
-      .querySelector("#TUIC_visible")
-      .insertBefore(
-        document.querySelector("#TUIC_visible").childNodes[
-          document.querySelector("#TUIC_visible").selectedIndex
-        ],
-        document.querySelector("#TUIC_visible").childNodes[
-          document.querySelector("#TUIC_visible").selectedIndex - 1
-        ]
-      );
-    visibleButtonFunc();
-  }
-}
-
-function todown() {
-    if(document.querySelector("#TUIC_visible").selectedIndex > -1){
-        if (document.querySelector("#TUIC_visible").selectedIndex <= document.querySelector("#TUIC_visible").childNodes.length - 3) {
-            document.querySelector("#TUIC_visible").insertBefore(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex], document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex].nextSibling.nextSibling)
-    visibleButtonFunc()
-        }else if(document.querySelector("#TUIC_visible").selectedIndex == document.querySelector("#TUIC_visible").childNodes.length - 2){
-            document.querySelector("#TUIC_visible").appendChild(document.querySelector("#TUIC_visible").childNodes[document.querySelector("#TUIC_visible").selectedIndex])
-            visibleButtonFunc()
         }
-    }
-
-
-}
-
-function todefault() {
-    TUICPref.visibleButtons = JSON.parse(defaultPref).visibleButtons
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    document.querySelector("#TUIC_visible").innerHTML = settingVisibleButton()
-    document.querySelector("#TUIC_invisible").innerHTML = settingInvisibleButton()
-    visibleButtonFunc()
-
-}
-
-function visibleButtonFunc() {
-    let visible_button_list = []
-    let visibleButtonsT = document.querySelector("#TUIC_visible").querySelectorAll("option")
-    for (let i = 0; i < visibleButtonsT.length; i++) {
-        visible_button_list.push(visibleButtonsT[i].id)
-    }
-    TUICPref.visibleButtons = visible_button_list
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    TUICIvisibleClass += "_"
-    TUICDidArticle += "_"
-    TUICScrollBottom += "_"
-    TUICCss()
-}
-
-function bookmark(e) {
-  e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
-    .querySelector(TUIC_input_checkbox_selector["share-button"])
-    .click();
-  document
-    .querySelector(
-      `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-    [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
-    [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-    [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`
-    )
-    .parentNode.parentNode.parentNode.parentNode.click();
-}
-
-function url_copy(e) {
-    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    if (document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
-    [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`) == null) {
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(TUIC_input_checkbox_selector["share-button"]).click()
-    } else {
-        document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
-    [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`).parentNode.parentNode.parentNode.parentNode.click()
-    }
+    );
 }
 
 function TUICCss() {
@@ -805,83 +717,70 @@ function TUICCss() {
         TUIC_color = "rgba(0,0,0,1)"
     }
 
-    let unsent_tweet_background = TUICPref.buttonColor["unsent-tweet"]?.background ?? color[0]
-    let unsent_tweet_border = TUICPref.buttonColor['unsent-tweet']?.border ?? color[1]
-    let unsent_tweet_color = TUICPref.buttonColor['unsent-tweet']?.color ?? color[2]
-    let not_following_background = TUICPref.buttonColor['not-following']?.background ?? color[3]
-    let not_following_border = TUICPref.buttonColor['not-following']?.border ?? color[4]
-    let not_following_color = TUICPref.buttonColor['not-following']?.color ?? color[5]
-    let following_background = TUICPref.buttonColor['following']?.background ?? color[6]
-    let following_border = TUICPref.buttonColor['following']?.border ?? color[7]
-    let following_color = TUICPref.buttonColor['following']?.color ?? color[8]
-    let un_following_background = TUICPref.buttonColor['un-following']?.background ?? color[9]
-    let un_following_border = TUICPref.buttonColor['un-following']?.border ?? color[10]
-    let un_following_color = TUICPref.buttonColor['un-following']?.color ?? color[11]
-    let profile_background = TUICPref.buttonColor['profile']?.background ?? color[12]
-    let profile_border = TUICPref.buttonColor['profile']?.border ?? color[13]
-    let profile_color = TUICPref.buttonColor['profile']?.color ?? color[14]
-    let profile_save_background = TUICPref.buttonColor['profile-save']?.background ?? color[15]
-    let profile_save_border = TUICPref.buttonColor['profile-save']?.border ?? color[16]
-    let profile_save_color = TUICPref.buttonColor['profile-save']?.color ?? color[17]
-    let birthday_background = TUICPref.buttonColor['birthday']?.background ?? color[18]
-    let birthday_border = TUICPref.buttonColor['birthday']?.border ?? color[19]
-    let birthday_color = TUICPref.buttonColor['birthday']?.color ?? color[20]
 
-  // ここから：現在のTwitterのbodyタグの背景色からテーマ判定してTUICの設定画面の色設定(cookieの権限なしでできるのでゴリ押し)
-  let bgcolor_tw = document
-    .querySelector("body")
-    .style.backgroundColor.toString();
-  let themes_def = {
-    Light: 1,
-    dim: 2,
-    black: 3,
-  };
-  let twtheme =
-    (bgcolor_tw === "rgb(0, 0, 0)" && themes_def.black) ||
-    (bgcolor_tw === "rgb(21, 32, 43)" && themes_def.dim) ||
-    (bgcolor_tw === "rgb(255, 255, 255)" && themes_def.Light) ||
-    themes_def.Light;
+    // ここから：現在のTwitterのbodyタグの背景色からテーマ判定してTUICの設定画面の色設定(cookieの権限なしでできるのでゴリ押し)
+    let bgcolor_tw = document
+        .querySelector("body")
+        .style.backgroundColor.toString();
+    let themes_def = {
+        Light: 1,
+        dim: 2,
+        black: 3,
+    };
+    let twtheme =
+        (bgcolor_tw === "rgb(0, 0, 0)" && themes_def.black) ||
+        (bgcolor_tw === "rgb(21, 32, 43)" && themes_def.dim) ||
+        (bgcolor_tw === "rgb(255, 255, 255)" && themes_def.Light) ||
+        themes_def.Light;
 
-  let TWIC_con_bg = "";
-  let TWIC_input_color_hov = "";
+    let TWIC_con_bg = "";
+    let TWIC_input_color_hov = "";
 
-  if (twtheme == 3) {
-    TWIC_con_bg = "rgb(22, 24, 28)";
-    TWIC_input_color_hov = "#ffffff40";
-  } else if (twtheme == 2) {
-    TWIC_con_bg = "rgb(30, 39, 50)";
-    TWIC_input_color_hov = "#ffffff30";
-  } else {
-    TWIC_con_bg = "rgb(247, 249, 249)";
-    TWIC_input_color_hov = "#00000040";
-  }
-  //console.log(TWIC_con_bg + twtheme + bgcolor_tw);
-  // ここまで
+    if (twtheme == 3) {
+        TWIC_con_bg = "rgb(22, 24, 28)";
+        TWIC_input_color_hov = "#ffffff40";
+    } else if (twtheme == 2) {
+        TWIC_con_bg = "rgb(30, 39, 50)";
+        TWIC_input_color_hov = "#ffffff30";
+    } else {
+        TWIC_con_bg = "rgb(247, 249, 249)";
+        TWIC_input_color_hov = "#00000040";
+    }
+    //console.log(TWIC_con_bg + twtheme + bgcolor_tw);
+    // ここまで
 
-  document.querySelector("#twitter_ui_customizer").textContent = `
+    document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
-    --twitter-unsent-tweet-background: ${unsent_tweet_background};
-    --twitter-unsent-tweet-border: ${unsent_tweet_border};
-    --twitter-unsent-tweet-color: ${unsent_tweet_color};
-    --twitter-not-following-background: ${not_following_background};
-    --twitter-not-following-border: ${not_following_border};
-    --twitter-not-following-color: ${not_following_color};
-    --twitter-following-background: ${following_background};
-    --twitter-following-border: ${following_border};
-    --twitter-following-color: ${following_color};
-    --twitter-un-following-background: ${un_following_background};
-    --twitter-un-following-border: ${un_following_border};
-    --twitter-un-following-color: ${un_following_color};
-    --twitter-profile-background: ${profile_background};
-    --twitter-profile-border: ${profile_border};
-    --twitter-profile-color: ${profile_color};
-    --twitter-profile-save-background: ${profile_save_background};
-    --twitter-profile-save-border: ${profile_save_border};
-    --twitter-profile-save-color: ${profile_save_color};
-    --twitter-birthday-background: ${birthday_background};
-    --twitter-birthday-border: ${birthday_border};
-    --twitter-birthday-color: ${birthday_color};
+    --twitter-unsent-tweet-background: ${TUICPref.buttonColor["unsent-tweet"]?.background ?? TUICData.colors["unsent-tweet"].background};
+    --twitter-unsent-tweet-border: ${TUICPref.buttonColor["unsent-tweet"]?.border ?? TUICData.colors["unsent-tweet"].border};
+    --twitter-unsent-tweet-color: ${TUICPref.buttonColor["unsent-tweet"]?.color ?? TUICData.colors["unsent-tweet"].color};
+
+    --twitter-not-following-background: ${TUICPref.buttonColor["not-following"]?.background ?? TUICData.colors["not-following"].background};
+    --twitter-not-following-border: ${TUICPref.buttonColor["not-following"]?.border ?? TUICData.colors["not-following"].border};
+    --twitter-not-following-color: ${TUICPref.buttonColor["not-following"]?.color ?? TUICData.colors["not-following"].color};
+
+    --twitter-following-background: ${TUICPref.buttonColor["following"]?.background ?? TUICData.colors["following"].background};
+    --twitter-following-border: ${TUICPref.buttonColor["following"]?.border ?? TUICData.colors["following"].border};
+    --twitter-following-color: ${TUICPref.buttonColor["following"]?.color ?? TUICData.colors["following"].color};
+
+    --twitter-un-following-background: ${TUICPref.buttonColor["un-following"]?.background ?? TUICData.colors["un-following"].background};
+    --twitter-un-following-border: ${TUICPref.buttonColor["un-following"]?.border ?? TUICData.colors["un-following"].border};
+    --twitter-un-following-color: ${TUICPref.buttonColor["un-following"]?.color ?? TUICData.colors["un-following"].color};
+
+    --twitter-profile-background: ${TUICPref.buttonColor["profile"]?.background ?? TUICData.colors["profile"].background};
+    --twitter-profile-border: ${TUICPref.buttonColor["profile"]?.border ?? TUICData.colors["profile"].border};
+    --twitter-profile-color: ${TUICPref.buttonColor["profile"]?.color ?? TUICData.colors["profile"].color};
+
+    --twitter-profile-save-background: ${TUICPref.buttonColor["profile-save"]?.background ?? TUICData.colors["profile-save"].background};
+    --twitter-profile-save-border: ${TUICPref.buttonColor["profile-save"]?.border ?? TUICData.colors["profile-save"].border};
+    --twitter-profile-save-color: ${TUICPref.buttonColor["profile-save"]?.color ?? TUICData.colors["profile-save"].color};
+
+    --twitter-birthday-background: ${TUICPref.buttonColor["birthday"]?.background ?? TUICData.colors["birthday"].background};
+    --twitter-birthday-border: ${TUICPref.buttonColor["birthday"]?.border ?? TUICData.colors["birthday"].border};
+    --twitter-birthday-color: ${TUICPref.buttonColor["birthday"]?.color ?? TUICData.colors["birthday"].color};
+
     --twitter-TUIC-color: ${TUIC_color};
+
     --TUIC-container-background: ${TWIC_con_bg};
     --TUIC-color-hover-efect: ${TWIC_input_color_hov};
 }
@@ -1136,7 +1035,7 @@ function TUICCss() {
     -ms-overflow-style: none;
 }
 .TUIC_none_scroll::-webkit-scrollbar{display:none}
-.${TUICIvisibleClass}{
+.${TUICLibrary.getClasses.TUICIvisibleClass()}{
     display: none !important;
 }
 
@@ -1166,7 +1065,7 @@ textarea#css_textarea {
     margin-bottom: 20px;
 }
 
-.${TUICScrollBottom} {
+.${TUICLibrary.getClasses.TUICScrollBottom()} {
     overflow-x:auto;
 scrollbar-width:thin;
 padding-right:8px;
@@ -1177,18 +1076,83 @@ padding-bottom:16px;
 margin-bottom:-16px;
 }
 
-.${TUICScrollBottom}::-webkit-scrollbar {
+.${TUICLibrary.getClasses.TUICScrollBottom()}::-webkit-scrollbar {
 height:8px
 }
 `;
 
-if(document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1){
-    setTwitterClientInfo();
-}else if(document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo){
-    document.getElementById("client-info").remove()
-}
+    if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
+        setTwitterClientInfo();
+    } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
+        document.getElementById("client-info").remove()
+    }
 }
 
 function TUICCustomCSS() {
     document.querySelector("#twitter_ui_customizer_css").textContent = TUICPref['CSS']
+}
+
+if (document.getElementById("react-root") != null) {
+    chrome.runtime.sendMessage({ updateType: "openTwitter" });
+
+    /*旧バージョンからのアップデート*/
+    if ((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown") {
+
+        TUICPref.CSS = localStorage.getItem('CSS');
+        TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1";
+        TUICPref.visibleButtons = JSON.parse(localStorage.getItem('visible-button'))
+        for (let i of TUICData.settings.colors.id) {
+            let a = localStorage.getItem(`${i}-background`) ?? "unknown"
+            if (a != "unknown") {
+                TUICPref.buttonColor[i] = {}
+                TUICPref.buttonColor[i].background = a
+                TUICPref.buttonColor[i].border = localStorage.getItem(`${i}-border`)
+                TUICPref.buttonColor[i].color = localStorage.getItem(`${i}-color`)
+            }
+        }
+
+        localStorage.removeItem('unsent-tweet-background')
+        localStorage.removeItem('unsent-tweet-border')
+        localStorage.removeItem('unsent-tweet-color')
+        localStorage.removeItem('not-following-background')
+        localStorage.removeItem('not-following-border')
+        localStorage.removeItem('not-following-color')
+        localStorage.removeItem('following-background')
+        localStorage.removeItem('following-border')
+        localStorage.removeItem('following-color')
+        localStorage.removeItem('un-following-background')
+        localStorage.removeItem('un-following-border')
+        localStorage.removeItem('un-following-color')
+        localStorage.removeItem('profile-background')
+        localStorage.removeItem('profile-border')
+        localStorage.removeItem('profile-color')
+        localStorage.removeItem('profile-save-background')
+        localStorage.removeItem('profile-save-border')
+        localStorage.removeItem('profile-save-color')
+        localStorage.removeItem('birthday-background')
+        localStorage.removeItem('birthday-border')
+        localStorage.removeItem('birthday-color')
+        localStorage.removeItem('profile-link-background')
+        localStorage.removeItem('profile-link-border')
+        localStorage.removeItem('profile-link-color')
+
+        localStorage.removeItem('reply-button')
+        localStorage.removeItem('retweet-button')
+        localStorage.removeItem('like-button')
+        localStorage.removeItem('downvote-button')
+        localStorage.removeItem('share-button')
+        localStorage.removeItem('tweet_analytics')
+        localStorage.removeItem('visible-button')
+        localStorage.removeItem('osusume-user-timeline')
+        localStorage.removeItem('CSS')
+
+        localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+    }
+    /*Fin 旧バージョンからのアップデート*/
+    if (TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
+    TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
+
+    const bodyObserver = new MutationObserver(TUICRunFirst)
+    bodyObserver.observe(document.querySelector("body"), { childList: false, subtree: false, attributes: true })
+    TUICRunFirst()
 }
