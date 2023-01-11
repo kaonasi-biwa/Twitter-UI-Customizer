@@ -1,18 +1,22 @@
 let TUICParser = new DOMParser();
 
-let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICData.defaultPref)
 const TUICData = {
-    defaultPref: `{"buttonColor":{},"visibleButtons":["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],"invisibleItems":{"osusume-user-timeline":false,"otherBoolSetting":true},"otherBoolSetting":{"bottomScroll":false},"CSS":""}`,
+    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false }, "CSS": "" },
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
             titles: { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存", "url-copy": "ツイートのリンクをコピー" }
         },
+        sidebarButtons: {
+            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"],
+            titles: { "home": "ホーム", "explore": "話題を検索", "communities": "コミュニティ", "notifications": "通知", "messages": "メッセージ", "bookmarks": "ブックマーク", "twiter-blue": "Twitter Blue", "profile": "プロフィール", "moremenu": "もっと見る" }
+        },
         colors: {
             id: ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"],
             title: { "unsent-tweet": "未送信ツイートの編集ボタン", "not-following": "フォローしていない人のフォローボタン", "following": "フォローしている人のフォローボタン", "un-following": "フォロー解除ボタン", "profile": "プロフィール編集ボタン", "profile-save": "プロフィールの保存ボタン", "birthday": "最終決定ボタン" }
         }
-    }, colors: {
+    },
+    colors: {
         "unsent-tweet": {
             "background": "rgba(29,161,242,1)",
             "border": "rgba(29,161,242,1)",
@@ -128,6 +132,19 @@ const TUICData = {
             </div>`}
         }
     },
+    sidebarButtons: {
+        "selectors": {
+            "home": `[href="/home"]`,
+            "explore": `[href="/explore"]`,
+            "communities": `[href$="/communities"]`,
+            "notifications": `[href="/notifications"]`,
+            "messages": `[href="/messages"]`,
+            "bookmarks": `[href="/i/bookmarks"]`,
+            "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
+            "profile": `[data-testid="AppTabBar_Profile_Link"]`,
+            "moremenu": `[data-testid="AppTabBar_More_Menu"]`
+        }
+    },
     invisibles: {
         all: ["osusume-user-timeline"],
         titles: { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
@@ -161,6 +178,79 @@ const TUICLibrary = {
             TUICCss()
         },
         query: ""
+    },
+    defaultPref: {
+        get: function () {
+            return JSON.parse(this.getString())
+        },
+        getString: function () {
+            return JSON.stringify(TUICData.defaultPref)
+        }
+    },
+    updatePref: {
+        update: function () {
+            dPref = TUICLibrary.defaultPref.get()
+            if ((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown") {
+                this.parallelToSerial()
+            }
+
+            for (let i in dPref) {
+                if (!(i in TUICPref)) {
+                    TUICPref[i] = dPref[i]
+                }
+            }
+        },
+        parallelToSerial: function () {
+            TUICPref.CSS = localStorage.getItem('CSS');
+            TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1";
+            TUICPref.visibleButtons = JSON.parse(localStorage.getItem('visible-button'))
+            for (let i of TUICData.settings.colors.id) {
+                let a = localStorage.getItem(`${i}-background`) ?? "unknown"
+                if (a != "unknown") {
+                    TUICPref.buttonColor[i] = {}
+                    TUICPref.buttonColor[i].background = a
+                    TUICPref.buttonColor[i].border = localStorage.getItem(`${i}-border`)
+                    TUICPref.buttonColor[i].color = localStorage.getItem(`${i}-color`)
+                }
+            }
+
+            localStorage.removeItem('unsent-tweet-background')
+            localStorage.removeItem('unsent-tweet-border')
+            localStorage.removeItem('unsent-tweet-color')
+            localStorage.removeItem('not-following-background')
+            localStorage.removeItem('not-following-border')
+            localStorage.removeItem('not-following-color')
+            localStorage.removeItem('following-background')
+            localStorage.removeItem('following-border')
+            localStorage.removeItem('following-color')
+            localStorage.removeItem('un-following-background')
+            localStorage.removeItem('un-following-border')
+            localStorage.removeItem('un-following-color')
+            localStorage.removeItem('profile-background')
+            localStorage.removeItem('profile-border')
+            localStorage.removeItem('profile-color')
+            localStorage.removeItem('profile-save-background')
+            localStorage.removeItem('profile-save-border')
+            localStorage.removeItem('profile-save-color')
+            localStorage.removeItem('birthday-background')
+            localStorage.removeItem('birthday-border')
+            localStorage.removeItem('birthday-color')
+            localStorage.removeItem('profile-link-background')
+            localStorage.removeItem('profile-link-border')
+            localStorage.removeItem('profile-link-color')
+
+            localStorage.removeItem('reply-button')
+            localStorage.removeItem('retweet-button')
+            localStorage.removeItem('like-button')
+            localStorage.removeItem('downvote-button')
+            localStorage.removeItem('share-button')
+            localStorage.removeItem('tweet_analytics')
+            localStorage.removeItem('visible-button')
+            localStorage.removeItem('osusume-user-timeline')
+            localStorage.removeItem('CSS')
+
+            localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+        },
     }
 }
 
@@ -168,6 +258,25 @@ const TUICObserver = {
     observer: new MutationObserver((mutations) => {
         TUICObserver.observer.disconnect();
         let timeout = window.setTimeout(function () { TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config) }, 10000)
+
+        let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"])`)
+        if (bannerRoot != null) {
+            for (const i of TUICPref.sidebarButtons) {
+                const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
+                if(moveElem != null) bannerRoot.appendChild(moveElem)
+            }
+            for (const i of TUICData.settings.sidebarButtons.all) {
+                if(!TUICPref.sidebarButtons.includes(i)){
+                    const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
+                    if(moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
+                }
+
+            }
+            bannerRoot.setAttribute("TUIC_ARTICLE", TUICLibrary.getClasses.TUICDidArticle())
+        }
+
+
+
         let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"])`)
         if (articles.length != 0) {
             articles.forEach(function (elem) {
@@ -300,7 +409,6 @@ const TUICObserver = {
 
 const TUICOptionHTML = {
     displaySetting: function (rootElement = "") {
-
         let TWITTER_setting_back = rootElement;
 
 
@@ -392,8 +500,8 @@ const TUICOptionHTML = {
         "#default_set": {
             "type": "click",
             "function": function () {
-                localStorage.setItem("TUIC", TUICData.defaultPref);
-                TUICPref = JSON.parse(TUICData.defaultPref);
+                localStorage.setItem("TUIC", TUICLibrary.defaultPref.getString());
+                TUICPref = TUICLibrary.defaultPref.get();
 
                 if (window.location.pathname == "/tuic/safemode") {
                     window.location.href = `${window.location.protocol}//${window.location.hostname}`;
@@ -463,11 +571,12 @@ const TUICOptionHTML = {
 
 
                 settingId = parentBox.getAttribute("TUICUDBox")
-                TUICPref.visibleButtons = JSON.parse(TUICData.defaultPref)[settingId]
+                TUICPref[settingId] = TUICLibrary.defaultPref.get()[settingId]
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-                let ListItem = TUICOptionHTML.upDownListItem(settingId, TUICData[settingId + "_all"], TUICData[settingId + "_title"])
+                let ListItem = TUICOptionHTML.upDownListItem(settingId, TUICData.settings["all"], TUICData.settings["title"])
                 leftBox.innerHTML = ListItem[0]
                 rightBox.innerHTML = ListItem[1]
+
                 TUICOptionHTML.upDownListSetting(parentBox)
             },
             "single": false
@@ -501,6 +610,8 @@ ${this.safemodeReturnButton()}
         <br><br>
 ${this.colorsList()}
 ${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", this.checkbox("bottomScroll", TUICPref.otherBoolSetting["bottomScroll"], "ツイート下ボタンにスクロールバーを表示", "otherBoolSetting"))}
+        <br><br>
+${this.upDownList("sidebarButtons", "サイドバーの並び替え", "")}
         <br><br>
 ${this.checkboxList(TUICData.invisibles.all, TUICPref.invisibleItems, TUICData.invisibles.titles, "非表示設定", "TUICInvisibleItems")}
 ${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.clientInfo }, { "clientInfo": "クライアント情報を表示" }, "クライアント情報 (廃止される可能性があります)", "otherBoolSetting")}
@@ -1008,6 +1119,10 @@ function TUICCss() {
     border-radius: 6px;
     margin-top: 10px;
 }
+[tuicudbox="sidebarButtons"] > div > select > option{
+    padding-right:1em;
+    padding-left:1em;
+}
 /*設定画面の文字色*/
 .TUIC_setting_text{
     color: var(--twitter-TUIC-color);
@@ -1092,62 +1207,15 @@ function TUICCustomCSS() {
     document.querySelector("#twitter_ui_customizer_css").textContent = TUICPref['CSS']
 }
 
+
+//ここから実際に動かしてゆく
+let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString())
+
 if (document.getElementById("react-root") != null) {
     chrome.runtime.sendMessage({ updateType: "openTwitter" });
 
     /*旧バージョンからのアップデート*/
-    if ((localStorage.getItem('unsent-tweet-background') ?? "unknown") != "unknown") {
-
-        TUICPref.CSS = localStorage.getItem('CSS');
-        TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem('osusume-user-timeline') ?? "0") == "1";
-        TUICPref.visibleButtons = JSON.parse(localStorage.getItem('visible-button'))
-        for (let i of TUICData.settings.colors.id) {
-            let a = localStorage.getItem(`${i}-background`) ?? "unknown"
-            if (a != "unknown") {
-                TUICPref.buttonColor[i] = {}
-                TUICPref.buttonColor[i].background = a
-                TUICPref.buttonColor[i].border = localStorage.getItem(`${i}-border`)
-                TUICPref.buttonColor[i].color = localStorage.getItem(`${i}-color`)
-            }
-        }
-
-        localStorage.removeItem('unsent-tweet-background')
-        localStorage.removeItem('unsent-tweet-border')
-        localStorage.removeItem('unsent-tweet-color')
-        localStorage.removeItem('not-following-background')
-        localStorage.removeItem('not-following-border')
-        localStorage.removeItem('not-following-color')
-        localStorage.removeItem('following-background')
-        localStorage.removeItem('following-border')
-        localStorage.removeItem('following-color')
-        localStorage.removeItem('un-following-background')
-        localStorage.removeItem('un-following-border')
-        localStorage.removeItem('un-following-color')
-        localStorage.removeItem('profile-background')
-        localStorage.removeItem('profile-border')
-        localStorage.removeItem('profile-color')
-        localStorage.removeItem('profile-save-background')
-        localStorage.removeItem('profile-save-border')
-        localStorage.removeItem('profile-save-color')
-        localStorage.removeItem('birthday-background')
-        localStorage.removeItem('birthday-border')
-        localStorage.removeItem('birthday-color')
-        localStorage.removeItem('profile-link-background')
-        localStorage.removeItem('profile-link-border')
-        localStorage.removeItem('profile-link-color')
-
-        localStorage.removeItem('reply-button')
-        localStorage.removeItem('retweet-button')
-        localStorage.removeItem('like-button')
-        localStorage.removeItem('downvote-button')
-        localStorage.removeItem('share-button')
-        localStorage.removeItem('tweet_analytics')
-        localStorage.removeItem('visible-button')
-        localStorage.removeItem('osusume-user-timeline')
-        localStorage.removeItem('CSS')
-
-        localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-    }
+    TUICLibrary.updatePref.update()
     /*Fin 旧バージョンからのアップデート*/
     if (TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
     TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
