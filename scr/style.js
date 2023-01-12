@@ -259,11 +259,14 @@ const TUICObserver = {
         TUICObserver.observer.disconnect();
         let timeout = window.setTimeout(function () { TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config) }, 10000)
 
-        let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"])`)
-        if (bannerRoot != null) {
+        let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`)
+        if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.TUICIvisibleClass()}):not(.${TUICLibrary.getClasses.TUICIvisibleClass()})`) != null) {
             for (const i of TUICPref.sidebarButtons) {
                 const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
-                if(moveElem != null) bannerRoot.appendChild(moveElem)
+                if(moveElem != null){
+                    bannerRoot.appendChild(moveElem)
+                    moveElem.classList.add("NOT_" + TUICLibrary.getClasses.TUICIvisibleClass())
+                }
             }
             for (const i of TUICData.settings.sidebarButtons.all) {
                 if(!TUICPref.sidebarButtons.includes(i)){
@@ -272,7 +275,6 @@ const TUICObserver = {
                 }
 
             }
-            bannerRoot.setAttribute("TUIC_ARTICLE", TUICLibrary.getClasses.TUICDidArticle())
         }
 
 
