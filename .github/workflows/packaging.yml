@@ -14,7 +14,8 @@ jobs:
       env:
         MAIL: ${{secrets.MAIL}}
       run: |
-        echo ${{ github.ref }} | tee version.txt
+        VERSION=${{ github.ref }}
+        echo -n ${VERSION##*/} | tee version.txt
         git config --local user.email $MAIL
         git config --local user.name "kaonasi-biwa"
         git add .
