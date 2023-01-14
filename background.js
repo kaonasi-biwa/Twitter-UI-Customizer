@@ -1,5 +1,4 @@
 let updateID = "";
-update1("runBrowser");
 
 const updateCheck = async()=>{
   const githubVersion = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt",{cache: "no-store"})
@@ -54,3 +53,5 @@ const deviceMessage = async(url,res)=>{
     console.log(error);
   });
 }
+
+update1("runBrowser");
