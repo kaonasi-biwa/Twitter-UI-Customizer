@@ -12,7 +12,7 @@ const updateCheck = async () => {
     .then(res => res.text());
   const extensionVersion = await fetch(chrome.runtime.getURL("./version.txt"), { cache: "no-store" })
     .then(res => res.text())
-  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion == extensionVersion) {
+  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion != extensionVersion) {
 
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
