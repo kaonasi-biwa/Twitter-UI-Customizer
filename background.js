@@ -8,24 +8,23 @@ var updateNotification = () => {
 
 const updateCheck = async () => {
 
-  if (!chrome.notifications.onClicked.hasListener(updateNotification)) {
-    const githubVersion = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt", { cache: "no-store" })
-      .then(res => res.text());
-    const extensionVersion = await fetch(chrome.runtime.getURL("./version.txt"), { cache: "no-store" })
-      .then(res => res.text())
-    if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion == extensionVersion) {
+  const githubVersion = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt", { cache: "no-store" })
+    .then(res => res.text());
+  const extensionVersion = await fetch(chrome.runtime.getURL("./version.txt"), { cache: "no-store" })
+    .then(res => res.text())
+  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion == extensionVersion) {
 
-      chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
+    chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
         type: "basic",
         title: "Twitter UI Customizer",
         message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion + "→" + githubVersion,
         iconUrl: "icon/icon128.png"
       });
-      chrome.notifications.onClicked.addListener(updateNotification);
-      chrome.notifications.onClosed.addListener(() => chrome.notifications.onClicked.removeListener(updateNotification))
-    }
+    chrome.notifications.onClicked.addListener(updateNotification);
+    chrome.notifications.onClosed.addListener(() => chrome.notifications.onClicked.removeListener(updateNotification))
   }
+
 
 
 }
@@ -34,7 +33,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if ((message.endpoint ?? "") != "") {
     deviceMessage(message.endpoint, sendResponse)
   } else if ((message.updateType ?? "unknwon") != "unknown") {
-    if(message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification)
+    if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification)
     update1(message.updateType);
   }
   return true;
