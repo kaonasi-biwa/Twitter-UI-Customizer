@@ -190,6 +190,23 @@ const TUICData = {
         all: ["osusume-user-timeline"],
         titles: { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
     },
+    styleColor:{
+        light:{
+            textColor:"rgba(0,0,0,1)",
+            containerBackground:"rgb(247, 249, 249)",
+            colorHover:"#00000040"
+        },
+        blue:{
+            textColor:"rgba(255,255,255,1)",
+            containerBackground:"rgb(30, 39, 50)",
+            colorHover:"#ffffff30"
+        },
+        dark:{
+            textColor:"rgba(255,255,255,1)",
+            containerBackground:"rgb(22, 24, 28)",
+            colorHover:"#ffffff40"
+        }
+    }
 }
 
 const TUICLibrary = {
@@ -292,6 +309,17 @@ const TUICLibrary = {
 
             localStorage.setItem("TUIC", JSON.stringify(TUICPref))
         },
+    },
+    backgroundColorCheck:function(){
+        bodyStyle = document
+        .querySelector("body").style.backgroundColor.toString()
+        if(bodyStyle == "rgb(0, 0, 0)"){
+            return "dark"
+        }else if(bodyStyle == "rgb(21, 32, 43)"){
+            return "blue"
+        } else{
+            return "light"
+        }
     }
 }
 
@@ -842,42 +870,7 @@ async function setTwitterClientInfo() {
 }
 
 function TUICCss() {
-    let TUIC_color = "rgba(255,255,255,1)"
-    if (document.querySelector('body[style*=\"255\"]') != null || document.querySelector('body[style*=\"FF\"]') != null) {
-        TUIC_color = "rgba(0,0,0,1)"
-    }
-
-
-    // ここから：現在のTwitterのbodyタグの背景色からテーマ判定してTUICの設定画面の色設定(cookieの権限なしでできるのでゴリ押し)
-    let bgcolor_tw = document
-        .querySelector("body")
-        .style.backgroundColor.toString();
-    let themes_def = {
-        Light: 1,
-        dim: 2,
-        black: 3,
-    };
-    let twtheme =
-        (bgcolor_tw === "rgb(0, 0, 0)" && themes_def.black) ||
-        (bgcolor_tw === "rgb(21, 32, 43)" && themes_def.dim) ||
-        (bgcolor_tw === "rgb(255, 255, 255)" && themes_def.Light) ||
-        themes_def.Light;
-
-    let TWIC_con_bg = "";
-    let TWIC_input_color_hov = "";
-
-    if (twtheme == 3) {
-        TWIC_con_bg = "rgb(22, 24, 28)";
-        TWIC_input_color_hov = "#ffffff40";
-    } else if (twtheme == 2) {
-        TWIC_con_bg = "rgb(30, 39, 50)";
-        TWIC_input_color_hov = "#ffffff30";
-    } else {
-        TWIC_con_bg = "rgb(247, 249, 249)";
-        TWIC_input_color_hov = "#00000040";
-    }
-    //console.log(TWIC_con_bg + twtheme + bgcolor_tw);
-    // ここまで
+    let backgroundColor = TUICLibrary.backgroundColorCheck()
 
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
@@ -909,10 +902,10 @@ function TUICCss() {
     --twitter-birthday-border: ${TUICPref.buttonColor["birthday"]?.border ?? TUICData.colors["birthday"].border};
     --twitter-birthday-color: ${TUICPref.buttonColor["birthday"]?.color ?? TUICData.colors["birthday"].color};
 
-    --twitter-TUIC-color: ${TUIC_color};
+    --twitter-TUIC-color: ${TUICData.styleColor[backgroundColor].textColor};
 
-    --TUIC-container-background: ${TWIC_con_bg};
-    --TUIC-color-hover-efect: ${TWIC_input_color_hov};
+    --TUIC-container-background: ${TUICData.styleColor[backgroundColor].containerBackground};
+    --TUIC-color-hover-efect: ${TUICData.styleColor[backgroundColor].colorHover};
 }
 
 /*未送信ツイートの編集*/
@@ -1236,7 +1229,7 @@ if (document.getElementById("react-root") != null) {
     /*旧バージョンからのアップデート*/
     TUICLibrary.updatePref.update()
     /*Fin 旧バージョンからのアップデート*/
-    if (TUICPref.otherBoolSetting == undefined) TUICPref.otherBoolSetting = {}
+
     TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
 
     const bodyObserver = new MutationObserver(TUICRunFirst)
