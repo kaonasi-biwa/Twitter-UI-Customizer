@@ -324,7 +324,7 @@ const TUICLibrary = {
 }
 
 const TUICObserver = {
-    observer: new MutationObserver((mutations) => {
+    observerFunction:function(){
         TUICObserver.observer.disconnect();
         let timeout = window.setTimeout(function () { TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config) }, 10000)
 
@@ -348,7 +348,7 @@ const TUICObserver = {
 
         window.clearTimeout(timeout)
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-    }),
+    },
     config: {
         childList: true,
         subtree: true
@@ -453,6 +453,7 @@ const TUICObserver = {
     },
 
 }
+TUICObserver.observer =  new MutationObserver(TUICObserver.observerFunction)
 
 const TUICOptionHTML = {
     displaySetting: function (rootElement = "") {
@@ -554,6 +555,8 @@ const TUICOptionHTML = {
                     window.location.href = `${window.location.protocol}//${window.location.hostname}`;
                 } else {
                     document.querySelector("#TUIC_setting").remove();
+                    TUICLibrary.getClasses.update()
+                    TUICObserver.observerFunction
                 }
             },
             "single": true
@@ -870,8 +873,6 @@ async function setTwitterClientInfo() {
 }
 
 function TUICCss() {
-    TUICObserver.functions.clientInfo()
-
     let backgroundColor = TUICLibrary.backgroundColorCheck()
 
     document.querySelector("#twitter_ui_customizer").textContent = `
