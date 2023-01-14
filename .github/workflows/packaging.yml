@@ -6,21 +6,6 @@ on:
 
 
 jobs:
-  version-up:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Version Up
-      env:
-        MAIL: ${{secrets.MAIL}}
-      run: |
-        VERSION=${{ github.ref }}
-        echo -n ${VERSION##*/} | tee version.txt
-        git config --local user.email $MAIL
-        git config --local user.name "kaonasi-biwa"
-        git add .
-        git commit -m "Version Up" -a
-        git push origin HEAD:main
 
   build-firefox:
     runs-on: ubuntu-latest
