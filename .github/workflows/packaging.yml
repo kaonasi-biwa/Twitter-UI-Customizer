@@ -19,7 +19,7 @@ jobs:
         git config --local user.name "kaonasi-biwa"
         git add .
         git commit -m "Version Up" -a
-        git push origin main
+        git push origin HEAD:main
 
   build-firefox:
     runs-on: ubuntu-latest
