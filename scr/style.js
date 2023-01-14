@@ -63,7 +63,7 @@ const TUICData = {
             "url-copy": `[aria-label="ツイートのリンクをコピー"]`,
         },
         buttonHTML: {
-            "bookmark": function () {
+            "boolkmark": function () {
                 return `
             <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
                 <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
@@ -130,6 +130,47 @@ const TUICData = {
         </div>
       </div>
             </div>`}
+        },
+        buttonFunction:{
+            "boolkmark":function(e){
+                e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"]).click();
+                document.querySelector(
+                `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+                [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
+                [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+                [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`
+                ).parentNode.parentNode.parentNode.parentNode.click();
+            },
+            "url-copy":function(e){
+                let shareButtonClick = e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"])
+                console.log("aiueo")
+                shareButtonClick.click()
+                console.log("aiueoaa")
+                let urlCopyButton = document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
+                [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`)
+                console.log(urlCopyButton)
+                if (urlCopyButton == null) {
+                    shareButtonClick.click()
+                } else {
+                    console.log(urlCopyButton.parentNode.parentNode.parentNode.parentNode.click)
+                    urlCopyButton.parentNode.parentNode.parentNode.parentNode.click()
+                }
+            }
+        },
+        buttonElement:{
+            "boolkmark":function(){
+                let elem =  TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML["boolkmark"](), "text/html").querySelector(".css-1dbjc4n")
+                elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["boolkmark"])
+                return elem
+            },
+            "url-copy":function(){
+                let elem =  TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML["url-copy"](), "text/html").querySelector(".css-1dbjc4n")
+                elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["url-copy"])
+                return elem
+            }
+        },
+        emptyElement:function(){
+            return TUICParser.parseFromString(`<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`,"text/html").querySelector("div")
         }
     },
     sidebarButtons: {
@@ -259,146 +300,24 @@ const TUICObserver = {
         TUICObserver.observer.disconnect();
         let timeout = window.setTimeout(function () { TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config) }, 10000)
 
-        let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`)
-        if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.TUICIvisibleClass()}):not(.${TUICLibrary.getClasses.TUICIvisibleClass()})`) != null) {
-            for (const i of TUICPref.sidebarButtons) {
-                const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
-                if(moveElem != null){
-                    bannerRoot.appendChild(moveElem)
-                    moveElem.classList.add("NOT_" + TUICLibrary.getClasses.TUICIvisibleClass())
-                }
-            }
-            for (const i of TUICData.settings.sidebarButtons.all) {
-                if(!TUICPref.sidebarButtons.includes(i)){
-                    const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
-                    if(moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
-                }
+        TUICObserver.functions.sidebarButtons()
 
-            }
-        }
+        TUICObserver.functions.buttonUnderTweet()
 
+        TUICObserver.functions.osusumeUser()
 
-
-        let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"])`)
-        if (articles.length != 0) {
-            articles.forEach(function (elem) {
-                if (elem.querySelector("[data-testid$=\"reply\"]") != null && elem.querySelector("[data-testid$=\"like\"]") != null) {
-                    let bar_base = elem.querySelector("[data-testid$=\"reply\"]")
-                    while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
-                        bar_base = bar_base.parentElement
-                    }
-                    if (TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.TUICScrollBottom())
-                    let bar_item = {}
-                    for (const elem_item of bar_base.children) {
-                        for (const sel in TUICData.visibleButtons.selectors) {
-                            if (elem_item.querySelector(TUICData.visibleButtons.selectors[sel]) != null) {
-                                bar_item[sel] = elem_item
-                                break
-                            }
-                        }
-                    }
-                    let needEmpty = bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null
-                    let lastButton
-                    for (let i of TUICPref.visibleButtons) {
-                        let div = -1
-                        if (i in bar_item) {
-                            div = bar_item[i]
-                        } else if (i == "boolkmark") {
-                            div = TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML.bookmark(), "text/html").querySelector(".css-1dbjc4n")
-                            div.children[0].addEventListener("click", function (e) {
-                                e.currentTarget.parentElement.parentElement
-                                    .querySelector(TUICData.visibleButtons.selectors["share-button"])
-                                    .click();
-                                document
-                                    .querySelector(
-                                        `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-                                [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
-                                [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-                                [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`
-                                    )
-                                    .parentNode.parentNode.parentNode.parentNode.click();
-                            })
-                            bar_base.appendChild(div)
-
-
-                        } else if (i == "url-copy") {
-                            div = TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML["url-copy"](), "text/html").querySelector(".css-1dbjc4n")
-                            div.children[0].addEventListener("click", function (e) {
-                                let shareButtonClick = e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"]).click()
-                                if (document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
-                                [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`) == null) {
-                                    shareButtonClick()
-                                } else {
-                                    document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
-                                [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`).parentNode.parentNode.parentNode.parentNode.click()
-                                }
-                            })
-                            bar_base.appendChild(div)
-
-
-                        }
-                        if (div != -1) {
-                            if (needEmpty && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.insertAdjacentHTML("beforeend", `<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`)
-                            lastButton = div
-                            bar_base.appendChild(div)
-                        }
-
-
-                    }
-                    if (lastButton != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
-                        lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove()
-                    }
-
-                    for (var i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
-                        if (!TUICPref.visibleButtons.includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
-                            bar_item[TUICData.settings.visibleButtons.all[i]].classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
-                        }
-                    }
-
-                }
-                elem.setAttribute("TUIC_ARTICLE", TUICLibrary.getClasses.TUICDidArticle())
-            })
-        }
-
-        if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
-            let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
-            if (cells.length != 0) {
-                cells.forEach(function (elem) {
-                    if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICLibrary.getClasses.TUICDidArticle()) {
-                        elem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
-                        if (elem.previousElementSibling != null && elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
-                            if (elem.previousElementSibling != null) elem.previousElementSibling.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
-                            if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
-                        }
-                        let cellElement = elem.nextElementSibling
-                        while (cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null) {
-                            cellElement.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
-                            cellElement = cellElement.nextElementSibling
-                        }
-                        if (cellElement != null) cellElement.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
-                    }
-                })
-            }
-        }
-
-        if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
-            setTwitterClientInfo();
-        } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
-            document.getElementById("client-info").remove()
-        }
+        TUICObserver.functions.clientInfo()
 
         if (document.querySelector('style.twitter_ui_customizer') == null) {
-
             TUICRunFirst()
         }
         if (window.location.pathname == "/tuic/safemode") {
-
-
         } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display")) {
             TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
         } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display")) {
             TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
         }
+
         window.clearTimeout(timeout)
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     }),
@@ -406,7 +325,105 @@ const TUICObserver = {
         childList: true,
         subtree: true
     },
-    target: document.getElementsByTagName("body").item(0)
+    target: document.querySelector("body"),
+    functions:{
+        sidebarButtons:function(){
+            let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`)
+            if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.TUICIvisibleClass()}):not(.${TUICLibrary.getClasses.TUICIvisibleClass()})`) != null) {
+                for (const i of TUICPref.sidebarButtons) {
+                    const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
+                    if(moveElem != null){
+                        bannerRoot.appendChild(moveElem)
+                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.TUICIvisibleClass())
+                    }
+                }
+                for (const i of TUICData.settings.sidebarButtons.all) {
+                    if(!TUICPref.sidebarButtons.includes(i)){
+                        const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
+                        if(moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
+                    }
+    
+                }
+            }
+        },
+        buttonUnderTweet:function(){
+            let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"])`)
+            if (articles.length != 0) {
+                articles.forEach(function (elem) {
+                    if (elem.querySelector("[data-testid$=\"reply\"]") != null && elem.querySelector("[data-testid$=\"like\"]") != null) {
+                        let bar_base = elem.querySelector("[data-testid$=\"reply\"]")
+                        while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
+                            bar_base = bar_base.parentElement
+                        }
+                        if (TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.TUICScrollBottom())
+                        let bar_item = {}
+                        for (const elem_item of bar_base.children) {
+                            for (const sel in TUICData.visibleButtons.selectors) {
+                                if (elem_item.querySelector(TUICData.visibleButtons.selectors[sel]) != null) {
+                                    bar_item[sel] = elem_item
+                                    break
+                                }
+                            }
+                        }
+                        let lastButton
+                        for (let i of TUICPref.visibleButtons) {
+                            let div = -1
+                            if (i in bar_item) {
+                                div = bar_item[i]
+                            } else if (i in TUICData.visibleButtons.buttonElement) {
+                                div = TUICData.visibleButtons.buttonElement[i]()
+                            }
+                            if (div != -1) {
+                                if ((bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null) && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement())
+                                lastButton = div
+                                bar_base.appendChild(div)
+                            }
+                        }
+                        if (lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
+                            lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove()
+                        }
+    
+                        for (var i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
+                            if (!TUICPref.visibleButtons.includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
+                                bar_item[TUICData.settings.visibleButtons.all[i]].classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
+                            }
+                        }
+                    }
+                    elem.setAttribute("TUIC_ARTICLE", TUICLibrary.getClasses.TUICDidArticle())
+                })
+            }
+        },
+        osusumeUser:function(){
+            if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
+                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
+                if (cells.length != 0) {
+                    cells.forEach(function (elem) {
+                        if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICLibrary.getClasses.TUICDidArticle()) {
+                            elem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                            if (elem.previousElementSibling != null && elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) == null) {
+                                if (elem.previousElementSibling != null) elem.previousElementSibling.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                                if (elem.previousElementSibling.previousElementSibling != null) elem.previousElementSibling.previousElementSibling.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                            }
+                            let cellElement = elem.nextElementSibling
+                            while (cellElement != null && cellElement.querySelector(`[href^="/search?q="]`) == null && cellElement.querySelector(`[href^="/i/connect_people?user_id="]`) == null) {
+                                cellElement.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                                cellElement = cellElement.nextElementSibling
+                            }
+                            if (cellElement != null) cellElement.classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
+                        }
+                    })
+                }
+            }
+        },
+        clientInfo:function(){
+            if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
+                setTwitterClientInfo();
+            } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
+                document.getElementById("client-info").remove()
+            }
+        }
+    },
+
 }
 
 const TUICOptionHTML = {

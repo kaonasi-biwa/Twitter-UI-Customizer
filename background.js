@@ -50,7 +50,6 @@ const update1 = async (updateType) => {
 }
 
 const deviceMessage = async (url, res) => {
-  console.log(url)
   fetch(url, {
     "method": "GET"
   }).then((response) => {
