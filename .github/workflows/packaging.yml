@@ -9,7 +9,6 @@ jobs:
 
   build-firefox:
     runs-on: ubuntu-latest
-    needs: [version-up]
     steps:
     - uses: actions/checkout@v2
     - name: Archive
@@ -26,7 +25,6 @@ jobs:
 
   build-chromium:
     runs-on: ubuntu-latest
-    needs: [version-up]
     steps:
     - uses: actions/checkout@v2
     - name: Archive
