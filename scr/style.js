@@ -870,6 +870,8 @@ async function setTwitterClientInfo() {
 }
 
 function TUICCss() {
+    TUICObserver.functions.clientInfo()
+
     let backgroundColor = TUICLibrary.backgroundColorCheck()
 
     document.querySelector("#twitter_ui_customizer").textContent = `
@@ -1207,12 +1209,6 @@ margin-bottom:-16px;
 height:8px
 }
 `;
-
-    if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
-        setTwitterClientInfo();
-    } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
-        document.getElementById("client-info").remove()
-    }
 }
 
 function TUICCustomCSS() {
