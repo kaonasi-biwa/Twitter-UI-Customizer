@@ -7,8 +7,24 @@ on:
 
 jobs:
 
+  version-up:
+    run-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Version Up
+      env:
+        MAIL: ${{secrets.MAIL}}
+      run: |
+        echo ${{ github.ref }} | tee version.txt
+        git config --local user.email $MAIL
+        git config --local user.name "kaonasi-biwa"
+        git add .
+        git commit -m "Version Up" -a
+        git push origin main
+
   build-firefox:
     runs-on: ubuntu-latest
+    needs: [version-up]
     steps:
     - uses: actions/checkout@v2
     - name: Archive
@@ -25,6 +41,7 @@ jobs:
 
   build-chromium:
     runs-on: ubuntu-latest
+    needs: [version-up]
     steps:
     - uses: actions/checkout@v2
     - name: Archive
