@@ -1,4 +1,3 @@
-let TUICParser = new DOMParser();
 
 const TUICData = {
     defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false }, "CSS": "" },
@@ -159,18 +158,18 @@ const TUICData = {
         },
         buttonElement:{
             "boolkmark":function(){
-                let elem =  TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML["boolkmark"](), "text/html").querySelector(".css-1dbjc4n")
+                let elem =  TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]())
                 elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["boolkmark"])
                 return elem
             },
             "url-copy":function(){
-                let elem =  TUICParser.parseFromString(TUICData.visibleButtons.buttonHTML["url-copy"](), "text/html").querySelector(".css-1dbjc4n")
+                let elem =  TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"]())
                 elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["url-copy"])
                 return elem
             }
         },
         emptyElement:function(){
-            return TUICParser.parseFromString(`<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`,"text/html").querySelector("div")
+            return TUICLibrary.TUICParser.parseFromString(`<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`,"text/html").querySelector("div")
         }
     },
     sidebarButtons: {
@@ -320,6 +319,16 @@ const TUICLibrary = {
         } else{
             return "light"
         }
+    },
+    TUICParser: new DOMParser(),
+    HTMLParse:function(elem){
+        return this.HTMLParseFunc(elem).querySelector("body > *")
+    },
+    HTMLParseAll:function(elem){
+        return this.HTMLParseFunc(elem).querySelectorAll("body > *")
+    },
+    HTMLParseFunc:function(elem){
+        return this.TUICParser.parseFromString(elem,"text/html")
     }
 }
 
@@ -423,7 +432,7 @@ const TUICObserver = {
         },
         osusumeUser:function(){
             if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
-                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([TUIC_ARTICLE="${TUICLibrary.getClasses.TUICDidArticle()}"]):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
+                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.TUICDidArticle()}):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
                 if (cells.length != 0) {
                     cells.forEach(function (elem) {
                         if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICLibrary.getClasses.TUICDidArticle()) {
@@ -460,7 +469,7 @@ const TUICOptionHTML = {
         let TWITTER_setting_back = rootElement;
 
 
-        let TUICPrefHTML = TUICParser.parseFromString(this.TUICOptionHTML(), "text/html").querySelector("#TUIC_setting")
+        let TUICPrefHTML = TUICLibrary.HTMLParse(this.TUICOptionHTML())
         TWITTER_setting_back.appendChild(TUICPrefHTML);
 
         document.querySelector("#css_textarea").value = TUICPref['CSS']
@@ -624,8 +633,22 @@ const TUICOptionHTML = {
                 TUICPref[settingId] = TUICLibrary.defaultPref.get()[settingId]
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
                 let ListItem = TUICOptionHTML.upDownListItem(settingId, TUICData.settings["all"], TUICData.settings["title"])
-                leftBox.innerHTML = ListItem[0]
-                rightBox.innerHTML = ListItem[1]
+
+                while(leftBox.childNodes.length != 0){
+                    leftBox.childNodes[0].remove()
+                }
+                for( let elem of TUICLibrary.HTMLParseAll(ListItem[0])){
+                    console.log(elem)
+                    leftBox.appendChild(elem)
+                }
+                while(rightBox.childNodes.length != 0){
+                    rightBox.childNodes[0].remove()
+                }
+                for( let elem of TUICLibrary.HTMLParseAll(ListItem[1])){
+                    console.log(elem)
+                    rightBox.appendChild(elem)
+
+                }
 
                 TUICOptionHTML.upDownListSetting(parentBox)
             },
