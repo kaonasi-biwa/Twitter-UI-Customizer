@@ -882,7 +882,7 @@ async function setTwitterClientInfo() {
 
     chrome.runtime.sendMessage(
         {
-            endpoint: 'https://mico.re/api/getclient____.php?id=' + (new URL(location.href)).pathname.split('/')[3]
+            endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
         },
         (response) => {
                 json = response;
