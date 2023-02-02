@@ -57,9 +57,11 @@ const deviceMessage = async (url, res) => {
       response.json().then((json) => {
         res(json);
       });
+    }else{
+      res({});
     }
   }).catch(error => {
-    console.log(error);
+    res({});
   });
 }
 
