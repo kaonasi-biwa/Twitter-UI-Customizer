@@ -995,11 +995,11 @@ function TUICCss() {
     color: var(--twitter-following-color) !important;
 }
 /*(アカウントのアイコンにマウス持ってったら出てくるやつでも)*/
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp){
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp):not([href="/settings/profile"]):not([data-testid]){
     background-color: var(--twitter-not-following-background) !important;
     border-color: var(--twitter-not-following-border) !important;
 }
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp) > .r-b88u0q{
+.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp):not([href="/settings/profile"]):not([data-testid]) > .r-b88u0q{
     color: var(--twitter-not-following-color) !important;
 }
 .r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-jc7xae:not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp){
@@ -1073,11 +1073,11 @@ function TUICCss() {
     color: var(--twitter-un-following-color) !important;
 }
 /*プロフィールを編集*/
-.r-1h0z5md > .r-1qi8awa{
+.r-1h0z5md > [href="/settings/profile"].r-1qi8awa{
     background-color: var(--twitter-profile-background) !important;
     border-color: var(--twitter-profile-border) !important;
 }
-.r-1h0z5md > .r-1qi8awa > .r-b88u0q{
+.r-1h0z5md > [href="/settings/profile"].r-1qi8awa > .r-b88u0q{
     color: var(--twitter-profile-color) !important;
 }
 /*プロフィールを保存*/
