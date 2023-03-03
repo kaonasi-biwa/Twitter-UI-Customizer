@@ -1,6 +1,6 @@
 
 const TUICData = {
-    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false }, "CSS": "" },
+    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false }, "CSS": "" },
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
@@ -379,8 +379,10 @@ const TUICObserver = {
                         const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
                         if(moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.TUICIvisibleClass());
                     }
-    
+
                 }
+
+                if (TUICPref.otherBoolSetting.invisibleTwitterLogo) document.querySelector(`header [role="heading"]`).classList.add(TUICLibrary.getClasses.TUICIvisibleClass())
             }
         },
         buttonUnderTweet:function(){
@@ -542,6 +544,7 @@ const TUICOptionHTML = {
                 TUICPref.otherBoolSetting[event.target.id] = event.target.checked
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
                 TUICLibrary.getClasses.update()
+                TUICObserver.observerFunction()
             },
             "single": false
         },
@@ -684,7 +687,7 @@ ${this.safemodeReturnButton()}
 ${this.colorsList()}
 ${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", this.checkbox("bottomScroll", TUICPref.otherBoolSetting["bottomScroll"], "ツイート下ボタンにスクロールバーを表示", "otherBoolSetting"))}
         <br><br>
-${this.upDownList("sidebarButtons", "サイドバーの並び替え", "")}
+${this.upDownList("sidebarButtons", "サイドバーの並び替え", this.checkbox("invisibleTwitterLogo", TUICPref.otherBoolSetting["invisibleTwitterLogo"], "Twitterロゴを非表示", "otherBoolSetting"))}
         <br><br>
 ${this.checkboxList(TUICData.invisibles.all, TUICPref.invisibleItems, TUICData.invisibles.titles, "非表示設定", "TUICInvisibleItems")}
 ${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.clientInfo }, { "clientInfo": "クライアント情報を表示" }, "クライアント情報 (廃止される可能性があります)", "otherBoolSetting")}
@@ -1236,6 +1239,7 @@ margin-bottom:-16px;
 height:8px
 }
 `;
+
 }
 
 function TUICCustomCSS() {
