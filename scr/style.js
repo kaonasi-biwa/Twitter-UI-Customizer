@@ -1078,11 +1078,11 @@ function TUICCss() {
     color: var(--twitter-following-color) !important;
 }
 /*プロフィールでも*/
-.r-6gpygo > .r-sdzlij.r-42olwf:not(.r-jc7xae){
+.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae){
     background-color: var(--twitter-not-following-background) !important;
     border-color: var(--twitter-not-following-border) !important;
 }
-.r-6gpygo > .r-sdzlij.r-42olwf:not(.r-jc7xae) > .r-b88u0q{
+.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae) > .r-b88u0q{
     color: var(--twitter-not-following-color) !important;
 }
 .r-6gpygo > .r-sdzlij.r-42olwf.r-jc7xae{
