@@ -1,6 +1,6 @@
 let updateID = "";
 
-var updateNotification = () => {
+let updateNotification = () => {
   chrome.tabs.create({ url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases" });
   chrome.notifications.onClicked.removeListener(updateNotification)
 }
@@ -10,7 +10,7 @@ const updateCheck = async () => {
 
   const githubVersion = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt", { cache: "no-store" })
     .then(res => res.text());
-  const extensionVersion = await fetch(chrome.runtime.getURL("./version.txt"), { cache: "no-store" })
+  const extensionVersion = await fetch(chrome.runtime.getURL("./version.txt"),{ cache: "no-store" })
     .then(res => res.text())
   if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion != extensionVersion) {
 
