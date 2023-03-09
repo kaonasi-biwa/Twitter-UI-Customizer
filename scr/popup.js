@@ -9,5 +9,8 @@ window.onload = ()=>{
     document.getElementById("link3").onclick = ()=>{
         chrome.runtime.openOptionsPage();
     }
+    document.getElementById("link4").onclick = ()=>{
+        chrome.tabs.create({"url":"https://twitter.com/tuic/safemode"});
+    }
 }
 

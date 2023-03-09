@@ -1,4 +1,3 @@
-
 const TUICData = {
     defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false }, "CSS": "" },
     settings: {
@@ -550,10 +549,34 @@ const TUICObserver = {
         },
         clientInfo:function(){
             if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
-                setTwitterClientInfo();
+                TUICObserver.functions.clientInfoVisible()
             } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
                 document.getElementById("client-info").remove()
             }
+        },
+        clientInfoVisible:async function(){
+            let client = document.createElement("a");
+            client.style.marginLeft = "4px";
+            client.id = "client-info";
+            client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
+            document.querySelector(".css-1dbjc4n.r-1d09ksm.r-1471scf.r-18u37iz.r-1wbh5a2").children[0].appendChild(client);
+            chrome.runtime.sendMessage(
+                {
+                    endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
+                },
+                (response) => {
+                        json = response;
+                        let cliantInfoElem = document.querySelector("#client-info")
+                        console.log(json.source)
+                        if (json.source ?? "unknwon" != "unknwon") {
+                            cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
+                        }else{
+                            cliantInfoElem.textContent = "情報を取得できませんでした"
+                        }
+        
+        
+                }
+            );
         },
         updateStyles:function(){
             for(let i of document.querySelectorAll(".TUICSidebarButton")){
@@ -967,9 +990,6 @@ function TUICRunFirst() {
         TUIC_custom_css.id = "twitter_ui_customizer_css"
         TWITTER_head.appendChild(TUIC_custom_css);
         TUICCustomCSS()
-
-
-
     } else {
         if (document.querySelector("#safemode") == null) {
             document.querySelector("#react-root").style = "display:none !important;"
@@ -980,37 +1000,11 @@ function TUICRunFirst() {
             if (document.querySelector(".twitter_ui_customizer_css") != null) {
                 document.querySelector(".twitter_ui_customizer_css").remove()
             }
-
+            document.title = "セーフモード / Twitter UI Customizer"
             TUICOptionHTML.displaySetting(document.querySelector('#safemode'))
         }
     }
 
-}
-
-//クライアント情報の取得と適用/*
-async function setTwitterClientInfo() {
-    let client = document.createElement("a");
-    client.style.marginLeft = "4px";
-    client.id = "client-info";
-    client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
-    document.querySelector(".css-1dbjc4n.r-1d09ksm.r-1471scf.r-18u37iz.r-1wbh5a2").children[0].appendChild(client);
-    chrome.runtime.sendMessage(
-        {
-            endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
-        },
-        (response) => {
-                json = response;
-                let cliantInfoElem = document.querySelector("#client-info")
-                console.log(json.source)
-                if (json.source ?? "unknwon" != "unknwon") {
-                    cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
-                }else{
-                    cliantInfoElem.textContent = "情報を取得できませんでした"
-                }
-
-
-        }
-    );
 }
 
 function TUICCss() {
@@ -1375,7 +1369,6 @@ height:8px
 function TUICCustomCSS() {
     document.querySelector("#twitter_ui_customizer_css").textContent = TUICPref['CSS']
 }
-
 
 //ここから実際に動かしてゆく
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString())
