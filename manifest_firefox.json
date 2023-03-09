@@ -19,7 +19,7 @@
         }
     ],
     "options_ui": {
-        "page":"scr/options.html",
+        "page":"TUIC/options/options.html",
         "browser_style":true
     },
     "permissions": [
@@ -36,7 +36,7 @@
             "128": "icon/icon128.png"
         },
         "default_title": "Twitter UI Customizer",
-        "default_popup": "scr/popup.html"
+        "default_popup": "TUIC/popup/popup.html"
     },
     "background":{
         "scripts":["background.js"]
