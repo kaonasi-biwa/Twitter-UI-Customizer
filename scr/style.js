@@ -319,6 +319,7 @@ const TUICLibrary = {
         update: function () {
             this.query += "_"
             TUICCss()
+            TUICObserver.observerFunction()
         },
         query: ""
     },
@@ -1369,13 +1370,12 @@ height:8px
     margin-bottom: 8px;
  }
  ${(TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent) ? `
- [role="navigation"] .NOT_TUIC_DISPNONE{
+ [role="navigation"] .${"NOT_" + TUICLibrary.getClasses.TUICIvisibleClass()}{
     padding-bottom:0px !important;
     padding-top:0px !important;
 }
  ` : ""}
 `;
-
 }
 
 function TUICCustomCSS() {
