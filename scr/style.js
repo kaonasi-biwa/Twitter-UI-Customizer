@@ -1,5 +1,5 @@
 const TUICData = {
-    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false }, "CSS": "" },
+    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false,"smallerSidebarContent":true }, "CSS": "" },
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
@@ -819,9 +819,12 @@ ${this.safemodeReturnButton()}
     <div>
         <br><br>
 ${this.colorsList()}
-${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", this.checkbox("bottomScroll", TUICPref.otherBoolSetting["bottomScroll"], "ツイート下ボタンにスクロールバーを表示", "otherBoolSetting"))}
+${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "ツイート下ボタンにスクロールバーを表示", "otherBoolSetting"))}
         <br><br>
-${this.upDownList("sidebarButtons", "サイドバーの並び替え", this.checkbox("invisibleTwitterLogo", TUICPref.otherBoolSetting["invisibleTwitterLogo"], "Twitterロゴを非表示", "otherBoolSetting"))}
+${this.upDownList("sidebarButtons", "サイドバーの並び替え",
+this.checkbox("invisibleTwitterLogo",TUICPref.otherBoolSetting["invisibleTwitterLogo"], "Twitterロゴを非表示", "otherBoolSetting") +
+this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "ボタン同士の幅を狭くする", "otherBoolSetting")
+)}
         <br><br>
 ${this.checkboxList(TUICData.invisibles.all, TUICPref.invisibleItems, TUICData.invisibles.titles, "非表示設定", "TUICInvisibleItems")}
 ${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.clientInfo }, { "clientInfo": "クライアント情報を表示" }, "クライアント情報 (廃止される可能性があります)", "otherBoolSetting")}
@@ -895,7 +898,7 @@ ${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.col
     //チェックボックスの一行。(id:設定のid value:Boolで値 name:設定の名前 type:設定の分類)
     checkbox: function (id, value, name, type) {
         return `
-        <div>
+        <div class="TUICCheckBoxParent">
             <input id=${id} ${value ? "checked" : ""
             } type="checkbox" class="${type}"></input>
             <label class="TUIC_setting_text" for="${id}">${name}</label>
@@ -1362,6 +1365,15 @@ height:8px
  .TUICSidebarButton > div:active{
     background-color:var(--TUIC-sidebar-active-color);
  }
+ .TUICCheckBoxParent{
+    margin-bottom: 8px;
+ }
+ ${(TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent) ? `
+ [role="navigation"] .NOT_TUIC_DISPNONE{
+    padding-bottom:0px !important;
+    padding-top:0px !important;
+}
+ ` : ""}
 `;
 
 }
