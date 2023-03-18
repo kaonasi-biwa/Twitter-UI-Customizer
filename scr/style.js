@@ -1004,7 +1004,11 @@ function TUICRunFirst() {
             if (document.querySelector(".twitter_ui_customizer_css") != null) {
                 document.querySelector(".twitter_ui_customizer_css").remove()
             }
-            document.title = "セーフモード / Twitter UI Customizer"
+            let setTitle = ()=>{
+                document.title = "セーフモード / Twitter UI Customizer"
+                window.setTimeout(setTitle,5000)
+            }
+            setTitle()
             TUICOptionHTML.displaySetting(document.querySelector('#safemode'))
         }
     }
