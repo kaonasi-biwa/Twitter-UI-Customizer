@@ -175,7 +175,7 @@ const TUICData = {
             "home": `[href="/home"]`,
             "explore": `[href="/explore"]`,
             "communities": `[href$="/communities"]`,
-            "notifications": `[href="/notifications"]`,
+            "notifications": `[href$="/notifications"]`,
             "messages": `[href^="/messages"]`,
             "bookmarks": `[href="/i/bookmarks"]`,
             "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
@@ -823,7 +823,7 @@ ${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", t
         <br><br>
 ${this.upDownList("sidebarButtons", "サイドバーの並び替え",
 this.checkbox("invisibleTwitterLogo",TUICPref.otherBoolSetting["invisibleTwitterLogo"], "Twitterロゴを非表示", "otherBoolSetting") +
-this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "ボタン同士の幅を狭くする", "otherBoolSetting")
+this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "ボタン同士の幅を狭くする (広くなっている場合のみ)", "otherBoolSetting")
 )}
         <br><br>
 ${this.checkboxList(TUICData.invisibles.all, TUICPref.invisibleItems, TUICData.invisibles.titles, "非表示設定", "TUICInvisibleItems")}
