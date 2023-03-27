@@ -1,14 +1,36 @@
 const TUICI18N = {
     "ja":{
-        "visibleButtons-replay":"返信",
-        "visibleButtons-retweet":"リツイート",
-        "visibleButtons-like":"いいね",
-        "visibleButtons-downvote":"自分向きではない",
-        "visibleButtons-share":"共有",
-        "visibleButtons-tweetAnalytics":"ツイートアナリティクスを表示",
-        "visibleButtons-bookmark":"ブックマークに保存",
-        "visibleButtons-urlCopy":"ツイートのリンクをコピー",
+        "brandingName":"Twitter UI Customizer",
+        "safemode-title":"セーフモード / Twitter UI Customizer",
+        "settingUI-goBackButton":"戻る",
+        "settingUI-restoreDefaultAll":"全てデフォルトに戻す",
+        "settingUI-upDownList-toLeft":"表示する",
+        "settingUI-upDownList-toRight":"非表示にする",
+        "settingUI-upDownList-toUp":"上へ",
+        "settingUI-upDownList-toDown":"下へ",
+        "settingUI-upDownList-restoreDefault":"初期化",
+        "settingUI-upDownList-visible":"表示",
+        "settingUI-upDownList-invisible":"非表示",
+        "settingUI-colorPicker-transport":"透明色にする",
+        "settingUI-colorPicker-restoreDefault":"デフォルトに戻す",
+        "settingUI-colorPicker-textColor":"文字色",
+        "settingUI-colorPicker-background":"背景色",
+        "settingUI-colorPicker-border":"枠色",
 
+        "bottomTweetButtons-settingTitle":"ツイート下ボタンの並び替え",
+        "bottomTweetButtons-setting-visibleScrollBar":"ツイート下ボタンにスクロールバーを表示",
+        "bottomTweetButtons-replay":"返信",
+        "bottomTweetButtons-retweet":"リツイート",
+        "bottomTweetButtons-like":"いいね",
+        "bottomTweetButtons-downvote":"自分向きではない",
+        "bottomTweetButtons-share":"共有",
+        "bottomTweetButtons-tweetAnalytics":"ツイートアナリティクスを表示",
+        "bottomTweetButtons-bookmark":"ブックマークに保存",
+        "bottomTweetButtons-urlCopy":"ツイートのリンクをコピー",
+
+        "sidebarButton-settingTitle":"サイドバーの並び替え",
+        "sidebarButton-setting-invisibleTwitterLogo":"Twitterロゴを非表示",
+        "sidebarButton-setting-smallerBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
         "sidebarButtons-home":"ホーム",
         "sidebarButtons-explore":"話題を検索",
         "sidebarButtons-communities":"コミュニティ",
@@ -22,15 +44,32 @@ const TUICI18N = {
         "sidebarButtons-lists":"リスト",
         "sidebarButtons-circles":"Twitterサークル",
 
+        "invisibleItems-settingTitle":"非表示設定",
+        "invisibleItems-osusumeUsersOnTL":"タイムライン上のおすすめユーザー",
+
+        "clientInfo-settingTitle":"クライアント情報 (廃止される可能性があります)",
+        "clientInfo-clientInfoVisible":"クライアント情報を表示",
+        "clientInfo-cannotGetInfo":"情報を取得できませんでした",
+
+        "customCSS-settingTitle":"カスタムCSS",
+        "customCSS-save":"カスタムCSSを保存",
+
+        "settingColors-editUnsetTweet":"未送信ツイートの編集ボタン",
+        "settingColors-notFollowingButton":"フォローしていない人のフォローボタン",
+        "settingColors-followingButton":"フォローしている人のフォローボタン",
+        "settingColors-unfollowButton":"フォロー解除ボタン",
+        "settingColors-editProfile":"プロフィール編集ボタン",
+        "settingColors-saveProfile":"プロフィールの保存ボタン",
+        "settingColors-finalDecideButton":"最終決定ボタン"
     }
 }
 
 const TUICData = {
-    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false,"smallerSidebarContent":true }, "CSS": "" },
+    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false,"smallerSidebarContent":true },"clientInfo":{"clientInfoVisible":false}, "CSS": "" },
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
-            i18n: { "reply-button": "visibleButtons-replay", "retweet-button": "visibleButtons-retweet", "like-button": "visibleButtons-like", "downvote-button": "visibleButtons-downvote", "share-button": "visibleButtons-share", "tweet_analytics": "visibleButtons-tweetAnalytics", "boolkmark": "visibleButtons-bookmark", "url-copy": "visibleButtons-urlCopy" }
+            i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "downvote-button": "bottomTweetButtons-downvote", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy" }
         },
         sidebarButtons: {
             all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu","topics","lists","circles"],
@@ -38,7 +77,7 @@ const TUICData = {
         },
         colors: {
             id: ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"],
-            title: { "unsent-tweet": "未送信ツイートの編集ボタン", "not-following": "フォローしていない人のフォローボタン", "following": "フォローしている人のフォローボタン", "un-following": "フォロー解除ボタン", "profile": "プロフィール編集ボタン", "profile-save": "プロフィールの保存ボタン", "birthday": "最終決定ボタン" }
+            i18n: { "unsent-tweet": "settingColors-editUnsetTweet", "not-following": "settingColors-notFollowingButton", "following": "settingColors-followingButton", "un-following": "settingColors-unfollowButton", "profile": "settingColors-editProfile", "profile-save": "settingColors-saveProfile", "birthday": "settingColors-finalDecideButton" }
         }
     },
     colors: {
@@ -293,9 +332,13 @@ const TUICData = {
             "circles":`/i/circles/`
         }
     },
-    invisibles: {
+    invisibleItems: {
         all: ["osusume-user-timeline"],
-        titles: { "osusume-user-timeline": "タイムライン上のおすすめユーザー" }
+        i18n: { "osusume-user-timeline": "invisibleItems-osusumeUsersOnTL" }
+    },
+    clientInfo: {
+        all: ["clientInfoVisible"],
+        i18n: { "clientInfoVisible": "clientInfo-clientInfoVisible" }
     },
     styleColor:{
         light:{
@@ -360,11 +403,12 @@ const TUICLibrary = {
                 this.parallelToSerial()
             }
 
-            for (let i in dPref) {
-                if (!(i in TUICPref)) {
-                    TUICPref[i] = dPref[i]
-                }
+            if(TUICPref.otherBoolSetting.clientInfo == true){
+                TUICPref.clientInfo = {}
+                TUICPref.clientInfo.clientInfoVisible = true
             }
+
+            this.updateToDefault(TUICPref,dPref)
         },
         parallelToSerial: function () {
             TUICPref.CSS = localStorage.getItem('CSS');
@@ -417,6 +461,15 @@ const TUICLibrary = {
 
             localStorage.setItem("TUIC", JSON.stringify(TUICPref))
         },
+        updateToDefault:function(object,defObject){
+            for (let i in defObject) {
+                if (!(i in object)) {
+                    object[i] = defObject[i]
+                }else if(typeof defObject.i == "object"){
+                    this.updateToDefault(object[i],defObject[i])
+                }
+            }
+        }
     },
     backgroundColorCheck:function(){
         bodyStyle = document
@@ -581,9 +634,9 @@ const TUICObserver = {
             }
         },
         clientInfo:function(){
-            if (document.getElementById("client-info") == null && TUICPref.otherBoolSetting.clientInfo && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
+            if (document.getElementById("client-info") == null && TUICPref.clientInfo.clientInfoVisible && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
                 TUICObserver.functions.clientInfoVisible()
-            } else if (document.getElementById("client-info") != null && !TUICPref.otherBoolSetting.clientInfo) {
+            } else if (document.getElementById("client-info") != null && !TUICPref.clientInfo.clientInfoVisible) {
                 document.getElementById("client-info").remove()
             }
         },
@@ -604,7 +657,7 @@ const TUICObserver = {
                         if (json.source ?? "unknwon" != "unknwon") {
                             cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
                         }else{
-                            cliantInfoElem.textContent = "情報を取得できませんでした"
+                            cliantInfoElem.textContent = TUICLibrary.getI18n("clientInfo-cannotGetInfo")
                         }
         
         
@@ -844,7 +897,7 @@ const TUICOptionHTML = {
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0">
     <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
         <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
-            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">Twitter UI Customizer</span>
+            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">${TUICLibrary.getI18n("brandingName")}</span>
             </h2>
 ${this.safemodeReturnButton()}
     </div>
@@ -852,24 +905,26 @@ ${this.safemodeReturnButton()}
     <div>
         <br><br>
 ${this.colorsList()}
-${this.upDownList("visibleButtons", "ツイート下ボタンの並び替え", this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "ツイート下ボタンにスクロールバーを表示", "otherBoolSetting"))}
+${this.upDownList("visibleButtons", "bottomTweetButtons-settingTitle",
+    this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting"))
+}
         <br><br>
-${this.upDownList("sidebarButtons", "サイドバーの並び替え",
-this.checkbox("invisibleTwitterLogo",TUICPref.otherBoolSetting["invisibleTwitterLogo"], "Twitterロゴを非表示", "otherBoolSetting") +
-this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "ボタン同士の幅を狭くする (広くなっている場合のみ)", "otherBoolSetting")
+${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
+    this.checkbox("invisibleTwitterLogo",TUICPref.otherBoolSetting["invisibleTwitterLogo"], "sidebarButton-setting-invisibleTwitterLogo", "otherBoolSetting") +
+    this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-smallerBetweenButtons", "otherBoolSetting")
 )}
         <br><br>
-${this.checkboxList(TUICData.invisibles.all, TUICPref.invisibleItems, TUICData.invisibles.titles, "非表示設定", "TUICInvisibleItems")}
-${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.clientInfo }, { "clientInfo": "クライアント情報を表示" }, "クライアント情報 (廃止される可能性があります)", "otherBoolSetting")}
+${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
+${this.checkboxList("clientInfo", "clientInfo-settingTitle", "otherBoolSetting")}
         <br><br>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">全てデフォルトに戻す</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
         <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">カスタムCSS</h2><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("customCSS-settingTitle")}</h2><br>
         <div class="TUIC_col_setting_container">
             <form>
                 <textarea id="css_textarea"></textarea>
             </form>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">カスタムCSSを保存</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">${TUICLibrary.getI18n("customCSS-save")}</button>
         </div>
     </div>
 </div>
@@ -879,7 +934,7 @@ ${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.cl
     //セーフモードの戻るボタン(ただの条件分岐)
     safemodeReturnButton: function () {
         return window.location.pathname == "/tuic/safemode"
-            ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; 戻る</a>`
+            ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; ${TUICLibrary.getI18n("settingUI-goBackButton")}</a>`
             : ""
     },
     //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
@@ -888,7 +943,7 @@ ${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.cl
         let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
         return `
         <div class="TUIC_setting_color_colmn">
-        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${text}</h4>
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n(text)}</h4>
         <div class="TUIC_setting_input_container">
             <div class="TUIC_input_color_rounded__container">
                 <div class="TUIC_input_color_rounded">
@@ -901,22 +956,20 @@ ${this.checkboxList(["clientInfo"], { "clientInfo": TUICPref.otherBoolSetting.cl
             }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${id}"
              TUICColorType="${type}" class="TUICButtonColorCheck">
             <label for="${`${id}-${type}-check`
-            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">透明色にする</label>
+            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transport")}</label>
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor"
-             TUICColor="${id}" TUICColorType="${type}">デフォルトに戻す</button>
+             TUICColor="${id}" TUICColorType="${type}">${TUICLibrary.getI18n("settingUI-colorPicker-restoreDefault")}</button>
         </div>
     </div>`
     },
     //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
     threeColorSetting: function (id) {
         return `
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICData.settings.colors.title[id]
-            }
-</h2>
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICLibrary.getI18n(TUICData.settings.colors.i18n[id])}</h2>
 <div class="TUIC_col_setting_container">
-${this.colorSetting(id, "background", TUICPref.buttonColor[id]?.background ?? TUICData.colors[id].background, "背景色")}
-${this.colorSetting(id, "border", TUICPref.buttonColor[id]?.border ?? TUICData.colors[id].border, "枠色")}
-${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.colors[id].color, "文字色")}
+${this.colorSetting(id, "background", TUICPref.buttonColor[id]?.background ?? TUICData.colors[id].background, "settingUI-colorPicker-background")}
+${this.colorSetting(id, "border", TUICPref.buttonColor[id]?.border ?? TUICData.colors[id].border, "settingUI-colorPicker-border")}
+${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.colors[id].color, "settingUI-colorPicker-textColor")}
 </div>
 `;
     },
@@ -934,18 +987,18 @@ ${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.col
         <div class="TUICCheckBoxParent">
             <input id=${id} ${value ? "checked" : ""
             } type="checkbox" class="${type}"></input>
-            <label class="TUIC_setting_text" for="${id}">${name}</label>
+            <label class="TUIC_setting_text" for="${id}">${TUICLibrary.getI18n(name)}</label>
         </div>
         `
     },
-    //チェックボックスリスト(ids:ArrayでID values:Objectでbook names:Objectで名前 title:Stringでタイトル)
-    checkboxList: function (ids, values, names, title, type) {
+    //チェックボックスリスト(id:ID title:Stringでタイトル)
+    checkboxList: function (id, title, type) {
         let TUICInvisibleCheckBox = "";
-        for (let i of ids) {
-            TUICInvisibleCheckBox += this.checkbox(i, values[i], names[i], type)
+        for (let i of TUICData[id].all) {
+            TUICInvisibleCheckBox += this.checkbox(i, TUICPref[id][i], TUICData[id].i18n[i], type)
         }
         return `
-          <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${title}</h2><br>
+          <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2><br>
           <div class="TUIC_col_setting_container">
               ${TUICInvisibleCheckBox}
           </div>
@@ -959,30 +1012,28 @@ ${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.col
         let TUICVisibleButtons = ListItem[0]
         let TUICInvisibleButtons = ListItem[1]
         return `
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${title}</h2>
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2>
 
         <div class="TUIC_col_setting_container">
             <div style="display:flex" TUICUDBox="${id}">
                 <div>
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">表示</h2><br>
-                    <select id="TUIC_visible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length
-            }">
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-visible")}</h2><br>
+                    <select id="TUIC_visible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length}">
 ${TUICVisibleButtons}
                     </select>
                 </div>
                 <div style="text-align: center;">
                     <br>
                     <br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_left">表示する</button><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_up">上へ</button><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_down">下へ</button><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_right">非表示にする</button><br><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_default">初期化</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_left">${TUICLibrary.getI18n("settingUI-upDownList-toLeft")}</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_up">${TUICLibrary.getI18n("settingUI-upDownList-toUp")}</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_down">${TUICLibrary.getI18n("settingUI-upDownList-toDown")}</button><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_right">${TUICLibrary.getI18n("settingUI-upDownList-toRight")}</button><br><br>
+                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_default">${TUICLibrary.getI18n("settingUI-upDownList-restoreDefault")}</button><br>
                 </div>
                 <div>
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">非表示</h2><br>
-                    <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length
-            }">
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-invisible")}</h2><br>
+                    <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length}">
     ${TUICInvisibleButtons}
                     </select>
                 </div>
@@ -1037,7 +1088,7 @@ function TUICRunFirst() {
                 document.querySelector(".twitter_ui_customizer_css").remove()
             }
             let setTitle = ()=>{
-                document.title = "セーフモード / Twitter UI Customizer"
+                document.title = TUICLibrary.getI18n("safemode-title")
                 window.setTimeout(setTitle,5000)
             }
             setTitle()
