@@ -648,6 +648,7 @@ const TUICObserver = {
             document.querySelector(".css-1dbjc4n.r-1d09ksm.r-1471scf.r-18u37iz.r-1wbh5a2").children[0].appendChild(client);
             chrome.runtime.sendMessage(
                 {
+                    type:"clientInfo",
                     endpoint: 'https://mico.re/api/getclient.php?id=' + (new URL(location.href)).pathname.split('/')[3]
                 },
                 (response) => {
@@ -1473,7 +1474,7 @@ function TUICCustomCSS() {
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString())
 
 if (document.getElementById("react-root") != null) {
-    chrome.runtime.sendMessage({ updateType: "openTwitter" });
+    chrome.runtime.sendMessage({type:"update", updateType: "openTwitter" });
 
     /*旧バージョンからのアップデート*/
     TUICLibrary.updatePref.update()

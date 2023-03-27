@@ -18,7 +18,7 @@ const updateCheck = async () => {
       {
         type: "basic",
         title: "Twitter UI Customizer",
-        message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion + "→" + githubVersion,
+        message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion.replace("\r","") + "→" + githubVersion.replace("\r",""),
         iconUrl: "icon/icon128.png"
       });
     chrome.notifications.onClicked.addListener(updateNotification);
@@ -30,9 +30,9 @@ const updateCheck = async () => {
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if ((message.endpoint ?? "") != "") {
+  if (message.type == "clientInfo") {
     deviceMessage(message.endpoint, sendResponse)
-  } else if ((message.updateType ?? "unknwon") != "unknown") {
+  } else if (message.type == "update") {
     if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification)
     update1(message.updateType);
   }
