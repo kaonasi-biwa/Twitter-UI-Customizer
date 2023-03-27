@@ -1,13 +1,40 @@
+const TUICI18N = {
+    "ja":{
+        "visibleButtons-replay":"返信",
+        "visibleButtons-retweet":"リツイート",
+        "visibleButtons-like":"いいね",
+        "visibleButtons-downvote":"自分向きではない",
+        "visibleButtons-share":"共有",
+        "visibleButtons-tweetAnalytics":"ツイートアナリティクスを表示",
+        "visibleButtons-bookmark":"ブックマークに保存",
+        "visibleButtons-urlCopy":"ツイートのリンクをコピー",
+
+        "sidebarButtons-home":"ホーム",
+        "sidebarButtons-explore":"話題を検索",
+        "sidebarButtons-communities":"コミュニティ",
+        "sidebarButtons-notifications":"通知",
+        "sidebarButtons-messages":"メッセージ",
+        "sidebarButtons-bookmarks":"ブックマーク",
+        "sidebarButtons-twitterBlue":"Twitter Blue",
+        "sidebarButtons-profile":"プロフィール",
+        "sidebarButtons-moremenu":"もっと見る",
+        "sidebarButtons-topics":"トピック",
+        "sidebarButtons-lists":"リスト",
+        "sidebarButtons-circles":"Twitterサークル",
+
+    }
+}
+
 const TUICData = {
     defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false,"smallerSidebarContent":true }, "CSS": "" },
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
-            titles: { "reply-button": "返信", "retweet-button": "リツイート", "like-button": "いいね", "downvote-button": "自分向きではない", "share-button": "共有", "tweet_analytics": "ツイートアナリティクスを表示", "boolkmark": "ブックマークに保存", "url-copy": "ツイートのリンクをコピー" }
+            i18n: { "reply-button": "visibleButtons-replay", "retweet-button": "visibleButtons-retweet", "like-button": "visibleButtons-like", "downvote-button": "visibleButtons-downvote", "share-button": "visibleButtons-share", "tweet_analytics": "visibleButtons-tweetAnalytics", "boolkmark": "visibleButtons-bookmark", "url-copy": "visibleButtons-urlCopy" }
         },
         sidebarButtons: {
             all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu","topics","lists","circles"],
-            titles: { "home": "ホーム", "explore": "話題を検索", "communities": "コミュニティ", "notifications": "通知", "messages": "メッセージ", "bookmarks": "ブックマーク", "twiter-blue": "Twitter Blue", "profile": "プロフィール", "moremenu": "もっと見る","topics":"トピック","lists":"リスト","circles":"Twitterサークル" }
+            i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu","topics":"sidebarButtons-topics","lists":"sidebarButtons-lists","circles":"sidebarButtons-circles" }
         },
         colors: {
             id: ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"],
@@ -56,8 +83,8 @@ const TUICData = {
             "reply-button": "[data-testid$=\"reply\"]", "retweet-button": "[data-testid$=\"retweet\"]", "like-button": "[data-testid$=\"like\"]", "downvote-button": "[data-testid$=\"downvote\"]",
             "share-button": "[aria-label=\"ツイートを共有\"],[aria-label=\"Roinn an Tweet\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"مشاركة التغريدة\"],[aria-label=\"Share Tweet\"],[aria-label=\"Condividi Tweet\"],[aria-label=\"Sebarkan Tweet\"],[aria-label=\"Поділитися твітом\"],[aria-label=\"ٹویٹ شیئر کریں\"],[aria-label=\"Tweet delen\"],[aria-label=\"Comparteix el tuit\"],[aria-label=\"Compartir chío\"],[aria-label=\"ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ\"],[aria-label=\"Κοινοποίηση Tweet\"],[aria-label=\"ટ્વીટ શેર કરો\"],[aria-label=\"Podijelite Tweet\"],[aria-label=\"Dela tweeten\"],[aria-label=\"Compartir Tweet\"],[aria-label=\"Zdieľať Tweet\"],[aria-label=\"Подели твит\"],[aria-label=\"แบ่งปันทวีต\"],[aria-label=\"கீச்சைப் பகிர்\"],[aria-label=\"Sdílet Tweet\"],[aria-label=\"Del tweetet\"],[aria-label=\"Tweet teilen\"],[aria-label=\"Tweet paylaş\"],[aria-label=\"Del tweeten\"],[aria-label=\"Partekatu txioa\"],[aria-label=\"Tweet megosztása\"],[aria-label=\"ट्वीट शेयर करें\"],[aria-label=\"Ibahagi ang Tweet\"],[aria-label=\"Jaa twiitti\"],[aria-label=\"Partager le Tweet\"],[aria-label=\"Споделяне на туита\"],[aria-label=\"Chia sẻ Tweet\"],[aria-label=\"שתף את הציוץ\"],[aria-label=\"هم‌رسانی توییت\"],[aria-label=\"টুইট শেয়ার করুন\"],[aria-label=\"Udostępnij Tweeta\"],[aria-label=\"Compartilhar Tweet\"],[aria-label=\"ट्विट शेअर करा\"],[aria-label=\"Kongsi Tweet\"],[aria-label=\"Distribuie Tweetul\"],[aria-label=\"Поделиться твитом\"],[aria-label=\"分享推文\"],[aria-label=\"分享推文\"],[aria-label=\"트윗 공유하기\"]",
             "tweet_analytics": "[aria-label*=\"ツイートアナリティクスを表示\"],[aria-label*=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Visualizza statistiche Tweet\"],[aria-label*=\"Lihat analitik Tweet\"],[aria-label*=\"Переглянути аналітику твіта\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Tweet-analyses bekijken\"],[aria-label*=\"Mostra les analítiques del tuit\"],[aria-label*=\"Ver análises do chío\"],[aria-label*=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label*=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label*=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label*=\"Prikaži analitičke podatke o tweetovima\"],[aria-label*=\"Visa Tweet-statistik\"],[aria-label*=\"Ver estadísticas del Tweet\"],[aria-label*=\"Zobraziť štatistiku Tweetu\"],[aria-label*=\"Погледај аналитику твита\"],[aria-label*=\"ดูการวิเคราะห์ทวีต\"],[aria-label*=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label*=\"Zobrazit analýzu tweetů\"],[aria-label*=\"Vis Tweet-statistik\"],[aria-label*=\"Tweet-Statistiken anzeigen\"],[aria-label*=\"Tweet istatistiklerini görüntüle\"],[aria-label*=\"Se tweetstatistikk\"],[aria-label*=\"Ikusi txioen analisiak\"],[aria-label*=\"Tweet-elemzések megtekintése\"],[aria-label*=\"ट्वीट विश्लेषण देखें\"],[aria-label*=\"Tingnan ang analytics ng Tweet\"],[aria-label*=\"Näytä twiitin tilastot\"],[aria-label*=\"Voir les statistiques des Tweets\"],[aria-label*=\"Преглед на статистиката за туита\"],[aria-label*=\"Xem phân tích Tweet\"],[aria-label*=\"הצג את ניתוח הציוצים\"],[aria-label*=\"مشاهده اطلاعات آماری توییت\"],[aria-label*=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label*=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label*=\"Ver estatísticas do Tweet\"],[aria-label*=\"ट्विटची विश्लेषणे पहा\"],[aria-label*=\"Lihat analitis Tweet\"],[aria-label*=\"Vezi analiza Tweet\"],[aria-label*=\"Смотреть аналитику твита\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"트윗 애널리틱스 보기\"]",
-            "boolkmark": `[aria-label="ブックマークに保存"],[data-testid="bookmark"],[data-testid="removeBookmark"]`,
-            "url-copy": `[aria-label="ツイートのリンクをコピー"]`,
+            "boolkmark": `[TUICButton="bookmark"],[data-testid="bookmark"],[data-testid="removeBookmark"]`,
+            "url-copy": `[TUICButton="urlCopy"]`,
         },
         buttonHTML: {
             "boolkmark": function () {
@@ -65,7 +92,7 @@ const TUICData = {
             <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
                 <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
                   <div
-                    aria-label="ブックマークに保存"
+                    TUICButton="bookmark"
                     role="button"
                     tabindex="0"
                     class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
@@ -99,7 +126,7 @@ const TUICData = {
                             <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
                             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
         <div
-          aria-label="ツイートのリンクをコピー"
+          TUICButton="urlCopy"
           role="button"
           tabindex="0"
           class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
@@ -140,16 +167,12 @@ const TUICData = {
             },
             "url-copy":function(e){
                 let shareButtonClick = e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"])
-                console.log("aiueo")
                 shareButtonClick.click()
-                console.log("aiueoaa")
                 let urlCopyButton = document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
                 [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`)
-                console.log(urlCopyButton)
                 if (urlCopyButton == null) {
                     shareButtonClick.click()
                 } else {
-                    console.log(urlCopyButton.parentNode.parentNode.parentNode.parentNode.click)
                     urlCopyButton.parentNode.parentNode.parentNode.parentNode.click()
                 }
             }
@@ -198,7 +221,7 @@ const TUICData = {
                     </svg>
                   </div>
                   <div dir="ltr" class="css-901oao css-1hf3ou5 r-1tl8opc r-adyw6z r-135wba7 r-1joea0r r-88pszg r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" >
-                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">トピック</span>
+                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICLibrary.getI18n("sidebarButtons-topics")}</span>
                   </div>
                 </div>
               </a>`
@@ -215,7 +238,7 @@ const TUICData = {
                     </svg>
                   </div>
                   <div dir="ltr" class="css-901oao css-1hf3ou5 r-1tl8opc r-adyw6z r-135wba7 r-1joea0r r-88pszg r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" >
-                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">リスト</span>
+                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICLibrary.getI18n("sidebarButtons-lists")}</span>
                   </div>
                 </div>
               </a>`
@@ -232,7 +255,7 @@ const TUICData = {
                     </svg>
                   </div>
                   <div dir="ltr" class="css-901oao css-1hf3ou5 r-1tl8opc r-adyw6z r-135wba7 r-1joea0r r-88pszg r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" >
-                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">Twitterサークル</span>
+                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICLibrary.getI18n("sidebarButtons-circles")}</span>
                   </div>
                 </div>
               </a>`
@@ -415,6 +438,16 @@ const TUICLibrary = {
     },
     HTMLParseFunc:function(elem){
         return this.TUICParser.parseFromString(elem,"text/html")
+    },
+    getI18n:function(elem){
+        let lang = document.querySelector("html").getAttribute("lang")
+        if(lang in TUICI18N && elem in TUICI18N[lang]){
+            return TUICI18N[lang][elem]
+        }else if(elem in TUICI18N.en){
+            return TUICI18N.en[elem]
+        }else{
+            return TUICI18N.ja[elem]
+        }
     }
 }
 
@@ -769,7 +802,7 @@ const TUICOptionHTML = {
                 settingId = parentBox.getAttribute("TUICUDBox")
                 TUICPref[settingId] = TUICLibrary.defaultPref.get()[settingId]
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
-                let ListItem = TUICOptionHTML.upDownListItem(settingId, TUICData.settings["all"], TUICData.settings["title"])
+                let ListItem = TUICOptionHTML.upDownListItem(settingId)
 
                 while(leftBox.childNodes.length != 0){
                     leftBox.childNodes[0].remove()
@@ -964,11 +997,11 @@ ${TUICVisibleButtons}
         let TUICVisibleButtons = ""
         let TUICInvisibleButtons = ""
         for(let i of TUICPref[id]){
-            TUICVisibleButtons += `<option value="${i}" id="${i}">${TUICData.settings[id].titles[i]}</option>`
+            TUICVisibleButtons += `<option value="${i}" id="${i}">${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</option>`
         }
         for (let i of TUICData.settings[id].all) {
             if (!TUICPref[id].includes(i)) {
-                TUICInvisibleButtons += `<option value="${i}" id="${i}">${TUICData.settings[id].titles[i]}</option>`
+                TUICInvisibleButtons += `<option value="${i}" id="${i}">${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</option>`
             }
         }
         return [TUICVisibleButtons, TUICInvisibleButtons]
