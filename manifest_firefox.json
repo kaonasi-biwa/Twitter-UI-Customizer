@@ -26,7 +26,7 @@
         "tabs",
         "notifications",
         "storage",
-        "https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/*",
+        "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest/download/*",
         "https://*.mico.re/*"
     ],
     "browser_action": {

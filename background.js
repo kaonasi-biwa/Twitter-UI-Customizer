@@ -8,17 +8,17 @@ let updateNotification = () => {
 
 const updateCheck = async () => {
 
-  const githubVersion = await fetch("https://raw.githubusercontent.com/kaonasi-biwa/Twitter-UI-Customizer/main/version.txt", { cache: "no-store" })
+  const githubVersion = await fetch("https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest/download/version.txt", { cache: "no-store" })
     .then(res => res.text());
   const extensionVersion = await fetch(chrome.runtime.getURL("./version.txt"),{ cache: "no-store" })
     .then(res => res.text())
-  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion != extensionVersion) {
+  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '')) {
 
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
         type: "basic",
         title: "Twitter UI Customizer",
-        message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion.replace("\r","") + "→" + githubVersion.replace("\r",""),
+        message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion.replace(/\r?\n/g, '') + "→" + githubVersion.replace(/\r?\n/g, ''),
         iconUrl: "icon/icon128.png"
       });
     chrome.notifications.onClicked.addListener(updateNotification);
