@@ -6,13 +6,29 @@ on:
 
 
 jobs:
+  set-version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: saveFile
+      run: |
+        echo ${{ github.ref }} > version.txt
+    - name: shareFile
+      uses: actions/upload-artifact@v1
+      with:
+        name: version
+        path: version.txt
 
   build-firefox:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: loadVersion
+      uses: actions/download-artifact@v2
+      with:
+        name: version
     - name: Archive
       run: |
+        echo ${{ github.ref }} > version.txt
         rm manifest_chrome.json
         mv manifest_firefox.json manifest.json
         zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
@@ -27,6 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: loadVersion
+      uses: actions/download-artifact@v2
+      with:
+        name: version
     - name: Archive
       run: |
         rm manifest_firefox.json
@@ -52,6 +72,10 @@ jobs:
         release_name: Twitter UI Customizer ${{ github.ref }}
         draft: false
         prerelease: false
+    - name: loadVersion
+      uses: actions/download-artifact@v2
+      with:
+        name: version
     - name: loadf
       uses: actions/download-artifact@v2
       with:
@@ -80,3 +104,13 @@ jobs:
         asset_path: Twitter_UI_Customizer_Chromium.zip
         asset_name: Twitter_UI_Customizer_Chromium.zip
         asset_content_type: application/zip
+    - name: Upload Release Asset
+      id: upload-release-version
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: version.txt
+        asset_name: version.txt
+        asset_content_type: text/plain
