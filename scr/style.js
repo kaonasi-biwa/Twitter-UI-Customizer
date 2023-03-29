@@ -1,5 +1,6 @@
 const TUICI18N = {
     "ja":{
+        "@JapaneseLanguageName":"日本語",
         "brandingName":"Twitter UI Customizer",
         "safemode-title":"セーフモード / Twitter UI Customizer",
         "settingUI-goBackButton":"戻る",
@@ -493,7 +494,7 @@ const TUICLibrary = {
         return this.TUICParser.parseFromString(elem,"text/html")
     },
     getI18n:function(elem){
-        let lang = document.querySelector("html").getAttribute("lang")
+        let lang = document.querySelector("html").getAttribute("lang").toLowerCase()
         if(lang in TUICI18N && elem in TUICI18N[lang]){
             return TUICI18N[lang][elem]
         }else if(elem in TUICI18N.en){
