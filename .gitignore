@@ -1,4 +1,4 @@
 *.zip
 *.xpi
 /manifest.json
-/version.txt
+/versionTUIC.txt
