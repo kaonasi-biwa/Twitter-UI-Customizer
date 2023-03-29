@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: saveFile
       run: |
-        echo ${${{ github.ref }}#/} > versionTUIC.txt
+        echo ${github.ref##/} > versionTUIC.txt
     - name: shareFile
       uses: actions/upload-artifact@v1
       with:
