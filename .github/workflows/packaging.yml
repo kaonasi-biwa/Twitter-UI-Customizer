@@ -13,12 +13,12 @@ jobs:
       run: |
         echo ${{ github.ref }} > versionTUIC_.txt
         cat ./versionTUIC_.txt
-        sed -e '/refs\/tags\//d' ./versionTUIC_.txt > ./versionTUIC.txt
+        sed -e 's/refs\/tags\//g' ./versionTUIC_.txt > ./versionTUIC.txt
         cat ./versionTUIC.txt
     - name: shareFile
       uses: actions/upload-artifact@v1
       with:
-        name: version
+        name: versionTUIC
         path: versionTUIC.txt
 
   build-firefox:
@@ -29,7 +29,7 @@ jobs:
     - name: loadVersion
       uses: actions/download-artifact@v2
       with:
-        name: version
+        name: versionTUIC
     - name: Archive
       run: |
         rm manifest_chrome.json
@@ -50,7 +50,7 @@ jobs:
     - name: loadVersion
       uses: actions/download-artifact@v2
       with:
-        name: version
+        name: versionTUIC
     - name: Archive
       run: |
         rm manifest_firefox.json
@@ -79,7 +79,7 @@ jobs:
     - name: loadVersion
       uses: actions/download-artifact@v2
       with:
-        name: version
+        name: versionTUIC
     - name: loadf
       uses: actions/download-artifact@v2
       with:
