@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ありがとう！</title>
+    <title class="i18n" i18n-id="popupTitle">ありがとう！</title>
     <meta charset="utf-8">
     <style>
         body{
@@ -60,18 +60,19 @@
     </style>
 </head>
 <body>
+  <script type="text/javascript" src="../i18n.js"></script>
     <script type="text/javascript" src="./popup.js"></script>
     <div class="message_container">
-      <h1 class="thankyou">使ってくれてありがとう！</h1>
-      <p>バグの報告や機能の要望は</p>
-      <p>Twitterからよろしくね！</p>
+      <h1 class="thankyou i18n" i18n-id="popupContent1">使ってくれてありがとう！</h1>
+      <p class="i18n" i18n-id="popupContent2">バグの報告や機能の要望は</p>
+      <p class="i18n" i18n-id="popupContent3">Twitterからよろしくね！</p>
     </div>
    <br>
     <div class="links">
-      <a href="#" id="link1">Twiter UI Customizerの設定</a>
-      <a href="#" id="link4">セーフモードで設定を変更</a>
-      <a href="#" id="link3">アップデート通知の設定</a>
-      <a href="#" id="link2">作者(kaonasi_biwa)のTwitter</a>
+      <a href="#" id="link1" class="i18n" i18n-id="popupButton1">Twiter UI Customizerの設定</a>
+      <a href="#" id="link4" class="i18n" i18n-id="popupButton2">セーフモードで設定を変更</a>
+      <a href="#" id="link3" class="i18n" i18n-id="popupButton3">アップデート通知の設定</a>
+      <a href="#" id="link2" class="i18n" i18n-id="popupButton4">作者(kaonasi_biwa)のTwitter</a>
     </div>
 </body>
 </html>

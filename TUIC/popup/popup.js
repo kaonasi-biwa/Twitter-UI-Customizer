@@ -1,5 +1,5 @@
 window.onload = ()=>{
-    chrome.runtime.sendMessage({updateType:"iconClick"});
+    chrome.runtime.sendMessage({type:"update",updateType:"iconClick"});
     document.getElementById("link1").onclick = ()=>{
         chrome.tabs.create({"url":"https://twitter.com/settings/display"});
     }
@@ -12,5 +12,6 @@ window.onload = ()=>{
     document.getElementById("link4").onclick = ()=>{
         chrome.tabs.create({"url":"https://twitter.com/tuic/safemode"});
     }
+    i18nApply()
 }
 
