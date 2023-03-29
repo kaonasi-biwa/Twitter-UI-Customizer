@@ -17,4 +17,5 @@ window.onload= ()=>{
       document.getElementById(i).addEventListener("change",checkbox);
     }
   })
+  i18nApply()
 }

@@ -1,69 +1,4 @@
-const TUICI18N = {
-    "ja":{
-        "@JapaneseLanguageName":"日本語",
-        "brandingName":"Twitter UI Customizer",
-        "safemode-title":"セーフモード / Twitter UI Customizer",
-        "settingUI-goBackButton":"戻る",
-        "settingUI-restoreDefaultAll":"全てデフォルトに戻す",
-        "settingUI-upDownList-toLeft":"表示する",
-        "settingUI-upDownList-toRight":"非表示にする",
-        "settingUI-upDownList-toUp":"上へ",
-        "settingUI-upDownList-toDown":"下へ",
-        "settingUI-upDownList-restoreDefault":"初期化",
-        "settingUI-upDownList-visible":"表示",
-        "settingUI-upDownList-invisible":"非表示",
-        "settingUI-colorPicker-transport":"透明色にする",
-        "settingUI-colorPicker-restoreDefault":"デフォルトに戻す",
-        "settingUI-colorPicker-textColor":"文字色",
-        "settingUI-colorPicker-background":"背景色",
-        "settingUI-colorPicker-border":"枠色",
-
-        "bottomTweetButtons-settingTitle":"ツイート下ボタンの並び替え",
-        "bottomTweetButtons-setting-visibleScrollBar":"ツイート下ボタンにスクロールバーを表示",
-        "bottomTweetButtons-replay":"返信",
-        "bottomTweetButtons-retweet":"リツイート",
-        "bottomTweetButtons-like":"いいね",
-        "bottomTweetButtons-downvote":"自分向きではない",
-        "bottomTweetButtons-share":"共有",
-        "bottomTweetButtons-tweetAnalytics":"ツイートアナリティクスを表示",
-        "bottomTweetButtons-bookmark":"ブックマークに保存",
-        "bottomTweetButtons-urlCopy":"ツイートのリンクをコピー",
-
-        "sidebarButton-settingTitle":"サイドバーの並び替え",
-        "sidebarButton-setting-invisibleTwitterLogo":"Twitterロゴを非表示",
-        "sidebarButton-setting-smallerBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
-        "sidebarButtons-home":"ホーム",
-        "sidebarButtons-explore":"話題を検索",
-        "sidebarButtons-communities":"コミュニティ",
-        "sidebarButtons-notifications":"通知",
-        "sidebarButtons-messages":"メッセージ",
-        "sidebarButtons-bookmarks":"ブックマーク",
-        "sidebarButtons-twitterBlue":"Twitter Blue",
-        "sidebarButtons-profile":"プロフィール",
-        "sidebarButtons-moremenu":"もっと見る",
-        "sidebarButtons-topics":"トピック",
-        "sidebarButtons-lists":"リスト",
-        "sidebarButtons-circles":"Twitterサークル",
-
-        "invisibleItems-settingTitle":"非表示設定",
-        "invisibleItems-osusumeUsersOnTL":"タイムライン上のおすすめユーザー",
-
-        "clientInfo-settingTitle":"クライアント情報 (廃止される可能性があります)",
-        "clientInfo-clientInfoVisible":"クライアント情報を表示",
-        "clientInfo-cannotGetInfo":"情報を取得できませんでした",
-
-        "customCSS-settingTitle":"カスタムCSS",
-        "customCSS-save":"カスタムCSSを保存",
-
-        "settingColors-editUnsetTweet":"未送信ツイートの編集ボタン",
-        "settingColors-notFollowingButton":"フォローしていない人のフォローボタン",
-        "settingColors-followingButton":"フォローしている人のフォローボタン",
-        "settingColors-unfollowButton":"フォロー解除ボタン",
-        "settingColors-editProfile":"プロフィール編集ボタン",
-        "settingColors-saveProfile":"プロフィールの保存ボタン",
-        "settingColors-finalDecideButton":"最終決定ボタン"
-    }
-}
+let TUICI18N;
 
 const TUICData = {
     defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false , "invisibleTwitterLogo": false,"smallerSidebarContent":true },"clientInfo":{"clientInfoVisible":false}, "CSS": "" },
@@ -677,8 +612,6 @@ const TUICObserver = {
                         }else{
                             cliantInfoElem.textContent = TUICLibrary.getI18n("clientInfo-cannotGetInfo")
                         }
-        
-        
                 }
             );
         },
@@ -1491,16 +1424,26 @@ function TUICCustomCSS() {
 //ここから実際に動かしてゆく
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString())
 
+
 if (document.getElementById("react-root") != null) {
-    chrome.runtime.sendMessage({type:"update", updateType: "openTwitter" });
+    (async () => {
+        await (new Promise((resolve, reject) => {
+            chrome.runtime.sendMessage({type:"getI18n"},(response) => {
+                TUICI18N = JSON.parse(response);
+                resolve();
+            });
+        }))
+        console.log(TUICLibrary.getI18n("@JapaneseLanguageName"))
+        chrome.runtime.sendMessage({type:"update", updateType: "openTwitter" });
 
-    /*旧バージョンからのアップデート*/
-    TUICLibrary.updatePref.update()
-    /*Fin 旧バージョンからのアップデート*/
-
-    TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-
-    const bodyObserver = new MutationObserver(TUICRunFirst)
-    bodyObserver.observe(document.querySelector("body"), { childList: false, subtree: false, attributes: true })
-    TUICRunFirst()
+        /*旧バージョンからのアップデート*/
+        TUICLibrary.updatePref.update()
+        /*Fin 旧バージョンからのアップデート*/
+    
+        TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
+    
+        const bodyObserver = new MutationObserver(TUICRunFirst)
+        bodyObserver.observe(document.querySelector("body"), { childList: false, subtree: false, attributes: true })
+        TUICRunFirst()
+    })()
 }

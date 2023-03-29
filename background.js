@@ -17,8 +17,8 @@ const updateCheck = async () => {
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
         type: "basic",
-        title: "Twitter UI Customizer",
-        message: "新しいバージョンが公開されました。\rアップデートしてください。\r" + extensionVersion.replace(/\r?\n/g, '') + "→" + githubVersion.replace(/\r?\n/g, ''),
+        title: chrome.i18n.getMessage("extensionName"),
+        message:chrome.i18n.getMessage("notificationsMessage",[extensionVersion.replace(/\r?\n/g, ''),githubVersion.replace(/\r?\n/g, '')]),
         iconUrl: "icon/icon128.png"
       });
     chrome.notifications.onClicked.addListener(updateNotification);
@@ -35,6 +35,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   } else if (message.type == "update") {
     if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification)
     update1(message.updateType);
+  }else if (message.type == "getI18n"){
+    getI18n(sendResponse)
   }
   return true;
 });
@@ -63,6 +65,14 @@ const deviceMessage = async (url, res) => {
   }).catch(error => {
     res({});
   });
+}
+
+const getI18n = async (res) => {
+  let i18nObject = {}
+  const langList = await fetch(chrome.runtime.getURL("./i18n/_langList.json"),{ cache: "no-store" })
+    .then(res => res.json())
+    for(const elem of langList) i18nObject[elem] =await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json())
+  res(JSON.stringify(i18nObject))
 }
 
 chrome.notifications.onClicked.removeListener(updateNotification)

@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>設定及び操作方法(Twitter UI Customizer)</title>
+    <title class="i18n" i18n-id="optionTitle">設定及び操作方法(Twitter UI Customizer)</title>
     <meta charset="utf-8">
+    <script type="text/javascript" src="../i18n.js"></script>
 <script src="./options.js"></script>
 </head>
 <body>
-    <h1>Twitter UI Customizerの設定</h1>
-    <h2>Twitterの設定:</h2>
-    <a href="https://twitter.com/settings/display" target="_blank" rel="noopener noreferrer">(Twitterの設定→アクセシビリティ、表示、言語→表示)</a>
-    <h2>アップデート通知の設定:</h2>
+    <h1 class="i18n" i18n-id="optionHeading1">Twitter UI Customizerの設定</h1>
+    <h2 class="i18n" i18n-id="optionHeading1_1">Twitterの設定:</h2>
+    <a i18n-id="optionContent1_1_1" href="https://twitter.com/settings/display" target="_blank" rel="noopener noreferrer" class="i18n">(Twitterの設定→アクセシビリティ、表示、言語→表示)</a>
+    <h2 class="i18n" i18n-id="optionHeading1_2">アップデート通知の設定:</h2>
     <div>
         <input type="checkbox" id="runBrowser"></input>
-        <label for="runBrowser">ブラウザを起動したときにアップデート通知する</label><br>
+        <label for="runBrowser" class="i18n" i18n-id="optionContent1_2_1">ブラウザを起動したときにアップデート通知する</label><br>
     <input type="checkbox" id="iconClick"></input>
-    <label for="iconClick">アイコンをクリックしたときにアップデート通知する</label><br>
+    <label for="iconClick" class="i18n" i18n-id="optionContent1_2_2">アイコンをクリックしたときにアップデート通知する</label><br>
     <input type="checkbox" id="openTwitter"></input>
-    <label for="openTwitter">Twitterを開いたときにアップデート通知する</label>
+    <label for="openTwitter" class="i18n" i18n-id="optionContent1_2_3">Twitterを開いたときにアップデート通知する</label>
 </div>
-    <h1>Twitter UI Customizerの操作方法</h1>
-    <p>上のURL先から設定を変えます</p>
-    <p>再起動は必要ありません</p>
-    <p>デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。</p>
-    <p>※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。</p>
-    <h1>Special Thanks</h1>
+    <h1 class="i18n" i18n-id="optionHeading2">Twitter UI Customizerの操作方法</h1>
+    <p class="i18n" i18n-id="optionContent2_1">上のURL先から設定を変えます。</p>
+    <p class="i18n" i18n-id="optionContent2_2">再起動は必要ありません。</p>
+    <p class="i18n" i18n-id="optionContent2_3">デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。</p>
+    <p class="i18n" i18n-id="optionContent2_4">※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。</p>
+    <h1 class="i18n" i18n-id="optionSpecialThanks">Special Thanks</h1>
     <ul style="font-size: 15px;margin-top: -15px;">
-        <li>@GrapeApple0 (クライアント名表示)</li>
-        <li>@irhdevel (すばらしきデザイン)</li>
-        <li>@Taka005 (ソースコードの整理)</li>
+        <li>@GrapeApple0 (<span class="i18n" i18n-id="optionSpecialThanks_GrapeApple0">クライアント名表示・Twitter APIの主</span>)</li>
+        <li>@irhdevel (<span class="i18n" i18n-id="optionSpecialThanks_irhdevel">すばらしきデザイン</span>)</li>
+        <li>@Taka005 (<span class="i18n" i18n-id="optionSpecialThanks_Taka005">ソースコードの整理</span>)</li>
     </ul>
 </body>
 </html>
