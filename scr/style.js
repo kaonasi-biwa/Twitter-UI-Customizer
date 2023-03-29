@@ -496,14 +496,30 @@ const TUICLibrary = {
     getI18n:function(elem){
         let lang = document.querySelector("html").getAttribute("lang").toLowerCase()
         if(lang in TUICI18N && elem in TUICI18N[lang]){
-            return TUICI18N[lang][elem]
+            return TUICI18N[lang][elem].escapeToUseHTML()
         }else if(elem in TUICI18N.en){
-            return TUICI18N.en[elem]
+            return TUICI18N.en[elem].escapeToUseHTML()
         }else{
-            return TUICI18N.ja[elem]
+            return TUICI18N.ja[elem].escapeToUseHTML()
         }
+    },
+    escapeToUseHTML:function(text){
+        return text.replace(/[&'`"<>=;]/g, function(match) {
+            return {
+              '&': '&amp;',
+              "'": '&#x27;',
+              '`': '&#x60;',
+              '"': '&quot;',
+              '<': '&lt;',
+              '>': '&gt;',
+              '=': '&equals;',
+              ";": "&semi;",
+            }[match]
+          });
     }
 }
+
+String.prototype.escapeToUseHTML = function(){return TUICLibrary.escapeToUseHTML(this)}
 
 const TUICObserver = {
     observerFunction:function(){
@@ -940,7 +956,8 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "otherBoolSetting")
             : ""
     },
     //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
-    colorSetting: function (id, type, color, text) {
+    colorSetting: function (id, type, color_, text) {
+        let [color] = [color_.escapeToUseHTML()]
         let TUIC_color = color.replace("rgba(", "").replace(")", "").split(",")
         let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
         return `
@@ -1105,33 +1122,33 @@ function TUICCss() {
 
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
-    --twitter-unsent-tweet-background: ${TUICPref.buttonColor["unsent-tweet"]?.background ?? TUICData.colors["unsent-tweet"].background};
-    --twitter-unsent-tweet-border: ${TUICPref.buttonColor["unsent-tweet"]?.border ?? TUICData.colors["unsent-tweet"].border};
-    --twitter-unsent-tweet-color: ${TUICPref.buttonColor["unsent-tweet"]?.color ?? TUICData.colors["unsent-tweet"].color};
+    --twitter-unsent-tweet-background: ${(TUICPref.buttonColor["unsent-tweet"]?.background ?? TUICData.colors["unsent-tweet"].background).escapeToUseHTML()};
+    --twitter-unsent-tweet-border: ${(TUICPref.buttonColor["unsent-tweet"]?.border ?? TUICData.colors["unsent-tweet"].border).escapeToUseHTML()};
+    --twitter-unsent-tweet-color: ${(TUICPref.buttonColor["unsent-tweet"]?.color ?? TUICData.colors["unsent-tweet"].color).escapeToUseHTML()};
 
-    --twitter-not-following-background: ${TUICPref.buttonColor["not-following"]?.background ?? TUICData.colors["not-following"].background};
-    --twitter-not-following-border: ${TUICPref.buttonColor["not-following"]?.border ?? TUICData.colors["not-following"].border};
-    --twitter-not-following-color: ${TUICPref.buttonColor["not-following"]?.color ?? TUICData.colors["not-following"].color};
+    --twitter-not-following-background: ${(TUICPref.buttonColor["not-following"]?.background ?? TUICData.colors["not-following"].background).escapeToUseHTML()};
+    --twitter-not-following-border: ${(TUICPref.buttonColor["not-following"]?.border ?? TUICData.colors["not-following"].border).escapeToUseHTML()};
+    --twitter-not-following-color: ${(TUICPref.buttonColor["not-following"]?.color ?? TUICData.colors["not-following"].color).escapeToUseHTML()};
 
-    --twitter-following-background: ${TUICPref.buttonColor["following"]?.background ?? TUICData.colors["following"].background};
-    --twitter-following-border: ${TUICPref.buttonColor["following"]?.border ?? TUICData.colors["following"].border};
-    --twitter-following-color: ${TUICPref.buttonColor["following"]?.color ?? TUICData.colors["following"].color};
+    --twitter-following-background: ${(TUICPref.buttonColor["following"]?.background ?? TUICData.colors["following"].background).escapeToUseHTML()};
+    --twitter-following-border: ${(TUICPref.buttonColor["following"]?.border ?? TUICData.colors["following"].border).escapeToUseHTML()};
+    --twitter-following-color: ${(TUICPref.buttonColor["following"]?.color ?? TUICData.colors["following"].color).escapeToUseHTML()};
 
-    --twitter-un-following-background: ${TUICPref.buttonColor["un-following"]?.background ?? TUICData.colors["un-following"].background};
-    --twitter-un-following-border: ${TUICPref.buttonColor["un-following"]?.border ?? TUICData.colors["un-following"].border};
-    --twitter-un-following-color: ${TUICPref.buttonColor["un-following"]?.color ?? TUICData.colors["un-following"].color};
+    --twitter-un-following-background: ${(TUICPref.buttonColor["un-following"]?.background ?? TUICData.colors["un-following"].background).escapeToUseHTML()};
+    --twitter-un-following-border: ${(TUICPref.buttonColor["un-following"]?.border ?? TUICData.colors["un-following"].border).escapeToUseHTML()};
+    --twitter-un-following-color: ${(TUICPref.buttonColor["un-following"]?.color ?? TUICData.colors["un-following"].color).escapeToUseHTML()};
 
-    --twitter-profile-background: ${TUICPref.buttonColor["profile"]?.background ?? TUICData.colors["profile"].background};
-    --twitter-profile-border: ${TUICPref.buttonColor["profile"]?.border ?? TUICData.colors["profile"].border};
-    --twitter-profile-color: ${TUICPref.buttonColor["profile"]?.color ?? TUICData.colors["profile"].color};
+    --twitter-profile-background: ${(TUICPref.buttonColor["profile"]?.background ?? TUICData.colors["profile"].background).escapeToUseHTML()};
+    --twitter-profile-border: ${(TUICPref.buttonColor["profile"]?.border ?? TUICData.colors["profile"].border).escapeToUseHTML()};
+    --twitter-profile-color: ${(TUICPref.buttonColor["profile"]?.color ?? TUICData.colors["profile"].color).escapeToUseHTML()};
 
-    --twitter-profile-save-background: ${TUICPref.buttonColor["profile-save"]?.background ?? TUICData.colors["profile-save"].background};
-    --twitter-profile-save-border: ${TUICPref.buttonColor["profile-save"]?.border ?? TUICData.colors["profile-save"].border};
-    --twitter-profile-save-color: ${TUICPref.buttonColor["profile-save"]?.color ?? TUICData.colors["profile-save"].color};
+    --twitter-profile-save-background: ${(TUICPref.buttonColor["profile-save"]?.background ?? TUICData.colors["profile-save"].background).escapeToUseHTML()};
+    --twitter-profile-save-border: ${(TUICPref.buttonColor["profile-save"]?.border ?? TUICData.colors["profile-save"].border).escapeToUseHTML()};
+    --twitter-profile-save-color: ${(TUICPref.buttonColor["profile-save"]?.color ?? TUICData.colors["profile-save"].color).escapeToUseHTML()};
 
-    --twitter-birthday-background: ${TUICPref.buttonColor["birthday"]?.background ?? TUICData.colors["birthday"].background};
-    --twitter-birthday-border: ${TUICPref.buttonColor["birthday"]?.border ?? TUICData.colors["birthday"].border};
-    --twitter-birthday-color: ${TUICPref.buttonColor["birthday"]?.color ?? TUICData.colors["birthday"].color};
+    --twitter-birthday-background: ${(TUICPref.buttonColor["birthday"]?.background ?? TUICData.colors["birthday"].background).escapeToUseHTML()};
+    --twitter-birthday-border: ${(TUICPref.buttonColor["birthday"]?.border ?? TUICData.colors["birthday"].border).escapeToUseHTML()};
+    --twitter-birthday-color: ${(TUICPref.buttonColor["birthday"]?.color ?? TUICData.colors["birthday"].color).escapeToUseHTML()};
 
     --twitter-TUIC-color: ${TUICData.styleColor[backgroundColor].textColor};
 
