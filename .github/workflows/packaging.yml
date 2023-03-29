@@ -16,7 +16,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: version
-        path: version.txt
+        path: versionTUIC.txt
 
   build-firefox:
     runs-on: ubuntu-latest
@@ -29,7 +29,6 @@ jobs:
         name: version
     - name: Archive
       run: |
-        echo ${{ github.ref }} > version.txt
         rm manifest_chrome.json
         mv manifest_firefox.json manifest.json
         zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
