@@ -12,7 +12,9 @@ jobs:
     - name: saveFile
       run: |
         echo ${{ github.ref }} > versionTUIC_.txt
+        cat ./versionTUIC_.txt
         sed -e '/refs\/tags\//d' ./versionTUIC_.txt > ./versionTUIC.txt
+        cat ./versionTUIC.txt
     - name: shareFile
       uses: actions/upload-artifact@v1
       with:
