@@ -1,0 +1,126 @@
+{
+    "extensionName": {
+      "message": "Twitter UI Customizer",
+      "description": "Name of the extension"
+    },
+    "extensionDescription": {
+      "message": "Improve the customizability of your Twitter UI",
+      "description": "Description of the extension"
+    },
+    "notificationsMessage": {
+      "message":"A new vewrsion is now available.\rPlease update.\r$V1$→$V2$",
+      "description": "Update notification",
+      "placeholders": {
+        "V1" : {
+          "content" : "$1",
+          "example" : "x.x.x (Extension)"
+        },
+        "V2" : {
+          "content" : "$2",
+          "example" : "x.x.x (GitHub)"
+        }
+      }
+    },
+
+    "popupTitle": {
+      "message": "Thank you!",
+      "description": "Popup Title"
+    },
+    "popupContent1": {
+      "message": "Thanks for using it!",
+      "description": "Popup text"
+    },
+    "popupContent2": {
+      "message": "Please report bugs and",
+      "description": "Popup text"
+    },
+    "popupContent3": {
+      "message": "feature requests via Twitter!",
+      "description": "Popup text"
+    },
+    "popupButton1": {
+      "message": "Configure Twiter UI Customizer",
+      "description": "Popup button"
+    },
+    "popupButton2": {
+      "message": "Change settings in safe mode",
+      "description": "Popup button"
+    },
+    "popupButton3": {
+      "message": "Update Notification Settings",
+      "description": "Popup button"
+    },
+    "popupButton4": {
+      "message": "Author (kaonasi_biwa) on Twitter",
+      "description": "Popup button"
+    },
+
+    "optionTitle": {
+      "message": "Settings and Operation Method(Twitter UI Customizer)",
+      "description": "Title of setting screen"
+    },
+    "optionHeading1": {
+      "message": "Twitter UI Customizer Settings",
+      "description": "Heading of the setting screen"
+    },
+    "optionHeading1_1": {
+      "message": "Twitter Setting:",
+      "description": "Heading of the setting screen"
+    },
+    "optionContent1_1_1": {
+      "message": "(Twitter Settings→Accessibility, display, and languages→Display)",
+      "description": "Text on the setting screen"
+    },
+    "optionHeading1_2": {
+      "message": "Update Notification Settings:",
+      "description": "Heading of the setting screen"
+    },
+    "optionContent1_2_1": {
+      "message": "Notify update when the browser startup",
+      "description": "Text on the setting screen"
+    },
+    "optionContent1_2_2": {
+      "message": "Notify update when clicking on extension icon",
+      "description": "Text on the setting screen"
+    },
+    "optionContent1_2_3": {
+      "message": "Notify update when you open Twitter",
+      "description": "Text on the setting screen"
+    },
+    "optionHeading2": {
+      "message": "How to operate Twitter UI Customizer",
+      "description": "Heading of the setting screen"
+    },
+    "optionContent2_1": {
+      "message": "Change the settings from the URL above.",
+      "description": "Text on the setting screen"
+    },
+    "optionContent2_2": {
+      "message": "No reboot is required.",
+      "description": "Text on the setting screen"
+    },
+    "optionContent2_3": {
+      "message": "The Restore Defaults button allows you to restore the default settings for this extension.",
+      "description": "Text on the setting screen"
+    },
+    "optionContent2_4": {
+      "message": "*The default for this extension is based on the design before the design change on 2021/8/12 JST.",
+      "description": "Text on the setting screen"
+    },
+    "optionSpecialThanks": {
+      "message": "Special Thanks",
+      "description": "Special thanks on the setting screen"
+    },
+    "optionSpecialThanks_GrapeApple0": {
+      "message": "Display Client Name / Twitter API Owner",
+      "description": "Special thanks (GrapeApple0) on the settings screen"
+    },
+    "optionSpecialThanks_irhdevel": {
+      "message": "Wonderful design",
+      "description": "Special thanks (irhdevel) on the settings screen"
+    },
+    "optionSpecialThanks_Taka005": {
+      "message": "Organize source code",
+      "description": "Special thanks (Taka005) on the settings screen"
+    }
+  }
