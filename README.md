@@ -7,6 +7,7 @@ Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui
 - @GrapeApple0 (クライアント名表示)
 - @irhdevel (すばらしきデザイン)
 - @Taka005 (ソースコードの整理)
+- @Hibi-10000 (アメリカ英語の翻訳者)
 
 ## いるかもわからぬ翻訳者の方へ
 ### Twitter上でのTUICの翻訳

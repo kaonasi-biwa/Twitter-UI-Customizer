@@ -122,5 +122,9 @@
     "optionSpecialThanks_Taka005": {
       "message": "Organize source code",
       "description": "Special thanks (Taka005) on the settings screen"
+    },
+    "optionSpecialThanks_Hibi-10000": {
+      "message": "American English Translator",
+      "description": "Special thanks (Hibi-10000) on the settings screen"
     }
   }

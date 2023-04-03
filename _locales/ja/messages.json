@@ -122,5 +122,9 @@
     "optionSpecialThanks_Taka005": {
       "message": "ソースコードの整理",
       "description": "設定画面のSpecial thanks(Taka005さん)"
+    },
+    "optionSpecialThanks_Hibi-10000": {
+      "message": "アメリカ英語の翻訳者",
+      "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     }
   }
