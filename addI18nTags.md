@@ -12,5 +12,5 @@
 - "twitterIcon-nowIcon
 
 # 削除したi18nタグ
-## 2.9.1
+## 2.9.3
 - sidebarButton-setting-invisibleTwitterLogo
