@@ -9,4 +9,8 @@
 - twitterIcon-twitter
 - "twitterIcon-custom
 - "twitterIcon-usedIcon
-- "twiterIcon-nowIcon
+- "twitterIcon-nowIcon
+
+# 削除したi18nタグ
+## 2.9.1
+- sidebarButton-setting-invisibleTwitterLogo

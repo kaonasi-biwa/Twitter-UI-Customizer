@@ -1,15 +1,15 @@
 let TUICI18N;
 
 const TUICData = {
-    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"invisible",},
+    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twitter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"invisible",},
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
             i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "downvote-button": "bottomTweetButtons-downvote", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy" }
         },
         sidebarButtons: {
-            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu","topics","lists","circles"],
-            i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu","topics":"sidebarButtons-topics","lists":"sidebarButtons-lists","circles":"sidebarButtons-circles" }
+            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twitter-blue", "profile", "moremenu","topics","lists","circles"],
+            i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twitter-blue": "sidebarButtons-twitterBlue", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu","topics":"sidebarButtons-topics","lists":"sidebarButtons-lists","circles":"sidebarButtons-circles" }
         },
         colors: {
             id: ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"],
@@ -176,7 +176,7 @@ const TUICData = {
             "notifications": `[href$="/notifications"]`,
             "messages": `[href^="/messages"]`,
             "bookmarks": `[href="/i/bookmarks"]`,
-            "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
+            "twitter-blue": `[href="/i/twitter_blue_sign_up"]`,
             "profile": `[data-testid="AppTabBar_Profile_Link"]`,
             "moremenu": `[data-testid="AppTabBar_More_Menu"]`,
             "topics": `#TUICSidebar_topics`,
@@ -1107,7 +1107,7 @@ ${TUICVisibleButtons}
     uploadImageFile:function(title,id){
         return `<h3 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h3><br>
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" TUICImgID="${id}" />
-        <p class="TUIC_setting_text">${TUICLibrary.getI18n("twiterIcon-nowIcon")}</p>
+        <p class="TUIC_setting_text">${TUICLibrary.getI18n("twitterIcon-nowIcon")}</p>
         <img id="TUICIcon_${id}" class="TUICUploadedImg">`
     }
 }

@@ -39,7 +39,7 @@
       "description": "ポップアップの文章"
     },
     "popupButton1": {
-      "message": "Twiter UI Customizerの設定",
+      "message": "Twitter UI Customizerの設定",
       "description": "ポップアップのボタン"
     },
     "popupButton2": {
@@ -123,7 +123,7 @@
       "message": "ソースコードの整理",
       "description": "設定画面のSpecial thanks(Taka005さん)"
     },
-    "optionSpecialThanks_Hibi-10000": {
+    "optionSpecialThanks_Hibi_10000": {
       "message": "アメリカ英語の翻訳者",
       "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     }
