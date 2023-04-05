@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "2.9.0",
+    "version": "2.9.1",
     "default_locale": "ja",
     "manifest_version": 2,
     "icons": {
@@ -29,7 +29,8 @@
         "storage",
         "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest/download/*",
         "https://objects.githubusercontent.com/*",
-        "https://*.mico.re/*"
+        "https://*.mico.re/*",
+        "https://abs.twimg.com/*"
     ],
     "browser_action": {
         "default_icon": {
