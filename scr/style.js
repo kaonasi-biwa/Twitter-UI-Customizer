@@ -1038,8 +1038,6 @@ ${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.col
         let TUICInvisibleRadioBox = "";
         console.log(TUICData[id].all)
         for (let i of TUICData[id].all) {
-            console.log(i)
-
             TUICInvisibleRadioBox += this.radioButton(id,i, TUICPref[id] == i, TUICData[id].i18n[i], type)
         }
         return `
@@ -1504,8 +1502,10 @@ height:8px
 
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")}{
     mask-size: cover !important;
+    -webkit-mask-size: cover !important;
     background-color:var(--twitter-TUIC-color);
-    mask:${TUICData.twitterIconSVG};
+    -webkit-mask-image:${TUICData.twitterIconSVG} !important;
+    mask-image:${TUICData.twitterIconSVG} !important;
 }
 
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
