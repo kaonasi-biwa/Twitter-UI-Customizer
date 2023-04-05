@@ -59,5 +59,15 @@
     "settingColors-unfollowButton":"Unfollow button",
     "settingColors-editProfile":"Edit profile button",
     "settingColors-saveProfile":"Save profile button",
-    "settingColors-finalDecideButton":"Confirm button"
+    "settingColors-finalDecideButton":"Confirm button",
+
+    "twitterIcon-settingTitle":"Twitter icon on the sidebar",
+    "twitterIcon-nomal":"Default",
+    "twitterIcon-invisible":"Hide",
+    "twitterIcon-dog":"Doge",
+    "twitterIcon-twitter":"Twitter",
+    "twitterIcon-custom":"Custom",
+    "twitterIcon-usedIcon":"Image to be used as an icon",
+    "twitterIcon-nowIcon":"Current Image",
+    "twitterIcon-roundIcon":"Round icon only if set to custom icon"
   }
