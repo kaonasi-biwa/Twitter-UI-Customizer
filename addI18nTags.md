@@ -1,0 +1,10 @@
+# 追加したi18nタグ
+## 2.9.1
+- twitterIcon-settingTitle
+- twitterIcon-nomal
+- twitterIcon-invisible
+- twitterIcon-dog
+- twitterIcon-twitter
+- "twitterIcon-custom
+- "twitterIcon-usedIcon
+- "twiterIcon-nowIcon
