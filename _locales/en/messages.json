@@ -39,7 +39,7 @@
       "description": "Popup text"
     },
     "popupButton1": {
-      "message": "Configure Twiter UI Customizer",
+      "message": "Configure Twitter UI Customizer",
       "description": "Popup button"
     },
     "popupButton2": {
@@ -123,7 +123,7 @@
       "message": "Organize source code",
       "description": "Special thanks (Taka005) on the settings screen"
     },
-    "optionSpecialThanks_Hibi-10000": {
+    "optionSpecialThanks_Hibi_10000": {
       "message": "American English Translator",
       "description": "Special thanks (Hibi-10000) on the settings screen"
     }
