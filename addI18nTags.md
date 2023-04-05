@@ -1,4 +1,6 @@
 # 追加したi18nタグ
+## 2.9.2
+- twitterIcon-roundIcon
 ## 2.9.1
 - twitterIcon-settingTitle
 - twitterIcon-nomal
