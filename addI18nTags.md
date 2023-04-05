@@ -9,4 +9,4 @@
 - twitterIcon-twitter
 - "twitterIcon-custom
 - "twitterIcon-usedIcon
-- "twiterIcon-nowIcon
+- "twitterIcon-nowIcon
