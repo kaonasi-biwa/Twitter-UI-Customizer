@@ -10,13 +10,68 @@
         "128": "icon/icon128.png"
     },
     "content_scripts": [
-          {
+        {
             "matches": [
                 "*://*.twitter.com/*"
             ],
             "js": [
-                "scr/style.js"
-            ]
+                "scr/applyCSS.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/observer.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/data.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/library.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/option.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/index.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/runningSafemode.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "options_ui": {

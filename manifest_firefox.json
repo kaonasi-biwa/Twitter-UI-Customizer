@@ -10,18 +10,73 @@
         "128": "icon/icon128.png"
     },
     "content_scripts": [
-          {
+        {
             "matches": [
                 "*://*.twitter.com/*"
             ],
             "js": [
-                "scr/style.js"
-            ]
+                "scr/applyCSS.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/observer.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/data.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/library.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/option.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/index.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.twitter.com/*"
+            ],
+            "js": [
+                "scr/runningSafemode.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "options_ui": {
-        "page":"TUIC/options/options.html",
-        "browser_style":true
+        "page": "TUIC/options/options.html",
+        "browser_style": true
     },
     "permissions": [
         "tabs",
@@ -41,16 +96,18 @@
         "default_title": "Twitter UI Customizer",
         "default_popup": "TUIC/popup/popup.html"
     },
-    "background":{
-        "scripts":["background.js"]
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
     },
     "applications": {
         "gecko": {
-          "id": "{e9c237f9-8c89-4f60-aa0d-e17e305398dc}"
+            "id": "{e9c237f9-8c89-4f60-aa0d-e17e305398dc}"
         }
-      },
+    },
     "developer": {
-      "name": "kaonasi_biwa",
-      "url": "https://github.com/kaonasi-biwa/Twitter-UI-Customizer"
+        "name": "kaonasi_biwa",
+        "url": "https://github.com/kaonasi-biwa/Twitter-UI-Customizer"
     }
 }
