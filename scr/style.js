@@ -1,7 +1,7 @@
 let TUICI18N;
 
 const TUICData = {
-    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "s/idebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"invisible"},
+    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"invisible",},
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
@@ -927,7 +927,11 @@ ${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
     this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-smallerBetweenButtons", "otherBoolSetting")
 )}
 
-${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",this.uploadImageFile("twitterIcon-usedIcon","IconImg"))}
+${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",
+  "<br>" +
+  this.checkbox("roundIcon",TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
+  this.uploadImageFile("twitterIcon-usedIcon","IconImg")
+)}
 
         <br><br>
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
@@ -1507,6 +1511,9 @@ height:8px
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
 #TUICIcon_IconImg{
     background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
+    ${(TUICPref.otherBoolSetting["roundIcon"] ?? TUICData.defaultPref.otherBoolSetting.roundIcon) ? `
+    border-radius:9999px !important;
+    ` : ""}
 }
 .TUICUploadedImg{
     width:64px;
