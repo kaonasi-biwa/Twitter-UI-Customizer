@@ -1,6 +1,5 @@
+
 let TUICI18N;
-
-
 
 const TUICLibrary = {
     color: {
