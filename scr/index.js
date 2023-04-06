@@ -1,12 +1,16 @@
+
 //ここから実際に動かしてゆく
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString())
 let TUICCount = 0
 function replaceRunningIcon(){
     if(document.getElementById("react-root") != null){
         TUICRunFirst()
-        TUICObserver.functions.twitterIcon(
-            document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
-            document.querySelector(`#placeholder`));
+        if(document.querySelector(`#placeholder > svg`)){
+            TUICObserver.functions.twitterIcon(
+                document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
+                document.querySelector(`#placeholder`));
+        }
+
             (async () => {
                 await (new Promise((resolve, reject) => {
                     chrome.runtime.sendMessage({type:"getI18n"},(response) => {

@@ -1,3 +1,4 @@
+
 if (document.getElementById("react-root") != null && window.location.pathname == "/tuic/safemode") {
     if (document.querySelector("#safemode") == null) {
         document.querySelector("#react-root").style = "display:none !important;"

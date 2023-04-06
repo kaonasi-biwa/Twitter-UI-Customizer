@@ -1,3 +1,4 @@
+
 const TUICData = {
     defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"nomal"},
     settings: {

@@ -15,56 +15,16 @@
                 "*://*.twitter.com/*"
             ],
             "js": [
-                "scr/applyCSS.js"
-            ],
-            "run_at": "document_start"
-        },
-        {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/observer.js"
-            ],
-            "run_at": "document_start"
-        },
-        {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/data.js"
-            ],
-            "run_at": "document_start"
-        },
-        {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/library.js"
-            ],
-            "run_at": "document_start"
-        },
-        {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/option.js"
-            ],
-            "run_at": "document_start"
-        },
-        {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
+                "scr/observer.js",
+                "scr/data.js",
+                "scr/library.js",
+                "scr/option.js",
+                "scr/applyCSS.js",
                 "scr/index.js"
             ],
             "run_at": "document_start"
         },
-        {
+          {
             "matches": [
                 "*://*.twitter.com/*"
             ],
