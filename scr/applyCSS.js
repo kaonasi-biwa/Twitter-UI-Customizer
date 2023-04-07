@@ -233,7 +233,7 @@ function TUICCss() {
 }
 
 .${TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT")}{
-    margin-bottom:calc(4px + 1em);
+    margin-bottom:calc(12px + 1em);
 }
 /*色選択*/
 .TUIC_setting_color_colmn {

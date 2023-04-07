@@ -298,7 +298,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "otherBoolSetting")
         let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
         return `
         <div class="TUIC_setting_color_colmn${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT") : ""}">
-        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n(text)}</h4>
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:18px;">${TUICLibrary.getI18n(text)}</h4>
         <div class="TUIC_setting_input_container">
             <div class="TUIC_input_color_rounded__container">
                 <div class="TUIC_input_color_rounded">
