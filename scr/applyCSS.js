@@ -218,11 +218,31 @@ function TUICCss() {
     color: var(--twitter-birthday-color) !important;
 }
 
+.TUICDfaultColor{
+    display:block !important;
+    margin-right:0px !important;
+    margin-left:auto !important;
+    padding-left:calc(5px + 1em) !important;
+    padding-right:calc(5px + 1em) !important;
+    padding-top:2px !important;
+    padding-bottom:2px !important;
+    margin-top:2px !important;
+    margin-bottom:2px !important;
+    width:fit-content;
+    border-color:#71767b !important;
+}
+
+.${TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT")}{
+    margin-bottom:calc(4px + 1em);
+}
 /*色選択*/
 .TUIC_setting_color_colmn {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.TUIC_setting_color_colmn > h4{
+    margin-left:10px !important;
 }
 /*無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく）*/
 .TUIC_col_setting_container input[type="color"] {
@@ -252,6 +272,7 @@ function TUICCss() {
     align-items: center;
     border-radius: 50%;
     transition: .3s;
+    margin-right:5px !important;
 }
 .TUIC_input_color_rounded__container:hover {
     background: var(--TUIC-color-hover-efect);
@@ -304,11 +325,8 @@ function TUICCss() {
 }
 .TUIC_setting_button_width{
     width:100%;
-}
-.TUIC_setting_button_default{
-    width:10em;
-    /*position:absolute;
-    right:20px*/
+    padding-top:5px !important;
+    padding-bottom:5px !important;
 }
 .TUIC_none_scroll{
     scrollbar-width: none;
@@ -422,6 +440,13 @@ height:8px
     ${(TUICPref.otherBoolSetting["roundIcon"] ?? TUICData.defaultPref.otherBoolSetting.roundIcon) ? `
     border-radius:9999px !important;
     ` : ""}
+}
+
+#layers [data-testid="TopNavBar"] div+.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")}{
+    background-size:contain !important;
+    background-repeat:no-repeat !important;
+    background-position:center;
+    width:auto !important;
 }
 
 .${TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE")} > *{
