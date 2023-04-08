@@ -36,3 +36,7 @@ Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui
 3. `i18n/ja.json`をもとに翻訳する
 ### ポップアップなどTUIC事態の翻訳
 こちらの記事( https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/Internationalization )と`_locales/ja/messages.json`を参照してください
+
+## アイコン画像の提供元
+[System UIcons](https://www.systemuicons.com/)
+ - Unlicenseの元で配布されています。
