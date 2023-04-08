@@ -314,8 +314,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "otherBoolSetting")
             }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transport")}</label><br>
         </div>
     </div>
-    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}"
-             TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}">${TUICLibrary.getI18n("settingUI-colorPicker-restoreDefault")}</button>`
+    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n("settingUI-colorPicker-restoreDefault")}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}">${TUICData.resetIconSVG}</button>`
     },
     //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
     threeColorSetting: function (id) {
@@ -383,12 +382,22 @@ ${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.col
         </div>
         <br>`
     },
+    iconButton: function(src, btnAction, tooltiptag){
+      return `<button class="TUIC_icon_button_con ${btnAction}" title="${TUICLibrary.getI18n(tooltiptag)}">${src}</button>`
+    },
     //アップダウンリスト(id:設定のID。TUICPref直下 title:設定の名前, option:下に表示する設定)
     upDownList: function (id, title, option) {
         const UDAllValue = TUICData.settings[id].all
         let ListItem = this.upDownListItem(id)
         let TUICVisibleButtons = ListItem[0]
         let TUICInvisibleButtons = ListItem[1]
+        const UpdownButtonFuncs = [
+          {iconSrc: TUICData.arrowLeftIconSVG, btnAction: "TUIC_up_down_list_to_left", tooltiptag: "settingUI-upDownList-toLeft"},
+          {iconSrc: TUICData.arrowUpIconSVG, btnAction: "TUIC_up_down_list_to_up", tooltiptag: "settingUI-upDownList-toUp"},
+          {iconSrc: TUICData.arrowDownIconSVG, btnAction: "TUIC_up_down_list_to_down", tooltiptag: "settingUI-upDownList-toDown"},
+          {iconSrc: TUICData.arrowRightIconSVG, btnAction: "TUIC_up_down_list_to_right", tooltiptag: "settingUI-upDownList-toRight"},
+          {iconSrc: TUICData.resetIconSVG, btnAction: "TUIC_up_down_list_to_default", tooltiptag: "settingUI-upDownList-restoreDefault"},
+        ]
         return `
 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2>
 
@@ -403,12 +412,10 @@ ${TUICVisibleButtons}
                 <div style="text-align: center;">
                     <br>
                     <br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_left">${TUICLibrary.getI18n("settingUI-upDownList-toLeft")}</button><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_up">${TUICLibrary.getI18n("settingUI-upDownList-toUp")}</button><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_down">${TUICLibrary.getI18n("settingUI-upDownList-toDown")}</button><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_right">${TUICLibrary.getI18n("settingUI-upDownList-toRight")}</button><br><br>
-                    <button style="width:8em" class="TUIC_setting_text TUIC_setting_button TUIC_up_down_list_to_default">${TUICLibrary.getI18n("settingUI-upDownList-restoreDefault")}</button><br>
-                </div>
+                    ${UpdownButtonFuncs.map(btn => {
+                      return this.iconButton(btn.iconSrc, btn.btnAction, btn.tooltiptag)
+                    }).join("")}
+               </div>
                 <div>
                     <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-invisible")}</h2><br>
                     <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length}">
