@@ -219,13 +219,8 @@ function TUICCss() {
 }
 
 .TUICDfaultColor{
-    display:block !important;
     margin-right:0px !important;
     margin-left:auto !important;
-    padding-left:calc(5px + 1em) !important;
-    padding-right:calc(5px + 1em) !important;
-    padding-top:2px !important;
-    padding-bottom:2px !important;
     margin-top:2px !important;
     margin-bottom:2px !important;
     width:fit-content;
@@ -312,6 +307,31 @@ function TUICCss() {
 /*設定画面の文字色*/
 .TUIC_setting_text{
     color: var(--twitter-TUIC-color);
+}
+.TUIC_icon_button_con {
+    border-radius: 9999px;
+    background: transparent;
+    border: none;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.TUIC_icon_button_con>svg * {
+    stroke: var(--twitter-TUIC-color);
+    transition: .2s;
+}
+.TUIC_icon_button_con>svg {
+    pointer-events: none;
+}
+.TUIC_icon_button_con:hover {
+    background: #ffffff20;
+}
+.TUIC_icon_button_con:active {
+    transform: scale(0.9);
 }
 .TUIC_setting_button{
     background: transparent;
