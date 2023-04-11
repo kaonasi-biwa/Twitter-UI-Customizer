@@ -116,9 +116,13 @@ const TUICOptionHTML = {
                 leftBox = parentBox.children[0].children[2]
                 rightBox = parentBox.children[2].children[2]
 
-                if (rightBox.selectedIndex != -1) {
-                    leftBox.appendChild(rightBox.children[rightBox.selectedIndex]);
-                    TUICOptionHTML.upDownListSetting(parentBox);
+                selectedItem = parentBox.getAttribute("TUICSelectedItem")
+                if ((selectedItem ?? "") != "") {
+                    selectedItemElem = rightBox.querySelector("#" + selectedItem)
+                    if(selectedItemElem != null){
+                        leftBox.appendChild(selectedItemElem);
+                        TUICOptionHTML.upDownListSetting(parentBox);
+                    }
                 }
             },
             "single": false
@@ -129,9 +133,14 @@ const TUICOptionHTML = {
                 parentBox = event.currentTarget.parentElement.parentElement
                 leftBox = parentBox.children[0].children[2]
                 rightBox = parentBox.children[2].children[2]
-                if (leftBox.selectedIndex != -1) {
-                    rightBox.appendChild(leftBox.children[leftBox.selectedIndex]);
-                    TUICOptionHTML.upDownListSetting(parentBox);
+
+                selectedItem = parentBox.getAttribute("TUICSelectedItem")
+                if ((selectedItem ?? "") != "") {
+                    selectedItemElem = leftBox.querySelector("#" + selectedItem)
+                    if(selectedItemElem != null){
+                        rightBox.appendChild(selectedItemElem);
+                        TUICOptionHTML.upDownListSetting(parentBox);
+                    }
                 }
             },
             "single": false
@@ -141,9 +150,13 @@ const TUICOptionHTML = {
             "function": function (event) {
                 parentBox = event.currentTarget.parentElement.parentElement
                 leftBox = parentBox.children[0].children[2]
-                if (leftBox.selectedIndex > 0) {
-                    leftBox.insertBefore(leftBox.children[leftBox.selectedIndex], leftBox.children[leftBox.selectedIndex - 1]);
-                    TUICOptionHTML.upDownListSetting(parentBox);
+                selectedItem = parentBox.getAttribute("TUICSelectedItem")
+                if ((selectedItem ?? "") != "") {
+                    selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex(list => list === leftBox.querySelector("#" + selectedItem))
+                    if(selectedItemIndex > 0){
+                        leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1])
+                        TUICOptionHTML.upDownListSetting(parentBox)
+                    }
                 }
             },
             "single": false
@@ -153,9 +166,13 @@ const TUICOptionHTML = {
             "function": function (event) {
                 parentBox = event.currentTarget.parentElement.parentElement
                 leftBox = parentBox.children[0].children[2]
-                if (leftBox.selectedIndex > -1) {
-                    leftBox.insertBefore(leftBox.children[leftBox.selectedIndex], leftBox.children[leftBox.selectedIndex].nextSibling.nextSibling)
-                    TUICOptionHTML.upDownListSetting(parentBox)
+                selectedItem = parentBox.getAttribute("TUICSelectedItem")
+                if ((selectedItem ?? "") != "") {
+                    selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex(list => list === leftBox.querySelector("#" + selectedItem))
+                    if(selectedItemIndex != -1){
+                        leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling)
+                        TUICOptionHTML.upDownListSetting(parentBox)
+                    }
                 }
             },
             "single": false
@@ -171,20 +188,19 @@ const TUICOptionHTML = {
                 settingId = parentBox.getAttribute("TUICUDBox")
                 TUICPref[settingId] = TUICLibrary.defaultPref.get()[settingId]
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                parentBox.setAttribute("TUICSelectedItem","")
                 let ListItem = TUICOptionHTML.upDownListItem(settingId)
 
                 while(leftBox.childNodes.length != 0){
                     leftBox.childNodes[0].remove()
                 }
                 for( let elem of TUICLibrary.HTMLParseAll(ListItem[0])){
-                    console.log(elem)
                     leftBox.appendChild(elem)
                 }
                 while(rightBox.childNodes.length != 0){
                     rightBox.childNodes[0].remove()
                 }
                 for( let elem of TUICLibrary.HTMLParseAll(ListItem[1])){
-                    console.log(elem)
                     rightBox.appendChild(elem)
 
                 }
@@ -224,12 +240,24 @@ const TUICOptionHTML = {
                 TUICCss()
             },
             "single": false
+        },
+        ".TUICUpDownContent":{
+            "type":"click",
+            "function":function(event){
+                parentBox = event.currentTarget.parentElement.parentElement.parentElement
+                selectedItem = parentBox.getAttribute("TUICSelectedItem")
+                if((selectedItem ?? "") != "") parentBox.querySelector("#" + selectedItem).removeAttribute("TUICSelectedUpDownContent")
+                selectItem = event.currentTarget.id
+                parentBox.querySelector("#" + selectItem).setAttribute("TUICSelectedUpDownContent","true")
+                parentBox.setAttribute("TUICSelectedItem",selectItem)
+            },
+            "single":false
         }
     },
     upDownListSetting(parentBox) {
         id = parentBox.getAttribute("TUICUDBox")
         let visible_button_list = []
-        let visibleButtonsT = parentBox.children[0].children[2].querySelectorAll("option")
+        let visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent")
         for (let i = 0; i < visibleButtonsT.length; i++) {
             visible_button_list.push(visibleButtonsT[i].id)
         }
@@ -402,25 +430,25 @@ ${this.colorSetting(id, "color", TUICPref.buttonColor[id]?.color ?? TUICData.col
 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2>
 
         <div class="TUIC_col_setting_container">
-            <div style="display:flex" TUICUDBox="${id}">
-                <div>
+            <div style="display:flex;" TUICUDBox="${id}" TUICSelectedItem="">
+                <div style="flex: 1 2;width:50px;">
                     <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-visible")}</h2><br>
-                    <select id="TUIC_visible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length}">
+                    <div id="TUIC_visible" class="TUIC_selectbox" style="--contentCount:${UDAllValue.length};">
 ${TUICVisibleButtons}
-                    </select>
+                    </div>
                 </div>
-                <div style="text-align: center;">
+                <div style="text-align: center;width:30px;">
                     <br>
                     <br>
                     ${UpdownButtonFuncs.map(btn => {
                       return this.iconButton(btn.iconSrc, btn.btnAction, btn.tooltiptag)
                     }).join("")}
                </div>
-                <div>
+                <div style="flex: 1 2;width:50px;">
                     <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-invisible")}</h2><br>
-                    <select id="TUIC_invisible" class="TUIC_none_scroll TUIC_selectbox" size="${UDAllValue.length}">
+                    <div id="TUIC_invisible" class="TUIC_selectbox" style="--contentCount:${UDAllValue.length};">
     ${TUICInvisibleButtons}
-                    </select>
+                    </div>
                 </div>
             </div>
             <br>
@@ -433,11 +461,11 @@ ${TUICVisibleButtons}
         let TUICVisibleButtons = ""
         let TUICInvisibleButtons = ""
         for(let i of TUICPref[id]){
-            TUICVisibleButtons += `<option value="${i}" id="${i}">${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</option>`
+            TUICVisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</span></div>`
         }
         for (let i of TUICData.settings[id].all) {
             if (!TUICPref[id].includes(i)) {
-                TUICInvisibleButtons += `<option value="${i}" id="${i}">${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</option>`
+                TUICInvisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</span></div>`
             }
         }
         return [TUICVisibleButtons, TUICInvisibleButtons]

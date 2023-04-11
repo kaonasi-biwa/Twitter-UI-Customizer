@@ -299,11 +299,16 @@ function TUICCss() {
     border: solid 1px #71767b;
     border-radius: 6px;
     margin-top: 10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    height:calc((1em + 5px) * var(--contentCount) + 10px);
+    overflow-x:auto;
+scrollbar-width:thin;
 }
-[tuicudbox="sidebarButtons"] > div > select > option{
-    padding-right:1em;
-    padding-left:1em;
-}
+
+.TUIC_selectbox::-webkit-scrollbar {
+    height:8px
+    }
 /*設定画面の文字色*/
 .TUIC_setting_text{
     color: var(--twitter-TUIC-color);
@@ -370,9 +375,21 @@ function TUICCss() {
 #TUIC_invisible,#TUIC_visible{
     background:transparent;
 }
-#TUIC_invisible > option,#TUIC_visible > option,#css_textarea{
+#TUIC_invisible span,#TUIC_visible span,#css_textarea{
     background:transparent;
     color:var(--twitter-TUIC-color);
+    white-space:nowrap;
+}
+
+#TUIC_invisible > div,#TUIC_visible > div{
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-left:1em;
+    padding-right:1em;
+}
+
+[TUICSelectedUpDownContent="true"]{
+    background-color:rgba(51, 167, 229,0.7);
 }
 
 textarea#css_textarea {
