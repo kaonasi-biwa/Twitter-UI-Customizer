@@ -378,7 +378,6 @@ scrollbar-width:thin;
 #TUIC_invisible span,#TUIC_visible span,#css_textarea{
     background:transparent;
     color:var(--twitter-TUIC-color);
-    white-space:nowrap;
 }
 
 #TUIC_invisible > div,#TUIC_visible > div{
@@ -386,6 +385,9 @@ scrollbar-width:thin;
     padding-bottom:2px;
     padding-left:1em;
     padding-right:1em;
+}
+.white-space:nowrap;{
+    white-space:nowrap;
 }
 
 [TUICSelectedUpDownContent="true"]{
