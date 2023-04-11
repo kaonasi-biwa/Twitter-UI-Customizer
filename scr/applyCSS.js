@@ -386,7 +386,7 @@ scrollbar-width:thin;
     padding-left:1em;
     padding-right:1em;
 }
-.white-space:nowrap;{
+#TUIC_invisible > div span,#TUIC_visible > span{
     white-space:nowrap;
 }
 
