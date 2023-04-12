@@ -53,8 +53,13 @@
     "customCSS-settingTitle":"Custom CSS",
     "customCSS-save":"Save Custom CSS",
   
+    "settingColors-settingTitle":"Color Settings",
+    "settingColors-select-base":"Base",
+    "settingColors-select-light":"Light",
+    "settingColors-select-dark":"Dark",
     "settingColors-editUnsetTweet":"Edit unsent tweets button",
     "settingColors-notFollowingButton":"Follow button",
+    "settingColors-willFollowButton":"Follow button on hover",
     "settingColors-followingButton":"Following button",
     "settingColors-unfollowButton":"Unfollow button",
     "settingColors-editProfile":"Edit profile button",
