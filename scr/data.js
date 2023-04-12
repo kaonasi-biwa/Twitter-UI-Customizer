@@ -1,6 +1,6 @@
 
 const TUICData = {
-    defaultPref: { "buttonColor": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"nomal"},
+    defaultPref: { "buttonColor": {},"buttonColorLight": {},"buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"nomal"},
     settings: {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
@@ -11,8 +11,8 @@ const TUICData = {
             i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu","topics":"sidebarButtons-topics","lists":"sidebarButtons-lists","circles":"sidebarButtons-circles" }
         },
         colors: {
-            id: ["unsent-tweet", "not-following", "following", "un-following", "profile", "profile-save", "birthday"],
-            i18n: { "unsent-tweet": "settingColors-editUnsetTweet", "not-following": "settingColors-notFollowingButton", "following": "settingColors-followingButton", "un-following": "settingColors-unfollowButton", "profile": "settingColors-editProfile", "profile-save": "settingColors-saveProfile", "birthday": "settingColors-finalDecideButton" }
+            id: ["unsent-tweet", "not-following","willFollow", "following", "un-following", "profile", "profile-save", "birthday"],
+            i18n: { "unsent-tweet": "settingColors-editUnsetTweet","willFollow":"settingColors-willFollowButton", "not-following": "settingColors-notFollowingButton", "following": "settingColors-followingButton", "un-following": "settingColors-unfollowButton", "profile": "settingColors-editProfile", "profile-save": "settingColors-saveProfile", "birthday": "settingColors-finalDecideButton" }
         }
     },
     colors: {
@@ -25,6 +25,11 @@ const TUICData = {
             "background": "rgba(255,255,255,0)",
             "border": "rgba(29,161,242,1)",
             "color": "rgba(29,161,242,1)"
+        },
+        "willFollow": {
+          "background": "rgba(29,161,242,1)",
+          "border": "rgba(29,161,242,1)",
+          "color": "rgba(255,255,255,1)"
         },
         "following": {
             "background": "rgba(29,161,242,1)",
@@ -279,16 +284,19 @@ const TUICData = {
         light:{
             textColor:"rgba(0,0,0,1)",
             containerBackground:"rgb(247, 249, 249)",
+            containerBackground2:"rgb(237, 239, 239)",
             colorHover:"#00000040"
         },
         blue:{
             textColor:"rgba(255,255,255,1)",
             containerBackground:"rgb(30, 39, 50)",
+            containerBackground2:"rgb(40, 49, 60)",
             colorHover:"#ffffff30"
         },
         dark:{
             textColor:"rgba(255,255,255,1)",
             containerBackground:"rgb(22, 24, 28)",
+            containerBackground2:"rgb(28, 34, 38)",
             colorHover:"#ffffff40"
         }
     },
