@@ -11,6 +11,16 @@ const TUICLibrary = {
         hex2rgb: function (hex) {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
             return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (str) { return parseInt(str, 16); });
+        },
+        getColorFromPref:function(name,type,mode_){
+            let mode = ""
+            if((mode_ ?? "unknwon") == "unknwon"){
+                mode = TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark"
+            }
+            else{
+                mode = mode_
+            }
+            return ((TUICPref?.[mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type]) ?? TUICData.colors[name]?.[type]).escapeToUseHTML()
         }
     },
     getClasses: {

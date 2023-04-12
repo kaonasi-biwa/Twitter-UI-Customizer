@@ -52,9 +52,14 @@
   
     "customCSS-settingTitle":"カスタムCSS",
     "customCSS-save":"カスタムCSSを保存",
-  
+
+    "settingColors-settingTitle":"色の設定",
+    "settingColors-select-base":"ベース",
+    "settingColors-select-light":"ライト",
+    "settingColors-select-dark":"ダーク",
     "settingColors-editUnsetTweet":"未送信ツイートの編集ボタン",
     "settingColors-notFollowingButton":"フォローしていない人のフォローボタン",
+    "settingColors-willFollowButton":"ホバー時のフォローボタン",
     "settingColors-followingButton":"フォローしている人のフォローボタン",
     "settingColors-unfollowButton":"フォロー解除ボタン",
     "settingColors-editProfile":"プロフィール編集ボタン",

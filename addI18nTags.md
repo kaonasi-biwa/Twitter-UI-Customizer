@@ -1,4 +1,10 @@
 # 追加したi18nタグ
+## 2.9.7
+- settingColors-settingTitle
+- settingColors-select-base
+- settingColors-select-light
+- settingColors-select-dark
+- settingColors-willFollowButton
 ## 2.9.2
 - twitterIcon-roundIcon
 ## 2.9.1

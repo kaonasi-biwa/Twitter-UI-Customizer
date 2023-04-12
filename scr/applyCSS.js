@@ -22,39 +22,21 @@ function TUICRunFirst() {
 function TUICCss() {
     let backgroundColor = TUICLibrary.backgroundColorCheck()
 
+    let prefColors = ""
+    for(let elem in TUICData.colors){
+        for(let el of ["background","border","color"]){
+            prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem,el)};`
+        }
+    }
+
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
-    --twitter-unsent-tweet-background: ${(TUICPref.buttonColor["unsent-tweet"]?.background ?? TUICData.colors["unsent-tweet"].background).escapeToUseHTML()};
-    --twitter-unsent-tweet-border: ${(TUICPref.buttonColor["unsent-tweet"]?.border ?? TUICData.colors["unsent-tweet"].border).escapeToUseHTML()};
-    --twitter-unsent-tweet-color: ${(TUICPref.buttonColor["unsent-tweet"]?.color ?? TUICData.colors["unsent-tweet"].color).escapeToUseHTML()};
-
-    --twitter-not-following-background: ${(TUICPref.buttonColor["not-following"]?.background ?? TUICData.colors["not-following"].background).escapeToUseHTML()};
-    --twitter-not-following-border: ${(TUICPref.buttonColor["not-following"]?.border ?? TUICData.colors["not-following"].border).escapeToUseHTML()};
-    --twitter-not-following-color: ${(TUICPref.buttonColor["not-following"]?.color ?? TUICData.colors["not-following"].color).escapeToUseHTML()};
-
-    --twitter-following-background: ${(TUICPref.buttonColor["following"]?.background ?? TUICData.colors["following"].background).escapeToUseHTML()};
-    --twitter-following-border: ${(TUICPref.buttonColor["following"]?.border ?? TUICData.colors["following"].border).escapeToUseHTML()};
-    --twitter-following-color: ${(TUICPref.buttonColor["following"]?.color ?? TUICData.colors["following"].color).escapeToUseHTML()};
-
-    --twitter-un-following-background: ${(TUICPref.buttonColor["un-following"]?.background ?? TUICData.colors["un-following"].background).escapeToUseHTML()};
-    --twitter-un-following-border: ${(TUICPref.buttonColor["un-following"]?.border ?? TUICData.colors["un-following"].border).escapeToUseHTML()};
-    --twitter-un-following-color: ${(TUICPref.buttonColor["un-following"]?.color ?? TUICData.colors["un-following"].color).escapeToUseHTML()};
-
-    --twitter-profile-background: ${(TUICPref.buttonColor["profile"]?.background ?? TUICData.colors["profile"].background).escapeToUseHTML()};
-    --twitter-profile-border: ${(TUICPref.buttonColor["profile"]?.border ?? TUICData.colors["profile"].border).escapeToUseHTML()};
-    --twitter-profile-color: ${(TUICPref.buttonColor["profile"]?.color ?? TUICData.colors["profile"].color).escapeToUseHTML()};
-
-    --twitter-profile-save-background: ${(TUICPref.buttonColor["profile-save"]?.background ?? TUICData.colors["profile-save"].background).escapeToUseHTML()};
-    --twitter-profile-save-border: ${(TUICPref.buttonColor["profile-save"]?.border ?? TUICData.colors["profile-save"].border).escapeToUseHTML()};
-    --twitter-profile-save-color: ${(TUICPref.buttonColor["profile-save"]?.color ?? TUICData.colors["profile-save"].color).escapeToUseHTML()};
-
-    --twitter-birthday-background: ${(TUICPref.buttonColor["birthday"]?.background ?? TUICData.colors["birthday"].background).escapeToUseHTML()};
-    --twitter-birthday-border: ${(TUICPref.buttonColor["birthday"]?.border ?? TUICData.colors["birthday"].border).escapeToUseHTML()};
-    --twitter-birthday-color: ${(TUICPref.buttonColor["birthday"]?.color ?? TUICData.colors["birthday"].color).escapeToUseHTML()};
+    ${prefColors}
 
     --twitter-TUIC-color: ${TUICData.styleColor[backgroundColor].textColor};
 
     --TUIC-container-background: ${TUICData.styleColor[backgroundColor].containerBackground};
+    --TUIC-container-background2: ${TUICData.styleColor[backgroundColor].containerBackground2};
     --TUIC-color-hover-efect: ${TUICData.styleColor[backgroundColor].colorHover};
 
     --TUIC-sidebar-hover-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)"};
@@ -79,11 +61,11 @@ function TUICCss() {
     color: var(--twitter-not-following-color) !important;
 }
 .r-19u6a5r > .r-4wgw6l.r-42olwf.r-jc7xae{
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
+    background-color: var(--twitter-willFollow-background) !important;
+    border-color: var(--twitter-willFollow-border) !important;
 }
 .r-19u6a5r > .r-4wgw6l.r-42olwf.r-jc7xae > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
+    color: var(--twitter-willFollow-color) !important;
 }
 /*プロフィールでも*/
 .r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae){
@@ -294,6 +276,14 @@ function TUICCss() {
     border-radius: 14px;
     margin-bottom: 1em;
 }
+
+.TUIC_col_setting_container_2 {
+    background: var(--TUIC-container-background2);
+    margin-top: 8px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 1em;
+}
 /*表示非表示のセレクトボックス*/
 .TUIC_selectbox {
     border: solid 1px #71767b;
@@ -400,6 +390,65 @@ textarea#css_textarea {
     border: 1px solid #808080;
     border-radius: 6px;
     margin-bottom: 20px;
+}
+
+.TUICSettingRadioTypeBigButton{
+    flex: 1 1;
+    padding-right:5px;
+    padding-left:5px;
+    margin-right:5px;
+    margin-left:5px;
+    height:50px;
+    border-radius:5px !important;
+    font-size:20px;
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.TUICSettingRadioTypeBigButton > span > span{
+    mix-blend-mode: difference;
+    white-space:nowrap;
+    font-size:15px;
+    font-weight:700;
+    color:#FFFFFF;
+    font-family:"Segoe UI", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.TUICSettingRadioTypeBigButton > span{
+    white-space:nowrap;
+}
+.TUICColorSettingRadio{
+    display:none
+}
+.TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton{
+    border:2px solid rgb(29, 155, 240);
+}
+.TUICColorSettingRadio:not(:checked)+.TUICSettingRadioTypeBigButton{
+    border:2px solid rgb(127, 127, 127);
+}
+.TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton > span::before{
+    background-image:url('data:image/svg+xml;charset=UTF-8,<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\\"0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
+    background-color:rgb(29, 155, 240);
+    height:1em;
+    width:1em;
+}
+
+.TUICColorSettingRadio:not(:checked)+.TUICSettingRadioTypeBigButton > span::before{
+    border:2px solid rgba(127,127,127,0.5);
+    width:16px;
+    height:16px;
+}
+
+.TUICSettingRadioTypeBigButton > span::before{
+    margin-right:10px;
+    margin-bottom:-5px;
+    border-radius:9999px;
+    background-size: 16px 16px;
+    background-position:center;
+    display: inline-block;
+    content: "";
 }
 
 .${TUICLibrary.getClasses.getClass("TUICScrollBottom")} {
