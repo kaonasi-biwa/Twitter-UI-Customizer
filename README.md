@@ -23,6 +23,7 @@ Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui
 - タイムライン上のおすすめユーザーを非表示にできる
 - クライアント情報を表示できる
 - カスタムCSSを書くことができる
+- (設定のエクスポート/インポートもできる)
 
 ## いるかもわからぬ翻訳者の方へ
 ### Twitter上でのTUICの翻訳
