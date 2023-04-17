@@ -53,18 +53,18 @@ function TUICCss() {
 }
 
 /*フォローしていない人をフォロー*/
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae){
+.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8){
     background-color: var(--twitter-not-following-background) !important;
     border-color: var(--twitter-not-following-border) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae) > .r-b88u0q{
+.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8) > .r-b88u0q{
     color: var(--twitter-not-following-color) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-42olwf.r-jc7xae{
+.r-19u6a5r > .r-4wgw6l.r-42olwf:is(.r-jc7xae , .r-oelmt8){
     background-color: var(--twitter-willFollow-background) !important;
     border-color: var(--twitter-willFollow-border) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-42olwf.r-jc7xae > .r-b88u0q{
+.r-19u6a5r > .r-4wgw6l.r-42olwf:is(.r-jc7xae , .r-oelmt8) > .r-b88u0q{
     color: var(--twitter-willFollow-color) !important;
 }
 /*プロフィールでも*/
@@ -342,6 +342,7 @@ scrollbar-width:thin;
     width:100%;
     padding-top:5px !important;
     padding-bottom:5px !important;
+    margin-bottom:5px;
 }
 .TUIC_none_scroll{
     scrollbar-width: none;
@@ -364,8 +365,10 @@ scrollbar-width:thin;
 }
 #TUIC_invisible,#TUIC_visible{
     background:transparent;
+    padding-bottom:10px;
+    overflow-y:clip;
 }
-#TUIC_invisible span,#TUIC_visible span,#css_textarea{
+#TUIC_invisible span,#TUIC_visible span,#css_textarea,.TUICTextInput{
     background:transparent;
     color:var(--twitter-TUIC-color);
 }
@@ -376,21 +379,30 @@ scrollbar-width:thin;
     padding-left:1em;
     padding-right:1em;
 }
-#TUIC_invisible > div span,#TUIC_visible > span{
+#TUIC_invisible > div span,#TUIC_visible > div > span{
     white-space:nowrap;
 }
 
 [TUICSelectedUpDownContent="true"]{
     background-color:rgba(51, 167, 229,0.7);
 }
+.TUICTextInput{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+}
 
-textarea#css_textarea {
-    width: calc(100% - 10px) !important;
+textarea#css_textarea{
     height: 300px;
+}
+textarea#css_textarea,.TUICTextInput {
+    width: calc(100% - 10px) !important;
     border: 1px solid #808080;
     border-radius: 6px;
     margin-bottom: 20px;
 }
+
 
 .TUICSettingRadioTypeBigButton{
     flex: 1 1;
