@@ -74,5 +74,13 @@
     "twitterIcon-custom":"Custom",
     "twitterIcon-usedIcon":"Image to be used as an icon",
     "twitterIcon-nowIcon":"Current Image",
-    "twitterIcon-roundIcon":"Round icon only if set to custom icon"
+    "twitterIcon-roundIcon":"Round icon only if set to custom icon",
+
+    "export-settingTitle":"Export",
+    "export-exportButton":"Export Settings",
+    "export-exportButtonCopy":"Copy exported Settings",
+
+    "import-settingTitle":"Import",
+    "import-importWrite":"Import and Append Settings",
+    "import-importReplace":"Import and Replace Settings"
   }
