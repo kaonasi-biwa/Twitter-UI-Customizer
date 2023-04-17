@@ -1,5 +1,6 @@
 # Twitter-UI-Customizer
 Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/  
+情報・設定・CSS集→https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md
 <br>
 デバッグするときは、`manifest.json`に`manifest_chrome.json`か`manifest.firefox`のうち適したものをコピーしてください  
 <br>
@@ -26,6 +27,7 @@ Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui
 ## いるかもわからぬ翻訳者の方へ
 ### Twitter上でのTUICの翻訳
 - もとから(ファイルだけでも)用意してある言語は、一番最初の`@JapaneseLanguageName`に、言語名を書いています  
+- それぞれのバージョンの追加IDは[addI18nTags.md](./addI18nTags.md)に書いています
 - 言語のタグ名はこのGitHubのリポジトリ( https://github.com/fa0311/TwitterInternalAPIDocument/tree/master/docs/json/i18n )のディレクトリ名準拠で、全て小文字でお願いします(ja、en-gbなど)
 #### 翻訳の仕方 (目的の言語のファイルがない場合)
 1. `i18n/_langList.json`に言語のタグ名を追記する
