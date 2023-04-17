@@ -265,6 +265,65 @@ const TUICOptionHTML = {
                 TUICOptionHTML.eventHandle(appendELement)
             },
             "single": false
+        },
+        "#TUICExport":{
+            "type":"click",
+            "function":function(){
+                document.querySelector("#TUICExportBox").value = JSON.stringify(TUICPref)
+            },
+            "single": true
+        },
+        "#TUICExportCopy":{
+            "type":"click",
+            "function":function(){
+                document.querySelector("#TUICExportBox").select()
+                document.execCommand("copy");
+            },
+            "single": true
+        },
+        "#TUICImportWrite":{
+            "type":"click",
+            "function":function(){
+                try{
+                    let importPref = JSON.parse(document.querySelector("#TUICImportBox").value)
+                    TUICLibrary.updatePref.updateToDefault(importPref,TUICPref)
+                    TUICPref = importPref
+                    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                    if (window.location.pathname == "/tuic/safemode") {
+                        window.location.href = `${window.location.protocol}//${window.location.hostname}`;
+                    } else {
+                        document.querySelector("#TUIC_setting").remove();
+                        TUICLibrary.getClasses.update()
+                        TUICCss()
+                        TUICObserver.observerFunction()
+                    }
+                }catch(x){
+                    alert("構文解析に失敗しました")
+                }
+            },
+            "single": true
+        },
+        "#TUICImportReplace":{
+            "type":"click",
+            "function":function(){
+                try{
+                    let importPref = JSON.parse(document.querySelector("#TUICImportBox").value)
+                    TUICLibrary.updatePref.updateToDefault(importPref,TUICData.defaultPref)
+                    TUICPref = importPref
+                    localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                    if (window.location.pathname == "/tuic/safemode") {
+                        window.location.href = `${window.location.protocol}//${window.location.hostname}`;
+                    } else {
+                        document.querySelector("#TUIC_setting").remove();
+                        TUICLibrary.getClasses.update()
+                        TUICCss()
+                        TUICObserver.observerFunction()
+                    }
+                }catch(x){
+                    alert("構文解析に失敗しました")
+                }
+            },
+            "single": true
         }
     },
     upDownListSetting(parentBox) {
@@ -333,6 +392,20 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "otherBoolSetting")
                 <textarea id="css_textarea"></textarea>
             </form>
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">${TUICLibrary.getI18n("customCSS-save")}</button>
+        </div>
+
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("export-settingTitle")}</h2><br>
+        <div class="TUIC_col_setting_container">
+        <input class="TUICTextInput" type="text" id="TUICExportBox" readonly >
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport">${TUICLibrary.getI18n("export-exportButton")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExportCopy">${TUICLibrary.getI18n("export-exportButtonCopy")}</button>
+        </div>
+
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("import-settingTitle")}</h2><br>
+        <div class="TUIC_col_setting_container">
+        <input class="TUICTextInput" type="text" id="TUICImportBox" >
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">${TUICLibrary.getI18n("import-importWrite")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportReplace">${TUICLibrary.getI18n("import-importReplace")}</button>
         </div>
     </div>
 </div>

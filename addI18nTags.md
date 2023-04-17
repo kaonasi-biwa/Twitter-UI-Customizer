@@ -1,5 +1,12 @@
 # 追加したi18nタグ
-## 2.9.7
+## 2.10.1
+- export-settingTitle
+- export-exportButton
+- export-exportButtonCopy
+- import-settingTitle
+- import-importWrite
+- import-importReplace
+## 2.10.0
 - settingColors-settingTitle
 - settingColors-select-base
 - settingColors-select-light
@@ -13,9 +20,9 @@
 - twitterIcon-invisible
 - twitterIcon-dog
 - twitterIcon-twitter
-- "twitterIcon-custom
-- "twitterIcon-usedIcon
-- "twitterIcon-nowIcon
+- twitterIcon-custom
+- twitterIcon-usedIcon
+- twitterIcon-nowIcon
 
 # 削除したi18nタグ
 ## 2.9.3

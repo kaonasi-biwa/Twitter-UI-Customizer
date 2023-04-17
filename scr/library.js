@@ -120,6 +120,7 @@ const TUICLibrary = {
             localStorage.setItem("TUIC", JSON.stringify(TUICPref))
         },
         updateToDefault:function(object,defObject){
+            console.log("aaa")
             for (let i in defObject) {
                 if (!(i in object)) {
                     object[i] = defObject[i]
