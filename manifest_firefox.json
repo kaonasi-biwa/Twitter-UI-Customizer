@@ -39,7 +39,6 @@
         "browser_style": true
     },
     "permissions": [
-        "tabs",
         "notifications",
         "storage",
         "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest/download/*",
