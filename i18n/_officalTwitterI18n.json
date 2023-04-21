@@ -1,0 +1,23 @@
+{
+    "bottomTweetButtons-replay":"hdf7226a",
+    "bottomTweetButtons-retweet":"d6c8514a",
+    "bottomTweetButtons-like":"d636ebc6",
+    "bottomTweetButtons-share":"dc63da16",
+    "bottomTweetButtons-tweetAnalytics":"ee9a81b6",
+    "bottomTweetButtons-bookmark":"f23d99b0",
+    "bottomTweetButtons-urlCopy":"b6f822ba",
+
+    "sidebarButtons-home":"ha8209bc",
+    "sidebarButtons-explore":"fcf3e54c",
+    "sidebarButtons-communities":"h02a6fe6",
+    "sidebarButtons-notifications":"eb75875e",
+    "sidebarButtons-messages":"a2f81050",
+    "sidebarButtons-bookmarks":"i3145aa0",
+    "sidebarButtons-twitterBlue":"d0748dae",
+    "sidebarButtons-profile":"fa98627a",
+    "sidebarButtons-moremenu":"gaeb997e",
+    "sidebarButtons-topics":"b8533bac",
+    "sidebarButtons-lists":"b0041756",
+    "sidebarButtons-circles":"d0748dae",
+    "sidebarButtons-verifiedOrgsSignup":"g2c0144a"
+}

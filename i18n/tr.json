@@ -1,3 +1,25 @@
 {
-    "@JapaneseLanguageName":"トルコ語"
+    "@JapaneseLanguageName":"トルコ語",
+
+    "bottomTweetButtons-bookmark": "Yer işareti",
+    "bottomTweetButtons-like": "Beğen",
+    "bottomTweetButtons-replay": "Yanıtla",
+    "bottomTweetButtons-retweet": "Retweet",
+    "bottomTweetButtons-share": "Paylaş",
+    "bottomTweetButtons-tweetAnalytics": "Tweet istatistiklerini görüntüle",
+    "bottomTweetButtons-urlCopy": "Tweete linki kopyala",
+    
+    "sidebarButtons-bookmarks": "Yer İşaretleri",
+    "sidebarButtons-circles": "Twitter Çevresi",
+    "sidebarButtons-communities": "Topluluklar",
+    "sidebarButtons-explore": "Keşfet",
+    "sidebarButtons-home": "Anasayfa",
+    "sidebarButtons-lists": "Listeler",
+    "sidebarButtons-messages": "Mesajlar",
+    "sidebarButtons-moremenu": "Daha fazla",
+    "sidebarButtons-notifications": "Bildirimler",
+    "sidebarButtons-profile": "Profil",
+    "sidebarButtons-topics": "Konular",
+    "sidebarButtons-twitterBlue": "Twitter Çevresi",
+    "sidebarButtons-verifiedOrgsSignup": "Onaylı Kuruluşlar"
 }

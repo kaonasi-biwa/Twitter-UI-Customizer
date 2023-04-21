@@ -1,3 +1,25 @@
 {
-    "@JapaneseLanguageName":"イギリス英語"
+    "@JapaneseLanguageName": "イギリス英語",
+
+    "bottomTweetButtons-bookmark": "Bookmark",
+    "bottomTweetButtons-like": "Like",
+    "bottomTweetButtons-replay": "Reply",
+    "bottomTweetButtons-retweet": "Retweet",
+    "bottomTweetButtons-share": "Share",
+    "bottomTweetButtons-tweetAnalytics": "View Tweet analytics",
+    "bottomTweetButtons-urlCopy": "Copy link to Tweet",
+
+    "sidebarButtons-bookmarks": "Bookmarks",
+    "sidebarButtons-circles": "Twitter Circle",
+    "sidebarButtons-communities": "Communities",
+    "sidebarButtons-explore": "Explore",
+    "sidebarButtons-home": "Home",
+    "sidebarButtons-lists": "Lists",
+    "sidebarButtons-messages": "Messages",
+    "sidebarButtons-moremenu": "More",
+    "sidebarButtons-notifications": "Notifications",
+    "sidebarButtons-profile": "Profile",
+    "sidebarButtons-topics": "Topics",
+    "sidebarButtons-twitterBlue": "Twitter Circle",
+    "sidebarButtons-verifiedOrgsSignup": "Verified Organisations"
 }
