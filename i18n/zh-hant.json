@@ -1,3 +1,24 @@
 {
-    "@JapaneseLanguageName":"繁體中国語"
+    "@JapaneseLanguageName":"繁體中国語",
+
+    "bottomTweetButtons-bookmark": "個書籤",
+    "bottomTweetButtons-like": "喜歡",
+    "bottomTweetButtons-replay": "回覆",
+    "bottomTweetButtons-retweet": "轉推",
+    "bottomTweetButtons-share": "分享",
+    "bottomTweetButtons-tweetAnalytics": "查看推文分析",
+    "bottomTweetButtons-urlCopy": "複製推文的連結",
+    "sidebarButtons-bookmarks": "書籤",
+    "sidebarButtons-circles": "Twitter 朋友圈",
+    "sidebarButtons-communities": "社群",
+    "sidebarButtons-explore": "探索",
+    "sidebarButtons-home": "首頁",
+    "sidebarButtons-lists": "列表",
+    "sidebarButtons-messages": "訊息",
+    "sidebarButtons-moremenu": "更多",
+    "sidebarButtons-notifications": "通知",
+    "sidebarButtons-profile": "個人資料",
+    "sidebarButtons-topics": "主題",
+    "sidebarButtons-twitterBlue": "Twitter 朋友圈",
+    "sidebarButtons-verifiedOrgsSignup": "已認證的組織"
 }

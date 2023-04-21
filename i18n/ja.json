@@ -22,12 +22,11 @@
     "bottomTweetButtons-replay":"返信",
     "bottomTweetButtons-retweet":"リツイート",
     "bottomTweetButtons-like":"いいね",
-    "bottomTweetButtons-downvote":"自分向きではない",
     "bottomTweetButtons-share":"共有",
     "bottomTweetButtons-tweetAnalytics":"ツイートアナリティクスを表示",
-    "bottomTweetButtons-bookmark":"ブックマークに保存",
+    "bottomTweetButtons-bookmark":"ブックマーク",
     "bottomTweetButtons-urlCopy":"ツイートのリンクをコピー",
-  
+
     "sidebarButton-settingTitle":"サイドバーの並び替え",
     "sidebarButton-setting-smallerBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButtons-home":"ホーム",
@@ -42,6 +41,7 @@
     "sidebarButtons-topics":"トピック",
     "sidebarButtons-lists":"リスト",
     "sidebarButtons-circles":"Twitterサークル",
+    "sidebarButtons-verifiedOrgsSignup":"認証済み組織",
   
     "invisibleItems-settingTitle":"非表示設定",
     "invisibleItems-osusumeUsersOnTL":"タイムライン上のおすすめユーザー",
