@@ -1,5 +1,6 @@
 # Twitter-UI-Customizer
 Firefox Browser ADD-ONS→https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/  
+Chrome WebStore→https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja  
 情報・設定・CSS集→https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md  
 <br>
 デバッグするときは、`manifest.json`に`manifest_chrome.json`か`manifest.firefox`のうち適したものをコピーしてください  
