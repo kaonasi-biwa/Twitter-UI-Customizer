@@ -1,4 +1,6 @@
 # 追加したi18nタグ
+## 2.10.3
+- sidebarButtons-verifiedOrgsSignup
 ## 2.10.1
 - export-settingTitle
 - export-exportButton
