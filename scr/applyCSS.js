@@ -291,7 +291,7 @@ function TUICCss() {
     margin-top: 10px;
     padding-top:5px;
     padding-bottom:5px;
-    height:calc((1em + 5px) * var(--contentCount) + 10px);
+    height:calc((1em + 9px) * var(--contentCount) + 10px);
     overflow-x:auto;
 scrollbar-width:thin;
 }
@@ -374,6 +374,7 @@ scrollbar-width:thin;
 }
 
 #TUIC_invisible > div,#TUIC_visible > div{
+    height:calc(1em + 5px);
     padding-top:2px;
     padding-bottom:2px;
     padding-left:1em;
@@ -381,6 +382,7 @@ scrollbar-width:thin;
 }
 #TUIC_invisible > div span,#TUIC_visible > div > span{
     white-space:nowrap;
+    line-height: calc(1em + 5px);
 }
 
 [TUICSelectedUpDownContent="true"]{
