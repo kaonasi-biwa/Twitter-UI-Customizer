@@ -8,7 +8,7 @@
     "bottomTweetButtons-share": "공유하기",
     "bottomTweetButtons-tweetAnalytics": "트윗 애널리틱스 보기",
     "bottomTweetButtons-urlCopy": "트윗 링크 복사하기",
-    
+
     "sidebarButtons-bookmarks": "북마크",
     "sidebarButtons-circles": "Twitter 서클",
     "sidebarButtons-communities": "커뮤니티",
@@ -20,6 +20,6 @@
     "sidebarButtons-notifications": "알림",
     "sidebarButtons-profile": "프로필",
     "sidebarButtons-topics": "토픽",
-    "sidebarButtons-twitterBlue": "Twitter 서클",
+    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-verifiedOrgsSignup": "인증된 조직"
 }
