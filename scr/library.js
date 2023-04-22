@@ -66,9 +66,10 @@ const TUICLibrary = {
             }
             delete TUICPref.CSS
 
-            if(TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1){
+            if(typeof TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1){
                 TUICPref.visibleButtons = TUICPref.visibleButtons.filter(elem => {return elem != "downvote-button"});
             }
+            console.log(TUICPref.visibleButtons)
 
             this.updateToDefault(TUICPref,dPref)
         },
