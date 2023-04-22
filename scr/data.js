@@ -3,7 +3,7 @@ const TUICData = {
     defaultPref: { "buttonColor": {},"buttonColorLight": {},"buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue","verified-orgs-signup", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false ,"smallerSidebarContent":true,"roundIcon":true },"clientInfo":{"clientInfoVisible":false},"twitterIcon":"nomal"},
     settings: {
         visibleButtons: {
-            all: ["reply-button", "retweet-button", "like-button", "downvote-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
+            all: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
             i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy" }
         },
         sidebarButtons: {
