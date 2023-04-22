@@ -66,6 +66,10 @@ const TUICLibrary = {
             }
             delete TUICPref.CSS
 
+            if(TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1){
+                TUICPref.visibleButtons = TUICPref.visibleButtons.filter(elem => {return elem != "downvote-button"});
+            }
+
             this.updateToDefault(TUICPref,dPref)
         },
         parallelToSerial: function () {
@@ -120,14 +124,14 @@ const TUICLibrary = {
             localStorage.setItem("TUIC", JSON.stringify(TUICPref))
         },
         updateToDefault:function(object,defObject){
-            console.log("aaa")
             for (let i in defObject) {
                 if (!(i in object)) {
                     object[i] = defObject[i]
-                }else if(typeof defObject.i == "object"){
+                }else if(typeof defObject[i] == "object" && !Array.isArray(defObject[i])){
                     this.updateToDefault(object[i],defObject[i])
                 }
             }
+            console.log(TUICPref.visibleButtons)
         }
     },
     backgroundColorCheck:function(){
