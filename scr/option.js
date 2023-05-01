@@ -88,6 +88,16 @@ const TUICOptionHTML = {
             },
             "single": false
         },
+        ".clientInfo":{
+            "type": "click",
+            "function": function (event) {
+                TUICPref.clientInfo[event.target.id] = event.target.checked
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICLibrary.getClasses.update()
+                TUICObserver.observerFunction()
+            },
+            "single": false
+        },
         "#save": {
             "type": "click",
             "function": function () {
@@ -382,7 +392,7 @@ ${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",
 
         <br><br>
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
-${this.checkboxList("clientInfo", "clientInfo-settingTitle", "otherBoolSetting")}
+${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br><br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
         <br><br>
