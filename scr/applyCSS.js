@@ -566,11 +566,11 @@ display:none !important;
     stroke:currentColor;
     stroke-width:0.5;
 }
-.TUICSidebarButton > div:hover{
+.TUICSidebarButton:hover > div{
     background-color:var(--TUIC-sidebar-hover-color);
  }
 
- .TUICSidebarButton > div:active{
+ .TUICSidebarButton:active > div{
     background-color:var(--TUIC-sidebar-active-color);
  }
  .TUICCheckBoxParent{
