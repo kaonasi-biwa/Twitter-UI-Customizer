@@ -582,6 +582,11 @@ display:none !important;
     padding-top:0px !important;
 }
  ` : ""}
+
+ ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
+ article [aria-labelledby]{gap:0px !important;margin-top:0px !important;}
+ ` : ""}
+
 `;
 }
 

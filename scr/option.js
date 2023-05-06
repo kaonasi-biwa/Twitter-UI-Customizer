@@ -377,7 +377,8 @@ ${this.safemodeReturnButton()}
         </div>
 
 ${this.upDownList("visibleButtons", "bottomTweetButtons-settingTitle",
-    this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting"))
+    this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
+    this.checkbox("bottomSpace",TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-noneSpaceBottomTweet", "otherBoolSetting"))
 }
         <br><br>
 ${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
