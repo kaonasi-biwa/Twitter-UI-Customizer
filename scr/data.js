@@ -186,7 +186,7 @@ const TUICData = {
             "profile": `[data-testid="AppTabBar_Profile_Link"]`,
             "moremenu": `[data-testid="AppTabBar_More_Menu"]`,
             "topics": `#TUICSidebar_topics`,
-            "lists": `#TUICSidebar_lists`,
+            "lists": `#TUICSidebar_lists,[href$="/lists"]`,
             "circles": `#TUICSidebar_circles`,
             "verified-orgs-signup":`[href="/i/verified-orgs-signup"]`
         },

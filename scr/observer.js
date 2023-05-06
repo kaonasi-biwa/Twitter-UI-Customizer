@@ -132,7 +132,7 @@ const TUICObserver = {
                         if (lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
                             lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove()
                         }
-    
+
                         for (var i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
                             if (!TUICPref.visibleButtons.includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
                                 bar_item[TUICData.settings.visibleButtons.all[i]].classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
