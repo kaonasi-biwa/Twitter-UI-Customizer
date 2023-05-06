@@ -19,6 +19,7 @@
   
     "bottomTweetButtons-settingTitle":"ツイート下ボタンの並び替え",
     "bottomTweetButtons-setting-visibleScrollBar":"ツイート下ボタンにスクロールバーを表示",
+    "bottomTweetButtons-setting-noneSpaceBottomTweet":"ツイート最後の後にある空白を削除",
     "bottomTweetButtons-replay":"返信",
     "bottomTweetButtons-retweet":"リツイート",
     "bottomTweetButtons-like":"いいね",

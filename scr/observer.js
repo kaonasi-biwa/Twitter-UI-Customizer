@@ -20,6 +20,8 @@ const TUICObserver = {
                 document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`).parentElement);
         }
 
+        if(document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd")
+
         TUICObserver.functions.sidebarButtons()
 
         TUICObserver.functions.buttonUnderTweet()
