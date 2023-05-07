@@ -21,5 +21,6 @@
     "sidebarButtons-profile": "Profil",
     "sidebarButtons-topics": "Konular",
     "sidebarButtons-twitterBlue": "Twitter Blue",
-    "sidebarButtons-verifiedOrgsSignup": "Onaylı Kuruluşlar"
+    "sidebarButtons-verifiedOrgsSignup": "Onaylı Kuruluşlar",
+    "sidebarButtons-drafts":"Taslaklar","sidebarButtons-connect":"Bağlan"
 }

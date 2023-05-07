@@ -20,5 +20,6 @@
     "sidebarButtons-profile": "個人資料",
     "sidebarButtons-topics": "主題",
     "sidebarButtons-twitterBlue": "Twitter Blue",
-    "sidebarButtons-verifiedOrgsSignup": "已認證的組織"
+    "sidebarButtons-verifiedOrgsSignup": "已認證的組織",
+    "sidebarButtons-drafts":"草稿","sidebarButtons-connect":"連接"
 }
