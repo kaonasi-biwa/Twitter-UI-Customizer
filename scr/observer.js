@@ -107,7 +107,13 @@ const TUICObserver = {
                         while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
                             bar_base = bar_base.parentElement
                         }
-                        if (TUICPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"))
+                        if (TUICPref.otherBoolSetting.bottomScroll ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"))
+                        if (TUICPref.otherBoolSetting.bottomSpace ?? TUICData.defaultPref.otherBoolSetting.bottomSpace){
+                            space = elem.querySelector(`[aria-labelledby]`)
+                            if(space.children[0].childElementCount == 0){
+                                space.classList.add(TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET"))
+                            }
+                        }
                         let bar_item = {}
                         for (const elem_item of bar_base.children) {
                             for (const sel in TUICData.visibleButtons.selectors) {
