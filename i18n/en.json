@@ -29,6 +29,7 @@
 
     "sidebarButton-settingTitle":"Reorder the sidebar",
     "sidebarButton-setting-smallerBetweenButtons":"Narrow the width between buttons when they are wider.",
+    "bottomTweetButtons-setting-noneSpaceBottomTweet":"Remove space below the text content of a tweet.",
     "sidebarButtons-bookmarks": "Bookmarks",
     "sidebarButtons-circles": "Twitter Circle",
     "sidebarButtons-communities": "Communities",
