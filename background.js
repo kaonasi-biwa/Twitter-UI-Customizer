@@ -12,7 +12,7 @@ const updateCheck = async () => {
     .then(res => res.text());
   const extensionVersion = await fetch(chrome.runtime.getURL("./versionTUIC.txt"),{ cache: "no-store" })
     .then(res => res.text())
-  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '')) {
+  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '') && extensionVersion.replace(/\r?\n/g, '') != "debug") {
 
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
