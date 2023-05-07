@@ -295,27 +295,33 @@ const TUICData = {
     },
     "buttonFunctions": {
       "topics": async function (e) {
-        if(!location.pathname.endsWith("/topics")){
+        if (!location.pathname.endsWith("/topics")) {
           let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`)
-          if(document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+          if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
           setTimeout(() => {
             document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click()
             document.querySelector(`[href="/settings"]`)?.click()
             new Promise((resolve) => {
-              setTimeout(() => {
-                document.querySelector(`[href="/settings/privacy_and_safety"]`)?.click()
-                resolve();
-              }, (document.querySelector(`[href="/settings/privacy_and_safety"]`) == null) ? 750 : 0);
+              setTimeout(() =>
+                setTimeout(() => {
+                  document.querySelector(`[href="/settings/privacy_and_safety"]`)?.click()
+                  resolve();
+                }, (document.querySelector(`[href="/settings/privacy_and_safety"]`) == null) ? 1000 : 0)
+                , 50)
             }).then((resolve) => {
-              setTimeout(() => {
-                document.querySelector(`[href="/settings/content_you_see"]`)?.click()
-                resolve();
-              }, (document.querySelector(`[href="/settings/content_you_see"]`) == null) ? 500 : 0);
+              setTimeout(() =>
+                setTimeout(() => {
+                  document.querySelector(`[href="/settings/content_you_see"]`)?.click()
+                  resolve();
+                }, (document.querySelector(`[href="/settings/content_you_see"]`) == null) ? 1000 : 0)
+                , 50)
             }).then((resolve) => {
-              setTimeout(() => {
-                document.querySelector(`[href$="/topics"]`)?.click()
-                resolve();
-              }, (document.querySelector(`[href$="/topics"]`) == null) ? 500 : 0);
+              setTimeout(() =>
+                setTimeout(() => {
+                  document.querySelector(`[href$="/topics"]`)?.click()
+                  resolve();
+                }, (document.querySelector(`[href$="/topics"]`) == null) ? 1000 : 0)
+                , 100)
             })
           }, 150)
         }

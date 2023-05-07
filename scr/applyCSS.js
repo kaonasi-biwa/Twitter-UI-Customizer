@@ -584,7 +584,7 @@ display:none !important;
  ` : ""}
 
  ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
- article [aria-labelledby]{gap:0px !important;margin-top:0px !important;}
+ article [aria-labelledby]{margin-top:0px !important;}
  ` : ""}
 
 `;
