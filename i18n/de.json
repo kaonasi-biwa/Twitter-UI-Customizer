@@ -20,5 +20,7 @@
     "sidebarButtons-profile": "Profil",
     "sidebarButtons-topics": "Themen",
     "sidebarButtons-twitterBlue": "Twitter Blue",
-    "sidebarButtons-verifiedOrgsSignup": "Verifizierte Organisationen"
+    "sidebarButtons-verifiedOrgsSignup": "Verifizierte Organisationen",
+    "sidebarButtons-drafts":"Entwürfe",
+    "sidebarButtons-connect":"Verbinden"
 }
