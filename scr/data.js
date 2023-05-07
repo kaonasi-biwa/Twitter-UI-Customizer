@@ -7,8 +7,8 @@ const TUICData = {
       i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy" }
     },
     sidebarButtons: {
-      all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "verified-orgs-signup", "profile", "moremenu", "topics", "lists", "circles"],
-      i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "verified-orgs-signup": "sidebarButtons-verifiedOrgsSignup", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles" }
+      all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "verified-orgs-signup", "profile", "moremenu", "topics", "lists", "circles","drafts","connect"],
+      i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "verified-orgs-signup": "sidebarButtons-verifiedOrgsSignup", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles", "drafts": "sidebarButtons-drafts", "connect": "sidebarButtons-connect" }
     },
     colors: {
       id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "profile", "profile-save", "birthday"],
@@ -293,51 +293,48 @@ const TUICData = {
         document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`).click()
       }
     },
+    "waitSetElement":async (selector) => {
+      for(let i = 0;i <= 10;i++){
+        re = await (new Promise((resolve2) => {
+          let elem = document.querySelector(selector)
+          console.log(selector)
+          console.log(elem)
+          if(elem != null){
+            elem.click()
+            resolve2("ok")
+          }
+          resolve2("bb")
+        }))
+        console.log(re)
+        if(re == "ok") return
+        await( new Promise((resolve2) => {
+          window.setTimeout(() => {
+            resolve2("")
+          }, 250)
+        }))
+      }
+    },
     "buttonFunctions": {
       "topics": async function (e) {
         if (!location.pathname.endsWith("/topics")) {
           let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`)
           if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
-          setTimeout(() => {
+          setTimeout(async () => {
             document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click()
             document.querySelector(`[href="/settings"]`)?.click()
-            new Promise((resolve) => {
-              setTimeout(() =>
-                setTimeout(() => {
-                  document.querySelector(`[href="/settings/privacy_and_safety"]`)?.click()
-                  resolve();
-                }, (document.querySelector(`[href="/settings/privacy_and_safety"]`) == null) ? 1000 : 0)
-                , 50)
-            }).then((resolve) => {
-              setTimeout(() =>
-                setTimeout(() => {
-                  document.querySelector(`[href="/settings/content_you_see"]`)?.click()
-                  resolve();
-                }, (document.querySelector(`[href="/settings/content_you_see"]`) == null) ? 1000 : 0)
-                , 50)
-            }).then((resolve) => {
-              setTimeout(() =>
-                setTimeout(() => {
-                  document.querySelector(`[href$="/topics"]`)?.click()
-                  resolve();
-                }, (document.querySelector(`[href$="/topics"]`) == null) ? 1000 : 0)
-                , 100)
-            })
+            await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`)
+            await TUICData.sidebarButtons.waitSetElement(`[href="/settings/content_you_see"]`)
+            await TUICData.sidebarButtons.waitSetElement(`[href$="/topics"]`)
           }, 150)
         }
-
       },
       "lists": function (e) {
         TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/lists"]`)
       },
-      "circles": function (e) {
+      "circles":async function (e) {
         document.querySelector(`[href="/compose/tweet"]`).click()
-        window.setTimeout(() => {
-          document.querySelector(`[data-viewportview="true"] [role="button"][aria-haspopup="menu"]`).click()
-          window.setTimeout(() => {
-            document.querySelector(`span+[role="button"]`).click()
-          }, 500)
-        }, 250)
+        await TUICData.sidebarButtons.waitSetElement(`[data-viewportview="true"] [role="button"][aria-haspopup="menu"]`)
+        await TUICData.sidebarButtons.waitSetElement(`span+[role="button"]`)
       },
       "verified-orgs-signup": function (e) {
         TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/i/verified-orgs-signup"]`)
@@ -351,7 +348,9 @@ const TUICData = {
       "lists": `/lists`,
       "circles": `/i/circles/`,
       "verified-orgs-signup": "/i/verified-orgs-signup",
-      "communities": "/communities"
+      "communities": "/communities",
+      "connect":"/i/connect_people",
+      "drafts":"/compose/tweet/unsent/"
     }
   },
   invisibleItems: {
