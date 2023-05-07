@@ -2,7 +2,7 @@
 ## 2.11.0
 - bottomTweetButtons-setting-noneSpaceBottomTweet
 ## 2.10.3
-- sidebarButtons-verifiedOrgsSignup
+- sidebarButtons-verified-orgs-signup
 ## 2.10.1
 - export-settingTitle
 - export-exportButton
