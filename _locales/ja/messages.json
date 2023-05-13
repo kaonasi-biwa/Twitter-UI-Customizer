@@ -126,5 +126,9 @@
     "optionSpecialThanks_Hibi_10000": {
       "message": "アメリカ英語の翻訳者",
       "description": "設定画面のSpecial thanks(Hibi-10000さん)"
+    },
+    "optionSpecialThanks_KotoneFami": {
+      "message": "機能追加",
+      "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     }
   }
