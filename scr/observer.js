@@ -27,6 +27,7 @@ const TUICObserver = {
         TUICObserver.functions.buttonUnderTweet()
 
         TUICObserver.functions.osusumeUser()
+        TUICObserver.functions.twitterProPromotionBtn()
 
         TUICObserver.functions.clientInfo()
 
@@ -171,6 +172,17 @@ const TUICObserver = {
                         }
                     })
                 }
+            }
+        },
+        twitterProPromotionBtn:function(){
+            if (TUICPref.invisibleItems["twitter-pro-promotion-btn"] !== undefined) {
+                document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach(e => {
+                    if (TUICPref.invisibleItems["twitter-pro-promotion-btn"]) {
+                        e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                    } else {
+                        e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                    }
+                });
             }
         },
         clientInfo:function(){
