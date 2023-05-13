@@ -126,5 +126,9 @@
     "optionSpecialThanks_Hibi_10000": {
       "message": "American English Translator",
       "description": "Special thanks (Hibi-10000) on the settings screen"
+    },
+    "optionSpecialThanks_KotoneFami": {
+      "message": "Adding the feature",
+      "description": "Special thanks (Kotone Fami) on the settings screen"
     }
   }
