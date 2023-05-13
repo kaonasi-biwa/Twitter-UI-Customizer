@@ -209,7 +209,7 @@ function TUICCss() {
     border-color:#71767b !important;
 }
 
-.${TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT")}{
+.${TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT")}:not(:last-of-type){
     margin-bottom:calc(12px + 1em);
 }
 /*色選択*/
@@ -573,7 +573,7 @@ display:none !important;
  .TUICSidebarButton:active > div{
     background-color:var(--TUIC-sidebar-active-color);
  }
- .TUICCheckBoxParent{
+ .TUICCheckBoxParent:not(:last-of-type){
     margin-bottom: 8px;
  }
  ${(TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent) ? `
