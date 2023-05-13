@@ -1,6 +1,6 @@
 
 const TUICData = {
-  defaultPref: { "buttonColor": {}, "buttonColorLight": {}, "buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "verified-orgs-signup", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false }, "otherBoolSetting": { "bottomScroll": false, "smallerSidebarContent": true, "roundIcon": true, "bottomSpace": false }, "clientInfo": { "clientInfoVisible": false }, "twitterIcon": "nomal" },
+  defaultPref: { "buttonColor": {}, "buttonColorLight": {}, "buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "verified-orgs-signup", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false, "twitter-pro-promotion-btn": false }, "otherBoolSetting": { "bottomScroll": false, "smallerSidebarContent": true, "roundIcon": true, "bottomSpace": false }, "clientInfo": { "clientInfoVisible": false }, "twitterIcon": "nomal" },
   settings: {
     visibleButtons: {
       all: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
@@ -313,8 +313,11 @@ const TUICData = {
     }
   },
   invisibleItems: {
-    all: ["osusume-user-timeline"],
-    i18n: { "osusume-user-timeline": "invisibleItems-osusumeUsersOnTL" }
+    all: ["osusume-user-timeline", "twitter-pro-promotion-btn"],
+    i18n: {
+      "osusume-user-timeline": "invisibleItems-osusumeUsersOnTL",
+      "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn"
+    }
   },
   clientInfo: {
     all: ["clientInfoVisible"],
