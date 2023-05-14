@@ -229,7 +229,7 @@ const TUICObserver = {
                 }else if(!locationBool && i.classList.value.includes("TUICSidebarSelected")){
                     i.classList.remove("TUICSidebarSelected")
                 }
-                i.querySelector("[dir]").style.display = (document.querySelector(TUICData.sidebarButtons.selectors.bookmarks).children[0].childNodes.length == 2) ? "" : "none"
+                if(document.querySelector(TUICData.sidebarButtons.selectors.home) != null)i.querySelector("[dir]").style.display = (document.querySelector(TUICData.sidebarButtons.selectors.home).children[0].childNodes.length == 2) ? "" : "none"
             }
         }
     },
