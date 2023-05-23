@@ -93,7 +93,7 @@ const TUICObserver = {
                 }
 
                 for (const i of TUICData.settings.sidebarButtons.all) {
-                    if(!TUICPref.sidebarButtons.includes(i)){
+                    if(!TUICPref.sidebarButtons.includes(i) && !window.location.pathname.startsWith("/i/communitynotes")){
                         const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
                         if(moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                     }
