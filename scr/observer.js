@@ -77,20 +77,23 @@ const TUICObserver = {
         sidebarButtons:function(){
             let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`)
             if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
-                for (const i of TUICPref.sidebarButtons) {
-                    let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
-                    if(moveElem != null){
-                        bannerRoot.appendChild(moveElem)
-                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
-                    }else if(i in TUICData.sidebarButtons.html){
-                        moveElem =TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]())
-                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
-                        moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i]
-                        bannerRoot.appendChild(moveElem)
+                if(!window.location.pathname.startsWith("/i/communitynotes")){
+                    for (const i of TUICPref.sidebarButtons) {
+                        let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
+                        if(moveElem != null){
+                            bannerRoot.appendChild(moveElem)
+                            moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                        }else if(i in TUICData.sidebarButtons.html){
+                            moveElem =TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]())
+                            moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                            moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i]
+                            bannerRoot.appendChild(moveElem)
+                        }
                     }
                 }
+
                 for (const i of TUICData.settings.sidebarButtons.all) {
-                    if(!TUICPref.sidebarButtons.includes(i)){
+                    if(!TUICPref.sidebarButtons.includes(i) ||window.location.pathname.startsWith("/i/communitynotes")){
                         const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i])
                         if(moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                     }
