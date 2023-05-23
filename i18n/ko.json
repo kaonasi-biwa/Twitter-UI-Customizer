@@ -22,5 +22,6 @@
     "sidebarButtons-topics": "토픽",
     "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-verified-orgs-signup": "인증된 조직",
-    "sidebarButtons-drafts":"초안","sidebarButtons-connect":"연결하기"
+    "sidebarButtons-drafts":"초안","sidebarButtons-connect":"연결하기",
+    "sidebarButtons-communitynotes":"그룹 노트"
 }
