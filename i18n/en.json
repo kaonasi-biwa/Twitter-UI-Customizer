@@ -47,8 +47,9 @@
     "sidebarButtons-communitynotes":"Community Notes",
   
     "invisibleItems-settingTitle":"Hidden Setting",
-    "invisibleItems-osusumeUsersOnTL":"Who to follow on timeline",
+    "invisibleItems-osusumeUsersOnTL":"\"Who to follow\" on timeline",
     "invisibleItems-twitterProPromotionBtn": "Twitter Pro Promotion button",
+    "invisibleItems-discoverMore":"\"Discover more\" in the tweet reply list",
   
     "clientInfo-settingTitle":"Client Info (may be discontinued)",
     "clientInfo-clientInfoVisible":"Show Client Info",
