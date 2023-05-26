@@ -157,7 +157,7 @@ const TUICObserver = {
         },
         osusumeUser:function(){
             if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow") {
-                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div)`)
+                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div):not([data-testid="DMDrawer"] *)`)
                 if (cells.length != 0) {
                     cells.forEach(function (elem) {
                         if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICLibrary.getClasses.getClass("TUICDidArticle")) {
@@ -173,7 +173,25 @@ const TUICObserver = {
                             }
                             if (cellElement != null) cellElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         }
+                        if(TUICPref.invisibleItems["discoverMore"] && elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.[0]?.[0]?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
+                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                            elem.nextElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                        }
                     })
+                }
+            }
+            if(TUICPref.invisibleItems["discoverMore"] &&window.location.pathname.includes("/status/") && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null){
+                const cells = document.querySelector(`[data-testid="primaryColumn"]`).querySelectorAll(`[data-testid="cellInnerDiv"]`)
+                for(const elem of cells){
+                    if(TUICPref.invisibleItems["discoverMore"] && elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                        let elem2 =elem.nextElementSibling
+                        while(elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0){
+                            elem2.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                            elem2 = elem2.nextElementSibling
+                            console.log(elem2)
+                        }
+                    }
                 }
             }
         },
