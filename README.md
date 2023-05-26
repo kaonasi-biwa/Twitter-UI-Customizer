@@ -42,7 +42,7 @@ Chromiumの場合は、更新の反映が遅いが自動更新してくれるChr
 1. `i18n/<言語タグ名>`を開く
 #### 翻訳の仕方 (共通)
 3. `i18n/ja.json`をもとに翻訳する
-### ポップアップなどTUIC事態の翻訳
+### ポップアップなどTUIC自体の翻訳
 こちらの記事( https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/Internationalization )と`_locales/ja/messages.json`を参照してください
 
 ## アイコン画像の提供元
