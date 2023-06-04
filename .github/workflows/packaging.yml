@@ -88,20 +88,11 @@ jobs:
       with:
         name: Twitter_UI_Customizer_Chromium
     - name: Upload Release Asset
-      id: upload-release-asset-f
+      id: upload-release-asset
       uses: softprops/action-gh-release@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        files: Twitter_UI_Customizer_Firefox.xpi
-    - name: Upload Release Asset
-      id: upload-release-asset-c
-      uses: softprops/action-gh-release@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: Twitter_UI_Customizer_Chromium.zip
-    - name: Upload Release Asset
-      id: upload-release-version
-      uses: softprops/action-gh-release@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: versionTUIC.txt
+        files: |
+          Twitter_UI_Customizer_Firefox.xpi
+          Twitter_UI_Customizer_Chromium.zip
+          versionTUIC.txt
