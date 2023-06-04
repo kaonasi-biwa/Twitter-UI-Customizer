@@ -68,12 +68,11 @@ jobs:
     steps:
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Twitter UI Customizer ${{ github.ref }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag_name: ${{ github.ref_name }}
+        name: Twitter UI Customizer ${{ github.ref_name }}
         draft: false
         prerelease: false
     - name: loadVersion
@@ -89,32 +88,20 @@ jobs:
       with:
         name: Twitter_UI_Customizer_Chromium
     - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      id: upload-release-asset-f
+      uses: softprops/action-gh-release@v1
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: Twitter_UI_Customizer_Firefox.xpi
-        asset_name: Twitter_UI_Customizer_Firefox.xpi
-        asset_content_type: application/zip
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: Twitter_UI_Customizer_Firefox.xpi
     - name: Upload Release Asset
-      id: upload-release-asset2
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      id: upload-release-asset-c
+      uses: softprops/action-gh-release@v1
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: Twitter_UI_Customizer_Chromium.zip
-        asset_name: Twitter_UI_Customizer_Chromium.zip
-        asset_content_type: application/zip
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: Twitter_UI_Customizer_Chromium.zip
     - name: Upload Release Asset
       id: upload-release-version
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: versionTUIC.txt
-        asset_name: versionTUIC.txt
-        asset_content_type: text/plain
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: versionTUIC.txt
