@@ -16,7 +16,7 @@ jobs:
         sed 's/refs\/tags\///g' ./versionTUIC_.txt > ./versionTUIC.txt
         cat ./versionTUIC.txt
     - name: shareFile
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: versionTUIC
         path: versionTUIC.txt
@@ -25,9 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [set-version]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: loadVersion
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: versionTUIC
     - name: Archive
@@ -36,7 +36,7 @@ jobs:
         mv manifest_firefox.json manifest.json
         zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
     - name: Publish
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: Twitter_UI_Customizer_Firefox
         path: Twitter_UI_Customizer_Firefox.xpi
@@ -46,9 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [set-version]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: loadVersion
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: versionTUIC
     - name: Archive
@@ -57,7 +57,7 @@ jobs:
         mv manifest_chrome.json manifest.json
         zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
     - name: Publish
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: Twitter_UI_Customizer_Chromium
         path: Twitter_UI_Customizer_Chromium.zip
@@ -77,15 +77,15 @@ jobs:
         draft: false
         prerelease: false
     - name: loadVersion
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: versionTUIC
-    - name: loadf
-      uses: actions/download-artifact@v2
+    - name: loadFile
+      uses: actions/download-artifact@v3
       with:
         name: Twitter_UI_Customizer_Firefox
-    - name: loadf
-      uses: actions/download-artifact@v2
+    - name: loadFile
+      uses: actions/download-artifact@v3
       with:
         name: Twitter_UI_Customizer_Chromium
     - name: Upload Release Asset
