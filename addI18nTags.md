@@ -1,4 +1,6 @@
 # 追加したi18nタグ
+## 2.12.0
+- settingColors-blocking
 ## 2.11.4
 - invisibleItems-discoverMore
 ## 2.11.0
