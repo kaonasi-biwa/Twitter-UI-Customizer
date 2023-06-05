@@ -11,8 +11,8 @@ const TUICData = {
       i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "verified-orgs-signup": "sidebarButtons-verified-orgs-signup", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles", "drafts": "sidebarButtons-drafts", "connect": "sidebarButtons-connect","communitynotes": "sidebarButtons-communitynotes" }
     },
     colors: {
-      id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following","blocking", "profile", "profile-save", "birthday"],
-      i18n: { "unsent-tweet": "settingColors-editUnsetTweet", "willFollow": "settingColors-willFollowButton", "not-following": "settingColors-notFollowingButton", "following": "settingColors-followingButton", "un-following": "settingColors-unfollowButton", "profile": "settingColors-editProfile", "profile-save": "settingColors-saveProfile", "birthday": "settingColors-finalDecideButton","blocking":"settingColors-blocking" }
+      id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following","blocking","blocking-unlock", "profile", "profile-save", "birthday"],
+      i18n: { "unsent-tweet": "settingColors-editUnsetTweet", "willFollow": "settingColors-willFollowButton", "not-following": "settingColors-notFollowingButton", "following": "settingColors-followingButton", "un-following": "settingColors-unfollowButton", "profile": "settingColors-editProfile", "profile-save": "settingColors-saveProfile", "birthday": "settingColors-finalDecideButton","blocking":"settingColors-blocking","blocking-unlock":"settingColors-blockingUnlock" }
     }
   },
   colors: {
@@ -63,6 +63,11 @@ const TUICData = {
     },"blocking":{
       "background":"rgba(244, 33, 46,1)",
       "border":"rgba(244, 33, 46,1)",
+      "color":"rgba(255, 255, 255,1)"
+    }
+    ,"blocking-unlock":{
+      "background":"rgba(220, 30, 41,1)",
+      "border":"rgba(220, 30, 41,1)",
       "color":"rgba(255, 255, 255,1)"
     }
   },
