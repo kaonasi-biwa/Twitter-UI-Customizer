@@ -70,6 +70,8 @@
     "settingColors-editProfile":"Edit profile button",
     "settingColors-saveProfile":"Save profile button",
     "settingColors-finalDecideButton":"Confirm button",
+    "settingColors-blocking":"Blocked button",
+    "settingColors-blockingUnlock":"Unblock button",
 
     "twitterIcon-settingTitle":"Twitter icon",
     "twitterIcon-nomal":"Default",
