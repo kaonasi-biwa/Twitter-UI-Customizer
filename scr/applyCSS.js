@@ -176,14 +176,14 @@ function TUICCss() {
     color: var(--twitter-un-following-color) !important;
 }
 /*ブロック中*/
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae).r-1qi8awa,
+:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
 [data-testid="UserCell"] .r-2yi16.r-lrvibr,
 .r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
 .r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):not(:hover){
     background-color: var(--twitter-blocking-background) !important;
     border-color: var(--twitter-blocking-border) !important;
 }
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae).r-1qi8awa,
+:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
 [data-testid="UserCell"] .r-2yi16.r-lrvibr,
 .r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
 .r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):not(:hover) > .r-b88u0q{
@@ -191,14 +191,14 @@ function TUICCss() {
 }
 
 /* ブロック解除時 */
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae).r-1qi8awa,
+:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
 [data-testid="UserCell"] .r-2yi16.r-lrvibr,
 .r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
 .r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):hover{
     background-color: var(--twitter-blocking-unlock-background) !important;
     border-color: var(--twitter-blocking-unlock-border) !important;
 }
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf:not(.r-jc7xae).r-1qi8awa,
+:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
 [data-testid="UserCell"] .r-2yi16.r-lrvibr,
 .r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
 .r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):hover > .r-b88u0q{
