@@ -162,8 +162,10 @@ const TUICLibrary = {
             return TUICI18N[lang][elem].escapeToUseHTML()
         }else if(elem in TUICI18N.en){
             return TUICI18N.en[elem].escapeToUseHTML()
-        }else{
+        }else if(elem in TUICI18N.en){
             return TUICI18N.ja[elem].escapeToUseHTML()
+        }else{
+            return "404"
         }
     },
     escapeToUseHTML:function(text){
