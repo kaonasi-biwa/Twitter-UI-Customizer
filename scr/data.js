@@ -7,8 +7,8 @@ const TUICData = {
       i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy" }
     },
     sidebarButtons: {
-      all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "verified-orgs-signup", "profile", "moremenu", "topics", "lists", "circles","drafts","connect","communitynotes"],
-      i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "verified-orgs-signup": "sidebarButtons-verified-orgs-signup", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles", "drafts": "sidebarButtons-drafts", "connect": "sidebarButtons-connect","communitynotes": "sidebarButtons-communitynotes" }
+      all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "verified-orgs-signup", "profile", "moremenu", "topics", "lists", "circles","drafts","connect","communitynotes","verified-choose"],
+      i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "verified-orgs-signup": "sidebarButtons-verified-orgs-signup", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles", "drafts": "sidebarButtons-drafts", "connect": "sidebarButtons-connect","communitynotes": "sidebarButtons-communitynotes","verified-choose":"sidebarButtons-verified-choose" }
     },
     colors: {
       id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following","blocking","blocking-unlock", "profile", "profile-save", "birthday"],
@@ -205,7 +205,8 @@ const TUICData = {
       "verified-orgs-signup": `[href="/i/verified-orgs-signup"],#TUICSidebar_verified-orgs-signup`,
       "drafts":"#TUICSidebar_drafts",
       "connect":"#TUICSidebar_connect",
-      "communitynotes":`[href="/i/communitynotes"]`
+      "communitynotes":`[href="/i/communitynotes"]`,
+      "verified-choose":`[href="/i/verified-choose"]`
     },
     "html": {
       "__base":(id,svg) => {
