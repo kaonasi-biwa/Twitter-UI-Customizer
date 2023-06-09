@@ -24,5 +24,7 @@
     "sidebarButtons-verified-orgs-signup": "Onaylı Kuruluşlar",
     "sidebarButtons-drafts":"Taslaklar","sidebarButtons-connect":"Bağlan",
     "sidebarButtons-communitynotes":"Topluluk Notları",
-    "sidebarButtons-verified-choose":"Onaylanmış"
+    "sidebarButtons-verified-choose":"Onaylanmış",
+
+    "invisibleItems-verifiedRSidebar":"Onaylanmış Hesap Sahibi Ol"
 }

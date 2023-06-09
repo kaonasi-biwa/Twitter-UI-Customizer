@@ -24,5 +24,7 @@
     "sidebarButtons-verified-orgs-signup": "Verified Organisations",
     "sidebarButtons-drafts":"Drafts","sidebarButtons-connect":"Connect",
     "sidebarButtons-communitynotes":"Community Notes",
-    "sidebarButtons-verified-choose":"Verified"
+    "sidebarButtons-verified-choose":"Verified",
+
+    "invisibleItems-verifiedRSidebar":"Get Verified"
 }
