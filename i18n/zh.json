@@ -23,5 +23,6 @@
     "sidebarButtons-verified-orgs-signup": "已认证的组织",
     "sidebarButtons-drafts":"草稿","sidebarButtons-connect":"连接",
     "sidebarButtons-communitynotes":"社群附注",
-    "sidebarButtons-verified-choose":"已认证"
+    "sidebarButtons-verified-choose":"已认证",
+    "invisibleItems-verifiedRSidebar":"获得认证"
 }

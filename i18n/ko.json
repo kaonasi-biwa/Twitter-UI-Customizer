@@ -24,5 +24,7 @@
     "sidebarButtons-verified-orgs-signup": "인증된 조직",
     "sidebarButtons-drafts":"초안","sidebarButtons-connect":"연결하기",
     "sidebarButtons-communitynotes":"그룹 노트",
-    "sidebarButtons-verified-choose":"인증됨"
+    "sidebarButtons-verified-choose":"인증됨",
+
+    "invisibleItems-verifiedRSidebar":"인증 받기"
 }

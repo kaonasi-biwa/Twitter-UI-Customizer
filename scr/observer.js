@@ -189,10 +189,12 @@ const TUICObserver = {
                         while(elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0){
                             elem2.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                             elem2 = elem2.nextElementSibling
-                            console.log(elem2)
                         }
                     }
                 }
+            }
+            if(TUICPref.invisibleItems["verified-rSidebar"] &&document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`) != null){
+                document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
             }
         },
         twitterProPromotionBtn:function(){

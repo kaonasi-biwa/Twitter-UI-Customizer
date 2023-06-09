@@ -24,5 +24,7 @@
     "sidebarButtons-drafts":"Entwürfe",
     "sidebarButtons-connect":"Verbinden",
     "sidebarButtons-communitynotes":"Kollektive Anmerkungen",
-    "sidebarButtons-verified-choose":"Verifiziert"
+    "sidebarButtons-verified-choose":"Verifiziert",
+
+    "invisibleItems-verifiedRSidebar":"Lass dich verifizieren"
 }

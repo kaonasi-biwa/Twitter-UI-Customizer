@@ -23,5 +23,7 @@
     "sidebarButtons-verified-orgs-signup": "已認證的組織",
     "sidebarButtons-drafts":"草稿","sidebarButtons-connect":"連接",
     "sidebarButtons-communitynotes":"社群備註",
-    "sidebarButtons-verified-choose":"已認證"
+    "sidebarButtons-verified-choose":"已認證",
+
+    "invisibleItems-verifiedRSidebar":"獲得認證"
 }
