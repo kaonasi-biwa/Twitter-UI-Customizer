@@ -1,29 +1,3 @@
 {
-    "@JapaneseLanguageName":"トルコ語",
-
-    "bottomTweetButtons-bookmark": "Yer işareti",
-    "bottomTweetButtons-like": "Beğen",
-    "bottomTweetButtons-replay": "Yanıtla",
-    "bottomTweetButtons-retweet": "Retweet",
-    "bottomTweetButtons-share": "Paylaş",
-    "bottomTweetButtons-tweetAnalytics": "Tweet istatistiklerini görüntüle",
-    "bottomTweetButtons-urlCopy": "Tweete linki kopyala",
-
-    "sidebarButtons-bookmarks": "Yer İşaretleri",
-    "sidebarButtons-circles": "Twitter Çevresi",
-    "sidebarButtons-communities": "Topluluklar",
-    "sidebarButtons-explore": "Keşfet",
-    "sidebarButtons-home": "Anasayfa",
-    "sidebarButtons-lists": "Listeler",
-    "sidebarButtons-messages": "Mesajlar",
-    "sidebarButtons-moremenu": "Daha fazla",
-    "sidebarButtons-notifications": "Bildirimler",
-    "sidebarButtons-profile": "Profil",
-    "sidebarButtons-topics": "Konular",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
-    "sidebarButtons-drafts":"Taslaklar","sidebarButtons-connect":"Bağlan",
-    "sidebarButtons-communitynotes":"Topluluk Notları",
-    "sidebarButtons-verified-choose":"Onaylanmış",
-
-    "invisibleItems-verifiedRSidebar":"Onaylanmış Hesap Sahibi Ol"
+    "@JapaneseLanguageName":"トルコ語"
 }

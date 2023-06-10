@@ -1,29 +1,3 @@
 {
-    "@JapaneseLanguageName":"韓国語",
-
-    "bottomTweetButtons-bookmark": "북마크",
-    "bottomTweetButtons-like": "마음에 들어요",
-    "bottomTweetButtons-replay": "답글",
-    "bottomTweetButtons-retweet": "리트윗",
-    "bottomTweetButtons-share": "공유하기",
-    "bottomTweetButtons-tweetAnalytics": "트윗 애널리틱스 보기",
-    "bottomTweetButtons-urlCopy": "트윗 링크 복사하기",
-
-    "sidebarButtons-bookmarks": "북마크",
-    "sidebarButtons-circles": "Twitter 서클",
-    "sidebarButtons-communities": "커뮤니티",
-    "sidebarButtons-explore": "탐색하기",
-    "sidebarButtons-home": "홈",
-    "sidebarButtons-lists": "리스트",
-    "sidebarButtons-messages": "쪽지",
-    "sidebarButtons-moremenu": "더 보기",
-    "sidebarButtons-notifications": "알림",
-    "sidebarButtons-profile": "프로필",
-    "sidebarButtons-topics": "토픽",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
-    "sidebarButtons-drafts":"초안","sidebarButtons-connect":"연결하기",
-    "sidebarButtons-communitynotes":"그룹 노트",
-    "sidebarButtons-verified-choose":"인증됨",
-
-    "invisibleItems-verifiedRSidebar":"인증 받기"
+    "@JapaneseLanguageName":"韓国語"
 }
