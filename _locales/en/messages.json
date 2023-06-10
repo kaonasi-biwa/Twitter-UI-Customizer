@@ -1,4 +1,8 @@
 {
+    "extensionName": {
+        "message": "Twitter UI Customizer",
+        "description": "拡張機能の名前"
+    },
     "extensionDescription": {
         "message": "Improve the customizability of your Twitter UI",
         "description": "拡張機能の説明"
@@ -101,6 +105,18 @@
         "message": "*The default for this extension is based on the design before the design change on 2021/8/12 JST.",
         "description": "設定画面の文章"
     },
+    "optionSpecialThanks": {
+        "message": "Special Thanks",
+        "description": "設定画面のSpecial thanks"
+    },
+    "optionSpecialThanksGitHub": {
+        "message": "GitHub:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksCrowdin": {
+        "message": "Crowdin:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
     "optionSpecialThanks_GrapeApple0": {
         "message": "Display Client Name / Twitter API Owner",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
@@ -120,5 +136,13 @@
     "optionSpecialThanks_KotoneFami": {
         "message": "Adding the feature",
         "description": "設定画面のSpecial thanks(KotoneFamiさん)"
+    },
+    "optionSpecialThanks_loading_yt": {
+        "message": "Simplified Chinese and Traditional Chinese Translator",
+        "description": "設定画面のSpecial thanks(loading_ytさん)"
+    },
+    "optionSpecialThanks_nyanrus": {
+        "message": "Korean Translator",
+        "description": "設定画面のSpecial thanks(nyanrusさん)"
     }
 }
