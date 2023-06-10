@@ -57,7 +57,8 @@
     "customCSS-settingTitle": "自定义CSS",
     "customCSS-save": "保存自定义CSS",
     "settingColors-settingTitle": "颜色设置",
-    "settingColors-select-light": "默认",
+    "settingColors-select-base": "标准色",
+    "settingColors-select-light": "明亮",
     "settingColors-select-dark": "暗黑",
     "settingColors-editUnsetTweet": "为未发送的推文提供编辑按钮",
     "settingColors-notFollowingButton": "为你不关注的人提供关注按钮",
@@ -74,5 +75,14 @@
     "twitterIcon-invisible": "隐藏",
     "twitterIcon-dog": "笼罩在神秘中的狗图标",
     "twitterIcon-twitter": "推特图标",
-    "twitterIcon-custom": "自定义图标"
+    "twitterIcon-custom": "自定义图标",
+    "twitterIcon-usedIcon": "选择要使用的图像...",
+    "twitterIcon-nowIcon": "目前的图像",
+    "twitterIcon-roundIcon": "将图标改为圆形（只有设置为自定义图标时才有效）",
+    "export-settingTitle": "输出",
+    "export-exportButton": "设置的输出",
+    "export-exportButtonCopy": "复制输出配置",
+    "import-settingTitle": "输入",
+    "import-importWrite": "输入，然补写",
+    "import-importReplace": "输入，然代入"
 }
