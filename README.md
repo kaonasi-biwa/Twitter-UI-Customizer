@@ -10,14 +10,14 @@ Chromiumの場合は、更新の反映が遅いが自動更新してくれるChr
 <br>
 ## Special Thanks (使い方あってるか知らんけど)
 GitHub:
-- @GrapeApple0 (クライアント名表示)
-- @irhdevel (すばらしきデザイン)
-- @Taka005 (ソースコードの整理)
-- @Hibi-10000 (アメリカ英語の翻訳者)
-- @KotoneFami (機能追加)
-Crowdin
-- @loading_yt (中国語の翻訳者)
-- @nyanrus (韓国語の翻訳者)
+- @GrapeApple0 (クライアント名表示)  
+- @irhdevel (すばらしきデザイン)  
+- @Taka005 (ソースコードの整理)  
+- @Hibi-10000 (アメリカ英語の翻訳者)  
+- @KotoneFami (機能追加)  
+Crowdin  
+- @loading_yt (中国語の翻訳者)  
+- @nyanrus (韓国語の翻訳者)  
 
 ## 実装されている機能
 - 「未送信ツイートの編集」「未フォローのフォローボタン」「フォロー中のフォローボタン」「フォロー解除ボタン」「ホバー時のフォローボタン」「ブロック中の人のフォローボタン」「ブロック解除時のフォローボタン」「プロフィール設定」「最終決定(ログアウト時のやつなど)」のボタンについて、それぞれ枠線色・背景色・文字色を設定できる
@@ -39,11 +39,12 @@ Crowdin
 - (設定のエクスポート/インポートもできる)
 
 ## いるかもわからぬ翻訳者の方へ
-### Twitter上でのTUICの翻訳
-Crowdinで試験的にやってみています！
-良ければこちらからよろしくお願いします！
-https://crowdin.com/project/twiter-ui-customizer
+Crowdinで試験的にやってみています！  
+良ければこちらからよろしくお願いします！  
+https://crowdin.com/project/twiter-ui-customizer  
 <br><br>
+
+### Twitter上でのTUICの翻訳
 - もとから(ファイルだけでも)用意してある言語は、一番最初の`@JapaneseLanguageName`に、言語名を書いています  
 - それぞれのバージョンの追加IDは[addI18nTags.md](./addI18nTags.md)に書いています
 - 言語のタグ名はこのGitHubのリポジトリ( https://github.com/fa0311/TwitterInternalAPIDocument/tree/master/docs/json/i18n )のディレクトリ名準拠で、全て小文字でお願いします(ja、en-gbなど)
