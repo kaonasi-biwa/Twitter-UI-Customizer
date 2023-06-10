@@ -329,13 +329,14 @@ const TUICData = {
     }
   },
   invisibleItems: {
-    all: ["osusume-user-timeline", "twitter-pro-promotion-btn","discoverMore","verified-rSidebar","subscribe-tweets"],
+    all: ["osusume-user-timeline", "twitter-pro-promotion-btn","discoverMore","verified-rSidebar","subscribe-tweets","subscribe-profile"],
     i18n: {
       "osusume-user-timeline": "invisibleItems-osusumeUsersOnTL",
       "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
       "discoverMore":"invisibleItems-discoverMore",
       "verified-rSidebar":"invisibleItems-verifiedRSidebar",
-      "subscribe-tweets":"invisibleItems-subscribeTweets"
+      "subscribe-tweets":"invisibleItems-subscribeTweets",
+      "subscribe-profile":"invisibleItems-subscribeProfile"
     }
   },
   clientInfo: {
