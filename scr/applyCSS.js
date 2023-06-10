@@ -612,6 +612,10 @@ display:none !important;
     padding-top:0px !important;
 }
  ` : ""}
+ ${TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"] ?
+ `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
+    display:none !important;
+    }`:""}
 
  ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
  .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
