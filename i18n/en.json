@@ -52,6 +52,8 @@
     "invisibleItems-twitterProPromotionBtn": "Twitter Pro Promotion button",
     "invisibleItems-discoverMore":"\"Discover more\" in the tweet reply list",
     "invisibleItems-verifiedRSidebar":"Get Verified",
+    "invisibleItems-subscribeTweets":"Subscribe button in the top right of the tweet",
+    "invisibleItems-subscribeProfile":"Subscribe button on profile",
   
     "clientInfo-settingTitle":"Client Info (may be discontinued)",
     "clientInfo-clientInfoVisible":"Show Client Info",
