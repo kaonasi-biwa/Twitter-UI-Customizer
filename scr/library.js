@@ -159,7 +159,7 @@ const TUICLibrary = {
         return this.TUICParser.parseFromString(elem,"text/html")
     },
     getI18n:function(elem){
-        let lang = document.querySelector("html").getAttribute("lang").toLowerCase()
+        let lang = document.querySelector("html").getAttribute("lang")
         if(lang in TUICI18N && elem in TUICI18N[lang]){
             return TUICI18N[lang][elem].escapeToUseHTML()
         }else if(elem in TUICI18N.en){
