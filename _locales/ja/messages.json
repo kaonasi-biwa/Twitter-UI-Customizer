@@ -111,6 +111,14 @@
       "message": "Special Thanks",
       "description": "設定画面のSpecial thanks"
     },
+    "optionSpecialThanksGitHub":{
+      "message": "GitHub:",
+      "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksCrowdin":{
+      "message": "Crowdin:",
+      "description": "設定画面のSpecial thanksのサービス名"
+    },
     "optionSpecialThanks_GrapeApple0": {
       "message": "クライアント名表示・Twitter APIの主",
       "description": "設定画面のSpecial thanks(GrapeApple0さん)"
@@ -130,5 +138,13 @@
     "optionSpecialThanks_KotoneFami": {
       "message": "機能追加",
       "description": "設定画面のSpecial thanks(KotoneFamiさん)"
+    },
+    "optionSpecialThanks_loading_yt": {
+      "message": "中国語の翻訳者",
+      "description": "設定画面のSpecial thanks(loading_ytさん)"
+    },
+    "optionSpecialThanks_nyanrus": {
+      "message": "韓国語の翻訳者",
+      "description": "設定画面のSpecial thanks(nyanrusさん)"
     }
   }
