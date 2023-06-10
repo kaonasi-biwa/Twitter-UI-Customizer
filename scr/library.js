@@ -69,7 +69,9 @@ const TUICLibrary = {
             if(typeof TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1){
                 TUICPref.visibleButtons = TUICPref.visibleButtons.filter(elem => {return elem != "downvote-button"});
             }
-            console.log(TUICPref.visibleButtons)
+            if(typeof TUICPref.sidebarButtons == "object" && TUICPref.sidebarButtons.indexOf("verified-orgs-signup") != -1){
+                TUICPref.sidebarButtons = TUICPref.sidebarButtons.filter(elem => {return elem != "verified-orgs-signup"});
+            }
 
             this.updateToDefault(TUICPref,dPref)
         },
