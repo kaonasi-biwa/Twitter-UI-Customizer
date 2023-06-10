@@ -37,5 +37,7 @@
 - twitterIcon-nowIcon
 
 # 削除したi18nタグ
+## 2.13.3
+- sidebarButtons-verified-orgs-signup
 ## 2.9.3
 - sidebarButton-setting-invisibleTwitterLogo
