@@ -1,3 +1,11 @@
 {
-    "@JapaneseLanguageName":"繁體中国語"
+    "@JapaneseLanguageName": "繁體中国語",
+    "settingUI-goBackButton": "返回",
+    "settingUI-upDownList-toLeft": "顯示",
+    "settingUI-upDownList-toRight": "隱藏",
+    "settingUI-upDownList-toUp": "向上",
+    "settingUI-upDownList-toDown": "向下",
+    "settingUI-upDownList-restoreDefault": "重置",
+    "settingUI-upDownList-visible": "顯示",
+    "settingUI-upDownList-invisible": "隱藏"
 }
