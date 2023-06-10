@@ -196,6 +196,9 @@ const TUICObserver = {
             if(TUICPref.invisibleItems["verified-rSidebar"] &&document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`) != null){
                 document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
             }
+            if(TUICPref.invisibleItems["subscribe-tweets"] &&window.location.pathname.includes("/status/") && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [data-testid$="-subscribe"]`) != null){
+                document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+            }
         },
         twitterProPromotionBtn:function(){
             if (TUICPref.invisibleItems["twitter-pro-promotion-btn"] !== undefined) {

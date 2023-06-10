@@ -1,4 +1,6 @@
 # 追加したi18nタグ
+## 2.12.3
+- subscribe-tweets
 ## 2.12.0
 - settingColors-blocking
 - settingColors-blockingUnlock
