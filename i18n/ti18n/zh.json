@@ -1,1 +1,28 @@
-{}
+{
+    "bottomTweetButtons-replay": "回复",
+    "bottomTweetButtons-retweet": "转推",
+    "bottomTweetButtons-like": "喜欢",
+    "bottomTweetButtons-share": "分享",
+    "bottomTweetButtons-tweetAnalytics": "查看推文分析",
+    "bottomTweetButtons-bookmark": "书签",
+    "bottomTweetButtons-urlCopy": "复制推文链接",
+
+    "sidebarButtons-home": "主页",
+    "sidebarButtons-explore": "探索",
+    "sidebarButtons-communities": "社群",
+    "sidebarButtons-notifications": "通知",
+    "sidebarButtons-messages": "私信",
+    "sidebarButtons-bookmarks": "书签",
+    "sidebarButtons-twitterBlue": "Twitter Blue",
+    "sidebarButtons-profile": "个人资料",
+    "sidebarButtons-moremenu": "更多",
+    "sidebarButtons-topics": "话题",
+    "sidebarButtons-lists": "列表",
+    "sidebarButtons-circles": "Twitter 圈子",
+    "sidebarButtons-drafts": "草稿",
+    "sidebarButtons-connect": "连接",
+    "sidebarButtons-communitynotes": "社群附注",
+    "sidebarButtons-verified-choose": "已认证",
+
+    "invisibleItems-verifiedRSidebar": "获得认证"
+}
