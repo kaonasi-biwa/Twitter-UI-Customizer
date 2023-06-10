@@ -1,30 +1,3 @@
 {
-    "@JapaneseLanguageName": "ドイツ語",
-    "bottomTweetButtons-bookmark": "Lesezeichen",
-    "bottomTweetButtons-like": "Gefällt mir",
-    "bottomTweetButtons-replay": "Antworten",
-    "bottomTweetButtons-retweet": "Retweeten",
-    "bottomTweetButtons-share": "Teilen",
-    "bottomTweetButtons-tweetAnalytics": "Tweet-Statistiken anzeigen",
-    "bottomTweetButtons-urlCopy": "Link zum Tweet kopieren",
-
-    "sidebarButtons-bookmarks": "Lesezeichen",
-    "sidebarButtons-circles": "Twitter Circle",
-    "sidebarButtons-communities": "Communities",
-    "sidebarButtons-explore": "Entdecken",
-    "sidebarButtons-home": "Startseite",
-    "sidebarButtons-lists": "Listen",
-    "sidebarButtons-messages": "Nachrichten",
-    "sidebarButtons-moremenu": "Mehr",
-    "sidebarButtons-notifications": "Mitteilungen",
-    "sidebarButtons-profile": "Profil",
-    "sidebarButtons-topics": "Themen",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
-    "sidebarButtons-verified-orgs-signup": "Verifizierte Organisationen",
-    "sidebarButtons-drafts":"Entwürfe",
-    "sidebarButtons-connect":"Verbinden",
-    "sidebarButtons-communitynotes":"Kollektive Anmerkungen",
-    "sidebarButtons-verified-choose":"Verifiziert",
-
-    "invisibleItems-verifiedRSidebar":"Lass dich verifizieren"
+    "@JapaneseLanguageName": "ドイツ語"
 }

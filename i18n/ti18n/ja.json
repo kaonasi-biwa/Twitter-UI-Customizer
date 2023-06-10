@@ -1,0 +1,27 @@
+{
+    "bottomTweetButtons-replay":"返信",
+    "bottomTweetButtons-retweet":"リツイート",
+    "bottomTweetButtons-like":"いいね",
+    "bottomTweetButtons-share":"共有",
+    "bottomTweetButtons-tweetAnalytics":"ツイートアナリティクスを表示",
+    "bottomTweetButtons-bookmark":"ブックマーク",
+    "bottomTweetButtons-urlCopy":"ツイートのリンクをコピー",
+
+    "sidebarButtons-home":"ホーム",
+    "sidebarButtons-explore":"話題を検索",
+    "sidebarButtons-communities":"コミュニティ",
+    "sidebarButtons-notifications":"通知",
+    "sidebarButtons-messages":"メッセージ",
+    "sidebarButtons-bookmarks":"ブックマーク",
+    "sidebarButtons-twitterBlue":"Twitter Blue",
+    "sidebarButtons-profile":"プロフィール",
+    "sidebarButtons-moremenu":"もっと見る",
+    "sidebarButtons-topics":"トピック",
+    "sidebarButtons-lists":"リスト",
+    "sidebarButtons-circles":"Twitterサークル",
+    "sidebarButtons-drafts":"下書き","sidebarButtons-connect":"移動する",
+    "sidebarButtons-communitynotes":"コミュニティノート",
+    "sidebarButtons-verified-choose":"認証済み",
+
+    "invisibleItems-verifiedRSidebar":"認証を受ける"
+}

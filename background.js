@@ -71,7 +71,14 @@ const getI18n = async (res) => {
   let i18nObject = {}
   const langList = await fetch(chrome.runtime.getURL("./i18n/_langList.json"),{ cache: "no-store" })
     .then(res => res.json())
-    for(const elem of langList) i18nObject[elem] =await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json())
+    for(const elem of langList){
+      i18nObject[elem] =Object.assign(
+        (await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json())),
+        (await fetch(chrome.runtime.getURL(`./i18n/ti18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json()))
+
+        )
+        console.log(i18nObject)
+    }
   res(JSON.stringify(i18nObject))
 }
 
