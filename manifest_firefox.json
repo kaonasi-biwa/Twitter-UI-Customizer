@@ -5,9 +5,9 @@
     "default_locale": "ja",
     "manifest_version": 2,
     "icons": {
-        "16": "icon/icon16.png",
-        "48": "icon/icon48.png",
-        "128": "icon/icon128.png"
+        "16": "icon/newIcon_TUIC_C_Blue.svg",
+        "48": "icon/newIcon_TUIC_C_Blue.svg",
+        "128": "icon/newIcon_TUIC_C_Blue.svg"
     },
     "content_scripts": [
         {
@@ -48,9 +48,9 @@
     ],
     "browser_action": {
         "default_icon": {
-            "16": "icon/icon16.png",
-            "48": "icon/icon48.png",
-            "128": "icon/icon128.png"
+            "16": "icon/newIcon_TUIC_C_Blue.svg",
+            "48": "icon/newIcon_TUIC_C_Blue.svg",
+            "128": "icon/newIcon_TUIC_C_Blue.svg"
         },
         "default_title": "Twitter UI Customizer",
         "default_popup": "TUIC/popup/popup.html"
