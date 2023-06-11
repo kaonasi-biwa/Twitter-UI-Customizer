@@ -119,6 +119,14 @@
       "message": "Crowdin:",
       "description": "設定画面のSpecial thanksのサービス名"
     },
+    "optionSpecialThanksOther":{
+      "message": "Other:",
+      "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksTwitter":{
+      "message": "(Twitter)",
+      "description": "設定画面のSpecial thanksのサービス名"
+    },
     "optionSpecialThanks_GrapeApple0": {
       "message": "クライアント名表示・Twitter APIの主",
       "description": "設定画面のSpecial thanks(GrapeApple0さん)"
@@ -146,5 +154,9 @@
     "optionSpecialThanks_nyanrus": {
       "message": "韓国語の翻訳者",
       "description": "設定画面のSpecial thanks(nyanrusさん)"
+    },
+    "optionSpecialThanks_CutterKnife_": {
+      "message": "アイコン・ロゴの作成者",
+      "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     }
   }
