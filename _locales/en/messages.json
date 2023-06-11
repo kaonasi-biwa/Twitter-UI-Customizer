@@ -102,7 +102,7 @@
         "description": "設定画面の文章"
     },
     "optionContent2_4": {
-        "message": "*The default for this extension is based on the design before the design change on 2021/8/12 JST.",
+        "message": "*The default for this extension is based on the design before the design change on 2021/8/11 GMT.",
         "description": "設定画面の文章"
     },
     "optionSpecialThanks": {
@@ -115,6 +115,14 @@
     },
     "optionSpecialThanksCrowdin": {
         "message": "Crowdin:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOther": {
+        "message": "Other:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksTwitter": {
+        "message": "(Twitter)",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
