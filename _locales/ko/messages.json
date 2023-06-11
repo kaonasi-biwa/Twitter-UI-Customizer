@@ -117,6 +117,10 @@
         "message": "Crowdin:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
+    "optionSpecialThanksTwitter": {
+        "message": "(트위터)",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
     "optionSpecialThanks_GrapeApple0": {
         "message": "클라이언트 이름 표시 및 Twitter API 경유 서버 주인",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
@@ -144,5 +148,9 @@
     "optionSpecialThanks_nyanrus": {
         "message": "한국어 번역",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
+    },
+    "optionSpecialThanks_CutterKnife_": {
+        "message": "아이콘 및 로고의 제작자",
+        "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     }
 }
