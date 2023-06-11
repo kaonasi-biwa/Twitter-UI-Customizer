@@ -4,11 +4,11 @@
         "description": "拡張機能の名前"
     },
     "extensionDescription": {
-        "message": "Improve the customizability of your Twitter UI",
+        "message": "트위터 UI의 마개조를 가능하게 합니다!",
         "description": "拡張機能の説明"
     },
     "notificationsMessage": {
-        "message": "A new version is now available.\nPlease update.\n$V1$→$V2$",
+        "message": "새로운 버전이 나왔어요.\n업데이트해주세요.\n$V1$→$V2$",
         "description": "アップデート通知",
         "placeholders": {
             "V1": {
@@ -22,87 +22,87 @@
         }
     },
     "popupTitle": {
-        "message": "Thank you!",
+        "message": "감사합니다!",
         "description": "ポップアップのタイトル"
     },
     "popupContent1": {
-        "message": "Thanks for using it!",
+        "message": "이용해 주셔서 감사합니다!",
         "description": "ポップアップの文章"
     },
     "popupContent2": {
-        "message": "Please report bugs and",
+        "message": "버그나 기능 추가 요청은",
         "description": "ポップアップの文章"
     },
     "popupContent3": {
-        "message": "feature requests via Twitter!",
+        "message": "트위터에 부탁해요!",
         "description": "ポップアップの文章"
     },
     "popupButton1": {
-        "message": "Configure Twitter UI Customizer",
+        "message": "Twitter UI Customizer 설정",
         "description": "ポップアップのボタン"
     },
     "popupButton2": {
-        "message": "Change settings in safe mode",
+        "message": "세이프 모드에서 설정 변경",
         "description": "ポップアップのボタン"
     },
     "popupButton3": {
-        "message": "Update Notification Settings",
+        "message": "업데이트 알림 설정",
         "description": "ポップアップのボタン"
     },
     "popupButton4": {
-        "message": "Author (kaonasi_biwa) on Twitter",
+        "message": "제작자(kaonasi_biwa)의 트위터",
         "description": "ポップアップのボタン"
     },
     "optionTitle": {
-        "message": "Settings and Operation Method(Twitter UI Customizer)",
+        "message": "설정 및 조작방법 (Twitter UI Customizer)",
         "description": "設定画面のタイトル"
     },
     "optionHeading1": {
-        "message": "Twitter UI Customizer Settings",
+        "message": "Twitter UI Customizer 설정",
         "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-        "message": "Twitter Setting:",
+        "message": "트위터 설정:",
         "description": "設定画面の見出し"
     },
     "optionContent1_1_1": {
-        "message": "(Twitter Settings→Accessibility, display, and languages→Display)",
+        "message": "(트위터 설정 → 접근성, 표시, 언어 → 화면)",
         "description": "設定画面の文章"
     },
     "optionHeading1_2": {
-        "message": "Update Notification Settings:",
+        "message": "업데이트 알림 설정:",
         "description": "設定画面の見出し"
     },
     "optionContent1_2_1": {
-        "message": "Notify update when the browser startup",
+        "message": "브라우저를 켤때 업데이트 알림 받기",
         "description": "設定画面の文章"
     },
     "optionContent1_2_2": {
-        "message": "Notify update when clicking on extension icon",
+        "message": "아이콘을 클릭했을 때 업데이트 알림 받기",
         "description": "設定画面の文章"
     },
     "optionContent1_2_3": {
-        "message": "Notify update when you open Twitter",
+        "message": "트위터를 열었을때 업데이트 알림 받기",
         "description": "設定画面の文章"
     },
     "optionHeading2": {
-        "message": "How to operate Twitter UI Customizer",
+        "message": "Twitter UI Customizer의 조작방법",
         "description": "設定画面の見出し"
     },
     "optionContent2_1": {
-        "message": "Change the settings from the URL above.",
+        "message": "위 URL에서 설정을 바꿉니다.",
         "description": "設定画面の文章"
     },
     "optionContent2_2": {
-        "message": "No reboot is required.",
+        "message": "재시작은 필요 없어요.",
         "description": "設定画面の文章"
     },
     "optionContent2_3": {
-        "message": "The Restore Defaults button allows you to restore the default settings for this extension.",
+        "message": "기본 설정으로 되돌리는 버튼에서 (이 확장기능에서의) 기본 설정으로 되돌릴 수 있어요.",
         "description": "設定画面の文章"
     },
     "optionContent2_4": {
-        "message": "*The default for this extension is based on the design before the design change on 2021/8/12 JST.",
+        "message": "※ 이 확장기능의 기본 설정은 2021/08/12 JST의 디자인 변경 전 디자인이 기준입니다.",
         "description": "設定画面の文章"
     },
     "optionSpecialThanks": {
@@ -118,31 +118,31 @@
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
-        "message": "Display Client Name / Twitter API Owner",
+        "message": "클라이언트 이름 표시 및 Twitter API 경유 서버 주인",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
     },
     "optionSpecialThanks_irhdevel": {
-        "message": "Wonderful design",
+        "message": "훌륭한 디자인",
         "description": "設定画面のSpecial thanks(irhdevelさん)"
     },
     "optionSpecialThanks_Taka005": {
-        "message": "Organize source code",
+        "message": "소스코드 정리",
         "description": "設定画面のSpecial thanks(Taka005さん)"
     },
     "optionSpecialThanks_Hibi_10000": {
-        "message": "American English Translator",
+        "message": "미국 영어 번역",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
     "optionSpecialThanks_KotoneFami": {
-        "message": "Adding the feature",
+        "message": "기능추가",
         "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     },
     "optionSpecialThanks_loading_yt": {
-        "message": "Simplified Chinese and Traditional Chinese Translator",
+        "message": "중국어 번역",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_nyanrus": {
-        "message": "Korean Translator",
+        "message": "한국어 번역",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
     }
 }
