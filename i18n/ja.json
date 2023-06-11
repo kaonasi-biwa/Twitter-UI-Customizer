@@ -11,7 +11,7 @@
     "settingUI-upDownList-restoreDefault":"初期化",
     "settingUI-upDownList-visible":"表示",
     "settingUI-upDownList-invisible":"非表示",
-    "settingUI-colorPicker-transport":"透明色にする",
+    "settingUI-colorPicker-transparent":"透明色にする",
     "settingUI-colorPicker-restoreDefault":"デフォルトに戻す",
     "settingUI-colorPicker-textColor":"文字色",
     "settingUI-colorPicker-background":"背景色",
@@ -19,11 +19,11 @@
   
     "bottomTweetButtons-settingTitle":"ツイート下ボタンの並び替え",
     "bottomTweetButtons-setting-visibleScrollBar":"ツイート下ボタンにスクロールバーを表示",
-    "bottomTweetButtons-setting-noneSpaceBottomTweet":"ツイートの内容の下にあ(ったりなかったりす)る空白を削除",
+    "bottomTweetButtons-setting-removeSpaceBottomTweet":"ツイートの内容の下にあ(ったりなかったりす)る空白を削除",
 
 
     "sidebarButton-settingTitle":"サイドバーの並び替え",
-    "sidebarButton-setting-smallerBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
+    "sidebarButton-setting-narrowBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
 
     "invisibleItems-settingTitle":"非表示設定",
     "invisibleItems-osusumeUsersOnTL":"タイムライン上のおすすめユーザー",
@@ -55,7 +55,7 @@
     "settingColors-blockingUnlock":"ブロック解除時のフォローボタン",
 
     "twitterIcon-settingTitle":"Twitterのアイコン",
-    "twitterIcon-nomal":"通常のアイコン",
+    "twitterIcon-normal":"通常のアイコン",
     "twitterIcon-invisible":"非表示",
     "twitterIcon-dog":"犬のアイコン",
     "twitterIcon-twitter":"Twitterのアイコン",
@@ -69,6 +69,6 @@
     "export-exportButtonCopy":"エクスポートした設定をコピー",
 
     "import-settingTitle":"インポート",
-    "import-importWrite":"インポートして追記する",
+    "import-importAppend":"インポートして追記する",
     "import-importReplace":"インポートして置き換える"
   }
