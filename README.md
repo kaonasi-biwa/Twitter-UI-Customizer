@@ -15,7 +15,8 @@ GitHub:
 - @Taka005 (ソースコードの整理)  
 - @Hibi-10000 (アメリカ英語の翻訳者)  
 - @KotoneFami (機能追加)  
-Crowdin  
+
+Crowdin:
 - @loading_yt (中国語の翻訳者)  
 - @nyanrus (韓国語の翻訳者)  
 
