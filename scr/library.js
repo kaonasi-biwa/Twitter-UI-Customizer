@@ -158,6 +158,14 @@ const TUICLibrary = {
     HTMLParseFunc:function(elem){
         return this.TUICParser.parseFromString(elem,"text/html")
     },
+    fetchI18n: async function() {
+        return new Promise(resolve => {
+            chrome.runtime.sendMessage({type: "getI18n"}, response => {
+                TUICI18N = JSON.parse(response);
+                resolve(TUICI18N);
+            });
+        });
+    },
     getI18n:function(elem){
         let lang = document.querySelector("html").getAttribute("lang")
         if(lang in TUICI18N && elem in TUICI18N[lang]){
