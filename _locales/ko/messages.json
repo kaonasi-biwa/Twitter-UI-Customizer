@@ -102,7 +102,7 @@
         "description": "設定画面の文章"
     },
     "optionContent2_4": {
-        "message": "※ 이 확장기능의 기본 설정은 2021/08/12 JST의 디자인 변경 전 디자인이 기준입니다.",
+        "message": "※ 이 확장기능의 기본 설정은 2021/08/12 KST의 디자인 변경 전 디자인이 기준입니다.",
         "description": "設定画面の文章"
     },
     "optionSpecialThanks": {
@@ -115,6 +115,10 @@
     },
     "optionSpecialThanksCrowdin": {
         "message": "Crowdin:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOther": {
+        "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanksTwitter": {
