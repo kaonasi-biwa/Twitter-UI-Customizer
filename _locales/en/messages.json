@@ -144,5 +144,9 @@
     "optionSpecialThanks_nyanrus": {
         "message": "Korean Translator",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
+    },
+    "optionSpecialThanks_CutterKnife_": {
+        "message": "Icon and Logo Author",
+        "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     }
 }
