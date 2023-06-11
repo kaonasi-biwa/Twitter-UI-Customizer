@@ -1,1 +1,40 @@
-{}
+{
+    "extensionName": {
+        "message": "Twitter UI Customizer",
+        "description": "拡張機能の名前"
+    },
+    "notificationsMessage": {
+        "message": "새로운 버전이 나왔어요.\n업데이트해주세요.\n$V1$→$V2$",
+        "description": "アップデート通知",
+        "placeholders": {
+            "V1": {
+                "content": "$1",
+                "example": "x.x.x (Extension)"
+            },
+            "V2": {
+                "content": "$2",
+                "example": "x.x.x (GitHub)"
+            }
+        }
+    },
+    "popupTitle": {
+        "message": "감사합니다!",
+        "description": "ポップアップのタイトル"
+    },
+    "popupContent1": {
+        "message": "이용해 주셔서 감사합니다!",
+        "description": "ポップアップの文章"
+    },
+    "optionSpecialThanks_KotoneFami": {
+        "message": "기능추가",
+        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
+    },
+    "optionSpecialThanks_loading_yt": {
+        "message": "중국어 번역",
+        "description": "設定画面のSpecial thanks(loading_ytさん)"
+    },
+    "optionSpecialThanks_nyanrus": {
+        "message": "한국어 번역",
+        "description": "設定画面のSpecial thanks(nyanrusさん)"
+    }
+}
