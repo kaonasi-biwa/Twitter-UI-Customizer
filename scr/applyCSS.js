@@ -43,6 +43,15 @@ function TUICCss() {
     --TUIC-sidebar-active-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)"};
 }
 
+/* セーフモード時の設定画面スタイル */
+#safemode > #TUIC_setting {
+    margin: 2em auto;
+    max-width: 600px;
+}
+#safemode > .r-135wba7 {
+    line-height: 1em;
+}
+
 /*未送信ツイートの編集*/
 .r-s8bhmr > .css-1dbjc4n > .r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4{
     background-color: var(--twitter-unsent-tweet-background) !important;
