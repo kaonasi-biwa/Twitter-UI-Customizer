@@ -12,12 +12,7 @@ function replaceRunningIcon(){
         }
 
             (async () => {
-                await (new Promise((resolve, reject) => {
-                    chrome.runtime.sendMessage({type:"getI18n"},(response) => {
-                        TUICI18N = JSON.parse(response);
-                        resolve();
-                    });
-                }))
+                await TUICLibrary.fetchI18n();
                 TUICRunFirst()
                 console.log(TUICLibrary.getI18n("@JapaneseLanguageName"))
                 chrome.runtime.sendMessage({type:"update", updateType: "openTwitter" });
