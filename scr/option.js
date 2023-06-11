@@ -378,11 +378,11 @@ ${this.safemodeReturnButton()}
 
 ${this.upDownList("visibleButtons", "bottomTweetButtons-settingTitle",
     this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
-    this.checkbox("bottomSpace",TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-noneSpaceBottomTweet", "otherBoolSetting"))
+    this.checkbox("bottomSpace",TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting"))
 }
         <br><br>
 ${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
-    this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-smallerBetweenButtons", "otherBoolSetting")
+    this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting")
 )}
 
 ${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",
@@ -415,7 +415,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("import-settingTitle")}</h2><br>
         <div class="TUIC_col_setting_container">
         <input class="TUICTextInput" type="text" id="TUICImportBox" >
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">${TUICLibrary.getI18n("import-importWrite")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">${TUICLibrary.getI18n("import-importAppend")}</button>
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportReplace">${TUICLibrary.getI18n("import-importReplace")}</button>
         </div>
     </div>
@@ -449,7 +449,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${id}"
              TUICColorType="${type}" class="TUICButtonColorCheck">
             <label for="${`${id}-${type}-check`
-            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transport")}</label><br>
+            }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transparent")}</label><br>
         </div>
     </div>
     <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n("settingUI-colorPicker-restoreDefault")}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}">${TUICData.resetIconSVG}</button>`

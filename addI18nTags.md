@@ -8,7 +8,7 @@
 ## 2.11.4
 - invisibleItems-discoverMore
 ## 2.11.0
-- bottomTweetButtons-setting-noneSpaceBottomTweet
+- bottomTweetButtons-setting-removeSpaceBottomTweet
 ## 2.10.3
 - sidebarButtons-verified-orgs-signup
 ## 2.10.1
@@ -16,7 +16,7 @@
 - export-exportButton
 - export-exportButtonCopy
 - import-settingTitle
-- import-importWrite
+- import-importAppend
 - import-importReplace
 ## 2.10.0
 - settingColors-settingTitle
@@ -28,7 +28,7 @@
 - twitterIcon-roundIcon
 ## 2.9.1
 - twitterIcon-settingTitle
-- twitterIcon-nomal
+- twitterIcon-normal
 - twitterIcon-invisible
 - twitterIcon-dog
 - twitterIcon-twitter

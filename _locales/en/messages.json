@@ -7,7 +7,7 @@
         "message": "Improve the customizability of your Twitter UI",
         "description": "拡張機能の説明"
     },
-    "notificationsMessage": {
+    "notificationMessage": {
         "message": "A new version is now available.\nPlease update.\n$V1$→$V2$",
         "description": "アップデート通知",
         "placeholders": {

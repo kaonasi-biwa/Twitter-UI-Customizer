@@ -18,7 +18,7 @@ const updateCheck = async () => {
       {
         type: "basic",
         title: chrome.i18n.getMessage("extensionName"),
-        message:chrome.i18n.getMessage("notificationsMessage",[extensionVersion.replace(/\r?\n/g, ''),githubVersion.replace(/\r?\n/g, '')]),
+        message:chrome.i18n.getMessage("notificationMessage",[extensionVersion.replace(/\r?\n/g, ''),githubVersion.replace(/\r?\n/g, '')]),
         iconUrl: "icon/icon128.png"
       });
     chrome.notifications.onClicked.addListener(updateNotification);

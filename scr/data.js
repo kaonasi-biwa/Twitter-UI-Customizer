@@ -358,7 +358,7 @@ const TUICData = {
   twitterIcon: {
     all: ["nomal", "invisible", "dog", "twitter", "custom"],
     i18n: {
-      "nomal": "twitterIcon-nomal",
+      "nomal": "twitterIcon-normal",
       "invisible": "twitterIcon-invisible",
       "dog": "twitterIcon-dog",
       "twitter": "twitterIcon-twitter",
