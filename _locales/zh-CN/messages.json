@@ -1,1 +1,100 @@
-{}
+{
+    "extensionName": {
+        "message": "Twitter UI Customizer",
+        "description": "拡張機能の名前"
+    },
+    "extensionDescription": {
+        "message": "提高Twitter用户界面的可定制性",
+        "description": "拡張機能の説明"
+    },
+    "notificationMessage": {
+        "message": "已有新版本，请更新。\n$V1$→$V2$",
+        "description": "アップデート通知",
+        "placeholders": {
+            "V1": {
+                "content": "$1",
+                "example": "x.x.x (Extension)"
+            },
+            "V2": {
+                "content": "$2",
+                "example": "x.x.x (GitHub)"
+            }
+        }
+    },
+    "popupTitle": {
+        "message": "谢谢了",
+        "description": "ポップアップのタイトル"
+    },
+    "popupContent1": {
+        "message": "谢谢你的使用",
+        "description": "ポップアップの文章"
+    },
+    "popupContent2": {
+        "message": "在Twitter上报告",
+        "description": "ポップアップの文章"
+    },
+    "popupContent3": {
+        "message": "错误和功能请求",
+        "description": "ポップアップの文章"
+    },
+    "popupButton1": {
+        "message": "Twitter UI Customizer的设置",
+        "description": "ポップアップのボタン"
+    },
+    "popupButton2": {
+        "message": "在安全模式下改变设置",
+        "description": "ポップアップのボタン"
+    },
+    "popupButton3": {
+        "message": "设置更新通知",
+        "description": "ポップアップのボタン"
+    },
+    "popupButton4": {
+        "message": "作者的Twitter(@kaonasi_biwa)",
+        "description": "ポップアップのボタン"
+    },
+    "optionTitle": {
+        "message": "设置和操作说明(Twitter UI Customizer)",
+        "description": "設定画面のタイトル"
+    },
+    "optionHeading1": {
+        "message": "Twitter UI Customizer的设置",
+        "description": "設定画面の見出し"
+    },
+    "optionHeading1_1": {
+        "message": "Twitter设置",
+        "description": "設定画面の見出し"
+    },
+    "optionContent1_1_1": {
+        "message": "(设置和隐私→辅助功能、显示和语言→显示)",
+        "description": "設定画面の文章"
+    },
+    "optionHeading1_2": {
+        "message": "设置更新通知:",
+        "description": "設定画面の見出し"
+    },
+    "optionContent1_2_1": {
+        "message": "浏览器启动时通知更新",
+        "description": "設定画面の文章"
+    },
+    "optionContent1_2_2": {
+        "message": "当图标被点击时通知更新",
+        "description": "設定画面の文章"
+    },
+    "optionContent1_2_3": {
+        "message": "当你启动Twitter时通知你的更新",
+        "description": "設定画面の文章"
+    },
+    "optionHeading2": {
+        "message": "如何操作Twitter UI Customizer",
+        "description": "設定画面の見出し"
+    },
+    "optionContent2_1": {
+        "message": "可以在上面的网址上更改设置",
+        "description": "設定画面の文章"
+    },
+    "optionContent2_2": {
+        "message": "不需要重启",
+        "description": "設定画面の文章"
+    }
+}
