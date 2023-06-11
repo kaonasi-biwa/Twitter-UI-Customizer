@@ -96,5 +96,65 @@
     "optionContent2_2": {
         "message": "不需要重启",
         "description": "設定画面の文章"
+    },
+    "optionContent2_3": {
+        "message": "你可以用 \"恢复到默认 \"按钮恢复到默认（在扩展程序中）",
+        "description": "設定画面の文章"
+    },
+    "optionContent2_4": {
+        "message": "（该扩展的默认值基于北京时间2021/8/12凌晨1:00设计变更前的设计）",
+        "description": "設定画面の文章"
+    },
+    "optionSpecialThanks": {
+        "message": "鸣谢",
+        "description": "設定画面のSpecial thanks"
+    },
+    "optionSpecialThanksGitHub": {
+        "message": "GitHub:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksCrowdin": {
+        "message": "Crowdin:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOther": {
+        "message": "Other:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksTwitter": {
+        "message": "(Twitter)",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanks_GrapeApple0": {
+        "message": "客户端名称显示和Twitter API所有者",
+        "description": "設定画面のSpecial thanks(GrapeApple0さん)"
+    },
+    "optionSpecialThanks_irhdevel": {
+        "message": "优秀的设计师",
+        "description": "設定画面のSpecial thanks(irhdevelさん)"
+    },
+    "optionSpecialThanks_Taka005": {
+        "message": "源代码的组织",
+        "description": "設定画面のSpecial thanks(Taka005さん)"
+    },
+    "optionSpecialThanks_Hibi_10000": {
+        "message": "美国英语翻译员",
+        "description": "設定画面のSpecial thanks(Hibi-10000さん)"
+    },
+    "optionSpecialThanks_KotoneFami": {
+        "message": "他们参与了增加功能",
+        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
+    },
+    "optionSpecialThanks_loading_yt": {
+        "message": "中文（简体）翻译员",
+        "description": "設定画面のSpecial thanks(loading_ytさん)"
+    },
+    "optionSpecialThanks_nyanrus": {
+        "message": "韩语翻译员",
+        "description": "設定画面のSpecial thanks(nyanrusさん)"
+    },
+    "optionSpecialThanks_CutterKnife_": {
+        "message": "图标和标志创建者",
+        "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     }
 }
