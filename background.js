@@ -43,8 +43,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 const update1 = async (updateType) => {
   updateID = updateType;
-  chrome.storage.sync.get("TUIC", (settingT) => {
-    setting = settingT.TUIC ?? { iconClick: true, runBrowser: true, openTwitter: true }
+  chrome.storage.sync.get("TUIC", async (settingT) => {
+    let isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com")
+    setting = settingT.TUIC ?? { iconClick: isWebstore, runBrowser: isWebstore, openTwitter: isWebstore }
     if (setting[updateID]) {
       updateCheck()
     }
