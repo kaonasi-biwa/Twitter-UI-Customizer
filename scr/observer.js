@@ -157,7 +157,7 @@ const TUICObserver = {
         },
         osusumeUser:function(){
             if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && location.href != "https://twitter.com/settings/device_follow" && !location.href.includes("/settings/")) {
-                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] > div > div > div > section > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div > div):not([aria-labelledby="modal-header"] > div > div > div > div > div > div):not([data-testid="primaryColumn"] > div > section > div > div > div):not([data-testid="DMDrawer"] *)`)
+                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`)
                 if (cells.length != 0) {
                     cells.forEach(function (elem) {
                         if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.getAttribute("TUIC_ARTICLE") != TUICLibrary.getClasses.getClass("TUICDidArticle")) {
