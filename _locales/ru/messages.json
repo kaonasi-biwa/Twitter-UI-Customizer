@@ -1,6 +1,18 @@
 {
+    "extensionName": {
+        "message": "Twitter UI Customizer",
+        "description": "拡張機能の名前"
+    },
+    "extensionDescription": {
+        "message": "Мы улучшаем возможности настройки пользовательского интерфейса Twitter!",
+        "description": "拡張機能の説明"
+    },
+    "popupContent3": {
+        "message": "Привет от Twitter!",
+        "description": "ポップアップの文章"
+    },
     "optionSpecialThanks_CutterKnife_": {
-        "message": "Создатель иконок/логотипов",
+        "message": "Создатель иконки/логотипа",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     }
 }
