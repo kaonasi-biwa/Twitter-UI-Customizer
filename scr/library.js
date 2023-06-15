@@ -148,6 +148,19 @@ const TUICLibrary = {
             return "light"
         }
     },
+    fontSizeClass:function(x1,x2,x3,x4,x5){
+        fontSize = document
+        .querySelector("html").style.fontSize.toString()
+        if(fontSize == "17px"){
+            return x4
+        }else if(fontSize == "18px"){
+            return x5
+        }else if(fontSize == "15px"){
+            return x3
+        }else if(fontSize == "14px"){
+            return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2
+        }
+    },
     TUICParser: new DOMParser(),
     HTMLParse:function(elem){
         return this.HTMLParseFunc(elem).querySelector("body > *")
