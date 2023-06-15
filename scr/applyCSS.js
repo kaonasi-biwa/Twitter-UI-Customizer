@@ -62,180 +62,76 @@ function TUICCss() {
 }
 
 /*フォローしていない人をフォロー*/
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8):not([data-testid$="-unblock"]){
+[data-testid$="-follow"]:not(:hover){
     background-color: var(--twitter-not-following-background) !important;
     border-color: var(--twitter-not-following-border) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8):not([data-testid$="-unblock"]) > .r-b88u0q{
+[data-testid$="-follow"]:not(:hover) > div{
     color: var(--twitter-not-following-color) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-42olwf:is(.r-jc7xae , .r-oelmt8){
+[data-testid$="-follow"]:hover{
     background-color: var(--twitter-willFollow-background) !important;
     border-color: var(--twitter-willFollow-border) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-42olwf:is(.r-jc7xae , .r-oelmt8) > .r-b88u0q{
+[data-testid$="-follow"]:hover > div{
     color: var(--twitter-willFollow-color) !important;
 }
-/*プロフィールでも*/
-.r-6gpygo:not([role="dialog"] .r-6gpygo) > [data-testid$="-follow"]:not(.r-jc7xae){
-    background-color: var(--twitter-not-following-background) !important;
-    border-color: var(--twitter-not-following-border) !important;
-}
-.r-6gpygo:not([role="dialog"] .r-6gpygo) > [data-testid$="-follow"]:not(.r-jc7xae) > .r-b88u0q{
-    color: var(--twitter-not-following-color) !important;
-}
-.r-6gpygo > .r-sdzlij.r-42olwf.r-jc7xae{
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
-}
-.r-6gpygo > .r-sdzlij.r-42olwf.r-jc7xae > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
-}
-/*画面上でも*/
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae):not([data-testid$="-unblock"]){
-    background-color: var(--twitter-not-following-background) !important;
-    border-color: var(--twitter-not-following-border) !important;
-}
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae):not([data-testid$="-unblock"]) > .r-b88u0q{
-    color: var(--twitter-not-following-color) !important;
-}
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf.r-jc7xae{
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
-}
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf.r-jc7xae > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
-}
-/*(アカウントのアイコンにマウス持ってったら出てくるやつでも)*/
-.r-1wtj0ep > .css-1dbjc4n > [data-testid$="-follow"].r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp):not([href="/settings/profile"]){
-    background-color: var(--twitter-not-following-background) !important;
-    border-color: var(--twitter-not-following-border) !important;
-}
-.r-1wtj0ep > .css-1dbjc4n > [data-testid$="-follow"].r-1qi8awa:not(.r-jc7xae):not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp):not([href="/settings/profile"]) > .r-b88u0q{
-    color: var(--twitter-not-following-color) !important;
-}
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-jc7xae:not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp){
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
-}
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-jc7xae:not(.r-1niwhzg):not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn):not(.r-7l9xyp) > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
-}
 /*フォロー中*/
-.r-19u6a5r > .r-4wgw6l.r-15ysp7h:not(.r-42olwf){
+[data-testid$="-unfollow"]:not(:hover){
     background-color: var(--twitter-following-background) !important;
     border-color: var(--twitter-following-border) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-15ysp7h:not(.r-42olwf) > .r-b88u0q{
+[data-testid$="-unfollow"]:not(:hover) > div{
     color: var(--twitter-following-color) !important;
 }
 
-.r-19u6a5r > .r-4wgw6l.r-15ysp7h.r-qqmkd0:not(.r-42olwf){
+[data-testid$="-unfollow"]:hover{
     background-color: var(--twitter-un-following-background) !important;
     border-color: var(--twitter-un-following-border) !important;
 }
-.r-19u6a5r > .r-4wgw6l.r-15ysp7h.r-qqmkd0:not(.r-42olwf) > .r-b88u0q{
-    color: var(--twitter-un-following-color) !important;
-}
-/*プロフィール画面でも*/
-.r-6gpygo > .r-ymttw5.r-1qi8awa:not(.r-42olwf){
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
-}
-.r-6gpygo > .r-ymttw5.r-1qi8awa:not(.r-42olwf) > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
-}
-
-.r-6gpygo > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf){
-    background-color: var(--twitter-un-following-background) !important;
-    border-color: var(--twitter-un-following-border) !important;
-}
-.r-6gpygo > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf) > .r-b88u0q{
-    color: var(--twitter-un-following-color) !important;
-}
-/*画面上でも*/
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa:not(.r-42olwf){
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
-}
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa:not(.r-42olwf) > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
-}
-
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf){
-    background-color: var(--twitter-un-following-background) !important;
-    border-color: var(--twitter-un-following-border) !important;
-}
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-ymttw5.r-1qi8awa.r-qqmkd0:not(.r-42olwf) > .r-b88u0q{
-    color: var(--twitter-un-following-color) !important;
-}
-/*上と同じように*/
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-1niwhzg:not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "]{
-    background-color: var(--twitter-following-background) !important;
-    border-color: var(--twitter-following-border) !important;
-}
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-1niwhzg:not(.r-qqmkd0):not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "] > .r-b88u0q{
-    color: var(--twitter-following-color) !important;
-}
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-qqmkd0:not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "]{
-    background-color: var(--twitter-un-following-background) !important;
-    border-color: var(--twitter-un-following-border) !important;
-}
-.r-1wtj0ep > .css-1dbjc4n > .r-1qi8awa.r-qqmkd0:not(.r-1peqgm7):not(.r-l5o3uw):not(.r-1vtznih):not(.r-c8f5pn)[aria-label*="フォロー中 "] > .r-b88u0q{
+[data-testid$="-unfollow"]:hover > div{
     color: var(--twitter-un-following-color) !important;
 }
 /*ブロック中*/
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
-[data-testid="UserCell"] .r-2yi16.r-lrvibr,
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):not(:hover){
+[data-testid$="-unblock"]:not(:hover){
     background-color: var(--twitter-blocking-background) !important;
     border-color: var(--twitter-blocking-border) !important;
 }
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
-[data-testid="UserCell"] .r-2yi16.r-lrvibr,
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):not(:hover) > .r-b88u0q{
+[data-testid$="-unblock"]:not(:hover) > div{
     color: var(--twitter-blocking-color) !important;
 }
 
 /* ブロック解除時 */
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
-[data-testid="UserCell"] .r-2yi16.r-lrvibr,
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):hover{
+[data-testid$="-unblock"]:hover{
     background-color: var(--twitter-blocking-unlock-background) !important;
     border-color: var(--twitter-blocking-unlock-border) !important;
 }
-:is(.r-6gpygo:not([role="dialog"] .r-6gpygo) > .r-sdzlij.r-42olwf[data-testid$="-unblock"]:not(.r-jc7xae).r-1qi8awa,
-[data-testid="UserCell"] .r-2yi16.r-lrvibr,
-.r-19u6a5r > .r-4wgw6l.r-42olwf:not(.r-jc7xae):not(.r-oelmt8)[data-testid$="-unblock"],
-.r-s8bhmr > div > .css-1dbjc4n > .css-1dbjc4n > .r-sdzlij.r-42olwf:not(.r-jc7xae)[data-testid$="-unblock"]):hover > .r-b88u0q{
+[data-testid$="-unblock"]:hover > div{
     color: var(--twitter-blocking-unlock-color) !important;
 }
 
 /*プロフィールを編集*/
-.r-1h0z5md > [href="/settings/profile"].r-1qi8awa{
+[data-testid="editProfileButton"]{
     background-color: var(--twitter-profile-background) !important;
     border-color: var(--twitter-profile-border) !important;
 }
-.r-1h0z5md > [href="/settings/profile"].r-1qi8awa > .r-b88u0q{
+[data-testid="editProfileButton"] > div{
     color: var(--twitter-profile-color) !important;
 }
 /*プロフィールを保存*/
-.r-1ye8kvj > .r-s8bhmr > .r-15ysp7h{
+[data-testid="Profile_Save_Button"]{
     background-color: var(--twitter-profile-save-background) !important;
     border-color: var(--twitter-profile-save-border) !important;
 }
-.r-1ye8kvj > .r-s8bhmr > .r-15ysp7h > .r-b88u0q{
+[data-testid="Profile_Save_Button"] > div{
     color: var(--twitter-profile-save-color) !important;
 }
 /*誕生日を設定*/
-.r-11c0sde > .r-42olwf.r-1ps3wis{
+[data-testid="confirmationSheetConfirm"]{
     background-color: var(--twitter-birthday-background) !important;
     border-color: var(--twitter-birthday-border) !important;
 }
-.r-11c0sde > .r-42olwf.r-1ps3wis > .r-b88u0q{
+[data-testid="confirmationSheetConfirm"] > div{
     color: var(--twitter-birthday-color) !important;
 }
 
