@@ -41,6 +41,9 @@ function TUICCss() {
 
     --TUIC-sidebar-hover-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)"};
     --TUIC-sidebar-active-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)"};
+    --TUIC-sidebar-focus-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)"};
+
+    --TUIC-detail-border:${TUICData.styleColor[backgroundColor].detailBorder};
 }
 
 /* セーフモード時の設定画面スタイル */
@@ -245,11 +248,11 @@ scrollbar-width:thin;
     padding-left:10px;
     padding-right:10px;
     padding-top:10px;
-    background-color:${TUICData.styleColor[backgroundColor].containerBackground};
+    background-color:var(--TUIC-container-background);
 }
 .TUICDetails:not([open]){
     padding-bottom:10px;
-    border-color:${TUICData.styleColor[backgroundColor].detailBorder} !important;
+    border-color:var(--TUIC-detail-border) !important;
 }
 .TUIC_icon_button_con {
     border-radius: 9999px;
@@ -287,7 +290,7 @@ scrollbar-width:thin;
     /*color: #71767b !important;*/
 }
 .TUIC_setting_button:hover {
-    background: ${TUICData.styleColor[backgroundColor].containerBackground};
+    background: var(--TUIC-container-background);
 }
 .TUIC_setting_button_width{
     width:100%;
@@ -313,6 +316,15 @@ scrollbar-width:thin;
 
 .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg{
     color:rgb(29,155,240)
+}
+
+
+[data-focusvisible-polyfill] .TUIC_ButtonHover > svg{
+    color:rgb(29,155,240)
+}
+[data-focusvisible-polyfill] .TUIC_ButtonHover > div{
+    box-shadow:rgba(142,204,258) 0px 0px 0px 2px inset;
+    background-color:rgba(29,155,240,0.1)
 }
 #TUIC_invisible,#TUIC_visible{
     background:transparent;
@@ -510,7 +522,7 @@ display:none !important;
     width:64px;
     height:64px;
     border:1px solid;
-    border-color:${TUICData.styleColor[backgroundColor].detailBorder} !important;
+    border-color:var(--TUIC-detail-border) !important;
 }
 
 .TUICSidebarSelected > div > [dir=\"ltr\"]{
@@ -524,6 +536,9 @@ display:none !important;
     background-color:var(--TUIC-sidebar-hover-color);
  }
 
+ .TUICSidebarButton[data-focusvisible-polyfill] > div{
+    box-shadow: var(--TUIC-sidebar-focus-color) 0px 0px 0px 2px
+ }
  .TUICSidebarButton:active > div{
     background-color:var(--TUIC-sidebar-active-color);
  }
