@@ -205,11 +205,9 @@ function TUICCss() {
 }
 /*設定用項目のコンテナ*/
 .TUIC_col_setting_container {
-    background: var(--TUIC-container-background);
     margin-top: 8px;
     padding: 10px 14px;
     border-radius: 14px;
-    margin-bottom: 1em;
 }
 
 .TUIC_col_setting_container_2 {
@@ -238,6 +236,21 @@ scrollbar-width:thin;
 .TUIC_setting_text{
     color: var(--twitter-TUIC-color);
 }
+
+.TUICDetails{
+    margin-bottom:20px;
+    border:2px solid;
+    border-color:rgba(0,0,0,0) !important;
+    border-radius:5px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    background-color:${TUICData.styleColor[backgroundColor].containerBackground};
+}
+.TUICDetails:not([open]){
+    padding-bottom:10px;
+    border-color:${TUICData.styleColor[backgroundColor].detailBorder} !important;
+}
 .TUIC_icon_button_con {
     border-radius: 9999px;
     background: transparent;
@@ -265,13 +278,16 @@ scrollbar-width:thin;
 }
 .TUIC_setting_button{
     background: transparent;
-    border-color: var(--twitter-TUIC-color);
+    /*border-color: var(--twitter-TUIC-color);*/
+    border-color: #71767b !important;
     border-radius: 9999px;
     transition: .3s;
     cursor: pointer;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .3);
+    /*color: #71767b !important;*/
 }
 .TUIC_setting_button:hover {
-    background: #ffffff40;
+    background: ${TUICData.styleColor[backgroundColor].containerBackground};
 }
 .TUIC_setting_button_width{
     width:100%;
@@ -493,6 +509,8 @@ display:none !important;
     display:inline-block;
     width:64px;
     height:64px;
+    border:1px solid;
+    border-color:${TUICData.styleColor[backgroundColor].detailBorder} !important;
 }
 
 .TUICSidebarSelected > div > [dir=\"ltr\"]{

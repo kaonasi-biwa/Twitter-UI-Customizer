@@ -362,8 +362,9 @@ ${this.safemodeReturnButton()}
 
     <div>
         <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("settingColors-settingTitle")}</h2><br>
-        <div id="colorSettingList" class="TUIC_col_setting_container">
+        <details class="TUICDetails">
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("settingColors-settingTitle")}</summary>
+            <div id="colorSettingList" class="TUIC_col_setting_container">
             <div style="display:flex;">
                 <input type="radio" name="TUICColorType" value="buttonColor" id="TUICColorType-Base" class="TUICColorSettingRadio" checked>
                 <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Base" style="background: linear-gradient(125deg,#ffffff 0%,#ffffff 42.5%,#000000 42.5%,#000000 100%);"><span><span>${TUICLibrary.getI18n("settingColors-select-base")}</span></span></label>
@@ -374,13 +375,14 @@ ${this.safemodeReturnButton()}
             </div>
             <br><br>
             ${this.colorsList()}
-        </div>
+            </div>
+        </details>
+
 
 ${this.upDownList("visibleButtons", "bottomTweetButtons-settingTitle",
     this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
     this.checkbox("bottomSpace",TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting"))
 }
-        <br><br>
 ${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
     this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting")
 )}
@@ -391,33 +393,39 @@ ${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",
   this.uploadImageFile("twitterIcon-usedIcon","IconImg")
 )}
 
-        <br><br>
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
-        <br><br>
+        <br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
         <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("customCSS-settingTitle")}</h2><br>
+
+        <details class="TUICDetails">
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("customCSS-settingTitle")}</summary>
         <div class="TUIC_col_setting_container">
             <form>
                 <textarea id="css_textarea"></textarea>
             </form>
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">${TUICLibrary.getI18n("customCSS-save")}</button>
         </div>
+        </details>
 
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("export-settingTitle")}</h2><br>
+        <details class="TUICDetails">
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("export-settingTitle")}</summary>
         <div class="TUIC_col_setting_container">
         <input class="TUICTextInput" type="text" id="TUICExportBox" readonly >
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport">${TUICLibrary.getI18n("export-exportButton")}</button>
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExportCopy">${TUICLibrary.getI18n("export-exportButtonCopy")}</button>
         </div>
+        </details>
 
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n("import-settingTitle")}</h2><br>
+        <details class="TUICDetails">
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("import-settingTitle")}</summary>
         <div class="TUIC_col_setting_container">
         <input class="TUICTextInput" type="text" id="TUICImportBox" >
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">${TUICLibrary.getI18n("import-importAppend")}</button>
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportReplace">${TUICLibrary.getI18n("import-importReplace")}</button>
         </div>
+        </details>
     </div>
 </div>
 
@@ -491,11 +499,13 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",e
             TUICInvisibleCheckBox += this.checkbox(i, TUICPref[id][i], TUICData[id].i18n[i], type)
         }
         return `
-          <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2><br>
+        <details class="TUICDetails">
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
           <div class="TUIC_col_setting_container">
               ${TUICInvisibleCheckBox}
           </div>
           <br>
+        </details>
           `
     },
     radioButton:function(id,valueName,value,name,type){
@@ -512,13 +522,14 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",e
             TUICInvisibleRadioBox += this.radioButton(id,i, TUICPref[id] == i, TUICData[id].i18n[i], type)
         }
         return `
-        <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2><br>
+        <details class="TUICDetails">
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
         <div class="TUIC_col_setting_container">
             ${TUICInvisibleRadioBox}
             ${option}
         </div>
-        <br>`
+        <br>
+        </details>`
     },
     iconButton: function(src, btnAction, tooltiptag){
       return `<button class="TUIC_icon_button_con ${btnAction}" title="${TUICLibrary.getI18n(tooltiptag)}">${src}</button>`
@@ -537,7 +548,8 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",e
           {iconSrc: TUICData.resetIconSVG, btnAction: "TUIC_up_down_list_to_default", tooltiptag: "settingUI-upDownList-restoreDefault"},
         ]
         return `
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h2>
+<details class="TUICDetails">
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
 
         <div class="TUIC_col_setting_container">
             <div style="display:flex;" TUICUDBox="${id}" TUICSelectedItem="">
@@ -564,6 +576,8 @@ ${TUICVisibleButtons}
             <br>
             ${option}
         </div>
+        <br>
+</details>
 `
     },
     //アップダウンリストの内容(id:設定のID)
