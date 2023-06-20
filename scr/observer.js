@@ -87,6 +87,11 @@ const TUICObserver = {
                             moveElem =TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]())
                             moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                             moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i]
+                            moveElem.addEventListener("keydown", (e) => {
+                                if( e.keyCode === 13 ){
+                                    TUICData.sidebarButtons.buttonFunctions[i]
+                                }
+                            });
                             bannerRoot.appendChild(moveElem)
                         }
                     }

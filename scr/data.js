@@ -147,12 +147,23 @@ const TUICData = {
     buttonElement: {
       "boolkmark": function () {
         let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]())
+        elem.children[0].children[0].addEventListener("keydown", (e) => {
+          if( e.keyCode === 13 ){
+            TUICData.visibleButtons.buttonFunction["boolkmark"]({currentTarget:e.target.parentElement})
+          }
+      });
         elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["boolkmark"])
         return elem
       },
       "url-copy": function () {
         let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"]())
         elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["url-copy"])
+        elem.children[0].children[0].addEventListener("keydown", (e) => {
+          if( e.keyCode === 13 ){
+            console.log(e.target)
+            TUICData.visibleButtons.buttonFunction["url-copy"]({currentTarget:e.target.parentElement})
+          }
+      });
         return elem
       }
     },
@@ -182,7 +193,7 @@ const TUICData = {
     "html": {
       "__base":(id,svg) => {
         return `
-        <a id="TUICSidebar_${id}" role="link" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
+        <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl","r-q81ovl","r-xyw6el","r-kq9wsh","r-1slz7xr")}">
             <div class="css-1dbjc4n">
               <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
