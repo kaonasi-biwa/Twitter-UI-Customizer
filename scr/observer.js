@@ -89,7 +89,7 @@ const TUICObserver = {
                             moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i]
                             moveElem.addEventListener("keydown", (e) => {
                                 if( e.keyCode === 13 ){
-                                    TUICData.sidebarButtons.buttonFunctions[i]
+                                    TUICData.sidebarButtons.buttonFunctions[i]({currentTarget:e.target.parentElement})
                                 }
                             });
                             bannerRoot.appendChild(moveElem)
