@@ -490,6 +490,7 @@ height:8px
 display:none !important;
 }
 .TUICUploadedImg{
+    display:inline-block;
     width:64px;
     height:64px;
 }

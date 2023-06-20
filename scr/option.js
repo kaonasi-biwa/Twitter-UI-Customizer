@@ -585,6 +585,6 @@ ${TUICVisibleButtons}
         return `<h3 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h3><br>
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" TUICImgID="${id}" />
         <p class="TUIC_setting_text">${TUICLibrary.getI18n("twitterIcon-nowIcon")}</p>
-        <img id="TUICIcon_${id}" class="TUICUploadedImg">`
+        <span id="TUICIcon_${id}" class="TUICUploadedImg">`
     }
 }
