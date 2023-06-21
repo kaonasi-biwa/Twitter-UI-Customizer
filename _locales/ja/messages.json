@@ -158,5 +158,9 @@
     "optionSpecialThanks_CutterKnife_": {
       "message": "アイコン・ロゴの作成者",
       "description": "設定画面のSpecial thanks(CutterKnife_さん)"
+    },
+    "optionSpecialThanks_enthropyreg": {
+      "message": "ロシア語の翻訳者",
+      "description": "設定画面のSpecial thanks(enthropyregさん)"
     }
   }
