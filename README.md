@@ -22,7 +22,8 @@ GitHub:
 
 Crowdin:
 - @loading_yt (中国語の翻訳者)  
-- @nyanrus (韓国語の翻訳者)  
+- @nyanrus (韓国語の翻訳者)
+- @enthropyreg (ロシア語の翻訳者) 
 
 その他
 - @CutterKnife_ / Twitter  **(アイコン・ロゴの作成者)**
