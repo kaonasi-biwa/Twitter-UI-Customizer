@@ -178,17 +178,13 @@ const TUICObserver = {
                             }
                             if (cellElement != null) cellElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         }
-                        if(TUICPref.invisibleItems["discoverMore"] && elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.[0]?.[0]?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
-                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
-                            elem.nextElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
-                        }
                     })
                 }
             }
             if(TUICPref.invisibleItems["discoverMore"] &&window.location.pathname.includes("/status/") && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null){
                 const cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"])`)
                 for(const elem of cells){
-                    if(TUICPref.invisibleItems["discoverMore"] && elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
+                    if(elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         let elem2 =elem.nextElementSibling
                         while(elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0){
