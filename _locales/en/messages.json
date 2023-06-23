@@ -156,5 +156,9 @@
     "optionSpecialThanks_CutterKnife_": {
         "message": "Icon and Logo Author",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
+    },
+    "optionSpecialThanks_enthropyreg": {
+        "message": "Russian Translator",
+        "description": "設定画面のSpecial thanks(enthropyregさん)"
     }
 }
