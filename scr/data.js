@@ -124,7 +124,7 @@ const TUICData = {
     },
     buttonFunction: {
       "boolkmark": function (e) {
-        e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"]).click();
+        e.click();
         document.querySelector(
           `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
                 [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
@@ -133,37 +133,39 @@ const TUICData = {
         ).parentNode.parentNode.parentNode.parentNode.click();
       },
       "url-copy": function (e) {
-        let shareButtonClick = e.currentTarget.parentElement.parentElement.querySelector(TUICData.visibleButtons.selectors["share-button"])
-        shareButtonClick.click()
+        e.click()
         let urlCopyButton = document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
                 [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`)
         if (urlCopyButton == null) {
-          shareButtonClick.click()
+          e.click()
         } else {
           urlCopyButton.parentNode.parentNode.parentNode.parentNode.click()
         }
       }
     },
     buttonElement: {
-      "boolkmark": function () {
+      "boolkmark": function (val) {
         let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]())
         elem.children[0].children[0].addEventListener("keydown", (e) => {
           if( e.keyCode === 13 ){
-            TUICData.visibleButtons.buttonFunction["boolkmark"]({currentTarget:e.target.parentElement})
+            TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
           }
-      });
-        elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["boolkmark"])
+        });
+        elem.children[0].addEventListener("click", (e) => {
+          TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
+        })
         return elem
       },
-      "url-copy": function () {
+      "url-copy": function (val) {
         let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"]())
-        elem.children[0].addEventListener("click", TUICData.visibleButtons.buttonFunction["url-copy"])
         elem.children[0].children[0].addEventListener("keydown", (e) => {
           if( e.keyCode === 13 ){
-            console.log(e.target)
-            TUICData.visibleButtons.buttonFunction["url-copy"]({currentTarget:e.target.parentElement})
+            TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
           }
-      });
+        });
+        elem.children[0].addEventListener("click", (e) => {
+          TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
+        })
         return elem
       }
     },
