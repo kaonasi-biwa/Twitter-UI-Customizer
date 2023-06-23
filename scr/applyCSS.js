@@ -69,14 +69,14 @@ function TUICCss() {
     background-color: var(--twitter-not-following-background) !important;
     border-color: var(--twitter-not-following-border) !important;
 }
-[data-testid$="-follow"]:not(:hover) > div{
+[data-testid$="-follow"]:not(:hover) > :is(div,span){
     color: var(--twitter-not-following-color) !important;
 }
 [data-testid$="-follow"]:hover{
     background-color: var(--twitter-willFollow-background) !important;
     border-color: var(--twitter-willFollow-border) !important;
 }
-[data-testid$="-follow"]:hover > div{
+[data-testid$="-follow"]:hover > :is(div,span){
     color: var(--twitter-willFollow-color) !important;
 }
 /*フォロー中*/
@@ -84,7 +84,7 @@ function TUICCss() {
     background-color: var(--twitter-following-background) !important;
     border-color: var(--twitter-following-border) !important;
 }
-[data-testid$="-unfollow"]:not(:hover) > div{
+[data-testid$="-unfollow"]:not(:hover) > :is(div,span){
     color: var(--twitter-following-color) !important;
 }
 
@@ -92,7 +92,7 @@ function TUICCss() {
     background-color: var(--twitter-un-following-background) !important;
     border-color: var(--twitter-un-following-border) !important;
 }
-[data-testid$="-unfollow"]:hover > div{
+[data-testid$="-unfollow"]:hover > :is(div,span){
     color: var(--twitter-un-following-color) !important;
 }
 /*ブロック中*/
@@ -100,7 +100,7 @@ function TUICCss() {
     background-color: var(--twitter-blocking-background) !important;
     border-color: var(--twitter-blocking-border) !important;
 }
-[data-testid$="-unblock"]:not(:hover) > div{
+[data-testid$="-unblock"]:not(:hover) > :is(div,span){
     color: var(--twitter-blocking-color) !important;
 }
 
@@ -109,7 +109,7 @@ function TUICCss() {
     background-color: var(--twitter-blocking-unlock-background) !important;
     border-color: var(--twitter-blocking-unlock-border) !important;
 }
-[data-testid$="-unblock"]:hover > div{
+[data-testid$="-unblock"]:hover > :is(div,span){
     color: var(--twitter-blocking-unlock-color) !important;
 }
 
@@ -118,7 +118,7 @@ function TUICCss() {
     background-color: var(--twitter-profile-background) !important;
     border-color: var(--twitter-profile-border) !important;
 }
-[data-testid="editProfileButton"] > div{
+[data-testid="editProfileButton"] > :is(div,span){
     color: var(--twitter-profile-color) !important;
 }
 /*プロフィールを保存*/
@@ -126,7 +126,7 @@ function TUICCss() {
     background-color: var(--twitter-profile-save-background) !important;
     border-color: var(--twitter-profile-save-border) !important;
 }
-[data-testid="Profile_Save_Button"] > div{
+[data-testid="Profile_Save_Button"] > :is(div,span){
     color: var(--twitter-profile-save-color) !important;
 }
 /*誕生日を設定*/
@@ -134,7 +134,7 @@ function TUICCss() {
     background-color: var(--twitter-birthday-background) !important;
     border-color: var(--twitter-birthday-border) !important;
 }
-[data-testid="confirmationSheetConfirm"] > div{
+[data-testid="confirmationSheetConfirm"] > :is(div,span){
     color: var(--twitter-birthday-color) !important;
 }
 
