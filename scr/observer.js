@@ -138,7 +138,7 @@ const TUICObserver = {
                             if (i in bar_item) {
                                 div = bar_item[i]
                             } else if (i in TUICData.visibleButtons.buttonElement) {
-                                div = TUICData.visibleButtons.buttonElement[i]()
+                                div = TUICData.visibleButtons.buttonElement[i](bar_base)
                             }
                             if (div != -1) {
                                 if ((bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null) && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement())
