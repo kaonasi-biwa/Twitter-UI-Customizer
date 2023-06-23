@@ -7,8 +7,8 @@ const TUICData = {
       i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy","userBlock":"bottomTweetButtons-userBlock","userMute":"bottomTweetButtons-userMute","quoteTweet":"bottomTweetButtons-quoteTweet" }
     },
     sidebarButtons: {
-      all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu", "topics", "lists", "circles","drafts","connect","communitynotes","verified-choose"],
-      i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles", "drafts": "sidebarButtons-drafts", "connect": "sidebarButtons-connect","communitynotes": "sidebarButtons-communitynotes","verified-choose":"sidebarButtons-verified-choose" }
+      all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu", "topics", "lists", "circles","drafts","connect","communitynotes","verified-choose","display","muteAndBlock"],
+      i18n: { "home": "sidebarButtons-home", "explore": "sidebarButtons-explore", "communities": "sidebarButtons-communities", "notifications": "sidebarButtons-notifications", "messages": "sidebarButtons-messages", "bookmarks": "sidebarButtons-bookmarks", "twiter-blue": "sidebarButtons-twitterBlue", "profile": "sidebarButtons-profile", "moremenu": "sidebarButtons-moremenu", "topics": "sidebarButtons-topics", "lists": "sidebarButtons-lists", "circles": "sidebarButtons-circles", "drafts": "sidebarButtons-drafts", "connect": "sidebarButtons-connect","communitynotes": "sidebarButtons-communitynotes","verified-choose":"sidebarButtons-verified-choose","display":"sidebarButtons-display","muteAndBlock":"sidebarButtons-muteAndBlock" }
     },
     colors: {
       id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following","blocking","blocking-unlock", "profile", "profile-save", "birthday"],
@@ -261,7 +261,9 @@ const TUICData = {
       "drafts":"#TUICSidebar_drafts",
       "connect":"#TUICSidebar_connect",
       "communitynotes":`[href="/i/communitynotes"]`,
-      "verified-choose":`[href="/i/verified-choose"]`
+      "verified-choose":`[href="/i/verified-choose"]`,
+      "display":"#TUICSidebar_display",
+      "muteAndBlock":"#TUICSidebar_muteAndBlock"
     },
     "html": {
       "__base":(id,svg) => {
@@ -296,7 +298,13 @@ const TUICData = {
       },
       "connect": function () {
         return TUICData.sidebarButtons.html.__base("connect",`<path d="M12 3.786c-4.556 0-8.25 3.694-8.25 8.25s3.694 8.25 8.25 8.25c1.595 0 3.081-.451 4.341-1.233l1.054 1.7c-1.568.972-3.418 1.534-5.395 1.534-5.661 0-10.25-4.589-10.25-10.25S6.339 1.786 12 1.786s10.25 4.589 10.25 10.25c0 .901-.21 1.77-.452 2.477-.592 1.731-2.343 2.477-3.917 2.334-1.242-.113-2.307-.74-3.013-1.647-.961 1.253-2.45 2.011-4.092 1.78-2.581-.363-4.127-2.971-3.76-5.578.366-2.606 2.571-4.688 5.152-4.325 1.019.143 1.877.637 2.519 1.342l1.803.258-.507 3.549c-.187 1.31.761 2.509 2.079 2.629.915.083 1.627-.356 1.843-.99.2-.585.345-1.224.345-1.83 0-4.556-3.694-8.25-8.25-8.25zm-.111 5.274c-1.247-.175-2.645.854-2.893 2.623-.249 1.769.811 3.143 2.058 3.319 1.247.175 2.645-.854 2.893-2.623.249-1.769-.811-3.144-2.058-3.319z"></path>`)
-      }
+      },
+      "display": function () {
+        return TUICData.sidebarButtons.html.__base("display",`<path d="M20 12h2v6.5c0 1.38-1.12 2.5-2.5 2.5h-15C3.12 21 2 19.88 2 18.5v-13C2 4.12 3.12 3 4.5 3H11v2H4.5c-.28 0-.5.22-.5.5v13c0 .28.22.5.5.5h15c.27 0 .5-.22.5-.5V12zm2.31-6.78l-6.33 7.18c-.2 2.02-1.91 3.6-3.98 3.6H8v-4c0-2.07 1.58-3.78 3.6-3.98l7.18-6.33c.99-.88 2.49-.83 3.43.1.93.94.98 2.44.1 3.43zm-1.52-2.01c-.19-.19-.49-.2-.69-.02l-6.08 5.36c.59.35 1.08.84 1.43 1.43l5.36-6.08c.18-.2.17-.5-.02-.69z"></path>`)
+      },
+      "muteAndBlock": function () {
+        return TUICData.sidebarButtons.html.__base("muteAndBlock",`<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"></path>`)
+      },
     },
     "buttonClickInMoreMenu": (e, selector) => {
       let moreMenu = e.currentTarget.parentElement.parentElement.parentElement.querySelector(`[aria-haspopup] > div > div`)
@@ -362,6 +370,26 @@ const TUICData = {
       },
       "connect": function (e) {
         TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/connect_people"]`)
+      },
+      "display":async function(e){
+        let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`)
+        if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+        setTimeout(async () => {
+          document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click()
+          document.querySelector(`[href="/i/display"]`)?.click()
+        }, 150)
+      },
+      "muteAndBlock": async function(e){
+        if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
+          let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`)
+          if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+          setTimeout(async () => {
+            document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click()
+            document.querySelector(`[href="/settings"]`)?.click()
+            await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`)
+            await TUICData.sidebarButtons.waitSetElement(`[href="/settings/mute_and_block"]`)
+          }, 150)
+        }
       }
     },
     "tuicButtonUrl": {
@@ -370,7 +398,9 @@ const TUICData = {
       "circles": `/i/circles/`,
       "communities": "/communities",
       "connect":"/i/connect_people",
-      "drafts":"/compose/tweet/unsent/"
+      "drafts":"/compose/tweet/unsent/",
+      "display":"/i/display",
+      "muteAndBlock":"/settings/mute_and_block"
     }
   },
   invisibleItems: {
