@@ -307,22 +307,22 @@ scrollbar-width:thin;
     display: none !important;
 }
 
-.TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div{
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div{
     background-color:rgba(29,155,240,0.1)
 }
-.TUIC_ButtonHover2:Active > .TUIC_ButtonHover > div{
+[tabindex="0"] > .TUIC_ButtonHover2:Active > .TUIC_ButtonHover > div{
     background-color:rgba(29,155,240,0.2)
 }
 
-.TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg{
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg{
     color:rgb(29,155,240)
 }
 
 
-[data-focusvisible-polyfill] .TUIC_ButtonHover > svg{
+[tabindex="0"] > .TUICButtonUnderTweet [data-focusvisible-polyfill] .TUIC_ButtonHover > svg{
     color:rgb(29,155,240)
 }
-[data-focusvisible-polyfill] .TUIC_ButtonHover > div{
+[tabindex="0"] > .TUICButtonUnderTweet [data-focusvisible-polyfill] .TUIC_ButtonHover > div{
     box-shadow:rgba(142,204,258) 0px 0px 0px 2px inset;
     background-color:rgba(29,155,240,0.1)
 }

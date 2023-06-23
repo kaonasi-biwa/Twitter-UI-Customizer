@@ -18,9 +18,9 @@ const TUICOptionHTML = {
         for (const elem in this.eventList) {
             listItem = this.eventList[elem]
             if (listItem.single) {
-                document.querySelector(elem).addEventListener(listItem.type, listItem.function)
+                root.querySelector(elem)?.addEventListener(listItem.type, listItem.function)
             } else {
-                for (let elm of document.querySelectorAll(elem)) {
+                for (let elm of root.querySelectorAll(elem)) {
                     elm.addEventListener(listItem.type, listItem.function);
                 }
             }
@@ -203,21 +203,23 @@ const TUICOptionHTML = {
                 parentBox.setAttribute("TUICSelectedItem","")
                 let ListItem = TUICOptionHTML.upDownListItem(settingId)
 
-                while(leftBox.childNodes.length != 0){
-                    leftBox.childNodes[0].remove()
-                }
                 for( let elem of TUICLibrary.HTMLParseAll(ListItem[0])){
                     leftBox.appendChild(elem)
                 }
-                while(rightBox.childNodes.length != 0){
-                    rightBox.childNodes[0].remove()
+                for(i = 0;i < leftBox.childNodes.length;i++){
+                    leftBox.childNodes[0].remove()
                 }
+
                 for( let elem of TUICLibrary.HTMLParseAll(ListItem[1])){
                     rightBox.appendChild(elem)
 
                 }
+                for(i = 0;i < rightBox.childNodes.length;i++){
+                    rightBox.childNodes[0].remove()
+                }
 
                 TUICOptionHTML.upDownListSetting(parentBox)
+                TUICOptionHTML.eventHandle(parentBox)
             },
             "single": false
         },
