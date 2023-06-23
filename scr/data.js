@@ -3,8 +3,8 @@ const TUICData = {
   defaultPref: { "buttonColor": {}, "buttonColorLight": {}, "buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false, "twitter-pro-promotion-btn": false,"discoverMore":false,"verified-rSidebar":false,"subscribe-profile":false,"subscribe-tweets":false }, "otherBoolSetting": { "bottomScroll": false, "smallerSidebarContent": true, "roundIcon": true, "bottomSpace": false }, "clientInfo": { "clientInfoVisible": false }, "twitterIcon": "nomal" },
   settings: {
     visibleButtons: {
-      all: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
-      i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy" }
+      all: ["reply-button", "retweet-button","quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy","userBlock","userMute"],
+      i18n: { "reply-button": "bottomTweetButtons-replay", "retweet-button": "bottomTweetButtons-retweet", "like-button": "bottomTweetButtons-like", "share-button": "bottomTweetButtons-share", "tweet_analytics": "bottomTweetButtons-tweetAnalytics", "boolkmark": "bottomTweetButtons-bookmark", "url-copy": "bottomTweetButtons-urlCopy","userBlock":"bottomTweetButtons-userBlock","userMute":"bottomTweetButtons-userMute","quoteTweet":"bottomTweetButtons-quoteTweet" }
     },
     sidebarButtons: {
       all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu", "topics", "lists", "circles","drafts","connect","communitynotes","verified-choose"],
@@ -80,17 +80,20 @@ const TUICData = {
       "tweet_analytics": "[aria-label*=\"ツイートアナリティクスを表示\"],[aria-label*=\"Breathnaigh ar anailísíocht an Tweet\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"عرض تحليلات Twitter\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Visualizza statistiche Tweet\"],[aria-label*=\"Lihat analitik Tweet\"],[aria-label*=\"Переглянути аналітику твіта\"],[aria-label*=\"View Tweet analytics\"],[aria-label*=\"Tweet-analyses bekijken\"],[aria-label*=\"Mostra les analítiques del tuit\"],[aria-label*=\"Ver análises do chío\"],[aria-label*=\"ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ\"],[aria-label*=\"Προβολή στοιχείων ανάλυσης Tweet\"],[aria-label*=\"ટ્વીટ વિશ્લેષણ જુઓ\"],[aria-label*=\"Prikaži analitičke podatke o tweetovima\"],[aria-label*=\"Visa Tweet-statistik\"],[aria-label*=\"Ver estadísticas del Tweet\"],[aria-label*=\"Zobraziť štatistiku Tweetu\"],[aria-label*=\"Погледај аналитику твита\"],[aria-label*=\"ดูการวิเคราะห์ทวีต\"],[aria-label*=\"கீச்சுப் பகுப்பாய்வைக் காட்டு\"],[aria-label*=\"Zobrazit analýzu tweetů\"],[aria-label*=\"Vis Tweet-statistik\"],[aria-label*=\"Tweet-Statistiken anzeigen\"],[aria-label*=\"Tweet istatistiklerini görüntüle\"],[aria-label*=\"Se tweetstatistikk\"],[aria-label*=\"Ikusi txioen analisiak\"],[aria-label*=\"Tweet-elemzések megtekintése\"],[aria-label*=\"ट्वीट विश्लेषण देखें\"],[aria-label*=\"Tingnan ang analytics ng Tweet\"],[aria-label*=\"Näytä twiitin tilastot\"],[aria-label*=\"Voir les statistiques des Tweets\"],[aria-label*=\"Преглед на статистиката за туита\"],[aria-label*=\"Xem phân tích Tweet\"],[aria-label*=\"הצג את ניתוח הציוצים\"],[aria-label*=\"مشاهده اطلاعات آماری توییت\"],[aria-label*=\"টুইটের বিশ্লেষণ দেখুন\"],[aria-label*=\"Zobacz statystyki dotyczące Tweeta\"],[aria-label*=\"Ver estatísticas do Tweet\"],[aria-label*=\"ट्विटची विश्लेषणे पहा\"],[aria-label*=\"Lihat analitis Tweet\"],[aria-label*=\"Vezi analiza Tweet\"],[aria-label*=\"Смотреть аналитику твита\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"查看推文分析\"],[aria-label*=\"트윗 애널리틱스 보기\"]",
       "boolkmark": `[TUICButton="bookmark"],[data-testid="bookmark"],[data-testid="removeBookmark"]`,
       "url-copy": `[TUICButton="urlCopy"]`,
+      "userBlock": `[TUICButton="userBlock"]`,
+      "userMute": `[TUICButton="userMute"]`,
+      "quoteTweet": `[TUICButton="quoteTweet"]`,
     },
     buttonHTML: {
-      "_base":function(id,svg){
+      "_base":function(id,svg,disable=false){
         return `
-        <div class="css-1dbjc4n" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
+        <div class="css-1dbjc4n TUICButtonUnderTweet" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
               <div
                 TUICButton="${id}"
                 role="button"
-                tabindex="0"
-                class="css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"
+                tabindex="${disable ? -1 : 0}"
+                class="${disable ? "css-1dbjc4n r-1777fci r-bt1l66 r-icoktb r-1ny4l3l r-bztko3 r-lrvibr" : "css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"}"
               >
                 <div
                   dir="ltr"
@@ -118,56 +121,117 @@ const TUICData = {
       "boolkmark": function () {
         return TUICData.visibleButtons.buttonHTML._base("bookmark",`<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z" class="TUIC_BOOKMARK"></path>`)
       },
-      "url-copy": function () {
-        return TUICData.visibleButtons.buttonHTML._base("urlCopy",`<path d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z" class="TUIC_URL"></path>`)
-      }
+      "url-copy": function (locked) {
+        return TUICData.visibleButtons.buttonHTML._base("urlCopy",`<path d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z" class="TUIC_URL"></path>`,locked)
+      },
+      "userBlock":function(){
+        return TUICData.visibleButtons.buttonHTML._base("userBlock",`<path d="M12 3.75c-4.55 0-8.25 3.69-8.25 8.25 0 1.92.66 3.68 1.75 5.08L17.09 5.5C15.68 4.4 13.92 3.75 12 3.75zm6.5 3.17L6.92 18.5c1.4 1.1 3.16 1.75 5.08 1.75 4.56 0 8.25-3.69 8.25-8.25 0-1.92-.65-3.68-1.75-5.08zM1.75 12C1.75 6.34 6.34 1.75 12 1.75S22.25 6.34 22.25 12 17.66 22.25 12 22.25 1.75 17.66 1.75 12z" class="TUIC_USERBLOCK"></path>`)
+      },
+      "userMute":function(){
+        return TUICData.visibleButtons.buttonHTML._base("userMute",`<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z" class="TUIC_USERMUTE"></path>`)
+      },
+      "quoteTweet":function(locked){
+        return TUICData.visibleButtons.buttonHTML._base("quoteTweet",`<path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z" class="TUIC_QuoteTweet"></path>`,locked)
+      },
     },
     buttonFunction: {
       "boolkmark": function (e) {
-        e.click();
-        document.querySelector(
-          `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-                [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
-                [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
-                [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`
-        ).parentNode.parentNode.parentNode.parentNode.click();
+        for(let i = 0; i <= 2 ; i++){
+          let urlCopyButton = document.querySelector(
+            `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+                  [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
+                  [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
+                  [d="M16.586 4l-2.043-2.04L15.957.54 18 2.59 20.043.54l1.414 1.42L19.414 4l2.043 2.04-1.414 1.42L18 5.41l-2.043 2.05-1.414-1.42L16.586 4zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK)`)
+          if (urlCopyButton == null) {
+            e.click()
+          } else {
+            urlCopyButton.parentNode.parentNode.parentNode.parentNode.click()
+            break
+          }
+        }
       },
       "url-copy": function (e) {
-        e.click()
-        let urlCopyButton = document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
+        for(let i = 0; i <= 2 ; i++){
+          let urlCopyButton = document.querySelector(`[d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"]:not(.TUIC_URL),
                 [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]:not(.TUIC_URL)`)
-        if (urlCopyButton == null) {
-          e.click()
-        } else {
-          urlCopyButton.parentNode.parentNode.parentNode.parentNode.click()
+          if (urlCopyButton == null) {
+            e.click()
+          } else {
+            urlCopyButton.parentNode.parentNode.parentNode.parentNode.click()
+            break
+          }
+        }
+      },
+      "userBlock":function(article){
+        for(let i = 0; i <= 2 ; i++){
+          let blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`)
+          if(blockButton == null){
+            article.querySelector(`[data-testid="caret"]`).click()
+          }else{
+            blockButton.click()
+            break
+          }
+        }
+      },
+      "userMute":function(article){
+        for(let i = 0; i <= 2 ; i++){
+          let blockButton = document.querySelector(`[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`).parentElement.parentElement.parentElement.parentElement
+          if(blockButton == null){
+            article.querySelector(`[data-testid="caret"]`).click()
+          }else{
+            blockButton.click()
+            break
+          }
+        }
+      },
+      "quoteTweet":function(retButton){
+        for(let i = 0; i <= 2 ; i++){
+          let quoteButton = document.querySelector(`[role="menuitem"][href="/compose/tweet"]`)
+          if(quoteButton == null){
+            retButton.click()
+          }else{
+            quoteButton.click()
+            break
+          }
         }
       }
     },
     buttonElement: {
+      "_handleEvent":function(elem,eventFunc){
+        elem.children[0].children[0].addEventListener("keydown", (e) => {
+          if( e.keyCode === 13 ){
+            eventFunc()
+          }
+        });
+        elem.children[0].addEventListener("click", (e) => {
+          eventFunc()
+        })
+      },
       "boolkmark": function (val) {
         let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]())
-        elem.children[0].children[0].addEventListener("keydown", (e) => {
-          if( e.keyCode === 13 ){
-            TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
-          }
-        });
-        elem.children[0].addEventListener("click", (e) => {
-          TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
-        })
+        TUICData.visibleButtons.buttonElement._handleEvent(elem,()=>{TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))})
         return elem
       },
-      "url-copy": function (val) {
-        let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"]())
-        elem.children[0].children[0].addEventListener("keydown", (e) => {
-          if( e.keyCode === 13 ){
-            TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
-          }
-        });
-        elem.children[0].addEventListener("click", (e) => {
-          TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))
-        })
+      "url-copy": function (val,_,locked) {
+        let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](locked))
+        if(!locked)TUICData.visibleButtons.buttonElement._handleEvent(elem,()=>{TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]))})
         return elem
-      }
+      },
+      "userBlock": function (_,article) {
+        let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userBlock"]())
+        TUICData.visibleButtons.buttonElement._handleEvent(elem,()=>{TUICData.visibleButtons.buttonFunction["userBlock"](article)})
+        return elem
+      },
+      "userMute": function (_,article) {
+        let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userMute"]())
+        TUICData.visibleButtons.buttonElement._handleEvent(elem,()=>{TUICData.visibleButtons.buttonFunction["userMute"](article)})
+        return elem
+      },
+      "quoteTweet": function (val,_,locked) {
+        let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](locked))
+        if(!locked)TUICData.visibleButtons.buttonElement._handleEvent(elem,()=>{TUICData.visibleButtons.buttonFunction["quoteTweet"](val.querySelector(TUICData.visibleButtons.selectors["retweet-button"]))})
+        return elem
+      },
     },
     emptyElement: function () {
       return TUICLibrary.TUICParser.parseFromString(`<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0 r-qvutc0"></span></span></div>`, "text/html").querySelector("div")

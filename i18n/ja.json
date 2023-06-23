@@ -20,7 +20,8 @@
     "bottomTweetButtons-settingTitle":"ツイート下ボタンの並び替え",
     "bottomTweetButtons-setting-visibleScrollBar":"ツイート下ボタンにスクロールバーを表示",
     "bottomTweetButtons-setting-removeSpaceBottomTweet":"ツイートの内容の下にあ(ったりなかったりす)る空白を削除",
-
+    "bottomTweetButtons-userBlock":"ユーザーをブロック",
+    "bottomTweetButtons-userMute":"ユーザーをミュート",
 
     "sidebarButton-settingTitle":"サイドバーの並び替え",
     "sidebarButton-setting-narrowBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",

@@ -112,6 +112,7 @@ const TUICObserver = {
             if (articles.length != 0) {
                 articles.forEach(function (elem) {
                     if (elem.querySelector("[data-testid$=\"reply\"]") != null && elem.querySelector("[data-testid$=\"like\"]") != null) {
+                        let lockedAccount = (elem.querySelector(`[data-testid="icon-lock"]`) != null)
                         let bar_base = elem.querySelector("[data-testid$=\"reply\"]")
                         while (bar_base.querySelector("[data-testid$=\"like\"]") == null) {
                             bar_base = bar_base.parentElement
@@ -138,7 +139,7 @@ const TUICObserver = {
                             if (i in bar_item) {
                                 div = bar_item[i]
                             } else if (i in TUICData.visibleButtons.buttonElement) {
-                                div = TUICData.visibleButtons.buttonElement[i](bar_base)
+                                div = TUICData.visibleButtons.buttonElement[i](bar_base,elem,lockedAccount)
                             }
                             if (div != -1) {
                                 if ((bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null) && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement())
