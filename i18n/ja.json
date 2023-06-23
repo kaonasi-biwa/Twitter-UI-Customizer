@@ -20,7 +20,9 @@
     "bottomTweetButtons-settingTitle":"ツイート下ボタンの並び替え",
     "bottomTweetButtons-setting-visibleScrollBar":"ツイート下ボタンにスクロールバーを表示",
     "bottomTweetButtons-setting-removeSpaceBottomTweet":"ツイートの内容の下にあ(ったりなかったりす)る空白を削除",
-
+    "bottomTweetButtons-userBlock":"ユーザーをブロック",
+    "bottomTweetButtons-userMute":"ユーザーをミュート",
+    "bottomTweetButtons-setting-RTNotQuote":"リツイート時にメニューを表示しない",
 
     "sidebarButton-settingTitle":"サイドバーの並び替え",
     "sidebarButton-setting-narrowBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
@@ -43,6 +45,7 @@
     "settingColors-select-base":"ベース",
     "settingColors-select-light":"ライト",
     "settingColors-select-dark":"ダーク",
+    "settingColors-select-explain":"「ライト」を選択した場合はライトモードのみ、「ダーク」を選択した場合はダークモードのみで適用されます。設定されていない場合は、「ベース」の色が適用されます。",
     "settingColors-editUnsetTweet":"未送信ツイートの編集ボタン",
     "settingColors-notFollowingButton":"フォローしていない人のフォローボタン",
     "settingColors-willFollowButton":"ホバー時のフォローボタン",
