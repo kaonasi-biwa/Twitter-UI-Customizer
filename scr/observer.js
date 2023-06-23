@@ -133,6 +133,9 @@ const TUICObserver = {
                                 }
                             }
                         }
+                        if(!lockedAccount){
+                            TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"],TUICData.visibleButtons.buttonFunction["retweet-button"])
+                        }
                         let lastButton
                         for (let i of TUICPref.visibleButtons) {
                             let div = -1
