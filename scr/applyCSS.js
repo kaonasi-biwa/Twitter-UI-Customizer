@@ -319,10 +319,10 @@ scrollbar-width:thin;
 }
 
 
-[tabindex="0"] > .TUICButtonUnderTweet [data-focusvisible-polyfill] .TUIC_ButtonHover > svg{
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > svg{
     color:rgb(29,155,240)
 }
-[tabindex="0"] > .TUICButtonUnderTweet [data-focusvisible-polyfill] .TUIC_ButtonHover > div{
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div{
     box-shadow:rgba(142,204,258) 0px 0px 0px 2px inset;
     background-color:rgba(29,155,240,0.1)
 }

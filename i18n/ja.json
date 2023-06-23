@@ -73,5 +73,6 @@
 
     "import-settingTitle":"インポート",
     "import-importAppend":"インポートして追記する",
-    "import-importReplace":"インポートして置き換える"
+    "import-importReplace":"インポートして置き換える",
+    "import-select-explain":"「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートさます。この場合、インポート元に含まれない設定はデフォルト値になります。"
   }
