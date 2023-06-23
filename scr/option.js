@@ -31,8 +31,9 @@ const TUICOptionHTML = {
             "type": "change",
             "function": function (event) {
                 let colorValue = TUICLibrary.color.hex2rgb(event.target.value)
-                if ((TUICPref[editingColorType][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[editingColorType][event.target.getAttribute("TUICColor")] = {}
-                TUICPref[editingColorType][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
+                let colorKind = event.target.getAttribute("TUICColorKind")
+                if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {}
+                TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`
                 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                 event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"))
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
@@ -44,8 +45,9 @@ const TUICOptionHTML = {
             "type": "change",
             "function": function (event) {
                 let colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
-                if ((TUICPref[editingColorType][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[editingColorType][event.target.getAttribute("TUICColor")] = {}
-                TUICPref[editingColorType][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
+                let colorKind = event.target.getAttribute("TUICColorKind")
+                if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {}
+                TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
                 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
                 event.currentTarget.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"))
@@ -58,10 +60,13 @@ const TUICOptionHTML = {
             "function": function (event) {
                 let TUIC_color = (TUICData.colors[event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]).replace("rgba(", "").replace(")", "").split(",")
                 let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
+                let colorKind = event.target.getAttribute("TUICColorKind")
+                console.log(colorKind)
+                console.log(TUICPref)
                 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value = TUICColor1
 
                 if (document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked != TUIC_color[3] == 0) document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked = TUIC_color[3] == 0
-                if ((TUICPref[editingColorType][event.target.getAttribute("TUICColor")] ?? "unknown") != "unknown" && (TUICPref[editingColorType][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] ?? "unknown") != "unknown") delete TUICPref[editingColorType][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]
+                if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") != "unknown" && (TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] ?? "unknown") != "unknown") delete TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")]
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
                 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"))
                 event.currentTarget.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
@@ -444,7 +449,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             : ""
     },
     //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
-    colorSetting: function (id, type, color_, text,isDefault) {
+    colorSetting: function (id, type, color_, text,isDefault,colorKind) {
         let [color] = [color_.escapeToUseHTML()]
         let TUIC_color = color.replace("rgba(", "").replace(")", "").split(",")
         let TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])])
@@ -455,35 +460,34 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             <div class="TUIC_input_color_rounded__container">
                 <div class="TUIC_input_color_rounded">
                     <input type="color" id="${id + "-" + type
-            }" TUICColor="${id}" TUICColorType="${type}" value="${TUICColor1}" class="TUICButtonColor">
+            }" TUICColor="${id}" TUICColorType="${type}" value="${TUICColor1}" class="TUICButtonColor" TUICColorKind=${colorKind}>
                     </input>
                 </div>
             </div>
             <input type="checkbox" id="${`${id}-${type}-check`
             }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${id}"
-             TUICColorType="${type}" class="TUICButtonColorCheck">
+             TUICColorType="${type}" class="TUICButtonColorCheck" TUICColorKind=${colorKind}>
             <label for="${`${id}-${type}-check`
             }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transparent")}</label><br>
         </div>
     </div>
-    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n("settingUI-colorPicker-restoreDefault")}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}">${TUICData.resetIconSVG}</button>`
+    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n("settingUI-colorPicker-restoreDefault")}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${TUICData.resetIconSVG}</button>`
     },
     //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
     threeColorSetting: function (id) {
         return `
-<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICLibrary.getI18n(TUICData.settings.colors.i18n[id])}</h2>
-<div class="TUIC_col_setting_container_2">
-${this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id,"background",editingColorType), "settingUI-colorPicker-background",!!(TUICPref?.[editingColorType]?.[id]?.background))}
-${this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id,"border",editingColorType), "settingUI-colorPicker-border",!!TUICPref?.[editingColorType]?.[id]?.border)}
-${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",editingColorType), "settingUI-colorPicker-textColor",!!TUICPref?.[editingColorType]?.[id]?.color)}
-</div>
+${this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id,"background",editingColorType), "settingUI-colorPicker-background",!!(TUICPref?.[editingColorType]?.[id]?.background),editingColorType)}
+${this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id,"border",editingColorType), "settingUI-colorPicker-border",!!TUICPref?.[editingColorType]?.[id]?.border,editingColorType)}
+${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",editingColorType), "settingUI-colorPicker-textColor",!!TUICPref?.[editingColorType]?.[id]?.color,editingColorType)}
 `;
     },
     //色の設定の全体。forぶん回してる
     colorsList: function () {
         let TUICColors = `<div id="TUICColorSettingsDivBox">`
         for (const i of TUICData.settings.colors.id) {
-            TUICColors += this.threeColorSetting(i)
+            TUICColors += `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICLibrary.getI18n(TUICData.settings.colors.i18n[i])}</h2>
+            <div class="TUIC_col_setting_container_2">${this.threeColorSetting(i,editingColorType)}
+            </div>`
         }
         TUICColors += "</div>"
         return TUICColors
