@@ -375,7 +375,10 @@ ${this.safemodeReturnButton()}
                 <input type="radio" name="TUICColorType" value="buttonColorDark" id="TUICColorType-Dark" class="TUICColorSettingRadio">
                 <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Dark" style="background-color:rgb(0,0,0);"><span><span>${TUICLibrary.getI18n("settingColors-select-dark")}</span></span></label>
             </div>
-            <br><br>
+            <div style="margin-left:10px;margin-right:10px;">
+            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:12px;">${TUICLibrary.getI18n("settingColors-select-explain")}</span>
+            </div>
+            <br>
             ${this.colorsList()}
             </div>
         </details>
