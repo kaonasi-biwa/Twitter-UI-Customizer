@@ -1,6 +1,6 @@
 
 const TUICData = {
-  defaultPref: { "buttonColor": {}, "buttonColorLight": {}, "buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false, "twitter-pro-promotion-btn": false,"discoverMore":false,"verified-rSidebar":false,"subscribe-profile":false,"subscribe-tweets":false }, "otherBoolSetting": { "bottomScroll": false, "smallerSidebarContent": true, "roundIcon": true, "bottomSpace": false }, "clientInfo": { "clientInfoVisible": false }, "twitterIcon": "nomal" },
+  defaultPref: { "buttonColor": {}, "buttonColorLight": {}, "buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false, "twitter-pro-promotion-btn": false,"discoverMore":false,"verified-rSidebar":false,"subscribe-profile":false,"subscribe-tweets":false }, "otherBoolSetting": { "bottomScroll": false, "smallerSidebarContent": true, "roundIcon": true, "bottomSpace": false,"RTNotQuote":false, }, "clientInfo": { "clientInfoVisible": false }, "twitterIcon": "nomal" },
   settings: {
     visibleButtons: {
       all: ["reply-button", "retweet-button","quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy","userBlock","userMute"],
@@ -194,11 +194,18 @@ const TUICData = {
             break
           }
         }
+      },
+      "retweet-button":function(){
+        if(TUICPref.otherBoolSetting["RTNotQuote"]){
+          window.setTimeout(()=>{
+            TUICData.sidebarButtons.waitSetElement(`:is([role="menuitem"][data-testid="retweetConfirm"],[role="menuitem"][data-testid="unretweetConfirm"])`)
+          },100)
+        }
       }
     },
     buttonElement: {
-      "_handleEvent":function(elem,eventFunc){
-        elem.children[0].children[0].addEventListener("keydown", (e) => {
+      "_handleEvent":function(elem,eventFunc,twitterButton){
+        (twitterButton ? elem.children[0].children[0] : elem.children[0]).addEventListener("keydown", (e) => {
           if( e.keyCode === 13 ){
             eventFunc()
           }
@@ -311,15 +318,12 @@ const TUICData = {
       for(let i = 0;i <= 10;i++){
         re = await (new Promise((resolve2) => {
           let elem = document.querySelector(selector)
-          console.log(selector)
-          console.log(elem)
           if(elem != null){
             elem.click()
             resolve2("ok")
           }
           resolve2("bb")
         }))
-        console.log(re)
         if(re == "ok") return
         await( new Promise((resolve2) => {
           window.setTimeout(() => {

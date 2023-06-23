@@ -383,7 +383,8 @@ ${this.safemodeReturnButton()}
 
 ${this.upDownList("visibleButtons", "bottomTweetButtons-settingTitle",
     this.checkbox("bottomScroll",TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
-    this.checkbox("bottomSpace",TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting"))
+    this.checkbox("bottomSpace",TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting") +
+    this.checkbox("RTNotQuote",TUICPref.otherBoolSetting["RTNotQuote"], "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting"))
 }
 ${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
     this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting")
