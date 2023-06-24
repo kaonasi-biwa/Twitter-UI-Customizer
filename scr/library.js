@@ -185,7 +185,7 @@ const TUICLibrary = {
             return TUICI18N[lang][elem].escapeToUseHTML()
         }else if(elem in TUICI18N.en){
             return TUICI18N.en[elem].escapeToUseHTML()
-        }else if(elem in TUICI18N.en){
+        }else if(elem in TUICI18N.ja){
             return TUICI18N.ja[elem].escapeToUseHTML()
         }else{
             return "404"
