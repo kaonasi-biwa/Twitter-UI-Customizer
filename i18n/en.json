@@ -64,5 +64,6 @@
     "export-exportButtonCopy": "Copy exported Settings",
     "import-settingTitle": "Import",
     "import-importAppend": "Import and Append Settings",
-    "import-importReplace": "Import and Replace Settings"
+    "import-importReplace": "Import and Replace Settings",
+    "import-select-explain": "In the case of \"Append\", only the items included in the import source are imported. In the case of \"Replace\", all settings are returned to default, and then \"Append\" is performed."
 }
