@@ -148,6 +148,16 @@ const TUICLibrary = {
             return "light"
         }
     },
+    backgroundColorClass:function(dark,blue,white){
+        backgroundType = this.backgroundColorCheck()
+        if(this.backgroundColorCheck == "dark"){
+            return dark
+        }else if(this.backgroundColorCheck == "blue"){
+            return blue
+        }else{
+            return white
+        }
+    },
     fontSizeClass:function(x1,x2,x3,x4,x5){
         fontSize = document
         .querySelector("html").style.fontSize.toString()
