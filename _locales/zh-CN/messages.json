@@ -22,11 +22,11 @@
         }
     },
     "popupTitle": {
-        "message": "谢谢了",
+        "message": "谢谢了！",
         "description": "ポップアップのタイトル"
     },
     "popupContent1": {
-        "message": "谢谢你的使用",
+        "message": "谢谢你的使用！",
         "description": "ポップアップの文章"
     },
     "popupContent2": {
@@ -34,7 +34,7 @@
         "description": "ポップアップの文章"
     },
     "popupContent3": {
-        "message": "错误和功能请求",
+        "message": "错误和功能请求！",
         "description": "ポップアップの文章"
     },
     "popupButton1": {
@@ -62,7 +62,7 @@
         "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-        "message": "Twitter设置",
+        "message": "Twitter设置：",
         "description": "設定画面の見出し"
     },
     "optionContent1_1_1": {
@@ -70,7 +70,7 @@
         "description": "設定画面の文章"
     },
     "optionHeading1_2": {
-        "message": "设置更新通知:",
+        "message": "设置更新通知：",
         "description": "設定画面の見出し"
     },
     "optionContent1_2_1": {
@@ -146,7 +146,7 @@
         "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     },
     "optionSpecialThanks_loading_yt": {
-        "message": "中文（简体）翻译员",
+        "message": "中文翻译员",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_nyanrus": {
@@ -156,5 +156,9 @@
     "optionSpecialThanks_CutterKnife_": {
         "message": "图标和标志创建者",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
+    },
+    "optionSpecialThanks_enthropyreg": {
+        "message": "俄语翻译员",
+        "description": "設定画面のSpecial thanks(enthropyregさん)"
     }
 }

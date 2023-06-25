@@ -19,6 +19,9 @@
     "bottomTweetButtons-settingTitle": "Reorder buttons under tweets",
     "bottomTweetButtons-setting-visibleScrollBar": "Scroll bar on button below tweet",
     "bottomTweetButtons-setting-removeSpaceBottomTweet": "Remove space below the text content of a tweet.",
+    "bottomTweetButtons-userBlock": "Block User",
+    "bottomTweetButtons-userMute": "Mute User",
+    "bottomTweetButtons-setting-RTNotQuote": "Don't show menu on press Retweet",
     "sidebarButton-settingTitle": "Reorder the sidebar",
     "sidebarButton-setting-narrowBetweenButtons": "Narrow the width between buttons when they are wider.",
     "invisibleItems-settingTitle": "Hide Setting",
@@ -36,6 +39,7 @@
     "settingColors-select-base": "Base",
     "settingColors-select-light": "Light",
     "settingColors-select-dark": "Dark",
+    "settingColors-select-explain": "If you select \"Light\", it applies only in light mode, and if you select \"Dark\", it applies only in dark mode. If not set, the \"Base\" color is applied.",
     "settingColors-editUnsetTweet": "Edit unsent tweets button",
     "settingColors-notFollowingButton": "Follow button",
     "settingColors-willFollowButton": "Follow button on hover",
@@ -60,5 +64,6 @@
     "export-exportButtonCopy": "Copy exported Settings",
     "import-settingTitle": "Import",
     "import-importAppend": "Import and Append Settings",
-    "import-importReplace": "Import and Replace Settings"
+    "import-importReplace": "Import and Replace Settings",
+    "import-select-explain": "In the case of \"Append\", only the items included in the import source are imported. In the case of \"Replace\", all settings are returned to default, and then \"Append\" is performed."
 }

@@ -19,6 +19,9 @@
     "bottomTweetButtons-settingTitle": "트윗 아래의 버튼 순서",
     "bottomTweetButtons-setting-visibleScrollBar": "트윗 아래의 버튼에 스크롤바 표시",
     "bottomTweetButtons-setting-removeSpaceBottomTweet": "트윗 내용 아래 있(거나 없거나 하)는 여백 삭제",
+    "bottomTweetButtons-userBlock": "사용자를 차단",
+    "bottomTweetButtons-userMute": "사용자를 뮤트",
+    "bottomTweetButtons-setting-RTNotQuote": "리트윗 시 메뉴 표시하지 않기",
     "sidebarButton-settingTitle": "사이드바 순서",
     "sidebarButton-setting-narrowBetweenButtons": "버튼 간격 좁게 하기 (넓어져 있는 경우)",
     "invisibleItems-settingTitle": "숨기기 설정",
@@ -33,9 +36,10 @@
     "customCSS-settingTitle": "커스텀 CSS",
     "customCSS-save": "커스텀 CSS 저장",
     "settingColors-settingTitle": "색 설정",
-    "settingColors-select-base": "베이스",
+    "settingColors-select-base": "기본",
     "settingColors-select-light": "라이트",
     "settingColors-select-dark": "다크",
+    "settingColors-select-explain": "\"라이트\"를 선택하면 라이트모드만, \"다크\"를 선택하면 다크모드만 적용됩니다. 설정되지 않은 경우 \"기본\"의 색이 적용됩니다.",
     "settingColors-editUnsetTweet": "트윗 초안 편집 버튼",
     "settingColors-notFollowingButton": "팔로우 버튼 (팔로우 하지 않은 경우)",
     "settingColors-willFollowButton": "팔로우 버튼 (호버)",
@@ -60,5 +64,6 @@
     "export-exportButtonCopy": "출력한 설정 복사",
     "import-settingTitle": "불러오기",
     "import-importAppend": "불러오고 해당하는 설정 덮어쓰기",
-    "import-importReplace": "불러오고 덮어쓰기"
+    "import-importReplace": "불러오고 덮어쓰기",
+    "import-select-explain": "\"해당하는 설정 덮어쓰기\"의 경우, 불러오는 설정에 포함되어 있는 항목만 불러옵니다. \"덮어쓰기\"의 경우, 모든 설정을 삭제하고 설정이 적용됩니다. 이 경우 불러오는 설정에 포함되지 않은 설정은 기본값이 됩니다."
 }
