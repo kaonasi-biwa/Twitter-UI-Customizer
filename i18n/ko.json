@@ -64,5 +64,6 @@
     "export-exportButtonCopy": "출력한 설정 복사",
     "import-settingTitle": "불러오기",
     "import-importAppend": "불러오고 해당하는 설정 덮어쓰기",
-    "import-importReplace": "불러오고 덮어쓰기"
+    "import-importReplace": "불러오고 덮어쓰기",
+    "import-select-explain": "\"해당하는 설정 덮어쓰기\"의 경우, 불러오는 설정에 포함되어 있는 항목만 불러옵니다. \"덮어쓰기\"의 경우, 모든 설정을 삭제하고 설정이 적용됩니다. 이 경우 불러오는 설정에 포함되지 않은 설정은 기본값이 됩니다."
 }
