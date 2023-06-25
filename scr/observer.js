@@ -240,7 +240,6 @@ const TUICObserver = {
                 (response) => {
                         json = response;
                         let cliantInfoElem = document.querySelector("#client-info")
-                        console.log(json.source)
                         if (json.source ?? "unknwon" != "unknwon") {
                             cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
                         }else{
