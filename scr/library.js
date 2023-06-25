@@ -24,14 +24,12 @@ const TUICLibrary = {
         }
     },
     getClasses: {
-        TUICScrollBottom: function () {
-            return "TUIC_SCROLL_BOTTOM" + TUICLibrary.query
-        },
         getClass:function(id){
             return id + this.query
         },
         update: function () {
             this.query += "_"
+            document.querySelector("#twitter_ui_customizer_query").setAttribute("query",this.query)
             TUICCss()
             TUICObserver.observerFunction()
         },
@@ -134,7 +132,6 @@ const TUICLibrary = {
                     this.updateToDefault(object[i],defObject[i])
                 }
             }
-            console.log(TUICPref.visibleButtons)
         }
     },
     backgroundColorCheck:function(){
