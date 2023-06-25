@@ -36,7 +36,7 @@
     "customCSS-settingTitle": "커스텀 CSS",
     "customCSS-save": "커스텀 CSS 저장",
     "settingColors-settingTitle": "색 설정",
-    "settingColors-select-base": "기본",
+    "settingColors-select-base": "베이스",
     "settingColors-select-light": "라이트",
     "settingColors-select-dark": "다크",
     "settingColors-select-explain": "\"라이트\"를 선택하면 라이트모드만, \"다크\"를 선택하면 다크모드만 적용됩니다. 설정되지 않은 경우 \"기본\"의 색이 적용됩니다.",
