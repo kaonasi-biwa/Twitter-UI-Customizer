@@ -19,6 +19,9 @@
     "bottomTweetButtons-settingTitle": "對推文下的按鈕進行排序",
     "bottomTweetButtons-setting-visibleScrollBar": "將滾動條添加到推文下面的按鈕",
     "bottomTweetButtons-setting-removeSpaceBottomTweet": "移除推文下面的空白（有時候存在有時候沒存在）處",
+    "bottomTweetButtons-userBlock": "屏蔽用戶",
+    "bottomTweetButtons-userMute": "隐藏用户",
+    "bottomTweetButtons-setting-RTNotQuote": "轉推時隱藏菜單",
     "sidebarButton-settingTitle": "重新安排側邊欄的順序",
     "sidebarButton-setting-narrowBetweenButtons": "縮小按鈕之間的寬度（只有在按鈕較寬時）",
     "invisibleItems-settingTitle": "設置要隱藏的項目",
@@ -36,6 +39,7 @@
     "settingColors-select-base": "標準色",
     "settingColors-select-light": "明亮",
     "settingColors-select-dark": "暗黑",
+    "settingColors-select-explain": "如果選擇 \"淺色\"，它只在淺色模式下應用；如果選擇 \"深色\"，它只在深色模式下應用。如果沒有設置，則應用 \"標準色\" 顏色。",
     "settingColors-editUnsetTweet": "為未發送的推文提供編輯按鈕",
     "settingColors-notFollowingButton": "為你不關注的人提供關注按鈕",
     "settingColors-willFollowButton": "懸停時的關注按鈕",
@@ -60,5 +64,6 @@
     "export-exportButtonCopy": "複製輸出配置",
     "import-settingTitle": "輸入",
     "import-importAppend": "輸入，然補寫",
-    "import-importReplace": "輸入，然補寫"
+    "import-importReplace": "輸入，然補寫",
+    "import-select-explain": "在 \"追加\" 的情況下，只有包括在導入源中的項目被導入。在 \"替換\" 的情況下，所有的設置在被導入前被刪除。在這種情況下，不包括在導入源中的設置將有默認值。"
 }
