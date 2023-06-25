@@ -37,8 +37,9 @@
     "customCSS-save": "保存自定义CSS",
     "settingColors-settingTitle": "颜色设置",
     "settingColors-select-base": "标准色",
-    "settingColors-select-light": "明亮",
-    "settingColors-select-dark": "暗黑",
+    "settingColors-select-light": "浅色",
+    "settingColors-select-dark": "深色",
+    "settingColors-select-explain": "如果选择 \"浅色\"，它只在浅色模式下应用；如果选择 \"深色\"，它只在深色模式下应用。 如果没有设置，则应用 \"标准色\" 颜色。",
     "settingColors-editUnsetTweet": "为未发送的推文提供编辑按钮",
     "settingColors-notFollowingButton": "为你不关注的人提供关注按钮",
     "settingColors-willFollowButton": "悬停时的关注按钮",
@@ -48,7 +49,7 @@
     "settingColors-saveProfile": "保存配置文件按钮",
     "settingColors-finalDecideButton": "最终决定按钮",
     "settingColors-blocking": "对你已屏蔽的人的关注按钮",
-    "settingColors-blockingUnlock": "解除封锁时的关注按钮",
+    "settingColors-blockingUnlock": "解除屏蔽时的关注按钮",
     "twitterIcon-settingTitle": "Twitter图标",
     "twitterIcon-normal": "正常",
     "twitterIcon-invisible": "隐藏",
@@ -61,7 +62,8 @@
     "export-settingTitle": "输出",
     "export-exportButton": "设置的输出",
     "export-exportButtonCopy": "复制输出配置",
-    "import-settingTitle": "输入",
-    "import-importAppend": "输入，然补写",
-    "import-importReplace": "输入，然代入"
+    "import-settingTitle": "导入",
+    "import-importAppend": "导入，然补写",
+    "import-importReplace": "导入，然代入",
+    "import-select-explain": "在 \"追加\" 的情况下，只有包括在导入源中的项目被导入。 在 \"替换\" 的情况下，所有的设置在被导入前被删除。 在这种情况下，不包括在导入源中的设置将有默认值。"
 }
