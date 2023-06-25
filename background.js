@@ -78,7 +78,6 @@ const getI18n = async (res) => {
         (await fetch(chrome.runtime.getURL(`./i18n/ti18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json()))
 
         )
-        console.log(i18nObject)
     }
   res(JSON.stringify(i18nObject))
 }
