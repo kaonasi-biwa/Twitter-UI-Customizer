@@ -4,7 +4,6 @@ let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPre
 let TUICCount = 0
 function replaceRunningIcon(){
     if(document.getElementById("react-root") != null){
-        console.log(document.TUICQuery)
         if(document.querySelector("#twitter_ui_customizer_query") == null){
             let queryElem = document.createElement("meta")
             queryElem.id = "twitter_ui_customizer_query"
@@ -13,8 +12,12 @@ function replaceRunningIcon(){
         }else{
             TUICLibrary.getClasses.query = document.querySelector("#twitter_ui_customizer_query").getAttribute("query") + "A"
             document.querySelector("#twitter_ui_customizer_query").setAttribute("query",TUICLibrary.getClasses.query)
-            console.log(TUICLibrary.getClasses.getClass(""))
-            console.log(document.TUICQuery)
+        }
+
+        if(document.querySelector(".TUICOriginalContent") != null){
+            for(let elem of document.querySelectorAll(".TUICOriginalContent")){
+                elem.remove()
+            }
         }
 
         TUICRunFirst()
@@ -35,6 +38,7 @@ function replaceRunningIcon(){
                 /*Fin 旧バージョンからのアップデート*/
                 TUICObserver.target = document.querySelector("body"),
                 TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
+                TUICObserver.observerFunction()
 
                 const bodyObserver = new MutationObserver(TUICRunFirst)
                 bodyObserver.observe(document.querySelector("body"), { childList: false, subtree: false, attributes: true })
