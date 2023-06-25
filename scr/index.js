@@ -4,6 +4,19 @@ let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPre
 let TUICCount = 0
 function replaceRunningIcon(){
     if(document.getElementById("react-root") != null){
+        console.log(document.TUICQuery)
+        if(document.querySelector("#twitter_ui_customizer_query") == null){
+            let queryElem = document.createElement("meta")
+            queryElem.id = "twitter_ui_customizer_query"
+            queryElem.setAttribute("query","")
+            document.querySelector("head").appendChild(queryElem)
+        }else{
+            TUICLibrary.getClasses.query = document.querySelector("#twitter_ui_customizer_query").getAttribute("query") + "A"
+            document.querySelector("#twitter_ui_customizer_query").setAttribute("query",TUICLibrary.getClasses.query)
+            console.log(TUICLibrary.getClasses.getClass(""))
+            console.log(document.TUICQuery)
+        }
+
         TUICRunFirst()
         if(document.querySelector(`#placeholder > svg`)){
             TUICObserver.functions.twitterIcon(
