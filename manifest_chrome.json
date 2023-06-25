@@ -55,7 +55,7 @@
         "service_worker":"background.js"
     },
     "host_permissions":[
-        "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest/download/*",
+        "https://api.github.com/repos/kaonasi-biwa/Twitter-UI-Customizer/releases/latest",
         "https://objects.githubusercontent.com/*",
         "https://*.mico.re/*",
         "https://abs.twimg.com/*"
