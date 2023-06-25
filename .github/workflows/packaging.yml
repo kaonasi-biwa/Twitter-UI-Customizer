@@ -73,10 +73,6 @@ jobs:
         name: Twitter UI Customizer ${{ github.ref_name }}
         draft: false
         prerelease: false
-    - name: loadVersion
-      uses: actions/download-artifact@v3
-      with:
-        name: versionTUIC
     - name: loadFile
       uses: actions/download-artifact@v3
       with:
@@ -93,4 +89,3 @@ jobs:
         files: |
           Twitter_UI_Customizer_Firefox.xpi
           Twitter_UI_Customizer_Chromium.zip
-          versionTUIC.txt
