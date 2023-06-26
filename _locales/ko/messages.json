@@ -8,7 +8,7 @@
         "description": "拡張機能の説明"
     },
     "notificationMessage": {
-        "message": "새로운 버전이 나왔어요.\n업데이트해주세요.\n$V1$→$V2$",
+        "message": "새로운 버전이 나왔어요.\n업데이트해 주세요.\n$V1$→$V2$",
         "description": "アップデート通知",
         "placeholders": {
             "V1": {
@@ -34,7 +34,7 @@
         "description": "ポップアップの文章"
     },
     "popupContent3": {
-        "message": "트위터에 부탁해요!",
+        "message": "트위터로 부탁해요!",
         "description": "ポップアップの文章"
     },
     "popupButton1": {
@@ -54,7 +54,7 @@
         "description": "ポップアップのボタン"
     },
     "optionTitle": {
-        "message": "설정 및 조작방법 (Twitter UI Customizer)",
+        "message": "설정 및 조작 방법 (Twitter UI Customizer)",
         "description": "設定画面のタイトル"
     },
     "optionHeading1": {
@@ -74,7 +74,7 @@
         "description": "設定画面の見出し"
     },
     "optionContent1_2_1": {
-        "message": "브라우저를 켤때 업데이트 알림 받기",
+        "message": "브라우저를 켤 때 업데이트 알림 받기",
         "description": "設定画面の文章"
     },
     "optionContent1_2_2": {
@@ -82,11 +82,11 @@
         "description": "設定画面の文章"
     },
     "optionContent1_2_3": {
-        "message": "트위터를 열었을때 업데이트 알림 받기",
+        "message": "트위터를 열었을 때 업데이트 알림 받기",
         "description": "設定画面の文章"
     },
     "optionHeading2": {
-        "message": "Twitter UI Customizer의 조작방법",
+        "message": "Twitter UI Customizer의 조작 방법",
         "description": "設定画面の見出し"
     },
     "optionContent2_1": {
@@ -126,7 +126,7 @@
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
-        "message": "클라이언트 이름 표시 및 Twitter API 경유 서버 주인",
+        "message": "클라이언트 이름 표시 및 트위터 API 경유 서버 주인",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
     },
     "optionSpecialThanks_irhdevel": {
