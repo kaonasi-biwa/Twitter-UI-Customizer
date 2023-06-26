@@ -8,8 +8,9 @@ let updateNotification = () => {
 
 const updateCheck = async () => {
 
-  const githubVersion = await fetch("https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest/download/versionTUIC.txt", { cache: "no-store" })
-    .then(res => res.text());
+  const githubVersion = await fetch("https://api.github.com/repos/kaonasi-biwa/Twitter-UI-Customizer/releases/latest", { cache: "no-store" })
+    .then(res => res.json())
+    .then(json => json.tag_name);
   const extensionVersion = await fetch(chrome.runtime.getURL("./versionTUIC.txt"),{ cache: "no-store" })
     .then(res => res.text())
   if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '') && extensionVersion.replace(/\r?\n/g, '') != "debug") {
