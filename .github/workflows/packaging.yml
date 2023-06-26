@@ -6,28 +6,10 @@ on:
 
 
 jobs:
-  set-version:
-    runs-on: ubuntu-latest
-    steps:
-    - name: saveFile
-      run: |
-        echo ${{ github.ref_name }} > versionTUIC.txt
-        cat ./versionTUIC.txt
-    - name: shareFile
-      uses: actions/upload-artifact@v3
-      with:
-        name: versionTUIC
-        path: versionTUIC.txt
-
   build-firefox:
     runs-on: ubuntu-latest
-    needs: [set-version]
     steps:
     - uses: actions/checkout@v3
-    - name: loadVersion
-      uses: actions/download-artifact@v3
-      with:
-        name: versionTUIC
     - name: Archive
       run: |
         rm manifest_chrome.json
@@ -42,13 +24,8 @@ jobs:
 
   build-chromium:
     runs-on: ubuntu-latest
-    needs: [set-version]
     steps:
     - uses: actions/checkout@v3
-    - name: loadVersion
-      uses: actions/download-artifact@v3
-      with:
-        name: versionTUIC
     - name: Archive
       run: |
         rm manifest_firefox.json
