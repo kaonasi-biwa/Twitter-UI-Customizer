@@ -11,8 +11,7 @@ const updateCheck = async () => {
   const githubVersion = await fetch("https://api.github.com/repos/kaonasi-biwa/Twitter-UI-Customizer/releases/latest", { cache: "no-store" })
     .then(res => res.json())
     .then(json => json.tag_name);
-  const extensionVersion = await fetch(chrome.runtime.getURL("./versionTUIC.txt"),{ cache: "no-store" })
-    .then(res => res.text())
+  const extensionVersion = await chrome.runtime.getManifest().version;
   if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '') && extensionVersion.replace(/\r?\n/g, '') != "debug") {
 
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
