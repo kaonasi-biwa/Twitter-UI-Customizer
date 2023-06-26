@@ -12,7 +12,7 @@ const updateCheck = async () => {
     .then(res => res.json())
     .then(json => json.tag_name);
   const extensionVersion = await chrome.runtime.getManifest().version;
-  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '') && extensionVersion.replace(/\r?\n/g, '') != "debug") {
+  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '')) {
 
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
