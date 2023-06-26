@@ -41,8 +41,7 @@
     "permissions": [
         "notifications",
         "storage",
-        "https://api.github.com/repos/kaonasi-biwa/Twitter-UI-Customizer/releases/latest",
-        "https://objects.githubusercontent.com/*",
+        "https://api.github.com/*",
         "https://*.mico.re/*",
         "https://abs.twimg.com/*"
     ],
