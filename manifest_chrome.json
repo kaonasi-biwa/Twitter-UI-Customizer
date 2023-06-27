@@ -44,9 +44,9 @@
     ],
     "action": {
         "default_icon": {
-            "16": "icon/newIcon_TUIC_C_Blue.svg",
-            "48": "icon/newIcon_TUIC_C_Blue.svg",
-            "128": "icon/newIcon_TUIC_C_Blue.svg"
+            "16": "icon/newIcon_TUIC_C_Blue.png",
+            "48": "icon/newIcon_TUIC_C_Blue.png",
+            "128": "icon/newIcon_TUIC_C_Blue.png"
         },
         "default_title": "Twitter UI Customizer",
         "default_popup": "TUIC/popup/popup.html"
