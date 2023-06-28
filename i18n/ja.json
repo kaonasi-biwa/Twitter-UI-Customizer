@@ -26,6 +26,7 @@
 
     "sidebarButton-settingTitle":"サイドバーの並び替え",
     "sidebarButton-setting-narrowBetweenButtons":"ボタン同士の幅を狭くする (広くなっている場合のみ)",
+    "sidebarButton-setting-sidebarNoneScrollbar":"サイドバーのスクロールバーを非表示にする",
 
     "invisibleItems-settingTitle":"非表示設定",
     "invisibleItems-osusumeUsersOnTL":"タイムライン上のおすすめユーザー",
