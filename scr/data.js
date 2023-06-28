@@ -1,6 +1,32 @@
 
 const TUICData = {
-  defaultPref: { "buttonColor": {}, "buttonColorLight": {}, "buttonColorDark": {}, "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"], "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"], "invisibleItems": { "osusume-user-timeline": false, "twitter-pro-promotion-btn": false,"discoverMore":false,"verified-rSidebar":false,"subscribe-profile":false,"subscribe-tweets":false }, "otherBoolSetting": { "bottomScroll": false, "smallerSidebarContent": true, "roundIcon": true, "bottomSpace": false,"RTNotQuote":false, }, "clientInfo": { "clientInfoVisible": false }, "twitterIcon": "nomal" },
+  defaultPref: {
+    "buttonColor": {},
+    "buttonColorLight": {},
+    "buttonColorDark": {},
+    "visibleButtons": ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
+    "sidebarButtons": ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu"],
+    "invisibleItems": {
+      "osusume-user-timeline": false,
+      "twitter-pro-promotion-btn": false,
+      "discoverMore":false,
+      "verified-rSidebar":false,
+      "subscribe-profile":false,
+      "subscribe-tweets":false
+    },
+    "otherBoolSetting": {
+      "bottomScroll": false,
+      "smallerSidebarContent": true,
+      "roundIcon": true,
+      "bottomSpace": false,
+      "RTNotQuote":false,
+      "sidebarNoneScrollbar":false,
+    },
+    "clientInfo": {
+      "clientInfoVisible": false
+    },
+    "twitterIcon": "nomal"
+  },
   settings: {
     visibleButtons: {
       all: ["reply-button", "retweet-button","quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy","userBlock","userMute"],
