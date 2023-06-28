@@ -19,6 +19,7 @@ GitHub:
 - @Taka005 (ソースコードの整理)  
 - @Hibi-10000 (アメリカ英語の翻訳者)  
 - @KotoneFami (機能追加)  
+- @nakasyou (デザインの改良)
 
 Crowdin:
 - @loading_yt (中国語の翻訳者)  
