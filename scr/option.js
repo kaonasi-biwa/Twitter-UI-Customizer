@@ -42,12 +42,18 @@ const TUICOptionHTML = {
             "single": false
         },
         ".TUICButtonColorCheck": {
-            "type": "change",
+            "type": "click",
             "function": function (event) {
+                if(!event.target.dataset.checked || event.target.dataset.checked!=="true"){
+                    // 未チェック
+                    event.target.dataset.checked = true;
+                } else
+                    event.target.dataset.checked = false;
+                const isChecked = event.target.dataset.checked === "true";
                 let colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value)
                 let colorKind = event.target.getAttribute("TUICColorKind")
                 if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {}
-                TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${event.target.checked ? 0 : 1})`
+                TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${isChecked ? 0 : 1})`
                 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
                 event.currentTarget.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"))
@@ -465,9 +471,10 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
                     </input>
                 </div>
             </div>
-            <input type="checkbox" id="${`${id}-${type}-check`
+            <button type="checkbox" id="${`${id}-${type}-check`
             }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${id}"
              TUICColorType="${type}" class="TUICButtonColorCheck" TUICColorKind=${colorKind}>
+            </button>
             <label for="${`${id}-${type}-check`
             }" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transparent")}</label><br>
         </div>
