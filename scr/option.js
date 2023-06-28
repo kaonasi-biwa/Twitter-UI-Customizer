@@ -399,7 +399,8 @@ ${this.upDownList("visibleButtons", "bottomTweetButtons-settingTitle",
     this.checkbox("RTNotQuote",TUICPref.otherBoolSetting["RTNotQuote"], "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting"))
 }
 ${this.upDownList("sidebarButtons", "sidebarButton-settingTitle",
-    this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting")
+    this.checkbox("smallerSidebarContent",TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
+    this.checkbox("sidebarNoneScrollbar",TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting")
 )}
 
 ${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",
@@ -472,7 +473,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
                 </div>
             </div>
             <button type="checkbox" id="${`${id}-${type}-check`
-            }" ${TUIC_color[3] == "0" ? "checked" : ""} TUICColor="${id}"
+            }" data-checked="${TUIC_color[3] == "0" ? "true" : "false"}" TUICColor="${id}"
              TUICColorType="${type}" class="TUICButtonColorCheck" TUICColorKind=${colorKind}>
             </button>
             <label for="${`${id}-${type}-check`

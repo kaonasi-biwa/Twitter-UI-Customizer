@@ -578,6 +578,9 @@ display:none !important;
  ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
  .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
  ` : ""}
+ ${TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar ? `
+ header > div > div > div > div.r-1rnoaur{overflow:clip;}
+ ` : ""}
 
 `;
 }
