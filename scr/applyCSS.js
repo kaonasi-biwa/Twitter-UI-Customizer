@@ -249,6 +249,7 @@ scrollbar-width:thin;
     padding-right:10px;
     padding-top:10px;
     background-color:var(--TUIC-container-background);
+    font-family: sans-serif;
 }
 .TUICDetails:not([open]){
     padding-bottom:10px;
@@ -366,6 +367,24 @@ textarea#css_textarea,.TUICTextInput {
     border: 1px solid #808080;
     border-radius: 6px;
     margin-bottom: 20px;
+}
+
+/* チェックボタン(Transparent) */
+.TUICButtonColorCheck{
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    border: 2px solid rgb(127, 127, 127);
+    background-color: #fff;
+    margin-right: 0.2em;
+    margin-left: 0.5em;
+}
+.TUICButtonColorCheck[data-checked="true"] {
+    /* チェックされている */
+	background-position: center;
+	background-size: 90%;
+    background-color: rgba(29,161,242,1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
 
