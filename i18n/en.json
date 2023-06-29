@@ -31,6 +31,7 @@
     "invisibleItems-discoverMore": "\"Discover more\" in the tweet reply list",
     "invisibleItems-subscribeTweets": "Subscribe button in the top right of the tweet",
     "invisibleItems-subscribeProfile": "Subscribe button on profile",
+    "invisibleItems-profileHighlights": "\"Highlight\" tab on profile page",
     "clientInfo-settingTitle": "Client Info (maybe discontinued)",
     "clientInfo-clientInfoVisible": "Show Client Info",
     "clientInfo-cannotGetInfo": "Could not retrieve the information.",
