@@ -160,5 +160,9 @@
     "optionSpecialThanks_enthropyreg": {
         "message": "俄語翻譯員",
         "description": "設定画面のSpecial thanks(enthropyregさん)"
+    },
+    "optionSpecialThanks_nakasyou": {
+        "message": "改善外觀設計",
+        "description": "設定画面のSpecial thanks(nakasyouさん)"
     }
 }
