@@ -4,7 +4,7 @@
         "description": "拡張機能の名前"
     },
     "extensionDescription": {
-        "message": "提高Twitter用戶界面的可定制性",
+        "message": "讓 Twitter 的介面更加客製化！",
         "description": "拡張機能の説明"
     },
     "notificationMessage": {
@@ -30,47 +30,47 @@
         "description": "ポップアップの文章"
     },
     "popupContent2": {
-        "message": "在Twitter上報告",
+        "message": "想回報 Bug 或是許願新功能的話",
         "description": "ポップアップの文章"
     },
     "popupContent3": {
-        "message": "錯誤和功能請求！",
+        "message": "請透過 Twitter 聯絡！",
         "description": "ポップアップの文章"
     },
     "popupButton1": {
-        "message": "Twitter UI Customizer的設置",
+        "message": "Twitter UI Customizer 的設定",
         "description": "ポップアップのボタン"
     },
     "popupButton2": {
-        "message": "在安全模式下改變設置",
+        "message": "在安全模式下修改設定",
         "description": "ポップアップのボタン"
     },
     "popupButton3": {
-        "message": "設置更新通知",
+        "message": "更新通知設定",
         "description": "ポップアップのボタン"
     },
     "popupButton4": {
-        "message": "作者的Twitter(@kaonasi_biwa)",
+        "message": "作者的 Twitter（@kaonasi_biwa）",
         "description": "ポップアップのボタン"
     },
     "optionTitle": {
-        "message": "設置和操作說明(Twitter UI Customizer)",
+        "message": "設定與操作說明（Twitter UI Customizer）",
         "description": "設定画面のタイトル"
     },
     "optionHeading1": {
-        "message": "Twitter UI Customizer的設置",
+        "message": "Twitter UI Customizer 的設定",
         "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-        "message": "Twitter设置：",
+        "message": "Twitter 設定：",
         "description": "設定画面の見出し"
     },
     "optionContent1_1_1": {
-        "message": "(設置和隱私→輔助功能、顯示和語言→顯示)",
+        "message": "（Twitter 設定 → 協助工具、顯示和語言 → 顯示）",
         "description": "設定画面の文章"
     },
     "optionHeading1_2": {
-        "message": "設置更新通知：",
+        "message": "更新通知設定：",
         "description": "設定画面の見出し"
     },
     "optionContent1_2_1": {
@@ -78,31 +78,31 @@
         "description": "設定画面の文章"
     },
     "optionContent1_2_2": {
-        "message": "當圖標被點擊時通知更新",
+        "message": "點擊圖示時通知更新",
         "description": "設定画面の文章"
     },
     "optionContent1_2_3": {
-        "message": "當你啟動Twitter時通知你的更新",
+        "message": "啟動 Twitter 時通知更新",
         "description": "設定画面の文章"
     },
     "optionHeading2": {
-        "message": "如何操作Twitter UI Customizer",
+        "message": "如何操作 Twitter UI Customizer",
         "description": "設定画面の見出し"
     },
     "optionContent2_1": {
-        "message": "可以在上面的網址上更改設置",
+        "message": "可以點擊上方的 URL 移動至修改設定頁面。",
         "description": "設定画面の文章"
     },
     "optionContent2_2": {
-        "message": "不需要重啟",
+        "message": "不需要重新啟動。",
         "description": "設定画面の文章"
     },
     "optionContent2_3": {
-        "message": "你可以用 \"恢復到默認 \"按鈕恢復到默認（在擴展程序中）",
+        "message": "可以用「重置為預設值」，讓（這個擴充功能的）設定恢復為預設值。",
         "description": "設定画面の文章"
     },
     "optionContent2_4": {
-        "message": "（該擴展的默認值基於北京時間2021/8/12凌晨1:00設計變更前的設計）",
+        "message": "※這個擴充功能的預設值，以日本時間 2021 年 8 月 12 日推特更新設計前的狀態為準。",
         "description": "設定画面の文章"
     },
     "optionSpecialThanks": {
@@ -126,39 +126,39 @@
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
-        "message": "客戶端名稱顯示和Twitter API所有者",
+        "message": "顯示客戶端名稱、Twitter API 的擁有者",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
     },
     "optionSpecialThanks_irhdevel": {
-        "message": "優秀的設計師",
+        "message": "超優秀的外觀設計",
         "description": "設定画面のSpecial thanks(irhdevelさん)"
     },
     "optionSpecialThanks_Taka005": {
-        "message": "源代碼的組織",
+        "message": "整理原始碼",
         "description": "設定画面のSpecial thanks(Taka005さん)"
     },
     "optionSpecialThanks_Hibi_10000": {
-        "message": "美國英語翻譯員",
+        "message": "英文（美國）翻譯者",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
     "optionSpecialThanks_KotoneFami": {
-        "message": "他們參與了增加功能",
+        "message": "功能追加",
         "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     },
     "optionSpecialThanks_loading_yt": {
-        "message": "中文翻譯員",
+        "message": "中文翻譯者",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_nyanrus": {
-        "message": "韓語翻譯員",
+        "message": "韓文翻譯者",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
-        "message": "圖標和標誌創建者",
+        "message": "圖示、標誌的製作者",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     },
     "optionSpecialThanks_enthropyreg": {
-        "message": "俄語翻譯員",
+        "message": "俄文翻譯者",
         "description": "設定画面のSpecial thanks(enthropyregさん)"
     },
     "optionSpecialThanks_nakasyou": {
