@@ -160,5 +160,9 @@
     "optionSpecialThanks_enthropyreg": {
         "message": "러시아어 번역",
         "description": "設定画面のSpecial thanks(enthropyregさん)"
+    },
+    "optionSpecialThanks_nakasyou": {
+        "message": "디자인 개량",
+        "description": "設定画面のSpecial thanks(nakasyouさん)"
     }
 }
