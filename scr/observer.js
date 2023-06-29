@@ -218,6 +218,13 @@ const TUICObserver = {
                     }
                 });
             }
+
+            if(TUICPref.invisibleItems["profileHighlights"]){
+                let tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`)
+                for(let elem of tabs){
+                    elem.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                }
+            }
         },
         clientInfo:function(){
             if (document.getElementById("client-info") == null && TUICPref.clientInfo.clientInfoVisible && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {

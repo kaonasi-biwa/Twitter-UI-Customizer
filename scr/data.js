@@ -12,7 +12,8 @@ const TUICData = {
       "discoverMore":false,
       "verified-rSidebar":false,
       "subscribe-profile":false,
-      "subscribe-tweets":false
+      "subscribe-tweets":false,
+      "profileHighlights":false
     },
     "otherBoolSetting": {
       "bottomScroll": false,
@@ -431,14 +432,15 @@ const TUICData = {
     }
   },
   invisibleItems: {
-    all: ["osusume-user-timeline", "twitter-pro-promotion-btn","discoverMore","verified-rSidebar","subscribe-tweets","subscribe-profile"],
+    all: ["osusume-user-timeline", "twitter-pro-promotion-btn","discoverMore","verified-rSidebar","subscribe-tweets","subscribe-profile","profileHighlights"],
     i18n: {
       "osusume-user-timeline": "invisibleItems-osusumeUsersOnTL",
       "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
       "discoverMore":"invisibleItems-discoverMore",
       "verified-rSidebar":"invisibleItems-verifiedRSidebar",
       "subscribe-tweets":"invisibleItems-subscribeTweets",
-      "subscribe-profile":"invisibleItems-subscribeProfile"
+      "subscribe-profile":"invisibleItems-subscribeProfile",
+      "profileHighlights":"invisibleItems-profileHighlights"
     }
   },
   clientInfo: {
