@@ -177,7 +177,7 @@ const TUICObserver = {
                             elem.previousElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         }
                     }
-                    if(elem.querySelector(`a[href*="&f=user"]`)){
+                    if(elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`)){
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                     }
                 }
