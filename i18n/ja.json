@@ -35,7 +35,8 @@
     "invisibleItems-subscribeTweets":"ツイート右上にたまにある「購入する」",
     "invisibleItems-subscribeProfile":"プロフィールのサブスクリプションボタン",
     "invisibleItems-profileHighlights":"プロフィールの「ハイライト」タブ",
-    "invisibleItems-hideOhterRTTL":"タイムラインのの他人によるリツイート",
+    "invisibleItems-hideOhterRTTL":"タイムラインの他人によるリツイート",
+    "invisibleItems-hideBelowDM":"画面右下に存在するDMの欄",
 
     "clientInfo-settingTitle":"クライアント情報 (廃止される可能性があります)",
     "clientInfo-clientInfoVisible":"クライアント情報を表示",
