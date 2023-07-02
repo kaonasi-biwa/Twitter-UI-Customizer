@@ -124,6 +124,9 @@ const TUICObserver = {
                                 space.classList.add(TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET"))
                             }
                         }
+                        if(TUICPref.invisibleItems["hideOhterRTTL"] && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null){
+                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                        }
                         let bar_item = {}
                         for (const elem_item of bar_base.children) {
                             for (const sel in TUICData.visibleButtons.selectors) {
@@ -201,6 +204,7 @@ const TUICObserver = {
             if(TUICPref.invisibleItems["subscribe-profile"] && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null){
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`).classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
             }
+
         },
         twitterProPromotionBtn:function(){
             if (TUICPref.invisibleItems["twitter-pro-promotion-btn"] !== undefined) {
