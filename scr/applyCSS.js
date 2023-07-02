@@ -574,6 +574,8 @@ display:none !important;
  `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;
     }`:""}
+    ${TUICPref.invisibleItems["hideBelowDM"] ?
+    `[data-testid="DMDrawer"]{display:none !important;}`:""}
 
  ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
  .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
