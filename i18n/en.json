@@ -32,6 +32,8 @@
     "invisibleItems-subscribeTweets": "Subscribe button in the top right of the tweet",
     "invisibleItems-subscribeProfile": "Subscribe button on profile",
     "invisibleItems-profileHighlights": "\"Highlight\" tab on profile page",
+    "invisibleItems-hideOhterRTTL": "Retweets by others on the timeline",
+    "invisibleItems-hideBelowDM": "Message tab present in the lower right of the screen",
     "clientInfo-settingTitle": "Client Info (maybe discontinued)",
     "clientInfo-clientInfoVisible": "Show Client Info",
     "clientInfo-cannotGetInfo": "Could not retrieve the information.",
