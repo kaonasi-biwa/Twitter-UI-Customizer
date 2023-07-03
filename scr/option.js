@@ -4,7 +4,6 @@ const TUICOptionHTML = {
     displaySetting: function (rootElement = "") {
         let TWITTER_setting_back = rootElement;
 
-
         let TUICPrefHTML = TUICLibrary.HTMLParse(this.TUICOptionHTML())
         TWITTER_setting_back.appendChild(TUICPrefHTML);
 
@@ -91,6 +90,16 @@ const TUICOptionHTML = {
             "type": "click",
             "function": function (event) {
                 TUICPref.otherBoolSetting[event.target.id] = event.target.checked
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref))
+                TUICLibrary.getClasses.update()
+                TUICObserver.observerFunction()
+            },
+            "single": false
+        },
+        ".timelineSetting": {
+            "type": "click",
+            "function": function (event) {
+                TUICPref.timeline[event.target.id] = event.target.checked
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref))
                 TUICLibrary.getClasses.update()
                 TUICObserver.observerFunction()
@@ -410,6 +419,7 @@ ${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio",
 )}
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
+${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting",this.radioButtonListSub("timeline-discoverMore","timeline-discoverMore","TUICRadio"))}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
@@ -512,7 +522,7 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",e
         `
     },
     //チェックボックスリスト(id:ID title:Stringでタイトル)
-    checkboxList: function (id, title, type) {
+    checkboxList: function (id, title, type,otherSetting) {
         let TUICInvisibleCheckBox = "";
         for (let i of TUICData[id].all) {
             TUICInvisibleCheckBox += this.checkbox(i, TUICPref[id][i], TUICData[id].i18n[i], type)
@@ -524,6 +534,7 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",e
               ${TUICInvisibleCheckBox}
           </div>
           <br>
+          ${otherSetting ?? ""}
         </details>
           `
     },
@@ -549,6 +560,18 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id,"color",e
         </div>
         <br>
         </details>`
+    },
+    radioButtonListSub:function(id,title,type){
+        let TUICInvisibleRadioBox = "";
+        for (let i of TUICData[id].all) {
+            TUICInvisibleRadioBox += this.radioButton(id,i, TUICPref[id] == i, TUICData[id].i18n[i], type)
+        }
+        return `
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title" style="margin-top:0px !important;margin-bottom:0px !important;margin-left:10px !important;">${TUICLibrary.getI18n(title)}</h2>
+        <div class="TUIC_col_setting_container">
+            ${TUICInvisibleRadioBox}
+        </div>
+        <br>`
     },
     iconButton: function(src, btnAction, tooltiptag){
       return `<button class="TUIC_icon_button_con ${btnAction}" title="${TUICLibrary.getI18n(tooltiptag)}">${src}</button>`

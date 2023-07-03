@@ -536,6 +536,32 @@ height:8px
 .${TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE")} > *{
 display:none !important;
 }
+
+[TUICDiscoberMore]{
+    padding-left:20px;
+}
+[TUICDiscoberMore="true"]::before{
+    content: "";
+    position: absolute;
+    top: 50%;   /* 縦軸をセンタリングする */ 
+    left: 20px;
+    transform: translateY(-50%);   /* 縦軸をセンタリングする */
+    border: 5px solid transparent;
+    border-left: 8px solid #555;   /* 好みで色を変えてください */  
+}
+
+[TUICDiscoberMore="false"]::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    border: 6px solid transparent;
+    border-top: 7px solid #555;   /* 好みで色を変えてください */  
+}
+
+.${TUICLibrary.getClasses.getClass("TUIC_DISCOVERMORE")}{
+    display:var(--TUIC-DISCOVERMORE,block) !important;
+    }
 .TUICUploadedImg{
     display:inline-block;
     width:64px;
@@ -570,6 +596,7 @@ display:none !important;
     padding-top:0px !important;
 }
  ` : ""}
+
  ${TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"] ?
  `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;

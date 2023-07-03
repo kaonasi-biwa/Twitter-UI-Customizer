@@ -14,7 +14,6 @@ const TUICData = {
       "subscribe-profile":false,
       "subscribe-tweets":false,
       "profileHighlights":false,
-      "hideOhterRTTL":false,
       "hideBelowDM":false
     },
     "otherBoolSetting": {
@@ -28,7 +27,12 @@ const TUICData = {
     "clientInfo": {
       "clientInfoVisible": false
     },
-    "twitterIcon": "nomal"
+    "timeline":{
+      "osusume-user-timeline":false,
+      "hideOhterRTTL":false,
+    },
+    "twitterIcon": "nomal",
+    "timeline-discoverMore":"nomal"
   },
   settings: {
     visibleButtons: {
@@ -434,22 +438,32 @@ const TUICData = {
     }
   },
   invisibleItems: {
-    all: ["osusume-user-timeline", "twitter-pro-promotion-btn","discoverMore","verified-rSidebar","subscribe-tweets","subscribe-profile","profileHighlights","hideOhterRTTL","hideBelowDM"],
+    all: ["twitter-pro-promotion-btn","verified-rSidebar","subscribe-tweets","subscribe-profile","profileHighlights","hideBelowDM"],
     i18n: {
-      "osusume-user-timeline": "invisibleItems-osusumeUsersOnTL",
       "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
-      "discoverMore":"invisibleItems-discoverMore",
       "verified-rSidebar":"invisibleItems-verifiedRSidebar",
       "subscribe-tweets":"invisibleItems-subscribeTweets",
       "subscribe-profile":"invisibleItems-subscribeProfile",
       "profileHighlights":"invisibleItems-profileHighlights",
-      "hideOhterRTTL":"invisibleItems-hideOhterRTTL",
       "hideBelowDM":"invisibleItems-hideBelowDM"
     }
   },
   clientInfo: {
     all: ["clientInfoVisible"],
     i18n: { "clientInfoVisible": "clientInfo-clientInfoVisible" }
+  },
+  timeline:{
+    all:["osusume-user-timeline","hideOhterRTTL"],
+    i18n:{"osusume-user-timeline":"timeline-osusumeUsersOnTL","hideOhterRTTL":"timeline-hideOhterRTTL"}
+  },
+  "timeline-discoverMore":{
+    all:["discoverMore_nomal","discoverMore_detailOpen","discoverMore_detailClose","discoverMore_invisible"],
+    i18n:{
+      "discoverMore_nomal":"timeline-discoverMore-nomal",
+      "discoverMore_detailOpen":"timeline-discoverMore-detailOpen",
+      "discoverMore_detailClose":"timeline-discoverMore-detailClose",
+      "discoverMore_invisible":"timeline-discoverMore-invisible"
+    }
   },
   styleColor: {
     light: {
