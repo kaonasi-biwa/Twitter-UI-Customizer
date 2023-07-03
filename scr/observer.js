@@ -35,10 +35,10 @@ const TUICObserver = {
 
         TUICRunFirst()
         if (window.location.pathname == "/tuic/safemode") {
-        } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/settings/display")) {
-            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
-        } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]') != null && (window.location.pathname == "/i/display")) {
-            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
+        } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]:not(article *)') != null && (window.location.pathname == "/settings/display")) {
+            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
+        } else if (document.querySelector('#unsent-tweet-background') == null && document.querySelector('[role="slider"]:not(article *)') != null && (window.location.pathname == "/i/display")) {
+            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
         }
 
         window.clearTimeout(timeout)
@@ -124,7 +124,7 @@ const TUICObserver = {
                                 space.classList.add(TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET"))
                             }
                         }
-                        if(TUICPref.invisibleItems["hideOhterRTTL"] && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null){
+                        if(TUICPref.timeline["hideOhterRTTL"] && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null){
                             elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                         }
                         let bar_item = {}
@@ -168,7 +168,7 @@ const TUICObserver = {
             }
         },
         osusumeUser:function(){
-            if (TUICPref.invisibleItems["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 &&  !location.href.includes("/settings/")) {
+            if (TUICPref.timeline["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 &&  !location.href.includes("/settings/")) {
                 let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`)
                 for(let elem of cells){
                     if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.previousElementSibling != null && (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)) {
@@ -182,14 +182,44 @@ const TUICObserver = {
                     }
                 }
             }
-            if(TUICPref.invisibleItems["discoverMore"] &&window.location.pathname.includes("/status/") && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null){
-                const cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"])`)
+            if(window.location.pathname.includes("/status/") && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null){
+                const cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.${TUICLibrary.getClasses.getClass("TUIC_DISCOVERHEADER")})`)
                 for(const elem of cells){
                     if(elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISCOVERHEADER"))
+                        if(TUICPref["timeline-discoverMore"] == "discoverMore_invisible"){
+                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                            elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE","none")
+                            if(elem.getAttribute("TUICDiscoberMore") != null){
+                                elem.removeAttribute("TUICDiscoberMore")
+                            }
+                        }else if(TUICPref["timeline-discoverMore"] == "discoverMore_detailOpen"){
+                            elem.setAttribute("TUICDiscoberMore","true")
+                            elem.onclick = (event) => {
+                                elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE",elem.getAttribute("TUICDiscoberMore") == "true" ? "" : "none")
+                                elem.setAttribute("TUICDiscoberMore",elem.getAttribute("TUICDiscoberMore") == "true" ? "false" : "true")
+                                event.stopPropagation()
+                                event.stopImmediatePropagation()
+                            }
+                        }else if(TUICPref["timeline-discoverMore"] == "discoverMore_detailClose"){
+                            elem.setAttribute("TUICDiscoberMore","false")
+                            elem.onclick = (event) => {
+                                elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE",elem.getAttribute("TUICDiscoberMore") == "true" ? "" : "none")
+                                elem.setAttribute("TUICDiscoberMore",elem.getAttribute("TUICDiscoberMore") == "true" ? "false" : "true")
+                                event.stopPropagation()
+                                event.stopImmediatePropagation()
+                            }
+                        }else{
+                            elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE","")
+                            if(elem.getAttribute("TUICDiscoberMore") != null){
+                                elem.removeAttribute("TUICDiscoberMore")
+                            }
+                        }
                         let elem2 =elem.nextElementSibling
                         while(elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0){
-                            elem2.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+
+                                elem2.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISCOVERMORE"))
+
                             elem2 = elem2.nextElementSibling
                         }
                     }

@@ -12,24 +12,24 @@ const TUICLibrary = {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
             return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (str) { return parseInt(str, 16); });
         },
-        getColorFromPref:function(name,type,mode_){
+        getColorFromPref: function (name, type, mode_) {
             let mode = ""
-            if((mode_ ?? "unknwon") == "unknwon"){
+            if ((mode_ ?? "unknwon") == "unknwon") {
                 mode = TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark"
             }
-            else{
+            else {
                 mode = mode_
             }
             return ((TUICPref?.[mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type]) ?? TUICData.colors[name]?.[type]).escapeToUseHTML()
         }
     },
     getClasses: {
-        getClass:function(id){
+        getClass: function (id) {
             return id + this.query
         },
         update: function () {
             this.query += "_"
-            document.querySelector("#twitter_ui_customizer_query").setAttribute("query",this.query)
+            document.querySelector("#twitter_ui_customizer_query").setAttribute("query", this.query)
             TUICCss()
             TUICObserver.observerFunction()
         },
@@ -50,28 +50,53 @@ const TUICLibrary = {
                 this.parallelToSerial()
             }
 
-            if(TUICPref.otherBoolSetting.clientInfo == true){
+            if (TUICPref.otherBoolSetting.clientInfo == true) {
                 TUICPref.clientInfo = {}
                 TUICPref.clientInfo.clientInfoVisible = true
             }
             delete TUICPref.otherBoolSetting.clientInfo
-            if(TUICPref.otherBoolSetting.invisibleTwitterLogo == true){
+
+            if (typeof TUICPref.timeline != "object") {
+                TUICPref.timeline = {}
+            }
+
+            if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
+
+                TUICPref.timeline["osusume-user-timeline"] = true
+            }
+            delete TUICPref.invisibleItems["osusume-user-timeline"]
+
+            if (TUICPref.invisibleItems["hideOhterRTTL"] == true) {
+
+                TUICPref.timeline["hideOhterRTTL"] = true
+            }
+            delete TUICPref.invisibleItems["hideOhterRTTL"]
+
+            if (TUICPref.invisibleItems["discoverMore"] == true) {
+
+                TUICPref["timeline-discoverMore"] = "discoverMore_invisible"
+            }
+            delete TUICPref.invisibleItems["discoverMore"]
+
+
+
+            if (TUICPref.otherBoolSetting.invisibleTwitterLogo == true) {
                 TUICPref.twitterIcon = "invisible"
             }
             delete TUICPref.otherBoolSetting.invisibleTwitterLogo
-            if("CSS" in TUICPref){
+            if ("CSS" in TUICPref) {
                 localStorage.setItem("TUIC_CSS", TUICPref.CSS)
             }
             delete TUICPref.CSS
 
-            if(typeof TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1){
-                TUICPref.visibleButtons = TUICPref.visibleButtons.filter(elem => {return elem != "downvote-button"});
+            if (typeof TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1) {
+                TUICPref.visibleButtons = TUICPref.visibleButtons.filter(elem => { return elem != "downvote-button" });
             }
-            if(typeof TUICPref.sidebarButtons == "object" && TUICPref.sidebarButtons.indexOf("verified-orgs-signup") != -1){
-                TUICPref.sidebarButtons = TUICPref.sidebarButtons.filter(elem => {return elem != "verified-orgs-signup"});
+            if (typeof TUICPref.sidebarButtons == "object" && TUICPref.sidebarButtons.indexOf("verified-orgs-signup") != -1) {
+                TUICPref.sidebarButtons = TUICPref.sidebarButtons.filter(elem => { return elem != "verified-orgs-signup" });
             }
 
-            this.updateToDefault(TUICPref,dPref)
+            this.updateToDefault(TUICPref, dPref)
         },
         parallelToSerial: function () {
             TUICPref.CSS = localStorage.getItem('CSS');
@@ -124,94 +149,94 @@ const TUICLibrary = {
 
             localStorage.setItem("TUIC", JSON.stringify(TUICPref))
         },
-        updateToDefault:function(object,defObject){
+        updateToDefault: function (object, defObject) {
             for (let i in defObject) {
                 if (!(i in object)) {
                     object[i] = defObject[i]
-                }else if(typeof defObject[i] == "object" && !Array.isArray(defObject[i])){
-                    this.updateToDefault(object[i],defObject[i])
+                } else if (typeof defObject[i] == "object" && !Array.isArray(defObject[i])) {
+                    this.updateToDefault(object[i], defObject[i])
                 }
             }
         }
     },
-    backgroundColorCheck:function(){
+    backgroundColorCheck: function () {
         bodyStyle = document
-        .querySelector("body").style.backgroundColor.toString()
-        if(bodyStyle == "rgb(0, 0, 0)"){
+            .querySelector("body").style.backgroundColor.toString()
+        if (bodyStyle == "rgb(0, 0, 0)") {
             return "dark"
-        }else if(bodyStyle == "rgb(21, 32, 43)"){
+        } else if (bodyStyle == "rgb(21, 32, 43)") {
             return "blue"
-        } else{
+        } else {
             return "light"
         }
     },
-    backgroundColorClass:function(dark,blue,white){
+    backgroundColorClass: function (dark, blue, white) {
         backgroundType = this.backgroundColorCheck()
-        if(this.backgroundColorCheck == "dark"){
+        if (this.backgroundColorCheck == "dark") {
             return dark
-        }else if(this.backgroundColorCheck == "blue"){
+        } else if (this.backgroundColorCheck == "blue") {
             return blue
-        }else{
+        } else {
             return white
         }
     },
-    fontSizeClass:function(x1,x2,x3,x4,x5){
+    fontSizeClass: function (x1, x2, x3, x4, x5) {
         fontSize = document
-        .querySelector("html").style.fontSize.toString()
-        if(fontSize == "17px"){
+            .querySelector("html").style.fontSize.toString()
+        if (fontSize == "17px") {
             return x4
-        }else if(fontSize == "18px"){
+        } else if (fontSize == "18px") {
             return x5
-        }else if(fontSize == "15px"){
+        } else if (fontSize == "15px") {
             return x3
-        }else if(fontSize == "14px"){
+        } else if (fontSize == "14px") {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2
         }
     },
     TUICParser: new DOMParser(),
-    HTMLParse:function(elem){
+    HTMLParse: function (elem) {
         return this.HTMLParseFunc(elem).querySelector("body > *")
     },
-    HTMLParseAll:function(elem){
+    HTMLParseAll: function (elem) {
         return this.HTMLParseFunc(elem).querySelectorAll("body > *")
     },
-    HTMLParseFunc:function(elem){
-        return this.TUICParser.parseFromString(elem,"text/html")
+    HTMLParseFunc: function (elem) {
+        return this.TUICParser.parseFromString(elem, "text/html")
     },
-    fetchI18n: async function() {
+    fetchI18n: async function () {
         return new Promise(resolve => {
-            chrome.runtime.sendMessage({type: "getI18n"}, response => {
+            chrome.runtime.sendMessage({ type: "getI18n" }, response => {
                 TUICI18N = JSON.parse(response);
                 resolve(TUICI18N);
             });
         });
     },
-    getI18n:function(elem){
+    getI18n: function (elem) {
         let lang = document.querySelector("html").getAttribute("lang")
-        if(lang in TUICI18N && elem in TUICI18N[lang]){
+        if (lang in TUICI18N && elem in TUICI18N[lang]) {
             return TUICI18N[lang][elem].escapeToUseHTML()
-        }else if(elem in TUICI18N.en){
+        } else if (elem in TUICI18N.en) {
             return TUICI18N.en[elem].escapeToUseHTML()
-        }else if(elem in TUICI18N.ja){
+        } else if (elem in TUICI18N.ja) {
             return TUICI18N.ja[elem].escapeToUseHTML()
-        }else{
+        } else {
             return "404"
         }
     },
-    escapeToUseHTML:function(text){
-        return text.replace(/[&'`"<>=;]/g, function(match) {
+    escapeToUseHTML: function (text) {
+        return text.replace(/[&'`"<>=;]/g, function (match) {
             return {
-              '&': '&amp;',
-              "'": '&#x27;',
-              '`': '&#x60;',
-              '"': '&quot;',
-              '<': '&lt;',
-              '>': '&gt;',
-              '=': '&equals;',
-              ";": "&semi;",
+                '&': '&amp;',
+                "'": '&#x27;',
+                '`': '&#x60;',
+                '"': '&quot;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '=': '&equals;',
+                ";": "&semi;",
             }[match]
-          });
+        });
     }
 }
 
-String.prototype.escapeToUseHTML = function(){return TUICLibrary.escapeToUseHTML(this)}
+String.prototype.escapeToUseHTML = function () { return TUICLibrary.escapeToUseHTML(this) }
