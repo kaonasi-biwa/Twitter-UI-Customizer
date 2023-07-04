@@ -171,7 +171,6 @@ const TUICObserver = {
             if (TUICPref.timeline["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 &&  !location.href.includes("/settings/")) {
                 let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`)
                 for(let elem of cells){
-                    console.log(elem)
                     if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.previousElementSibling != null && elem.querySelector(`[aria-live="polite"]`) == null && (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)) {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         if(elem.previousElementSibling.querySelector(`h2`) != null){
