@@ -30,6 +30,7 @@ const TUICData = {
     "timeline":{
       "osusume-user-timeline":false,
       "hideOhterRTTL":false,
+      "accountStart":false,
     },
     "twitterIcon": "nomal",
     "timeline-discoverMore":"nomal"
@@ -453,8 +454,8 @@ const TUICData = {
     i18n: { "clientInfoVisible": "clientInfo-clientInfoVisible" }
   },
   timeline:{
-    all:["osusume-user-timeline","hideOhterRTTL"],
-    i18n:{"osusume-user-timeline":"timeline-osusumeUsersOnTL","hideOhterRTTL":"timeline-hideOhterRTTL"}
+    all:["osusume-user-timeline","hideOhterRTTL","accountStart"],
+    i18n:{"osusume-user-timeline":"timeline-osusumeUsersOnTL","hideOhterRTTL":"timeline-hideOhterRTTL","accountStart":"timeline-accountStart"}
   },
   "timeline-discoverMore":{
     all:["discoverMore_nomal","discoverMore_detailOpen","discoverMore_detailClose","discoverMore_invisible"],

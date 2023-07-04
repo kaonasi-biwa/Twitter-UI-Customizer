@@ -540,17 +540,17 @@ display:none !important;
 [TUICDiscoberMore]{
     padding-left:20px;
 }
-[TUICDiscoberMore="true"]::before{
+[TUICDiscoberMore="false"]::before{
     content: "";
     position: absolute;
-    top: 50%;   /* 縦軸をセンタリングする */ 
+    top: 50%;   /* 縦軸をセンタリングする */
     left: 20px;
     transform: translateY(-50%);   /* 縦軸をセンタリングする */
     border: 5px solid transparent;
-    border-left: 8px solid #555;   /* 好みで色を変えてください */  
+    border-left: 8px solid #555;   /* 好みで色を変えてください */
 }
 
-[TUICDiscoberMore="false"]::before{
+[TUICDiscoberMore="true"]::before{
     content: "";
     position: absolute;
     top: 50%;
