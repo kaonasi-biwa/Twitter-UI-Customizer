@@ -171,19 +171,20 @@ const TUICObserver = {
             if (TUICPref.timeline["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 &&  !location.href.includes("/settings/")) {
                 let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`)
                 for(let elem of cells){
-                    if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.previousElementSibling != null && (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)) {
+                    console.log(elem)
+                    if (elem.querySelector(`[data-testid="UserCell"]`) != null && elem.previousElementSibling != null && elem.querySelector(`[aria-live="polite"]`) == null && (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)) {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         if(elem.previousElementSibling.querySelector(`h2`) != null){
                             elem.previousElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                         }
                     }
-                    if(elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`)){
+                    if(elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`) && elem.querySelector(`[aria-live="polite"]`) == null){
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                     }
                 }
             }
             if(window.location.pathname.includes("/status/") && !isNaN((new URL(location.href)).pathname.split('/')[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null){
-                const cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.${TUICLibrary.getClasses.getClass("TUIC_DISCOVERHEADER")})`)
+                let cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.${TUICLibrary.getClasses.getClass("TUIC_DISCOVERHEADER")})`)
                 for(const elem of cells){
                     if(elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISCOVERHEADER"))
@@ -195,17 +196,21 @@ const TUICObserver = {
                             }
                         }else if(TUICPref["timeline-discoverMore"] == "discoverMore_detailOpen"){
                             elem.setAttribute("TUICDiscoberMore","true")
+                            elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE","")
                             elem.onclick = (event) => {
-                                elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE",elem.getAttribute("TUICDiscoberMore") == "true" ? "" : "none")
-                                elem.setAttribute("TUICDiscoberMore",elem.getAttribute("TUICDiscoberMore") == "true" ? "false" : "true")
+                                let nowType =elem.getAttribute("TUICDiscoberMore")
+                                elem.setAttribute("TUICDiscoberMore",nowType == "true" ? "false" : "true")
+                                elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE",nowType == "true" ? "none" : "")
                                 event.stopPropagation()
                                 event.stopImmediatePropagation()
                             }
                         }else if(TUICPref["timeline-discoverMore"] == "discoverMore_detailClose"){
                             elem.setAttribute("TUICDiscoberMore","false")
+                            elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE","none")
                             elem.onclick = (event) => {
-                                elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE",elem.getAttribute("TUICDiscoberMore") == "true" ? "" : "none")
-                                elem.setAttribute("TUICDiscoberMore",elem.getAttribute("TUICDiscoberMore") == "true" ? "false" : "true")
+                                let nowType =elem.getAttribute("TUICDiscoberMore")
+                                elem.setAttribute("TUICDiscoberMore",nowType == "true" ? "false" : "true")
+                                elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE",nowType == "true" ? "none" : "")
                                 event.stopPropagation()
                                 event.stopImmediatePropagation()
                             }
@@ -215,14 +220,25 @@ const TUICObserver = {
                                 elem.removeAttribute("TUICDiscoberMore")
                             }
                         }
+                    }
+                }
+                cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"])`)
+                for(const elem of cells){
+                    if(elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")){
                         let elem2 =elem.nextElementSibling
                         while(elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0){
-
                                 elem2.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISCOVERMORE"))
-
                             elem2 = elem2.nextElementSibling
                         }
                     }
+                }
+
+            }
+            if(TUICPref.timeline["accountStart"] && location.search.indexOf("f=user") == -1 &&  !location.href.includes("/settings/")){
+                let cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`)
+                for(let elem of cells){
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"))
                 }
             }
             if(TUICPref.invisibleItems["verified-rSidebar"] &&document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`) != null){
