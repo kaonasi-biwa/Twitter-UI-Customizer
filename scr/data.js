@@ -33,7 +33,7 @@ const TUICData = {
       "accountStart":false,
     },
     "twitterIcon": "nomal",
-    "timeline-discoverMore":"nomal"
+    "timeline-discoverMore":"discoverMore_nomal"
   },
   settings: {
     visibleButtons: {
