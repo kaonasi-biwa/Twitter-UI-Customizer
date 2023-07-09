@@ -53,6 +53,10 @@
         "message": "Author (kaonasi_biwa) on Twitter",
         "description": "ポップアップのボタン"
     },
+    "popupButton5": {
+        "message": "Install latest version from GitHub",
+        "description": "ポップアップのボタン"
+    },
     "optionTitle": {
         "message": "Settings and Operation Method(Twitter UI Customizer)",
         "description": "設定画面のタイトル"
