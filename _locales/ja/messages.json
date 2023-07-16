@@ -1,170 +1,170 @@
 {
     "extensionName": {
-      "message": "Twitter UI Customizer",
-      "description": "拡張機能の名前"
+        "message": "Twitter UI Customizer",
+        "description": "拡張機能の名前"
     },
     "extensionDescription": {
-      "message": "TwitterのUIのカスタマイズ性を向上させます！",
-      "description": "拡張機能の説明"
+        "message": "TwitterのUIのカスタマイズ性を向上させます！",
+        "description": "拡張機能の説明"
     },
     "notificationMessage": {
-      "message":"新しいバージョンが公開されました。\rアップデートしてください。\r$V1$→$V2$",
-      "description": "アップデート通知",
-      "placeholders": {
-        "V1" : {
-          "content" : "$1",
-          "example" : "x.x.x (Extension)"
-        },
-        "V2" : {
-          "content" : "$2",
-          "example" : "x.x.x (GitHub)"
+        "message": "新しいバージョンが公開されました。\rアップデートしてください。\r$V1$→$V2$",
+        "description": "アップデート通知",
+        "placeholders": {
+            "V1": {
+                "content": "$1",
+                "example": "x.x.x (Extension)"
+            },
+            "V2": {
+                "content": "$2",
+                "example": "x.x.x (GitHub)"
+            }
         }
-      }
     },
 
     "popupTitle": {
-      "message": "ありがとう！",
-      "description": "ポップアップのタイトル"
+        "message": "ありがとう！",
+        "description": "ポップアップのタイトル"
     },
     "popupContent1": {
-      "message": "使ってくれてありがとう！",
-      "description": "ポップアップの文章"
+        "message": "使ってくれてありがとう！",
+        "description": "ポップアップの文章"
     },
     "popupContent2": {
-      "message": "バグの報告や機能の要望は",
-      "description": "ポップアップの文章"
+        "message": "バグの報告や機能の要望は",
+        "description": "ポップアップの文章"
     },
     "popupContent3": {
-      "message": "Twitterからよろしくね！",
-      "description": "ポップアップの文章"
+        "message": "Twitterからよろしくね！",
+        "description": "ポップアップの文章"
     },
     "popupButton1": {
-      "message": "Twitter UI Customizerの設定",
-      "description": "ポップアップのボタン"
+        "message": "Twitter UI Customizerの設定",
+        "description": "ポップアップのボタン"
     },
     "popupButton2": {
-      "message": "セーフモードで設定を変更",
-      "description": "ポップアップのボタン"
+        "message": "セーフモードで設定を変更",
+        "description": "ポップアップのボタン"
     },
     "popupButton3": {
-      "message": "アップデート通知の設定",
-      "description": "ポップアップのボタン"
+        "message": "アップデート通知の設定",
+        "description": "ポップアップのボタン"
     },
     "popupButton4": {
-      "message": "作者(kaonasi_biwa)のTwitter",
-      "description": "ポップアップのボタン"
+        "message": "作者(kaonasi_biwa)のTwitter",
+        "description": "ポップアップのボタン"
     },
 
     "optionTitle": {
-      "message": "設定及び操作方法(Twitter UI Customizer)",
-      "description": "設定画面のタイトル"
+        "message": "設定及び操作方法(Twitter UI Customizer)",
+        "description": "設定画面のタイトル"
     },
     "optionHeading1": {
-      "message": "Twitter UI Customizerの設定",
-      "description": "設定画面の見出し"
+        "message": "Twitter UI Customizerの設定",
+        "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-      "message": "Twitterの設定:",
-      "description": "設定画面の見出し"
+        "message": "Twitterの設定:",
+        "description": "設定画面の見出し"
     },
     "optionContent1_1_1": {
-      "message": "(Twitterの設定→アクセシビリティ、表示、言語→表示)",
-      "description": "設定画面の文章"
+        "message": "(Twitterの設定→アクセシビリティ、表示、言語→表示)",
+        "description": "設定画面の文章"
     },
     "optionHeading1_2": {
-      "message": "アップデート通知の設定:",
-      "description": "設定画面の見出し"
+        "message": "アップデート通知の設定:",
+        "description": "設定画面の見出し"
     },
     "optionContent1_2_1": {
-      "message": "ブラウザを起動したときにアップデート通知する",
-      "description": "設定画面の文章"
+        "message": "ブラウザを起動したときにアップデート通知する",
+        "description": "設定画面の文章"
     },
     "optionContent1_2_2": {
-      "message": "アイコンをクリックしたときにアップデート通知する",
-      "description": "設定画面の文章"
+        "message": "アイコンをクリックしたときにアップデート通知する",
+        "description": "設定画面の文章"
     },
     "optionContent1_2_3": {
-      "message": "Twitterを開いたときにアップデート通知する",
-      "description": "設定画面の文章"
+        "message": "Twitterを開いたときにアップデート通知する",
+        "description": "設定画面の文章"
     },
     "optionHeading2": {
-      "message": "Twitter UI Customizerの操作方法",
-      "description": "設定画面の見出し"
+        "message": "Twitter UI Customizerの操作方法",
+        "description": "設定画面の見出し"
     },
     "optionContent2_1": {
-      "message": "上のURL先から設定を変えます。",
-      "description": "設定画面の文章"
+        "message": "上のURL先から設定を変えます。",
+        "description": "設定画面の文章"
     },
     "optionContent2_2": {
-      "message": "再起動は必要ありません。",
-      "description": "設定画面の文章"
+        "message": "再起動は必要ありません。",
+        "description": "設定画面の文章"
     },
     "optionContent2_3": {
-      "message": "デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。",
-      "description": "設定画面の文章"
+        "message": "デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。",
+        "description": "設定画面の文章"
     },
     "optionContent2_4": {
-      "message": "※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。",
-      "description": "設定画面の文章"
+        "message": "※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。",
+        "description": "設定画面の文章"
     },
     "optionSpecialThanks": {
-      "message": "Special Thanks",
-      "description": "設定画面のSpecial thanks"
+        "message": "Special Thanks",
+        "description": "設定画面のSpecial thanks"
     },
-    "optionSpecialThanksGitHub":{
-      "message": "GitHub:",
-      "description": "設定画面のSpecial thanksのサービス名"
+    "optionSpecialThanksGitHub": {
+        "message": "GitHub:",
+        "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksCrowdin":{
-      "message": "Crowdin:",
-      "description": "設定画面のSpecial thanksのサービス名"
+    "optionSpecialThanksCrowdin": {
+        "message": "Crowdin:",
+        "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksOther":{
-      "message": "Other:",
-      "description": "設定画面のSpecial thanksのサービス名"
+    "optionSpecialThanksOther": {
+        "message": "Other:",
+        "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksTwitter":{
-      "message": "(Twitter)",
-      "description": "設定画面のSpecial thanksのサービス名"
+    "optionSpecialThanksTwitter": {
+        "message": "(Twitter)",
+        "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
-      "message": "クライアント名表示・Twitter APIの主",
-      "description": "設定画面のSpecial thanks(GrapeApple0さん)"
+        "message": "クライアント名表示・Twitter APIの主",
+        "description": "設定画面のSpecial thanks(GrapeApple0さん)"
     },
     "optionSpecialThanks_irhdevel": {
-      "message": "すばらしきデザイン",
-      "description": "設定画面のSpecial thanks(irhdevelさん)"
+        "message": "すばらしきデザイン",
+        "description": "設定画面のSpecial thanks(irhdevelさん)"
     },
     "optionSpecialThanks_Taka005": {
-      "message": "ソースコードの整理",
-      "description": "設定画面のSpecial thanks(Taka005さん)"
+        "message": "ソースコードの整理",
+        "description": "設定画面のSpecial thanks(Taka005さん)"
     },
     "optionSpecialThanks_Hibi_10000": {
-      "message": "アメリカ英語の翻訳者",
-      "description": "設定画面のSpecial thanks(Hibi-10000さん)"
+        "message": "アメリカ英語の翻訳者",
+        "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
     "optionSpecialThanks_KotoneFami": {
-      "message": "機能追加",
-      "description": "設定画面のSpecial thanks(KotoneFamiさん)"
+        "message": "機能追加",
+        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     },
     "optionSpecialThanks_loading_yt": {
-      "message": "中国語の翻訳者",
-      "description": "設定画面のSpecial thanks(loading_ytさん)"
+        "message": "中国語の翻訳者",
+        "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_nyanrus": {
-      "message": "韓国語の翻訳者",
-      "description": "設定画面のSpecial thanks(nyanrusさん)"
+        "message": "韓国語の翻訳者",
+        "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
-      "message": "アイコン・ロゴの作成者",
-      "description": "設定画面のSpecial thanks(CutterKnife_さん)"
+        "message": "アイコン・ロゴの作成者",
+        "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     },
     "optionSpecialThanks_enthropyreg": {
-      "message": "ロシア語の翻訳者",
-      "description": "設定画面のSpecial thanks(enthropyregさん)"
+        "message": "ロシア語の翻訳者",
+        "description": "設定画面のSpecial thanks(enthropyregさん)"
     },
     "optionSpecialThanks_nakasyou": {
-      "message": "デザインの改良",
-      "description": "設定画面のSpecial thanks(nakasyouさん)"
+        "message": "デザインの改良",
+        "description": "設定画面のSpecial thanks(nakasyouさん)"
     }
-  }
+}
