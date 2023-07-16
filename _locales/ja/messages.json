@@ -58,6 +58,10 @@
         "message": "最新版をGitHubからインストール",
         "description": "ポップアップのボタン"
     },
+    "popupButton5": {
+      "message": "最新版をGitHubからインストール",
+      "description": "ポップアップのボタン"
+    },
 
     "optionTitle": {
         "message": "設定及び操作方法(Twitter UI Customizer)",
