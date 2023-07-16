@@ -236,7 +236,8 @@ const TUICLibrary = {
             }[match];
         });
     },
-};console.log("aaa")
+};
+console.log("aaa");
 String.prototype.escapeToUseHTML = function () {
     return TUICLibrary.escapeToUseHTML(this);
 };
