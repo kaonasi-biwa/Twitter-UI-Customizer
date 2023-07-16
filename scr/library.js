@@ -237,7 +237,6 @@ const TUICLibrary = {
         });
     },
 };
-console.log("aaa");
 String.prototype.escapeToUseHTML = function () {
     return TUICLibrary.escapeToUseHTML(this);
 };
