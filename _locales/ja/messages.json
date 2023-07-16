@@ -55,8 +55,8 @@
         "description": "ポップアップのボタン"
     },
     "popupButton5": {
-      "message": "最新版をGitHubからインストール",
-      "description": "ポップアップのボタン"
+        "message": "最新版をGitHubからインストール",
+        "description": "ポップアップのボタン"
     },
 
     "optionTitle": {
