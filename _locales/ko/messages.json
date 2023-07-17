@@ -53,6 +53,10 @@
         "message": "제작자(kaonasi_biwa)의 트위터",
         "description": "ポップアップのボタン"
     },
+    "popupButton5": {
+        "message": "최신 버전을 GitHub에서 설치",
+        "description": "ポップアップのボタン"
+    },
     "optionTitle": {
         "message": "설정 및 조작 방법 (Twitter UI Customizer)",
         "description": "設定画面のタイトル"
