@@ -281,7 +281,7 @@ const TUICData = {
             },
             quoteTweet: function (retButton) {
                 for (let i = 0; i <= 2; i++) {
-                    let quoteButton = document.querySelector(`[role="menuitem"][href="/compose/tweet"]`);
+                    let quoteButton = document.querySelector(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`);
                     if (quoteButton == null) {
                         retButton.click();
                     } else {
@@ -293,7 +293,7 @@ const TUICData = {
             "retweet-button": function () {
                 if (TUICPref.otherBoolSetting["RTNotQuote"]) {
                     window.setTimeout(() => {
-                        TUICData.sidebarButtons.waitSetElement(`:is([role="menuitem"][data-testid="retweetConfirm"],[role="menuitem"][data-testid="unretweetConfirm"])`);
+                        TUICData.sidebarButtons.waitSetElement(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`);
                     }, 100);
                 }
             },
