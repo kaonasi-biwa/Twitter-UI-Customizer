@@ -22,11 +22,11 @@ module.exports = {
     rules: {
         indent: ["error", 4],
         "linebreak-style": ["error", "unix"],
-        quotes: ["error", "double"],
         semi: ["error", "always"],
         "no-unused-vars": [0],
         "no-empty": [0],
         "prefer-const": ["error"],
+        "no-unsafe-option-chaining": "off",
     },
     globals: {
         chrome: true,

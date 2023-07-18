@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 let TUICI18N;
 
 const TUICLibrary = {
@@ -112,8 +113,8 @@ const TUICLibrary = {
             TUICPref.CSS = localStorage.getItem("CSS");
             TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem("osusume-user-timeline") ?? "0") == "1";
             TUICPref.visibleButtons = JSON.parse(localStorage.getItem("visible-button"));
-            for (let i of TUICData.settings.colors.id) {
-                let a = localStorage.getItem(`${i}-background`) ?? "unknown";
+            for (const i of TUICData.settings.colors.id) {
+                const a = localStorage.getItem(`${i}-background`) ?? "unknown";
                 if (a != "unknown") {
                     TUICPref.buttonColor[i] = {};
                     TUICPref.buttonColor[i].background = a;

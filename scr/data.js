@@ -136,11 +136,6 @@ const TUICData = {
             border: "rgba(255,0,0,1)",
             color: "rgba(255,255,255,1)",
         },
-        birthday: {
-            background: "rgba(255,0,0,1)",
-            border: "rgba(255,0,0,1)",
-            color: "rgba(255,255,255,1)",
-        },
         blocking: {
             background: "rgba(244, 33, 46,1)",
             border: "rgba(244, 33, 46,1)",
@@ -383,6 +378,7 @@ const TUICData = {
         },
         html: {
             __base: (id, svg) => {
+                /* eslint-disable */
                 return `
         <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
@@ -402,6 +398,7 @@ const TUICData = {
             </div>
           </div>
         </a>`;
+                /* eslint-disable */
             },
             topics: function () {
                 return TUICData.sidebarButtons.html.__base(

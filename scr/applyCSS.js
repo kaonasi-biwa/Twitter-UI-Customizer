@@ -3,14 +3,14 @@ function TUICRunFirst() {
     if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove();
 
     // 追加する要素を用意します。
-    let TUIC_css = document.createElement("style");
+    const TUIC_css = document.createElement("style");
     TUIC_css.id = "twitter_ui_customizer";
-    let TWITTER_head = document.querySelector("head");
+    const TWITTER_head = document.querySelector("head");
     // 基準となる要素を指定します。
     TWITTER_head.appendChild(TUIC_css);
     TUICCss();
     if (window.location.pathname != "/tuic/safemode") {
-        let TUIC_custom_css = document.createElement("style");
+        const TUIC_custom_css = document.createElement("style");
         TUIC_custom_css.id = "twitter_ui_customizer_css";
         TWITTER_head.appendChild(TUIC_custom_css);
         TUICCustomCSS();
@@ -18,7 +18,7 @@ function TUICRunFirst() {
 }
 
 function TUICCss() {
-    let backgroundColor = TUICLibrary.backgroundColorCheck();
+    const backgroundColor = TUICLibrary.backgroundColorCheck();
 
     let prefColors = "";
     for (const elem in TUICData.colors) {
@@ -26,7 +26,7 @@ function TUICCss() {
             prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
         }
     }
-
+    /* eslint-disable */
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}
@@ -628,6 +628,7 @@ display:none !important;
  }
 
 `;
+    /* eslint-enable */
 }
 
 function TUICCustomCSS() {
