@@ -1,9 +1,9 @@
 let updateID = "";
 
-let updateNotification = () => {
+const updateNotification = () => {
   chrome.tabs.create({ url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases" });
-  chrome.notifications.onClicked.removeListener(updateNotification)
-}
+  chrome.notifications.onClicked.removeListener(updateNotification);
+};
 
 
 const updateCheck = async () => {
@@ -12,31 +12,31 @@ const updateCheck = async () => {
     .then(res => res.json())
     .then(json => json.tag_name);
   const extensionVersion = await chrome.runtime.getManifest().version;
-  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, '') != extensionVersion.replace(/\r?\n/g, '')) {
+  if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, "") != extensionVersion.replace(/\r?\n/g, "")) {
 
     chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`,
       {
         type: "basic",
         title: chrome.i18n.getMessage("extensionName"),
-        message:chrome.i18n.getMessage("notificationMessage",[extensionVersion.replace(/\r?\n/g, ''),githubVersion.replace(/\r?\n/g, '')]),
+        message:chrome.i18n.getMessage("notificationMessage",[extensionVersion.replace(/\r?\n/g, ""),githubVersion.replace(/\r?\n/g, "")]),
         iconUrl: "icon/icon128.png"
       });
     chrome.notifications.onClicked.addListener(updateNotification);
-    chrome.notifications.onClosed.addListener(() => chrome.notifications.onClicked.removeListener(updateNotification))
+    chrome.notifications.onClosed.addListener(() => chrome.notifications.onClicked.removeListener(updateNotification));
   }
 
 
 
-}
+};
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type == "clientInfo") {
-    deviceMessage(message.endpoint, sendResponse)
+    deviceMessage(message.endpoint, sendResponse);
   } else if (message.type == "update") {
-    if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification)
+    if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification);
     update1(message.updateType);
   }else if (message.type == "getI18n"){
-    getI18n(sendResponse)
+    getI18n(sendResponse);
   }
   return true;
 });
@@ -44,13 +44,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 const update1 = async (updateType) => {
   updateID = updateType;
   chrome.storage.sync.get("TUIC", async (settingT) => {
-    let isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com")
-    setting = settingT.TUIC ?? { iconClick: isWebstore, runBrowser: isWebstore, openTwitter: isWebstore }
+    const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
+    const setting = settingT.TUIC ?? { iconClick: isWebstore, runBrowser: isWebstore, openTwitter: isWebstore };
     if (setting[updateID]) {
-      updateCheck()
+      updateCheck();
     }
   });
-}
+};
 
 const deviceMessage = async (url, res) => {
   fetch(url, {
@@ -66,21 +66,21 @@ const deviceMessage = async (url, res) => {
   }).catch(error => {
     res({});
   });
-}
+};
 
 const getI18n = async (res) => {
-  let i18nObject = {}
+  const i18nObject = {};
   const langList = await fetch(chrome.runtime.getURL("./i18n/_langList.json"),{ cache: "no-store" })
-    .then(res => res.json())
-    for(const elem of langList){
-      i18nObject[elem] =Object.assign(
-        (await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json())),
-        (await fetch(chrome.runtime.getURL(`./i18n/ti18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json()))
+    .then(res => res.json());
+  for(const elem of langList){
+    i18nObject[elem] =Object.assign(
+      (await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json())),
+      (await fetch(chrome.runtime.getURL(`./i18n/ti18n/${elem}.json`),{ cache: "no-store" }).then(res => res.json()))
 
-        )
-    }
-  res(JSON.stringify(i18nObject))
-}
+    );
+  }
+  res(JSON.stringify(i18nObject));
+};
 
-chrome.notifications.onClicked.removeListener(updateNotification)
+chrome.notifications.onClicked.removeListener(updateNotification);
 update1("runBrowser");

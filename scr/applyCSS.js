@@ -1,35 +1,35 @@
 
 function TUICRunFirst() {
 
-    if (document.querySelector("#twitter_ui_customizer_css") != null) document.querySelector("#twitter_ui_customizer_css").remove()
-    if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove()
+  if (document.querySelector("#twitter_ui_customizer_css") != null) document.querySelector("#twitter_ui_customizer_css").remove();
+  if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove();
 
-    // 追加する要素を用意します。
-    let TUIC_css = document.createElement("style");
-    TUIC_css.id = "twitter_ui_customizer"
-    let TWITTER_head = document.querySelector("head")
-    // 基準となる要素を指定します。
-    TWITTER_head.appendChild(TUIC_css);
-    TUICCss()
-    if (window.location.pathname != "/tuic/safemode") {
-        let TUIC_custom_css = document.createElement("style");
-        TUIC_custom_css.id = "twitter_ui_customizer_css"
-        TWITTER_head.appendChild(TUIC_custom_css);
-        TUICCustomCSS()
-    }
+  // 追加する要素を用意します。
+  const TUIC_css = document.createElement("style");
+  TUIC_css.id = "twitter_ui_customizer";
+  const TWITTER_head = document.querySelector("head");
+  // 基準となる要素を指定します。
+  TWITTER_head.appendChild(TUIC_css);
+  TUICCss();
+  if (window.location.pathname != "/tuic/safemode") {
+    const TUIC_custom_css = document.createElement("style");
+    TUIC_custom_css.id = "twitter_ui_customizer_css";
+    TWITTER_head.appendChild(TUIC_custom_css);
+    TUICCustomCSS();
+  }
 }
 
 function TUICCss() {
-    let backgroundColor = TUICLibrary.backgroundColorCheck()
+  const backgroundColor = TUICLibrary.backgroundColorCheck();
 
-    let prefColors = ""
-    for(let elem in TUICData.colors){
-        for(let el of ["background","border","color"]){
-            prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem,el)};`
-        }
+  let prefColors = "";
+  for(const elem in TUICData.colors){
+    for(const el of ["background","border","color"]){
+      prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem,el)};`;
     }
+  }
 
-    document.querySelector("#twitter_ui_customizer").textContent = `
+  document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}
 
@@ -425,7 +425,7 @@ textarea#css_textarea,.TUICTextInput {
     border:2px solid rgb(127, 127, 127);
 }
 .TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton > span::before{
-    background-image:url('data:image/svg+xml;charset=UTF-8,<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\\"0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
+    background-image:url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
     background-color:rgb(29, 155, 240);
     height:1em;
     width:1em;
@@ -570,7 +570,7 @@ display:none !important;
     border-color:var(--TUIC-detail-border) !important;
 }
 
-.TUICSidebarSelected > div > [dir=\"ltr\"]{
+.TUICSidebarSelected > div > [dir="ltr"]{
     font-weight:700;
 }
 .TUICSidebarSelected > div > div > svg{
@@ -598,11 +598,11 @@ display:none !important;
  ` : ""}
 
  ${TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"] ?
- `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
+    `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;
     }`:""}
     ${TUICPref.invisibleItems["hideBelowDM"] ?
-    `[data-testid="DMDrawer"]{display:none !important;}`:""}
+    "[data-testid=\"DMDrawer\"]{display:none !important;}":""}
 
  ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
  .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
@@ -615,5 +615,5 @@ display:none !important;
 }
 
 function TUICCustomCSS() {
-    document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS")
+  document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS");
 }
