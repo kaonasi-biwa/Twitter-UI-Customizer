@@ -1,5 +1,7 @@
 //ここから実際に動かしてゆく
+/* eslint-disable */
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString());
+/* eslint-enable */
 let TUICCount = 0;
 function replaceRunningIcon() {
     if (document.getElementById("react-root") != null) {

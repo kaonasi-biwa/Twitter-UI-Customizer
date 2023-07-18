@@ -51,7 +51,7 @@ const TUICObserver = {
     },
     functions: {
         twitterIcon: function (elem, base) {
-            switch (TUICPref.twitterIcon) {
+            switch (TUICPref.twitterIcon /* eslint-disable */) {
                 case "invisible":
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     base.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
@@ -71,7 +71,7 @@ const TUICObserver = {
                 default:
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_NOTSVGDISPNONE"));
                     break;
-            }
+            } /* eslint-enable */
         },
         sidebarButtons: function () {
             const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
@@ -167,10 +167,10 @@ const TUICObserver = {
         },
         osusumeUser: function () {
             if (TUICPref.timeline["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
-                let cells = document.querySelectorAll(
+                const cells = document.querySelectorAll(
                     `div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`,
                 );
-                for (let elem of cells) {
+                for (const elem of cells) {
                     if (
                         elem.querySelector(`[data-testid="UserCell"]`) != null &&
                         elem.previousElementSibling != null &&
@@ -202,7 +202,7 @@ const TUICObserver = {
                             elem.setAttribute("TUICDiscoberMore", "true");
                             elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
                             elem.onclick = (event) => {
-                                let nowType = elem.getAttribute("TUICDiscoberMore");
+                                const nowType = elem.getAttribute("TUICDiscoberMore");
                                 elem.setAttribute("TUICDiscoberMore", nowType == "true" ? "false" : "true");
                                 elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", nowType == "true" ? "none" : "");
                                 event.stopPropagation();
@@ -212,7 +212,7 @@ const TUICObserver = {
                             elem.setAttribute("TUICDiscoberMore", "false");
                             elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                             elem.onclick = (event) => {
-                                let nowType = elem.getAttribute("TUICDiscoberMore");
+                                const nowType = elem.getAttribute("TUICDiscoberMore");
                                 elem.setAttribute("TUICDiscoberMore", nowType == "true" ? "false" : "true");
                                 elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", nowType == "true" ? "none" : "");
                                 event.stopPropagation();
@@ -238,10 +238,10 @@ const TUICObserver = {
                 }
             }
             if (TUICPref.timeline["accountStart"] && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
-                let cells = document.querySelectorAll(
+                const cells = document.querySelectorAll(
                     `div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`,
                 );
-                for (let elem of cells) {
+                for (const elem of cells) {
                     elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                     elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
@@ -283,7 +283,7 @@ const TUICObserver = {
 
             if (TUICPref.invisibleItems["profileHighlights"]) {
                 const tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`);
-                for (let elem of tabs) {
+                for (const elem of tabs) {
                     elem.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             }
