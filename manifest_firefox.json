@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "3.0.4",
+    "version": "3.1.1",
     "default_locale": "ja",
     "manifest_version": 2,
     "icons": {
@@ -11,26 +11,13 @@
     },
     "content_scripts": [
         {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/observer.js",
-                "scr/data.js",
-                "scr/library.js",
-                "scr/option.js",
-                "scr/applyCSS.js",
-                "scr/index.js"
-            ],
+            "matches": ["*://*.twitter.com/*"],
+            "js": ["scr/observer.js", "scr/data.js", "scr/library.js", "scr/option.js", "scr/applyCSS.js", "scr/index.js"],
             "run_at": "document_start"
         },
-          {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/runningSafemode.js"
-            ],
+        {
+            "matches": ["*://*.twitter.com/*"],
+            "js": ["scr/runningSafemode.js"],
             "run_at": "document_end"
         }
     ],
@@ -38,13 +25,7 @@
         "page": "TUIC/options/options.html",
         "browser_style": true
     },
-    "permissions": [
-        "notifications",
-        "storage",
-        "https://api.github.com/*",
-        "https://*.mico.re/*",
-        "https://abs.twimg.com/*"
-    ],
+    "permissions": ["notifications", "storage", "https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"],
     "browser_action": {
         "default_icon": {
             "16": "icon/newIcon_TUIC_C_Blue.svg",
@@ -55,9 +36,7 @@
         "default_popup": "TUIC/popup/popup.html"
     },
     "background": {
-        "scripts": [
-            "background.js"
-        ]
+        "scripts": ["background.js"]
     },
     "applications": {
         "gecko": {
