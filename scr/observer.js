@@ -1,7 +1,7 @@
 const TUICObserver = {
     observerFunction: function () {
         TUICObserver.observer.disconnect();
-        let timeout = window.setTimeout(function () {
+        const timeout = window.setTimeout(function () {
             TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
         }, 10000);
 
@@ -74,7 +74,7 @@ const TUICObserver = {
             }
         },
         sidebarButtons: function () {
-            let bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
+            const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
             if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
                 if (!window.location.pathname.startsWith("/i/communitynotes")) {
                     for (const i of TUICPref.sidebarButtons) {
@@ -95,9 +95,12 @@ const TUICObserver = {
                             });
                             bannerRoot.appendChild(moveElem);
                         }
-                    }
-                }
-
+                    }                }
+              });
+              bannerRoot.appendChild(moveElem);
+            }
+          }
+        }
                 for (const i of TUICData.settings.sidebarButtons.all) {
                     if (!TUICPref.sidebarButtons.includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
                         const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
@@ -107,18 +110,18 @@ const TUICObserver = {
             }
         },
         buttonUnderTweet: function () {
-            let articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.getClass("TUICDidArticle")}"])`);
+            const articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.getClass("TUICDidArticle")}"])`);
             if (articles.length != 0) {
                 articles.forEach(function (elem) {
                     if (elem.querySelector('[data-testid$="reply"]') != null && elem.querySelector('[data-testid$="like"]') != null) {
-                        let lockedAccount = elem.querySelector(`[data-testid="icon-lock"]`) != null;
+                        const lockedAccount = elem.querySelector(`[data-testid="icon-lock"]`) != null;
                         let bar_base = elem.querySelector('[data-testid$="reply"]');
                         while (bar_base.querySelector('[data-testid$="like"]') == null) {
                             bar_base = bar_base.parentElement;
                         }
                         if (TUICPref.otherBoolSetting.bottomScroll ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"));
                         if (TUICPref.otherBoolSetting.bottomSpace ?? TUICData.defaultPref.otherBoolSetting.bottomSpace) {
-                            space = elem.querySelector(`[aria-labelledby]`);
+                            const space = elem.querySelector(`[aria-labelledby]`);
                             if (space != null && space.children[0].childElementCount == 0) {
                                 space.classList.add(TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET"));
                             }
@@ -126,7 +129,7 @@ const TUICObserver = {
                         if (TUICPref.timeline["hideOhterRTTL"] && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
                             elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                         }
-                        let bar_item = {};
+                        const bar_item = {};
                         for (const elem_item of bar_base.children) {
                             for (const sel in TUICData.visibleButtons.selectors) {
                                 if (elem_item.querySelector(TUICData.visibleButtons.selectors[sel]) != null) {
@@ -139,7 +142,7 @@ const TUICObserver = {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
                         let lastButton;
-                        for (let i of TUICPref.visibleButtons) {
+                        for (const i of TUICPref.visibleButtons) {
                             let div = -1;
                             if (i in bar_item) {
                                 div = bar_item[i];
@@ -269,7 +272,7 @@ const TUICObserver = {
             }
 
             if (TUICPref.invisibleItems["profileHighlights"]) {
-                let tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`);
+                const tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`);
                 for (let elem of tabs) {
                     elem.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
@@ -283,7 +286,7 @@ const TUICObserver = {
             }
         },
         clientInfoVisible: async function () {
-            let client = document.createElement("a");
+            const client = document.createElement("a");
             client.style.marginLeft = "4px";
             client.id = "client-info";
             client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
@@ -294,8 +297,8 @@ const TUICObserver = {
                     endpoint: "https://mico.re/api/getclient.php?id=" + new URL(location.href).pathname.split("/")[3],
                 },
                 (response) => {
-                    json = response;
-                    let cliantInfoElem = document.querySelector("#client-info");
+                    const json = response;
+                    const cliantInfoElem = document.querySelector("#client-info");
                     if (json.source ?? "unknwon" != "unknwon") {
                         cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
                     } else {
@@ -305,8 +308,8 @@ const TUICObserver = {
             );
         },
         updateStyles: function () {
-            for (let i of document.querySelectorAll(".TUICSidebarButton")) {
-                let itemId = i.id.replace("TUICSidebar_", "");
+            for (const i of document.querySelectorAll(".TUICSidebarButton")) {
+                const itemId = i.id.replace("TUICSidebar_", "");
                 let locationBool = false;
                 if (TUICData.sidebarButtons.tuicButtonUrl[itemId].endsWith("/")) {
                     locationBool = location.pathname.includes(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
