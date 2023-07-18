@@ -47,7 +47,7 @@ const TUICLibrary = {
     },
     updatePref: {
         update: function () {
-            dPref = TUICLibrary.defaultPref.get();
+            const dPref = TUICLibrary.defaultPref.get();
             if ((localStorage.getItem("unsent-tweet-background") ?? "unknown") != "unknown") {
                 this.parallelToSerial();
             }
@@ -151,7 +151,7 @@ const TUICLibrary = {
             localStorage.setItem("TUIC", JSON.stringify(TUICPref));
         },
         updateToDefault: function (object, defObject) {
-            for (let i in defObject) {
+            for (const i in defObject) {
                 if (!(i in object)) {
                     object[i] = defObject[i];
                 } else if (typeof defObject[i] == "object" && !Array.isArray(defObject[i])) {
@@ -161,7 +161,7 @@ const TUICLibrary = {
         },
     },
     backgroundColorCheck: function () {
-        bodyStyle = document.querySelector("body").style.backgroundColor.toString();
+        const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {
             return "dark";
         } else if (bodyStyle == "rgb(21, 32, 43)") {
@@ -171,7 +171,7 @@ const TUICLibrary = {
         }
     },
     backgroundColorClass: function (dark, blue, white) {
-        backgroundType = this.backgroundColorCheck();
+        const backgroundType = this.backgroundColorCheck();
         if (this.backgroundColorCheck == "dark") {
             return dark;
         } else if (this.backgroundColorCheck == "blue") {
@@ -181,7 +181,7 @@ const TUICLibrary = {
         }
     },
     fontSizeClass: function (x1, x2, x3, x4, x5) {
-        fontSize = document.querySelector("html").style.fontSize.toString();
+        const fontSize = document.querySelector("html").style.fontSize.toString();
         if (fontSize == "17px") {
             return x4;
         } else if (fontSize == "18px") {
@@ -190,9 +190,7 @@ const TUICLibrary = {
             return x3;
         } else if (fontSize == "14px") {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2;
-        }
-    },
-    TUICParser: new DOMParser(),
+                TUICParser: new DOMParser(),
     HTMLParse: function (elem) {
         return this.HTMLParseFunc(elem).querySelector("body > *");
     },
@@ -211,7 +209,7 @@ const TUICLibrary = {
         });
     },
     getI18n: function (elem) {
-        let lang = document.querySelector("html").getAttribute("lang");
+        const lang = document.querySelector("html").getAttribute("lang");
         if (lang in TUICI18N && elem in TUICI18N[lang]) {
             return TUICI18N[lang][elem].escapeToUseHTML();
         } else if (elem in TUICI18N.en) {
