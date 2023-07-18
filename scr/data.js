@@ -32,7 +32,11 @@ const TUICData = {
         },
         twitterIcon: "nomal",
         rightSidebar: {
+            searchBox: false,
             verified: false,
+            trend: false,
+            osusumeUser: false,
+            links: false,
         },
         "timeline-discoverMore": "discoverMore_nomal",
     },
@@ -551,9 +555,13 @@ const TUICData = {
         },
     },
     rightSidebar: {
-        all: ["verified"],
+        all: ["searchBox", "verified", "trend", "osusumeUser", "links"],
         i18n: {
-            verified: "invisibleItems-rightSidebarVerified",
+            verified: "rightSidebar-rightSidebarVerified",
+            trend: "rightSidebar-trend",
+            osusumeUser: "rightSidebar-osusumeUser",
+            links: "rightSidebar-links",
+            searchBox: "rightSidebar-searchBox",
         },
     },
     clientInfo: {
