@@ -29,8 +29,11 @@
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
 
     "rightSidebar-settingTitle": "右サイドバーの設定",
-    "invisibleItems-rightSidebarVerified": "「認証する」を非表示にする",
-    "invisibleItems-trend": "「認証する」を非表示にする",
+    "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
+    "rightSidebar-trend": "「いまどうしてる？」を非表示にする",
+    "rightSidebar-osusumeUser": "おすすめユーザーを非表示にする",
+    "rightSidebar-links": "リンク集を非表示にする",
+    "rightSidebar-searchBox": "検索箱を非表示にする",
 
     "invisibleItems-settingTitle": "非表示設定",
     "invisibleItems-twitterProPromotionBtn": "Twitter Pro プロモーションボタン",
