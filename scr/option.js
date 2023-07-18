@@ -1,12 +1,12 @@
 let editingColorType = "buttonColor";
 
 const TUICOptionHTML = {
-  displaySetting: function (rootElement = "") {
-    const TWITTER_setting_back = rootElement;
+    displaySetting: function (rootElement = "") {
+        const TWITTER_setting_back = rootElement;
         const TUICPrefHTML = TUICLibrary.HTMLParse(this.TUICOptionHTML());
         TWITTER_setting_back.appendChild(TUICPrefHTML);
 
-    document.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
+        document.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
         this.eventHandle();
     },
     eventHandle: function (root) {
@@ -21,24 +21,24 @@ const TUICOptionHTML = {
                 }
             }
         }
-      }
-    }
-  },
-  eventList: {
-    ".TUICButtonColor": {
-      "type": "change",
-      "function": function (event) {
-        const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
-        const colorKind = event.target.getAttribute("TUICColorKind");
-        if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {};
-        TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`;
-        document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-        event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
-        localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-        TUICCss();
-      },
-      "single": false
     },
+    eventList: {
+        ".TUICButtonColor": {
+            type: "change",
+            function: function (event) {
+                const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
+                const colorKind = event.target.getAttribute("TUICColorKind");
+                if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {};
+                TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${
+                    document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1
+                })`;
+                document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICCss();
+            },
+            single: false,
+        },
         ".TUICButtonColorCheck": {
             type: "click",
             function: function (event) {
@@ -287,7 +287,7 @@ const TUICOptionHTML = {
             function: function (event) {
                 editingColorType = event.currentTarget.getAttribute("value");
                 document.querySelector("#TUICColorSettingsDivBox").remove();
-                const  appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList());
+                const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList());
                 document.querySelector("#colorSettingList").appendChild(appendELement);
                 TUICOptionHTML.eventHandle(appendELement);
             },
@@ -330,42 +330,41 @@ const TUICOptionHTML = {
             },
             single: true,
         },
+        "#TUICImportReplace": {
+            type: "click",
+            function: function () {
+                try {
+                    const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
+                    TUICLibrary.updatePref.updateToDefault(importPref, TUICData.defaultPref);
+                    TUICPref = importPref;
+                    localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                    if (window.location.pathname == "/tuic/safemode") {
+                        window.location.href = `${window.location.protocol}//${window.location.hostname}`;
+                    } else {
+                        document.querySelector("#TUIC_setting").remove();
+                        TUICLibrary.getClasses.update();
+                        TUICCss();
+                        TUICObserver.observerFunction();
+                    }
+                } catch (x) {
+                    alert("構文解析に失敗しました");
+                }
+            },
+            single: true,
+        },
     },
-    "#TUICImportReplace":{
-      "type":"click",
-      "function":function(){
-        try{
-          const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
-          TUICLibrary.updatePref.updateToDefault(importPref,TUICData.defaultPref);
-          TUICPref = importPref;
-          localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-          if (window.location.pathname == "/tuic/safemode") {
-            window.location.href = `${window.location.protocol}//${window.location.hostname}`;
-          } else {
-            document.querySelector("#TUIC_setting").remove();
-            TUICLibrary.getClasses.update();
-            TUICCss();
-            TUICObserver.observerFunction();
-          }
-        }catch(x){
-          alert("構文解析に失敗しました");
+    upDownListSetting(parentBox) {
+        const id = parentBox.getAttribute("TUICUDBox");
+        const visible_button_list = [];
+        const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
+        for (let i = 0; i < visibleButtonsT.length; i++) {
+            visible_button_list.push(visibleButtonsT[i].id);
         }
-      },
-      "single": true
-    }
-  },
-  upDownListSetting(parentBox) {
-    const id = parentBox.getAttribute("TUICUDBox");
-    const visible_button_list = [];
-    const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
-    for (let i = 0; i < visibleButtonsT.length; i++) {
-      visible_button_list.push(visibleButtonsT[i].id);
-    }
-    TUICPref[id] = visible_button_list;
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-    TUICLibrary.getClasses.update();
-    TUICCss();
-  },
+        TUICPref[id] = visible_button_list;
+        localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+        TUICLibrary.getClasses.update();
+        TUICCss();
+    },
     TUICOptionHTML: function () {
         return `
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
@@ -497,7 +496,7 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id, "color",
     },
     //色の設定の全体。forぶん回してる
     colorsList: function () {
-        const TUICColors = `<div id="TUICColorSettingsDivBox">`;
+        let TUICColors = `<div id="TUICColorSettingsDivBox">`;
         for (const i of TUICData.settings.colors.id) {
             TUICColors += `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICLibrary.getI18n(TUICData.settings.colors.i18n[i])}</h2>
             <div class="TUIC_col_setting_container_2">${this.threeColorSetting(i, editingColorType)}

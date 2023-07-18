@@ -95,12 +95,8 @@ const TUICObserver = {
                             });
                             bannerRoot.appendChild(moveElem);
                         }
-                    }                }
-              });
-              bannerRoot.appendChild(moveElem);
-            }
-          }
-        }
+                    }
+                }
                 for (const i of TUICData.settings.sidebarButtons.all) {
                     if (!TUICPref.sidebarButtons.includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
                         const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);

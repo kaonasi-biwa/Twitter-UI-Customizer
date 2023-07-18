@@ -26,9 +26,8 @@ function TUICCss() {
             prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
         }
     }
-  }
 
-  document.querySelector("#twitter_ui_customizer").textContent = `
+    document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}
 

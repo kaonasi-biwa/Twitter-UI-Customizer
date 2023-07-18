@@ -190,7 +190,9 @@ const TUICLibrary = {
             return x3;
         } else if (fontSize == "14px") {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2;
-                TUICParser: new DOMParser(),
+        }
+    },
+    TUICParser: new DOMParser(),
     HTMLParse: function (elem) {
         return this.HTMLParseFunc(elem).querySelector("body > *");
     },
