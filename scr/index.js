@@ -52,8 +52,6 @@ function replaceRunningIcon() {
         }
         TUICCount++;
     }
-    TUICCount++;
-  }
 }
 
 replaceRunningIcon();
