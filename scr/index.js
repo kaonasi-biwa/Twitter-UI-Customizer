@@ -1,5 +1,5 @@
 //ここから実際に動かしてゆく
-const TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString());
+let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString());
 let TUICCount = 0;
 function replaceRunningIcon() {
     if (document.getElementById("react-root") != null) {

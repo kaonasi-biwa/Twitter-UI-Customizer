@@ -9,7 +9,6 @@ const TUICData = {
             "osusume-user-timeline": false,
             "twitter-pro-promotion-btn": false,
             discoverMore: false,
-            "verified-rSidebar": false,
             "subscribe-profile": false,
             "subscribe-tweets": false,
             profileHighlights: false,
@@ -32,6 +31,9 @@ const TUICData = {
             accountStart: false,
         },
         twitterIcon: "nomal",
+        rightSidebar: {
+            verified: false,
+        },
         "timeline-discoverMore": "discoverMore_nomal",
     },
     settings: {
@@ -539,14 +541,19 @@ const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "verified-rSidebar", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
+        all: ["twitter-pro-promotion-btn", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
         i18n: {
             "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
-            "verified-rSidebar": "invisibleItems-verifiedRSidebar",
             "subscribe-tweets": "invisibleItems-subscribeTweets",
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
             hideBelowDM: "invisibleItems-hideBelowDM",
+        },
+    },
+    rightSidebar: {
+        all: ["verified"],
+        i18n: {
+            verified: "invisibleItems-rightSidebarVerified",
         },
     },
     clientInfo: {

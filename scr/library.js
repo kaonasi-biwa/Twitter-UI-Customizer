@@ -62,6 +62,10 @@ const TUICLibrary = {
                 TUICPref.timeline = {};
             }
 
+            if (typeof TUICPref.rightSidebar != "object") {
+                TUICPref.rightSidebar = {};
+            }
+
             if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
                 TUICPref.timeline["osusume-user-timeline"] = true;
             }
@@ -76,6 +80,11 @@ const TUICLibrary = {
                 TUICPref["timeline-discoverMore"] = "discoverMore_invisible";
             }
             delete TUICPref.invisibleItems["discoverMore"];
+
+            if (TUICPref.invisibleItems["verified-rSidebar"] == true) {
+                TUICPref.rightSidebar["verified"] = true;
+            }
+            delete TUICPref.invisibleItems["verified-rSidebar"];
 
             if (TUICPref.otherBoolSetting.invisibleTwitterLogo == true) {
                 TUICPref.twitterIcon = "invisible";
