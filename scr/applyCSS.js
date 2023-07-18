@@ -1,31 +1,30 @@
-
 function TUICRunFirst() {
+    if (document.querySelector("#twitter_ui_customizer_css") != null) document.querySelector("#twitter_ui_customizer_css").remove();
+    if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove();
 
-  if (document.querySelector("#twitter_ui_customizer_css") != null) document.querySelector("#twitter_ui_customizer_css").remove();
-  if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove();
-
-  // 追加する要素を用意します。
-  const TUIC_css = document.createElement("style");
-  TUIC_css.id = "twitter_ui_customizer";
-  const TWITTER_head = document.querySelector("head");
-  // 基準となる要素を指定します。
-  TWITTER_head.appendChild(TUIC_css);
-  TUICCss();
-  if (window.location.pathname != "/tuic/safemode") {
-    const TUIC_custom_css = document.createElement("style");
-    TUIC_custom_css.id = "twitter_ui_customizer_css";
-    TWITTER_head.appendChild(TUIC_custom_css);
-    TUICCustomCSS();
-  }
+    // 追加する要素を用意します。
+    let TUIC_css = document.createElement("style");
+    TUIC_css.id = "twitter_ui_customizer";
+    let TWITTER_head = document.querySelector("head");
+    // 基準となる要素を指定します。
+    TWITTER_head.appendChild(TUIC_css);
+    TUICCss();
+    if (window.location.pathname != "/tuic/safemode") {
+        let TUIC_custom_css = document.createElement("style");
+        TUIC_custom_css.id = "twitter_ui_customizer_css";
+        TWITTER_head.appendChild(TUIC_custom_css);
+        TUICCustomCSS();
+    }
 }
 
 function TUICCss() {
-  const backgroundColor = TUICLibrary.backgroundColorCheck();
+    let backgroundColor = TUICLibrary.backgroundColorCheck();
 
-  let prefColors = "";
-  for(const elem in TUICData.colors){
-    for(const el of ["background","border","color"]){
-      prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem,el)};`;
+    let prefColors = "";
+    for (const elem in TUICData.colors) {
+        for (const el of ["background", "border", "color"]) {
+            prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
+        }
     }
   }
 
@@ -521,9 +520,13 @@ height:8px
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
 #TUICIcon_IconImg{
     background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
-    ${(TUICPref.otherBoolSetting["roundIcon"] ?? TUICData.defaultPref.otherBoolSetting.roundIcon) ? `
+    ${
+        TUICPref.otherBoolSetting["roundIcon"] ?? TUICData.defaultPref.otherBoolSetting.roundIcon
+            ? `
     border-radius:9999px !important;
-    ` : ""}
+    `
+            : ""
+    }
 }
 
 #layers [data-testid="TopNavBar"] div+.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")}{
@@ -590,30 +593,44 @@ display:none !important;
  .TUICCheckBoxParent:not(:last-of-type){
     margin-bottom: 8px;
  }
- ${(TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent) ? `
+ ${
+     TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
+         ? `
  [role="navigation"] .${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}{
     padding-bottom:0px !important;
     padding-top:0px !important;
 }
- ` : ""}
+ `
+         : ""
+ }
 
- ${TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"] ?
-    `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
+ ${
+     TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"]
+         ? `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;
-    }`:""}
-    ${TUICPref.invisibleItems["hideBelowDM"] ?
-    "[data-testid=\"DMDrawer\"]{display:none !important;}":""}
+    }`
+         : ""
+ }
+ ${TUICPref.invisibleItems["hideBelowDM"] ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
 
- ${TUICPref.otherBoolSetting["bottomSpace"] ??  TUICData.defaultPref.otherBoolSetting.bottomSpace ? `
+ ${
+     TUICPref.otherBoolSetting["bottomSpace"] ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
+         ? `
  .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
- ` : ""}
- ${TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar ? `
+ `
+         : ""
+ }
+ ${
+     TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar
+         ? `
  header > div > div > div > div.r-1rnoaur{overflow:clip;}
- ` : ""}
+ `
+         : ""
+ }
 
 `;
 }
 
 function TUICCustomCSS() {
-  document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS");
+    document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS");
 }

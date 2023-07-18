@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "3.0.4",
+    "version": "3.1.1",
     "default_locale": "ja",
     "manifest_version": 3,
     "icons": {
@@ -11,37 +11,21 @@
     },
     "content_scripts": [
         {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/observer.js",
-                "scr/data.js",
-                "scr/library.js",
-                "scr/option.js",
-                "scr/applyCSS.js",
-                "scr/index.js"
-            ],
+            "matches": ["*://*.twitter.com/*"],
+            "js": ["scr/observer.js", "scr/data.js", "scr/library.js", "scr/option.js", "scr/applyCSS.js", "scr/index.js"],
             "run_at": "document_start"
         },
-          {
-            "matches": [
-                "*://*.twitter.com/*"
-            ],
-            "js": [
-                "scr/runningSafemode.js"
-            ],
+        {
+            "matches": ["*://*.twitter.com/*"],
+            "js": ["scr/runningSafemode.js"],
             "run_at": "document_end"
         }
     ],
     "options_ui": {
-        "page":"TUIC/options/options.html",
-        "browser_style":true
+        "page": "TUIC/options/options.html",
+        "browser_style": true
     },
-    "permissions": [
-        "notifications",
-        "storage"
-    ],
+    "permissions": ["notifications", "storage"],
     "action": {
         "default_icon": {
             "16": "icon/newIcon_TUIC_C_Blue.png",
@@ -51,12 +35,8 @@
         "default_title": "Twitter UI Customizer",
         "default_popup": "TUIC/popup/popup.html"
     },
-    "background":{
-        "service_worker":"background.js"
+    "background": {
+        "service_worker": "background.js"
     },
-    "host_permissions":[
-        "https://api.github.com/*",
-        "https://*.mico.re/*",
-        "https://abs.twimg.com/*"
-    ]
+    "host_permissions": ["https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"]
 }
