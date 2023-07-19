@@ -39,7 +39,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 const update1 = async (updateType) => {
     updateID = updateType;
     chrome.storage.sync.get("TUIC", async (settingT) => {
-        let isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
+        const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
         setting = settingT.TUIC ?? {
             iconClick: isWebstore,
             runBrowser: isWebstore,
@@ -70,7 +70,7 @@ const deviceMessage = async (url, res) => {
 };
 
 const getI18n = async (res) => {
-    let i18nObject = {};
+    const i18nObject = {};
     const langList = await fetch(chrome.runtime.getURL("./i18n/_langList.json"), { cache: "no-store" }).then((res) => res.json());
     for (const elem of langList) {
         i18nObject[elem] = Object.assign(

@@ -14,7 +14,7 @@ window.onload = () => {
             runBrowser: isWebstore,
             openTwitter: isWebstore,
         };
-        let settingList = ["iconClick", "openTwitter", "runBrowser"];
+        const settingList = ["iconClick", "openTwitter", "runBrowser"];
         for (const i of settingList) {
             if (setting[i]) {
                 document.getElementById(i).checked = true;
