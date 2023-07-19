@@ -40,7 +40,7 @@ const update1 = async (updateType) => {
     updateID = updateType;
     chrome.storage.sync.get("TUIC", async (settingT) => {
         const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
-        setting = settingT.TUIC ?? {
+        const setting = settingT.TUIC ?? {
             iconClick: isWebstore,
             runBrowser: isWebstore,
             openTwitter: isWebstore,
