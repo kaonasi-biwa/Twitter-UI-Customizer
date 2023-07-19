@@ -28,4 +28,3 @@ jobs:
         run: |
           npx eslint ./**/*.js
         continue-on-error: true
-        
