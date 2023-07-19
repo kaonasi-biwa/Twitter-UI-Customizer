@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 let TUICI18N;
 
 const TUICLibrary = {
@@ -62,6 +63,10 @@ const TUICLibrary = {
                 TUICPref.timeline = {};
             }
 
+            if (typeof TUICPref.rightSidebar != "object") {
+                TUICPref.rightSidebar = {};
+            }
+
             if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
                 TUICPref.timeline["osusume-user-timeline"] = true;
             }
@@ -76,6 +81,11 @@ const TUICLibrary = {
                 TUICPref["timeline-discoverMore"] = "discoverMore_invisible";
             }
             delete TUICPref.invisibleItems["discoverMore"];
+
+            if (TUICPref.invisibleItems["verified-rSidebar"] == true) {
+                TUICPref.rightSidebar["verified"] = true;
+            }
+            delete TUICPref.invisibleItems["verified-rSidebar"];
 
             if (TUICPref.otherBoolSetting.invisibleTwitterLogo == true) {
                 TUICPref.twitterIcon = "invisible";
@@ -103,8 +113,8 @@ const TUICLibrary = {
             TUICPref.CSS = localStorage.getItem("CSS");
             TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem("osusume-user-timeline") ?? "0") == "1";
             TUICPref.visibleButtons = JSON.parse(localStorage.getItem("visible-button"));
-            for (let i of TUICData.settings.colors.id) {
-                let a = localStorage.getItem(`${i}-background`) ?? "unknown";
+            for (const i of TUICData.settings.colors.id) {
+                const a = localStorage.getItem(`${i}-background`) ?? "unknown";
                 if (a != "unknown") {
                     TUICPref.buttonColor[i] = {};
                     TUICPref.buttonColor[i].background = a;
@@ -190,7 +200,9 @@ const TUICLibrary = {
             return x3;
         } else if (fontSize == "14px") {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2;
-                TUICParser: new DOMParser(),
+        }
+    },
+    TUICParser: new DOMParser(),
     HTMLParse: function (elem) {
         return this.HTMLParseFunc(elem).querySelector("body > *");
     },
