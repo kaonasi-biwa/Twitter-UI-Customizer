@@ -9,7 +9,6 @@ const TUICData = {
             "osusume-user-timeline": false,
             "twitter-pro-promotion-btn": false,
             discoverMore: false,
-            "verified-rSidebar": false,
             "subscribe-profile": false,
             "subscribe-tweets": false,
             profileHighlights: false,
@@ -32,6 +31,13 @@ const TUICData = {
             accountStart: false,
         },
         twitterIcon: "nomal",
+        rightSidebar: {
+            searchBox: false,
+            verified: false,
+            trend: false,
+            osusumeUser: false,
+            links: false,
+        },
         "timeline-discoverMore": "discoverMore_nomal",
     },
     settings: {
@@ -123,11 +129,6 @@ const TUICData = {
         "profile-save": {
             background: "rgba(29,161,242,1)",
             border: "rgba(29,161,242,1)",
-            color: "rgba(255,255,255,1)",
-        },
-        birthday: {
-            background: "rgba(255,0,0,1)",
-            border: "rgba(255,0,0,1)",
             color: "rgba(255,255,255,1)",
         },
         birthday: {
@@ -377,6 +378,7 @@ const TUICData = {
         },
         html: {
             __base: (id, svg) => {
+                /* eslint-disable */
                 return `
         <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
@@ -396,6 +398,7 @@ const TUICData = {
             </div>
           </div>
         </a>`;
+                /* eslint-disable */
             },
             topics: function () {
                 return TUICData.sidebarButtons.html.__base(
@@ -539,14 +542,23 @@ const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "verified-rSidebar", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
+        all: ["twitter-pro-promotion-btn", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
         i18n: {
             "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
-            "verified-rSidebar": "invisibleItems-verifiedRSidebar",
             "subscribe-tweets": "invisibleItems-subscribeTweets",
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
             hideBelowDM: "invisibleItems-hideBelowDM",
+        },
+    },
+    rightSidebar: {
+        all: ["searchBox", "verified", "trend", "osusumeUser", "links"],
+        i18n: {
+            verified: "rightSidebar-rightSidebarVerified",
+            trend: "rightSidebar-trend",
+            osusumeUser: "rightSidebar-osusumeUser",
+            links: "rightSidebar-links",
+            searchBox: "rightSidebar-searchBox",
         },
     },
     clientInfo: {

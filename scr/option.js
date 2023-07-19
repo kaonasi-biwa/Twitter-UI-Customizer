@@ -1,18 +1,18 @@
 let editingColorType = "buttonColor";
 
 const TUICOptionHTML = {
-  displaySetting: function (rootElement = "") {
-    const TWITTER_setting_back = rootElement;
+    displaySetting: function (rootElement = "") {
+        const TWITTER_setting_back = rootElement;
         const TUICPrefHTML = TUICLibrary.HTMLParse(this.TUICOptionHTML());
         TWITTER_setting_back.appendChild(TUICPrefHTML);
 
-    document.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
+        document.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
         this.eventHandle();
     },
     eventHandle: function (root) {
         if ((root ?? "unknwon") == "unknwon") root = document;
         for (const elem in this.eventList) {
-            listItem = this.eventList[elem];
+            const listItem = this.eventList[elem];
             if (listItem.single) {
                 root.querySelector(elem)?.addEventListener(listItem.type, listItem.function);
             } else {
@@ -21,24 +21,24 @@ const TUICOptionHTML = {
                 }
             }
         }
-      }
-    }
-  },
-  eventList: {
-    ".TUICButtonColor": {
-      "type": "change",
-      "function": function (event) {
-        const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
-        const colorKind = event.target.getAttribute("TUICColorKind");
-        if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {};
-        TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1})`;
-        document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-        event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
-        localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-        TUICCss();
-      },
-      "single": false
     },
+    eventList: {
+        ".TUICButtonColor": {
+            type: "change",
+            function: function (event) {
+                const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
+                const colorKind = event.target.getAttribute("TUICColorKind");
+                if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {};
+                TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${
+                    document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-check`).checked ? 0 : 1
+                })`;
+                document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICCss();
+            },
+            single: false,
+        },
         ".TUICButtonColorCheck": {
             type: "click",
             function: function (event) {
@@ -47,8 +47,8 @@ const TUICOptionHTML = {
                     event.target.dataset.checked = true;
                 } else event.target.dataset.checked = false;
                 const isChecked = event.target.dataset.checked === "true";
-                let colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value);
-                let colorKind = event.target.getAttribute("TUICColorKind");
+                const colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}`).value);
+                const colorKind = event.target.getAttribute("TUICColorKind");
                 if ((TUICPref[colorKind][event.target.getAttribute("TUICColor")] ?? "unknown") == "unknown") TUICPref[colorKind][event.target.getAttribute("TUICColor")] = {};
                 TUICPref[colorKind][event.target.getAttribute("TUICColor")][event.target.getAttribute("TUICColorType")] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${isChecked ? 0 : 1})`;
                 document.getElementById(`${event.target.getAttribute("TUICColor")}-${event.target.getAttribute("TUICColorType")}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
@@ -116,6 +116,16 @@ const TUICOptionHTML = {
             },
             single: false,
         },
+        ".rightSidebar": {
+            type: "click",
+            function: function (event) {
+                TUICPref.rightSidebar[event.target.id] = event.target.checked;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
         "#save": {
             type: "click",
             function: function () {
@@ -142,13 +152,13 @@ const TUICOptionHTML = {
         ".TUIC_up_down_list_to_left": {
             type: "click",
             function: function (event) {
-                parentBox = event.currentTarget.parentElement.parentElement;
-                leftBox = parentBox.children[0].children[2];
-                rightBox = parentBox.children[2].children[2];
+                const parentBox = event.currentTarget.parentElement.parentElement;
+                const leftBox = parentBox.children[0].children[2];
+                const rightBox = parentBox.children[2].children[2];
 
-                selectedItem = parentBox.getAttribute("TUICSelectedItem");
+                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if ((selectedItem ?? "") != "") {
-                    selectedItemElem = rightBox.querySelector("#" + selectedItem);
+                    const selectedItemElem = rightBox.querySelector("#" + selectedItem);
                     if (selectedItemElem != null) {
                         leftBox.appendChild(selectedItemElem);
                         TUICOptionHTML.upDownListSetting(parentBox);
@@ -178,11 +188,11 @@ const TUICOptionHTML = {
         ".TUIC_up_down_list_to_up": {
             type: "click",
             function: function (event) {
-                constparentBox = event.currentTarget.parentElement.parentElement;
+                const parentBox = event.currentTarget.parentElement.parentElement;
                 const leftBox = parentBox.children[0].children[2];
                 const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if ((selectedItem ?? "") != "") {
-                    selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector("#" + selectedItem));
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector("#" + selectedItem));
                     if (selectedItemIndex > 0) {
                         leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
                         TUICOptionHTML.upDownListSetting(parentBox);
@@ -252,10 +262,10 @@ const TUICOptionHTML = {
         ".TUICSelectImg": {
             type: "change",
             function: async function (event) {
-                let fileID = event.currentTarget.getAttribute("TUICImgID");
+                const fileID = event.currentTarget.getAttribute("TUICImgID");
                 if (event.currentTarget.files.length >= 1) {
                     await new Promise((resolve, reject) => {
-                        let reader = new FileReader();
+                        const reader = new FileReader();
                         reader.addEventListener("load", () => {
                             localStorage.setItem(`TUIC_${fileID}`, reader.result);
                             resolve();
@@ -287,7 +297,7 @@ const TUICOptionHTML = {
             function: function (event) {
                 editingColorType = event.currentTarget.getAttribute("value");
                 document.querySelector("#TUICColorSettingsDivBox").remove();
-                const  appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList());
+                const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList());
                 document.querySelector("#colorSettingList").appendChild(appendELement);
                 TUICOptionHTML.eventHandle(appendELement);
             },
@@ -330,43 +340,43 @@ const TUICOptionHTML = {
             },
             single: true,
         },
+        "#TUICImportReplace": {
+            type: "click",
+            function: function () {
+                try {
+                    const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
+                    TUICLibrary.updatePref.updateToDefault(importPref, TUICData.defaultPref);
+                    TUICPref = importPref;
+                    localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                    if (window.location.pathname == "/tuic/safemode") {
+                        window.location.href = `${window.location.protocol}//${window.location.hostname}`;
+                    } else {
+                        document.querySelector("#TUIC_setting").remove();
+                        TUICLibrary.getClasses.update();
+                        TUICCss();
+                        TUICObserver.observerFunction();
+                    }
+                } catch (x) {
+                    alert("構文解析に失敗しました");
+                }
+            },
+            single: true,
+        },
     },
-    "#TUICImportReplace":{
-      "type":"click",
-      "function":function(){
-        try{
-          const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
-          TUICLibrary.updatePref.updateToDefault(importPref,TUICData.defaultPref);
-          TUICPref = importPref;
-          localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-          if (window.location.pathname == "/tuic/safemode") {
-            window.location.href = `${window.location.protocol}//${window.location.hostname}`;
-          } else {
-            document.querySelector("#TUIC_setting").remove();
-            TUICLibrary.getClasses.update();
-            TUICCss();
-            TUICObserver.observerFunction();
-          }
-        }catch(x){
-          alert("構文解析に失敗しました");
+    upDownListSetting(parentBox) {
+        const id = parentBox.getAttribute("TUICUDBox");
+        const visible_button_list = [];
+        const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
+        for (let i = 0; i < visibleButtonsT.length; i++) {
+            visible_button_list.push(visibleButtonsT[i].id);
         }
-      },
-      "single": true
-    }
-  },
-  upDownListSetting(parentBox) {
-    const id = parentBox.getAttribute("TUICUDBox");
-    const visible_button_list = [];
-    const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
-    for (let i = 0; i < visibleButtonsT.length; i++) {
-      visible_button_list.push(visibleButtonsT[i].id);
-    }
-    TUICPref[id] = visible_button_list;
-    localStorage.setItem("TUIC", JSON.stringify(TUICPref));
-    TUICLibrary.getClasses.update();
-    TUICCss();
-  },
+        TUICPref[id] = visible_button_list;
+        localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+        TUICLibrary.getClasses.update();
+        TUICCss();
+    },
     TUICOptionHTML: function () {
+        /* eslint-disable */
         return `
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
     <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
@@ -418,6 +428,7 @@ ${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio", "
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
+${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
@@ -456,7 +467,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     </div>
 </div>
 
-`;
+`; /* eslint-enable */
     },
     //セーフモードの戻るボタン(ただの条件分岐)
     safemodeReturnButton: function () {
@@ -466,7 +477,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     colorSetting: function (id, type, color_, text, isDefault, colorKind) {
         const [color] = [color_.escapeToUseHTML()];
         const TUIC_color = color.replace("rgba(", "").replace(")", "").split(",");
-        const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
+        const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]); /* eslint-disable */
         return `
         <div class="TUIC_setting_color_colmn${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT") : ""}">
         <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:18px;">${TUICLibrary.getI18n(text)}</h4>
@@ -485,7 +496,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     </div>
     <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n(
         "settingUI-colorPicker-restoreDefault",
-    )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${TUICData.resetIconSVG}</button>`;
+    )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${TUICData.resetIconSVG}</button>`; /* eslint-enable */
     },
     //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
     threeColorSetting: function (id) {
@@ -497,7 +508,7 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id, "color",
     },
     //色の設定の全体。forぶん回してる
     colorsList: function () {
-        const TUICColors = `<div id="TUICColorSettingsDivBox">`;
+        let TUICColors = `<div id="TUICColorSettingsDivBox">`;
         for (const i of TUICData.settings.colors.id) {
             TUICColors += `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICLibrary.getI18n(TUICData.settings.colors.i18n[i])}</h2>
             <div class="TUIC_col_setting_container_2">${this.threeColorSetting(i, editingColorType)}
@@ -602,7 +613,7 @@ ${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id, "color",
                 btnAction: "TUIC_up_down_list_to_default",
                 tooltiptag: "settingUI-upDownList-restoreDefault",
             },
-        ];
+        ]; /* eslint-disable */
         return `
 <details class="TUICDetails">
         <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
@@ -634,7 +645,7 @@ ${TUICVisibleButtons}
         </div>
         <br>
 </details>
-`;
+`; /* eslint-enable */
     },
     //アップダウンリストの内容(id:設定のID)
     upDownListItem: function (id) {
