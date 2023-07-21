@@ -21,6 +21,7 @@ const TUICData = {
             bottomSpace: false,
             RTNotQuote: false,
             sidebarNoneScrollbar: false,
+            noModalbottomTweetButtons: false,
         },
         clientInfo: {
             clientInfoVisible: false,
@@ -42,7 +43,7 @@ const TUICData = {
     },
     settings: {
         visibleButtons: {
-            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute"],
+            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton"],
             i18n: {
                 "reply-button": "bottomTweetButtons-replay",
                 "retweet-button": "bottomTweetButtons-retweet",
@@ -54,6 +55,7 @@ const TUICData = {
                 userBlock: "bottomTweetButtons-userBlock",
                 userMute: "bottomTweetButtons-userMute",
                 quoteTweet: "bottomTweetButtons-quoteTweet",
+                deleteButton: "bottomTweetButtons-deleteButton",
             },
         },
         sidebarButtons: {
@@ -161,9 +163,10 @@ const TUICData = {
             userBlock: `[TUICButton="userBlock"]`,
             userMute: `[TUICButton="userMute"]`,
             quoteTweet: `[TUICButton="quoteTweet"]`,
+            deleteButton: `[TUICButton="deleteButton"]`,
         },
         buttonHTML: {
-            _base: function (id, svg, disable = false) {
+            _base: function (id, svg, disable = false, redButton = false) {
                 return `
         <div class="css-1dbjc4n TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
@@ -171,7 +174,7 @@ const TUICData = {
                 TUICButton="${id}"
                 role="button"
                 tabindex="${disable ? -1 : 0}"
-                class="${disable ? "css-1dbjc4n r-1777fci r-bt1l66 r-icoktb r-1ny4l3l r-bztko3 r-lrvibr" : "css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"}"
+                class="css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
               >
                 <div
                   dir="ltr"
@@ -184,7 +187,7 @@ const TUICData = {
                     <svg
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${TUICLibrary.backgroundColorCheck() == "light" ? "r-14j79pv" : "r-1bwzh9t"}"
+                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr${redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorCheck() == "light" ? "r-14j79pv" : "r-1bwzh9t"}"
                     >
                       <g>
                         ${svg}
@@ -206,16 +209,18 @@ const TUICData = {
                     locked,
                 );
             },
-            userBlock: function () {
+            userBlock: function (isMe) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "userBlock",
                     `<path d="M12 3.75c-4.55 0-8.25 3.69-8.25 8.25 0 1.92.66 3.68 1.75 5.08L17.09 5.5C15.68 4.4 13.92 3.75 12 3.75zm6.5 3.17L6.92 18.5c1.4 1.1 3.16 1.75 5.08 1.75 4.56 0 8.25-3.69 8.25-8.25 0-1.92-.65-3.68-1.75-5.08zM1.75 12C1.75 6.34 6.34 1.75 12 1.75S22.25 6.34 22.25 12 17.66 22.25 12 22.25 1.75 17.66 1.75 12z" class="TUIC_USERBLOCK"></path>`,
+                    isMe,
                 );
             },
-            userMute: function () {
+            userMute: function (isMe) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "userMute",
                     `<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z" class="TUIC_USERMUTE"></path>`,
+                    isMe,
                 );
             },
             quoteTweet: function (locked) {
@@ -225,8 +230,19 @@ const TUICData = {
                     locked,
                 );
             },
+            deleteButton: function (isMe) {
+                return TUICData.visibleButtons.buttonHTML._base(
+                    "deleteButton",
+                    `<path d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z" class="TUIC_DeleteButton"></path>`,
+                    !isMe,
+                    true,
+                );
+            },
         },
         buttonFunction: {
+            _cancelButton: function (elem) {
+                elem.click();
+            },
             boolkmark: function (e) {
                 for (let i = 0; i <= 2; i++) {
                     const urlCopyButton = document.querySelector(
@@ -263,6 +279,39 @@ const TUICData = {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         blockButton.click();
+                        if (TUICPref.otherBoolSetting.noModalbottomTweetButtons) {
+                            document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                        } else {
+                            document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                            document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                        }
+                        break;
+                    }
+                }
+            },
+            deleteButton: function (article) {
+                for (let i = 0; i <= 2; i++) {
+                    const deleteButtonButton = document.querySelector(
+                        `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
+                    );
+                    if (deleteButtonButton == null) {
+                        article.querySelector(`[data-testid="caret"]`).click();
+                    } else {
+                        deleteButtonButton.parentElement.parentElement.parentElement.parentElement.click();
+                        if (TUICPref.otherBoolSetting.noModalbottomTweetButtons) {
+                            document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                        } else {
+                            document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                            document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                        }
                         break;
                     }
                 }
@@ -313,37 +362,46 @@ const TUICData = {
             boolkmark: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]());
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]));
+                    TUICData.visibleButtons.buttonFunction["boolkmark"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                 });
                 return elem;
             },
-            "url-copy": function (val, _, locked) {
-                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](locked));
-                if (!locked)
+            "url-copy": function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](val.option.isLockedAccount || val.option.cannotRT));
+                if (!val.option.isLockedAccount || !val.option.cannotRT)
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]));
+                        TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                     });
                 return elem;
             },
-            userBlock: function (_, article) {
-                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userBlock"]());
+            userBlock: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userBlock"](val.option.isMe));
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["userBlock"](article);
+                    TUICData.visibleButtons.buttonFunction["userBlock"](val.elements.article);
                 });
                 return elem;
             },
-            userMute: function (_, article) {
-                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userMute"]());
+            userMute: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userMute"](val.option.isMe));
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["userMute"](article);
+                    TUICData.visibleButtons.buttonFunction["userMute"](val.elements.article);
                 });
                 return elem;
             },
-            quoteTweet: function (val, _, locked) {
-                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](locked));
-                if (!locked)
+            deleteButton: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["deleteButton"](val.option.isMe));
+                if (val.option.isMe) {
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["quoteTweet"](val.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
+                        TUICData.visibleButtons.buttonFunction["deleteButton"](val.elements.article);
+                    });
+                }
+                return elem;
+            },
+            quoteTweet: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](val.option.isLockedAccount));
+                if (!val.option.isLockedAccount)
+                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
+                        TUICData.visibleButtons.buttonFunction["quoteTweet"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
                     });
                 return elem;
             },
