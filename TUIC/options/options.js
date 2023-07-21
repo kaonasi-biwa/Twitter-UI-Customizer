@@ -1,14 +1,14 @@
 let setting = {};
 
 const checkbox = (event) => {
-    let elem = event.target;
+    const elem = event.target;
     setting[elem.id] = elem.checked;
     chrome.storage.sync.set({ TUIC: setting });
 };
 
 window.onload = () => {
     chrome.storage.sync.get("TUIC", async (settingT) => {
-        let isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
+        const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
         setting = settingT.TUIC ?? {
             iconClick: isWebstore,
             runBrowser: isWebstore,

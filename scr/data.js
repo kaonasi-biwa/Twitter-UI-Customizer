@@ -9,7 +9,6 @@ const TUICData = {
             "osusume-user-timeline": false,
             "twitter-pro-promotion-btn": false,
             discoverMore: false,
-            "verified-rSidebar": false,
             "subscribe-profile": false,
             "subscribe-tweets": false,
             profileHighlights: false,
@@ -22,6 +21,7 @@ const TUICData = {
             bottomSpace: false,
             RTNotQuote: false,
             sidebarNoneScrollbar: false,
+            noModalbottomTweetButtons: false,
         },
         clientInfo: {
             clientInfoVisible: false,
@@ -32,11 +32,18 @@ const TUICData = {
             accountStart: false,
         },
         twitterIcon: "nomal",
+        rightSidebar: {
+            searchBox: false,
+            verified: false,
+            trend: false,
+            osusumeUser: false,
+            links: false,
+        },
         "timeline-discoverMore": "discoverMore_nomal",
     },
     settings: {
         visibleButtons: {
-            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute"],
+            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton"],
             i18n: {
                 "reply-button": "bottomTweetButtons-replay",
                 "retweet-button": "bottomTweetButtons-retweet",
@@ -48,6 +55,7 @@ const TUICData = {
                 userBlock: "bottomTweetButtons-userBlock",
                 userMute: "bottomTweetButtons-userMute",
                 quoteTweet: "bottomTweetButtons-quoteTweet",
+                deleteButton: "bottomTweetButtons-deleteButton",
             },
         },
         sidebarButtons: {
@@ -130,11 +138,6 @@ const TUICData = {
             border: "rgba(255,0,0,1)",
             color: "rgba(255,255,255,1)",
         },
-        birthday: {
-            background: "rgba(255,0,0,1)",
-            border: "rgba(255,0,0,1)",
-            color: "rgba(255,255,255,1)",
-        },
         blocking: {
             background: "rgba(244, 33, 46,1)",
             border: "rgba(244, 33, 46,1)",
@@ -160,9 +163,10 @@ const TUICData = {
             userBlock: `[TUICButton="userBlock"]`,
             userMute: `[TUICButton="userMute"]`,
             quoteTweet: `[TUICButton="quoteTweet"]`,
+            deleteButton: `[TUICButton="deleteButton"]`,
         },
         buttonHTML: {
-            _base: function (id, svg, disable = false) {
+            _base: function (id, svg, disable = false, redButton = false) {
                 return `
         <div class="css-1dbjc4n TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
             <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
@@ -170,7 +174,7 @@ const TUICData = {
                 TUICButton="${id}"
                 role="button"
                 tabindex="${disable ? -1 : 0}"
-                class="${disable ? "css-1dbjc4n r-1777fci r-bt1l66 r-icoktb r-1ny4l3l r-bztko3 r-lrvibr" : "css-18t94o4 css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr"}"
+                class="css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
               >
                 <div
                   dir="ltr"
@@ -183,7 +187,7 @@ const TUICData = {
                     <svg
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${TUICLibrary.backgroundColorCheck() == "light" ? "r-14j79pv" : "r-1bwzh9t"}"
+                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr${redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorCheck() == "light" ? "r-14j79pv" : "r-1bwzh9t"}"
                     >
                       <g>
                         ${svg}
@@ -205,16 +209,18 @@ const TUICData = {
                     locked,
                 );
             },
-            userBlock: function () {
+            userBlock: function (isMe) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "userBlock",
                     `<path d="M12 3.75c-4.55 0-8.25 3.69-8.25 8.25 0 1.92.66 3.68 1.75 5.08L17.09 5.5C15.68 4.4 13.92 3.75 12 3.75zm6.5 3.17L6.92 18.5c1.4 1.1 3.16 1.75 5.08 1.75 4.56 0 8.25-3.69 8.25-8.25 0-1.92-.65-3.68-1.75-5.08zM1.75 12C1.75 6.34 6.34 1.75 12 1.75S22.25 6.34 22.25 12 17.66 22.25 12 22.25 1.75 17.66 1.75 12z" class="TUIC_USERBLOCK"></path>`,
+                    isMe,
                 );
             },
-            userMute: function () {
+            userMute: function (isMe) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "userMute",
                     `<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z" class="TUIC_USERMUTE"></path>`,
+                    isMe,
                 );
             },
             quoteTweet: function (locked) {
@@ -224,11 +230,22 @@ const TUICData = {
                     locked,
                 );
             },
+            deleteButton: function (isMe) {
+                return TUICData.visibleButtons.buttonHTML._base(
+                    "deleteButton",
+                    `<path d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z" class="TUIC_DeleteButton"></path>`,
+                    !isMe,
+                    true,
+                );
+            },
         },
         buttonFunction: {
+            _cancelButton: function (elem) {
+                elem.click();
+            },
             boolkmark: function (e) {
                 for (let i = 0; i <= 2; i++) {
-                    let urlCopyButton = document.querySelector(
+                    const urlCopyButton = document.querySelector(
                         `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
                   [d="M17 3V0h2v3h3v2h-3v3h-2V5h-3V3h3zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V11h2v11.94l-8-5.71-8 5.71V4.5C4 3.12 5.119 2 6.5 2h4.502v2H6.5z"]:not(.TUIC_BOOKMARK),
                   [d="M19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
@@ -244,7 +261,7 @@ const TUICData = {
             },
             "url-copy": function (e) {
                 for (let i = 0; i <= 2; i++) {
-                    let urlCopyButton =
+                    const urlCopyButton =
                         document.querySelector(`[role="menuitem"] :is([d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"],
                 [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]):not(.TUIC_URL)`);
                     if (urlCopyButton == null) {
@@ -257,18 +274,51 @@ const TUICData = {
             },
             userBlock: function (article) {
                 for (let i = 0; i <= 2; i++) {
-                    let blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
+                    const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
                     if (blockButton == null) {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         blockButton.click();
+                        if (TUICPref.otherBoolSetting.noModalbottomTweetButtons) {
+                            document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                        } else {
+                            document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                            document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                        }
+                        break;
+                    }
+                }
+            },
+            deleteButton: function (article) {
+                for (let i = 0; i <= 2; i++) {
+                    const deleteButtonButton = document.querySelector(
+                        `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
+                    );
+                    if (deleteButtonButton == null) {
+                        article.querySelector(`[data-testid="caret"]`).click();
+                    } else {
+                        deleteButtonButton.parentElement.parentElement.parentElement.parentElement.click();
+                        if (TUICPref.otherBoolSetting.noModalbottomTweetButtons) {
+                            document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                        } else {
+                            document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                            document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                                this._cancelButton(article.querySelector(`[data-testid="caret"]`));
+                            });
+                        }
                         break;
                     }
                 }
             },
             userMute: function (article) {
                 for (let i = 0; i <= 2; i++) {
-                    let blockButton = document.querySelector(
+                    const blockButton = document.querySelector(
                         `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
                     );
                     if (blockButton == null) {
@@ -281,7 +331,7 @@ const TUICData = {
             },
             quoteTweet: function (retButton) {
                 for (let i = 0; i <= 2; i++) {
-                    let quoteButton = document.querySelector(`[role="menuitem"][href="/compose/tweet"]`);
+                    const quoteButton = document.querySelector(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`);
                     if (quoteButton == null) {
                         retButton.click();
                     } else {
@@ -293,7 +343,7 @@ const TUICData = {
             "retweet-button": function () {
                 if (TUICPref.otherBoolSetting["RTNotQuote"]) {
                     window.setTimeout(() => {
-                        TUICData.sidebarButtons.waitSetElement(`:is([role="menuitem"][data-testid="retweetConfirm"],[role="menuitem"][data-testid="unretweetConfirm"])`);
+                        TUICData.sidebarButtons.waitSetElement(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`);
                     }, 100);
                 }
             },
@@ -310,39 +360,48 @@ const TUICData = {
                 });
             },
             boolkmark: function (val) {
-                let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]());
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"]());
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["boolkmark"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]));
+                    TUICData.visibleButtons.buttonFunction["boolkmark"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                 });
                 return elem;
             },
-            "url-copy": function (val, _, locked) {
-                let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](locked));
-                if (!locked)
+            "url-copy": function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](val.option.isLockedAccount || val.option.cannotRT));
+                if (!val.option.isLockedAccount || !val.option.cannotRT)
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["url-copy"](val.querySelector(TUICData.visibleButtons.selectors["share-button"]));
+                        TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                     });
                 return elem;
             },
-            userBlock: function (_, article) {
-                let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userBlock"]());
+            userBlock: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userBlock"](val.option.isMe));
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["userBlock"](article);
+                    TUICData.visibleButtons.buttonFunction["userBlock"](val.elements.article);
                 });
                 return elem;
             },
-            userMute: function (_, article) {
-                let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userMute"]());
+            userMute: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userMute"](val.option.isMe));
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["userMute"](article);
+                    TUICData.visibleButtons.buttonFunction["userMute"](val.elements.article);
                 });
                 return elem;
             },
-            quoteTweet: function (val, _, locked) {
-                let elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](locked));
-                if (!locked)
+            deleteButton: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["deleteButton"](val.option.isMe));
+                if (val.option.isMe) {
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["quoteTweet"](val.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
+                        TUICData.visibleButtons.buttonFunction["deleteButton"](val.elements.article);
+                    });
+                }
+                return elem;
+            },
+            quoteTweet: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](val.option.isLockedAccount));
+                if (!val.option.isLockedAccount)
+                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
+                        TUICData.visibleButtons.buttonFunction["quoteTweet"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
                     });
                 return elem;
             },
@@ -377,6 +436,7 @@ const TUICData = {
         },
         html: {
             __base: (id, svg) => {
+                /* eslint-disable */
                 return `
         <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
@@ -396,6 +456,7 @@ const TUICData = {
             </div>
           </div>
         </a>`;
+                /* eslint-disable */
             },
             topics: function () {
                 return TUICData.sidebarButtons.html.__base(
@@ -442,11 +503,11 @@ const TUICData = {
             },
         },
         buttonClickInMoreMenu: (e, selector) => {
-            let moreMenu = e.currentTarget.parentElement.parentElement.parentElement.querySelector(`[aria-haspopup] > div > div`);
+            const moreMenu = e.currentTarget.parentElement.parentElement.parentElement.querySelector(`[aria-haspopup] > div > div`);
             moreMenu.click();
             if (document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`) == null) {
                 setTimeout(() => {
-                    let elem = document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`);
+                    const elem = document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`);
                     if (elem == null) {
                         moreMenu.click();
                     } else {
@@ -460,7 +521,7 @@ const TUICData = {
         waitSetElement: async (selector) => {
             for (let i = 0; i <= 10; i++) {
                 re = await new Promise((resolve2) => {
-                    let elem = document.querySelector(selector);
+                    const elem = document.querySelector(selector);
                     if (elem != null) {
                         elem.click();
                         resolve2("ok");
@@ -478,7 +539,7 @@ const TUICData = {
         buttonFunctions: {
             topics: async function (e) {
                 if (!location.pathname.endsWith("/topics")) {
-                    let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
                         document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
@@ -507,7 +568,7 @@ const TUICData = {
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/connect_people"]`);
             },
             display: async function (e) {
-                let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 setTimeout(async () => {
                     document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
@@ -516,7 +577,7 @@ const TUICData = {
             },
             muteAndBlock: async function (e) {
                 if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
-                    let moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
                         document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
@@ -539,14 +600,23 @@ const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "verified-rSidebar", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
+        all: ["twitter-pro-promotion-btn", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
         i18n: {
             "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
-            "verified-rSidebar": "invisibleItems-verifiedRSidebar",
             "subscribe-tweets": "invisibleItems-subscribeTweets",
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
             hideBelowDM: "invisibleItems-hideBelowDM",
+        },
+    },
+    rightSidebar: {
+        all: ["searchBox", "verified", "trend", "osusumeUser", "links"],
+        i18n: {
+            verified: "rightSidebar-rightSidebarVerified",
+            trend: "rightSidebar-trend",
+            osusumeUser: "rightSidebar-osusumeUser",
+            links: "rightSidebar-links",
+            searchBox: "rightSidebar-searchBox",
         },
     },
     clientInfo: {

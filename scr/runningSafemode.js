@@ -3,7 +3,7 @@
         if (document.querySelector("#safemode") == null) {
             await TUICLibrary.fetchI18n();
             document.querySelector("#react-root").style = "display:none !important;";
-            let safemode = document.createElement("div");
+            const safemode = document.createElement("div");
             safemode.id = "safemode";
             safemode.style = "height:100%;width:100%";
             document.querySelector("body").appendChild(safemode);

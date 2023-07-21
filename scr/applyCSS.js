@@ -3,14 +3,14 @@ function TUICRunFirst() {
     if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove();
 
     // 追加する要素を用意します。
-    let TUIC_css = document.createElement("style");
+    const TUIC_css = document.createElement("style");
     TUIC_css.id = "twitter_ui_customizer";
-    let TWITTER_head = document.querySelector("head");
+    const TWITTER_head = document.querySelector("head");
     // 基準となる要素を指定します。
     TWITTER_head.appendChild(TUIC_css);
     TUICCss();
     if (window.location.pathname != "/tuic/safemode") {
-        let TUIC_custom_css = document.createElement("style");
+        const TUIC_custom_css = document.createElement("style");
         TUIC_custom_css.id = "twitter_ui_customizer_css";
         TWITTER_head.appendChild(TUIC_custom_css);
         TUICCustomCSS();
@@ -18,15 +18,15 @@ function TUICRunFirst() {
 }
 
 function TUICCss() {
-    let backgroundColor = TUICLibrary.backgroundColorCheck();
+    const backgroundColor = TUICLibrary.backgroundColorCheck();
 
     let prefColors = "";
-    for (let elem in TUICData.colors) {
-        for (let el of ["background", "border", "color"]) {
+    for (const elem in TUICData.colors) {
+        for (const el of ["background", "border", "color"]) {
             prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
         }
     }
-
+    /* eslint-disable */
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}
@@ -423,7 +423,7 @@ textarea#css_textarea,.TUICTextInput {
     border:2px solid rgb(127, 127, 127);
 }
 .TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton > span::before{
-    background-image:url('data:image/svg+xml;charset=UTF-8,<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\\"0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
+    background-image:url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
     background-color:rgb(29, 155, 240);
     height:1em;
     width:1em;
@@ -572,7 +572,7 @@ display:none !important;
     border-color:var(--TUIC-detail-border) !important;
 }
 
-.TUICSidebarSelected > div > [dir=\"ltr\"]{
+.TUICSidebarSelected > div > [dir="ltr"]{
     font-weight:700;
 }
 .TUICSidebarSelected > div > div > svg{
@@ -592,6 +592,10 @@ display:none !important;
  .TUICCheckBoxParent:not(:last-of-type){
     margin-bottom: 8px;
  }
+
+ .TUIC_DeleteButton{
+    color:rgb(244, 33, 46);
+ }
  ${
      TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
          ? `
@@ -610,7 +614,7 @@ display:none !important;
     }`
          : ""
  }
-    ${TUICPref.invisibleItems["hideBelowDM"] ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
+ ${TUICPref.invisibleItems["hideBelowDM"] ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
 
  ${
      TUICPref.otherBoolSetting["bottomSpace"] ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
@@ -628,6 +632,7 @@ display:none !important;
  }
 
 `;
+    /* eslint-enable */
 }
 
 function TUICCustomCSS() {
