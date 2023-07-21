@@ -415,7 +415,8 @@ ${this.upDownList(
     "bottomTweetButtons-settingTitle",
     this.checkbox("bottomScroll", TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
         this.checkbox("bottomSpace", TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting") +
-        this.checkbox("RTNotQuote", TUICPref.otherBoolSetting["RTNotQuote"], "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting"),
+        this.checkbox("RTNotQuote", TUICPref.otherBoolSetting["RTNotQuote"], "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting") +
+        this.checkbox("noModalbottomTweetButtons", TUICPref.otherBoolSetting["noModalbottomTweetButtons"], "bottomTweetButtons-setting-noModal", "otherBoolSetting"),
 )}
 ${this.upDownList(
     "sidebarButtons",

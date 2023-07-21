@@ -592,6 +592,10 @@ display:none !important;
  .TUICCheckBoxParent:not(:last-of-type){
     margin-bottom: 8px;
  }
+
+ .TUIC_DeleteButton{
+    color:rgb(244, 33, 46);
+ }
  ${
      TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
          ? `

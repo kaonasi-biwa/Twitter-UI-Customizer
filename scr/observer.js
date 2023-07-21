@@ -109,10 +109,17 @@ const TUICObserver = {
             const articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${TUICLibrary.getClasses.getClass("TUICDidArticle")}"])`);
             if (articles.length != 0) {
                 articles.forEach(function (elem) {
-                    if (elem.querySelector('[data-testid$="reply"]') != null && elem.querySelector('[data-testid$="like"]') != null) {
+                    if (elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]) != null && elem.querySelector(TUICData.visibleButtons.selectors["like-button"]) != null) {
                         const lockedAccount = elem.querySelector(`[data-testid="icon-lock"]`) != null;
-                        let bar_base = elem.querySelector('[data-testid$="reply"]');
-                        while (bar_base.querySelector('[data-testid$="like"]') == null) {
+                        const userNameElem = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
+                        const isMe =
+                            userNameElem == null
+                                ? false
+                                : elem.querySelector(`[data-testid="User-Name"] > .r-1awozwy+div span`).textContent ==
+                                  "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
+
+                        let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
+                        while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
                             bar_base = bar_base.parentElement;
                         }
                         if (TUICPref.otherBoolSetting.bottomScroll ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"));
@@ -134,6 +141,7 @@ const TUICObserver = {
                                 }
                             }
                         }
+                        const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb`) != null;
                         if (!lockedAccount) {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
@@ -143,7 +151,7 @@ const TUICObserver = {
                             if (i in bar_item) {
                                 div = bar_item[i];
                             } else if (i in TUICData.visibleButtons.buttonElement) {
-                                div = TUICData.visibleButtons.buttonElement[i](bar_base, elem, lockedAccount);
+                                div = TUICData.visibleButtons.buttonElement[i]({ elements: { buttonBarBase: bar_base, article: elem }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, isMe: isMe } } /*bar_base, elem, lockedAccount*/);
                             }
                             if (div != -1) {
                                 if (bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement());
