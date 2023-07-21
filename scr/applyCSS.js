@@ -596,6 +596,10 @@ display:none !important;
  .TUIC_DeleteButton{
     color:rgb(244, 33, 46);
  }
+
+ .r-icoktb{
+    opacity:0.5;
+ }
  ${
      TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
          ? `
