@@ -22,9 +22,7 @@
     "bottomTweetButtons-setting-removeSpaceBottomTweet": "ツイートの内容の下にあ(ったりなかったりす)る空白を削除",
     "bottomTweetButtons-userBlock": "ユーザーをブロック",
     "bottomTweetButtons-userMute": "ユーザーをミュート",
-    "bottomTweetButtons-deleteButton": "ツイートを削除",
     "bottomTweetButtons-setting-RTNotQuote": "リツイート時にメニューを表示しない",
-    "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
