@@ -1,6 +1,6 @@
 let updateID = "";
 
-let updateNotification = () => {
+const updateNotification = () => {
     chrome.tabs.create({
         url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases",
     });

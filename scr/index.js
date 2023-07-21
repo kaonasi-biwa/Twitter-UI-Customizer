@@ -1,10 +1,12 @@
 //ここから実際に動かしてゆく
+/* eslint-disable */
 let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString());
+/* eslint-enable */
 let TUICCount = 0;
 function replaceRunningIcon() {
     if (document.getElementById("react-root") != null) {
         if (document.querySelector("#twitter_ui_customizer_query") == null) {
-            let queryElem = document.createElement("meta");
+            const queryElem = document.createElement("meta");
             queryElem.id = "twitter_ui_customizer_query";
             queryElem.setAttribute("query", "");
             document.querySelector("head").appendChild(queryElem);
@@ -14,7 +16,7 @@ function replaceRunningIcon() {
         }
 
         if (document.querySelector(".TUICOriginalContent") != null) {
-            for (let elem of document.querySelectorAll(".TUICOriginalContent")) {
+            for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
                 elem.remove();
             }
         }

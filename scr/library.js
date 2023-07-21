@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 let TUICI18N;
 
 const TUICLibrary = {
@@ -47,7 +48,7 @@ const TUICLibrary = {
     },
     updatePref: {
         update: function () {
-            dPref = TUICLibrary.defaultPref.get();
+            const dPref = TUICLibrary.defaultPref.get();
             if ((localStorage.getItem("unsent-tweet-background") ?? "unknown") != "unknown") {
                 this.parallelToSerial();
             }
@@ -60,6 +61,10 @@ const TUICLibrary = {
 
             if (typeof TUICPref.timeline != "object") {
                 TUICPref.timeline = {};
+            }
+
+            if (typeof TUICPref.rightSidebar != "object") {
+                TUICPref.rightSidebar = {};
             }
 
             if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
@@ -76,6 +81,11 @@ const TUICLibrary = {
                 TUICPref["timeline-discoverMore"] = "discoverMore_invisible";
             }
             delete TUICPref.invisibleItems["discoverMore"];
+
+            if (TUICPref.invisibleItems["verified-rSidebar"] == true) {
+                TUICPref.rightSidebar["verified"] = true;
+            }
+            delete TUICPref.invisibleItems["verified-rSidebar"];
 
             if (TUICPref.otherBoolSetting.invisibleTwitterLogo == true) {
                 TUICPref.twitterIcon = "invisible";
@@ -103,8 +113,8 @@ const TUICLibrary = {
             TUICPref.CSS = localStorage.getItem("CSS");
             TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem("osusume-user-timeline") ?? "0") == "1";
             TUICPref.visibleButtons = JSON.parse(localStorage.getItem("visible-button"));
-            for (let i of TUICData.settings.colors.id) {
-                let a = localStorage.getItem(`${i}-background`) ?? "unknown";
+            for (const i of TUICData.settings.colors.id) {
+                const a = localStorage.getItem(`${i}-background`) ?? "unknown";
                 if (a != "unknown") {
                     TUICPref.buttonColor[i] = {};
                     TUICPref.buttonColor[i].background = a;
@@ -151,7 +161,7 @@ const TUICLibrary = {
             localStorage.setItem("TUIC", JSON.stringify(TUICPref));
         },
         updateToDefault: function (object, defObject) {
-            for (let i in defObject) {
+            for (const i in defObject) {
                 if (!(i in object)) {
                     object[i] = defObject[i];
                 } else if (typeof defObject[i] == "object" && !Array.isArray(defObject[i])) {
@@ -161,7 +171,7 @@ const TUICLibrary = {
         },
     },
     backgroundColorCheck: function () {
-        bodyStyle = document.querySelector("body").style.backgroundColor.toString();
+        const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {
             return "dark";
         } else if (bodyStyle == "rgb(21, 32, 43)") {
@@ -171,7 +181,7 @@ const TUICLibrary = {
         }
     },
     backgroundColorClass: function (dark, blue, white) {
-        backgroundType = this.backgroundColorCheck();
+        const backgroundType = this.backgroundColorCheck();
         if (this.backgroundColorCheck == "dark") {
             return dark;
         } else if (this.backgroundColorCheck == "blue") {
@@ -181,7 +191,7 @@ const TUICLibrary = {
         }
     },
     fontSizeClass: function (x1, x2, x3, x4, x5) {
-        fontSize = document.querySelector("html").style.fontSize.toString();
+        const fontSize = document.querySelector("html").style.fontSize.toString();
         if (fontSize == "17px") {
             return x4;
         } else if (fontSize == "18px") {
@@ -211,7 +221,7 @@ const TUICLibrary = {
         });
     },
     getI18n: function (elem) {
-        let lang = document.querySelector("html").getAttribute("lang");
+        const lang = document.querySelector("html").getAttribute("lang");
         if (lang in TUICI18N && elem in TUICI18N[lang]) {
             return TUICI18N[lang][elem].escapeToUseHTML();
         } else if (elem in TUICI18N.en) {
@@ -237,7 +247,6 @@ const TUICLibrary = {
         });
     },
 };
-console.log("aaa");
 String.prototype.escapeToUseHTML = function () {
     return TUICLibrary.escapeToUseHTML(this);
 };
