@@ -10,7 +10,7 @@
             if (document.querySelector(".twitter_ui_customizer_css") != null) {
                 document.querySelector(".twitter_ui_customizer_css").remove();
             }
-            let setTitle = () => {
+            const setTitle = () => {
                 document.title = TUICLibrary.getI18n("safemode-title");
                 window.setTimeout(setTitle, 5000);
             };
