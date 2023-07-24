@@ -48,6 +48,7 @@ const TUICObserver = {
     config: {
         childList: true,
         subtree: true,
+        attributes: true,
     },
     functions: {
         twitterIcon: function (elem, base) {
