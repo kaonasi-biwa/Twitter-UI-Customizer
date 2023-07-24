@@ -68,6 +68,10 @@ const TUICObserver = {
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg"));
                     break;
+                case "twitterIcon-X":
+                    elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
+                    elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_X"));
+                    break;
                 default:
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_NOTSVGDISPNONE"));
                     break;
