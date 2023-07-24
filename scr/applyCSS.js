@@ -23,7 +23,9 @@ function TUICCss() {
     let prefColors = "";
     for (const elem in TUICData.colors) {
         for (const el of ["background", "border", "color"]) {
-            prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
+            if ((TUICData.colors[elem][el] ?? "unknwon") != "unknwon") {
+                prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
+            }
         }
     }
     /* eslint-disable */
@@ -514,7 +516,7 @@ height:8px
 }
 
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")}{
-    background-color:var(--twitter-TUIC-color);
+    background-color:var(--twitter-twitterIcon-color);
     --TUIC-twitter-icon:${TUICData.twitterIconSVG}  !important;
     -webkit-mask-image:var(--TUIC-twitter-icon) !important;
     mask-image:var(--TUIC-twitter-icon) !important;

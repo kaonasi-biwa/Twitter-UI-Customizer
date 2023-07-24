@@ -82,7 +82,7 @@ const TUICData = {
             },
         },
         colors: {
-            id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday"],
+            id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon"],
             i18n: {
                 "unsent-tweet": "settingColors-editUnsetTweet",
                 willFollow: "settingColors-willFollowButton",
@@ -94,6 +94,7 @@ const TUICData = {
                 birthday: "settingColors-finalDecideButton",
                 blocking: "settingColors-blocking",
                 "blocking-unlock": "settingColors-blockingUnlock",
+                twitterIcon: "settingColors-twitterIcon",
             },
         },
     },
@@ -147,6 +148,9 @@ const TUICData = {
             background: "rgba(220, 30, 41,1)",
             border: "rgba(220, 30, 41,1)",
             color: "rgba(255, 255, 255,1)",
+        },
+        twitterIcon: {
+            color: "rgba(29,161,242,1)",
         },
     },
     visibleButtons: {

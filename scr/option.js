@@ -501,11 +501,17 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     },
     //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
     threeColorSetting: function (id) {
-        return `
-${this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", editingColorType), "settingUI-colorPicker-background", !!TUICPref?.[editingColorType]?.[id]?.background, editingColorType)}
-${this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", editingColorType), "settingUI-colorPicker-border", !!TUICPref?.[editingColorType]?.[id]?.border, editingColorType)}
-${this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id, "color", editingColorType), "settingUI-colorPicker-textColor", !!TUICPref?.[editingColorType]?.[id]?.color, editingColorType)}
-`;
+        let returnItem = "";
+        if (TUICData.colors[id]["background"]) {
+            returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", editingColorType), "settingUI-colorPicker-background", !!TUICPref?.[editingColorType]?.[id]?.background, editingColorType);
+        }
+        if (TUICData.colors[id]["border"]) {
+            returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", editingColorType), "settingUI-colorPicker-border", !!TUICPref?.[editingColorType]?.[id]?.border, editingColorType);
+        }
+        if (TUICData.colors[id]["color"]) {
+            returnItem += this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id, "color", editingColorType), id == "twitterIcon" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor", !!TUICPref?.[editingColorType]?.[id]?.color, editingColorType);
+        }
+        return returnItem;
     },
     //色の設定の全体。forぶん回してる
     colorsList: function () {
