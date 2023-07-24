@@ -97,3 +97,15 @@ https://crowdin.com/project/twiter-ui-customizer
 [System UIcons](https://www.systemuicons.com/)
 
 -   Unlicenseの元で配布されています。
+
+## アドオンのデバッグ方法
+
+**重要** Firefox ブラウザー事前にインストールされている必要があります。また、新しいプロファイルを "about:profile" で "development" という名前で作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
+``
+
+```bash
+npm install
+npm run debug
+```
+
+`npm run debug firefox` も同じ動作を行います。 `npm run debug chrome` は、Chrome でデバッグするために必要な準備を行います。手動でのインストールが必要です。また、web-ext を使用しているためデバッグ中に加えた変更はリロードしなくても反映されます。
