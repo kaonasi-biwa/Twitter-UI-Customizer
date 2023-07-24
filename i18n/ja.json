@@ -16,6 +16,7 @@
     "settingUI-colorPicker-textColor": "文字色",
     "settingUI-colorPicker-background": "背景色",
     "settingUI-colorPicker-border": "枠色",
+    "settingUI-colorPicker-svgColor": "画像色",
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
@@ -77,6 +78,7 @@
     "settingColors-finalDecideButton": "最終決定ボタン",
     "settingColors-blocking": "ブロック中の人のフォローボタン",
     "settingColors-blockingUnlock": "ブロック解除時のフォローボタン",
+    "settingColors-twitterIcon": "Twitterアイコンの色",
 
     "twitterIcon-settingTitle": "Twitterのアイコン",
     "twitterIcon-normal": "通常のアイコン",
