@@ -37,6 +37,7 @@
     "rightSidebar-osusumeUser": "おすすめユーザーを非表示にする",
     "rightSidebar-links": "リンク集を非表示にする",
     "rightSidebar-searchBox": "検索箱を非表示にする",
+    "rightSidebar-space": "「進行中のスペースを聞く」を非表示にする",
 
     "invisibleItems-settingTitle": "非表示設定",
     "invisibleItems-twitterProPromotionBtn": "Twitter Pro プロモーションボタン",
@@ -90,6 +91,7 @@
     "twitterIcon-usedIcon": "アイコンに使う画像",
     "twitterIcon-nowIcon": "現在の画像",
     "twitterIcon-roundIcon": "アイコンを丸くする(カスタムアイコン時のみ有効)",
+    "twitterIcon-favicon": "タブのアイコンも変更する",
 
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",
