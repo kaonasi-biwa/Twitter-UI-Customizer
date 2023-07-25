@@ -425,7 +425,15 @@ ${this.upDownList(
         this.checkbox("sidebarNoneScrollbar", TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting"),
 )}
 
-${this.radioButtonList("twitterIcon", "twitterIcon-settingTitle", "TUICRadio", "<br>" + this.checkbox("roundIcon", TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") + this.uploadImageFile("twitterIcon-usedIcon", "IconImg"))}
+${this.radioButtonList(
+    "twitterIcon",
+    "twitterIcon-settingTitle",
+    "TUICRadio",
+    "<br>" +
+        this.checkbox("faviconSet", TUICPref.otherBoolSetting["faviconSet"] ?? true, "twitterIcon-favicon", "otherBoolSetting") +
+        this.checkbox("roundIcon", TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
+        this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
+)}
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
