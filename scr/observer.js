@@ -82,7 +82,7 @@ const TUICObserver = {
                     break;
                 case "twitter":
                     if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconSVG.replace(`xmlns:xlink="http://www.w3.org/1999/xlink"`, `xmlns:xlink="http://www.w3.org/1999/xlink" fill="${TUICLibrary.color.getColorFromPref("twitterIcon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIcon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter"));
@@ -103,7 +103,7 @@ const TUICObserver = {
                     break;
                 case "twitterIcon-X":
                     if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconXSVG.replace(`xmlns:xlink="http://www.w3.org/1999/xlink"`, `xmlns:xlink="http://www.w3.org/1999/xlink" fill="${TUICLibrary.color.getColorFromPref("twitterIcon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconXSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIcon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_X"));
