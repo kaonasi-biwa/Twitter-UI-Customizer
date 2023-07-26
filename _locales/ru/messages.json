@@ -66,7 +66,7 @@
         "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-        "message": "Настройки Twitter",
+        "message": "Настройка Twitter:",
         "description": "設定画面の見出し"
     },
     "optionContent1_1_1": {
@@ -142,7 +142,7 @@
         "description": "設定画面のSpecial thanks(Taka005さん)"
     },
     "optionSpecialThanks_Hibi_10000": {
-        "message": "Переводчик на американский английский ",
+        "message": "Переводчик на Американский английский",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
     "optionSpecialThanks_KotoneFami": {
@@ -150,15 +150,15 @@
         "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     },
     "optionSpecialThanks_loading_yt": {
-        "message": "Переводчик на упрощенный китайский и традиционный китайский языки",
+        "message": "Переводчик на Упрощенный китайский и Традиционный китайский языки",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_nyanrus": {
-        "message": "Переводчик на корейский",
+        "message": "Переводчик на Корейский",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
-        "message": "Создатель иконки/логотипа",
+        "message": "Создатель иконки и логотипа",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     },
     "optionSpecialThanks_enthropyreg": {
