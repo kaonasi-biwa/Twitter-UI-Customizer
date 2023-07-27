@@ -100,12 +100,28 @@ https://crowdin.com/project/twiter-ui-customizer
 
 ## アドオンのデバッグ方法
 
-**重要** Firefox ブラウザー事前にインストールされている必要があります。また、新しいプロファイルを "about:profile" で "development" という名前で作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
+**重要** Firefox ブラウザーが事前にインストールされている必要があります。また、新しいプロファイルを "about:profile" で "development" という名前で作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
 ``
 
 ```bash
+
 npm install
+
+## Firefox でデバッグする場合（引数なしの場合はデフォルトで Firefox でデバッグします）
 npm run debug
+
+# or
+npm run debug firefox
+
+## Chrome でデバッグする場合（インストールは手動）
+npm run debug chrome
+
+## Firefox または Firefox 系ブラウザーでデバッグする場合
+npm run debug firefox -- --firefox="path/to/firefox"
+
+# 例
+npm run debug firefox -- --firefox="C:\Program Files\Mozilla Firefox\firefox.exe"
+
 ```
 
-`npm run debug firefox` も同じ動作を行います。 `npm run debug chrome` は、Chrome でデバッグするために必要な準備を行います。手動でのインストールが必要です。また、web-ext を使用しているためデバッグ中に加えた変更はリロードしなくても反映されます。
+`npm run debug firefox` も同じ動作を行います。 `npm run debug chrome` は、Chrome でデバッグするために必要な準備を行います。手動でのインストールが必要です。また、Firefox 系ブラウザーでのデバッグでは web-ext を使用しているためデバッグ中に加えた変更はリロードしなくても反映されます。
