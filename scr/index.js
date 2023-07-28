@@ -47,6 +47,20 @@ function replaceRunningIcon() {
                 subtree: false,
                 attributes: true,
             });
+            {
+                const setObserver = () => {
+                    if (document.querySelector("title") == null) {
+                        window.setTimeout(setObserver, 100);
+                    } else {
+                        TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
+                        TUICObserver.headObserver.observe(document.querySelector("title"), {
+                            characterData: true,
+                        });
+                        TUICObserver.titleObserverFunction();
+                    }
+                };
+                setObserver();
+            }
         })();
     } else {
         if (TUICCount <= 10) {

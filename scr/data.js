@@ -23,6 +23,7 @@ const TUICData = {
             sidebarNoneScrollbar: false,
             noModalbottomTweetButtons: false,
             faviconSet: false,
+            XtoTwitter: false,
         },
         clientInfo: {
             clientInfoVisible: false,
