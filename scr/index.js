@@ -55,6 +55,9 @@ function replaceRunningIcon() {
                         TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
                         TUICObserver.headObserver.observe(document.querySelector("title"), {
                             characterData: true,
+                            childList: true,
+                            subtree: true,
+                            attributes: true,
                         });
                         TUICObserver.titleObserverFunction();
                     }

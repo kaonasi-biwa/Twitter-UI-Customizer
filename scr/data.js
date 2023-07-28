@@ -41,6 +41,7 @@ const TUICData = {
             osusumeUser: false,
             links: false,
             space: false,
+            relevantPeople: false,
         },
         "timeline-discoverMore": "discoverMore_nomal",
     },
@@ -640,7 +641,7 @@ const TUICData = {
         },
     },
     rightSidebar: {
-        all: ["searchBox", "verified", "space", "trend", "osusumeUser", "links"],
+        all: ["searchBox", "verified", "space", "relevantPeople", "trend", "osusumeUser", "links"],
         i18n: {
             verified: "rightSidebar-rightSidebarVerified",
             trend: "rightSidebar-trend",
@@ -648,6 +649,7 @@ const TUICData = {
             links: "rightSidebar-links",
             searchBox: "rightSidebar-searchBox",
             space: "rightSidebar-space",
+            relevantPeople: "rightSidebar-relevantPeople",
         },
     },
     clientInfo: {
