@@ -506,6 +506,10 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <div class="TUIC_setting_color_colmn${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT") : ""}">
         <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:18px;">${TUICLibrary.getI18n(text)}</h4>
         <div class="TUIC_setting_input_container">
+        ${
+            TUICData.colors[id]?.ldColor && editingColorType == "buttonColor"
+                ? `<label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:10px;">${TUICLibrary.getI18n("settingColors-pleaseLD")}</label><br>`
+                : `
             <div class="TUIC_input_color_rounded__container">
                 <div class="TUIC_input_color_rounded">
                     <input type="color" id="${id + "-" + type}" TUICColor="${id}" TUICColorType="${type}" value="${TUICColor1}" class="TUICButtonColor" TUICColorKind=${colorKind}>
@@ -516,6 +520,8 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
              TUICColorType="${type}" class="TUICButtonColorCheck" TUICColorKind=${colorKind}>
             </button>
             <label for="${`${id}-${type}-check`}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transparent")}</label><br>
+        `
+        }
         </div>
     </div>
     <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDfaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n(
@@ -532,7 +538,14 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", editingColorType), "settingUI-colorPicker-border", !!TUICPref?.[editingColorType]?.[id]?.border, editingColorType);
         }
         if (TUICData.colors[id]["color"]) {
-            returnItem += this.colorSetting(id, "color", TUICLibrary.color.getColorFromPref(id, "color", editingColorType), id == "twitterIcon" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor", !!TUICPref?.[editingColorType]?.[id]?.color, editingColorType);
+            returnItem += this.colorSetting(
+                id,
+                "color",
+                TUICLibrary.color.getColorFromPref(id, "color", editingColorType),
+                TUICData.colors[id]?.typeColor == "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor",
+                !!TUICPref?.[editingColorType]?.[id]?.color,
+                editingColorType,
+            );
         }
         return returnItem;
     },

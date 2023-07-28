@@ -51,7 +51,6 @@ function replaceRunningIcon() {
                 const setObserver = () => {
                     if (document.querySelector("title") == null) {
                         window.setTimeout(setObserver, 100);
-                        console.log("aaa");
                     } else {
                         TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
                         TUICObserver.headObserver.observe(document.querySelector("title"), {

@@ -23,7 +23,7 @@ const TUICLibrary = {
             } else {
                 mode = mode_;
             }
-            return (TUICPref?.[mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type] ?? TUICData.colors[name]?.[type]).escapeToUseHTML();
+            return (TUICPref?.[mode]?.[name]?.[type] ?? TUICData?.["colors-" + mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type] ?? TUICData.colors[name]?.[type]).escapeToUseHTML();
         },
     },
     getClasses: {
