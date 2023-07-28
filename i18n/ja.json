@@ -69,6 +69,7 @@
     "settingColors-select-light": "ライト",
     "settingColors-select-dark": "ダーク",
     "settingColors-select-explain": "「ライト」を選択した場合はライトモードのみ、「ダーク」を選択した場合はダークモードのみで適用されます。設定されていない場合は、「ベース」の色が適用されます。",
+    "settingColors-pleaseLD": "上から「ライト」「ダーク」のどちらかを選んでください",
     "settingColors-editUnsetTweet": "未送信ツイートの編集ボタン",
     "settingColors-notFollowingButton": "フォローしていない人のフォローボタン",
     "settingColors-willFollowButton": "ホバー時のフォローボタン",
@@ -80,6 +81,7 @@
     "settingColors-blocking": "ブロック中の人のフォローボタン",
     "settingColors-blockingUnlock": "ブロック解除時のフォローボタン",
     "settingColors-twitterIcon": "Twitterアイコンの色",
+    "settingColors-twitterIconFavicon": "タブのアイコンのTwitterアイコンの色",
 
     "twitterIcon-settingTitle": "Twitterのアイコン",
     "twitterIcon-normal": "通常のアイコン",
