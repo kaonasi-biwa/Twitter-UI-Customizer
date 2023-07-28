@@ -148,7 +148,7 @@ const TUICOptionHTML = {
             },
             single: true,
         },
-        "#default_set": {
+        ".default_set": {
             type: "click",
             function: function () {
                 localStorage.setItem("TUIC", TUICLibrary.defaultPref.getString());
@@ -159,9 +159,13 @@ const TUICOptionHTML = {
                 } else {
                     document.querySelector("#TUIC_setting").remove();
                     TUICLibrary.getClasses.update();
+                    TUICObserver.titleObserverFunction();
+                    if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                        document.title = document.title.replace(" / Twitter", " / X");
+                    }
                 }
             },
-            single: true,
+            single: false,
         },
         ".TUIC_up_down_list_to_left": {
             type: "click",
@@ -347,6 +351,10 @@ const TUICOptionHTML = {
                         TUICLibrary.getClasses.update();
                         TUICCss();
                         TUICObserver.observerFunction();
+                        TUICObserver.titleObserverFunction();
+                        if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                            document.title = document.title.replace(" / Twitter", " / X");
+                        }
                     }
                 } catch (x) {
                     alert("構文解析に失敗しました");
@@ -369,10 +377,113 @@ const TUICOptionHTML = {
                         TUICLibrary.getClasses.update();
                         TUICCss();
                         TUICObserver.observerFunction();
+                        TUICObserver.titleObserverFunction();
+                        if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                            document.title = document.title.replace(" / Twitter", " / X");
+                        }
                     }
                 } catch (x) {
                     alert("構文解析に失敗しました");
                 }
+            },
+            single: true,
+        },
+        "#restoreIcon": {
+            type: "click",
+            function: () => {
+                const importPref = {
+                    otherBoolSetting: {
+                        faviconSet: true,
+                        XtoTwitter: true,
+                    },
+                    twitterIcon: "twitter",
+                };
+                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
+                TUICPref = importPref;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                document.querySelector("#TUIC_setting").remove();
+                TUICLibrary.getClasses.update();
+                TUICCss();
+                TUICObserver.observerFunction();
+                TUICObserver.titleObserverFunction();
+                if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                    document.title = document.title.replace(" / Twitter", " / X");
+                }
+            },
+            single: true,
+        },
+        "#deleteVerified": {
+            type: "click",
+            function: () => {
+                const importPref = {
+                    invisibleItems: {
+                        "twitter-pro-promotion-btn": true,
+                        "subscribe-profile": true,
+                        "subscribe-tweets": true,
+                    },
+                    sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "profile", "moremenu"],
+                    rightSidebar: {
+                        verified: true,
+                    },
+                };
+                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
+                TUICPref = importPref;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                document.querySelector("#TUIC_setting").remove();
+                TUICLibrary.getClasses.update();
+                TUICCss();
+                TUICObserver.observerFunction();
+            },
+            single: true,
+        },
+        "#discoverMoreDelete": {
+            type: "click",
+            function: () => {
+                const importPref = {
+                    "timeline-discoverMore": "discoverMore_invisible",
+                };
+                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
+                TUICPref = importPref;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                document.querySelector("#TUIC_setting").remove();
+                TUICLibrary.getClasses.update();
+                TUICCss();
+                TUICObserver.observerFunction();
+            },
+            single: true,
+        },
+        "#defaultTwitterColor": {
+            type: "click",
+            function: () => {
+                const importPref = {
+                    buttonColorLight: {
+                        "not-following": { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
+                        willFollow: { background: "rgba(39,44,48,1)", border: "rgba(39,44,48,1)", color: "rgba(255,255,255,1)" },
+                        following: { background: "rgba(255,255,255,0)", border: "rgba(207,217,222,1)", color: "rgba(15,20,25,1)" },
+                        "un-following": { border: "rgba(253,201,206,1)", color: "rgba(244,33,46,1)", background: "rgba(244,33,46,0.1)" },
+                        profile: { border: "rgba(207,217,222,1)", background: "rgba(255,255,255,0)", color: "rgba(15,20,25,1)" },
+                        birthday: { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
+                        "profile-save": { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
+                        "unsent-tweet": { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
+                    },
+                    buttonColorDark: {
+                        "not-following": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(10,20,25,1)" },
+                        willFollow: { background: "rgba(215,219,220,1)", border: "rgba(215,219,220,1)", color: "rgba(10,20,25,1)" },
+                        following: { background: "rgba(255,255,255,0)", border: "rgba(83,100,113,1)", color: "rgba(239,244,245,1)" },
+                        "un-following": { border: "rgba(103,7,15,1)", color: "rgba(244,33,46,1)", background: "rgba(244,33,46,0.1)" },
+                        profile: { border: "rgba(83,100,113,1)", background: "rgba(255,255,255,0)", color: "rgba(239,243,244,1)" },
+                        birthday: { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
+                        "profile-save": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
+                        "unsent-tweet": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
+                    },
+                };
+                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
+                TUICPref = importPref;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                document.querySelector("#TUIC_setting").remove();
+                TUICLibrary.getClasses.update();
+                TUICCss();
+                TUICObserver.observerFunction();
             },
             single: true,
         },
@@ -401,6 +512,17 @@ ${this.safemodeReturnButton()}
     </div>
 
     <div>
+        <br><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:18px;margin-bottom:1px;">${TUICLibrary.getI18n("settingUI-easySetting")}</h2><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:14px;">${TUICLibrary.getI18n("settingUI-easySetting-detail")}</h2><br>
+        <div class="TUICEasySetting" style="margin-top:15px;">
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="restoreIcon">${TUICLibrary.getI18n("easySetting-restoreIcon")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="deleteVerified">${TUICLibrary.getI18n("easySetting-deleteVerified")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="discoverMoreDelete">${TUICLibrary.getI18n("easySetting-discoverMoreDelete")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="defaultTwitterColor">${TUICLibrary.getI18n("easySetting-defaultTwitterColor")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set" style="margin-top:10px;margin-bottom:10px;">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
+        </div><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:18px;">${TUICLibrary.getI18n("settingUI-everythingSetting")}</h2>
         <br><br>
         <details class="TUICDetails">
             <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("settingColors-settingTitle")}</summary>
@@ -455,7 +577,7 @@ ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this
 ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
         <br><br>
 
         <details class="TUICDetails">
