@@ -86,6 +86,20 @@ const TUICOptionHTML = {
             },
             single: false,
         },
+        ".twitterTitle": {
+            type: "click",
+            function: function (event) {
+                TUICPref.otherBoolSetting[event.target.id] = event.target.checked;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+                TUICObserver.titleObserverFunction();
+                if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                    document.title = document.title.replace(" / Twitter", " / X");
+                }
+            },
+            single: false,
+        },
         ".otherBoolSetting": {
             type: "click",
             function: function (event) {
@@ -431,6 +445,7 @@ ${this.radioButtonList(
     "TUICRadio",
     "<br>" +
         this.checkbox("faviconSet", TUICPref.otherBoolSetting["faviconSet"] ?? true, "twitterIcon-favicon", "otherBoolSetting") +
+        this.checkbox("XtoTwitter", TUICPref.otherBoolSetting["XtoTwitter"] ?? true, "twitterIcon-XtoTwitter", "twitterTitle") +
         this.checkbox("roundIcon", TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
 )}

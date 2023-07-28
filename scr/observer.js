@@ -392,5 +392,16 @@ const TUICObserver = {
             }
         },
     },
+    titleObserverFunction: () => {
+        if (TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / X")) {
+            TUICObserver.headObserver.disconnect();
+            document.title = document.title.replace(" / X", " / Twitter");
+            TUICObserver.headObserver.observe(document.querySelector("title"), {
+                childList: true,
+                subtree: true,
+                attributes: true,
+            });
+        }
+    },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
