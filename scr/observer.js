@@ -393,14 +393,24 @@ const TUICObserver = {
         },
     },
     titleObserverFunction: () => {
-        if (TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / X")) {
-            TUICObserver.headObserver.disconnect();
-            document.title = document.title.replace(" / X", " / Twitter");
-            TUICObserver.headObserver.observe(document.querySelector("title"), {
-                childList: true,
-                subtree: true,
-                attributes: true,
-            });
+        if (TUICPref.otherBoolSetting["XtoTwitter"]) {
+            if (document.title.endsWith(" / X")) {
+                TUICObserver.headObserver.disconnect();
+                document.title = document.title.replace(" / X", " / Twitter");
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (document.title == "X") {
+                TUICObserver.headObserver.disconnect();
+                document.title = document.title = "Twitter";
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            }
         }
     },
 };
