@@ -307,7 +307,19 @@ const TUICObserver = {
                     .querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="trend"]`)
                     .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.rightSidebar["osusumeUser"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null) {
+            if (
+                TUICPref.rightSidebar["osusumeUser"] &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"]`) == null
+            ) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+            }
+
+            if (
+                TUICPref.rightSidebar["relevantPeople"] &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"]`) != null
+            ) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
             if (TUICPref.rightSidebar["links"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > nav`) != null) {
@@ -394,11 +406,13 @@ const TUICObserver = {
         },
     },
     titleObserverFunction: () => {
+        console.log("aaa");
         if (TUICPref.otherBoolSetting["XtoTwitter"]) {
             if (document.title.endsWith(" / X")) {
                 TUICObserver.headObserver.disconnect();
                 document.title = document.title.replace(" / X", " / Twitter");
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
                     childList: true,
                     subtree: true,
                     attributes: true,
@@ -407,6 +421,7 @@ const TUICObserver = {
                 TUICObserver.headObserver.disconnect();
                 document.title = document.title = "Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
                     childList: true,
                     subtree: true,
                     attributes: true,
