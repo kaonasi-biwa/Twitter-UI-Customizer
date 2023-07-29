@@ -349,8 +349,10 @@ const TUICObserver = {
                 tweetElem = document.querySelectorAll(`[data-testid="tweetButtonInline"] > div > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
                 if (tweetElem.length != 0) {
                     for (const elem of tweetElem) {
-                        elem.textContent = TUICLibrary.getI18n("twitterIcon-PostToTweet-tweetButton");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                        if (!window.location.pathname.includes("/status/")) {
+                            elem.textContent = TUICLibrary.getI18n("twitterIcon-PostToTweet-tweetButton");
+                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                        }
                     }
                 }
                 tweetElem = document.querySelectorAll(`[data-testid="tweetButton"] > div > span > span`);
@@ -377,6 +379,13 @@ const TUICObserver = {
                                 elem.textContent = TUICLibrary.getI18n("twitterIcon-PostToTweet-placeholder-addTweet");
                             }
                         }
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+                tweetElem = document.querySelectorAll(`.public-DraftEditorPlaceholder-inner:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")}):not([role="dialog"] *)`);
+                if (tweetElem.length != 0 && window.location.pathname.includes("/status/")) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("twitterIcon-PostToTweet-placeholder-reply");
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
                 }
