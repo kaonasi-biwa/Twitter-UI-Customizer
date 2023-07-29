@@ -23,9 +23,8 @@ const TUICData = {
             sidebarNoneScrollbar: false,
             noModalbottomTweetButtons: false,
             faviconSet: false,
-            XtoTwitter: false,
-            PostToTweet: false,
         },
+        XToTwitter: { XToTwitter: false, PostToTweet: false },
         clientInfo: {
             clientInfoVisible: false,
         },
@@ -652,6 +651,10 @@ const TUICData = {
             space: "rightSidebar-space",
             relevantPeople: "rightSidebar-relevantPeople",
         },
+    },
+    XToTwitter: {
+        all: ["XToTwitter", "PostToTweet"],
+        i18n: { XToTwitter: "XtoTwitter-XtoTwitter", PostToTweet: "XtoTwitter-PostToTweet" },
     },
     clientInfo: {
         all: ["clientInfoVisible"],

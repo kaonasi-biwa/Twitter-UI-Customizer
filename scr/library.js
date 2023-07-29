@@ -67,6 +67,10 @@ const TUICLibrary = {
                 TUICPref.rightSidebar = {};
             }
 
+            if (typeof TUICPref.XToTwitter != "object") {
+                TUICPref.XToTwitter = {};
+            }
+
             if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
                 TUICPref.timeline["osusume-user-timeline"] = true;
             }
@@ -91,6 +95,17 @@ const TUICLibrary = {
                 TUICPref.twitterIcon = "invisible";
             }
             delete TUICPref.otherBoolSetting.invisibleTwitterLogo;
+
+            if (TUICPref.otherBoolSetting["XtoTwitter"] == true) {
+                TUICPref.XToTwitter["XToTwitter"] = true;
+            }
+            delete TUICPref.otherBoolSetting["XtoTwitter"];
+
+            if (TUICPref.otherBoolSetting["PostToTweet"] == true) {
+                TUICPref.XToTwitter["PostToTweet"] = true;
+            }
+            delete TUICPref.otherBoolSetting["PostToTweet"];
+
             if ("CSS" in TUICPref) {
                 localStorage.setItem("TUIC_CSS", TUICPref.CSS);
             }
