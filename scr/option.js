@@ -395,6 +395,7 @@ const TUICOptionHTML = {
                     otherBoolSetting: {
                         faviconSet: true,
                         XtoTwitter: true,
+                        PostToTweet: true,
                     },
                     twitterIcon: "twitter",
                 };
@@ -568,6 +569,7 @@ ${this.radioButtonList(
     "<br>" +
         this.checkbox("faviconSet", TUICPref.otherBoolSetting["faviconSet"] ?? true, "twitterIcon-favicon", "otherBoolSetting") +
         this.checkbox("XtoTwitter", TUICPref.otherBoolSetting["XtoTwitter"] ?? true, "twitterIcon-XtoTwitter", "twitterTitle") +
+        this.checkbox("PostToTweet", TUICPref.otherBoolSetting["PostToTweet"] ?? true, "twitterIcon-PostToTweet", "otherBoolSetting") +
         this.checkbox("roundIcon", TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
 )}
