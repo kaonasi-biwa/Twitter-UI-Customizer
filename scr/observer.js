@@ -82,7 +82,7 @@ const TUICObserver = {
                     break;
                 case "twitter":
                     if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIcon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter"));
@@ -96,14 +96,15 @@ const TUICObserver = {
                     break;
                 case "custom":
                     if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = localStorage.getItem("TUIC_IconImg") ?? TUICData.emptySVG;
+                        const imageURL = localStorage.getItem(TUICPref.otherBoolSetting["roundIcon"] ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                        document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg"));
                     break;
                 case "twitterIcon-X":
                     if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconXSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIcon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconXSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_X"));
@@ -198,7 +199,8 @@ const TUICObserver = {
                                 div = TUICData.visibleButtons.buttonElement[i]({ elements: { buttonBarBase: bar_base, article: elem }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, isMe: isMe } } /*bar_base, elem, lockedAccount*/);
                             }
                             if (div != -1) {
-                                if (bar_item["reply-button"].querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && div.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") == null) div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement());
+                                if (bar_item["reply-button"].querySelector(`[data-testid="app-text-transition-container"]`) != null && div.querySelector(`[data-testid="app-text-transition-container"]`) == null)
+                                    div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement());
                                 lastButton = div;
                                 bar_base.appendChild(div);
                             }
@@ -306,7 +308,19 @@ const TUICObserver = {
                     .querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="trend"]`)
                     .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.rightSidebar["osusumeUser"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null) {
+            if (
+                TUICPref.rightSidebar["osusumeUser"] &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"]`) == null
+            ) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+            }
+
+            if (
+                TUICPref.rightSidebar["relevantPeople"] &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"]`) != null
+            ) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
             if (TUICPref.rightSidebar["links"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > nav`) != null) {
@@ -325,6 +339,57 @@ const TUICObserver = {
             }
             if (TUICPref.invisibleItems["subscribe-profile"] && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`).classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+            }
+
+            if (TUICPref.XToTwitter["PostToTweet"]) {
+                let tweetElem = document.querySelector(`[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem != null) {
+                    tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                }
+                tweetElem = document.querySelectorAll(`[data-testid="tweetButtonInline"] > div > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        if (!window.location.pathname.includes("/status/")) {
+                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                        }
+                    }
+                }
+                tweetElem = document.querySelectorAll(`[data-testid="tweetButton"] > div > span > span`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        if (document.querySelector(`[role="dialog"] article`) == null) {
+                            if (document.querySelectorAll(`[role="dialog"] [data-testid*="UserAvatar-Container-"]`).length == 1) {
+                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                            } else {
+                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAllButton");
+                            }
+                        } else if (document.querySelector(`[role="dialog"] article+div [role="button"]`) == null && document.querySelectorAll(`[role="dialog"] [data-testid*="UserAvatar-Container-"]`).length == 2) {
+                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                        }
+                    }
+                }
+                tweetElem = document.querySelectorAll(`[role="dialog"] .public-DraftEditorPlaceholder-inner:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        if (document.querySelector(`[role="dialog"] article`) != null) {
+                            if (document.querySelector(`[role="dialog"] article+div [role="button"]`) != null) {
+                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
+                            } else {
+                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-addTweet");
+                            }
+                        }
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+                tweetElem = document.querySelectorAll(`.public-DraftEditorPlaceholder-inner:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")}):not([role="dialog"] *)`);
+                if (tweetElem.length != 0 && window.location.pathname.includes("/status/")) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
@@ -391,6 +456,29 @@ const TUICObserver = {
                 if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
             }
         },
+    },
+    titleObserverFunction: () => {
+        if (TUICPref.XToTwitter["XtoTwitter"]) {
+            if (document.title.endsWith(" / X")) {
+                TUICObserver.headObserver.disconnect();
+                document.title = document.title.replace(" / X", " / Twitter");
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (document.title == "X") {
+                TUICObserver.headObserver.disconnect();
+                document.title = document.title = "Twitter";
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            }
+        }
     },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);

@@ -36,7 +36,7 @@ function replaceRunningIcon() {
             });
 
             /*旧バージョンからのアップデート*/
-            TUICLibrary.updatePref.update();
+            await TUICLibrary.updatePref.update();
             /*Fin 旧バージョンからのアップデート*/
             (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
             TUICObserver.observerFunction();
@@ -47,6 +47,23 @@ function replaceRunningIcon() {
                 subtree: false,
                 attributes: true,
             });
+            {
+                const setObserver = () => {
+                    if (document.querySelector("title") == null) {
+                        window.setTimeout(setObserver, 100);
+                    } else {
+                        TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
+                        TUICObserver.headObserver.observe(document.querySelector("title"), {
+                            characterData: true,
+                            childList: true,
+                            subtree: true,
+                            attributes: true,
+                        });
+                        TUICObserver.titleObserverFunction();
+                    }
+                };
+                setObserver();
+            }
         })();
     } else {
         if (TUICCount <= 10) {

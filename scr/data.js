@@ -24,6 +24,7 @@ const TUICData = {
             noModalbottomTweetButtons: false,
             faviconSet: false,
         },
+        XToTwitter: { XToTwitter: false, PostToTweet: false },
         clientInfo: {
             clientInfoVisible: false,
         },
@@ -40,6 +41,7 @@ const TUICData = {
             osusumeUser: false,
             links: false,
             space: false,
+            relevantPeople: false,
         },
         "timeline-discoverMore": "discoverMore_nomal",
     },
@@ -84,7 +86,7 @@ const TUICData = {
             },
         },
         colors: {
-            id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon"],
+            id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon", "twitterIconFavicon"],
             i18n: {
                 "unsent-tweet": "settingColors-editUnsetTweet",
                 willFollow: "settingColors-willFollowButton",
@@ -97,6 +99,7 @@ const TUICData = {
                 blocking: "settingColors-blocking",
                 "blocking-unlock": "settingColors-blockingUnlock",
                 twitterIcon: "settingColors-twitterIcon",
+                twitterIconFavicon: "settingColors-twitterIconFavicon",
             },
         },
     },
@@ -151,6 +154,22 @@ const TUICData = {
             border: "rgba(220, 30, 41,1)",
             color: "rgba(255, 255, 255,1)",
         },
+        twitterIcon: {
+            color: "rgba(29,161,242,1)",
+            typeColor: "imageColor",
+            ldColor: true,
+        },
+        twitterIconFavicon: {
+            color: "rgba(29,161,242,1)",
+            typeColor: "imageColor",
+        },
+    },
+    "colors-buttonColorDark": {
+        twitterIcon: {
+            color: "rgba(255,255,255,1)",
+        },
+    },
+    "colors-buttonColorLight": {
         twitterIcon: {
             color: "rgba(29,161,242,1)",
         },
@@ -430,7 +449,7 @@ const TUICData = {
             home: `[href="/home"]`,
             explore: `[href="/explore"]`,
             communities: `[href$="/communities"],#TUICSidebar_communities`,
-            notifications: `[href$="/notifications"]`,
+            notifications: `[href*="/notifications"]`,
             messages: `[href^="/messages"]`,
             bookmarks: `[href="/i/bookmarks"]`,
             "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
@@ -622,7 +641,7 @@ const TUICData = {
         },
     },
     rightSidebar: {
-        all: ["searchBox", "verified", "space", "trend", "osusumeUser", "links"],
+        all: ["searchBox", "verified", "space", "relevantPeople", "trend", "osusumeUser", "links"],
         i18n: {
             verified: "rightSidebar-rightSidebarVerified",
             trend: "rightSidebar-trend",
@@ -630,7 +649,12 @@ const TUICData = {
             links: "rightSidebar-links",
             searchBox: "rightSidebar-searchBox",
             space: "rightSidebar-space",
+            relevantPeople: "rightSidebar-relevantPeople",
         },
+    },
+    XToTwitter: {
+        all: ["XToTwitter", "PostToTweet"],
+        i18n: { XToTwitter: "XtoTwitter-XtoTwitter", PostToTweet: "XtoTwitter-PostToTweet" },
     },
     clientInfo: {
         all: ["clientInfoVisible"],
