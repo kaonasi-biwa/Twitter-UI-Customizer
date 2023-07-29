@@ -86,6 +86,15 @@ const TUICOptionHTML = {
             },
             single: false,
         },
+        ".TUICXToTwitter": {
+            type: "click",
+            function: function (event) {
+                TUICPref.TUICXToTwitter[event.target.id] = event.target.checked;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICLibrary.getClasses.update();
+            },
+            single: false,
+        },
         ".twitterTitle": {
             type: "click",
             function: function (event) {
@@ -413,7 +422,9 @@ const TUICOptionHTML = {
                 const importPref = {
                     otherBoolSetting: {
                         faviconSet: true,
-                        XtoTwitter: true,
+                    },
+                    XToTwitter: {
+                        XToTwitter: true,
                         PostToTweet: true,
                     },
                     twitterIcon: "twitter",
@@ -426,7 +437,7 @@ const TUICOptionHTML = {
                 TUICCss();
                 TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
-                if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                if (!TUICPref.XToTwitter["XToTwitter"] && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
                 }
             },
@@ -587,15 +598,14 @@ ${this.radioButtonList(
     "TUICRadio",
     "<br>" +
         this.checkbox("faviconSet", TUICPref.otherBoolSetting["faviconSet"] ?? true, "twitterIcon-favicon", "otherBoolSetting") +
-        this.checkbox("XtoTwitter", TUICPref.otherBoolSetting["XtoTwitter"] ?? true, "twitterIcon-XtoTwitter", "twitterTitle") +
-        this.checkbox("PostToTweet", TUICPref.otherBoolSetting["PostToTweet"] ?? true, "twitterIcon-PostToTweet", "otherBoolSetting") +
         this.checkbox("roundIcon", TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
 )}
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
-${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
+${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICInvisibleItems")}
+${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "TUICXToTwitter")}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
