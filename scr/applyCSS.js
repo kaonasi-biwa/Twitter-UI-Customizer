@@ -240,7 +240,7 @@ scrollbar-width:thin;
     color: var(--twitter-TUIC-color);
 }
 
-.TUICDetails{
+.TUICDetails,.TUICEasySetting{
     margin-bottom:20px;
     border:2px solid;
     border-color:rgba(0,0,0,0) !important;
@@ -251,7 +251,7 @@ scrollbar-width:thin;
     background-color:var(--TUIC-container-background);
     font-family: sans-serif;
 }
-.TUICDetails:not([open]){
+.TUICDetails:not([open]),.TUICEasySetting{
     padding-bottom:10px;
     border-color:var(--TUIC-detail-border) !important;
 }

@@ -25,5 +25,9 @@
     "sidebarButtons-communitynotes": "a15648a4",
     "sidebarButtons-verified-choose": "h3290872",
     "sidebarButtons-display": "c4881c66",
-    "sidebarButtons-muteAndBlock": "cbd449a0"
+    "sidebarButtons-muteAndBlock": "cbd449a0",
+    "XtoTwitter-PostToTweet-tweetButton": "bea869b4",
+    "XtoTwitter-PostToTweet-tweetAllButton": "f70a36d0",
+    "XtoTwitter-PostToTweet-placeholder-reply": "ad993b0e",
+    "XtoTwitter-PostToTweet-placeholder-addTweet": "b1695ed6"
 }

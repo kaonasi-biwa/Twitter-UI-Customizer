@@ -23,7 +23,7 @@ const TUICLibrary = {
             } else {
                 mode = mode_;
             }
-            return (TUICPref?.[mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type] ?? TUICData.colors[name]?.[type]).escapeToUseHTML();
+            return (TUICPref?.[mode]?.[name]?.[type] ?? TUICData?.["colors-" + mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type] ?? TUICData.colors[name]?.[type]).escapeToUseHTML();
         },
     },
     getClasses: {
@@ -47,7 +47,7 @@ const TUICLibrary = {
         },
     },
     updatePref: {
-        update: function () {
+        update: async function () {
             const dPref = TUICLibrary.defaultPref.get();
             if ((localStorage.getItem("unsent-tweet-background") ?? "unknown") != "unknown") {
                 this.parallelToSerial();
@@ -65,6 +65,10 @@ const TUICLibrary = {
 
             if (typeof TUICPref.rightSidebar != "object") {
                 TUICPref.rightSidebar = {};
+            }
+
+            if (typeof TUICPref.XToTwitter != "object") {
+                TUICPref.XToTwitter = {};
             }
 
             if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
@@ -91,10 +95,41 @@ const TUICLibrary = {
                 TUICPref.twitterIcon = "invisible";
             }
             delete TUICPref.otherBoolSetting.invisibleTwitterLogo;
+
+            if (TUICPref.otherBoolSetting["XtoTwitter"] == true) {
+                TUICPref.XToTwitter["XToTwitter"] = true;
+            }
+            delete TUICPref.otherBoolSetting["XtoTwitter"];
+
+            if (TUICPref.otherBoolSetting["PostToTweet"] == true) {
+                TUICPref.XToTwitter["PostToTweet"] = true;
+            }
+            delete TUICPref.otherBoolSetting["PostToTweet"];
+
             if ("CSS" in TUICPref) {
                 localStorage.setItem("TUIC_CSS", TUICPref.CSS);
             }
             delete TUICPref.CSS;
+
+            if (localStorage.getItem(`TUIC_IconImg`) != null && localStorage.getItem(`TUIC_IconImg_Favicon`) == null) {
+                await new Promise((resolve, reject) => {
+                    const element = document.createElement("canvas");
+                    element.height = 200;
+                    element.width = 200;
+                    const context = element.getContext("2d");
+                    context.beginPath();
+                    context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
+                    context.clip();
+                    const image = new Image();
+                    image.onload = function () {
+                        context.beginPath();
+                        context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
+                        localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
+                        resolve();
+                    };
+                    image.src = localStorage.getItem(`TUIC_IconImg`);
+                });
+            }
 
             if (typeof TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1) {
                 TUICPref.visibleButtons = TUICPref.visibleButtons.filter((elem) => {
