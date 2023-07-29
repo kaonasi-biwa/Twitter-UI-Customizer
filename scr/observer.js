@@ -458,7 +458,7 @@ const TUICObserver = {
         },
     },
     titleObserverFunction: () => {
-        if (TUICPref.XToTwitter["XtoTwitter"]) {
+        if (TUICPref.XToTwitter["XToTwitter"]) {
             if (document.title.endsWith(" / X")) {
                 TUICObserver.headObserver.disconnect();
                 document.title = document.title.replace(" / X", " / Twitter");
