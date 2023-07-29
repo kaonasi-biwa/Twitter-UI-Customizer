@@ -96,7 +96,8 @@ const TUICObserver = {
                     break;
                 case "custom":
                     if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = localStorage.getItem("TUIC_IconImg") ?? TUICData.emptySVG;
+                        const imageURL = localStorage.getItem(TUICPref.otherBoolSetting["roundIcon"] ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                        document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg"));
@@ -457,7 +458,6 @@ const TUICObserver = {
         },
     },
     titleObserverFunction: () => {
-        console.log("aaa");
         if (TUICPref.otherBoolSetting["XtoTwitter"]) {
             if (document.title.endsWith(" / X")) {
                 TUICObserver.headObserver.disconnect();
