@@ -4,11 +4,11 @@
         "description": "拡張機能の名前"
     },
     "extensionDescription": {
-        "message": "Мы улучшаем возможности настройки пользовательского интерфейса Twitter!",
+        "message": "Улучшите гибкость настройки пользовательского интерфейса Twitter",
         "description": "拡張機能の説明"
     },
     "notificationMessage": {
-        "message": "A new version is now available.\nPlease update.\n$V1$→$V2$",
+        "message": "Новая версия уже доступна.\nПожалуйста, обновитесь.\n$V1$→$V2$",
         "description": "アップデート通知",
         "placeholders": {
             "V1": {
@@ -26,11 +26,11 @@
         "description": "ポップアップのタイトル"
     },
     "popupContent1": {
-        "message": "Спасибо за его использование!",
+        "message": "Спасибо за использование!",
         "description": "ポップアップの文章"
     },
     "popupContent2": {
-        "message": "Пожалуйста, отправляйте отчёты о багах и",
+        "message": "Пожалуйста, сообщайте об ошибках и",
         "description": "ポップアップの文章"
     },
     "popupContent3": {
@@ -53,8 +53,12 @@
         "message": "Автор (kaonasi_biwa) в Twitter",
         "description": "ポップアップのボタン"
     },
+    "popupButton5": {
+        "message": "Установите последнюю версию с GitHub",
+        "description": "ポップアップのボタン"
+    },
     "optionTitle": {
-        "message": "Настройки и способ работы (Twitter UI Customizer)",
+        "message": "Настройки и метод работы (Twitter UI Customizer)",
         "description": "設定画面のタイトル"
     },
     "optionHeading1": {
@@ -62,7 +66,7 @@
         "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-        "message": "Настройки Twitter",
+        "message": "Настройка Twitter:",
         "description": "設定画面の見出し"
     },
     "optionContent1_1_1": {
@@ -101,6 +105,10 @@
         "message": "Кнопка \"Восстановить значения по умолчанию\" позволяет восстановить настройки по умолчанию для данного расширения.",
         "description": "設定画面の文章"
     },
+    "optionContent2_4": {
+        "message": "По умолчанию для данного расширения используется дизайн, основанный на версии до изменений дизайна от 11 августа 2021 года.",
+        "description": "設定画面の文章"
+    },
     "optionSpecialThanks": {
         "message": "Особая благодарность",
         "description": "設定画面のSpecial thanks"
@@ -121,6 +129,10 @@
         "message": "(Twitter)",
         "description": "設定画面のSpecial thanksのサービス名"
     },
+    "optionSpecialThanks_GrapeApple0": {
+        "message": "Отображение имени клиента / Владельца API Twitter",
+        "description": "設定画面のSpecial thanks(GrapeApple0さん)"
+    },
     "optionSpecialThanks_irhdevel": {
         "message": "Замечательный дизайн",
         "description": "設定画面のSpecial thanks(irhdevelさん)"
@@ -130,19 +142,31 @@
         "description": "設定画面のSpecial thanks(Taka005さん)"
     },
     "optionSpecialThanks_Hibi_10000": {
-        "message": "Переводчик на американский английский ",
+        "message": "Переводчик на Американский английский",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
+    "optionSpecialThanks_KotoneFami": {
+        "message": "Добавление функции",
+        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
+    },
     "optionSpecialThanks_loading_yt": {
-        "message": "Переводчик на упрощенный китайский и традиционный китайский языки",
+        "message": "Переводчик на Упрощенный китайский и Традиционный китайский языки",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_nyanrus": {
-        "message": "Переводчик на корейский",
+        "message": "Переводчик на Корейский",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
-        "message": "Создатель иконки/логотипа",
+        "message": "Создатель иконки и логотипа",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
+    },
+    "optionSpecialThanks_enthropyreg": {
+        "message": "Переводчик на Русский",
+        "description": "設定画面のSpecial thanks(enthropyregさん)"
+    },
+    "optionSpecialThanks_nakasyou": {
+        "message": "Улучшенный дизайн",
+        "description": "設定画面のSpecial thanks(nakasyouさん)"
     }
 }
