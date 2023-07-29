@@ -24,6 +24,7 @@ const TUICData = {
             noModalbottomTweetButtons: false,
             faviconSet: false,
             XtoTwitter: false,
+            PostToTweet: false,
         },
         clientInfo: {
             clientInfoVisible: false,
@@ -449,7 +450,7 @@ const TUICData = {
             home: `[href="/home"]`,
             explore: `[href="/explore"]`,
             communities: `[href$="/communities"],#TUICSidebar_communities`,
-            notifications: `[href$="/notifications"]`,
+            notifications: `[href*="/notifications"]`,
             messages: `[href^="/messages"]`,
             bookmarks: `[href="/i/bookmarks"]`,
             "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
