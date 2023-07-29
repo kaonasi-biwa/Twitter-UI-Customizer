@@ -36,7 +36,7 @@ function replaceRunningIcon() {
             });
 
             /*旧バージョンからのアップデート*/
-            TUICLibrary.updatePref.update();
+            await TUICLibrary.updatePref.update();
             /*Fin 旧バージョンからのアップデート*/
             (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
             TUICObserver.observerFunction();

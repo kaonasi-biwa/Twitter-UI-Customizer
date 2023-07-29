@@ -286,15 +286,34 @@ const TUICOptionHTML = {
                         const reader = new FileReader();
                         reader.addEventListener("load", () => {
                             localStorage.setItem(`TUIC_${fileID}`, reader.result);
-                            resolve();
+                            const element = document.createElement("canvas");
+                            element.height = 200;
+                            element.width = 200;
+                            const context = element.getContext("2d");
+                            context.beginPath();
+                            context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
+                            context.clip();
+                            const image = new Image();
+                            image.onload = function () {
+                                context.beginPath();
+                                context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
+                                localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
+                                resolve();
+                            };
+                            image.src = reader.result;
                         });
                         reader.readAsDataURL(event.currentTarget.files[0]);
                     });
                 } else {
                     localStorage.setItem(`TUIC_${fileID}`, "");
+                    localStorage.setItem(`TUIC_IconImg_Favicon`, "");
                 }
 
                 TUICCss();
+                if (TUICPref.twitterIcon == "custom" && TUICPref.otherBoolSetting["faviconSet"]) {
+                    const imageURL = localStorage.getItem(TUICPref.otherBoolSetting["roundIcon"] ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
+                }
             },
             single: false,
         },
