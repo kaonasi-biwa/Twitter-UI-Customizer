@@ -24,16 +24,36 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+            - name: setUpdateUrl
+              run: sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest_chrome.json
             - name: Archive
               run: |
                   rm manifest_firefox.json
                   mv manifest_chrome.json manifest.json
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
+            - name: CRX
+              uses: cardinalby/webext-buildtools-chrome-crx-action@v2
+              with:
+                  zipFilePath: Twitter_UI_Customizer_Chromium.zip
+                  crxFilePath: Twitter_UI_Customizer_Chromium.crx
+                  privateKey: ${{ secrets.CHROME_EXTENSION_KEY }}
+                  updateXmlPath: crxupdate.xml
+                  updateXmlCodebaseUrl: https://github.com/${{ github.repository }}/releases/latest/download/Twitter_UI_Customizer_Chromium.crx
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
-                  name: Twitter_UI_Customizer_Chromium
+                  name: Twitter_UI_Customizer_Chromium_zip
                   path: Twitter_UI_Customizer_Chromium.zip
+            - name: Publish
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Twitter_UI_Customizer_Chromium_crx
+                  path: Twitter_UI_Customizer_Chromium.crx
+            - name: Publish
+              uses: actions/upload-artifact@v3
+              with:
+                  name: crxupdate
+                  path: crxupdate.xml
 
     make-release:
         runs-on: ubuntu-latest
@@ -55,7 +75,15 @@ jobs:
             - name: loadFile
               uses: actions/download-artifact@v3
               with:
-                  name: Twitter_UI_Customizer_Chromium
+                  name: Twitter_UI_Customizer_Chromium_zip
+            - name: loadFile
+              uses: actions/download-artifact@v3
+              with:
+                  name: Twitter_UI_Customizer_Chromium_crx
+            - name: loadFile
+              uses: actions/download-artifact@v3
+              with:
+                  name: crxupdate
             - name: Upload Release Asset
               id: upload-release-asset
               uses: softprops/action-gh-release@v1
@@ -64,3 +92,5 @@ jobs:
                   files: |
                       Twitter_UI_Customizer_Firefox.xpi
                       Twitter_UI_Customizer_Chromium.zip
+                      Twitter_UI_Customizer_Chromium.crx
+                      crxupdate.xml

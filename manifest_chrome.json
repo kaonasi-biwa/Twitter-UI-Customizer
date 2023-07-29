@@ -4,6 +4,7 @@
     "version": "3.2.2",
     "default_locale": "ja",
     "manifest_version": 3,
+    "update_url": "https://github.com/${github.repository}/releases/latest/download/crxupdate.xml",
     "icons": {
         "16": "icon/newIcon_TUIC_C_Blue.png",
         "48": "icon/newIcon_TUIC_C_Blue.png",
