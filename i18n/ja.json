@@ -90,7 +90,7 @@
     "settingColors-blocking": "ブロック中の人のフォローボタン",
     "settingColors-blockingUnlock": "ブロック解除時のフォローボタン",
     "settingColors-twitterIcon": "Twitterアイコンの色",
-    "settingColors-twitterIconFavicon": "タブのアイコンのTwitterアイコンの色",
+    "settingColors-twitterIconFavicon": "タブのTwitterアイコンの色",
 
     "twitterIcon-settingTitle": "Twitterのアイコン",
     "twitterIcon-normal": "通常のアイコン",
@@ -103,7 +103,7 @@
     "twitterIcon-nowIcon": "現在の画像",
     "twitterIcon-roundIcon": "アイコンを丸くする(カスタムアイコン時のみ有効)",
     "twitterIcon-favicon": "タブのアイコンも変更する",
-    "twitterIcon-XtoTwitter": "タイトルの「X」を「Twitter」に変更する",
+    "twitterIcon-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
 
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",
