@@ -104,9 +104,10 @@
     "twitterIcon-roundIcon": "アイコンを丸くする(カスタムアイコン時のみ有効)",
     "twitterIcon-favicon": "タブのアイコンも変更する",
 
-    "XToTwitter-settingTitle": "名称変更への対抗",
+    "XToTwitter-settingTitle": "Twitterの帰還",
     "XtoTwitter-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
+    "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
 
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",
