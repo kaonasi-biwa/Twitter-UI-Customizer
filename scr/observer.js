@@ -311,7 +311,7 @@ const TUICObserver = {
             if (
                 TUICPref.rightSidebar["osusumeUser"] &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"]`) == null
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"] > span`) == null
             ) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
@@ -319,7 +319,7 @@ const TUICObserver = {
             if (
                 TUICPref.rightSidebar["relevantPeople"] &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"]`) != null
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"] > span`) != null
             ) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }

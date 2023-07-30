@@ -89,9 +89,14 @@ const TUICOptionHTML = {
         ".TUICXToTwitter": {
             type: "click",
             function: function (event) {
-                TUICPref.TUICXToTwitter[event.target.id] = event.target.checked;
+                TUICPref.XToTwitter[event.target.id] = event.target.checked;
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref));
                 TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+                TUICObserver.titleObserverFunction();
+                if (!TUICPref.XToTwitter["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                    document.title = document.title.replace(" / Twitter", " / X");
+                }
             },
             single: false,
         },
@@ -443,6 +448,30 @@ const TUICOptionHTML = {
             },
             single: true,
         },
+        "#XToTwitterRestoreIcon": {
+            type: "click",
+            function: () => {
+                const importPref = {
+                    otherBoolSetting: {
+                        faviconSet: true,
+                    },
+                    twitterIcon: "twitter",
+                };
+                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
+                TUICPref = importPref;
+                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICLibrary.getClasses.update();
+                TUICCss();
+                TUICObserver.observerFunction();
+                TUICObserver.titleObserverFunction();
+                document.querySelector(`#faviconSet`).checked = true;
+                document.querySelector(`#twitter`).checked = true;
+                if (!TUICPref.XToTwitter["XToTwitter"] && document.title.endsWith(" / Twitter")) {
+                    document.title = document.title.replace(" / Twitter", " / X");
+                }
+            },
+            single: true,
+        },
         "#deleteVerified": {
             type: "click",
             function: () => {
@@ -604,8 +633,8 @@ ${this.radioButtonList(
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
-${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICInvisibleItems")}
-${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "TUICXToTwitter")}
+${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICXToTwitter", `<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom:10px;" id="XToTwitterRestoreIcon">${TUICLibrary.getI18n("XtoTwitter-twitterIcon")}</button>`)}
+${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
