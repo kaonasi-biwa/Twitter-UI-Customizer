@@ -481,13 +481,15 @@ const TUICOptionHTML = {
                         "subscribe-profile": true,
                         "subscribe-tweets": true,
                     },
-                    sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "profile", "moremenu"],
                     rightSidebar: {
                         verified: true,
                     },
                 };
                 TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
                 TUICPref = importPref;
+                TUICPref.sidebarButtons = TUICPref.sidebarButtons.filter((elem) => {
+                    return elem != "twiter-blue" && elem != "verified-choose";
+                });
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref));
                 document.querySelector("#TUIC_setting").remove();
                 TUICLibrary.getClasses.update();

@@ -451,7 +451,7 @@ const TUICData = {
             communities: `[href$="/communities"],#TUICSidebar_communities`,
             notifications: `[href*="/notifications"]`,
             messages: `[href^="/messages"]`,
-            bookmarks: `[href="/i/bookmarks"]`,
+            bookmarks: `[href="/i/bookmarks"],#TUICSidebar_bookmarks`,
             "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
             profile: `[data-testid="AppTabBar_Profile_Link"]`,
             moremenu: `[data-testid="AppTabBar_More_Menu"]`,
@@ -531,6 +531,9 @@ const TUICData = {
                     "muteAndBlock",
                     `<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"></path>`,
                 );
+            },
+            bookmarks: function () {
+                return TUICData.sidebarButtons.html.__base("bookmarks", `<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z"></path>`);
             },
         },
         buttonClickInMoreMenu: (e, selector) => {
@@ -618,6 +621,9 @@ const TUICData = {
                     }, 150);
                 }
             },
+            bookmarks: function (e) {
+                TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/bookmarks"]`);
+            },
         },
         tuicButtonUrl: {
             topics: `/topics`,
@@ -628,6 +634,7 @@ const TUICData = {
             drafts: "/compose/tweet/unsent/",
             display: "/i/display",
             muteAndBlock: "/settings/mute_and_block",
+            bookmarks: "/i/bookmarks",
         },
     },
     invisibleItems: {
