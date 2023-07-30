@@ -390,6 +390,13 @@ const TUICObserver = {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
                 }
+                tweetElem = document.querySelectorAll(`[data-testid="pillLabel"] > span > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
