@@ -576,7 +576,7 @@ display:none !important;
 .${TUICLibrary.getClasses.getClass("TUIC_DISCOVERMORE")}{
     display:var(--TUIC-DISCOVERMORE,block) !important;
     }
-.TUICUploadedImg{
+.TUICUploadedImg:not([data-testid="interstitialGraphic"] > svg){
     display:inline-block;
     width:64px;
     height:64px;
