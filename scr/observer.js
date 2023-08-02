@@ -421,6 +421,11 @@ const TUICObserver = {
                     tweetElem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
                     tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                 }
+                tweetElem = document.querySelector(`#conversation-controls-details > span:not(* .${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem != null) {
+                    tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replayRangeDetail");
+                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                }
             }
         },
         twitterProPromotionBtn: function () {
