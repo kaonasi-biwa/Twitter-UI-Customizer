@@ -370,7 +370,7 @@ const TUICObserver = {
                 if (tweetElem.length != 0) {
                     for (const elem of tweetElem) {
                         if (document.querySelector(`[role="dialog"] article`) == null) {
-                            if (document.querySelectorAll(`[role="dialog"] [data-testid*="UserAvatar-Container-"]`).length == 1) {
+                            if (document.querySelectorAll(`${document.querySelector(`[role="dialog"]`) == null ? "" : `[role="dialog"]`} [data-testid*="UserAvatar-Container-"]`).length == 1) {
                                 elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
                             } else {
                                 elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAllButton");
@@ -433,6 +433,12 @@ const TUICObserver = {
                         elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
                         elem.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
+                }
+
+                tweetElem = document.querySelector(`[data-testid="HoverLabel"] > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")} *)`);
+                if (document.querySelector(`.r-1vtznih[data-testid="SideNav_NewTweet_Button"]`) != null && tweetElem != null) {
+                    tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                 }
             }
         },
