@@ -12,12 +12,12 @@
     "content_scripts": [
         {
             "matches": ["*://*.twitter.com/*"],
-            "js": ["scr/observer.js", "scr/data.js", "scr/library.js", "scr/option.js", "scr/applyCSS.js", "scr/index.js"],
+            "js": ["src/observer.js", "src/data.js", "src/library.js", "src/option.js", "src/applyCSS.js", "src/index.js"],
             "run_at": "document_start"
         },
         {
             "matches": ["*://*.twitter.com/*"],
-            "js": ["scr/runningSafemode.js"],
+            "js": ["src/runningSafemode.js"],
             "run_at": "document_end"
         }
     ],
