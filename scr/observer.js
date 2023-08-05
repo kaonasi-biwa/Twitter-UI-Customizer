@@ -440,6 +440,14 @@ const TUICObserver = {
                     tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
                     tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                 }
+
+                tweetElem = document.querySelectorAll(`[data-testid="SearchBox_Search_Input"]:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
