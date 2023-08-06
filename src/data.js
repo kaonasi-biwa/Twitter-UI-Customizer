@@ -297,6 +297,14 @@ const TUICData = {
                     }
                 }
             },
+            "url-copy-cannotCopy": function (elem) {
+                const element = document.createElement("input");
+                element.value = elem.href;
+                document.body.appendChild(element);
+                element.select();
+                document.execCommand("copy");
+                document.body.removeChild(element);
+            },
             userBlock: function (article) {
                 for (let i = 0; i <= 2; i++) {
                     const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
@@ -392,11 +400,17 @@ const TUICData = {
                 return elem;
             },
             "url-copy": function (val) {
-                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](val.option.isLockedAccount || val.option.cannotRT));
-                if (!val.option.isLockedAccount || !val.option.cannotRT)
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](false));
+                console.log(val.option.isLockedAccount, val.option.cannotRT);
+                if (val.option.isLockedAccount || val.option.cannotRT) {
+                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
+                        TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
+                    });
+                } else {
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                         TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                     });
+                }
                 return elem;
             },
             userBlock: function (val) {
