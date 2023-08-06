@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "3.2.2",
+    "version": "3.2.3",
     "default_locale": "ja",
     "manifest_version": 3,
     "update_url": "https://github.com/${github.repository}/releases/latest/download/crxupdate.xml",
