@@ -403,9 +403,11 @@ const TUICData = {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](false));
                 console.log(val.option.isLockedAccount, val.option.cannotRT);
                 if (val.option.isLockedAccount || val.option.cannotRT) {
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
-                    });
+                    if (val.elements.statusButton != null) {
+                        TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
+                            TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
+                        });
+                    }
                 } else {
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                         TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
