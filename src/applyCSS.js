@@ -612,6 +612,24 @@ display:none !important;
  .r-icoktb{
     opacity:0.5;
  }
+ .r-zd98yo{
+    margin-bottom:32px;
+ }
+ .r-1yflyrw{
+    margin-bottom:30px;
+ }
+ .r-1vxqurs{
+    margin-bottom:29px;
+ }
+ .r-1v456y7{
+    margin-bottom:35px;
+ }
+ .r-sr82au{
+    margin-bottom:38px;
+ }
+ .r-z2wwpe{
+    border-radius:4px;
+ }
  ${
      TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
          ? `
