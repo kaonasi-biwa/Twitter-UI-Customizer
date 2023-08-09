@@ -7,11 +7,11 @@
     },
     "dependencies": {
         "@microsoft/eslint-formatter-sarif": "^2.1.7",
-        "eslint": "^8.10.0"
+        "eslint": "^8.10.0",
+        "node-fetch": "^3.3.2"
     },
-
     "scripts": {
-        "debug" : "node npm-scripts/run.js",
+        "debug": "node npm-scripts/run.js",
         "debug firefox": "node npm-scripts/run.js firefox",
         "debug chrome": "node npm-scripts/run.js chrome"
     }
