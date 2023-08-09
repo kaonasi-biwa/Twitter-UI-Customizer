@@ -469,6 +469,30 @@ const TUICObserver = {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
                 }
+
+                tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"]  > div:first-child span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+
+                tweetElem = document.querySelectorAll(`article [data-testid="analyticsButton"] > div > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+
+                tweetElem = document.querySelectorAll(`[role="dialog"] [data-viewportview="true"] h2#modal-header > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (window.location.pathname.endsWith("/analytics") && tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
