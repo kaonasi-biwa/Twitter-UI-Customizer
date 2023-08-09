@@ -371,7 +371,7 @@ const TUICObserver = {
                 if (tweetElem.length != 0) {
                     for (const elem of tweetElem) {
                         if (document.querySelector(`[role="dialog"] article`) == null) {
-                            if (document.querySelectorAll(`${document.querySelector(`[role="dialog"]`) == null ? "" : `[role="dialog"]`} [data-testid*="UserAvatar-Container-"]`).length == 1) {
+                            if (document.querySelectorAll(`${document.querySelector(`[role="dialog"]`) == null ? "" : `[role="dialog"]`} [data-testid*="UserAvatar-Container-"]:not([data-testid="attachments"] *)`).length == 1) {
                                 elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
                             } else {
                                 elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAllButton");
