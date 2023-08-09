@@ -449,6 +449,26 @@ const TUICObserver = {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
                 }
+
+                tweetElem = document.querySelectorAll(`a[href*="/status/"][href*="/retweets"]:not([href*="/retweets/with_comments"]) > div+span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweetCount");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+
+                tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] h2[role="heading"] > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        if (window.location.pathname.includes("/retweets/with_comments")) {
+                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteTitle");
+                        } else if (window.location.pathname.includes("/status/")) {
+                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetTitle");
+                        }
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
