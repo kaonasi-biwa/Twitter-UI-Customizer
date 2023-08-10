@@ -21,6 +21,16 @@ console.log(JSON.stringify(["aaa", "bbb"]));
         for (const elem2 in TUICI18ns) {
             if (TUICI18ns[elem2] == "g132f681") {
                 tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]].replace("@{screenName}", ""), ...tmpObj };
+            } else if (TUICI18ns[elem2] == "e74e9bb7") {
+                const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).replace("{tweetCount}", "").replace(")");
+                if (i18nObject[elem][TUICI18ns[elem2]].includes("(")) {
+                    tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", "").replace(".", "").replace("。", ""), ...tmpObj };
+                } else {
+                    tmpObj = { [elem2]: textBase.replace(".", "").replace("。", ""), ...tmpObj };
+                }
+            } else if (TUICI18ns[elem2] == "c42234da" && i18nObject[elem][TUICI18ns[elem2]].includes("(")) {
+                const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("("));
+                tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
             } else {
                 tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]], ...tmpObj };
             }
