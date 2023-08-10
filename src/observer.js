@@ -493,6 +493,14 @@ const TUICObserver = {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
                 }
+
+                tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] h2[role="heading"]+div:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (document.querySelector(`[data-testid="primaryColumn"] [data-testid="UserName"]`) != null && tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = elem.textContent.split(" ")[0] + " " + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetCount");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
