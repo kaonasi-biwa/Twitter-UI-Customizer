@@ -471,7 +471,7 @@ const TUICObserver = {
                 }
 
                 tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"]  > div:first-child span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
+                if (document.querySelector(`[data-testid="primaryColumn"] [data-testid="UserName"]`) != null && tweetElem.length != 0) {
                     for (const elem of tweetElem) {
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
