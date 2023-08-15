@@ -12,6 +12,7 @@ jobs:
             - name: Archive
               run: |
                   rm manifest_chrome.json
+                  rm manifest_chrome_crx.json
                   mv manifest_firefox.json manifest.json
                   zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
             - name: Publish
@@ -20,16 +21,33 @@ jobs:
                   name: Twitter_UI_Customizer_Firefox
                   path: Twitter_UI_Customizer_Firefox.xpi
 
+    build-chromium:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Archive
+              run: |
+                  rm manifest_firefox.json
+                  rm manifest_chrome_crx.json
+                  mv manifest_chrome.json manifest.json
+                  zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
+            - name: Publish
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Twitter_UI_Customizer_Chromium
+                  path: Twitter_UI_Customizer_Chromium.zip
+
     build-chromium-crx:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
             - name: setUpdateUrl
-              run: sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest_chrome.json
+              run: sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest_chrome_crx.json
             - name: Archive
               run: |
                   rm manifest_firefox.json
-                  mv manifest_chrome.json manifest.json
+                  rm manifest_chrome.json
+                  mv manifest_chrome_crx.json manifest.json
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
@@ -49,21 +67,6 @@ jobs:
               with:
                   name: crxupdate
                   path: crxupdate.xml
-
-    build-chromium:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: Archive
-              run: |
-                  rm manifest_firefox.json
-                  mv manifest_chrome.json manifest.json
-                  zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
-            - name: Publish
-              uses: actions/upload-artifact@v3
-              with:
-                  name: Twitter_UI_Customizer_Chromium
-                  path: Twitter_UI_Customizer_Chromium.zip
 
     make-release:
         runs-on: ubuntu-latest
