@@ -20,7 +20,7 @@ jobs:
                   name: Twitter_UI_Customizer_Firefox
                   path: Twitter_UI_Customizer_Firefox.xpi
 
-    build-chromium:
+    build-chromium-crx:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -34,16 +34,11 @@ jobs:
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
               with:
-                      zipFilePath: Twitter_UI_Customizer_Chromium.zip
-                      crxFilePath: Twitter_UI_Customizer_Chromium.crx
-                      privateKey: ${{ secrets.CHROME_EXTENSION_KEY }}
-                      updateXmlPath: crxupdate.xml
-                      updateXmlCodebaseUrl: https://github.com/${{ github.repository }}/releases/latest/download/Twitter_UI_Customizer_Chromium.crx
-            - name: Publish
-              uses: actions/upload-artifact@v3
-              with:
-                  name: Twitter_UI_Customizer_Chromium
-                  path: Twitter_UI_Customizer_Chromium.zip
+                  zipFilePath: Twitter_UI_Customizer_Chromium.zip
+                  crxFilePath: Twitter_UI_Customizer_Chromium.crx
+                  privateKey: ${{ secrets.CHROME_EXTENSION_KEY }}
+                  updateXmlPath: crxupdate.xml
+                  updateXmlCodebaseUrl: https://github.com/${{ github.repository }}/releases/latest/download/Twitter_UI_Customizer_Chromium.crx
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
@@ -55,9 +50,24 @@ jobs:
                   name: crxupdate
                   path: crxupdate.xml
 
+    build-chromium:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Archive
+              run: |
+                  rm manifest_firefox.json
+                  mv manifest_chrome.json manifest.json
+                  zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
+            - name: Publish
+              uses: actions/upload-artifact@v3
+              with:
+                  name: Twitter_UI_Customizer_Chromium
+                  path: Twitter_UI_Customizer_Chromium.zip
+
     make-release:
         runs-on: ubuntu-latest
-        needs: [build-firefox, build-chromium]
+        needs: [build-firefox, build-chromium, build-chromium-crx]
         steps:
             - name: Create Release
               id: create_release
