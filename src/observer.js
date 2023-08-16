@@ -198,7 +198,7 @@ const TUICObserver = {
                         }
                         const statusButton = elem.querySelector(`[href*="/status/"] > time`)?.parentElement;
                         const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
-                        if (!lockedAccount) {
+                        if (!cannotRT) {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
                         let lastButton;

@@ -179,10 +179,8 @@ const TUICData = {
             "reply-button": '[data-testid$="reply"]',
             "retweet-button": '[data-testid$="retweet"]',
             "like-button": '[data-testid$="like"]',
-            "share-button":
-                '[aria-label="ツイートを共有"],[aria-label="Roinn an Tweet"],[aria-label="مشاركة التغريدة"],[aria-label="مشاركة التغريدة"],[aria-label="Share Tweet"],[aria-label="Condividi Tweet"],[aria-label="Sebarkan Tweet"],[aria-label="Поділитися твітом"],[aria-label="ٹویٹ شیئر کریں"],[aria-label="Tweet delen"],[aria-label="Comparteix el tuit"],[aria-label="Compartir chío"],[aria-label="ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ"],[aria-label="Κοινοποίηση Tweet"],[aria-label="ટ્વીટ શેર કરો"],[aria-label="Podijelite Tweet"],[aria-label="Dela tweeten"],[aria-label="Compartir Tweet"],[aria-label="Zdieľať Tweet"],[aria-label="Подели твит"],[aria-label="แบ่งปันทวีต"],[aria-label="கீச்சைப் பகிர்"],[aria-label="Sdílet Tweet"],[aria-label="Del tweetet"],[aria-label="Tweet teilen"],[aria-label="Tweet paylaş"],[aria-label="Del tweeten"],[aria-label="Partekatu txioa"],[aria-label="Tweet megosztása"],[aria-label="ट्वीट शेयर करें"],[aria-label="Ibahagi ang Tweet"],[aria-label="Jaa twiitti"],[aria-label="Partager le Tweet"],[aria-label="Споделяне на туита"],[aria-label="Chia sẻ Tweet"],[aria-label="שתף את הציוץ"],[aria-label="هم‌رسانی توییت"],[aria-label="টুইট শেয়ার করুন"],[aria-label="Udostępnij Tweeta"],[aria-label="Compartilhar Tweet"],[aria-label="ट्विट शेअर करा"],[aria-label="Kongsi Tweet"],[aria-label="Distribuie Tweetul"],[aria-label="Поделиться твитом"],[aria-label="分享推文"],[aria-label="分享推文"],[aria-label="트윗 공유하기"]',
-            tweet_analytics:
-                '[aria-label*="ツイートアナリティクスを表示"],[aria-label*="Breathnaigh ar anailísíocht an Tweet"],[aria-label*="عرض تحليلات Twitter"],[aria-label*="عرض تحليلات Twitter"],[aria-label*="View Tweet analytics"],[aria-label*="Visualizza statistiche Tweet"],[aria-label*="Lihat analitik Tweet"],[aria-label*="Переглянути аналітику твіта"],[aria-label*="View Tweet analytics"],[aria-label*="Tweet-analyses bekijken"],[aria-label*="Mostra les analítiques del tuit"],[aria-label*="Ver análises do chío"],[aria-label*="ಟ್ವೀಟ್ ಅನಾಲಿಟಿಕ್ಸ್ ಅನ್ನು ನೋಡಿ"],[aria-label*="Προβολή στοιχείων ανάλυσης Tweet"],[aria-label*="ટ્વીટ વિશ્લેષણ જુઓ"],[aria-label*="Prikaži analitičke podatke o tweetovima"],[aria-label*="Visa Tweet-statistik"],[aria-label*="Ver estadísticas del Tweet"],[aria-label*="Zobraziť štatistiku Tweetu"],[aria-label*="Погледај аналитику твита"],[aria-label*="ดูการวิเคราะห์ทวีต"],[aria-label*="கீச்சுப் பகுப்பாய்வைக் காட்டு"],[aria-label*="Zobrazit analýzu tweetů"],[aria-label*="Vis Tweet-statistik"],[aria-label*="Tweet-Statistiken anzeigen"],[aria-label*="Tweet istatistiklerini görüntüle"],[aria-label*="Se tweetstatistikk"],[aria-label*="Ikusi txioen analisiak"],[aria-label*="Tweet-elemzések megtekintése"],[aria-label*="ट्वीट विश्लेषण देखें"],[aria-label*="Tingnan ang analytics ng Tweet"],[aria-label*="Näytä twiitin tilastot"],[aria-label*="Voir les statistiques des Tweets"],[aria-label*="Преглед на статистиката за туита"],[aria-label*="Xem phân tích Tweet"],[aria-label*="הצג את ניתוח הציוצים"],[aria-label*="مشاهده اطلاعات آماری توییت"],[aria-label*="টুইটের বিশ্লেষণ দেখুন"],[aria-label*="Zobacz statystyki dotyczące Tweeta"],[aria-label*="Ver estatísticas do Tweet"],[aria-label*="ट्विटची विश्लेषणे पहा"],[aria-label*="Lihat analitis Tweet"],[aria-label*="Vezi analiza Tweet"],[aria-label*="Смотреть аналитику твита"],[aria-label*="查看推文分析"],[aria-label*="查看推文分析"],[aria-label*="트윗 애널리틱스 보기"]',
+            "share-button": '[aria-haspopup="menu"]:not([data-testid="retweet"])',
+            tweet_analytics: '[href$="/analytics"]',
             boolkmark: `[TUICButton="bookmark"],[data-testid="bookmark"],[data-testid="removeBookmark"]`,
             "url-copy": `[TUICButton="urlCopy"]`,
             userBlock: `[TUICButton="userBlock"]`,
@@ -472,8 +470,8 @@ const TUICData = {
                 return elem;
             },
             quoteTweet: function (val) {
-                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](val.option.isLockedAccount));
-                if (!val.option.isLockedAccount)
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](val.option.cannotRT));
+                if (!val.option.cannotRT)
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                         TUICData.visibleButtons.buttonFunction["quoteTweet"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
                     });
