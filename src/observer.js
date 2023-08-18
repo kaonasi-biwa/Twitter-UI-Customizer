@@ -55,6 +55,7 @@ const TUICObserver = {
         TUICObserver.functions.buttonUnderTweet();
 
         TUICObserver.functions.osusumeUser();
+        TUICObserver.functions.replaceX();
         TUICObserver.functions.twitterProPromotionBtn();
 
         TUICObserver.functions.clientInfo();
@@ -351,7 +352,8 @@ const TUICObserver = {
             if (TUICPref.invisibleItems["subscribe-profile"] && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`).classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-
+        },
+        replaceX: function() {
             if (TUICPref.XToTwitter["PostToTweet"]) {
                 let tweetElem = document.querySelector(`[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
                 if (tweetElem != null) {
