@@ -508,6 +508,21 @@ const TUICObserver = {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
                     }
                 }
+
+                tweetElem = document.querySelectorAll(`[role="menuitem"][data-testid="retweetConfirm"] span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+                tweetElem = document.querySelectorAll(`[role="menuitem"][href="/compose/tweet"] span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
+                if (tweetElem.length != 0) {
+                    for (const elem of tweetElem) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
             }
         },
         twitterProPromotionBtn: function () {
