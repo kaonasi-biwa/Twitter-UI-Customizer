@@ -49,7 +49,7 @@ const TUICData = {
         visibleButtons: {
             all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton"],
             i18n: {
-                "reply-button": "bottomTweetButtons-replay",
+                "reply-button": "bottomTweetButtons-reply",
                 "retweet-button": "bottomTweetButtons-retweet",
                 "like-button": "bottomTweetButtons-like",
                 "share-button": "bottomTweetButtons-share",
