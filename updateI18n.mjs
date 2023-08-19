@@ -3,7 +3,7 @@ import fs from "fs";
 
 (async () => {
     let locales = [];
-    if (process.argv.length < 2) {
+    if (process.argv.length == 2) {
         locales = JSON.parse(fs.readFileSync("./i18n/_langList.json", "utf8"));
     } else {
         for (var i = 2; i < process.argv.length; i++) {
