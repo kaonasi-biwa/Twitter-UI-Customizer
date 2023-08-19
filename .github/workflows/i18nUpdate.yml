@@ -12,7 +12,6 @@ jobs:
 
             - name: Update
               run: |
-                  npm install
                   yarn add node-fetch
 
                   node ./updateI18n.mjs
