@@ -2,7 +2,14 @@ import fetch from "node-fetch";
 import fs from "fs";
 
 (async () => {
-    const locales = JSON.parse(fs.readFileSync("./i18n/_langList.json", "utf8"));
+    let locales = [];
+    if (process.argv.length < 2) {
+        locales = JSON.parse(fs.readFileSync("./i18n/_langList.json", "utf8"));
+    } else {
+        for (var i = 2; i < process.argv.length; i++) {
+            locales.push(process.argv[i]);
+        }
+    }
     const i18nObject = {};
     const i18nObjectOld = {};
     for (const elem of locales) {
