@@ -353,13 +353,13 @@ const TUICObserver = {
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`).classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
         },
-        replacePost: function() {
+        replacePost: function () {
             // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
             function getNotReplacedElements(selector) {
                 const replaceMarkClass = TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE");
 
                 // NOTE: セレクタで選択された要素の中から、すでに置き換え済みの要素を除外
-                const elements = Array.from(document.querySelectorAll(selector)).filter(e => !e.classList.contains(replaceMarkClass));
+                const elements = Array.from(document.querySelectorAll(selector)).filter((e) => !e.classList.contains(replaceMarkClass));
 
                 // NOTE: 要素に置き換え済みクラスを追加
                 for (const e of elements) {
@@ -382,38 +382,27 @@ const TUICObserver = {
 
                 if (isTweetPage) {
                     // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
-                    for (const elem of getNotReplacedElements('.public-DraftEditorPlaceholder-inner:not([role="dialog"])'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
+                    for (const elem of getNotReplacedElements('.public-DraftEditorPlaceholder-inner:not([role="dialog"])')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
 
                     // ツイート画面の「n件のリツイート」のテキスト
-                    for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweetCount");
+                    for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweetCount");
                     // ツイート画面の「n件の引用ツイート」のテキスト
-                    for (const elem of getNotReplacedElements('a[href$="/retweets/with_comments"] > div+span > span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteCount");
+                    for (const elem of getNotReplacedElements('a[href$="/retweets/with_comments"] > div+span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteCount");
 
                     // ツイート画面のツイートアナリティクスの表示ボタン
-                    for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
+                    for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
 
                     // ツイート画面の翻訳の表示ボタン
-                    for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-translateTweet");
-
+                    for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-translateTweet");
                 } else if (isAnalyticsPage) {
                     // ツイートアナリティクスのダイアログヘッダー
-                    for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
-
+                    for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
                 } else if (isUserPage) {
                     // ユーザーの「n件のツイート」
-                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div'))
-                        elem.textContent = elem.textContent.split(" ")[0] + " " + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetCount");
+                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetCount");
 
                     // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
-                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
-
+                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
                 }
 
                 // ツイート入力ダイアログ
@@ -446,25 +435,21 @@ const TUICObserver = {
                     }
                 }
                 // ツイート入力ダイアログの、送信先ポップアップの「Twitterサークル」の文字
-                for (const elem of getNotReplacedElements('[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]'))
+                for (const elem of getNotReplacedElements(
+                    '[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]',
+                ))
                     elem.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("div + div > div > span").textContent = TUICLibrary.getI18n("sidebarButtons-circles");
                 // ツイート入力ダイアログの、送信先としてサークルが設定されているときに表示される、「Twitterサークル」の文字
-                for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`))
-                    elem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
+                for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`)) elem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
                 // ツイート下書き保存確認ダイアログのヘッダー
-                if (isDialog)
-                    for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetSaveConfirm");
+                if (isDialog) for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetSaveConfirm");
 
                 // リツイート確認ポップアップの「リツイート」ボタン
-                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
                 // リツイート確認ポップアップの「リツイート」ボタン
-                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="unretweetConfirm"] span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
+                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="unretweetConfirm"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
                 // リツイート確認ポップアップの「引用ツイート」ボタン
-                for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
 
                 // TODO: i18nデータが存在しないためコメントアウト
                 // // ツイートその他ポップアップの「このツイートに興味がない」ボタン
@@ -474,23 +459,18 @@ const TUICObserver = {
                 // for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]'))
                 //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
                 // ツイートその他ポップアップの「ツイートを報告」ボタン
-                for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]'))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-reportTweet");
+                for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-reportTweet");
                 // ツイートその他ポップアップの「ツイートアナリティクスの表示」ボタン
-                for (const elem of getNotReplacedElements('[role="menu"] a[role="menuitem"][href$="/analytics"] span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
+                for (const elem of getNotReplacedElements('[role="menu"] a[role="menuitem"][href$="/analytics"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
 
                 // サイドバーのツイートボタン
-                for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
 
                 // 「新しいツイートを表示」ポップアップ
-                for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
+                for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
 
                 // 「変身できるユーザーを変更」ダイアログの説明文
-                for (const elem of getNotReplacedElements('#conversation-controls-details > span'))
-                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replyRangeDetail");
+                for (const elem of getNotReplacedElements("#conversation-controls-details > span")) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replyRangeDetail");
 
                 // プライマリカラム（中央に表示される画面）のヘッダー
                 for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] > span')) {
@@ -504,31 +484,29 @@ const TUICObserver = {
                 }
 
                 // 検索バーのテキストボックス
-                for (const elem of getNotReplacedElements('[role="search"] input'))
-                    elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
+                for (const elem of getNotReplacedElements('[role="search"] input')) elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
 
                 // サイドナビゲーションが小さい時のツイートボタンをホバー中のツールチップ
-                if (isHoveringMiniSidenavTweetButton)
-                    for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                if (isHoveringMiniSidenavTweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
                 // リツイートボタンをホバー中のツールチップ
-                else if (isHoveringRetweetButton)
-                    for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                else if (isHoveringRetweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
                 // リツイート解除ボタンをホバー中のツールチップ
-                else if (isHoveringUnretweetButton)
-                    for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
+                else if (isHoveringUnretweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
 
                 // 固定ツイートの「固定」表示
                 for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
                     elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
                 // 「{user}さんがリツイートしました」もしくは「リツイート済み」
-                for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]')) {
+                for (const elem of getNotReplacedElements(
+                    '[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]',
+                )) {
                     const container = elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"]`);
                     // NOTE: リツイートのSVGで取得しているが、これだとリツイートボタンも引っかかってしまうため、コンテナが検出できない場合スキップ
                     if (!container) continue;
-                    const personRetweetedText = Array.from(container.childNodes).filter(e => e.nodeType === Node.TEXT_NODE).at(-1);
+                    const personRetweetedText = Array.from(container.childNodes)
+                        .filter((e) => e.nodeType === Node.TEXT_NODE)
+                        .at(-1);
+                    // eslint-disable-next-line no-extra-boolean-cast
                     if (!!personRetweetedText) {
                         // 「{user}さんがリツイートしました」のユーザー名の後の部分
                         // TODO: i18nデータが存在しないためコメントアウト
