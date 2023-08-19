@@ -1,4 +1,6 @@
 let updateID = "";
+let loadedI18n = false;
+let i18nObject = {};
 
 const updateNotification = () => {
     chrome.tabs.create({
@@ -31,7 +33,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification);
         update1(message.updateType);
     } else if (message.type == "getI18n") {
-        getI18n(sendResponse);
+        returnI18n(sendResponse);
     }
     return true;
 });
@@ -69,10 +71,25 @@ const deviceMessage = async (url, res) => {
         });
 };
 
-const getI18n = async (res) => {
-    const i18nObject = {};
+const returnI18n = async (res) => {
+    await (async () => {
+        while (true) {
+            if (loadedI18n) return;
+            await new Promise((resolve2) => {
+                window.setTimeout(() => {
+                    resolve2("");
+                }, 250);
+            });
+        }
+    })();
+    res(JSON.stringify(i18nObject));
+};
+
+const getI18n = async () => {
+    i18nObject = {};
     const langList = await fetch(chrome.runtime.getURL("./i18n/_langList.json"), { cache: "no-store" }).then((res) => res.json());
     for (const elem of langList) {
+        console.log(elem);
         i18nObject[elem] = Object.assign(
             await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`), {
                 cache: "no-store",
@@ -82,8 +99,9 @@ const getI18n = async (res) => {
             }).then((res) => res.json()),
         );
     }
-    res(JSON.stringify(i18nObject));
+    loadedI18n = true;
 };
 
 chrome.notifications.onClicked.removeListener(updateNotification);
 update1("runBrowser");
+getI18n();

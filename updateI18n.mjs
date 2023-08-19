@@ -25,27 +25,29 @@ import fs from "fs";
         console.log(`Generating i18n (${elem})...`);
         let tmpObj = {};
         for (const elem2 in TUICI18ns) {
-            if (TUICI18ns[elem2] == "g132f681") {
-                tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]].replace("@{screenName}", ""), ...tmpObj };
-            } else if (TUICI18ns[elem2] == "e74e9bb7") {
-                const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).replace("{tweetCount}", "").replace(")");
-                if (i18nObject[elem][TUICI18ns[elem2]].includes("(")) {
-                    tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", "").replace(".", "").replace("。", ""), ...tmpObj };
+            if (i18nObject[elem][TUICI18ns[elem2]] != undefined || i18nObjectOld[elem][TUICI18ns[elem2]] != undefined) {
+                if (TUICI18ns[elem2] == "g132f681") {
+                    tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]].replace("@{screenName}", ""), ...tmpObj };
+                } else if (TUICI18ns[elem2] == "e74e9bb7") {
+                    const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).replace("{tweetCount}", "").replace(")");
+                    if (i18nObject[elem][TUICI18ns[elem2]].includes("(")) {
+                        tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", "").replace(".", "").replace("。", ""), ...tmpObj };
+                    } else {
+                        tmpObj = { [elem2]: textBase.replace(".", "").replace("。", ""), ...tmpObj };
+                    }
+                } else if (TUICI18ns[elem2] == "c42234da" && i18nObject[elem][TUICI18ns[elem2]]?.includes("(")) {
+                    const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("("));
+                    tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
+                } else if (TUICI18ns[elem2] == "e2414185") {
+                    if (i18nObjectOld[elem][TUICI18ns[elem2]]?.includes("(")) {
+                        const textBase = i18nObjectOld[elem][TUICI18ns[elem2]].slice(0, i18nObjectOld[elem][TUICI18ns[elem2]].indexOf("("));
+                        tmpObj = { [elem2]: textBase + i18nObjectOld[elem][TUICI18ns[elem2]].slice(i18nObjectOld[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
+                    } else {
+                        tmpObj = { [elem2]: i18nObjectOld[elem][TUICI18ns[elem2]], ...tmpObj };
+                    }
                 } else {
-                    tmpObj = { [elem2]: textBase.replace(".", "").replace("。", ""), ...tmpObj };
+                    tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]], ...tmpObj };
                 }
-            } else if (TUICI18ns[elem2] == "c42234da" && i18nObject[elem][TUICI18ns[elem2]].includes("(")) {
-                const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("("));
-                tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
-            } else if (TUICI18ns[elem2] == "e2414185") {
-                if (i18nObjectOld[elem][TUICI18ns[elem2]].includes("(")) {
-                    const textBase = i18nObjectOld[elem][TUICI18ns[elem2]].slice(0, i18nObjectOld[elem][TUICI18ns[elem2]].indexOf("("));
-                    tmpObj = { [elem2]: textBase + i18nObjectOld[elem][TUICI18ns[elem2]].slice(i18nObjectOld[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
-                } else {
-                    tmpObj = { [elem2]: i18nObjectOld[elem][TUICI18ns[elem2]], ...tmpObj };
-                }
-            } else {
-                tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]], ...tmpObj };
             }
         }
         fs.writeFileSync("./i18n/ti18n/" + elem + ".json", JSON.stringify(tmpObj, undefined, 4));
