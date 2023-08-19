@@ -1,4 +1,4 @@
-name: ESLint
+name: i18n Updater
 
 on: [workflow_dispatch]
 
