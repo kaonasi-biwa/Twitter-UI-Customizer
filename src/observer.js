@@ -373,6 +373,7 @@ const TUICObserver = {
                 const isTweetPage = location.pathname.includes("/status/");
                 const isQuotesPage = location.pathname.includes("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
+                const isNotifications = location.pathname.endsWith("/i/timeline");
                 const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
 
                 const isHoveringMiniSidenavTweetButton = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
@@ -497,6 +498,8 @@ const TUICObserver = {
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteTitle");
                     } else if (isTweetPage) {
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetTitle");
+                    } else if (isNotifications) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle");
                     }
                 }
 
@@ -608,7 +611,23 @@ const TUICObserver = {
     },
     titleObserverFunction: () => {
         if (TUICPref.XToTwitter["XToTwitter"]) {
-            if (document.title.endsWith(" / X")) {
+            if (window.location.pathname.includes("/i/timeline")) {
+                TUICObserver.headObserver.disconnect();
+                const notiTitle = document.title.indexOf(") ");
+                let setTitle = "";
+                if (notiTitle == -1) {
+                    setTitle = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
+                } else {
+                    setTitle = document.title.slice(0, notiTitle + 2) + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
+                }
+                document.title = setTitle;
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (document.title.endsWith(" / X")) {
                 TUICObserver.headObserver.disconnect();
                 document.title = document.title.replace(" / X", " / Twitter");
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
@@ -619,7 +638,7 @@ const TUICObserver = {
                 });
             } else if (document.title == "X") {
                 TUICObserver.headObserver.disconnect();
-                document.title = document.title = "Twitter";
+                document.title = "Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
                     characterData: true,
                     childList: true,

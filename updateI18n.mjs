@@ -4,9 +4,11 @@ import fs from "fs";
 (async () => {
     const locales = JSON.parse(fs.readFileSync("./i18n/_langList.json", "utf8"));
     const i18nObject = {};
+    const i18nObjectOld = {};
     for (const elem of locales) {
         console.log(`Fetching i18n (${elem})...`);
         i18nObject[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/3f0ec1fb005f218a7eb60b580fd620541b1a9ad5/docs/json/i18n/" + elem + ".json")).json();
+        i18nObjectOld[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/" + elem + ".json")).json();
     }
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/3f0ec1fb005f218a7eb60b580fd620541b1a9ad5/docs/json/i18n/ja.json
     const TUICI18ns = JSON.parse(fs.readFileSync("../Twitter-UI-Customizer/i18n/_officalTwitterI18n.json", "utf8"));
@@ -27,6 +29,13 @@ import fs from "fs";
             } else if (TUICI18ns[elem2] == "c42234da" && i18nObject[elem][TUICI18ns[elem2]].includes("(")) {
                 const textBase = i18nObject[elem][TUICI18ns[elem2]].slice(0, i18nObject[elem][TUICI18ns[elem2]].indexOf("("));
                 tmpObj = { [elem2]: textBase + i18nObject[elem][TUICI18ns[elem2]].slice(i18nObject[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
+            } else if (TUICI18ns[elem2] == "e2414185") {
+                if (i18nObjectOld[elem][TUICI18ns[elem2]].includes("(")) {
+                    const textBase = i18nObjectOld[elem][TUICI18ns[elem2]].slice(0, i18nObjectOld[elem][TUICI18ns[elem2]].indexOf("("));
+                    tmpObj = { [elem2]: textBase + i18nObjectOld[elem][TUICI18ns[elem2]].slice(i18nObjectOld[elem][TUICI18ns[elem2]].indexOf("(")).split(",")[2].replace(")", ""), ...tmpObj };
+                } else {
+                    tmpObj = { [elem2]: i18nObjectOld[elem][TUICI18ns[elem2]], ...tmpObj };
+                }
             } else {
                 tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]], ...tmpObj };
             }
