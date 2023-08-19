@@ -1,0 +1,22 @@
+name: ESLint
+
+on: [workflow_dispatch]
+
+jobs:
+    eslint:
+        name: Run eslint scanning
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Install ESLint
+              run: |
+                  yarn add node-fetch
+                  npm install --save node-fetch
+                  node ./updateI18n.mjs
+                  git config user.name  "i18n Updater"
+                  git config user.email "action@github.com"
+                  git add .
+                  git commit -m "generated"
+                  git push
