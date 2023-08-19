@@ -55,7 +55,7 @@ const TUICObserver = {
         TUICObserver.functions.buttonUnderTweet();
 
         TUICObserver.functions.osusumeUser();
-        TUICObserver.functions.replaceX();
+        TUICObserver.functions.replacePost();
         TUICObserver.functions.twitterProPromotionBtn();
 
         TUICObserver.functions.clientInfo();
@@ -353,178 +353,148 @@ const TUICObserver = {
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`).classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
         },
-        replaceX: function() {
+        replacePost: function() {
+            // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
+            function getNotReplacedElements(selector) {
+                const replaceMarkClass = TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE");
+
+                // NOTE: セレクタで選択された要素の中から、すでに置き換え済みの要素を除外
+                const elements = Array.from(document.querySelectorAll(selector)).filter(e => !e.classList.contains(replaceMarkClass));
+
+                // NOTE: 要素に置き換え済みクラスを追加
+                for (const e of elements) {
+                    e.classList.add(replaceMarkClass);
+                }
+
+                return elements;
+            }
+
             if (TUICPref.XToTwitter["PostToTweet"]) {
-                let tweetElem = document.querySelector(`[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem != null) {
-                    tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
-                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                }
-                tweetElem = document.querySelectorAll(`[data-testid="tweetButtonInline"] > div > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        if (!window.location.pathname.includes("/status/")) {
-                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
-                            elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                        }
-                    }
-                }
-                tweetElem = document.querySelectorAll(`[data-testid="tweetButton"] > div > span > span`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        if (document.querySelector(`[role="dialog"] article`) == null) {
-                            if (document.querySelectorAll(`${document.querySelector(`[role="dialog"]`) == null ? "" : `[role="dialog"]`} [data-testid*="UserAvatar-Container-"]:not([data-testid="attachments"] *)`).length == 1) {
-                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
-                            } else {
-                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAllButton");
-                            }
-                        } else if (document.querySelector(`[role="dialog"] article+div [role="button"]`) == null && document.querySelectorAll(`[role="dialog"] [data-testid*="UserAvatar-Container-"]`).length == 2) {
-                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
-                        }
-                    }
-                }
-                tweetElem = document.querySelectorAll(`[role="dialog"] .public-DraftEditorPlaceholder-inner:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        if (document.querySelector(`[role="dialog"] article`) != null) {
-                            if (document.querySelector(`[role="dialog"] article+div [role="button"]`) != null) {
-                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
-                            } else {
-                                elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-addTweet");
-                            }
-                        }
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-                tweetElem = document.querySelectorAll(`.public-DraftEditorPlaceholder-inner:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")}):not([role="dialog"] *)`);
-                if (tweetElem.length != 0 && window.location.pathname.includes("/status/")) {
-                    for (const elem of tweetElem) {
+                const isTweetPage = location.pathname.includes("/status/");
+                const isQuotesPage = location.pathname.includes("/retweets/with_comments");
+                const isAnalyticsPage = location.pathname.endsWith("/analytics");
+                const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
+
+                const isMiniSidenav = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
+
+                if (isTweetPage) {
+                    // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
+                    for (const elem of getNotReplacedElements('.public-DraftEditorPlaceholder-inner:not([role="dialog"])'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-                tweetElem = document.querySelectorAll(`[data-testid="pillLabel"] > span > span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-                tweetElem = document.querySelector(
-                    `[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]:not(* .${TUICLibrary.getClasses.getClass(
-                        "TUIC_TWEETREPLACE",
-                    )})`,
-                );
-                if (tweetElem != null) {
-                    tweetElem.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(`div + div > div > span`).textContent = TUICLibrary.getI18n("sidebarButtons-circles");
-                    tweetElem.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                }
-                tweetElem = document.querySelector(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span:not(* .${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem != null) {
-                    tweetElem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
-                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                }
-                tweetElem = document.querySelector(`#conversation-controls-details > span:not(* .${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem != null) {
-                    tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replayRangeDetail");
-                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                }
 
-                tweetElem = document.querySelectorAll(`article path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")} *)`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
-                        elem.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-
-                tweetElem = document.querySelector(`[data-testid="HoverLabel"] > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")} *)`);
-                if (document.querySelector(`.r-1vtznih[data-testid="SideNav_NewTweet_Button"]`) != null && tweetElem != null) {
-                    tweetElem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
-                    tweetElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                }
-
-                tweetElem = document.querySelectorAll(`[data-testid="SearchBox_Search_Input"]:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-
-                tweetElem = document.querySelectorAll(`a[href*="/status/"][href*="/retweets"]:not([href*="/retweets/with_comments"]) > div+span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
+                    // ツイート画面の「n件のリツイート」のテキスト
+                    for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweetCount");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-                tweetElem = document.querySelectorAll(`a[href*="/status/"][href*="/retweets/with_comments"] > div+span > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
+                    // ツイート画面の「n件の引用ツイート」のテキスト
+                    for (const elem of getNotReplacedElements('a[href$="/retweets/with_comments"] > div+span > span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteCount");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
 
-                tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] h2[role="heading"] > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        if (window.location.pathname.includes("/retweets/with_comments")) {
-                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteTitle");
-                        } else if (window.location.pathname.includes("/status/")) {
-                            elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetTitle");
-                        }
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-
-                tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"]  > div:first-child span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (document.querySelector(`[data-testid="primaryColumn"] [data-testid="UserName"]`) != null && tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-
-                tweetElem = document.querySelectorAll(`article [data-testid="analyticsButton"] > div > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
+                    // ツイート画面のツイートアナリティクスの表示ボタン
+                    for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
 
-                tweetElem = document.querySelectorAll(`[role="dialog"] [data-viewportview="true"] h2#modal-header > span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (window.location.pathname.endsWith("/analytics") && tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
+                } else if (isAnalyticsPage) {
+                    // ツイートアナリティクスのダイアログヘッダー
+                    for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
 
-                tweetElem = document.querySelectorAll(`[data-testid="primaryColumn"] h2[role="heading"]+div:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (document.querySelector(`[data-testid="primaryColumn"] [data-testid="UserName"]`) != null && tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
+                } else if (isUserPage) {
+                    // 固定ツイートの「固定」表示
+                    for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
+                        elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
+
+                    // ユーザーの「n件のツイート」
+                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div'))
                         elem.textContent = elem.textContent.split(" ")[0] + " " + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetCount");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+
+                    // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
+                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span'))
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
+
+                }
+
+                // ツイート入力ダイアログ
+                const isDialog = !!document.querySelector('[role="dialog"]');
+                const isReply = !!document.querySelector('[role="dialog"] [data-testid="tweet"]');
+                const isMultipleTweet = !isReply && document.querySelectorAll('[role="dialog"] [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length !== 1;
+                // ツイートボタン
+                for (const elem of getNotReplacedElements('[data-testid="tweetButton"] > div > span > span, [data-testid="tweetButtonInline"] > div > span > span')) {
+                    // TODO: ツイートダイアログを開いて、別のツイートを追加→追加のツイートを削除 すると、すでに置き換えフラグが立っているためもう一度置き換え処理が走らないバグがある。
+                    if (isDialog && isMultipleTweet) {
+                        // ダイアログで複数ツイートする場合
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAllButton");
+                    } else if (isDialog && !isReply) {
+                        // ダイアログでツイートする場合
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                    } else if (!isDialog) {
+                        // TL上部のツイートダイアログの場合
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                    }
+                    // NOTE: kaonasi_biwa さんと連絡を取り合い、返信ボタンは現時点では改変しないことになりました: https://twitter.com/fami_kotone/status/1692551624714231961
+                }
+                // ツイート入力ボックス
+                for (const elem of getNotReplacedElements('[role="dialog"] .public-DraftEditorPlaceholder-inner')) {
+                    if (isDialog && isMultipleTweet) {
+                        // ダイアログで複数ツイートする場合
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-addTweet");
+                    } else if (isDialog && isReply) {
+                        // ダイアログでリプライを送る場合
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
+                    }
+                }
+                // ツイート入力ダイアログの、送信先ポップアップの「Twitterサークル」の文字
+                for (const elem of getNotReplacedElements('[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]'))
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("div + div > div > span").textContent = TUICLibrary.getI18n("sidebarButtons-circles");
+                // ツイート入力ダイアログの、送信先としてサークルが設定されているときに表示される、「Twitterサークル」の文字
+                for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`))
+                    elem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
+
+                // リツイート確認ポップアップの「リツイート」ボタン
+                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                // リツイート確認ポップアップの「引用ツイート」ボタン
+                for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+
+                // サイドバーのツイートボタン
+                for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+
+                // 「新しいツイートを表示」ポップアップ
+                for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
+
+                // 「変身できるユーザーを変更」ダイアログの、説明文
+                for (const elem of getNotReplacedElements('#conversation-controls-details > span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replyRangeDetail");
+
+                // プライマリカラム（中央に表示される画面）のヘッダー
+                for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] > span')) {
+                    if (isQuotesPage) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteTitle");
+                    } else if (isTweetPage) {
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetTitle");
                     }
                 }
 
-                tweetElem = document.querySelectorAll(`[role="menuitem"][data-testid="retweetConfirm"] span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
-                tweetElem = document.querySelectorAll(`[role="menuitem"][href="/compose/tweet"] span:not(.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")})`);
-                if (tweetElem.length != 0) {
-                    for (const elem of tweetElem) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
-                        elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
-                    }
-                }
+                // 検索バーのテキストボックス
+                for (const elem of getNotReplacedElements('[role="search"] input'))
+                    elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
+
+                // サイドナビゲーションが小さい時の、ツイートボタンのツールチップ
+                if (isMiniSidenav)
+                    for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+
+                // TODO: ポストを保存しますか？ダイアログが置き換えられていない
+                // TODO: ポストを取り消す（リツイートを取り消す）が置き換えられていない
+                // TODO: リツイートボタンとかのホバーポップアップが置き換えられていない
+                // TODO: ポストを翻訳するボタンが置き換えられていない
+                // TODO: ツイートメニューのポストを埋め込みボタンが置き換えられていない
+
+                // TODO: ポスト系には関係ないが、おすすめクリエイターを削除したい。固有プロパティが見つからないので、[data-testid$="-subscribe"]が含まれる[data-testid="cellInnerDiv"]を削除し、その塊の一つ前のやつを消せばよさそう（難しそう）
+
+                // TODO: aria-label が設定されているものは変更したほうがいいかもしれない
             }
         },
         twitterProPromotionBtn: function () {
