@@ -589,7 +589,7 @@ const TUICObserver = {
     },
     titleObserverFunction: () => {
         if (TUICPref.XToTwitter["XToTwitter"]) {
-            if (window.location.pathname.includes("/i/timeline")) {
+            if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
                 TUICObserver.headObserver.disconnect();
                 const notiTitle = document.title.indexOf(") ");
                 let setTitle = "";
