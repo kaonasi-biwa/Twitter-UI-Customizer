@@ -375,7 +375,9 @@ const TUICObserver = {
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
                 const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
 
-                const isMiniSidenav = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
+                const isHoveringMiniSidenavTweetButton = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
+                const isHoveringRetweetButton = !!document.querySelector('[role="button"][data-testid="retweet"] > div > div > div.r-15azkrj');
+                const isHoveringUnretweetButton = !!document.querySelector('[role="button"][data-testid="unretweet"] > div > div > div.r-15azkrj');
 
                 if (isTweetPage) {
                     // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
@@ -393,16 +395,16 @@ const TUICObserver = {
                     for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
 
+                    // ツイート画面の翻訳の表示ボタン
+                    for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]'))
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-translateTweet");
+
                 } else if (isAnalyticsPage) {
                     // ツイートアナリティクスのダイアログヘッダー
                     for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
 
                 } else if (isUserPage) {
-                    // 固定ツイートの「固定」表示
-                    for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
-                        elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
-
                     // ユーザーの「n件のツイート」
                     for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div'))
                         elem.textContent = elem.textContent.split(" ")[0] + " " + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetCount");
@@ -448,13 +450,34 @@ const TUICObserver = {
                 // ツイート入力ダイアログの、送信先としてサークルが設定されているときに表示される、「Twitterサークル」の文字
                 for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`))
                     elem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
+                // ツイート下書き保存確認ダイアログのヘッダー
+                if (isDialog)
+                    for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`))
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetSaveConfirm");
 
                 // リツイート確認ポップアップの「リツイート」ボタン
                 for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span'))
                     elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                // リツイート確認ポップアップの「リツイート」ボタン
+                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="unretweetConfirm"] span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
                 // リツイート確認ポップアップの「引用ツイート」ボタン
                 for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span'))
                     elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+
+                // TODO: i18nデータが存在しないためコメントアウト
+                // // ツイートその他ポップアップの「このツイートに興味がない」ボタン
+                // for (const elem of getNotReplacedElements('path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]'))
+                //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                // // ツイートその他ポップアップの「ツイートを埋め込み」ボタン
+                // for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]'))
+                //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                // ツイートその他ポップアップの「ツイートを報告」ボタン
+                for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]'))
+                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-reportTweet");
+                // ツイートその他ポップアップの「ツイートアナリティクスの表示」ボタン
+                for (const elem of getNotReplacedElements('[role="menu"] a[role="menuitem"][href$="/analytics"] span'))
+                    elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
 
                 // サイドバーのツイートボタン
                 for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span'))
@@ -464,7 +487,7 @@ const TUICObserver = {
                 for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span'))
                     elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
 
-                // 「変身できるユーザーを変更」ダイアログの、説明文
+                // 「変身できるユーザーを変更」ダイアログの説明文
                 for (const elem of getNotReplacedElements('#conversation-controls-details > span'))
                     elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replyRangeDetail");
 
@@ -481,16 +504,37 @@ const TUICObserver = {
                 for (const elem of getNotReplacedElements('[role="search"] input'))
                     elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
 
-                // サイドナビゲーションが小さい時の、ツイートボタンのツールチップ
-                if (isMiniSidenav)
+                // サイドナビゲーションが小さい時のツイートボタンをホバー中のツールチップ
+                if (isHoveringMiniSidenavTweetButton)
                     for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                // リツイートボタンをホバー中のツールチップ
+                else if (isHoveringRetweetButton)
+                    for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                // リツイート解除ボタンをホバー中のツールチップ
+                else if (isHoveringUnretweetButton)
+                    for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span'))
+                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
 
-                // TODO: ポストを保存しますか？ダイアログが置き換えられていない
-                // TODO: ポストを取り消す（リツイートを取り消す）が置き換えられていない
-                // TODO: リツイートボタンとかのホバーポップアップが置き換えられていない
-                // TODO: ポストを翻訳するボタンが置き換えられていない
-                // TODO: ツイートメニューのポストを埋め込みボタンが置き換えられていない
+                // 固定ツイートの「固定」表示
+                for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
+                    elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
+                // 「{user}さんがリツイートしました」もしくは「リツイート済み」
+                for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]')) {
+                    const container = elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"]`);
+                    // NOTE: リツイートのSVGで取得しているが、これだとリツイートボタンも引っかかってしまうため、コンテナが検出できない場合スキップ
+                    if (!container) continue;
+                    const personRetweetedText = Array.from(container.childNodes).filter(e => e.nodeType === Node.TEXT_NODE).at(-1);
+                    if (!!personRetweetedText) {
+                        // 「{user}さんがリツイートしました」のユーザー名の後の部分
+                        // TODO: i18nデータが存在しないためコメントアウト
+                        // personRetweetedText.textContent = "さんがリツイートしました";
+                    } else {
+                        // 「リツイート済み」
+                        container.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweeted");
+                    }
+                }
 
                 // TODO: ポスト系には関係ないが、おすすめクリエイターを削除したい。固有プロパティが見つからないので、[data-testid$="-subscribe"]が含まれる[data-testid="cellInnerDiv"]を削除し、その塊の一つ前のやつを消せばよさそう（難しそう）
 
