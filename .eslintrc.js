@@ -39,5 +39,6 @@ module.exports = {
         TUICCustomCSS: true,
         TUICRunFirst: true,
         i18nApply: true,
+        process: true,
     },
 };
