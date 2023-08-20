@@ -609,51 +609,23 @@ const TUICObserver = {
         if (TUICPref.XToTwitter["XToTwitter"]) {
             if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
                 TUICObserver.headObserver.disconnect();
-                const notiTitle = document.title.indexOf(") ");
-                let setTitle = "";
-                if (notiTitle == -1) {
-                    setTitle = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
-                } else {
-                    setTitle = document.title.slice(0, notiTitle + 2) + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
-                }
-                document.title = setTitle;
+                document.title = (document.title.match(/\(\d\)/) ?? "") + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
                     characterData: true,
                     childList: true,
                     subtree: true,
                     attributes: true,
                 });
-            } else if (
-                window.location.pathname.includes("/status/") &&
-                document.querySelector(
-                    '[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]:not(:is([data-testid="unretweet"],[data-testid="retweet"]) *)',
-                ) == null
-            ) {
+            } else if (window.location.pathname.includes("/status/")) {
                 TUICObserver.headObserver.disconnect();
-                const notiTitle = document.title.indexOf(") ");
-                let setTitle = "";
-                let userName = "";
-                for (const elem of document.querySelector(`[data-testid="tweet"][tabindex="-1"] [data-testid="User-Name"] > div span`).childNodes) {
-                    if (elem.tagName == "SPAN") {
-                        userName += elem.textContent;
-                    } else if (elem.tagName == "IMG") {
-                        userName += elem.alt;
-                    }
-                }
-                if (notiTitle == -1) {
-                    setTitle = TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweeted")
-                        .replace(`{fullName}`, userName)
-                        .replace("{tweetText}", document.title.slice(document.title.search(/: (「|")/) + 3))
+                console.log(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
+                const titleInfo = document.title.match(new RegExp(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
+                document.title =
+                    (document.title.match(/\(\d\)/) ?? "") +
+                    TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweeted")
+                        .replace(`{fullName}`, titleInfo[1])
+                        .replace("{tweetText}", titleInfo[2])
                         .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
-                } else {
-                    setTitle =
-                        document.title.slice(0, notiTitle + 2) +
-                        TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweeted")
-                            .replace(`{fullName}`, userName)
-                            .replace("{tweetText}", document.title.slice(document.title.search(/: (「|")/) + 3))
-                            .replace(/(.*)(「|") \/ X/, "$1 / Twitter");
-                }
-                document.title = setTitle;
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
                     characterData: true,
                     childList: true,
