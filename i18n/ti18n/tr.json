@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweetledi: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Tweeti paylaşma aracı...",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Tweete linki kopyala",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweetler",

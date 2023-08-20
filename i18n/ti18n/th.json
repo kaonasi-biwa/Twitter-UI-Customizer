@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} ได้ทวีต: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "แบ่งปันทวีตผ่าน...",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "คัดลอกลิงก์ไปยังทวีต",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "ทวีต",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweeted: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Partekatu txioa honen bidez:",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopiatu txiorako esteka",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Txioak",

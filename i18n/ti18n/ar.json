@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} على X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "قام {fullName} بتغريد: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "مشاركة التغريدة عبر …",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "نسخ رابط التغريدة",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "التغريدات",

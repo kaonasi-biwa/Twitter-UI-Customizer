@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} نے ٹویٹ کیا: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "ٹویٹ کو شیئر کریں بذریعہ…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "ٹویٹ کا لنک کاپی کریں",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "ٹویٹس",

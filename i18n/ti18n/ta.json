@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} ட்விட் செய்துள்ளார்: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "இதன் வழியாக கீச்சைப் பகிர்…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "இணைப்பை கீச்சிற்கு நகலெடு",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "கீச்சுகள்",
