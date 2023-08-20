@@ -72,17 +72,15 @@ const deviceMessage = async (url, res) => {
 };
 
 const returnI18n = async (res) => {
-    await (async () => {
-        while (true) {
-            if (loadedI18n) return;
-            await new Promise((resolve2) => {
-                window.setTimeout(() => {
-                    resolve2("");
-                }, 250);
-            });
+    const waitFunc = () => {
+        if (loadedI18n) {
+            res(JSON.stringify(i18nObject));
+        } else {
+            chrome.alarms.create({ when: Date.now() + 250 });
         }
-    })();
-    res(JSON.stringify(i18nObject));
+    };
+    chrome.alarms.onAlarm.addListener(waitFunc);
+    waitFunc();
 };
 
 const getI18n = async () => {
