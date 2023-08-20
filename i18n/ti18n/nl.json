@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} op X: '{tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} heeft getweet: '{tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Tweet delen via ...",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Tweet-URL kopiëren",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweets",

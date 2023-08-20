@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} no X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweetou: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Compartilhar Tweet via…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Copiar link para o Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweets",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweeted: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Compartir chío mediante…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Copiar ligazón ao chío",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Chíos",
