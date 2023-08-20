@@ -635,7 +635,6 @@ const TUICObserver = {
                 });
             } else if (window.location.pathname.includes("/status/")) {
                 TUICObserver.headObserver.disconnect();
-                console.log(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
                 const titleInfo = document.title.match(new RegExp(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 document.title =
                     (document.title.match(/\(\d\)/) ?? "") +
