@@ -1,6 +1,6 @@
 function TUICRunFirst() {
-    if (document.querySelector("#twitter_ui_customizer_css") != null) document.querySelector("#twitter_ui_customizer_css").remove();
-    if (document.querySelector("#twitter_ui_customizer") != null) document.querySelector("#twitter_ui_customizer").remove();
+    document.querySelector("#twitter_ui_customizer_css")?.remove();
+    document.querySelector("#twitter_ui_customizer")?.remove();
 
     // 追加する要素を用意します。
     const TUIC_css = document.createElement("style");
@@ -138,7 +138,7 @@ function TUICCss() {
     color: var(--twitter-birthday-color) !important;
 }
 
-.TUICDfaultColor{
+.TUICDefaultColor{
     margin-right:0px !important;
     margin-left:auto !important;
     margin-top:2px !important;
@@ -398,9 +398,9 @@ textarea#css_textarea,.TUICTextInput {
     border-radius:5px !important;
     font-size:20px;
     display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -570,7 +570,7 @@ display:none !important;
     top: 50%;
     left: 20px;
     border: 6px solid transparent;
-    border-top: 7px solid #555;   /* 好みで色を変えてください */  
+    border-top: 7px solid #555;   /* 好みで色を変えてください */
 }
 
 .${TUICLibrary.getClasses.getClass("TUIC_DISCOVERMORE")}{
@@ -593,77 +593,77 @@ display:none !important;
 }
 .TUICSidebarButton:hover > div{
     background-color:var(--TUIC-sidebar-hover-color);
- }
+}
 
- .TUICSidebarButton[data-focusvisible-polyfill] > div{
+.TUICSidebarButton[data-focusvisible-polyfill] > div{
     box-shadow: var(--TUIC-sidebar-focus-color) 0px 0px 0px 2px
- }
- .TUICSidebarButton:active > div{
+}
+.TUICSidebarButton:active > div{
     background-color:var(--TUIC-sidebar-active-color);
- }
- .TUICCheckBoxParent:not(:last-of-type){
+}
+.TUICCheckBoxParent:not(:last-of-type){
     margin-bottom: 8px;
- }
+}
 
- .TUIC_DeleteButton{
+.TUIC_DeleteButton{
     color:rgb(244, 33, 46);
- }
+}
 
- .r-icoktb{
+.r-icoktb{
     opacity:0.5;
- }
- .r-zd98yo{
+}
+.r-zd98yo{
     margin-bottom:32px;
- }
- .r-1yflyrw{
+}
+.r-1yflyrw{
     margin-bottom:30px;
- }
- .r-1vxqurs{
+}
+.r-1vxqurs{
     margin-bottom:29px;
- }
- .r-1v456y7{
+}
+.r-1v456y7{
     margin-bottom:35px;
- }
- .r-sr82au{
+}
+.r-sr82au{
     margin-bottom:38px;
- }
- .r-z2wwpe{
+}
+.r-z2wwpe{
     border-radius:4px;
- }
- ${
-     TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
-         ? `
- [role="navigation"] .${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}{
+}
+${
+    TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
+        ? `
+[role="navigation"] .${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}{
     padding-bottom:0px !important;
     padding-top:0px !important;
 }
- `
-         : ""
- }
+`
+        : ""
+}
 
- ${
-     TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"]
-         ? `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
+${
+    TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"]
+        ? `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;
     }`
-         : ""
- }
- ${TUICPref.invisibleItems["hideBelowDM"] ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
+        : ""
+}
+${TUICPref.invisibleItems["hideBelowDM"] ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
 
- ${
-     TUICPref.otherBoolSetting["bottomSpace"] ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
-         ? `
- .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
- `
-         : ""
- }
- ${
-     TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar
-         ? `
- header > div > div > div > div.r-1rnoaur{overflow:clip;}
- `
-         : ""
- }
+${
+    TUICPref.otherBoolSetting["bottomSpace"] ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
+        ? `
+.${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
+`
+        : ""
+}
+${
+    TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar
+        ? `
+header > div > div > div > div.r-1rnoaur{overflow:clip;}
+`
+        : ""
+}
 
 `;
     /* eslint-enable */
