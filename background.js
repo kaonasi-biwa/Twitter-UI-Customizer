@@ -73,8 +73,7 @@ const deviceMessage = async (url, res) => {
 
 const returnI18n = async (res) => {
     await (async () => {
-        while (true) {
-            if (loadedI18n) return;
+        while (!loadedI18n) {
             await new Promise((resolve2) => {
                 window.setTimeout(() => {
                     resolve2("");

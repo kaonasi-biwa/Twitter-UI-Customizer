@@ -49,7 +49,7 @@ const TUICLibrary = {
     updatePref: {
         update: async function () {
             const dPref = TUICLibrary.defaultPref.get();
-            if ((localStorage.getItem("unsent-tweet-background") ?? "unknown") != "unknown") {
+            if (localStorage.getItem("unsent-tweet-background")) {
                 this.parallelToSerial();
             }
 
