@@ -26,7 +26,7 @@
         "page": "TUIC/options/options.html",
         "browser_style": true
     },
-    "permissions": ["notifications", "storage"],
+    "permissions": ["notifications", "storage", "alarms"],
     "action": {
         "default_icon": {
             "16": "icon/newIcon_TUIC_C_Blue.png",

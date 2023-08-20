@@ -72,23 +72,21 @@ const deviceMessage = async (url, res) => {
 };
 
 const returnI18n = async (res) => {
-    await (async () => {
-        while (!loadedI18n) {
-            await new Promise((resolve2) => {
-                window.setTimeout(() => {
-                    resolve2("");
-                }, 250);
-            });
+    const waitFunc = () => {
+        if (loadedI18n) {
+            res(JSON.stringify(i18nObject));
+        } else {
+            chrome.alarms.create({ when: Date.now() + 250 });
         }
-    })();
-    res(JSON.stringify(i18nObject));
+    };
+    chrome.alarms.onAlarm.addListener(waitFunc);
+    waitFunc();
 };
 
 const getI18n = async () => {
     i18nObject = {};
     const langList = await fetch(chrome.runtime.getURL("./i18n/_langList.json"), { cache: "no-store" }).then((res) => res.json());
     for (const elem of langList) {
-        console.log(elem);
         i18nObject[elem] = Object.assign(
             await fetch(chrome.runtime.getURL(`./i18n/${elem}.json`), {
                 cache: "no-store",

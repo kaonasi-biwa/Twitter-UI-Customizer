@@ -56,7 +56,7 @@ const TUICObserver = {
 
         TUICObserver.functions.osusumeUser();
         TUICObserver.functions.replacePost();
-        TUICObserver.functions.twitterProPromotionBtn();
+        TUICObserver.functions.invisibleItems();
 
         TUICObserver.functions.clientInfo();
 
@@ -534,16 +534,14 @@ const TUICObserver = {
                 // TODO: aria-label が設定されているものは変更したほうがいいかもしれない
             }
         },
-        twitterProPromotionBtn: function () {
-            if (TUICPref.invisibleItems["twitter-pro-promotion-btn"] !== undefined) {
-                document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-                    if (TUICPref.invisibleItems["twitter-pro-promotion-btn"]) {
-                        e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                    } else {
-                        e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                    }
-                });
-            }
+        invisibleItems: function () {
+            document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
+                if (TUICPref.invisibleItems["twitter-pro-promotion-btn"]) {
+                    e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                } else {
+                    e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                }
+            });
 
             if (TUICPref.invisibleItems["profileHighlights"]) {
                 const tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`);
@@ -551,6 +549,14 @@ const TUICObserver = {
                     elem.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             }
+
+            document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
+                if (TUICPref.invisibleItems["config-premium"]) {
+                    e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                } else {
+                    e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                }
+            });
         },
         clientInfo: function () {
             if (document.getElementById("client-info") == null && TUICPref.clientInfo.clientInfoVisible && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
@@ -600,33 +606,16 @@ const TUICObserver = {
         },
     },
     titleObserverFunction: () => {
+        const timeout = window.setTimeout(function () {
+            TUICObserver.headObserver.observe(document.querySelector("title"), {
+                characterData: true,
+                childList: true,
+                subtree: true,
+                attributes: true,
+            });
+        }, 10000);
         if (TUICPref.XToTwitter["XToTwitter"]) {
-            if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
-                TUICObserver.headObserver.disconnect();
-                const notiTitle = document.title.indexOf(") ");
-                let setTitle = "";
-                if (notiTitle == -1) {
-                    setTitle = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
-                } else {
-                    setTitle = document.title.slice(0, notiTitle + 2) + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
-                }
-                document.title = setTitle;
-                TUICObserver.headObserver.observe(document.querySelector("title"), {
-                    characterData: true,
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                });
-            } else if (document.title.endsWith(" / X")) {
-                TUICObserver.headObserver.disconnect();
-                document.title = document.title.replace(" / X", " / Twitter");
-                TUICObserver.headObserver.observe(document.querySelector("title"), {
-                    characterData: true,
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                });
-            } else if (document.title == "X") {
+            if (document.title == "X") {
                 TUICObserver.headObserver.disconnect();
                 document.title = "Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
@@ -635,8 +624,43 @@ const TUICObserver = {
                     subtree: true,
                     attributes: true,
                 });
+            } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
+                TUICObserver.headObserver.disconnect();
+                document.title = (document.title.match(/\(\d\)/) ?? "") + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (window.location.pathname.includes("/status/")) {
+                TUICObserver.headObserver.disconnect();
+                console.log(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
+                const titleInfo = document.title.match(new RegExp(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
+                document.title =
+                    (document.title.match(/\(\d\)/) ?? "") +
+                    TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweeted")
+                        .replace(`{fullName}`, titleInfo[1])
+                        .replace("{tweetText}", titleInfo[2])
+                        .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (document.title.endsWith(" / X")) {
+                TUICObserver.headObserver.disconnect();
+                document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter") /*.replace(" / X", " / Twitter")*/;
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
             }
         }
+        window.clearTimeout(timeout);
     },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);

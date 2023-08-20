@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} X वर: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} यांनी ट्विट केले: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "...वरून ट्विट शेअर करा",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "ट्विटची लिंक कॉपी करा",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "ट्विट्स",

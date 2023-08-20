@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} টুইট করেছেন: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "এর মাধ্যমে টুইট ভাগ করুন ...",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "টুইটের লিঙ্ক অনুলিপি করুন",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "টুইটগুলি",
