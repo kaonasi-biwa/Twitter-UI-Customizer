@@ -4,26 +4,30 @@ let TUICPref = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPre
 /* eslint-enable */
 let TUICCount = 0;
 function replaceRunningIcon() {
-    if (document.getElementById("react-root") != null) {
+    if (document.getElementById("react-root")) {
         if (document.querySelector("#twitter_ui_customizer_query") == null) {
             const queryElem = document.createElement("meta");
             queryElem.id = "twitter_ui_customizer_query";
             queryElem.setAttribute("query", "");
             document.querySelector("head").appendChild(queryElem);
         } else {
-            TUICLibrary.getClasses.query = document.querySelector("#twitter_ui_customizer_query").getAttribute("query") + "A";
-            document.querySelector("#twitter_ui_customizer_query").setAttribute("query", TUICLibrary.getClasses.query);
+            const queryElem = document.querySelector("#twitter_ui_customizer_query");
+            const query = queryElem.getAttribute("query") + "A";
+
+            TUICLibrary.getClasses.query = query;
+            queryElem.setAttribute("query", query);
         }
 
-        if (document.querySelector(".TUICOriginalContent") != null) {
-            for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
-                elem.remove();
-            }
+        for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
+            elem.remove();
         }
 
         TUICRunFirst();
         if (document.querySelector(`#placeholder > svg`)) {
-            TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`), document.querySelector(`#placeholder`));
+            TUICObserver.functions.twitterIcon(
+                document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
+                document.querySelector(`#placeholder`)
+            );
         }
 
         (async () => {
