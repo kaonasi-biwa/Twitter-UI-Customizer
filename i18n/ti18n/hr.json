@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} objavio/la je Tweet: „{tweetText}”",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Podijeli Tweet putem...",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopiraj poveznicu u Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweetovi",

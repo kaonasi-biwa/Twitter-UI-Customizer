@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "Ο χρήστης {fullName} έγραψε Tweet: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Κοινοποίηση Tweet μέσω…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Αντιγραφή συνδέσμου στο Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweet",

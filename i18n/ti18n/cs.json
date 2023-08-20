@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} na platformě X: „{tweetText}“",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "Uživatel {fullName} tweetnul: {tweetText}",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Sdílet Tweet přes...",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Zkopírovat odkaz na Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweety",

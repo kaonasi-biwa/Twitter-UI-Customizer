@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} på X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} tweetede: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Del tweetet via …",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopier link til Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweets",
