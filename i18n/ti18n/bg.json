@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} туитна: „{tweetText}“",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Споделяне на туита чрез…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Копиране на връзка към туит",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Туитове",

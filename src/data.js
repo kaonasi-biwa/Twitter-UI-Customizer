@@ -685,9 +685,10 @@ const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
+        all: ["twitter-pro-promotion-btn", "config-premium", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
         i18n: {
             "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
+            "config-premium": "invisibleItems-configPremium",
             "subscribe-tweets": "invisibleItems-subscribeTweets",
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",

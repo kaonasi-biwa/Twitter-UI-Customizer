@@ -1,0 +1,9 @@
+{
+    "oldTranslate": ["e2414185"],
+    "latestTranslate": ["a4d3eb67"],
+    "fixPlural": ["c42234da", "e2414185", "e74e9bb7"],
+    "deleteString": {
+        "g132f681": ["@{screenName}"],
+        "e74e9bb7": [".", "。", "{tweetCount}"]
+    }
+}

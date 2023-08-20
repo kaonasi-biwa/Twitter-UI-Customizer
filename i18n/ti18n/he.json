@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
+    "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} צייצ/ה: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "שתף ציוץ דרך…",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "העתק קישור לציוץ",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "ציוצים",
