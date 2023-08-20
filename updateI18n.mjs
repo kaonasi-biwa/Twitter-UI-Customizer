@@ -10,10 +10,12 @@ import fs from "fs";
             locales.push(process.argv[i]);
         }
     }
+    const i18nObjectNew = {};
     const i18nObject = {};
     const i18nObjectOld = {};
     for (const elem of locales) {
         console.log(`Fetching i18n (${elem})...`);
+        i18nObjectNew[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/" + elem + ".json")).json();
         i18nObject[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/3f0ec1fb005f218a7eb60b580fd620541b1a9ad5/docs/json/i18n/" + elem + ".json")).json();
         i18nObjectOld[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/" + elem + ".json")).json();
     }
@@ -25,7 +27,7 @@ import fs from "fs";
         console.log(`Generating i18n (${elem})...`);
         let tmpObj = {};
         for (const elem2 in TUICI18ns) {
-            if (i18nObject[elem][TUICI18ns[elem2]] != undefined || i18nObjectOld[elem][TUICI18ns[elem2]] != undefined) {
+            if (i18nObject[elem][TUICI18ns[elem2]] != undefined || i18nObjectOld[elem][TUICI18ns[elem2]] != undefined || i18nObjectNew[elem][TUICI18ns[elem2]] != undefined) {
                 if (TUICI18ns[elem2] == "g132f681") {
                     tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]].replace("@{screenName}", ""), ...tmpObj };
                 } else if (TUICI18ns[elem2] == "e74e9bb7") {
@@ -45,6 +47,8 @@ import fs from "fs";
                     } else {
                         tmpObj = { [elem2]: i18nObjectOld[elem][TUICI18ns[elem2]], ...tmpObj };
                     }
+                } else if (TUICI18ns[elem2] == "a4d3eb67") {
+                    tmpObj = { [elem2]: i18nObjectNew[elem][TUICI18ns[elem2]], ...tmpObj };
                 } else {
                     tmpObj = { [elem2]: i18nObject[elem][TUICI18ns[elem2]], ...tmpObj };
                 }

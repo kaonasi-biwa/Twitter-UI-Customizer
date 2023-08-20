@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "Xユーザーの{fullName}さん: 「{tweetText}」",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName}さんがツイートしました: 「{tweetText}」",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "その他の方法でツイートを共有",
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "ツイートのリンクをコピー",
