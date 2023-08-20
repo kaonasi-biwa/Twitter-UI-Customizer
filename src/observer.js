@@ -56,7 +56,7 @@ const TUICObserver = {
 
         TUICObserver.functions.osusumeUser();
         TUICObserver.functions.replacePost();
-        TUICObserver.functions.twitterProPromotionBtn();
+        TUICObserver.functions.invisibleItems();
 
         TUICObserver.functions.clientInfo();
 
@@ -534,16 +534,14 @@ const TUICObserver = {
                 // TODO: aria-label が設定されているものは変更したほうがいいかもしれない
             }
         },
-        twitterProPromotionBtn: function () {
-            if (TUICPref.invisibleItems["twitter-pro-promotion-btn"] !== undefined) {
-                document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-                    if (TUICPref.invisibleItems["twitter-pro-promotion-btn"]) {
-                        e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                    } else {
-                        e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                    }
-                });
-            }
+        invisibleItems: function () {
+            document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
+                if (TUICPref.invisibleItems["twitter-pro-promotion-btn"]) {
+                    e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                } else {
+                    e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                }
+            });
 
             if (TUICPref.invisibleItems["profileHighlights"]) {
                 const tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`);
@@ -551,6 +549,14 @@ const TUICObserver = {
                     elem.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             }
+
+            document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
+                if (TUICPref.invisibleItems["config-premium"]) {
+                    e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                } else {
+                    e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                }
+            });
         },
         clientInfo: function () {
             if (document.getElementById("client-info") == null && TUICPref.clientInfo.clientInfoVisible && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
