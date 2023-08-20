@@ -25,7 +25,7 @@
         "page": "TUIC/options/options.html",
         "browser_style": true
     },
-    "permissions": ["notifications", "storage", "https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"],
+    "permissions": ["notifications", "storage", "https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*", "alarms"],
     "browser_action": {
         "default_icon": {
             "16": "icon/newIcon_TUIC_C_Blue.svg",
