@@ -606,8 +606,25 @@ const TUICObserver = {
         },
     },
     titleObserverFunction: () => {
+        const timeout = window.setTimeout(function () {
+            TUICObserver.headObserver.observe(document.querySelector("title"), {
+                characterData: true,
+                childList: true,
+                subtree: true,
+                attributes: true,
+            });
+        }, 10000);
         if (TUICPref.XToTwitter["XToTwitter"]) {
-            if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
+            if (document.title == "X") {
+                TUICObserver.headObserver.disconnect();
+                document.title = "Twitter";
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
                 TUICObserver.headObserver.disconnect();
                 document.title = (document.title.match(/\(\d\)/) ?? "") + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
@@ -641,17 +658,9 @@ const TUICObserver = {
                     subtree: true,
                     attributes: true,
                 });
-            } else if (document.title == "X") {
-                TUICObserver.headObserver.disconnect();
-                document.title = "Twitter";
-                TUICObserver.headObserver.observe(document.querySelector("title"), {
-                    characterData: true,
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                });
             }
         }
+        window.clearTimeout(timeout);
     },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
