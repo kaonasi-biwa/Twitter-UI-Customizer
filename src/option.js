@@ -32,10 +32,7 @@ const TUICOptionHTML = {
                 const colorKind = event.target.getAttribute("TUICColorKind");
 
                 if (!TUICPref[colorKind][colorAttr]) TUICPref[colorKind][colorAttr] = {};
-                TUICPref[colorKind][colorAttr][colorType] =
-                    `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${
-                        document.getElementById(`${colorAttr}-${colorType}-check`).checked ? 0 : 1
-                    })`;
+                TUICPref[colorKind][colorAttr][colorType] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${document.getElementById(`${colorAttr}-${colorType}-check`).checked ? 0 : 1})`;
 
                 document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
@@ -58,8 +55,7 @@ const TUICOptionHTML = {
                 const colorKind = event.target.getAttribute("TUICColorKind");
 
                 if (!TUICPref[colorKind][colorAttr]) TUICPref[colorKind][colorAttr] = {};
-                TUICPref[colorKind][colorAttr][colorType] =
-                    `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${isChecked ? 0 : 1})`;
+                TUICPref[colorKind][colorAttr][colorType] = `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${isChecked ? 0 : 1})`;
 
                 document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 event.currentTarget.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
@@ -81,11 +77,11 @@ const TUICOptionHTML = {
 
                 document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
 
-                if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0) // TODO: 謎
+                if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0)
+                    // TODO: 謎
                     document.getElementById(`${colorAttr}-${colorType}-check`).checked = TUIC_color[3] == 0;
 
-                if (TUICPref[colorKind][colorAttr] && TUICPref[colorKind][colorAttr][colorType])
-                    delete TUICPref[colorKind][colorAttr][colorType];
+                if (TUICPref[colorKind][colorAttr] && TUICPref[colorKind][colorAttr][colorType]) delete TUICPref[colorKind][colorAttr][colorType];
 
                 document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
                 event.currentTarget.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
@@ -243,9 +239,7 @@ const TUICOptionHTML = {
                 const leftBox = parentBox.children[0].children[2];
                 const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if (selectedItem) {
-                    const selectedItemIndex =
-                        Array.from(parentBox.querySelectorAll(".TUICUpDownContent"))
-                            .findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
                     if (selectedItemIndex > 0) {
                         leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
@@ -262,9 +256,7 @@ const TUICOptionHTML = {
                 const leftBox = parentBox.children[0].children[2];
                 const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if (selectedItem) {
-                    const selectedItemIndex =
-                        Array.from(parentBox.querySelectorAll(".TUICUpDownContent"))
-                            .findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
                     if (selectedItemIndex != -1) {
                         leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
@@ -363,7 +355,7 @@ const TUICOptionHTML = {
                 const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
                 const selectItem = event.currentTarget.id;
-                parentBox.querySelector(`#${selectedItem}`).setAttribute("TUICSelectedUpDownContent", "true");
+                parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
                 parentBox.setAttribute("TUICSelectedItem", selectItem);
             },
             single: false,
