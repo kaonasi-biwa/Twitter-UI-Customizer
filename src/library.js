@@ -38,8 +38,7 @@ export const TUICPref = {
         delete object[key];
     },
     save: function() {
-        console.log("Saved");
-        // localStorage.setItem("TUIC", JSON.stringify(this.config));
+        localStorage.setItem("TUIC", JSON.stringify(this.config));
     },
     import: function(object) {
         if (typeof object === "string") {
