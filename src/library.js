@@ -320,16 +320,22 @@ export const TUICLibrary = {
             }[match];
         });
     },
-    waitForElement: async function (selector, checkInterval = 50) {
-        return new Promise((resolve, reject) => {
-            const interval = setInterval(() => {
-                const element = document.querySelector(selector);
-                if (element) {
-                    clearInterval(interval);
-                    resolve(element);
-                }
-            }, checkInterval);
-        })
+    waitForElement: async function (selector) {
+        if (document.querySelectorAll(selector).length !== 0) {
+            return Array.from(document.querySelectorAll(selector));
+        } else {
+            return new Promise(resolve => {
+                const observer = new MutationObserver(mutations => {
+                    const addedNodes = mutations.flatMap(m => Array.from(m.addedNodes)).filter(n => n instanceof HTMLElement);
+                    const matchedAddedNodes = addedNodes.filter(e => e.matches(selector));
+                    if (matchedAddedNodes.length !== 0) {
+                        observer.disconnect();
+                        resolve(matchedAddedNodes);
+                    }
+                });
+                observer.observe(document, {subtree: true, childList: true});
+            });
+        }
     }
 };
 String.prototype.escapeToUseHTML = function () {
