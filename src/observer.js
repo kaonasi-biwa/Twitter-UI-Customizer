@@ -3,13 +3,11 @@ import { TUICData } from "./data.js";
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICOptionHTML } from "./option.js";
+import { isSafemode } from "./safemode.js";
 
 export const TUICObserver = {
     observerFunction: function () {
         TUICObserver.observer.disconnect();
-        const timeout = window.setTimeout(function () {
-            TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-        }, 10000);
 
         if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`) != null) {
             if (!TUICObserver.iconObserver) {
@@ -76,7 +74,6 @@ export const TUICObserver = {
             TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
         }
 
-        window.clearTimeout(timeout);
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     },
     config: {
@@ -141,7 +138,7 @@ export const TUICObserver = {
                             bannerRoot.appendChild(moveElem);
                             moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                         } else if (i in TUICData.sidebarButtons.html) {
-                            moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]());
+                            moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
                             moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                             moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
                             moveElem.addEventListener("keydown", (e) => {
@@ -619,13 +616,15 @@ export const TUICObserver = {
 
         const titleElement = (await TUICLibrary.waitForElement("title"))[0];
 
-        if (TUICPref.get("XToTwitter.XToTwitter")) {
+        if (isSafemode) {
+            document.title = TUICI18N.get("safemode-title");
+        } else if (TUICPref.get("XToTwitter.XToTwitter")) {
             if (document.title == "X") {
                 document.title = "Twitter";
             } else if (location.pathname.includes("/i/timeline") || location.pathname.includes("/compose/tweet")) {
                 document.title = (document.title.match(/\(\d\)/) ?? "") + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
             } else if (location.pathname.includes("/status/")) {
-                console.log(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
+                // console.log(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
                 const titleInfo = document.title.match(new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 document.title =
                     (document.title.match(/\(\d\)/) ?? "") +
@@ -636,14 +635,14 @@ export const TUICObserver = {
             } else if (document.title.endsWith(" / X")) {
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter") /*.replace(" / X", " / Twitter")*/;
             }
-
-            TUICObserver.headObserver.observe(titleElement, {
-                characterData: true,
-                childList: true,
-                subtree: true,
-                attributes: true,
-            });
         }
+
+        TUICObserver.headObserver.observe(titleElement, {
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributes: true,
+        });
     },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);

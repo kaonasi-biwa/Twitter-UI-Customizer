@@ -1,5 +1,6 @@
 import { TUICData } from "./data.js";
 import { TUICLibrary, TUICPref } from "./library.js";
+import { isSafemode } from "./safemode.js";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
@@ -12,7 +13,7 @@ export function addCssElement() {
     twitterHead.appendChild(systemCssElement);
     applySystemCss();
 
-    if (window.location.pathname != "/tuic/safemode") {
+    if (!isSafemode) {
         const customCssElement = document.createElement("style");
         customCssElement.id = "twitter_ui_customizer_css";
         twitterHead.appendChild(customCssElement);
@@ -50,11 +51,11 @@ export function applySystemCss() {
 }
 
 /* セーフモード時の設定画面スタイル */
-#safemode > #TUIC_setting {
+#TUIC_safemode > #TUIC_setting {
     margin: 2em auto;
     max-width: 600px;
 }
-#safemode > .r-135wba7 {
+#TUIC_safemode > .r-135wba7 {
     line-height: 1em;
 }
 
