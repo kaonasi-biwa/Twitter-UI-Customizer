@@ -1,6 +1,57 @@
-let TUICI18N;
+import { applySystemCss } from "./applyCSS.js";
+import { TUICData } from "./data.js";
+import { TUICObserver } from "./observer.js";
 
-const TUICLibrary = {
+// NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
+function getPointerFromKey(object, key) {
+    const keys = ["o", ...key.split(".").filter(k => k !== "")];
+    let pointer = { o: object };
+    for (let i = 0; i < keys.length; i++) {
+        const k = keys[i];
+        if (i === keys.length - 1) {
+            return {
+                object: pointer,
+                key: k
+            };
+        } else {
+            if (!(k in pointer)) {
+                pointer[k] = {};
+            }
+            pointer = pointer[k];
+        }
+    }
+}
+
+/* eslint-disable */
+export const TUICPref = {
+    config: JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString()),
+    get: function(identifier) {
+        const { object, key } = getPointerFromKey(this.config, identifier);
+        return object[key];
+    },
+    set: function(identifier, value) {
+        const { object, key } = getPointerFromKey(this.config, identifier);
+        object[key] = value;
+    },
+    delete: function(identifier) {
+        const { object, key } = getPointerFromKey(this.config, identifier);
+        delete object[key];
+    },
+    save: function() {
+        localStorage.setItem("TUIC", JSON.stringify(this.config));
+    },
+    import: function(object) {
+        if (typeof object === "string") {
+            this.config = JSON.parse(object);
+        } else {
+            this.config = object;
+        }
+    },
+    export: function() {
+        return JSON.stringify(this.object);
+    }
+};
+export const TUICLibrary = {
     color: {
         rgb2hex: function (rgb) {
             return `#${rgb
@@ -22,7 +73,7 @@ const TUICLibrary = {
             } else {
                 mode = mode_;
             }
-            return (TUICPref?.[mode]?.[name]?.[type] ?? TUICData?.["colors-" + mode]?.[name]?.[type] ?? TUICPref.buttonColor[name]?.[type] ?? TUICData.colors[name][type]).escapeToUseHTML();
+            return (TUICPref.get(`${mode}.${name}.${type}`) ?? TUICData?.["colors-" + mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type]).escapeToUseHTML();
         },
     },
     getClasses: {
@@ -32,7 +83,7 @@ const TUICLibrary = {
         update: function () {
             this.query += "_";
             document.querySelector("#twitter_ui_customizer_query").setAttribute("query", this.query);
-            TUICCss();
+            applySystemCss();
             TUICObserver.observerFunction();
         },
         query: "",
@@ -52,65 +103,47 @@ const TUICLibrary = {
                 this.parallelToSerial();
             }
 
-            if (TUICPref.otherBoolSetting.clientInfo == true) {
-                TUICPref.clientInfo = {};
-                TUICPref.clientInfo.clientInfoVisible = true;
+            if (TUICPref.get("otherBoolSetting.clientInfo") == true) {
+                TUICPref.set("clientInfo", {clientInfoVisible: true});
             }
-            delete TUICPref.otherBoolSetting.clientInfo;
+            TUICPref.delete("otherBoolSetting.clientInfo");
 
-            if (typeof TUICPref.timeline != "object") {
-                TUICPref.timeline = {};
+            if (typeof TUICPref.get("timeline") != "object")
+                TUICPref.set("timeline", {});
+
+            if (typeof TUICPref.get("rightSidebar") != "object")
+                TUICPref.set("rightSidebar", {});
+
+            if (typeof TUICPref.get("XToTwitter") != "object")
+                TUICPref.set("XToTwitter", {});
+
+            /**
+             * boolean 値の設定キーを変更します。
+             * 
+             * 値が truthy であれば `replaceValue` に、値が falsy であればキーを変更せず古いキーの削除だけを行います。
+             * @param {string} previousKey 変更元のキー
+             * @param {string} nextKey 変更先のキー
+             * @param {any} replaceValue 置き換える値
+             */
+            function changeBooleanKey(previousKey, nextKey, replaceValue = true) {
+                if (TUICPref.get(previousKey) === true)
+                    TUICPref.set(nextKey, replaceValue);
+                TUICPref.delete(previousKey);
             }
 
-            if (typeof TUICPref.rightSidebar != "object") {
-                TUICPref.rightSidebar = {};
-            }
+            changeBooleanKey("invisibleItems.osusume-user-timeline", "timeline.osusume-user-timeline");
+            changeBooleanKey("invisibleItems.hideOhterRTTL", "timeline.hideOhterRTTL");
+            changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", "discoverMore_invisible");
+            changeBooleanKey("invisibleItems.verified-rSidebar", "rightSidebar.verified");
+            changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
+            changeBooleanKey("otherBoolSetting.XtoTwitter", "XToTwitter.XToTwitter");
+            changeBooleanKey("otherBoolSetting.PostToTweet", "XToTwitter.PostToTweet");
 
-            if (typeof TUICPref.XToTwitter != "object") {
-                TUICPref.XToTwitter = {};
-            }
+            if (TUICPref.get("CSS"))
+                localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
+            TUICPref.set("CSS");
 
-            if (TUICPref.invisibleItems["osusume-user-timeline"] == true) {
-                TUICPref.timeline["osusume-user-timeline"] = true;
-            }
-            delete TUICPref.invisibleItems["osusume-user-timeline"];
-
-            if (TUICPref.invisibleItems["hideOhterRTTL"] == true) {
-                TUICPref.timeline["hideOhterRTTL"] = true;
-            }
-            delete TUICPref.invisibleItems["hideOhterRTTL"];
-
-            if (TUICPref.invisibleItems["discoverMore"] == true) {
-                TUICPref["timeline-discoverMore"] = "discoverMore_invisible";
-            }
-            delete TUICPref.invisibleItems["discoverMore"];
-
-            if (TUICPref.invisibleItems["verified-rSidebar"] == true) {
-                TUICPref.rightSidebar["verified"] = true;
-            }
-            delete TUICPref.invisibleItems["verified-rSidebar"];
-
-            if (TUICPref.otherBoolSetting.invisibleTwitterLogo == true) {
-                TUICPref.twitterIcon = "invisible";
-            }
-            delete TUICPref.otherBoolSetting.invisibleTwitterLogo;
-
-            if (TUICPref.otherBoolSetting["XtoTwitter"] == true) {
-                TUICPref.XToTwitter["XToTwitter"] = true;
-            }
-            delete TUICPref.otherBoolSetting["XtoTwitter"];
-
-            if (TUICPref.otherBoolSetting["PostToTweet"] == true) {
-                TUICPref.XToTwitter["PostToTweet"] = true;
-            }
-            delete TUICPref.otherBoolSetting["PostToTweet"];
-
-            if ("CSS" in TUICPref) {
-                localStorage.setItem("TUIC_CSS", TUICPref.CSS);
-            }
-            delete TUICPref.CSS;
-
-            if (localStorage.getItem(`TUIC_IconImg`) != null && localStorage.getItem(`TUIC_IconImg_Favicon`) == null) {
+            if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
                 await new Promise((resolve, reject) => {
                     const element = document.createElement("canvas");
                     element.height = 200;
@@ -123,37 +156,34 @@ const TUICLibrary = {
                     image.onload = function () {
                         context.beginPath();
                         context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
-                        localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
+                        localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                         resolve();
                     };
                     image.src = localStorage.getItem(`TUIC_IconImg`);
                 });
             }
 
-            if (typeof TUICPref.visibleButtons == "object" && TUICPref.visibleButtons.indexOf("downvote-button") != -1) {
-                TUICPref.visibleButtons = TUICPref.visibleButtons.filter((elem) => {
-                    return elem != "downvote-button";
-                });
+            if (typeof TUICPref.get("visibleButtons") == "object" && ~TUICPref.get("visibleButtons").indexOf("downvote-button")) {
+                TUICPref.set("visibleButtons", TUICPref.get("visibleButtons").filter(elem => elem != "downvote-button"));
             }
-            if (typeof TUICPref.sidebarButtons == "object" && TUICPref.sidebarButtons.indexOf("verified-orgs-signup") != -1) {
-                TUICPref.sidebarButtons = TUICPref.sidebarButtons.filter((elem) => {
-                    return elem != "verified-orgs-signup";
-                });
+            if (typeof TUICPref.get("sidebarButtons") == "object" && ~TUICPref.get("sidebarButtons").indexOf("verified-orgs-signup")) {
+                TUICPref.set("sidebarButtons", TUICPref.get("sidebarButtons").filter(elem => elem != "verified-orgs-signup"));
             }
 
-            this.updateToDefault(TUICPref, dPref);
+            TUICPref.set("", this.merge(dPref, TUICPref.get("")));
         },
         parallelToSerial: function () {
-            TUICPref.CSS = localStorage.getItem("CSS");
-            TUICPref.invisibleItems["osusume-user-timeline"] = (localStorage.getItem("osusume-user-timeline") ?? "0") == "1";
-            TUICPref.visibleButtons = JSON.parse(localStorage.getItem("visible-button"));
+            TUICPref.set("CSS", localStorage.getItem("CSS"));
+            TUICPref.set("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
+            TUICPref.set("visibleButtons", JSON.parse(localStorage.getItem("visible-button")));
             for (const i of TUICData.settings.colors.id) {
                 const a = localStorage.getItem(`${i}-background`) ?? "unknown";
                 if (a != "unknown") {
-                    TUICPref.buttonColor[i] = {};
-                    TUICPref.buttonColor[i].background = a;
-                    TUICPref.buttonColor[i].border = localStorage.getItem(`${i}-border`);
-                    TUICPref.buttonColor[i].color = localStorage.getItem(`${i}-color`);
+                    TUICPref.set("buttonColor." + i, {
+                        background: a,
+                        border: localStorage.getItem(`${i}-border`),
+                        color: localStorage.getItem(`${i}-color`),
+                    });
                 }
             }
 
@@ -192,16 +222,22 @@ const TUICLibrary = {
             localStorage.removeItem("osusume-user-timeline");
             localStorage.removeItem("CSS");
 
-            localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+            TUICPref.save();
         },
-        updateToDefault: function (object, defObject) {
-            for (const i in defObject) {
-                if (!(i in object)) {
-                    object[i] = defObject[i];
-                } else if (typeof defObject[i] == "object" && !Array.isArray(defObject[i])) {
-                    this.updateToDefault(object[i], defObject[i]);
+        /**
+         * `source` に `object` をマージします。 `source` オブジェクトは上書きされます。
+         * @param {object} source マージ元
+         * @param {object} target マージ先
+         */
+        merge: function (source, target) {
+            for (const i in source) {
+                if (!(i in target)) {
+                    target[i] = source[i];
+                } else if (typeof source[i] == "object" && !Array.isArray(source[i])) {
+                    this.merge(target[i], source[i]);
                 }
             }
+            return source;
         },
     },
     backgroundColorCheck: function () {
@@ -216,9 +252,9 @@ const TUICLibrary = {
     },
     backgroundColorClass: function (dark, blue, white) {
         const backgroundType = this.backgroundColorCheck();
-        if (this.backgroundColorCheck == "dark") {
+        if (backgroundType == "dark") {
             return dark;
-        } else if (this.backgroundColorCheck == "blue") {
+        } else if (backgroundType == "blue") {
             return blue;
         } else {
             return white;
@@ -236,35 +272,8 @@ const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2;
         }
     },
-    TUICParser: new DOMParser(),
     HTMLParse: function (elem) {
-        return this.HTMLParseFunc(elem).querySelector("body > *");
-    },
-    HTMLParseAll: function (elem) {
-        return this.HTMLParseFunc(elem).querySelectorAll("body > *");
-    },
-    HTMLParseFunc: function (elem) {
-        return this.TUICParser.parseFromString(elem, "text/html");
-    },
-    fetchI18n: async function () {
-        return new Promise((resolve) => {
-            chrome.runtime.sendMessage({ type: "getI18n" }, (response) => {
-                TUICI18N = JSON.parse(response);
-                resolve(TUICI18N);
-            });
-        });
-    },
-    getI18n: function (elem) {
-        const lang = document.querySelector("html").getAttribute("lang");
-        if (lang in TUICI18N && elem in TUICI18N[lang]) {
-            return TUICI18N[lang][elem].escapeToUseHTML();
-        } else if (elem in TUICI18N.en) {
-            return TUICI18N.en[elem].escapeToUseHTML();
-        } else if (elem in TUICI18N.ja) {
-            return TUICI18N.ja[elem].escapeToUseHTML();
-        } else {
-            return "404";
-        }
+        return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     escapeToUseHTML: function (text) {
         return text.replace(/[&'`"<>=;]/g, function (match) {
@@ -280,6 +289,23 @@ const TUICLibrary = {
             }[match];
         });
     },
+    waitForElement: async function (selector) {
+        if (document.querySelectorAll(selector).length !== 0) {
+            return Array.from(document.querySelectorAll(selector));
+        } else {
+            return new Promise(resolve => {
+                const observer = new MutationObserver(mutations => {
+                    const addedNodes = mutations.flatMap(m => Array.from(m.addedNodes)).filter(n => n instanceof HTMLElement);
+                    const matchedAddedNodes = addedNodes.filter(e => e.matches(selector));
+                    if (matchedAddedNodes.length !== 0) {
+                        observer.disconnect();
+                        resolve(matchedAddedNodes);
+                    }
+                });
+                observer.observe(document, {subtree: true, childList: true});
+            });
+        }
+    }
 };
 String.prototype.escapeToUseHTML = function () {
     return TUICLibrary.escapeToUseHTML(this);

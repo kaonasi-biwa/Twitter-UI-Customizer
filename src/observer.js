@@ -1,9 +1,13 @@
-const TUICObserver = {
+import { addCssElement } from "./applyCSS.js";
+import { TUICData } from "./data.js";
+import { TUICI18N } from "./i18n.js";
+import { TUICLibrary, TUICPref } from "./library.js";
+import { TUICOptionHTML } from "./option.js";
+import { isSafemode } from "./safemode.js";
+
+export const TUICObserver = {
     observerFunction: function () {
         TUICObserver.observer.disconnect();
-        const timeout = window.setTimeout(function () {
-            TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-        }, 10000);
 
         if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`) != null) {
             if (!TUICObserver.iconObserver) {
@@ -62,7 +66,7 @@ const TUICObserver = {
 
         TUICObserver.functions.updateStyles();
 
-        TUICRunFirst();
+        addCssElement();
         if (window.location.pathname == "/tuic/safemode") {
         } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/settings/display") {
             TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
@@ -70,7 +74,6 @@ const TUICObserver = {
             TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
         }
 
-        window.clearTimeout(timeout);
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     },
     config: {
@@ -79,38 +82,38 @@ const TUICObserver = {
     },
     functions: {
         twitterIcon: function (elem, base) {
-            switch (TUICPref.twitterIcon /* eslint-disable */) {
+            switch (TUICPref.get("twitterIcon") /* eslint-disable */) {
                 case "invisible":
-                    if (TUICPref.otherBoolSetting["faviconSet"]) {
+                    if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         document.querySelector(`[rel="shortcut icon"]`).href = TUICData.emptySVG;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     base.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                     break;
                 case "twitter":
-                    if (TUICPref.otherBoolSetting["faviconSet"]) {
+                    if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter"));
                     break;
                 case "dog":
-                    if (TUICPref.otherBoolSetting["faviconSet"]) {
+                    if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         document.querySelector(`[rel="shortcut icon"]`).href = TUICData.dogIconBase64;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog"));
                     break;
                 case "custom":
-                    if (TUICPref.otherBoolSetting["faviconSet"]) {
-                        const imageURL = localStorage.getItem(TUICPref.otherBoolSetting["roundIcon"] ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                    if (TUICPref.get("otherBoolSetting.faviconSet")) {
+                        const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                         document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg"));
                     break;
                 case "twitterIcon-X":
-                    if (TUICPref.otherBoolSetting["faviconSet"]) {
+                    if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconXSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
@@ -121,7 +124,7 @@ const TUICObserver = {
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_NOTSVGDISPNONE"));
                     break;
             } /* eslint-enable */
-            if (!TUICPref.otherBoolSetting["faviconSet"]) {
+            if (!TUICPref.get("otherBoolSetting.faviconSet")) {
                 document.querySelector(`[rel="shortcut icon"]`).href = "//abs.twimg.com/favicons/twitter.3.ico";
             }
         },
@@ -129,13 +132,13 @@ const TUICObserver = {
             const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
             if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
                 if (!window.location.pathname.startsWith("/i/communitynotes")) {
-                    for (const i of TUICPref.sidebarButtons) {
+                    for (const i of TUICPref.get("sidebarButtons")) {
                         let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                         if (moveElem != null) {
                             bannerRoot.appendChild(moveElem);
                             moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                         } else if (i in TUICData.sidebarButtons.html) {
-                            moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]());
+                            moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
                             moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                             moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
                             moveElem.addEventListener("keydown", (e) => {
@@ -150,7 +153,7 @@ const TUICObserver = {
                     }
                 }
                 for (const i of TUICData.settings.sidebarButtons.all) {
-                    if (!TUICPref.sidebarButtons.includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
+                    if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
                         const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                         if (moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                     }
@@ -178,14 +181,14 @@ const TUICObserver = {
                         while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
                             bar_base = bar_base.parentElement;
                         }
-                        if (TUICPref.otherBoolSetting.bottomScroll ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"));
-                        if (TUICPref.otherBoolSetting.bottomSpace ?? TUICData.defaultPref.otherBoolSetting.bottomSpace) {
+                        if (TUICPref.get("otherBoolSetting.bottomScroll") ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"));
+                        if (TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace) {
                             const space = elem.querySelector(`[aria-labelledby]`);
                             if (space != null && space.children[0].childElementCount == 0) {
                                 space.classList.add(TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET"));
                             }
                         }
-                        if (TUICPref.timeline["hideOhterRTTL"] && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
+                        if (TUICPref.get("timeline.hideOhterRTTL") && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
                             elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                         }
                         const bar_item = {};
@@ -203,7 +206,7 @@ const TUICObserver = {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
                         let lastButton;
-                        for (const i of TUICPref.visibleButtons) {
+                        for (const i of TUICPref.get("visibleButtons")) {
                             let div = -1;
                             if (i in bar_item) {
                                 div = bar_item[i];
@@ -222,7 +225,7 @@ const TUICObserver = {
                         }
 
                         for (var i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
-                            if (!TUICPref.visibleButtons.includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
+                            if (!TUICPref.get("visibleButtons").includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
                                 bar_item[TUICData.settings.visibleButtons.all[i]].classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                             }
                         }
@@ -232,7 +235,7 @@ const TUICObserver = {
             }
         },
         osusumeUser: function () {
-            if (TUICPref.timeline["osusume-user-timeline"] && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
+            if (TUICPref.get("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
                 const cells = document.querySelectorAll(
                     `div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`,
                 );
@@ -258,13 +261,13 @@ const TUICObserver = {
                 for (const elem of cells) {
                     if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                         elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISCOVERHEADER"));
-                        if (TUICPref["timeline-discoverMore"] == "discoverMore_invisible") {
+                        if (TUICPref.get("timeline-discoverMore") === "discoverMore_invisible") {
                             elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                             elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                             if (elem.getAttribute("TUICDiscoberMore") != null) {
                                 elem.removeAttribute("TUICDiscoberMore");
                             }
-                        } else if (TUICPref["timeline-discoverMore"] == "discoverMore_detailOpen") {
+                        } else if (TUICPref.get("timeline-discoverMore") === "discoverMore_detailOpen") {
                             elem.setAttribute("TUICDiscoberMore", "true");
                             elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
                             elem.onclick = (event) => {
@@ -274,7 +277,7 @@ const TUICObserver = {
                                 event.stopPropagation();
                                 event.stopImmediatePropagation();
                             };
-                        } else if (TUICPref["timeline-discoverMore"] == "discoverMore_detailClose") {
+                        } else if (TUICPref.get("timeline-discoverMore") === "discoverMore_detailClose") {
                             elem.setAttribute("TUICDiscoberMore", "false");
                             elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                             elem.onclick = (event) => {
@@ -303,7 +306,7 @@ const TUICObserver = {
                     }
                 }
             }
-            if (TUICPref.timeline["accountStart"] && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
+            if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
                 const cells = document.querySelectorAll(
                     `div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`,
                 );
@@ -312,16 +315,16 @@ const TUICObserver = {
                     elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             }
-            if (TUICPref.rightSidebar["verified"] && document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
+            if (TUICPref.get("rightSidebar.verified") && document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
                 document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="complementary"] [href="/i/verified-choose"]`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.rightSidebar["trend"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="trend"]`) != null) {
+            if (TUICPref.get("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="trend"]`) != null) {
                 document
                     .querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="trend"]`)
                     .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
             if (
-                TUICPref.rightSidebar["osusumeUser"] &&
+                TUICPref.get("rightSidebar.osusumeUser") &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"] > span`) == null
             ) {
@@ -329,27 +332,27 @@ const TUICObserver = {
             }
 
             if (
-                TUICPref.rightSidebar["relevantPeople"] &&
+                TUICPref.get("rightSidebar.relevantPeople") &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`) != null &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"] [dir="auto"] > span`) != null
             ) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.rightSidebar["links"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > nav`) != null) {
+            if (TUICPref.get("rightSidebar.links") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > nav`) != null) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > nav`).parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.rightSidebar["searchBox"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [role="search"]`) != null) {
+            if (TUICPref.get("rightSidebar.searchBox") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [role="search"]`) != null) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [role="search"]`).parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.rightSidebar["space"] && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="pill-contents-container"]`) != null) {
+            if (TUICPref.get("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="pill-contents-container"]`) != null) {
                 document
                     .querySelector(`[data-testid="sidebarColumn"] *:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) [data-testid="pill-contents-container"]`)
                     .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.invisibleItems["subscribe-tweets"] && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [data-testid$="-subscribe"]`) != null) {
+            if (TUICPref.get("invisibleItems.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [data-testid$="-subscribe"]`) != null) {
                 document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
-            if (TUICPref.invisibleItems["subscribe-profile"] && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
+            if (TUICPref.get("invisibleItems.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`).classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
             }
         },
@@ -369,7 +372,7 @@ const TUICObserver = {
                 return elements;
             }
 
-            if (TUICPref.XToTwitter["PostToTweet"]) {
+            if (TUICPref.get("XToTwitter.PostToTweet")) {
                 const isTweetPage = location.pathname.includes("/status/");
                 const isQuotesPage = location.pathname.includes("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
@@ -383,33 +386,33 @@ const TUICObserver = {
 
                 if (isTweetPage) {
                     // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
-                    for (const elem of getNotReplacedElements('.public-DraftEditorPlaceholder-inner:not([role="dialog"])')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
+                    for (const elem of getNotReplacedElements('.public-DraftEditorPlaceholder-inner:not([role="dialog"])')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-reply");
 
                     // ツイート画面の「n件のリツイート」のテキスト
-                    for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweetCount");
+                    for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweetCount");
                     // ツイート画面の「n件の引用ツイート」のテキスト
-                    for (const elem of getNotReplacedElements('a[href$="/retweets/with_comments"] > div+span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteCount");
+                    for (const elem of getNotReplacedElements('a[href$="/retweets/with_comments"] > div+span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteCount");
 
                     // ツイート画面のツイートアナリティクスの表示ボタン
-                    for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
+                    for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics");
 
                     // ツイート画面の翻訳の表示ボタン
-                    for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-translateTweet");
+                    for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-translateTweet");
                 } else if (isAnalyticsPage) {
                     // ツイートアナリティクスのダイアログヘッダー
-                    for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                    for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
                 } else if (isUserPage) {
                     // ユーザーの「n件のツイート」
-                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetCount");
+                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
 
                     // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
-                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
+                    for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweet");
                 } else if (isNotifications) {
                     // 通知の「ポスト」を修正 「リツイート」以外は適したi18nが見つからないので無理だった
                     /**/
                     for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] article > div span > span:not(a *)`)) {
-                        if (elem.textContent.includes(TUICLibrary.getI18n("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase())) {
-                            elem.textContent = elem.textContent.replace(TUICLibrary.getI18n("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase(), TUICLibrary.getI18n("XtoTwitter-PostToTweet-notificationsRetweet").toLowerCase());
+                        if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase())) {
+                            elem.textContent = elem.textContent.replace(TUICI18N.get("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase(), TUICI18N.get("XtoTwitter-PostToTweet-notificationsRetweet").toLowerCase());
                         }
                     } /**/
                 }
@@ -418,13 +421,13 @@ const TUICObserver = {
                 for (const elem of getNotReplacedElements(
                     '[role="menu"] [data-testid="Dropdown"] [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-shareMenu-copyURL");
+                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyURL");
 
                 // 共有 > その他の方法
                 for (const elem of getNotReplacedElements(
                     '[role="menu"] [data-testid="Dropdown"] [d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
+                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
 
                 // ツイート入力ダイアログ
                 const isDialog = !!document.querySelector('[role="dialog"]');
@@ -435,13 +438,13 @@ const TUICObserver = {
                     // TODO: ツイートダイアログを開いて、別のツイートを追加→追加のツイートを削除 すると、すでに置き換えフラグが立っているためもう一度置き換え処理が走らないバグがある。
                     if (isDialog && isMultipleTweet) {
                         // ダイアログで複数ツイートする場合
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAllButton");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton");
                     } else if (isDialog && !isReply) {
                         // ダイアログでツイートする場合
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
                     } else if (!isDialog) {
                         // TL上部のツイートダイアログの場合
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
                     }
                     // NOTE: kaonasi_biwa さんと連絡を取り合い、返信ボタンは現時点では改変しないことになりました: https://twitter.com/fami_kotone/status/1692551624714231961
                 }
@@ -449,74 +452,74 @@ const TUICObserver = {
                 for (const elem of getNotReplacedElements('[role="dialog"] .public-DraftEditorPlaceholder-inner')) {
                     if (isDialog && isMultipleTweet) {
                         // ダイアログで複数ツイートする場合
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-addTweet");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-addTweet");
                     } else if (isDialog && isReply) {
                         // ダイアログでリプライを送る場合
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-placeholder-reply");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-reply");
                     }
                 }
                 // ツイート入力ダイアログの、送信先ポップアップの「Twitterサークル」の文字
                 for (const elem of getNotReplacedElements(
                     '[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("div + div > div > span").textContent = TUICLibrary.getI18n("sidebarButtons-circles");
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("div + div > div > span").textContent = TUICI18N.get("sidebarButtons-circles");
                 // ツイート入力ダイアログの、送信先としてサークルが設定されているときに表示される、「Twitterサークル」の文字
-                for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`)) elem.textContent = TUICLibrary.getI18n("sidebarButtons-circles");
+                for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`)) elem.textContent = TUICI18N.get("sidebarButtons-circles");
                 // ツイート下書き保存確認ダイアログのヘッダー
-                if (isDialog) for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetSaveConfirm");
+                if (isDialog) for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetSaveConfirm");
 
                 // リツイート確認ポップアップの「リツイート」ボタン
-                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet");
                 // リツイート確認ポップアップの「リツイート」ボタン
-                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="unretweetConfirm"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
+                for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="unretweetConfirm"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unretweet");
                 // リツイート確認ポップアップの「引用ツイート」ボタン
-                for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
 
                 // TODO: i18nデータが存在しないためコメントアウト
                 // // ツイートその他ポップアップの「このツイートに興味がない」ボタン
                 // for (const elem of getNotReplacedElements('path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]'))
-                //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
                 // // ツイートその他ポップアップの「ツイートを埋め込み」ボタン
                 // for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]'))
-                //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quote");
+                //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
                 // ツイートその他ポップアップの「ツイートを報告」ボタン
-                for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-reportTweet");
+                for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-reportTweet");
                 // ツイートその他ポップアップの「ツイートアナリティクスの表示」ボタン
-                for (const elem of getNotReplacedElements('[role="menu"] a[role="menuitem"][href$="/analytics"] span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetAnalytics");
+                for (const elem of getNotReplacedElements('[role="menu"] a[role="menuitem"][href$="/analytics"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics");
 
                 // サイドバーのツイートボタン
-                for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
 
                 // 「新しいツイートを表示」ポップアップ
-                for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweeted");
+                for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted");
 
                 // 「変身できるユーザーを変更」ダイアログの説明文
-                for (const elem of getNotReplacedElements("#conversation-controls-details > span")) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-replyRangeDetail");
+                for (const elem of getNotReplacedElements("#conversation-controls-details > span")) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-replyRangeDetail");
 
                 // プライマリカラム（中央に表示される画面）のヘッダー
                 for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] > span')) {
                     if (isQuotesPage) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteTitle");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTitle");
                     } else if (isTweetPage) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetTitle");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetTitle");
                     } else if (isNotificationsTimeline) {
-                        elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle");
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle");
                     }
                 }
 
                 // 検索バーのテキストボックス
-                for (const elem of getNotReplacedElements('[role="search"] input')) elem.setAttribute("placeholder", TUICLibrary.getI18n("XtoTwitter-PostToTweet-keywordSearch"));
+                for (const elem of getNotReplacedElements('[role="search"] input')) elem.setAttribute("placeholder", TUICI18N.get("XtoTwitter-PostToTweet-keywordSearch"));
 
                 // サイドナビゲーションが小さい時のツイートボタンをホバー中のツールチップ
-                if (isHoveringMiniSidenavTweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetButton");
+                if (isHoveringMiniSidenavTweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
                 // リツイートボタンをホバー中のツールチップ
-                else if (isHoveringRetweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweet");
+                else if (isHoveringRetweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet");
                 // リツイート解除ボタンをホバー中のツールチップ
-                else if (isHoveringUnretweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-unretweet");
+                else if (isHoveringUnretweetButton) for (const elem of getNotReplacedElements('[role="tooltip"] > [data-testid="HoverLabel"] > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unretweet");
 
                 // 固定ツイートの「固定」表示
                 for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-pinnedTweet");
+                    elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-pinnedTweet");
                 // 「{user}さんがリツイートしました」もしくは「リツイート済み」
                 for (const elem of getNotReplacedElements(
                     '[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]',
@@ -534,7 +537,7 @@ const TUICObserver = {
                         // personRetweetedText.textContent = "さんがリツイートしました";
                     } else {
                         // 「リツイート済み」
-                        container.querySelector("span").textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-retweeted");
+                        container.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted");
                     }
                 }
 
@@ -545,14 +548,14 @@ const TUICObserver = {
         },
         invisibleItems: function () {
             document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-                if (TUICPref.invisibleItems["twitter-pro-promotion-btn"]) {
+                if (TUICPref.get("invisibleItems.twitter-pro-promotion-btn")) {
                     e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 } else {
                     e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             });
 
-            if (TUICPref.invisibleItems["profileHighlights"]) {
+            if (TUICPref.get("invisibleItems.profileHighlights")) {
                 const tabs = document.querySelectorAll(`:not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}) > [role="tab"][href$="/highlights"]`);
                 for (const elem of tabs) {
                     elem.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
@@ -560,7 +563,7 @@ const TUICObserver = {
             }
 
             document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
-                if (TUICPref.invisibleItems["config-premium"]) {
+                if (TUICPref.get("invisibleItems.config-premium")) {
                     e.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 } else {
                     e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
@@ -568,9 +571,9 @@ const TUICObserver = {
             });
         },
         clientInfo: function () {
-            if (document.getElementById("client-info") == null && TUICPref.clientInfo.clientInfoVisible && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
+            if (document.getElementById("client-info") == null && TUICPref.get("clientInfo.clientInfoVisible") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
                 TUICObserver.functions.clientInfoVisible();
-            } else if (document.getElementById("client-info") != null && !TUICPref.clientInfo.clientInfoVisible) {
+            } else if (document.getElementById("client-info") != null && !TUICPref.get("clientInfo.clientInfoVisible")) {
                 document.getElementById("client-info").remove();
             }
         },
@@ -591,7 +594,7 @@ const TUICObserver = {
                     if (json.source ?? "unknwon" != "unknwon") {
                         cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
                     } else {
-                        cliantInfoElem.textContent = TUICLibrary.getI18n("clientInfo-cannotGetInfo");
+                        cliantInfoElem.textContent = TUICI18N.get("clientInfo-cannotGetInfo");
                     }
                 },
             );
@@ -614,18 +617,18 @@ const TUICObserver = {
             }
         },
     },
-    titleObserverFunction: () => {
-        const timeout = window.setTimeout(function () {
-            TUICObserver.headObserver.observe(document.querySelector("title"), {
-                characterData: true,
-                childList: true,
-                subtree: true,
-                attributes: true,
-            });
-        }, 10000);
-        if (TUICPref.XToTwitter["XToTwitter"]) {
+    titleObserverFunction: async () => {
+        if (TUICObserver.headObserver)
+            TUICObserver.headObserver.disconnect();
+        else
+            TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
+
+        const titleElement = (await TUICLibrary.waitForElement("title"))[0];
+
+        if (isSafemode) {
+            document.title = TUICI18N.get("safemode-title");
+        } else if (TUICPref.get("XToTwitter.XToTwitter")) {
             if (document.title == "X") {
-                TUICObserver.headObserver.disconnect();
                 document.title = "Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
                     characterData: true,
@@ -635,7 +638,7 @@ const TUICObserver = {
                 });
             } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
                 TUICObserver.headObserver.disconnect();
-                document.title = (document.title.match(/\(\d\)/) ?? "") + TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
+                document.title = (document.title.match(/\(\d\)/) ?? "") + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
                     characterData: true,
                     childList: true,
@@ -644,31 +647,25 @@ const TUICObserver = {
                 });
             } else if (window.location.pathname.includes("/status/")) {
                 TUICObserver.headObserver.disconnect();
-                const titleInfo = document.title.match(new RegExp(TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
+                const titleInfo = document.title.match(new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 document.title =
                     (document.title.match(/\(\d\)/) ?? "") +
-                    TUICLibrary.getI18n("XtoTwitter-PostToTweet-titlePeopleTweeted")
+                    TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted")
                         .replace(`{fullName}`, titleInfo[1])
                         .replace("{tweetText}", titleInfo[2])
                         .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
-                TUICObserver.headObserver.observe(document.querySelector("title"), {
-                    characterData: true,
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                });
             } else if (document.title.endsWith(" / X")) {
-                TUICObserver.headObserver.disconnect();
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter") /*.replace(" / X", " / Twitter")*/;
-                TUICObserver.headObserver.observe(document.querySelector("title"), {
-                    characterData: true,
-                    childList: true,
-                    subtree: true,
-                    attributes: true,
-                });
             }
         }
-        window.clearTimeout(timeout);
+
+        TUICObserver.headObserver.observe(titleElement, {
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributes: true,
+        });
     },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
+TUICObserver.titleObserverFunction();
