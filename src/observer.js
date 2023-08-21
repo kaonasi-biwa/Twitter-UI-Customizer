@@ -405,12 +405,13 @@ const TUICObserver = {
                     // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
                     for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
                 } else if (isNotifications) {
-                    // 通知の「ポスト」を修正 「ツイート」に適したi18nがなかったのでコメントアウト
-                    /*for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] article > div span > span:not(a *)`)) {
-                        if (elem.textContent.includes(TUICLibrary.getI18n("XtoTwitter-PostToTweet-replacePost").toLowerCase())) {
-                            elem.textContent = elem.textContent.replace(TUICLibrary.getI18n("XtoTwitter-PostToTweet-replacePost").toLowerCase(), TUICLibrary.getI18n("XtoTwitter-PostToTweet-replaceTweet").toLowerCase());
+                    // 通知の「ポスト」を修正 「リツイート」以外は適したi18nが見つからないので無理だった
+                    /**/
+                    for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] article > div span > span:not(a *)`)) {
+                        if (elem.textContent.includes(TUICLibrary.getI18n("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase())) {
+                            elem.textContent = elem.textContent.replace(TUICLibrary.getI18n("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase(), TUICLibrary.getI18n("XtoTwitter-PostToTweet-notificationsRetweet").toLowerCase());
                         }
-                    }*/
+                    } /**/
                 }
 
                 // 共有 > リンクをコピー
