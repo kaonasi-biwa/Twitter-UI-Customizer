@@ -306,7 +306,7 @@ export const TUICObserver = {
                     }
                 }
             }
-            if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
+            if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
                 const cells = document.querySelectorAll(
                     `div[data-testid="cellInnerDiv"]:not(.${TUICLibrary.getClasses.getClass("TUICDidArticle")}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`,
                 );
@@ -376,7 +376,8 @@ export const TUICObserver = {
                 const isTweetPage = location.pathname.includes("/status/");
                 const isQuotesPage = location.pathname.includes("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
-                const isNotifications = location.pathname.endsWith("/i/timeline");
+                const isNotifications = location.pathname.endsWith("/notifications");
+                const isNotificationsTimeline = location.pathname.endsWith("/i/timeline");
                 const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
 
                 const isHoveringMiniSidenavTweetButton = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
@@ -406,6 +407,14 @@ export const TUICObserver = {
 
                     // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
                     for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweet");
+                } else if (isNotifications) {
+                    // 通知の「ポスト」を修正 「リツイート」以外は適したi18nが見つからないので無理だった
+                    /**/
+                    for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] article > div span > span:not(a *)`)) {
+                        if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase())) {
+                            elem.textContent = elem.textContent.replace(TUICI18N.get("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase(), TUICI18N.get("XtoTwitter-PostToTweet-notificationsRetweet").toLowerCase());
+                        }
+                    } /**/
                 }
 
                 // 共有 > リンクをコピー
@@ -493,7 +502,7 @@ export const TUICObserver = {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTitle");
                     } else if (isTweetPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetTitle");
-                    } else if (isNotifications) {
+                    } else if (isNotificationsTimeline) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle");
                     }
                 }
@@ -621,10 +630,23 @@ export const TUICObserver = {
         } else if (TUICPref.get("XToTwitter.XToTwitter")) {
             if (document.title == "X") {
                 document.title = "Twitter";
-            } else if (location.pathname.includes("/i/timeline") || location.pathname.includes("/compose/tweet")) {
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
+                TUICObserver.headObserver.disconnect();
                 document.title = (document.title.match(/\(\d\)/) ?? "") + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
-            } else if (location.pathname.includes("/status/")) {
-                // console.log(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
+                TUICObserver.headObserver.observe(document.querySelector("title"), {
+                    characterData: true,
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                });
+            } else if (window.location.pathname.includes("/status/")) {
+                TUICObserver.headObserver.disconnect();
                 const titleInfo = document.title.match(new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 document.title =
                     (document.title.match(/\(\d\)/) ?? "") +

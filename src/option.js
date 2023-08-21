@@ -82,7 +82,8 @@ export const TUICOptionHTML = {
 
                 document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
 
-                if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0) // TODO: 謎
+                if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0)
+                    // TODO: 謎
                     document.getElementById(`${colorAttr}-${colorType}-check`).checked = TUIC_color[3] == 0;
 
                 if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`))
@@ -244,9 +245,7 @@ export const TUICOptionHTML = {
                 const leftBox = parentBox.children[0].children[2];
                 const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if (selectedItem) {
-                    const selectedItemIndex =
-                        Array.from(parentBox.querySelectorAll(".TUICUpDownContent"))
-                            .findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
                     if (selectedItemIndex > 0) {
                         leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
@@ -263,9 +262,7 @@ export const TUICOptionHTML = {
                 const leftBox = parentBox.children[0].children[2];
                 const selectedItem = parentBox.getAttribute("TUICSelectedItem");
                 if (selectedItem) {
-                    const selectedItemIndex =
-                        Array.from(parentBox.querySelectorAll(".TUICUpDownContent"))
-                            .findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
                     if (selectedItemIndex != -1) {
                         leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
@@ -361,10 +358,11 @@ export const TUICOptionHTML = {
             type: "click",
             function: function (event) {
                 const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
-                const selectedItem = event.currentTarget.id;
-                parentBox.querySelector("[TUICSelectedUpDownContent]")?.removeAttribute("TUICSelectedUpDownContent");
-                parentBox.querySelector(`#${selectedItem}`).setAttribute("TUICSelectedUpDownContent", "true");
-                parentBox.setAttribute("TUICSelectedItem", event.currentTarget.id);
+                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+                if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
+                const selectItem = event.currentTarget.id;
+                parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
+                parentBox.setAttribute("TUICSelectedItem", selectItem);
             },
             single: false,
         },

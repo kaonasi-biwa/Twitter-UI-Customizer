@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Зробити репост",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Ретвітнути",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} в X: «{tweetText}»",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} твітнув(ла): «{tweetText}»",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Поділитися твітом через…",

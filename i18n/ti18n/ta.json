@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "மறுஇடுகை",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "மறுட்விட் செய்",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} ட்விட் செய்துள்ளார்: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "இதன் வழியாக கீச்சைப் பகிர்…",
