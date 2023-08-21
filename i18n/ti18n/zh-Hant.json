@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "你的推文已發送。",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "你的貼文已發送。",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "你的推文已發送。",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "你的貼文已發送。",
     "XtoTwitter-PostToTweet-notificationsRepost": "轉發",
     "XtoTwitter-PostToTweet-notificationsRetweet": "轉推",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "X 上的 {fullName}：「{tweetText}」",

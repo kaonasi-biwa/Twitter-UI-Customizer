@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "تم إرسال تغريداتك.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "تم إرسال منشوراتك.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "تم إرسال تغريدتك.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "تم إرسال منشورك.",
     "XtoTwitter-PostToTweet-notificationsRepost": "إعادة النشر",
     "XtoTwitter-PostToTweet-notificationsRetweet": "إعادة التغريد",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} على X: {tweetText}'",

@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "आपली ट्विट्स पाठविली होती.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "आपले पोस्ट्स पाठवले आहेत.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "आपले ट्विट पाठविले होते.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "आपले पोस्ट पाठवले आहे.",
     "XtoTwitter-PostToTweet-notificationsRepost": "पुन्हा पोस्ट करा",
     "XtoTwitter-PostToTweet-notificationsRetweet": "पुन्हा ट्विट",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} X वर: {tweetText}'",
