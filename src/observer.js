@@ -373,7 +373,8 @@ const TUICObserver = {
                 const isTweetPage = location.pathname.includes("/status/");
                 const isQuotesPage = location.pathname.includes("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
-                const isNotifications = location.pathname.endsWith("/i/timeline");
+                const isNotifications = location.pathname.endsWith("/notifications");
+                const isNotificationsTimeline = location.pathname.endsWith("/i/timeline");
                 const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
 
                 const isHoveringMiniSidenavTweetButton = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
@@ -403,6 +404,13 @@ const TUICObserver = {
 
                     // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
                     for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweet");
+                } else if (isNotifications) {
+                    // 通知の「ポスト」を修正 「ツイート」に適したi18nがなかったのでコメントアウト
+                    /*for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] article > div span > span:not(a *)`)) {
+                        if (elem.textContent.includes(TUICLibrary.getI18n("XtoTwitter-PostToTweet-replacePost").toLowerCase())) {
+                            elem.textContent = elem.textContent.replace(TUICLibrary.getI18n("XtoTwitter-PostToTweet-replacePost").toLowerCase(), TUICLibrary.getI18n("XtoTwitter-PostToTweet-replaceTweet").toLowerCase());
+                        }
+                    }*/
                 }
 
                 // 共有 > リンクをコピー
@@ -490,7 +498,7 @@ const TUICObserver = {
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-quoteTitle");
                     } else if (isTweetPage) {
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetTitle");
-                    } else if (isNotifications) {
+                    } else if (isNotificationsTimeline) {
                         elem.textContent = TUICLibrary.getI18n("XtoTwitter-PostToTweet-tweetNotificationsTitle");
                     }
                 }

@@ -21,7 +21,7 @@ import fs from "fs";
         i18nObject[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/3f0ec1fb005f218a7eb60b580fd620541b1a9ad5/docs/json/i18n/" + elem + ".json")).json();
         i18nObjectOld[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/" + elem + ".json")).json();
     }
-    //https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/ja.json
+    //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/3f0ec1fb005f218a7eb60b580fd620541b1a9ad5/docs/json/i18n/ja.json
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json
     const TUICI18ns = JSON.parse(fs.readFileSync("./i18n/_officialTwitterI18n.json", "utf8"));
@@ -43,6 +43,10 @@ import fs from "fs";
                 if (config.fixPlural.includes(translateID) && translatedText.includes("(")) {
                     const textBase = translatedText.slice(0, translatedText.indexOf("("));
                     translatedText = textBase + translatedText.slice(translatedText.indexOf("(")).split(",")[2].replace(")", "");
+                }
+
+                if (config.fixSingular.includes(translateID) && translatedText.includes("(")) {
+                    translatedText = translatedText.slice(0, translatedText.indexOf("("));
                 }
 
                 if (translateID in config.deleteString) {
