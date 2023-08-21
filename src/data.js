@@ -596,7 +596,6 @@ const TUICData = {
             for (let i = 0; i <= 25; i++) {
                 re = await new Promise((resolve2) => {
                     const elem = document.querySelector(selector);
-                    console.log(elem);
                     if (elem != null) {
                         elem.click();
                         resolve2("ok");
