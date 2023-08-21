@@ -583,39 +583,34 @@ const TUICData = {
                 return TUICData.sidebarButtons.html.__base("bookmarks", `<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z"></path>`);
             },
         },
-        buttonClickInMoreMenu: (e, selector) => {
-            const moreMenu = e.currentTarget.parentElement.parentElement.parentElement.querySelector(`[aria-haspopup] > div > div`);
-            moreMenu.click();
-            if (document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`) == null) {
-                setTimeout(() => {
-                    const elem = document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`);
-                    if (elem == null) {
-                        moreMenu.click();
-                    } else {
-                        elem.click();
-                    }
-                }, 150);
-            } else {
-                document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`).click();
+        buttonClickInMoreMenu: async (e, selector) => {
+            await TUICData.sidebarButtons.waitSetElement(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+            const foundElem = await TUICData.sidebarButtons.waitSetElement(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`);
+            if (!foundElem) {
+                await TUICData.sidebarButtons.waitSetElement(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                return false;
             }
+            return true;
         },
         waitSetElement: async (selector) => {
-            for (let i = 0; i <= 10; i++) {
+            for (let i = 0; i <= 25; i++) {
                 re = await new Promise((resolve2) => {
                     const elem = document.querySelector(selector);
+                    console.log(elem);
                     if (elem != null) {
                         elem.click();
                         resolve2("ok");
                     }
                     resolve2("bb");
                 });
-                if (re == "ok") return;
+                if (re == "ok") return true;
                 await new Promise((resolve2) => {
                     window.setTimeout(() => {
                         resolve2("");
-                    }, 250);
+                    }, 100);
                 });
             }
+            return false;
         },
         buttonFunctions: {
             topics: async function (e) {
@@ -649,12 +644,9 @@ const TUICData = {
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/connect_people"]`);
             },
             display: async function (e) {
-                const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
-                if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
-                setTimeout(async () => {
-                    document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    document.querySelector(`[href="/i/display"]`)?.click();
-                }, 150);
+                if (TUICData.sidebarButtons.buttonClickInMoreMenu(e, `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
+                    await TUICData.sidebarButtons.waitSetElement(`[href="/i/display"]`);
+                }
             },
             muteAndBlock: async function (e) {
                 if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
