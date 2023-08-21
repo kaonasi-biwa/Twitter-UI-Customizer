@@ -618,10 +618,8 @@ export const TUICObserver = {
         },
     },
     titleObserverFunction: async () => {
-        if (TUICObserver.headObserver)
-            TUICObserver.headObserver.disconnect();
-        else
-            TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
+        if (TUICObserver.headObserver) TUICObserver.headObserver.disconnect();
+        else TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
 
         const titleElement = (await TUICLibrary.waitForElement("title"))[0];
 
@@ -648,14 +646,18 @@ export const TUICObserver = {
             } else if (window.location.pathname.includes("/status/")) {
                 TUICObserver.headObserver.disconnect();
                 const titleInfo = document.title.match(new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
-                document.title =
-                    (document.title.match(/\(\d\)/) ?? "") +
-                    TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted")
-                        .replace(`{fullName}`, titleInfo[1])
-                        .replace("{tweetText}", titleInfo[2])
-                        .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
+                if (!titleInfo || titleInfo.length <= 1) {
+                    document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
+                } else {
+                    document.title =
+                        (document.title.match(/\(\d\)/) ?? "") +
+                        TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted")
+                            .replace(`{fullName}`, titleInfo[1])
+                            .replace("{tweetText}", titleInfo[2])
+                            .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
+                }
             } else if (document.title.endsWith(" / X")) {
-                document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter") /*.replace(" / X", " / Twitter")*/;
+                document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
             }
         }
 
@@ -668,4 +670,3 @@ export const TUICObserver = {
     },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
-TUICObserver.titleObserverFunction();

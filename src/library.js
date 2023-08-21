@@ -4,14 +4,14 @@ import { TUICObserver } from "./observer.js";
 
 // NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
 function getPointerFromKey(object, key) {
-    const keys = ["o", ...key.split(".").filter(k => k !== "")];
+    const keys = ["o", ...key.split(".").filter((k) => k !== "")];
     let pointer = { o: object };
     for (let i = 0; i < keys.length; i++) {
         const k = keys[i];
         if (i === keys.length - 1) {
             return {
                 object: pointer,
-                key: k
+                key: k,
             };
         } else {
             if (!(k in pointer)) {
@@ -25,31 +25,31 @@ function getPointerFromKey(object, key) {
 /* eslint-disable */
 export const TUICPref = {
     config: JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString()),
-    get: function(identifier) {
+    get: function (identifier) {
         const { object, key } = getPointerFromKey(this.config, identifier);
         return object[key];
     },
-    set: function(identifier, value) {
+    set: function (identifier, value) {
         const { object, key } = getPointerFromKey(this.config, identifier);
         object[key] = value;
     },
-    delete: function(identifier) {
+    delete: function (identifier) {
         const { object, key } = getPointerFromKey(this.config, identifier);
         delete object[key];
     },
-    save: function() {
+    save: function () {
         localStorage.setItem("TUIC", JSON.stringify(this.config));
     },
-    import: function(object) {
+    import: function (object) {
         if (typeof object === "string") {
             this.config = JSON.parse(object);
         } else {
             this.config = object;
         }
     },
-    export: function() {
+    export: function () {
         return JSON.stringify(this.object);
-    }
+    },
 };
 export const TUICLibrary = {
     color: {
@@ -104,30 +104,26 @@ export const TUICLibrary = {
             }
 
             if (TUICPref.get("otherBoolSetting.clientInfo") == true) {
-                TUICPref.set("clientInfo", {clientInfoVisible: true});
+                TUICPref.set("clientInfo", { clientInfoVisible: true });
             }
             TUICPref.delete("otherBoolSetting.clientInfo");
 
-            if (typeof TUICPref.get("timeline") != "object")
-                TUICPref.set("timeline", {});
+            if (typeof TUICPref.get("timeline") != "object") TUICPref.set("timeline", {});
 
-            if (typeof TUICPref.get("rightSidebar") != "object")
-                TUICPref.set("rightSidebar", {});
+            if (typeof TUICPref.get("rightSidebar") != "object") TUICPref.set("rightSidebar", {});
 
-            if (typeof TUICPref.get("XToTwitter") != "object")
-                TUICPref.set("XToTwitter", {});
+            if (typeof TUICPref.get("XToTwitter") != "object") TUICPref.set("XToTwitter", {});
 
             /**
              * boolean 値の設定キーを変更します。
-             * 
+             *
              * 値が truthy であれば `replaceValue` に、値が falsy であればキーを変更せず古いキーの削除だけを行います。
              * @param {string} previousKey 変更元のキー
              * @param {string} nextKey 変更先のキー
              * @param {any} replaceValue 置き換える値
              */
             function changeBooleanKey(previousKey, nextKey, replaceValue = true) {
-                if (TUICPref.get(previousKey) === true)
-                    TUICPref.set(nextKey, replaceValue);
+                if (TUICPref.get(previousKey) === true) TUICPref.set(nextKey, replaceValue);
                 TUICPref.delete(previousKey);
             }
 
@@ -139,8 +135,7 @@ export const TUICLibrary = {
             changeBooleanKey("otherBoolSetting.XtoTwitter", "XToTwitter.XToTwitter");
             changeBooleanKey("otherBoolSetting.PostToTweet", "XToTwitter.PostToTweet");
 
-            if (TUICPref.get("CSS"))
-                localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
+            if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
             TUICPref.set("CSS");
 
             if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
@@ -164,10 +159,16 @@ export const TUICLibrary = {
             }
 
             if (typeof TUICPref.get("visibleButtons") == "object" && ~TUICPref.get("visibleButtons").indexOf("downvote-button")) {
-                TUICPref.set("visibleButtons", TUICPref.get("visibleButtons").filter(elem => elem != "downvote-button"));
+                TUICPref.set(
+                    "visibleButtons",
+                    TUICPref.get("visibleButtons").filter((elem) => elem != "downvote-button"),
+                );
             }
             if (typeof TUICPref.get("sidebarButtons") == "object" && ~TUICPref.get("sidebarButtons").indexOf("verified-orgs-signup")) {
-                TUICPref.set("sidebarButtons", TUICPref.get("sidebarButtons").filter(elem => elem != "verified-orgs-signup"));
+                TUICPref.set(
+                    "sidebarButtons",
+                    TUICPref.get("sidebarButtons").filter((elem) => elem != "verified-orgs-signup"),
+                );
             }
 
             TUICPref.set("", this.merge(dPref, TUICPref.get("")));
@@ -293,20 +294,17 @@ export const TUICLibrary = {
         if (document.querySelectorAll(selector).length !== 0) {
             return Array.from(document.querySelectorAll(selector));
         } else {
-            return new Promise(resolve => {
-                const observer = new MutationObserver(mutations => {
-                    const addedNodes = mutations.flatMap(m => Array.from(m.addedNodes)).filter(n => n instanceof HTMLElement);
-                    const matchedAddedNodes = addedNodes.filter(e => e.matches(selector));
+            return new Promise((resolve) => {
+                const observer = new MutationObserver((mutations) => {
+                    const addedNodes = mutations.flatMap((m) => Array.from(m.addedNodes)).filter((n) => n instanceof HTMLElement);
+                    const matchedAddedNodes = addedNodes.filter((e) => e.matches(selector));
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
                         resolve(matchedAddedNodes);
                     }
                 });
-                observer.observe(document, {subtree: true, childList: true});
+                observer.observe(document, { subtree: true, childList: true });
             });
         }
-    }
-};
-String.prototype.escapeToUseHTML = function () {
-    return TUICLibrary.escapeToUseHTML(this);
+    },
 };

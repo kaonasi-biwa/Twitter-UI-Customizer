@@ -13,6 +13,11 @@
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
+    String.prototype.escapeToUseHTML = function () {
+        return TUICLibrary.escapeToUseHTML(this);
+    };
+    TUICObserver.titleObserverFunction();
+
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,

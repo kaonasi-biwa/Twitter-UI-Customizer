@@ -3,12 +3,13 @@ let i18nData = {};
 
 export const TUICI18N = {
     fetch: async function () {
-        return new Promise((resolve) => {
+        await new Promise((resolve) => {
             chrome.runtime.sendMessage({ type: "getI18n" }, (response) => {
                 i18nData = response;
                 resolve(i18nData);
             });
         });
+        return true;
     },
     get: function (key) {
         const lang = document.querySelector("html").getAttribute("lang");
@@ -21,5 +22,5 @@ export const TUICI18N = {
         } else {
             return "404";
         }
-    }
-}
+    },
+};
