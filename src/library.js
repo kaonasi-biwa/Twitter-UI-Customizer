@@ -273,15 +273,8 @@ export const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2;
         }
     },
-    TUICParser: new DOMParser(),
     HTMLParse: function (elem) {
-        return this.HTMLParseFunc(elem).querySelector("body > *");
-    },
-    HTMLParseAll: function (elem) {
-        return this.HTMLParseFunc(elem).querySelectorAll("body > *");
-    },
-    HTMLParseFunc: function (elem) {
-        return this.TUICParser.parseFromString(elem, "text/html");
+        return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     escapeToUseHTML: function (text) {
         return text.replace(/[&'`"<>=;]/g, function (match) {

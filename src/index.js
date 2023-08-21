@@ -7,12 +7,17 @@
     const { TUICLibrary } = await import("./library.js");
     const { TUICI18N } = await import("./i18n.js");
     const { addCssElement } = await import("./applyCSS.js");
+    const { TUICOptionHTML } = await import("./option.js");
+    const { isSafemode, runSafemode } = await import("./safemode.js");
 
     await TUICI18N.fetch();
-
-    console.log(`%cTwitter UI Customizer%c\nby kaonasi_biwa with Ablaze\n\nLanguage: ${TUICI18N.get("@JapaneseLanguageName")}`, "font-size: 1.2em; font-family: -system-ui, Ubuntu, Roboto, 'Noto Sans JP', sans-serif; font-weight: bold; text-align: center; background: #1da1f2; color: #ffffff; padding: 0.5em 2em;", "margin-top: 0.5em; color: #1da1f2;");
-
     await TUICLibrary.waitForElement("#react-root");
+
+    console.log(
+        `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
+        `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
+        `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`
+    );
 
     if (document.querySelector("#twitter_ui_customizer_query") == null) {
         const queryElem = document.createElement("meta");
@@ -33,14 +38,12 @@
 
     addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
-        console.log(document.querySelector(`#placeholder > svg`));
         TUICObserver.functions.twitterIcon(
             document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
             document.querySelector(`#placeholder`)
         );
     }
 
-    
     chrome.runtime.sendMessage({
         type: "update",
         updateType: "openTwitter",
@@ -58,4 +61,6 @@
         subtree: false,
         attributes: true,
     });
+
+    if (isSafemode) runSafemode();
 })();
