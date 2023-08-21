@@ -9,7 +9,7 @@
     await import("./data.js");
     const { TUICLibrary } = await import("./library.js");
     await import("./option.js");
-    const { addCssElement: applyCss } = await import("./applyCSS.js");
+    const { addCssElement } = await import("./applyCSS.js");
 
     await TUICLibrary.waitForElement("#react-root");
 
@@ -30,7 +30,7 @@
         elem.remove();
     }
 
-    applyCss();
+    addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
         TUICObserver.functions.twitterIcon(
             document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
@@ -51,7 +51,7 @@
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     TUICObserver.observerFunction();
 
-    const bodyAttributeObserver = new MutationObserver(applyCss);
+    const bodyAttributeObserver = new MutationObserver(addCssElement);
     bodyAttributeObserver.observe(document.querySelector("body"), {
         childList: false,
         subtree: false,
