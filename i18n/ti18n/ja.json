@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "ツイートを送信しました。",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "ポストを送信しました。",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "ツイートを送信しました。",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "ポストを送信しました。",
     "XtoTwitter-PostToTweet-notificationsRepost": "リポスト",
     "XtoTwitter-PostToTweet-notificationsRetweet": "リツイート",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "Xユーザーの{fullName}さん: 「{tweetText}」",
