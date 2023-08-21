@@ -1,3 +1,4 @@
+import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 
 export const TUICData = {
@@ -325,7 +326,7 @@ export const TUICData = {
                                 "r-1e081e0",
                                 "r-1orpq53",
                                 "r-779j7e",
-                            )}"><span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICLibrary.getI18n("bottomTweetButtons-urlCopy-layer")}</span></div>
+                            )}"><span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span></div>
                             <div aria-hidden="true" class="css-1dbjc4n r-18u37iz"></div>
                           </div>
                         </div>
@@ -532,7 +533,7 @@ export const TUICData = {
                 "r-evnaw r-16dba41 r-eaezby r-uzqwk8 r-12e0a8i",
                 "r-1x35g6 r-16dba41 r-1h1c4di r-6uxfom r-le9fof",
             )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="${document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none"}" >
-              <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICLibrary.getI18n("sidebarButtons-" + id)}</span>
+              <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("sidebarButtons-" + id)}</span>
             </div>
           </div>
         </a>`;

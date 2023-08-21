@@ -1,5 +1,6 @@
 import { applyCustomCss, applySystemCss } from "./applyCSS.js";
 import { TUICData } from "./data.js";
+import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICObserver } from "./observer.js";
 
@@ -585,39 +586,39 @@ export const TUICOptionHTML = {
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
     <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
         <h2 aria-level="2" role="heading" class="css-4rbku5 css-1dbjc4n r-18u37iz">
-            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">${TUICLibrary.getI18n("brandingName")}</span>
+            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0 TUIC_setting_text">${TUICI18N.get("brandingName")}</span>
             </h2>
 ${this.safemodeReturnButton()}
     </div>
 
     <div>
         <br><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:18px;margin-bottom:1px;">${TUICLibrary.getI18n("settingUI-easySetting")}</h2><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:14px;">${TUICLibrary.getI18n("settingUI-easySetting-detail")}</h2><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:18px;margin-bottom:1px;">${TUICI18N.get("settingUI-easySetting")}</h2><br>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:14px;">${TUICI18N.get("settingUI-easySetting-detail")}</h2><br>
         <div class="TUICEasySetting" style="margin-top:15px;">
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="restoreIcon">${TUICLibrary.getI18n("easySetting-restoreIcon")}</button>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="deleteVerified">${TUICLibrary.getI18n("easySetting-deleteVerified")}</button>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="discoverMoreDelete">${TUICLibrary.getI18n("easySetting-discoverMoreDelete")}</button>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="defaultTwitterColor">${TUICLibrary.getI18n("easySetting-defaultTwitterColor")}</button>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set" style="margin-top:10px;margin-bottom:10px;">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="restoreIcon">${TUICI18N.get("easySetting-restoreIcon")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="deleteVerified">${TUICI18N.get("easySetting-deleteVerified")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="discoverMoreDelete">${TUICI18N.get("easySetting-discoverMoreDelete")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top:10px;margin-bottom:10px;" id="defaultTwitterColor">${TUICI18N.get("easySetting-defaultTwitterColor")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set" style="margin-top:10px;margin-bottom:10px;">${TUICI18N.get("settingUI-restoreDefaultAll")}</button>
         </div><br>
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:18px;">${TUICLibrary.getI18n("settingUI-everythingSetting")}</h2>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size:18px;">${TUICI18N.get("settingUI-everythingSetting")}</h2>
         <br><br>
         <details class="TUICDetails">
-            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("settingColors-settingTitle")}</summary>
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get("settingColors-settingTitle")}</summary>
             <div id="colorSettingList" class="TUIC_col_setting_container">
             <div style="display:flex;">
                 <input type="radio" name="TUICColorType" value="buttonColor" id="TUICColorType-Base" class="TUICColorSettingRadio" checked>
-                <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Base" style="background: linear-gradient(125deg,#ffffff 0%,#ffffff 42.5%,#000000 42.5%,#000000 100%);"><span><span>${TUICLibrary.getI18n(
+                <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Base" style="background: linear-gradient(125deg,#ffffff 0%,#ffffff 42.5%,#000000 42.5%,#000000 100%);"><span><span>${TUICI18N.get(
                     "settingColors-select-base",
                 )}</span></span></label>
                 <input type="radio" name="TUICColorType" value="buttonColorLight" id="TUICColorType-Light" class="TUICColorSettingRadio">
-                <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Light" style="background-color:rgb(255,255,255);"><span><span>${TUICLibrary.getI18n("settingColors-select-light")}</span></span></label>
+                <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Light" style="background-color:rgb(255,255,255);"><span><span>${TUICI18N.get("settingColors-select-light")}</span></span></label>
                 <input type="radio" name="TUICColorType" value="buttonColorDark" id="TUICColorType-Dark" class="TUICColorSettingRadio">
-                <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Dark" style="background-color:rgb(0,0,0);"><span><span>${TUICLibrary.getI18n("settingColors-select-dark")}</span></span></label>
+                <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Dark" style="background-color:rgb(0,0,0);"><span><span>${TUICI18N.get("settingColors-select-dark")}</span></span></label>
             </div>
             <div style="margin-left:10px;margin-right:10px;">
-            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:12px;">${TUICLibrary.getI18n("settingColors-select-explain")}</span>
+            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:12px;">${TUICI18N.get("settingColors-select-explain")}</span>
             </div>
             <br>
             ${this.colorsList()}
@@ -652,40 +653,40 @@ ${this.radioButtonList(
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
-${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICXToTwitter", `<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom:10px;" id="XToTwitterRestoreIcon">${TUICLibrary.getI18n("XtoTwitter-twitterIcon")}</button>`)}
+${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICXToTwitter", `<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom:10px;" id="XToTwitterRestoreIcon">${TUICI18N.get("XtoTwitter-twitterIcon")}</button>`)}
 ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
 ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
-        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">${TUICLibrary.getI18n("settingUI-restoreDefaultAll")}</button>
+        <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">${TUICI18N.get("settingUI-restoreDefaultAll")}</button>
         <br><br>
 
         <details class="TUICDetails">
-        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("customCSS-settingTitle")}</summary>
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get("customCSS-settingTitle")}</summary>
         <div class="TUIC_col_setting_container">
             <form>
                 <textarea id="css_textarea"></textarea>
             </form>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">${TUICLibrary.getI18n("customCSS-save")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">${TUICI18N.get("customCSS-save")}</button>
         </div>
         </details>
 
         <details class="TUICDetails">
-            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("export-settingTitle")}</summary>
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get("export-settingTitle")}</summary>
         <div class="TUIC_col_setting_container">
         <input class="TUICTextInput" type="text" id="TUICExportBox" readonly >
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport">${TUICLibrary.getI18n("export-exportButton")}</button>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExportCopy">${TUICLibrary.getI18n("export-exportButtonCopy")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport">${TUICI18N.get("export-exportButton")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExportCopy">${TUICI18N.get("export-exportButtonCopy")}</button>
         </div>
         </details>
 
         <details class="TUICDetails">
-            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n("import-settingTitle")}</summary>
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get("import-settingTitle")}</summary>
         <div class="TUIC_col_setting_container">
         <input class="TUICTextInput" type="text" id="TUICImportBox" >
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">${TUICLibrary.getI18n("import-importAppend")}</button>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportReplace">${TUICLibrary.getI18n("import-importReplace")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">${TUICI18N.get("import-importAppend")}</button>
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportReplace">${TUICI18N.get("import-importReplace")}</button>
             <div style="margin-left:10px;margin-right:10px;">
-            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:12px;">${TUICLibrary.getI18n("import-select-explain")}</span>
+            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:12px;">${TUICI18N.get("import-select-explain")}</span>
             </div>
         </div>
         </details>
@@ -696,7 +697,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     },
     //セーフモードの戻るボタン(ただの条件分岐)
     safemodeReturnButton: function () {
-        return window.location.pathname == "/tuic/safemode" ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; ${TUICLibrary.getI18n("settingUI-goBackButton")}</a>` : "";
+        return window.location.pathname == "/tuic/safemode" ? `<a href="https://twitter.com" style="color:rgb(172,172,0);">&lt; ${TUICI18N.get("settingUI-goBackButton")}</a>` : "";
     },
     //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
     colorSetting: function (id, type, color_, text, isDefault, colorKind) {
@@ -705,11 +706,11 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]); /* eslint-disable */
         return `
         <div class="TUIC_setting_color_colmn${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT") : ""}">
-        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:18px;">${TUICLibrary.getI18n(text)}</h4>
+        <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:18px;">${TUICI18N.get(text)}</h4>
         <div class="TUIC_setting_input_container">
         ${
             TUICData.colors[id]?.ldColor && editingColorType == "buttonColor"
-                ? `<label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:10px;">${TUICLibrary.getI18n("settingColors-pleaseLD")}</label><br>`
+                ? `<label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:10px;">${TUICI18N.get("settingColors-pleaseLD")}</label><br>`
                 : `
             <div class="TUIC_input_color_rounded__container">
                 <div class="TUIC_input_color_rounded">
@@ -720,12 +721,12 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             <button type="checkbox" id="${`${id}-${type}-check`}" data-checked="${TUIC_color[3] == "0" ? "true" : "false"}" TUICColor="${id}"
              TUICColorType="${type}" class="TUICButtonColorCheck" TUICColorKind=${colorKind}>
             </button>
-            <label for="${`${id}-${type}-check`}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICLibrary.getI18n("settingUI-colorPicker-transparent")}</label><br>
+            <label for="${`${id}-${type}-check`}" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:15px;">${TUICI18N.get("settingUI-colorPicker-transparent")}</label><br>
         `
         }
         </div>
     </div>
-    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDefaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICLibrary.getI18n(
+    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDefaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICI18N.get(
         "settingUI-colorPicker-restoreDefault",
     )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${TUICData.resetIconSVG}</button>`; /* eslint-enable */
     },
@@ -754,7 +755,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     colorsList: function () {
         let TUICColors = `<div id="TUICColorSettingsDivBox">`;
         for (const i of TUICData.settings.colors.id) {
-            TUICColors += `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICLibrary.getI18n(TUICData.settings.colors.i18n[i])}</h2>
+            TUICColors += `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICI18N.get(TUICData.settings.colors.i18n[i])}</h2>
             <div class="TUIC_col_setting_container_2">${this.threeColorSetting(i, editingColorType)}
             </div>`;
         }
@@ -766,7 +767,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         return `
         <div class="TUICCheckBoxParent">
             <input id=${id} ${value ? "checked" : ""} type="checkbox" class="${type}"></input>
-            <label class="TUIC_setting_text" for="${id}">${TUICLibrary.getI18n(name)}</label>
+            <label class="TUIC_setting_text" for="${id}">${TUICI18N.get(name)}</label>
         </div>
         `;
     },
@@ -778,7 +779,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         }
         return `
         <details class="TUICDetails">
-            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
+            <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
           <div class="TUIC_col_setting_container">
               ${TUICInvisibleCheckBox}
           </div>
@@ -791,7 +792,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         return `
         <div class="TUICCheckBoxParent">
                 <input type="radio" name="${id}" value="${valueName}" id="${valueName}" class="${type}" ${value ? "checked" : ""}>
-                <label class="TUIC_setting_text" for="${valueName}">${TUICLibrary.getI18n(name)}</label>
+                <label class="TUIC_setting_text" for="${valueName}">${TUICI18N.get(name)}</label>
             </div>
         `;
     },
@@ -802,7 +803,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         }
         return `
         <details class="TUICDetails">
-        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
         <div class="TUIC_col_setting_container">
             ${TUICInvisibleRadioBox}
             ${option}
@@ -816,14 +817,14 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             TUICInvisibleRadioBox += this.radioButton(id, i, TUICPref.get(id) == i, TUICData[id].i18n[i], type);
         }
         return `
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title" style="margin-top:0px !important;margin-bottom:0px !important;margin-left:10px !important;">${TUICLibrary.getI18n(title)}</h2>
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title" style="margin-top:0px !important;margin-bottom:0px !important;margin-left:10px !important;">${TUICI18N.get(title)}</h2>
         <div class="TUIC_col_setting_container">
             ${TUICInvisibleRadioBox}
         </div>
         <br>`;
     },
     iconButton: function (src, btnAction, tooltiptag) {
-        return `<button class="TUIC_icon_button_con ${btnAction}" title="${TUICLibrary.getI18n(tooltiptag)}">${src}</button>`;
+        return `<button class="TUIC_icon_button_con ${btnAction}" title="${TUICI18N.get(tooltiptag)}">${src}</button>`;
     },
     //アップダウンリスト(id:設定のID。TUICPref直下 title:設定の名前, option:下に表示する設定)
     upDownList: function (id, title, option) {
@@ -860,12 +861,12 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         ]; /* eslint-disable */
         return `
 <details class="TUICDetails">
-        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICLibrary.getI18n(title)}</summary>
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
 
         <div class="TUIC_col_setting_container">
             <div style="display:flex;" TUICUDBox="${id}" TUICSelectedItem="">
                 <div style="flex: 1 2;width:50px;">
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-visible")}</h2><br>
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-visible")}</h2><br>
                     <div id="TUIC_visible" class="TUIC_selectbox" style="--contentCount:${UDAllValue.length};">
 ${TUICVisibleButtons}
                     </div>
@@ -878,7 +879,7 @@ ${TUICVisibleButtons}
                     }).join("")}
                </div>
                 <div style="flex: 1 2;width:50px;">
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICLibrary.getI18n("settingUI-upDownList-invisible")}</h2><br>
+                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-invisible")}</h2><br>
                     <div id="TUIC_invisible" class="TUIC_selectbox" style="--contentCount:${UDAllValue.length};">
     ${TUICInvisibleButtons}
                     </div>
@@ -896,19 +897,19 @@ ${TUICVisibleButtons}
         let TUICVisibleButtons = "";
         let TUICInvisibleButtons = "";
         for (const i of TUICPref.get(id)) {
-            TUICVisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</span></div>`;
+            TUICVisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICI18N.get(TUICData.settings[id].i18n[i])}</span></div>`;
         }
         for (const i of TUICData.settings[id].all) {
             if (!TUICPref.get(id).includes(i)) {
-                TUICInvisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</span></div>`;
+                TUICInvisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICI18N.get(TUICData.settings[id].i18n[i])}</span></div>`;
             }
         }
         return [TUICVisibleButtons, TUICInvisibleButtons];
     },
     uploadImageFile: function (title, id) {
-        return `<h3 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICLibrary.getI18n(title)}</h3><br>
+        return `<h3 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title">${TUICI18N.get(title)}</h3><br>
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" TUICImgID="${id}" />
-        <p class="TUIC_setting_text">${TUICLibrary.getI18n("twitterIcon-nowIcon")}</p>
+        <p class="TUIC_setting_text">${TUICI18N.get("twitterIcon-nowIcon")}</p>
         <span id="TUICIcon_${id}" class="TUICUploadedImg">`;
     },
 };

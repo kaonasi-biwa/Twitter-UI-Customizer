@@ -74,7 +74,7 @@ const deviceMessage = async (url, res) => {
 const returnI18n = async (res) => {
     const waitFunc = () => {
         if (loadedI18n) {
-            res(JSON.stringify(i18nObject));
+            res(i18nObject);
         } else {
             chrome.alarms.create({ when: Date.now() + 250 });
         }

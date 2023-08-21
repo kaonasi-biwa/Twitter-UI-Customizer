@@ -3,13 +3,14 @@
  * << Twitter を思いのままに。 >>
  */
 (async () => {
-    console.log("%cTwitter UI Customizer%c\nby kaonasi_biwa with Ablaze", "font-size: 1.2em; font-family: -system-ui, Ubuntu, Roboto, 'Noto Sans JP', sans-serif; font-weight: bold; text-align: center; background: #1da1f2; color: #ffffff; padding: 0.5em 2em;", "margin-top: 0.5em; color: #1da1f2;");
-
     const { TUICObserver } = await import("./observer.js");
-    await import("./data.js");
     const { TUICLibrary } = await import("./library.js");
-    await import("./option.js");
+    const { TUICI18N } = await import("./i18n.js");
     const { addCssElement } = await import("./applyCSS.js");
+
+    await TUICI18N.fetch();
+
+    console.log(`%cTwitter UI Customizer%c\nby kaonasi_biwa with Ablaze\n\nLanguage: ${TUICI18N.get("@JapaneseLanguageName")}`, "font-size: 1.2em; font-family: -system-ui, Ubuntu, Roboto, 'Noto Sans JP', sans-serif; font-weight: bold; text-align: center; background: #1da1f2; color: #ffffff; padding: 0.5em 2em;", "margin-top: 0.5em; color: #1da1f2;");
 
     await TUICLibrary.waitForElement("#react-root");
 
@@ -32,22 +33,22 @@
 
     addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
+        console.log(document.querySelector(`#placeholder > svg`));
         TUICObserver.functions.twitterIcon(
             document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
             document.querySelector(`#placeholder`)
         );
     }
 
-    await TUICLibrary.fetchI18n();
-    console.log(TUICLibrary.getI18n("@JapaneseLanguageName"));
+    
     chrome.runtime.sendMessage({
         type: "update",
         updateType: "openTwitter",
     });
 
-    /*旧バージョンからのアップデート*/
+    // 旧バージョンからのアップデート
     await TUICLibrary.updatePref.update();
-    /*Fin 旧バージョンからのアップデート*/
+
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     TUICObserver.observerFunction();
 
@@ -57,17 +58,4 @@
         subtree: false,
         attributes: true,
     });
-
-    (async function setTitleObserver() {
-        await TUICLibrary.waitForElement("title");
-
-        TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
-        TUICObserver.headObserver.observe(document.querySelector("title"), {
-            characterData: true,
-            childList: true,
-            subtree: true,
-            attributes: true,
-        });
-        TUICObserver.titleObserverFunction();
-    })();
 })();

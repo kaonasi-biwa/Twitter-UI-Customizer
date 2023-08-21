@@ -2,9 +2,6 @@ import { applySystemCss } from "./applyCSS.js";
 import { TUICData } from "./data.js";
 import { TUICObserver } from "./observer.js";
 
-/* eslint-disable no-unsafe-optional-chaining */
-let TUICI18N;
-
 // NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
 function getPointerFromKey(object, key) {
     const keys = ["o", ...key.split(".").filter(k => k !== "")];
@@ -285,26 +282,6 @@ export const TUICLibrary = {
     },
     HTMLParseFunc: function (elem) {
         return this.TUICParser.parseFromString(elem, "text/html");
-    },
-    fetchI18n: async function () {
-        return new Promise((resolve) => {
-            chrome.runtime.sendMessage({ type: "getI18n" }, (response) => {
-                TUICI18N = JSON.parse(response);
-                resolve(TUICI18N);
-            });
-        });
-    },
-    getI18n: function (elem) {
-        const lang = document.querySelector("html").getAttribute("lang");
-        if (lang in TUICI18N && elem in TUICI18N[lang]) {
-            return TUICI18N[lang][elem].escapeToUseHTML();
-        } else if (elem in TUICI18N.en) {
-            return TUICI18N.en[elem].escapeToUseHTML();
-        } else if (elem in TUICI18N.ja) {
-            return TUICI18N.ja[elem].escapeToUseHTML();
-        } else {
-            return "404";
-        }
     },
     escapeToUseHTML: function (text) {
         return text.replace(/[&'`"<>=;]/g, function (match) {
