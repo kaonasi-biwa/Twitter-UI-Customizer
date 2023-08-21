@@ -3,12 +3,12 @@
  * << Twitter を思いのままに。 >>
  */
 (async () => {
-    const { TUICObserver } = await import("./observer.js");
-    const { TUICLibrary } = await import("./library.js");
-    const { TUICI18N } = await import("./i18n.js");
-    const { addCssElement } = await import("./applyCSS.js");
-    const { TUICOptionHTML } = await import("./option.js");
-    const { isSafemode, runSafemode } = await import("./safemode.js");
+    const { TUICObserver } = await import(chrome.runtime.getURL("src/observer.js"));
+    const { TUICLibrary } = await import(chrome.runtime.getURL("src/library.js"));
+    const { TUICI18N } = await import(chrome.runtime.getURL("src/i18n.js"));
+    const { addCssElement } = await import(chrome.runtime.getURL("src/applyCSS.js"));
+    const { TUICOptionHTML } = await import(chrome.runtime.getURL("src/option.js"));
+    const { isSafemode, runSafemode } = await import(chrome.runtime.getURL("src/safemode.js"));
 
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
@@ -16,7 +16,7 @@
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
-        `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`
+        `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
 
     if (document.querySelector("#twitter_ui_customizer_query") == null) {
@@ -38,10 +38,7 @@
 
     addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.functions.twitterIcon(
-            document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`),
-            document.querySelector(`#placeholder`)
-        );
+        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`), document.querySelector(`#placeholder`));
     }
 
     chrome.runtime.sendMessage({
