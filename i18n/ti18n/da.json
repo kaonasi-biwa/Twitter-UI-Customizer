@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Repost",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Retweet",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} på X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} tweetede: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Del tweetet via …",

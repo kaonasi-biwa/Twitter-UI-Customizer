@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Podaj dalej wpis",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Podaj dalej",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} w serwisie X: „{tweetText}”",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} wysłał/a Tweeta: „{tweetText}”",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Udostępnij Tweeta przez…",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "রিপোস্ট",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "পুনঃটুইট",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} টুইট করেছেন: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "এর মাধ্যমে টুইট ভাগ করুন ...",

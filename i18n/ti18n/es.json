@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Repostear",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Retwittear",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} en X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} twitteó: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Compartir Tweet por…",

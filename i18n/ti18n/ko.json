@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "재게시",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "리트윗",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "X에서 {fullName} 님 : {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} 님의 트윗: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "다음을 통해 트윗 공유하기",

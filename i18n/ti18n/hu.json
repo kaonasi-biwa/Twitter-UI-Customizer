@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Újraposztolás",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Retweet",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} az X-en: „{tweetText}”",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweetelt: „{tweetText}”",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Tweet megosztása itt:",
