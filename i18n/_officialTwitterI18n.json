@@ -56,5 +56,9 @@
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "d0681155",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "a4d3eb67",
     "XtoTwitter-PostToTweet-notificationsRetweet": "bac8f4c2",
-    "XtoTwitter-PostToTweet-notificationsRepost": "g062295e"
+    "XtoTwitter-PostToTweet-notificationsRepost": "g062295e",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "h4dd544e",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "dad5a4b8",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "c7999d10",
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "e65aed64"
 }

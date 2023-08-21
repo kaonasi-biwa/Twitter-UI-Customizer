@@ -507,6 +507,15 @@ export const TUICObserver = {
                     }
                 }
 
+                // 下に出てくるトーストボックス
+                for (const elem of getNotReplacedElements(`#layers div[data-testid="toast"]>div>span`)) {
+                    if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-tweeted-one-latest-layer"))) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted-one-old-layer");
+                    } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-tweeted-some-latest-layer"))) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted-some-old-layer");
+                    }
+                }
+
                 // 検索バーのテキストボックス
                 for (const elem of getNotReplacedElements('[role="search"] input')) elem.setAttribute("placeholder", TUICI18N.get("XtoTwitter-PostToTweet-keywordSearch"));
 
