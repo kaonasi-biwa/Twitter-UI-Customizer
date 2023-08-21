@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Twoje Tweety zostały wysłane.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Twoje wpisy zostały wysłane. ",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Twój Tweet został wysłany.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Twój wpis został wysłany.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Podaj dalej wpis",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Podaj dalej",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} w serwisie X: „{tweetText}”",

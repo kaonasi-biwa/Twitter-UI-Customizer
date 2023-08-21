@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "הציוצים שלך נשלחו.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Your posts were sent.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "הציוץ שלך נשלח.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Your post was sent.",
     "XtoTwitter-PostToTweet-notificationsRepost": "דוחות",
     "XtoTwitter-PostToTweet-notificationsRetweet": "צייץ מחדש",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",

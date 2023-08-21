@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "توییت‌های شما فرستاده شد.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "پست‌های شما فرستاده شد.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "توییت شما فرستاده شد.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "پست شما فرستاده شد.",
     "XtoTwitter-PostToTweet-notificationsRepost": "بازپست",
     "XtoTwitter-PostToTweet-notificationsRetweet": "بازتوییت",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} در X: «{tweetText}»",

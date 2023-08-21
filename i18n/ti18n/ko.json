@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "트윗을 보냈습니다.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "게시물을 전송했습니다.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "트윗을 보냈습니다.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "게시물을 전송했습니다.",
     "XtoTwitter-PostToTweet-notificationsRepost": "재게시",
     "XtoTwitter-PostToTweet-notificationsRetweet": "리트윗",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "X에서 {fullName} 님 : {tweetText}'",

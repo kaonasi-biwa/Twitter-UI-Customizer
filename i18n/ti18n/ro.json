@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Tweeturile tale au fost trimise.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Postările au fost trimise.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Tweetul tău a fost trimis.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Postarea a fost trimisă.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Repostează",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Redistribuie",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} pe X: „{tweetText}”",

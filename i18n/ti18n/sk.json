@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Vaše Tweety boli odoslané.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Vaše príspevky boli odoslané.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Váš Tweet bol odoslaný.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Váš príspevok bol odoslaný.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Opätovné uverejnenie",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Retweetnuť",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} na X: „{tweetText}“",

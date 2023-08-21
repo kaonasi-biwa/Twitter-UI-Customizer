@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Туитовете ти бяха изпратени.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Your posts were sent.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Туитът ти бе изпратен.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Your post was sent.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Препубликуване",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Ретуитване",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
