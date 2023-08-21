@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Repost",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Rechouchiar",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweeted: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Compartir chío mediante…",

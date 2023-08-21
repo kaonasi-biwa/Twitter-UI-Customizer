@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Yeniden gönder",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Retweet",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} Tweetledi: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Tweeti paylaşma aracı...",

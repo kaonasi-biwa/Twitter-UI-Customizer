@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Поново објави",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Ретвитуј",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} на мрежи X: „{tweetText}“",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} је твитовао/ла: „{tweetText}“",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Подели твит преко…",

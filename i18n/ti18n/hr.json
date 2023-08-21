@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Proslijedi objavu",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Proslijedi tweet",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} objavio/la je Tweet: „{tweetText}”",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Podijeli Tweet putem...",

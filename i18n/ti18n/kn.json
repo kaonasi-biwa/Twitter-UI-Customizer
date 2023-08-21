@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "ಮರುಪೋಸ್ಟ್ ಮಾಡಿ",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "ಮರುಟ್ವೀಟಿಸಿ",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} ಟ್ವೀಟ್ ಮಾಡಿದ್ದಾರೆ: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "ಈ ಮೂಲಕ ಟ್ವೀಟ್ ಹಂಚಿಕೊಳ್ಳಿ …",
