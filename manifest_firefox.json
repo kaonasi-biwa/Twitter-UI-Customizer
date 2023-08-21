@@ -16,12 +16,7 @@
             "run_at": "document_start"
         }
     ],
-    "web_accessible_resources": [
-        {
-            "resources": ["src/*"],
-            "matches": ["*://*.twitter.com/*"]
-        }
-    ],
+    "web_accessible_resources": ["src/*"],
     "options_ui": {
         "page": "TUIC/options/options.html",
         "browser_style": true

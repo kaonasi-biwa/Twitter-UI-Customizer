@@ -304,7 +304,8 @@ export const TUICData = {
                 const baseElem = document.querySelector(`#layers`);
                 if (baseElem != null) {
                     /* eslint-disable */
-                    const layerElem = TUICLibrary.HTMLParse(`<div class="css-1dbjc4n r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
+                    const layerElem = TUICLibrary.HTMLParse(
+                        `<div class="css-1dbjc4n r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
                     <div class="css-1dbjc4n r-12vffkv">
                       <div class="css-1dbjc4n r-12vffkv">
                         <div class="css-1dbjc4n r-1jgb5lz r-1ye8kvj r-633pao r-13qz1uu">
@@ -327,7 +328,8 @@ export const TUICData = {
                         </div>
                       </div>
                     </div>
-                  </div>`).item(0);
+                  </div>`,
+                    ).item(0);
                     /* eslint-enable */
                     baseElem.appendChild(layerElem);
                     window.setTimeout(() => {
@@ -592,7 +594,7 @@ export const TUICData = {
         },
         waitSetElement: async (selector) => {
             for (let i = 0; i <= 25; i++) {
-                re = await new Promise((resolve2) => {
+                const re = await new Promise((resolve2) => {
                     const elem = document.querySelector(selector);
                     if (elem != null) {
                         elem.click();
