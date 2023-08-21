@@ -14,19 +14,9 @@
             "matches": ["*://*.twitter.com/*"],
             "js": ["src/index.js"],
             "run_at": "document_start"
-        },
-        {
-            "matches": ["*://*.twitter.com/*"],
-            "js": ["src/runningSafemode.js"],
-            "run_at": "document_end"
         }
     ],
-    "web_accessible_resources": [
-        {
-            "resources": ["src/*"],
-            "matches": ["*://*.twitter.com/*"]
-        }
-    ],
+    "web_accessible_resources": ["src/*"],
     "options_ui": {
         "page": "TUIC/options/options.html",
         "browser_style": true
