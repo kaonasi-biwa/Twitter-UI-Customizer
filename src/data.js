@@ -1,4 +1,6 @@
-const TUICData = {
+import { TUICLibrary, TUICPref } from "./library.js";
+
+export const TUICData = {
     defaultPref: {
         buttonColor: {},
         buttonColorLight: {},
@@ -344,7 +346,7 @@ const TUICData = {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         blockButton.click();
-                        if (TUICPref.otherBoolSetting.noModalbottomTweetButtons) {
+                        if (TUICPref.get("otherBoolSetting.noModalbottomTweetButtons")) {
                             document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
                             document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -367,7 +369,7 @@ const TUICData = {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         deleteButtonButton.parentElement.parentElement.parentElement.parentElement.click();
-                        if (TUICPref.otherBoolSetting.noModalbottomTweetButtons) {
+                        if (TUICPref.get("otherBoolSetting.noModalbottomTweetButtons")) {
                             document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
                             document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -406,7 +408,7 @@ const TUICData = {
                 }
             },
             "retweet-button": function () {
-                if (TUICPref.otherBoolSetting["RTNotQuote"]) {
+                if (TUICPref.get("otherBoolSetting.RTNotQuote")) {
                     window.setTimeout(() => {
                         TUICData.sidebarButtons.waitSetElement(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`);
                     }, 100);

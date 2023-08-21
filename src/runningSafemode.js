@@ -1,3 +1,6 @@
+import { TUICLibrary } from "./library";
+import { TUICOptionHTML } from "./option";
+
 (async () => {
     if (document.getElementById("react-root") && window.location.pathname == "/tuic/safemode") {
         if (document.querySelector("#safemode") == null) {

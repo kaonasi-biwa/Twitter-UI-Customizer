@@ -1,6 +1,11 @@
+import { applyCustomCss, applySystemCss } from "./applyCSS.js";
+import { TUICData } from "./data.js";
+import { TUICLibrary, TUICPref } from "./library.js";
+import { TUICObserver } from "./observer.js";
+
 let editingColorType = "buttonColor";
 
-const TUICOptionHTML = {
+export const TUICOptionHTML = {
     displaySetting: function (rootElement = "") {
         const TWITTER_setting_back = rootElement;
         const TUICPrefHTML = TUICLibrary.HTMLParse(this.TUICOptionHTML());
@@ -30,19 +35,16 @@ const TUICOptionHTML = {
                 const colorType = event.target.getAttribute("TUICColorType");
                 const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
                 const colorKind = event.target.getAttribute("TUICColorKind");
+                const isChecked = document.getElementById(`${colorAttr}-${colorType}-check`).checked;
 
-                if (!TUICPref[colorKind][colorAttr]) TUICPref[colorKind][colorAttr] = {};
-                TUICPref[colorKind][colorAttr][colorType] =
-                    `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${
-                        document.getElementById(`${colorAttr}-${colorType}-check`).checked ? 0 : 1
-                    })`;
+                TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
                 document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
 
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.save();
 
-                TUICCss();
+                applySystemCss();
             },
             single: false,
         },
@@ -51,22 +53,20 @@ const TUICOptionHTML = {
             function: function (event) {
                 event.target.dataset.checked = event.target.dataset.checked !== "true";
 
-                const isChecked = event.target.dataset.checked === "true";
                 const colorAttr = event.target.getAttribute("TUICColor");
                 const colorType = event.target.getAttribute("TUICColorType");
                 const colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${colorAttr}-${colorType}`).value);
                 const colorKind = event.target.getAttribute("TUICColorKind");
+                const isChecked = event.target.dataset.checked === "true";
 
-                if (!TUICPref[colorKind][colorAttr]) TUICPref[colorKind][colorAttr] = {};
-                TUICPref[colorKind][colorAttr][colorType] =
-                    `rgba(${colorValue[0]},${colorValue[1]},${colorValue[2]},${isChecked ? 0 : 1})`;
+                TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
                 document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 event.currentTarget.parentElement.parentElement.classList.remove(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
 
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.save();
 
-                TUICCss();
+                applySystemCss();
             },
             single: false,
         },
@@ -84,23 +84,23 @@ const TUICOptionHTML = {
                 if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0) // TODO: 謎
                     document.getElementById(`${colorAttr}-${colorType}-check`).checked = TUIC_color[3] == 0;
 
-                if (TUICPref[colorKind][colorAttr] && TUICPref[colorKind][colorAttr][colorType])
-                    delete TUICPref[colorKind][colorAttr][colorType];
+                if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`))
+                    TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
 
                 document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
                 event.currentTarget.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
 
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.save();
 
-                TUICCss();
+                applySystemCss();
             },
             single: false,
         },
         ".TUICInvisibleItems": {
             type: "click",
             function: function (event) {
-                TUICPref.invisibleItems[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("invisibleItems")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
             },
             single: false,
@@ -108,12 +108,12 @@ const TUICOptionHTML = {
         ".TUICXToTwitter": {
             type: "click",
             function: function (event) {
-                TUICPref.XToTwitter[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("XToTwitter")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
-                if (!TUICPref.XToTwitter["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                if (!TUICPref.get("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
                 }
             },
@@ -122,12 +122,12 @@ const TUICOptionHTML = {
         ".twitterTitle": {
             type: "click",
             function: function (event) {
-                TUICPref.otherBoolSetting[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("otherBoolSetting")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
-                if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
                 }
             },
@@ -136,8 +136,8 @@ const TUICOptionHTML = {
         ".otherBoolSetting": {
             type: "click",
             function: function (event) {
-                TUICPref.otherBoolSetting[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("otherBoolSetting")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
             },
@@ -146,8 +146,8 @@ const TUICOptionHTML = {
         ".timelineSetting": {
             type: "click",
             function: function (event) {
-                TUICPref.timeline[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("timeline")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
             },
@@ -156,8 +156,8 @@ const TUICOptionHTML = {
         ".clientInfo": {
             type: "click",
             function: function (event) {
-                TUICPref.clientInfo[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("clientInfo")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
             },
@@ -166,8 +166,8 @@ const TUICOptionHTML = {
         ".rightSidebar": {
             type: "click",
             function: function (event) {
-                TUICPref.rightSidebar[event.target.id] = event.target.checked;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.get("rightSidebar")[event.target.id] = event.target.checked;
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
             },
@@ -177,7 +177,7 @@ const TUICOptionHTML = {
             type: "click",
             function: function () {
                 localStorage.setItem("TUIC_CSS", document.querySelector("#css_textarea").value);
-                TUICCustomCSS();
+                applyCustomCss();
             },
             single: true,
         },
@@ -185,7 +185,7 @@ const TUICOptionHTML = {
             type: "click",
             function: function () {
                 localStorage.setItem("TUIC", TUICLibrary.defaultPref.getString());
-                TUICPref = TUICLibrary.defaultPref.get();
+                TUICPref.set("", TUICLibrary.defaultPref.get());
 
                 if (window.location.pathname == "/tuic/safemode") {
                     window.location.href = `${window.location.protocol}//${window.location.hostname}`;
@@ -193,7 +193,7 @@ const TUICOptionHTML = {
                     document.querySelector("#TUIC_setting").remove();
                     TUICLibrary.getClasses.update();
                     TUICObserver.titleObserverFunction();
-                    if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                    if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                         document.title = document.title.replace(" / Twitter", " / X");
                     }
                 }
@@ -282,8 +282,8 @@ const TUICOptionHTML = {
                 const rightBox = parentBox.children[2].children[2];
 
                 const settingId = parentBox.getAttribute("TUICUDBox");
-                TUICPref[settingId] = TUICLibrary.defaultPref.get()[settingId];
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.set(settingId, TUICLibrary.defaultPref.get()[settingId]);
+                TUICPref.save();
                 parentBox.setAttribute("TUICSelectedItem", "");
                 const ListItem = TUICOptionHTML.upDownListItem(settingId);
 
@@ -309,8 +309,8 @@ const TUICOptionHTML = {
         ".TUICRadio": {
             type: "change",
             function: function (event) {
-                TUICPref[event.currentTarget.getAttribute("name")] = event.currentTarget.getAttribute("value");
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.set(event.currentTarget.getAttribute("name"), event.currentTarget.getAttribute("value"));
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.observerFunction();
             },
@@ -348,9 +348,9 @@ const TUICOptionHTML = {
                     localStorage.setItem(`TUIC_IconImg_Favicon`, "");
                 }
 
-                TUICCss();
-                if (TUICPref.twitterIcon == "custom" && TUICPref.otherBoolSetting["faviconSet"]) {
-                    const imageURL = localStorage.getItem(TUICPref.otherBoolSetting["roundIcon"] ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                applySystemCss();
+                if (TUICPref.get("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
+                    const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                     document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
                 }
             },
@@ -360,11 +360,10 @@ const TUICOptionHTML = {
             type: "click",
             function: function (event) {
                 const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
-                const selectItem = event.currentTarget.id;
+                const selectedItem = event.currentTarget.id;
+                parentBox.querySelector("[TUICSelectedUpDownContent]")?.removeAttribute("TUICSelectedUpDownContent");
                 parentBox.querySelector(`#${selectedItem}`).setAttribute("TUICSelectedUpDownContent", "true");
-                parentBox.setAttribute("TUICSelectedItem", selectItem);
+                parentBox.setAttribute("TUICSelectedItem", event.currentTarget.id);
             },
             single: false,
         },
@@ -382,7 +381,7 @@ const TUICOptionHTML = {
         "#TUICExport": {
             type: "click",
             function: function () {
-                document.querySelector("#TUICExportBox").value = JSON.stringify(TUICPref);
+                document.querySelector("#TUICExportBox").value = TUICPref.export();
             },
             single: true,
         },
@@ -399,18 +398,17 @@ const TUICOptionHTML = {
             function: function () {
                 try {
                     const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
-                    TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
-                    TUICPref = importPref;
-                    localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                    TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                    TUICPref.save();
                     if (window.location.pathname == "/tuic/safemode") {
                         window.location.href = `${window.location.protocol}//${window.location.hostname}`;
                     } else {
                         document.querySelector("#TUIC_setting").remove();
                         TUICLibrary.getClasses.update();
-                        TUICCss();
+                        applySystemCss();
                         TUICObserver.observerFunction();
                         TUICObserver.titleObserverFunction();
-                        if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                        if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                             document.title = document.title.replace(" / Twitter", " / X");
                         }
                     }
@@ -425,18 +423,17 @@ const TUICOptionHTML = {
             function: function () {
                 try {
                     const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
-                    TUICLibrary.updatePref.updateToDefault(importPref, TUICData.defaultPref);
-                    TUICPref = importPref;
-                    localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                    TUICPref.set("", TUICLibrary.updatePref.merge(importPref, TUICData.defaultPref));
+                    TUICPref.save();
                     if (window.location.pathname == "/tuic/safemode") {
                         window.location.href = `${window.location.protocol}//${window.location.hostname}`;
                     } else {
                         document.querySelector("#TUIC_setting").remove();
                         TUICLibrary.getClasses.update();
-                        TUICCss();
+                        applySystemCss();
                         TUICObserver.observerFunction();
                         TUICObserver.titleObserverFunction();
-                        if (!TUICPref.otherBoolSetting["XtoTwitter"] && document.title.endsWith(" / Twitter")) {
+                        if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                             document.title = document.title.replace(" / Twitter", " / X");
                         }
                     }
@@ -459,15 +456,14 @@ const TUICOptionHTML = {
                     },
                     twitterIcon: "twitter",
                 };
-                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
-                TUICPref = importPref;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                TUICPref.save();
                 document.querySelector("#TUIC_setting").remove();
                 TUICLibrary.getClasses.update();
-                TUICCss();
+                applySystemCss();
                 TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
-                if (!TUICPref.XToTwitter["XToTwitter"] && document.title.endsWith(" / Twitter")) {
+                if (!TUICPref.get("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
                 }
             },
@@ -482,16 +478,15 @@ const TUICOptionHTML = {
                     },
                     twitterIcon: "twitter",
                 };
-                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
-                TUICPref = importPref;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICCss();
+                applySystemCss();
                 TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
                 document.querySelector(`#faviconSet`).checked = true;
                 document.querySelector(`#twitter`).checked = true;
-                if (!TUICPref.XToTwitter["XToTwitter"] && document.title.endsWith(" / Twitter")) {
+                if (!TUICPref.get("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
                 }
             },
@@ -510,15 +505,14 @@ const TUICOptionHTML = {
                         verified: true,
                     },
                 };
-                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
-                TUICPref = importPref;
-                TUICPref.sidebarButtons = TUICPref.sidebarButtons.filter((elem) => {
+                TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                TUICPref.set("sidebarButtons", TUICPref.get("sidebarButtons").filter((elem) => {
                     return elem != "twiter-blue" && elem != "verified-choose";
-                });
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                }));
+                TUICPref.save();
                 document.querySelector("#TUIC_setting").remove();
                 TUICLibrary.getClasses.update();
-                TUICCss();
+                applySystemCss();
                 TUICObserver.observerFunction();
             },
             single: true,
@@ -529,12 +523,11 @@ const TUICOptionHTML = {
                 const importPref = {
                     "timeline-discoverMore": "discoverMore_invisible",
                 };
-                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
-                TUICPref = importPref;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                TUICPref.save();
                 document.querySelector("#TUIC_setting").remove();
                 TUICLibrary.getClasses.update();
-                TUICCss();
+                applySystemCss();
                 TUICObserver.observerFunction();
             },
             single: true,
@@ -564,12 +557,11 @@ const TUICOptionHTML = {
                         "unsent-tweet": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
                     },
                 };
-                TUICLibrary.updatePref.updateToDefault(importPref, TUICPref);
-                TUICPref = importPref;
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+                TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                TUICPref.save();
                 document.querySelector("#TUIC_setting").remove();
                 TUICLibrary.getClasses.update();
-                TUICCss();
+                applySystemCss();
                 TUICObserver.observerFunction();
             },
             single: true,
@@ -582,10 +574,10 @@ const TUICOptionHTML = {
         for (let i = 0; i < visibleButtonsT.length; i++) {
             visible_button_list.push(visibleButtonsT[i].id);
         }
-        TUICPref[id] = visible_button_list;
-        localStorage.setItem("TUIC", JSON.stringify(TUICPref));
+        TUICPref.set(id, visible_button_list);
+        TUICPref.save();
         TUICLibrary.getClasses.update();
-        TUICCss();
+        applySystemCss();
     },
     TUICOptionHTML: function () {
         /* eslint-disable */
@@ -636,16 +628,16 @@ ${this.safemodeReturnButton()}
 ${this.upDownList(
     "visibleButtons",
     "bottomTweetButtons-settingTitle",
-    this.checkbox("bottomScroll", TUICPref.otherBoolSetting["bottomScroll"], "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
-        this.checkbox("bottomSpace", TUICPref.otherBoolSetting["bottomSpace"], "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting") +
-        this.checkbox("RTNotQuote", TUICPref.otherBoolSetting["RTNotQuote"], "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting") +
-        this.checkbox("noModalbottomTweetButtons", TUICPref.otherBoolSetting["noModalbottomTweetButtons"], "bottomTweetButtons-setting-noModal", "otherBoolSetting"),
+    this.checkbox("bottomScroll", TUICPref.get("otherBoolSetting.bottomScroll"), "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
+        this.checkbox("bottomSpace", TUICPref.get("otherBoolSetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet", "otherBoolSetting") +
+        this.checkbox("RTNotQuote", TUICPref.get("otherBoolSetting.RTNotQuote"), "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting") +
+        this.checkbox("noModalbottomTweetButtons", TUICPref.get("otherBoolSetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "otherBoolSetting"),
 )}
 ${this.upDownList(
     "sidebarButtons",
     "sidebarButton-settingTitle",
-    this.checkbox("smallerSidebarContent", TUICPref.otherBoolSetting["smallerSidebarContent"] ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
-        this.checkbox("sidebarNoneScrollbar", TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting"),
+    this.checkbox("smallerSidebarContent", TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
+        this.checkbox("sidebarNoneScrollbar", TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting"),
 )}
 
 ${this.radioButtonList(
@@ -653,8 +645,8 @@ ${this.radioButtonList(
     "twitterIcon-settingTitle",
     "TUICRadio",
     "<br>" +
-        this.checkbox("faviconSet", TUICPref.otherBoolSetting["faviconSet"] ?? true, "twitterIcon-favicon", "otherBoolSetting") +
-        this.checkbox("roundIcon", TUICPref.otherBoolSetting["roundIcon"] ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
+        this.checkbox("faviconSet", TUICPref.get("otherBoolSetting.faviconSet") ?? true, "twitterIcon-favicon", "otherBoolSetting") +
+        this.checkbox("roundIcon", TUICPref.get("otherBoolSetting.roundIcon") ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
 )}
 
@@ -741,10 +733,10 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     threeColorSetting: function (id) {
         let returnItem = "";
         if (TUICData.colors[id]["background"]) {
-            returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", editingColorType), "settingUI-colorPicker-background", !!TUICPref?.[editingColorType]?.[id]?.background, editingColorType);
+            returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", editingColorType), "settingUI-colorPicker-background", !!TUICPref.get(editingColorType)?.[id]?.background, editingColorType);
         }
         if (TUICData.colors[id]["border"]) {
-            returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", editingColorType), "settingUI-colorPicker-border", !!TUICPref?.[editingColorType]?.[id]?.border, editingColorType);
+            returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", editingColorType), "settingUI-colorPicker-border", !!TUICPref.get(editingColorType)?.[id]?.border, editingColorType);
         }
         if (TUICData.colors[id]["color"]) {
             returnItem += this.colorSetting(
@@ -752,7 +744,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
                 "color",
                 TUICLibrary.color.getColorFromPref(id, "color", editingColorType),
                 TUICData.colors[id]?.typeColor == "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor",
-                !!TUICPref?.[editingColorType]?.[id]?.color,
+                !!TUICPref.get(editingColorType)?.[id]?.color,
                 editingColorType,
             );
         }
@@ -782,7 +774,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     checkboxList: function (id, title, type, otherSetting) {
         let TUICInvisibleCheckBox = "";
         for (const i of TUICData[id].all) {
-            TUICInvisibleCheckBox += this.checkbox(i, TUICPref[id][i], TUICData[id].i18n[i], type);
+            TUICInvisibleCheckBox += this.checkbox(i, TUICPref.get(id)[i], TUICData[id].i18n[i], type);
         }
         return `
         <details class="TUICDetails">
@@ -806,7 +798,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     radioButtonList: function (id, title, type, option) {
         let TUICInvisibleRadioBox = "";
         for (const i of TUICData[id].all) {
-            TUICInvisibleRadioBox += this.radioButton(id, i, TUICPref[id] == i, TUICData[id].i18n[i], type);
+            TUICInvisibleRadioBox += this.radioButton(id, i, TUICPref.get(id) == i, TUICData[id].i18n[i], type);
         }
         return `
         <details class="TUICDetails">
@@ -821,7 +813,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     radioButtonListSub: function (id, title, type) {
         let TUICInvisibleRadioBox = "";
         for (const i of TUICData[id].all) {
-            TUICInvisibleRadioBox += this.radioButton(id, i, TUICPref[id] == i, TUICData[id].i18n[i], type);
+            TUICInvisibleRadioBox += this.radioButton(id, i, TUICPref.get(id) == i, TUICData[id].i18n[i], type);
         }
         return `
         <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title" style="margin-top:0px !important;margin-bottom:0px !important;margin-left:10px !important;">${TUICLibrary.getI18n(title)}</h2>
@@ -903,11 +895,11 @@ ${TUICVisibleButtons}
     upDownListItem: function (id) {
         let TUICVisibleButtons = "";
         let TUICInvisibleButtons = "";
-        for (const i of TUICPref[id]) {
+        for (const i of TUICPref.get(id)) {
             TUICVisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</span></div>`;
         }
         for (const i of TUICData.settings[id].all) {
-            if (!TUICPref[id].includes(i)) {
+            if (!TUICPref.get(id).includes(i)) {
                 TUICInvisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICLibrary.getI18n(TUICData.settings[id].i18n[i])}</span></div>`;
             }
         }
