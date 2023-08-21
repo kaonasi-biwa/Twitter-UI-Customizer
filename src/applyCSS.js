@@ -1,23 +1,27 @@
-function TUICRunFirst() {
+import { TUICData } from "./data.js";
+import { TUICLibrary, TUICPref } from "./library.js";
+import { isSafemode } from "./safemode.js";
+
+export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
     document.querySelector("#twitter_ui_customizer")?.remove();
 
-    // 追加する要素を用意します。
-    const TUIC_css = document.createElement("style");
-    TUIC_css.id = "twitter_ui_customizer";
-    const TWITTER_head = document.querySelector("head");
-    // 基準となる要素を指定します。
-    TWITTER_head.appendChild(TUIC_css);
-    TUICCss();
-    if (window.location.pathname != "/tuic/safemode") {
-        const TUIC_custom_css = document.createElement("style");
-        TUIC_custom_css.id = "twitter_ui_customizer_css";
-        TWITTER_head.appendChild(TUIC_custom_css);
-        TUICCustomCSS();
+    const twitterHead = document.querySelector("head");
+
+    const systemCssElement = document.createElement("style");
+    systemCssElement.id = "twitter_ui_customizer";
+    twitterHead.appendChild(systemCssElement);
+    applySystemCss();
+
+    if (!isSafemode) {
+        const customCssElement = document.createElement("style");
+        customCssElement.id = "twitter_ui_customizer_css";
+        twitterHead.appendChild(customCssElement);
+        applyCustomCss();
     }
 }
 
-function TUICCss() {
+export function applySystemCss() {
     const backgroundColor = TUICLibrary.backgroundColorCheck();
 
     let prefColors = "";
@@ -47,11 +51,11 @@ function TUICCss() {
 }
 
 /* セーフモード時の設定画面スタイル */
-#safemode > #TUIC_setting {
+#TUIC_safemode > #TUIC_setting {
     margin: 2em auto;
     max-width: 600px;
 }
-#safemode > .r-135wba7 {
+#TUIC_safemode > .r-135wba7 {
     line-height: 1em;
 }
 
@@ -532,7 +536,7 @@ height:8px
 #TUICIcon_IconImg{
     background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
     ${
-        TUICPref.otherBoolSetting["roundIcon"] ?? TUICData.defaultPref.otherBoolSetting.roundIcon
+        TUICPref.get("otherBoolSetting.roundIcon") ?? TUICData.defaultPref.otherBoolSetting.roundIcon
             ? `
     border-radius:9999px !important;
     `
@@ -631,7 +635,7 @@ display:none !important;
     border-radius:4px;
 }
 ${
-    TUICPref.otherBoolSetting["smallerSidebarContent"] ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
+    TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
         ? `
 [role="navigation"] .${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}{
     padding-bottom:0px !important;
@@ -642,23 +646,23 @@ ${
 }
 
 ${
-    TUICPref.invisibleItems["subscribe-profile"] ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"]
+    TUICPref.get("invisibleItems.subscribe-profile") ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"]
         ? `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;
     }`
         : ""
 }
-${TUICPref.invisibleItems["hideBelowDM"] ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
+${TUICPref.get("invisibleItems.hideBelowDM") ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
 
 ${
-    TUICPref.otherBoolSetting["bottomSpace"] ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
+    TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
         ? `
 .${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
 `
         : ""
 }
 ${
-    TUICPref.otherBoolSetting["sidebarNoneScrollbar"] ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar
+    TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar
         ? `
 header > div > div > div > div.r-1rnoaur{overflow:clip;}
 `
@@ -669,6 +673,6 @@ header > div > div > div > div.r-1rnoaur{overflow:clip;}
     /* eslint-enable */
 }
 
-function TUICCustomCSS() {
+export function applyCustomCss() {
     document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS");
 }
