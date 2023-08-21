@@ -387,8 +387,7 @@ export const TUICOptionHTML = {
         "#TUICExportCopy": {
             type: "click",
             function: function () {
-                document.querySelector("#TUICExportBox").select();
-                document.execCommand("copy");
+                navigator.clipboard.writeText(document.querySelector("#TUICExportBox").value);
             },
             single: true,
         },

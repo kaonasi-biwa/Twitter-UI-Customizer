@@ -299,12 +299,7 @@ export const TUICData = {
                 }
             },
             "url-copy-cannotCopy": function (elem) {
-                const element = document.createElement("input");
-                element.value = elem.href;
-                document.body.appendChild(element);
-                element.select();
-                document.execCommand("copy");
-                document.body.removeChild(element);
+                navigator.clipboard.writeText(elem.href);
 
                 const baseElem = document.querySelector(`#layers`);
                 if (baseElem != null) {
