@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "รีโพสต์",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "รีทวีต",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} ได้ทวีต: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "แบ่งปันทวีตผ่าน...",
@@ -6,7 +8,7 @@
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "ทวีต",
     "XtoTwitter-PostToTweet-quoteCount": "ทวีตและคำพูด",
     "XtoTwitter-PostToTweet-retweetCount": "รีทวีต",
-    "XtoTwitter-PostToTweet-tweetCount": " ทวี",
+    "XtoTwitter-PostToTweet-tweetCount": " ทวีต",
     "XtoTwitter-PostToTweet-reportTweet": "รายงานทวีต",
     "XtoTwitter-PostToTweet-translateTweet": "แปลทวีต",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "การวิเคราะห์ทวีต",

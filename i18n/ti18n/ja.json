@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "リポスト",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "リツイート",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "Xユーザーの{fullName}さん: 「{tweetText}」",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName}さんがツイートしました: 「{tweetText}」",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "その他の方法でツイートを共有",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "بازپست",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "بازتوییت",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} در X: «{tweetText}»",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} توییت کرد: «{tweetText}»",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "هم‌رسانی توییت ازطریق …",

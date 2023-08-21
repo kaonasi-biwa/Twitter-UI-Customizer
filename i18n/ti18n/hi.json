@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "रीपोस्ट",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "रीट्वीट करें",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} ने ट्वीट किया: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "ट्वीट इसके माध्यम से शेयर करें …",

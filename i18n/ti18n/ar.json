@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "إعادة النشر",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "إعادة التغريد",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} على X: {tweetText}'",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "قام {fullName} بتغريد: {tweetText}'",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "مشاركة التغريدة عبر …",

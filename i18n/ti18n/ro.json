@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Repostează",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Redistribuie",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} pe X: „{tweetText}”",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} a dat Tweet cu: „{tweetText}”",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Distribuie Tweetul prin...",

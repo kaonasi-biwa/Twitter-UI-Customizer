@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-notificationsRepost": "Opätovné uverejnenie",
+    "XtoTwitter-PostToTweet-notificationsRetweet": "Retweetnuť",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} na X: „{tweetText}“",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "Používateľ {fullName} tweetoval: {tweetText}",
     "XtoTwitter-PostToTweet-shareMenu-copyOtherWay": "Zdieľať Tweet cez…",
