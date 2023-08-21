@@ -1,10 +1,11 @@
+import { TUICI18N } from "./i18n";
 import { TUICLibrary } from "./library";
 import { TUICOptionHTML } from "./option";
 
 (async () => {
     if (document.getElementById("react-root") && window.location.pathname == "/tuic/safemode") {
         if (document.querySelector("#safemode") == null) {
-            await TUICLibrary.fetchI18n();
+            await TUICI18N.fetch();
             document.querySelector("#react-root").style = "display:none !important;";
             const safemode = document.createElement("div");
             safemode.id = "safemode";
@@ -12,7 +13,7 @@ import { TUICOptionHTML } from "./option";
             document.querySelector("body").appendChild(safemode);
             document.querySelector(".twitter_ui_customizer_css")?.remove();
             const setTitle = () => {
-                document.title = TUICLibrary.getI18n("safemode-title");
+                document.title = TUICI18N.get("safemode-title");
                 window.setTimeout(setTitle, 5000);
             };
             setTitle();
