@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Vložiť Tweet",
+    "XtoTwitter-PostToTweet-isRetweeted": "Retweetol používateľ ",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Vaše Tweety boli odoslané.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Vaše príspevky boli odoslané.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Váš Tweet bol odoslaný.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopírovať odkaz na Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweety",
     "XtoTwitter-PostToTweet-quoteCount": "Tweetu",
-    "XtoTwitter-PostToTweet-retweetCount": "retweetu",
-    "XtoTwitter-PostToTweet-tweetCount": " Tweetu",
+    "XtoTwitter-PostToTweet-retweetCount": "retweety",
+    "XtoTwitter-PostToTweet-tweetCount": " Tweet{tweetCount}y",
     "XtoTwitter-PostToTweet-reportTweet": "Nahlásiť Tweet",
     "XtoTwitter-PostToTweet-translateTweet": "Preložiť Tweet",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Štatistika Tweetov",
