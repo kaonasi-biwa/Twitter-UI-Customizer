@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Bygg inn tweeten",
+    "XtoTwitter-PostToTweet-isRetweeted": " retweetet",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Tweetene dine ble sendt.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Innleggene dine er sendt.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Tweeten din ble sendt.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopier Tweet-lenken",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweets",
     "XtoTwitter-PostToTweet-quoteCount": "sitat-Tweets",
-    "XtoTwitter-PostToTweet-retweetCount": "Retweets",
-    "XtoTwitter-PostToTweet-tweetCount": " tweets",
+    "XtoTwitter-PostToTweet-retweetCount": "Retweet",
+    "XtoTwitter-PostToTweet-tweetCount": " tweet{tweetCount}",
     "XtoTwitter-PostToTweet-reportTweet": "Rapporter tweeten",
     "XtoTwitter-PostToTweet-translateTweet": "Oversett tweeten",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Tweet-statistikk",

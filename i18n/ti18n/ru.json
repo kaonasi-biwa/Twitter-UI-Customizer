@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Встроить твит",
+    "XtoTwitter-PostToTweet-isRetweeted": " ретвитнул(а)",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Ваши твиты отправлены.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Посты отправлены.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Твит отправлен.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kопировать ссылку на твит",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Твиты",
     "XtoTwitter-PostToTweet-quoteCount": "+твитов с цитатами",
-    "XtoTwitter-PostToTweet-retweetCount": "ретвитов",
-    "XtoTwitter-PostToTweet-tweetCount": " Твитов",
+    "XtoTwitter-PostToTweet-retweetCount": "ретвита",
+    "XtoTwitter-PostToTweet-tweetCount": " Твит{tweetCount}а",
     "XtoTwitter-PostToTweet-reportTweet": "Пожаловаться на твит",
     "XtoTwitter-PostToTweet-translateTweet": "Перевести твит",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Аналитика твитов",

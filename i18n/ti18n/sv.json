@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Bädda in Tweeten",
+    "XtoTwitter-PostToTweet-isRetweeted": " retweetade",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Dina Tweets skickades.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Inläggen skickades.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Din Tweet skickades.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopiera länk till Tweet",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweets",
     "XtoTwitter-PostToTweet-quoteCount": "citat-tweets",
-    "XtoTwitter-PostToTweet-retweetCount": "Retweets",
-    "XtoTwitter-PostToTweet-tweetCount": " Tweets",
+    "XtoTwitter-PostToTweet-retweetCount": "Retweet",
+    "XtoTwitter-PostToTweet-tweetCount": " Tweet{tweetCount}",
     "XtoTwitter-PostToTweet-reportTweet": "Anmäl Tweeten",
     "XtoTwitter-PostToTweet-translateTweet": "Översätt tweeten",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Tweet-statistik",
