@@ -5,7 +5,8 @@
     "fixSingular": [],
     "deleteString": {
         "g132f681": ["@{screenName}"],
-        "e74e9bb7": [".", "。", "{tweetCount}"],
+        "e74e9bb7": [".", "。", "{tweetCount}", "(de)", "uri"],
+        "c42234da": ["{count}", "uri"],
         "h99e9c95": ["{0}"]
     }
 }

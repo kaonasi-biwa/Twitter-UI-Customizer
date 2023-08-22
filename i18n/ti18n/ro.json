@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Încorporează un Tweet",
+    "XtoTwitter-PostToTweet-isRetweeted": " a redistribuit",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Tweeturile tale au fost trimise.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Postările au fost trimise.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Tweetul tău a fost trimis.",
@@ -12,7 +14,7 @@
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweeturi",
     "XtoTwitter-PostToTweet-quoteCount": "+Tweet cu citat",
     "XtoTwitter-PostToTweet-retweetCount": "Retweet",
-    "XtoTwitter-PostToTweet-tweetCount": " Tweet",
+    "XtoTwitter-PostToTweet-tweetCount": " {tweetCount} Tweet",
     "XtoTwitter-PostToTweet-reportTweet": "Raportează Tweetul",
     "XtoTwitter-PostToTweet-translateTweet": "Tradu Tweetul",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Analize Tweet",
