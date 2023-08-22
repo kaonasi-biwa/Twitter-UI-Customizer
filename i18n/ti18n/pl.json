@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Zamieść Tweeta",
+    "XtoTwitter-PostToTweet-isRetweeted": " podał/a dalej Tweeta",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Twoje Tweety zostały wysłane.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Twoje wpisy zostały wysłane. ",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Twój Tweet został wysłany.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Kopiuj link do Tweeta",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweety",
     "XtoTwitter-PostToTweet-quoteCount": "Cytatów z",
-    "XtoTwitter-PostToTweet-retweetCount": "Tweetów podanych",
-    "XtoTwitter-PostToTweet-tweetCount": " Tweetów",
+    "XtoTwitter-PostToTweet-retweetCount": "Tweety podane dalej",
+    "XtoTwitter-PostToTweet-tweetCount": " Tweet{tweetCount}y",
     "XtoTwitter-PostToTweet-reportTweet": "Zgłoś Tweeta",
     "XtoTwitter-PostToTweet-translateTweet": "Przetłumacz Tweeta",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Statystyki Tweetów",

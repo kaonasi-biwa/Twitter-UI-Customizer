@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Tweet insluiten",
+    "XtoTwitter-PostToTweet-isRetweeted": " heeft geretweet",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Je Tweets zijn verstuurd.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Je posts zijn verzonden.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Je Tweet is verstuurd.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Tweet-URL kopiëren",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweets",
     "XtoTwitter-PostToTweet-quoteCount": "+Geciteerde Tweets",
-    "XtoTwitter-PostToTweet-retweetCount": "Retweets",
-    "XtoTwitter-PostToTweet-tweetCount": " Tweets",
+    "XtoTwitter-PostToTweet-retweetCount": "Retweet",
+    "XtoTwitter-PostToTweet-tweetCount": " Tweet{tweetCount}",
     "XtoTwitter-PostToTweet-reportTweet": "Tweet rapporteren",
     "XtoTwitter-PostToTweet-translateTweet": "Tweet vertalen",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Tweet-analyses",

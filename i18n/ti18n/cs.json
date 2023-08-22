@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Vložit Tweet",
+    "XtoTwitter-PostToTweet-isRetweeted": "Uživatel  retweetnul",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Vaše tweety byly odeslány.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Vaše posty byly odeslány.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Váš Tweet byl odeslán.",
@@ -12,7 +14,7 @@
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Tweety",
     "XtoTwitter-PostToTweet-quoteCount": "+Tweety s citací",
     "XtoTwitter-PostToTweet-retweetCount": "Retweety",
-    "XtoTwitter-PostToTweet-tweetCount": " tweetů",
+    "XtoTwitter-PostToTweet-tweetCount": " {tweetCount}tweety",
     "XtoTwitter-PostToTweet-reportTweet": "Nahlásit Tweet",
     "XtoTwitter-PostToTweet-translateTweet": "Přeložit Tweet",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Analýza tweetů",

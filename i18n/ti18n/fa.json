@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "جاسازی توییت",
+    "XtoTwitter-PostToTweet-isRetweeted": " بازتوییت کرد",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "توییت‌های شما فرستاده شد.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "پست‌های شما فرستاده شد.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "توییت شما فرستاده شد.",
@@ -12,7 +14,7 @@
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "توييت‌ها",
     "XtoTwitter-PostToTweet-quoteCount": "نقل‌توییت",
     "XtoTwitter-PostToTweet-retweetCount": "بازتوییت",
-    "XtoTwitter-PostToTweet-tweetCount": " توييت",
+    "XtoTwitter-PostToTweet-tweetCount": " تو{tweetCount}ییت",
     "XtoTwitter-PostToTweet-reportTweet": "گزارش توییت",
     "XtoTwitter-PostToTweet-translateTweet": "ترجمه توييت",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "اطلاعات آماری توییت",
