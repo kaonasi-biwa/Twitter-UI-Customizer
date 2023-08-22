@@ -40,7 +40,7 @@ import fs from "fs";
                     translatedText = i18nObject[elem][translateID];
                 }
 
-                if (config.fixPlural.includes(translateID) && translatedText.includes("(")) {
+                if (config.fixPlural.includes(translateID) && translatedText.includes("(") && translatedText.includes(")") && translatedText.includes(",")) {
                     const textBase = translatedText.slice(0, translatedText.indexOf("("));
                     translatedText = textBase + translatedText.slice(translatedText.indexOf("(")).split(",")[2].replace(")", "");
                 }
