@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "S'han enviat els tuits.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "S'han enviat les publicacions.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "S'ha enviat el tuit.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "S'ha enviat la publicació.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Republicació",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Retuit",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} a X: {tweetText}'",

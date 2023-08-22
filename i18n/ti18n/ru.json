@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Ваши твиты отправлены.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Посты отправлены.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Твит отправлен.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Пост отправлен.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Сделать репост",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Ретвитнуть",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} в X: «{tweetText}»",
