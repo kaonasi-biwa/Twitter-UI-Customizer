@@ -18,7 +18,7 @@ import fs from "fs";
     for (const elem of locales) {
         console.log(`Fetching i18n (${elem})...`);
         i18nObjectNew[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/" + elem + ".json")).json();
-        i18nObject[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/3f0ec1fb005f218a7eb60b580fd620541b1a9ad5/docs/json/i18n/" + elem + ".json")).json();
+        i18nObject[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/" + elem + ".json")).json();
         i18nObjectOld[elem] = await (await fetch("https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/" + elem + ".json")).json();
     }
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
