@@ -51,7 +51,7 @@ import fs from "fs";
 
                 if (translateID in config.deleteString) {
                     for (const delString of config.deleteString[translateID]) {
-                        translatedText = translatedText.replace(delString, "");
+                        translatedText = translatedText.replaceAll(delString, "");
                     }
                 }
                 tmpObj = { [elem2]: translatedText, ...tmpObj };
