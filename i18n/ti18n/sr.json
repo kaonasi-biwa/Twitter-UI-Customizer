@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Угради твит",
+    "XtoTwitter-PostToTweet-isRetweeted": " је ретвитовао/ла",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Твитови су послати.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Твоје објаве су послате.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Твит је послат.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Копирај линк у твит",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Твитови",
     "XtoTwitter-PostToTweet-quoteCount": "твит",
-    "XtoTwitter-PostToTweet-retweetCount": "ретвит",
-    "XtoTwitter-PostToTweet-tweetCount": " Твит",
+    "XtoTwitter-PostToTweet-retweetCount": "ретвита",
+    "XtoTwitter-PostToTweet-tweetCount": " Твит{tweetCount}а",
     "XtoTwitter-PostToTweet-reportTweet": "Пријави твит",
     "XtoTwitter-PostToTweet-translateTweet": "Преведи твит",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Аналитика твита",

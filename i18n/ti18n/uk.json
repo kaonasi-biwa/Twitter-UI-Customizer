@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-menu-embed": "Вбудувати твіт",
+    "XtoTwitter-PostToTweet-isRetweeted": " ретвітнув(ла)",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Ваші твіти надіслано.",
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Пости надіслано.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Ваш твіт надіслано.",
@@ -11,8 +13,8 @@
     "XtoTwitter-PostToTweet-shareMenu-copyURL": "Копіювати посилання на твіт",
     "XtoTwitter-PostToTweet-tweetNotificationsTitle": "Твіти",
     "XtoTwitter-PostToTweet-quoteCount": "цитованих твітів",
-    "XtoTwitter-PostToTweet-retweetCount": "ретвітів",
-    "XtoTwitter-PostToTweet-tweetCount": " твітів",
+    "XtoTwitter-PostToTweet-retweetCount": "ретвіти",
+    "XtoTwitter-PostToTweet-tweetCount": " твіт{tweetCount}и",
     "XtoTwitter-PostToTweet-reportTweet": "Поскаржитися на твіт",
     "XtoTwitter-PostToTweet-translateTweet": "Перекласти твіт",
     "XtoTwitter-PostToTweet-tweetAnalyticsHeader": "Аналітика твіта",
