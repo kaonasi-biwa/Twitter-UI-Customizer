@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "તમારી ટ્વીટ્સ મોકલી દેવામાં આવી હતી.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Your posts were sent.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "તમારી ટ્વીટ મોકલી દેવામાં આવી હતી.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Your post was sent.",
     "XtoTwitter-PostToTweet-notificationsRepost": "રીપોસ્ટ કરો",
     "XtoTwitter-PostToTweet-notificationsRetweet": "પુનટ્વીટ",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",

@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Твитови су послати.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Твоје објаве су послате.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Твит је послат.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Твоја објава је послата.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Поново објави",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Ретвитуј",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} на мрежи X: „{tweetText}“",

@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "آپ کے ٹویٹس بھیج دیے گئے۔",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Your posts were sent.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "آپ کا ٹویٹ بھیج دیا گیا۔",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Your post was sent.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Repost",
     "XtoTwitter-PostToTweet-notificationsRetweet": "ریٹویٹ",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",

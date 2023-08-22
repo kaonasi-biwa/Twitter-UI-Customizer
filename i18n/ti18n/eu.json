@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Bidali dira txioak.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Your posts were sent.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Bidali da txioa.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Your post was sent.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Repost",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Bertxiotu",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} on X: {tweetText}'",

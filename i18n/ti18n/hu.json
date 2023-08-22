@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "A Tweetjeidet elküldtük.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "A bejegyzéseid el lettek küldve.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "A Tweetedet elküldtük.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "A bejegyzésed el lett küldve.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Újraposztolás",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Retweet",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} az X-en: „{tweetText}”",

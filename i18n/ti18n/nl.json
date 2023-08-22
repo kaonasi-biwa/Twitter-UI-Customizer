@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Je Tweets zijn verstuurd.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Je posts zijn verzonden.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Je Tweet is verstuurd.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Je post is verzonden.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Repost",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Retweeten",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} op X: '{tweetText}'",

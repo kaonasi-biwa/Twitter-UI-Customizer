@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Dina Tweets skickades.",
+    "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "Inläggen skickades.",
+    "XtoTwitter-PostToTweet-tweeted-one-old-layer": "Din Tweet skickades.",
+    "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "Inlägget skickades.",
     "XtoTwitter-PostToTweet-notificationsRepost": "Återpublicera",
     "XtoTwitter-PostToTweet-notificationsRetweet": "Retweeta",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} på  X: ”{tweetText}”",
