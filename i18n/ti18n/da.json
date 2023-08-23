@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Når nogen (også dig) trykker på hjertet for at like dette Tweet, bliver det vist her.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Ingen Tweet-likes endnu",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Forstærk Tweets, du synes om",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Del en andens Tweet på din tidslinje ved at retweete det. Når du gør det, bliver det vist her.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Tilføj dit synspunkt, når du deler en andens Tweet, og det bliver vist her.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Du har ingen Citat-Tweets endnu",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweetet af",
     "XtoTwitter-PostToTweet-menu-embed": "Indlejr Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": " retweetede",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Dine Tweets blev sendt.",

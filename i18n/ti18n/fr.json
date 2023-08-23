@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Quand une personne appuiera sur le cœur pour aimer ce Tweet (ou que vous le ferez vous‑même), vous le verrez ici.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Ce Tweet n'a pas encore été aimé.",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Amplifiez les Tweets que vous aimez",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Partagez le Tweet d'une autre personne dans votre fil en le retweetant. Quand vous le ferez, cela apparaîtra ici.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Ajoutez votre commentaire quand vous partagez le Tweet d'une autre personne. Il apparaîtra ici.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Aucun Tweet cité pour le moment",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweeté par",
     "XtoTwitter-PostToTweet-menu-embed": "Intégrer le Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": " a retweeté",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Vos Tweets ont été envoyés.",

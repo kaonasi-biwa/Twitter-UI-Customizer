@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Až někdo (třeba i vy) olajkuje tento Tweet klepnutím na ikonu srdce, zobrazí se to tady.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Tweet zatím nemá žádné lajky",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Šiřte dál tweety, které se vám líbí",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Nasdílejte Tweet od někoho jiného na své časové ose tím, že jej retweetnete. Až to uděláte, zobrazí se tady.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Když nasdílíte Tweet od někoho jiného a přidáte k němu svůj pohled, zobrazí se tady.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Zatím žádné tweety s citací",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweetnuto uživateli",
     "XtoTwitter-PostToTweet-menu-embed": "Vložit Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": "Uživatel  retweetnul",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Vaše tweety byly odeslány.",

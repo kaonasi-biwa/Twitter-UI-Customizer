@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-header": "لم يتم تسجيل الإعجاب بالتغريدة حتى الآن",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "وسّعي نطاق التغريدات التي تعجبكِ",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "يمكنكِ مشاركة تغريدة شخص آخر على يومياتكِ من خلال إعادة تغريدها. وعندما تقومين بذلك، ستظهر هنا.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "احرصي على إضافة آرائكِ عند مشاركة تغريدة شخص ما وستظهر هنا.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "لا توجد اقتباسات تغريدات حتى الآن",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "مُعاد تغريدها بواسطة",
     "XtoTwitter-PostToTweet-menu-embed": "تضمين التغريدة",
     "XtoTwitter-PostToTweet-isRetweeted": "أعادت التغريد ",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "تم إرسال تغريداتكِ.",

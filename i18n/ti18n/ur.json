@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "اگر کوئی بھی (بشمول آپ کے) اس ٹویٹ لائک کرنے کے لئے دل کو ٹیپ کرتا ہے، یہ یہاں ظاہر ہوگا۔",
+    "XtoTwitter-PostToTweet-liked-none-header": "ابھی تک کوئی ٹویٹ لائکس نہیں",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "جو ٹویٹس آپ لائک کرتے ہیں ان میں اضافہ کریں",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "کسی کے ٹویٹ کو ری ٹویٹ کرکے اپنے ٹائم لائن پر شیئر کریں۔ جب آپ ایسا کريں گے، وہ یہاں نظر آئے گا۔",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "کسی اور کا ٹویٹ شیئر کرتے وقت اپنا نظریہ شامل کریں اور وہ یہاں نظر آئے گا۔",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "ابھی تک کوئی کوٹ ٹویٹ نہیں",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "جنہوں نے ریٹویٹ کیا",
     "XtoTwitter-PostToTweet-menu-embed": "ٹویٹ ایمبیڈ کریں",
     "XtoTwitter-PostToTweet-isRetweeted": " نے ریٹویٹ کیا",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "آپ کے ٹویٹس بھیج دیے گئے۔",
