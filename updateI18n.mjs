@@ -1,12 +1,12 @@
 import fetch from "node-fetch";
-import fs from "fs";
+import fs from "fs/promises";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
-    const locales = process.argv.length == 2 ? JSON.parse(fs.readFileSync("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+    const locales = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
 
     // 設定をロード
-    const config = JSON.parse(fs.readFileSync("./i18n/_officialTwitterI18nConfig.json", "utf8"));
+    const config = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18nConfig.json", "utf8"));
 
     // i18nデータを格納するオブジェクト
     const i18nObjectNew = {};
@@ -14,26 +14,24 @@ import fs from "fs";
     const i18nObjectOld = {};
 
     // 非同期リクエストを使用してi18nデータを取得
-    await Promise.all(
-        locales.map(async (elem) => {
-            console.log(`Fetching i18n (${elem})...`);
-            i18nObjectNew[elem] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/${elem}.json`)).json();
-            i18nObject[elem] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/${elem}.json`)).json();
-            i18nObjectOld[elem] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/${elem}.json`)).json();
-        }),
-    );
+    console.log("Fetching i18n...");
+    await Promise.all(locales.map(lang => [
+        (async () => i18nObjectNew[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/${lang}.json`)).json())(),
+        (async () => i18nObject[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/${lang}.json`)).json())(),
+        (async () => i18nObjectOld[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/${lang}.json`)).json())()
+    ]).flat())
 
     // 翻訳IDをロード
-    const TUICI18ns = JSON.parse(fs.readFileSync("./i18n/_officialTwitterI18n.json", "utf8"));
+    const TUICI18ns = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
 
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json
 
     // 並列でi18nファイルを生成
+    console.log("Generating i18n...");
     await Promise.all(
         locales.map(async (elem) => {
-            console.log(`Generating i18n (${elem})...`);
             let tmpObj = {};
             for (const [elem2, translateID] of Object.entries(TUICI18ns)) {
                 if (i18nObject[elem][translateID] || i18nObjectOld[elem][translateID] || i18nObjectNew[elem][translateID]) {
@@ -63,7 +61,7 @@ import fs from "fs";
                     tmpObj = { [elem2]: translatedText, ...tmpObj };
                 }
             }
-            fs.writeFileSync(`./i18n/ti18n/${elem}.json`, JSON.stringify(tmpObj, undefined, 4));
+            await fs.writeFile(`./i18n/ti18n/${elem}.json`, JSON.stringify(tmpObj, undefined, 4));
         }),
     );
 })();
