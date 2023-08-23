@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "When someone (even you) taps the heart to Like this Tweet, it’ll show up here.",
+    "XtoTwitter-PostToTweet-liked-none-header": "No Tweet Likes yet",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Amplify Tweets you like",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Share someone else’s Tweet on your timeline by Retweeting it. When you do, it’ll show up here.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Add your take when sharing someone else’s Tweet and it’ll show up here.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "No Quote Tweets yet",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweeted by",
     "XtoTwitter-PostToTweet-menu-embed": "Embed Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": " Retweeted",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Your Tweets were sent.",
