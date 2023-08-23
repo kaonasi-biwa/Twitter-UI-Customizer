@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Cuando alguien (incluso tú) pulse el corazón para darle Me gusta a este Tweet, se mostrará aquí.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Todavía no hay Tweets con Me gusta",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Amplifica los Tweets que te gustan",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Retwittea el Tweet de otra persona para compartirlo en tu cronología. Cuando lo hagas, aparecerá aquí.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Añade tu punto de vista al compartir el Tweet de otra persona; cuando lo hagas, aparecerá aquí.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Todavía no hay ningún Tweet citado",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retwitteado por",
     "XtoTwitter-PostToTweet-menu-embed": "Insertar Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": " retwitteó",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Tus Tweets se enviaron.",

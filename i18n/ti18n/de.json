@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Wenn jemand (sogar du) das Herz antippt und ein „Gefällt mir“ für diesen Tweet vergibt, wird das hier angezeigt.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Tweet noch ohne „Gefällt mir“-Markierungen",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Gib Tweets, die du magst, Rückenwind",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Teile den Tweet eines anderen Accounts in deiner Timeline, indem du ihn retweetest. Wenn du das tust, wird das hier angezeigt.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Wenn du den Tweet einer anderen Person teilst und dabei deine Meinung dazu sagst, wird das hier angezeigt.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Noch keine Tweets zitiert",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweetet von",
     "XtoTwitter-PostToTweet-menu-embed": "Tweet einbetten",
     "XtoTwitter-PostToTweet-isRetweeted": " hat retweetet",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Deine Tweets wurden gesendet.",

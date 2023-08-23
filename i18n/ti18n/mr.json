@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "जेव्हा कोणी (आपण देखील) हे ट्विट पसंत करण्यासाठी हार्टवर टॅप करेल, तेव्हा ते येथे दिसून येईल.",
+    "XtoTwitter-PostToTweet-liked-none-header": "अद्याप एकही ट्विट पसंती नाही",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "आपणास आवडणारी ट्विट्स विस्तारित करा",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "दुसऱ्याचे ट्विट पुन्हा ट्विट करून आपल्या टाइमलाइनवर शेअर करा. आपण कराल तेव्हा ते येथे दिसेल.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "दुसऱ्याचे ट्विट शेअर करताना आपले मत समाविष्ट करा, जे येथे दिसेल.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "अद्याप ट्विट्स विषयी भाष्य नाहीत",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "यांनी पुन्हा ट्विट केले",
     "XtoTwitter-PostToTweet-menu-embed": "एम्बेडेड ट्विट",
     "XtoTwitter-PostToTweet-isRetweeted": " यांनी पुन्हा ट्विट केले",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "आपली ट्विट्स पाठविली होती.",

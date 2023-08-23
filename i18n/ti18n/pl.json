@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Kiedy ktoś (w tym Ty) polubi tego Tweeta, informacja o tym pojawi się tutaj.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Nikt nie polubił jeszcze tego Tweeta",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Podaj dalej Tweety, które Ci się spodobały",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Udostępnij czyjegoś Tweeta na swojej osi czasu, podając go dalej. Tweety podane dalej przez Ciebie będą widoczne tutaj.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Dodaj swoją opinię, udostępniając cudzego Tweeta – będzie on widoczny tutaj.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Nie ma jeszcze Cytatów z Tweeta",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Podane dalej przez",
     "XtoTwitter-PostToTweet-menu-embed": "Zamieść Tweeta",
     "XtoTwitter-PostToTweet-isRetweeted": " podał/a dalej Tweeta",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Twoje Tweety zostały wysłane.",

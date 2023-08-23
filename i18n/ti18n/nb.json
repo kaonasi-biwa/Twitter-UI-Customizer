@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Når noen (også du) trykker på hjertet for å like denne tweeten, vises dette her.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Ingen likerklikk på tweeten ennå",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Gi tweets du liker, et løft",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Del en annen brukers tweet på tidslinjen din ved å retweete den. Når du gjør det, vises den her.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Skriv din egen kommentar når du deler en brukers tweet, så vises den her.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Ingen sitat-tweets foreløpig",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweetet av",
     "XtoTwitter-PostToTweet-menu-embed": "Bygg inn tweeten",
     "XtoTwitter-PostToTweet-isRetweeted": " retweetet",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Tweetene dine ble sendt.",
