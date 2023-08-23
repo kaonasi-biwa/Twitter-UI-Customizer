@@ -62,5 +62,12 @@
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "c7999d10",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "e65aed64",
     "XtoTwitter-PostToTweet-isRetweeted": "h99e9c95",
-    "XtoTwitter-PostToTweet-menu-embed": "e6c84638"
+    "XtoTwitter-PostToTweet-menu-embed": "e6c84638",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "d25289b4",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "ebcf1374",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "g9ac4b66",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "ee5cb3e0",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "bea0e410",
+    "XtoTwitter-PostToTweet-liked-none-header": "i29ecb48",
+    "XtoTwitter-PostToTweet-liked-none-body": "c079a322"
 }

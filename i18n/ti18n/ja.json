@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "ユーザー（あなたを含む）がハートをタップしてこのツイートをいいねすると、ここに表示されます。",
+    "XtoTwitter-PostToTweet-liked-none-header": "ツイートのいいねはまだありません",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "気に入ったツイートを広めましょう",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "他のユーザーのツイートをリツイートしてタイムラインで共有しましょう。リツイートするとここに表示されます。",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "他のユーザーのツイートを引用してツイートすると、ここに表示されます。",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "まだ引用ツイートはありません",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "リツイートしたユーザー",
     "XtoTwitter-PostToTweet-menu-embed": "ツイートを埋め込む",
     "XtoTwitter-PostToTweet-isRetweeted": "さんがリツイートしました",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "ツイートを送信しました。",

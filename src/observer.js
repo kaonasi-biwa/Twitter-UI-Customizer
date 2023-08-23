@@ -374,7 +374,9 @@ export const TUICObserver = {
 
             if (TUICPref.get("XToTwitter.PostToTweet")) {
                 const isTweetPage = location.pathname.includes("/status/");
-                const isQuotesPage = location.pathname.includes("/retweets/with_comments");
+                const isRetweetPage = location.pathname.endsWith("/retweets");
+                const isLikesPage = location.pathname.endsWith("/likes");
+                const isQuotesPage = location.pathname.endsWith("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
                 const isNotifications = location.pathname.endsWith("/notifications");
                 const isNotificationsTimeline = location.pathname.endsWith("/i/timeline");
@@ -398,9 +400,11 @@ export const TUICObserver = {
 
                     // ツイート画面の翻訳の表示ボタン
                     for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-translateTweet");
-                } else if (isAnalyticsPage) {
-                    // ツイートアナリティクスのダイアログヘッダー
-                    for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+
+                    if (isAnalyticsPage) {
+                        // ツイートアナリティクスのダイアログヘッダー
+                        for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                    }
                 } else if (isUserPage) {
                     // ユーザーの「n件のツイート」
                     for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
@@ -503,6 +507,34 @@ export const TUICObserver = {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetTitle");
                     } else if (isNotificationsTimeline) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle");
+                    }
+                }
+
+                // RT一覧とかのダイアログのタイトル
+                for (const elem of getNotReplacedElements('[role="dialog"] h2[role="heading"] > span')) {
+                    if (isRetweetPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweetedUsersPageTitle");
+                    }
+                }
+
+                // RT一覧とかで誰にもされていない場合の上
+                for (const elem of getNotReplacedElements('[data-testid="emptyState"] [data-testid="empty_state_header_text"]')) {
+                    if (isQuotesPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTweeted-none-header");
+                    } else if (isRetweetPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted-none-header");
+                    } else if (isLikesPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-liked-none-header");
+                    }
+                }
+                // RT一覧とかで誰にもされていない場合の下
+                for (const elem of getNotReplacedElements('[data-testid="emptyState"] [data-testid="empty_state_body_text"]')) {
+                    if (isQuotesPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTweeted-none-body");
+                    } else if (isRetweetPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted-none-body");
+                    } else if (isLikesPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-liked-none-body");
                     }
                 }
 
