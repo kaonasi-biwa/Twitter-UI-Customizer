@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "다른 사람(본인 포함)이 하트를 탭해 이 트윗에 마음에 들어요를 보내면 여기에 표시됩니다.",
+    "XtoTwitter-PostToTweet-liked-none-header": "아직 마음에 들어요를 받은 트윗이 없습니다",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "마음에 드는 트윗 널리 알리기",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "다른 사람의 트윗을 리트윗해 내 타임라인에서 공유하세요. 리트윗하면 여기에 표시됩니다.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "다른 사람의 트윗을 공유할 때 본인의 의견을 추가하면 여기에 표시됩니다.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "아직 인용된 트윗이 없습니다",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "리트윗함",
     "XtoTwitter-PostToTweet-menu-embed": "트윗 담아가기",
     "XtoTwitter-PostToTweet-isRetweeted": " 님이 리트윗했습니다",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "트윗을 보냈습니다.",

@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "要是有人（即便是你）点击红心为这条推文点赞，它就会显示在这里。",
+    "XtoTwitter-PostToTweet-liked-none-header": "还没有推文点赞",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "扩大你喜欢的推文的影响力",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "转推别人的推文，在你的时间线上分享。当你转推后，它将显示在这里。",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "在分享别人的推文时加入你观点，它会显示在这里。",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "还没有引用推文",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "转推者",
     "XtoTwitter-PostToTweet-menu-embed": "嵌入推文",
     "XtoTwitter-PostToTweet-isRetweeted": " 已转推",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "你的多篇推文已发送。",

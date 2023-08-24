@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Kun joku (vaikka sinä itse) napauttaa sydäntä tämän twiitin kohdalla, se näkyy täällä.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Twiitistä ei vielä ole tykätty",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Näytä mieluisat twiitit muillekin",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Jaa jonkun toisen twiitti aikajanallasi uudelleentwiittaamalla se. Kun teet näin, se näkyy täällä.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Kun lisäät oman kommenttisi samalla kun jaat jonkun toisen twiitin, se näkyy täällä.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Ei twiitin lainauksia vielä",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Uudelleentwiitannut",
     "XtoTwitter-PostToTweet-menu-embed": "Upota twiitti",
     "XtoTwitter-PostToTweet-isRetweeted": " uudelleentwiittasi",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Twiittisi on lähetetty.",

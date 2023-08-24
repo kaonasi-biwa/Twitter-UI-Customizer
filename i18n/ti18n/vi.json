@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Khi người nào đó (thậm chí cả bạn) nhấn vào trái tim để Thích Tweet này, người đó sẽ hiển thị ở đây.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Chưa có lượt thích nào đối với Tweet",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Tăng độ tương tác cho Tweet bạn thích",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Chia sẻ Tweet của người khác trên dòng thời gian của bạn bằng cách Tweet lại. Khi bạn làm vậy, Tweet đó sẽ hiện ở đây.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Thêm suy nghĩ của bạn khi chia sẻ Tweet của người khác và nó sẽ hiển thị ở đây.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Chưa có Tweet trích dẫn nào",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Được Tweet lại bởi",
     "XtoTwitter-PostToTweet-menu-embed": "Tweet nhúng",
     "XtoTwitter-PostToTweet-isRetweeted": " đã Tweet lại",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Các Tweet của bạn đã được gửi.",

@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Kapag may nag-tap ng puso para I-like ang Tweet na ito (kahit ikaw), lalabas iyon dito.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Wala pang Like ang Tweet",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "I-amplify ang mga gusto mong Tweet",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Magbahagi ng Tweet ng iba sa iyong timeline sa pamamagitan ng Pag-retweet dito. Kapag ginawa mo ito, lalabas iyon dito.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Ilagay ang opinyon mo kapag nagbabahagi ng Tweet ng iba at lalabas iyon dito.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Wala pang Quote na Tweet",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Ni-retweet ni",
     "XtoTwitter-PostToTweet-menu-embed": "I-embed ang Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": "Ni-retweet ni ",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Naipadala na ang iyong mga Tweet.",

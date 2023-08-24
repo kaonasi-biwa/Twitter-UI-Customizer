@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Коли хтось (навіть ви самі) торкнеться сердечка, щоб уподобати цей твіт, він з’явиться тут.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Ще немає вподобань твітів",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Дайте поштовх твітам, які вам подобаються",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Поширте чужий твіт у своїй стрічці, ретвітнувши його. Коли ви це зробите, він відобразиться тут.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Додайте щось від себе, коли поширюєте чужий твіт, і він відобразиться тут.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Ще немає твітів із цитатами",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Ретвіти",
     "XtoTwitter-PostToTweet-menu-embed": "Вбудувати твіт",
     "XtoTwitter-PostToTweet-isRetweeted": " ретвітнув(ла)",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Ваші твіти надіслано.",
