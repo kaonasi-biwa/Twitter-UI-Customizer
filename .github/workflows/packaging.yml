@@ -39,12 +39,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: setUpdateUrl
-              run: sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest_chrome_crx.json
             - name: Archive
               run: |
                   yarn add node-fetch
                   node ./manifestChange.mjs chromeCRX
+                  sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest.json
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
