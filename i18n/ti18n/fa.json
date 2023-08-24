@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "وقتی کسی (حتی شما) روی قلب بزند تا این توییت را بپسندد اینجا نشان داده می‌شود.",
+    "XtoTwitter-PostToTweet-liked-none-header": "هنوز پسند توییت وجود ندارد",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "توییت‌هایی را که می‌پسندید برجسته کنید",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "توییت دیگران را بازتوییت کنید تا در خط زمانتان هم‌رسانی شود. وقتی این کار را انجام دهید، اینجا نشان داده خواهد شد.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "وقتی برداشت خودتان را هنگام هم‌رسانی توییت‌های دیگران اضافه می‌کنید اینجا نشان داده خواهند شد.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "هنوز نقل‌توییتی وجود ندارد",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "بازتوییت‌ شد توسط",
     "XtoTwitter-PostToTweet-menu-embed": "جاسازی توییت",
     "XtoTwitter-PostToTweet-isRetweeted": " بازتوییت کرد",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "توییت‌های شما فرستاده شد.",

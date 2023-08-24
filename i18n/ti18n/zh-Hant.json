@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "當有人 (甚至是你) 點選愛心喜歡此推文後，它就會顯示在這裡。",
+    "XtoTwitter-PostToTweet-liked-none-header": "還沒有人喜歡此推文",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "讓更多人看到你喜歡的推文",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "透過轉推，在你的時間軸上分享其他人的推文。當你這麼做時，該推文就會顯示在這裡。",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "在分享他人的推文時加入你的觀點，該推文就會顯示在這裡。",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "還沒有任何引用的推文",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "已被轉推",
     "XtoTwitter-PostToTweet-menu-embed": "嵌入推文",
     "XtoTwitter-PostToTweet-isRetweeted": " 已轉推",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "你的推文已發送。",

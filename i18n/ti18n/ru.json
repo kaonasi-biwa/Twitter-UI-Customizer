@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Когда кто-нибудь нажмет на сердечко, чтобы поставить этому твиту отметку «Нравится» (даже если это будете вы сами), здесь появятся сведения об этом.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Отметок «Нравится» пока нет",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Распространяйте твиты, которые вам нравятся",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Поделитесь чужим твитом в своей ленте с помощью функции ретвита. Когда вы это сделаете, такой твит появится здесь.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Когда вы поделитесь чужим твитом, добавив к нему свою точку зрения, этот твит появится здесь.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Твитов с цитатами пока нет",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Ретвитнул(а)",
     "XtoTwitter-PostToTweet-menu-embed": "Встроить твит",
     "XtoTwitter-PostToTweet-isRetweeted": " ретвитнул(а)",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Ваши твиты отправлены.",

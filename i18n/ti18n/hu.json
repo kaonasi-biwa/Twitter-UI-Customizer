@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Ha valaki (legyél az akár te) megérinti a szívet a Tweet kedveléséhez, az itt lesz látható.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Még senki sem kedvelte a Tweetet",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Fokozd a neked tetsző Tweetek népszerűségét!",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Oszd meg valaki más Tweetjét az idővonaladon Retweeteléssel. Ha így teszel, az itt lesz látható.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Fűzd hozzá saját gondolatodat valaki más Tweetjéhez a megosztásakor, és az itt fog megjelenni.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Még nincsenek Tweet-idézések",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retweetelte",
     "XtoTwitter-PostToTweet-menu-embed": "Tweet beágyazása",
     "XtoTwitter-PostToTweet-isRetweeted": " Retweetelte",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "A Tweetjeidet elküldtük.",

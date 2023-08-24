@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Când cineva (chiar și tu) apasă pe simbolul inimă pentru a aprecia acest Tweet, acest lucru se va afișa aici.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Nicio apreciere a Tweetului încă",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Fă cunoscute Tweeturile care îți plac",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Distribuie Tweetul altcuiva în cronologia ta dând Retweet. Atunci când se întâmplă acest lucru, va fi afișat aici.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Adaugă comentariul tău atunci când distribui Tweetul altei persoane și se va afișa aici.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Niciun Tweet cu citat încă",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Redistribuit de către",
     "XtoTwitter-PostToTweet-menu-embed": "Încorporează un Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": " a redistribuit",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Tweeturile tale au fost trimise.",

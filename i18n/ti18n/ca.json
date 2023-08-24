@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Quan algú (fins i tot tu) toqui el cor per dir que li agrada el tuit, es mostrarà aquí.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Encara no hi ha cap agradament al tuit",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Amplia els tuits que t'agraden",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Comparteix el tuit d'un altre usuari a la cronologia retuitant-lo. Quan ho facis, es mostrarà aquí.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Si en compartir un tuit d'un altre usuari hi afegeixes la teva opinió, aquesta es mostrarà aquí.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Encara no hi ha cap tuit amb cita",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Retuitat per",
     "XtoTwitter-PostToTweet-menu-embed": "Incrusta el tuit",
     "XtoTwitter-PostToTweet-isRetweeted": " ha retuitat",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "S'han enviat els tuits.",

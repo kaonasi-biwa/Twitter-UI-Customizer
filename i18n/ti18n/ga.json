@@ -1,4 +1,9 @@
 {
+    "XtoTwitter-PostToTweet-retweeted-none-header": "aimpligh na tweets is mian leat",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Roinn tweet duine eile ar d’amlíne trí é a athtweetáil. Nuair a dhéanfaidh tú, taispeánfar anseo é.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Cuir do ghlacadh leis agus Tweet duine eile á roinnt agat agus taispeánfar anseo é.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Níl aon Tweetanna Athfhriotail fós",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Atweetáilte ag",
     "XtoTwitter-PostToTweet-menu-embed": "Leabaigh an Tweet",
     "XtoTwitter-PostToTweet-isRetweeted": "Rinne  Atweetáil",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Seoladh na Tweetanna.",

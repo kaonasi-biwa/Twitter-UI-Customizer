@@ -1,4 +1,11 @@
 {
+    "XtoTwitter-PostToTweet-liked-none-body": "Када неко (чак и ти) додирне срце да би означио да му се свиђа овај твит, то ће се приказати овде.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Твит још нема ниједно свиђање",
+    "XtoTwitter-PostToTweet-retweeted-none-header": "Појачај твитове који ти се свиђају",
+    "XtoTwitter-PostToTweet-retweeted-none-body": "Подели нечији твит на временској траци тако што ћеш га ретвитовати. Када то урадиш, приказаће се овде.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Додај своје мишљење када делиш нечији твит, а он ће се приказати овде.",
+    "XtoTwitter-PostToTweet-quoteTweeted-none-header": "Још увек нема твитова са цитатом",
+    "XtoTwitter-PostToTweet-retweetedUsersPageTitle": "Ретвитовано од стране",
     "XtoTwitter-PostToTweet-menu-embed": "Угради твит",
     "XtoTwitter-PostToTweet-isRetweeted": " је ретвитовао/ла",
     "XtoTwitter-PostToTweet-tweeted-some-old-layer": "Твитови су послати.",
