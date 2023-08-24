@@ -1,4 +1,5 @@
 import { TUICData } from "./data.js";
+import { DOG, TWITTER, X } from "./data/icons.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { isSafemode } from "./safemode.js";
 
@@ -511,7 +512,7 @@ height:8px
     background-position:center;
 }
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog")}{
-    background-image:url('${TUICData.dogIconBase64}');
+    background-image:url('${DOG}');
 }
 
 :is(.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")},.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *){
@@ -521,13 +522,13 @@ height:8px
 
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")}{
     background-color:var(--twitter-twitterIcon-color);
-    --TUIC-twitter-icon:url('${TUICData.twitterIconSVG}') !important;
+    --TUIC-twitter-icon:url('${TWITTER}') !important;
     -webkit-mask-image:var(--TUIC-twitter-icon) !important;
     mask-image:var(--TUIC-twitter-icon) !important;
 }
 .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}{
     background-color:var(--twitter-twitterIcon-color);
-    --TUIC-twitter-icon:url('${TUICData.twitterIconXSVG}') !important;
+    --TUIC-twitter-icon:url('${X}') !important;
     -webkit-mask-image:var(--TUIC-twitter-icon) !important;
     mask-image:var(--TUIC-twitter-icon) !important;
 }
