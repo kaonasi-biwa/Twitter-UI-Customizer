@@ -1,5 +1,6 @@
 import { addCssElement } from "./applyCSS.js";
 import { TUICData } from "./data.js";
+import { DOG, EMPTY, TWITTER, X } from "./data/icons.js";
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICOptionHTML } from "./option.js";
@@ -85,21 +86,21 @@ export const TUICObserver = {
             switch (TUICPref.get("twitterIcon") /* eslint-disable */) {
                 case "invisible":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.emptySVG;
+                        document.querySelector(`[rel="shortcut icon"]`).href = EMPTY;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     base.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                     break;
                 case "twitter":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = TWITTER.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter"));
                     break;
                 case "dog":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.dogIconBase64;
+                        document.querySelector(`[rel="shortcut icon"]`).href = DOG;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog"));
@@ -107,14 +108,14 @@ export const TUICObserver = {
                 case "custom":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                        document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
+                        document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? EMPTY;
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg"));
                     break;
                 case "twitterIcon-X":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TUICData.twitterIconXSVG.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = X.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE"));
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUICTwitterIcon_X"));

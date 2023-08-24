@@ -4,6 +4,7 @@ import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICObserver } from "./observer.js";
 import { isSafemode } from "./safemode.js";
+import { ARROW_LEFT, ARROW_RIGHT, ARROW_UP, ARROW_DOWN, RESET, EMPTY } from "./data/icons.js";
 
 let editingColorType = "buttonColor";
 
@@ -349,7 +350,7 @@ export const TUICOptionHTML = {
                 applySystemCss();
                 if (TUICPref.get("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
                     const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? TUICData.emptySVG;
+                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? EMPTY;
                 }
             },
             single: false,
@@ -720,7 +721,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     </div>
     <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDefaultColor${!isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""}" title="${TUICI18N.get(
         "settingUI-colorPicker-restoreDefault",
-    )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${TUICData.resetIconSVG}</button>`; /* eslint-enable */
+    )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${RESET}</button>`; /* eslint-enable */
     },
     //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
     threeColorSetting: function (id) {
@@ -826,27 +827,27 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         const TUICInvisibleButtons = ListItem[1];
         const UpdownButtonFuncs = [
             {
-                iconSrc: TUICData.arrowLeftIconSVG,
+                iconSrc: ARROW_LEFT,
                 btnAction: "TUIC_up_down_list_to_left",
                 tooltiptag: "settingUI-upDownList-toLeft",
             },
             {
-                iconSrc: TUICData.arrowUpIconSVG,
+                iconSrc: ARROW_UP,
                 btnAction: "TUIC_up_down_list_to_up",
                 tooltiptag: "settingUI-upDownList-toUp",
             },
             {
-                iconSrc: TUICData.arrowDownIconSVG,
+                iconSrc: ARROW_DOWN,
                 btnAction: "TUIC_up_down_list_to_down",
                 tooltiptag: "settingUI-upDownList-toDown",
             },
             {
-                iconSrc: TUICData.arrowRightIconSVG,
+                iconSrc: ARROW_RIGHT,
                 btnAction: "TUIC_up_down_list_to_right",
                 tooltiptag: "settingUI-upDownList-toRight",
             },
             {
-                iconSrc: TUICData.resetIconSVG,
+                iconSrc: RESET,
                 btnAction: "TUIC_up_down_list_to_default",
                 tooltiptag: "settingUI-upDownList-restoreDefault",
             },
