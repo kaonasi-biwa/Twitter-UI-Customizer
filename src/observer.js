@@ -402,6 +402,9 @@ export const TUICObserver = {
                     // ツイート画面の翻訳の表示ボタン
                     for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-translateTweet");
 
+                    // ツイートを追加
+                    for (const elem of getNotReplacedElements('[data-testid="cellInnerDiv"] a[href="/compose/tweet"] [role="presentation"] > div > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-addTweet");
+
                     if (isAnalyticsPage) {
                         // ツイートアナリティクスのダイアログヘッダー
                         for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
@@ -684,18 +687,20 @@ export const TUICObserver = {
                     attributes: true,
                 });
             } else if (window.location.pathname.includes("/status/")) {
+                /**/
                 TUICObserver.headObserver.disconnect();
-                const titleInfo = document.title.match(new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
+                const titleInfo = document.title.match(new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser").replaceAll("&quot;", '"').replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"))); /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 if (!titleInfo || titleInfo.length <= 1) {
                     document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
                 } else {
                     document.title =
                         (document.title.match(/\(\d\)/) ?? "") +
                         TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted")
+                            .replaceAll("&quot;", '"')
                             .replace(`{fullName}`, titleInfo[1])
                             .replace("{tweetText}", titleInfo[2])
                             .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
-                }
+                } /**/
             } else if (document.title.endsWith(" / X")) {
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
             }

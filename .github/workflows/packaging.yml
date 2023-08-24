@@ -11,9 +11,9 @@ jobs:
             - uses: actions/checkout@v3
             - name: Archive
               run: |
-                  rm manifest_chrome.json
-                  rm manifest_chrome_crx.json
-                  mv manifest_firefox.json manifest.json
+                  yarn add node-fetch
+                  node ./manifestChange.mjs firefox
+                  rm -rf ./node_modules/
                   zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -27,9 +27,9 @@ jobs:
             - uses: actions/checkout@v3
             - name: Archive
               run: |
-                  rm manifest_firefox.json
-                  rm manifest_chrome_crx.json
-                  mv manifest_chrome.json manifest.json
+                  yarn add node-fetch
+                  node ./manifestChange.mjs chrome
+                  rm -rf ./node_modules/
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -41,13 +41,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: setUpdateUrl
-              run: sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest_chrome_crx.json
             - name: Archive
               run: |
-                  rm manifest_firefox.json
-                  rm manifest_chrome.json
-                  mv manifest_chrome_crx.json manifest.json
+                  yarn add node-fetch
+                  node ./manifestChange.mjs chromeCRX
+                  sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest.json
+                  rm -rf ./node_modules/
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
