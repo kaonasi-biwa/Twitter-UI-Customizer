@@ -11,7 +11,7 @@ Chrome WebStore
 Firefoxの場合は自動で更新してくれるFirefox Browser ADD-ONSがおすすめです！  
 Chromiumの場合は、更新の反映が遅いが自動更新してくれるChrome WebStoreか、手動だけどすぐに更新を適用できるGitHubか、お好きな方をお選びください！  
 <br>
-デバッグするときは、`manifest.json`に`manifest_chrome.json`か`manifest.firefox`のうち適したものをコピーしてください  
+manifest.jsonなどのデバッグ・ソースコードの情報はWikiを見てください！
 <br>
 
 ## Special Thanks (使い方あってるか知らんけど)
