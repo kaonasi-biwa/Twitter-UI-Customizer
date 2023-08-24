@@ -13,6 +13,7 @@ jobs:
               run: |
                   yarn add node-fetch
                   node ./manifestChange.mjs firefox
+                  rm -rf ./node_modules/
                   zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -28,6 +29,7 @@ jobs:
               run: |
                   yarn add node-fetch
                   node ./manifestChange.mjs chrome
+                  rm -rf ./node_modules/
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -44,6 +46,7 @@ jobs:
                   yarn add node-fetch
                   node ./manifestChange.mjs chromeCRX
                   sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest.json
+                  rm -rf ./node_modules/
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
