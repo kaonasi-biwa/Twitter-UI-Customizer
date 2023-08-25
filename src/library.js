@@ -188,7 +188,7 @@ export const TUICLibrary = {
             TUICPref.save();
         },
         /**
-         * `source` に `object` をマージします。 `source` オブジェクトは上書きされます。
+         * `source` に `object` をマージします。 `target` オブジェクトは上書きされます。
          * @param {object} source マージ元
          * @param {object} target マージ先
          */
@@ -197,10 +197,10 @@ export const TUICLibrary = {
                 if (!(i in target)) {
                     target[i] = source[i];
                 } else if (typeof source[i] == "object" && !Array.isArray(source[i])) {
-                    this.merge(target[i], source[i]);
+                    this.merge(source[i], target[i]);
                 }
             }
-            return source;
+            return target;
         },
     },
     backgroundColorCheck: function () {
@@ -281,8 +281,12 @@ export const TUICPref = {
     },
     set: function (identifier, value) {
         this.getConfig();
-        const { object, key } = getPointerFromKey(this.config, identifier);
-        object[key] = value;
+        if (identifier == "") {
+            this.config = value;
+        } else {
+            const { object, key } = getPointerFromKey(this.config, identifier);
+            object[key] = value;
+        }
     },
     delete: function (identifier) {
         this.getConfig();
@@ -302,10 +306,11 @@ export const TUICPref = {
     },
     export: function () {
         this.getConfig();
-        return JSON.stringify(this.object);
+        return JSON.stringify(this.config);
     },
     getConfig: function () {
         if (this.config == null) {
+            console.log("aiueoaouey");
             this.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
         }
     },
