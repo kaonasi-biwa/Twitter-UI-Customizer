@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweet a cui {fullName} (@{screenName}) ha messo Mi piace",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweet di {fullName} (@{screenName}) con contenuti",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweet e risposte di {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Mostra {count} Tweet",
     "XtoTwitter-PostToTweet-addTweet": "Aggiungi il Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Quando qualcuno (anche tu) tocca il cuore per mettere Mi piace a questo Tweet, te lo mostreremo qui.",

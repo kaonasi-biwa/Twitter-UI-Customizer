@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName}(@{screenName}) کے لائک کردہ ٹویٹس",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName}(@{screenName}) کے میڈیا ٹویٹس",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName}(@{screenName}) کے جوابات والے ٹویٹس",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "دکھائیں {count} ٹویٹ{count}",
     "XtoTwitter-PostToTweet-addTweet": "ٹویٹ شامل کریں",
     "XtoTwitter-PostToTweet-liked-none-body": "اگر کوئی بھی (بشمول آپ کے) اس ٹویٹ لائک کرنے کے لئے دل کو ٹیپ کرتا ہے، یہ یہاں ظاہر ہوگا۔",

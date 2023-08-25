@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "النغريدات التي أعجبت {fullName} ({screenName}@)",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "تغريدات الوسائط بواسطة {fullName} ({screenName}@)",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "التغريدات مع الردود بواسطة {fullName} ({screenName}@)",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "عرض {count} تغريد{count}ات",
     "XtoTwitter-PostToTweet-addTweet": "إضافة تغريدة",
     "XtoTwitter-PostToTweet-liked-none-header": "لم يتم تسجيل الإعجاب بالتغريدة حتى الآن",

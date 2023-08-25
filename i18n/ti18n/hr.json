@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweetovi koje je {fullName} (@{screenName}) označio/la oznakom „sviđa mi se”",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweetovi s medijskim sadržajem korisnika/ce {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweetovi s odgovorima korisnika/ce {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Prikaži {count} {count}tweeta",
     "XtoTwitter-PostToTweet-addTweet": "Dodaj Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Kada netko (čak i vi) dodirne znak srca da bi taj Tweet označio oznakom „sviđa mi se”, to će se pojaviti ovdje.",

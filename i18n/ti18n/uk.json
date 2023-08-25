@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Твіти, вподобані {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Мультимедійні твіти від {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Твіти з відповідями від {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Показати {count} твіт{count}и",
     "XtoTwitter-PostToTweet-addTweet": "Додати твіт",
     "XtoTwitter-PostToTweet-liked-none-body": "Коли хтось (навіть ви самі) торкнеться сердечка, щоб уподобати цей твіт, він з’явиться тут.",

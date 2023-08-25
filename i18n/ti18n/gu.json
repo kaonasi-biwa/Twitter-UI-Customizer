@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName} (@{screenName}) દ્વારા લાઈક કરાયેલ ટ્વીટ્સ",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName} (@{screenName}) દ્વારા મીડિયા ટ્વીટ્સ",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName} (@{screenName}) દ્વારા પ્રત્યુતરો સાથેની ટ્વીટ્સ",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "બતાવો {count} ટ્વીટ{count}",
     "XtoTwitter-PostToTweet-addTweet": "ટ્વીટ ઉમેરો",
     "XtoTwitter-PostToTweet-liked-none-body": "જ્યારે કોઈ (પછી એ તમે હો તો પણ) આ ટ્વીટને લાઈક કરવા તેના પર રહેલા હાર્ટને હળવેથી ઠપકારશે, ત્યારે તે અહીં દેખાશે.",

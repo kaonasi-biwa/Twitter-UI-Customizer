@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweety, ktoré sa páčia používateľovi {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Mediálne Tweety od používateľa {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweety s odpoveďami od používateľa {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Zobraziť {count} Tweet{count}y",
     "XtoTwitter-PostToTweet-addTweet": "Pridať Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Keď niekto (dokonca aj vy) ťukne na srdiečko, aby označil, že sa mu tento Tweet páči, zobrazí sa to tu.",

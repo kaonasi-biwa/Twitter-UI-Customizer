@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweety lajknuté uživatelem {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweety s médii od uživatele {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweety zahrnující odpovědi od uživatele {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Ukázat {count} {count}tweety",
     "XtoTwitter-PostToTweet-addTweet": "Přidat Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Až někdo (třeba i vy) olajkuje tento Tweet klepnutím na ikonu srdce, zobrazí se to tady.",

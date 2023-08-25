@@ -1,4 +1,7 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-addTweet": "Tinye Twiit",
     "XtoTwitter-PostToTweet-liked-none-body": "Mgbe mmadụ (ma gị) kpatụrụ obi ahụ iji Masị Twiit a, ọ ga-apụta ebe a.",
     "XtoTwitter-PostToTweet-liked-none-header": "O nwebeghi Mmasị gasị Twiit",

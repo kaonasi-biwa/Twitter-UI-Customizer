@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweets die {fullName} (@{screenName}) leuk vindt",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweets met media van {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweets met antwoorden van {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} Tweet{count} weergeven",
     "XtoTwitter-PostToTweet-addTweet": "Tweet toevoegen",
     "XtoTwitter-PostToTweet-liked-none-body": "Wanneer iemand (zelfs jij) tikt op het hartje om deze Tweet leuk te vinden, zie je dat hier.",

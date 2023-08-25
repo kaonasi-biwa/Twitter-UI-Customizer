@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweets, die {fullName} (@{screenName}) gefallen",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Medien-Tweets von {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweets mit Antworten von {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} Tweet{count} anzeigen",
     "XtoTwitter-PostToTweet-addTweet": "Tweet hinzufügen",
     "XtoTwitter-PostToTweet-liked-none-body": "Wenn jemand (sogar du) das Herz antippt und ein „Gefällt mir“ für diesen Tweet vergibt, wird das hier angezeigt.",

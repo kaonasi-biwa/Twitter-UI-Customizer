@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Chíos que lle gustan a {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Chíos con contido multimedia de {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Chíos con respostas de {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Show {count} Tweet{count}",
     "XtoTwitter-PostToTweet-addTweet": "Engadir chío",
     "XtoTwitter-PostToTweet-liked-none-body": "Cando alguén (coma ti) toque o corazón para indicar que lle gusta este chío, aparecerá aquí.",

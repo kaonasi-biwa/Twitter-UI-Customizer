@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweetek, amelyeket {fullName} (@{screenName}) kedvelt",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Média Tweetek {fullName} (@{screenName}) felhasználótól",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweetek {fullName} (@{screenName}) válaszaival",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} Tweet megjelenítése",
     "XtoTwitter-PostToTweet-addTweet": "Tweet hozzáadása",
     "XtoTwitter-PostToTweet-liked-none-body": "Ha valaki (legyél az akár te) megérinti a szívet a Tweet kedveléséhez, az itt lesz látható.",
