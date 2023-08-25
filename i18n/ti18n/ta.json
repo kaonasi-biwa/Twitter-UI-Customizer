@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} கீச்சு{count}-ஐக் காண்பி",
+    "XtoTwitter-PostToTweet-addTweet": "கீச்சைச் சேர்",
     "XtoTwitter-PostToTweet-liked-none-body": "இந்தக் கீச்சுக்கு விருப்பம் தெரிவிக்க எவரேனும் (நீங்களாக இருந்தாலும்) இதயத்தைத் தொடும்போது, அது இங்கே காண்பிக்கப்படும்.",
     "XtoTwitter-PostToTweet-liked-none-header": "இதுவரை கீச்சு விருப்பங்கள் எதுவும் இல்லை",
     "XtoTwitter-PostToTweet-retweeted-none-header": "நீங்கள் விரும்பும் கீச்சுகளை அதிகம் பகிர்க",

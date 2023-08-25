@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Vis {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Legg til denne tweeten",
     "XtoTwitter-PostToTweet-liked-none-body": "Når noen (også du) trykker på hjertet for å like denne tweeten, vises dette her.",
     "XtoTwitter-PostToTweet-liked-none-header": "Ingen likerklikk på tweeten ennå",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Gi tweets du liker, et løft",

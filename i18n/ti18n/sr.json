@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Прикажи {count} твит{count}а",
+    "XtoTwitter-PostToTweet-addTweet": "Додај твит",
     "XtoTwitter-PostToTweet-liked-none-body": "Када неко (чак и ти) додирне срце да би означио да му се свиђа овај твит, то ће се приказати овде.",
     "XtoTwitter-PostToTweet-liked-none-header": "Твит још нема ниједно свиђање",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Појачај твитове који ти се свиђају",

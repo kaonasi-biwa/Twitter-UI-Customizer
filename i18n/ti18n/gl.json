@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Show {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Engadir chío",
     "XtoTwitter-PostToTweet-liked-none-body": "Cando alguén (coma ti) toque o corazón para indicar que lle gusta este chío, aparecerá aquí.",
     "XtoTwitter-PostToTweet-liked-none-header": "Aínda non hai ningún Gústame neste chío",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Amplifica os chíos que che gusten",

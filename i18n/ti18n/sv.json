@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Visa {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Lägg till en Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "När någon (kanske du) trycker på hjärtan för att gilla denna Tweet visas det här",
     "XtoTwitter-PostToTweet-liked-none-header": "Ingen har gillat tweeten än",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Förstärk Tweets du gillar",
