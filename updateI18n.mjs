@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import fs from "fs/promises";
+import { type } from "os";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
@@ -48,6 +49,29 @@ import fs from "fs/promises";
                         translatedText = i18nObject[elem][translateID];
                     }
 
+                    if (translateID in config.deleteString) {
+                        for (const delString of config.deleteString[translateID]) {
+                            if (typeof delString == "string") {
+                                translatedText = translatedText.replaceAll(delString, "");
+                            } /* else if (typeof delString == "object" && delString.text) {
+                                console.log("test");
+                                const index = delString.replaceIndex;
+                                let doingIndex = 1;
+                                const delSTringCount = translatedText.match(new RegExp(delString.text, "g"));
+                                translatedText = translatedText.replace(delString, (match) => {
+                                    if (index > 0 && doingIndex == index) {
+                                        return match;
+                                    } else if (index < 0 && doingIndex == delSTringCount - index + 1) {
+                                        return match;
+                                    } else if (index == 0) {
+                                        return "";
+                                    }
+                                    doingIndex += 1;
+                                });
+                            }*/
+                        }
+                    }
+
                     if (config.fixPlural.includes(translateID) && translatedText.includes("(") && translatedText.includes(")") && translatedText.includes(",")) {
                         const textBase = translatedText.slice(0, translatedText.indexOf("("));
                         translatedText = textBase + translatedText.slice(translatedText.indexOf("(")).split(",")[2].replace(")", "");
@@ -55,12 +79,6 @@ import fs from "fs/promises";
 
                     if (config.fixSingular.includes(translateID) && translatedText.includes("(")) {
                         translatedText = translatedText.slice(0, translatedText.indexOf("("));
-                    }
-
-                    if (translateID in config.deleteString) {
-                        for (const delString of config.deleteString[translateID]) {
-                            translatedText = translatedText.replaceAll(delString, "");
-                        }
                     }
                     tmpObj = { [elem2]: translatedText, ...tmpObj };
                 }
