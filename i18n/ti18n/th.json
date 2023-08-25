@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "แสดง {count} ทวีต",
+    "XtoTwitter-PostToTweet-addTweet": "เพิ่มทวีต",
     "XtoTwitter-PostToTweet-liked-none-body": "เมื่อมีผู้คน (แม้แต่คุณเอง) แตะหัวใจเพื่อชื่นชอบทวีตนี้ ข้อมูลจะแสดงที่นี่",
     "XtoTwitter-PostToTweet-liked-none-header": "ยังไม่มีความชื่นชอบทวีตในตอนนี้",
     "XtoTwitter-PostToTweet-retweeted-none-header": "กระจายทวีตที่คุณชอบ",

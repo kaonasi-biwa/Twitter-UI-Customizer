@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Zobraziť {count} Tweet{count}y",
+    "XtoTwitter-PostToTweet-addTweet": "Pridať Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Keď niekto (dokonca aj vy) ťukne na srdiečko, aby označil, že sa mu tento Tweet páči, zobrazí sa to tu.",
     "XtoTwitter-PostToTweet-liked-none-header": "Zatiaľ žiadne označenia Páči sa pre Tweety",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Zviditeľnite Tweety, ktoré sa vám páčia",

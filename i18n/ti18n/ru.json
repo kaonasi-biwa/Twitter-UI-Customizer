@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Показать {count} твит{count}а",
+    "XtoTwitter-PostToTweet-addTweet": "Добавить твит",
     "XtoTwitter-PostToTweet-liked-none-body": "Когда кто-нибудь нажмет на сердечко, чтобы поставить этому твиту отметку «Нравится» (даже если это будете вы сами), здесь появятся сведения об этом.",
     "XtoTwitter-PostToTweet-liked-none-header": "Отметок «Нравится» пока нет",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Распространяйте твиты, которые вам нравятся",

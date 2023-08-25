@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "બતાવો {count} ટ્વીટ{count}",
+    "XtoTwitter-PostToTweet-addTweet": "ટ્વીટ ઉમેરો",
     "XtoTwitter-PostToTweet-liked-none-body": "જ્યારે કોઈ (પછી એ તમે હો તો પણ) આ ટ્વીટને લાઈક કરવા તેના પર રહેલા હાર્ટને હળવેથી ઠપકારશે, ત્યારે તે અહીં દેખાશે.",
     "XtoTwitter-PostToTweet-liked-none-header": "હજુ સુધી કોઈ ટ્વીટ લાઈક્સ નથી",
     "XtoTwitter-PostToTweet-retweeted-none-header": "તમને પસંદ પડતી ટ્વીટ્સનો પ્રસાર કરો",

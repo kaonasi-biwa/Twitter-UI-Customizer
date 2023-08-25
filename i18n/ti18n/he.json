@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "הצג {count} ציו{count}צים",
+    "XtoTwitter-PostToTweet-addTweet": "הוסף ציוץ",
     "XtoTwitter-PostToTweet-liked-none-body": "כשמישהו (גם אתה) יגע בסימון הלב כדי לסמן ציוץ זה כ'אהבתי', זה יופיע כאן.",
     "XtoTwitter-PostToTweet-liked-none-header": "עדיין אין סימוני 'אהבתי' לציוץ זה",
     "XtoTwitter-PostToTweet-retweeted-none-header": "שפר את החשיפה של ציוצים שמוצאים חן בעיניך",
@@ -12,7 +14,7 @@
     "XtoTwitter-PostToTweet-tweeted-some-latest-layer": "הפוסטים שלך נשלחו.",
     "XtoTwitter-PostToTweet-tweeted-one-old-layer": "הציוץ שלך נשלח.",
     "XtoTwitter-PostToTweet-tweeted-one-latest-layer": "הפוסט שלך נשלח.",
-    "XtoTwitter-PostToTweet-notificationsRepost": "דוחות",
+    "XtoTwitter-PostToTweet-notificationsRepost": "לפרסם מחדש",
     "XtoTwitter-PostToTweet-notificationsRetweet": "צייץ מחדש",
     "XtoTwitter-PostToTweet-titlePeopleTweetedUser": "{fullName} ב-X: \"{tweetText}\"",
     "XtoTwitter-PostToTweet-titlePeopleTweeted": "{fullName} צייצ/ה: \"{tweetText}\"",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} ट्वीट{count} दिखाएं",
+    "XtoTwitter-PostToTweet-addTweet": "ट्वीट जोड़ें",
     "XtoTwitter-PostToTweet-liked-none-body": "जब कोई (आप भी) इस ट्वीट को पसंद करने के लिए हार्ट पर टैप करेगा, तो वह यहां दिखाई देगा.",
     "XtoTwitter-PostToTweet-liked-none-header": "अभी तक कोई ट्वीट पसंद नहीं हैं",
     "XtoTwitter-PostToTweet-retweeted-none-header": "जो ट्वीट्स आपको पसंद आएं, उन्हें बढ़ावा दीजिए",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Voir {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Ajouter le Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Quand une personne appuiera sur le cœur pour aimer ce Tweet (ou que vous le ferez vous‑même), vous le verrez ici.",
     "XtoTwitter-PostToTweet-liked-none-header": "Ce Tweet n'a pas encore été aimé.",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Amplifiez les Tweets que vous aimez",
