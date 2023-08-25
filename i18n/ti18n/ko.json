@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName}(@{screenName}) 님이 마음에 들어 한 트윗",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName}(@{screenName}) 님의 미디어 트윗",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName}(@{screenName}) 님의 답글이 있는 트윗",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "보기 {count} 트윗",
     "XtoTwitter-PostToTweet-addTweet": "트윗 추가하기",
     "XtoTwitter-PostToTweet-liked-none-body": "다른 사람(본인 포함)이 하트를 탭해 이 트윗에 마음에 들어요를 보내면 여기에 표시됩니다.",

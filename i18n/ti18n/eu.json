@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName} (@{screenName}) erabiltzaileak atsegindako txioak",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName} (@{screenName}) erabiltzaileak txiokatutako multimedia edukia",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName} (@{screenName}) erabiltzaileak erantzundako txioak",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Show {count} Tweet{count}",
     "XtoTwitter-PostToTweet-addTweet": "Gehitu txioa",
     "XtoTwitter-PostToTweet-liked-none-body": "Norbaitek (zuk barne) bihotza sakatzen duenean txio honi Atsegin dut esateko, hemen agertuko da.",

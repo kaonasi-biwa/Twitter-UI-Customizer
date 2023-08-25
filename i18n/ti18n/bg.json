@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Туитове, харесани от {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Мултимедийни туитове от {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Туитове с отговори от {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Показване на {count} туит{count}",
     "XtoTwitter-PostToTweet-addTweet": "Добавяне на туит",
     "XtoTwitter-PostToTweet-liked-none-body": "Когато някой (дори ти) натисне сърцето, за да хареса този туит, това ще се покаже тук.",

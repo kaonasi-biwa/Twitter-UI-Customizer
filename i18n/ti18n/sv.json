@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweets som gillas av {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Medietweets av {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweets med svar från {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Visa {count} Tweet{count}",
     "XtoTwitter-PostToTweet-addTweet": "Lägg till en Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "När någon (kanske du) trycker på hjärtan för att gilla denna Tweet visas det här",

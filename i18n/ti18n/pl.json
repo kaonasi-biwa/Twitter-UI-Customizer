@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweety polubione przez użytkownika {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweety zawierające multimedia wysłane przez użytkownika {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweety, na które odpowiedział/a {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Pokaż {count} Tweet{count}y",
     "XtoTwitter-PostToTweet-addTweet": "Dodaj Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Kiedy ktoś (w tym Ty) polubi tego Tweeta, informacja o tym pojawi się tutaj.",

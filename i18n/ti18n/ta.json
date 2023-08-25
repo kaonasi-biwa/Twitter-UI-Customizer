@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName} (@{screenName}) விரும்பியுள்ள கீச்சுகள்",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName} (@{screenName}) -இன் ஊடகக் கீச்சுகள்",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName} (@{screenName}) -இன் பதில்களுடன் கூடிய கீச்சுகள்",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} கீச்சு{count}-ஐக் காண்பி",
     "XtoTwitter-PostToTweet-addTweet": "கீச்சைச் சேர்",
     "XtoTwitter-PostToTweet-liked-none-body": "இந்தக் கீச்சுக்கு விருப்பம் தெரிவிக்க எவரேனும் (நீங்களாக இருந்தாலும்) இதயத்தைத் தொடும்போது, அது இங்கே காண்பிக்கப்படும்.",

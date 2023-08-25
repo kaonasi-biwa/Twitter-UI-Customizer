@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweets που αρέσουν στον χρήστη {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweet πολυμέσων του χρήστη {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweet με απαντήσεις από τον χρήστη {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Εμφάνιση {count} Tweet",
     "XtoTwitter-PostToTweet-addTweet": "Προσθήκη Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Όταν κάποιος χρήστης (ακόμα και εσείς) πατήσει την καρδιά για να επισημάνει ότι του αρέσει αυτό το Tweet, θα εμφανιστεί εδώ.",

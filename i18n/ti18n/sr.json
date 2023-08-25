@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Твитови који се свиђају кориснику {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Мултимедијални твитови корисника {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Твитови са одговорима корисника {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Прикажи {count} твит{count}а",
     "XtoTwitter-PostToTweet-addTweet": "Додај твит",
     "XtoTwitter-PostToTweet-liked-none-body": "Када неко (чак и ти) додирне срце да би означио да му се свиђа овај твит, то ће се приказати овде.",

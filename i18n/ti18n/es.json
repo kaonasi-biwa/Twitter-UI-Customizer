@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweets que le gustaron a {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweets con contenido multimedia de {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweets con respuestas de {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Mostrar {count} Tweet{count}",
     "XtoTwitter-PostToTweet-addTweet": "Agregar Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Cuando alguien (incluso tú) pulse el corazón para darle Me gusta a este Tweet, se mostrará aquí.",

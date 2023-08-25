@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName} (@{screenName}) के द्वारा पसंद किए गए ट्वीट्स",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName} (@{screenName}) के मीडिया ट्वीट्स",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName} (@{screenName}) के जवाब वाले ट्वीट्स",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} ट्वीट{count} दिखाएं",
     "XtoTwitter-PostToTweet-addTweet": "ट्वीट जोड़ें",
     "XtoTwitter-PostToTweet-liked-none-body": "जब कोई (आप भी) इस ट्वीट को पसंद करने के लिए हार्ट पर टैप करेगा, तो वह यहां दिखाई देगा.",

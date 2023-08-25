@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "{fullName} (@{screenName}) টুইট পছন্দ করেছে",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "{fullName} (@{screenName}) মিডিয়া টুইট করেছে",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "{fullName} (@{screenName})-এর উত্তরের সাথে টুইটগুলি",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} টুইট{count} দেখান",
     "XtoTwitter-PostToTweet-addTweet": "টুইট যোগ করুন",
     "XtoTwitter-PostToTweet-liked-none-body": "কেউ (এমনকি আপনিও) এই টুইটটি লাইক করার জন্য হার্টে ট্যাপ করলে, এটি এখানে দেখা যাবে।",

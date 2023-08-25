@@ -1,4 +1,10 @@
 {
+    "XtoTwitter-PostToTweet-profile-likes-old": "Tweeturi apreciate de {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-old": "Tweeturi media de la {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-media-latest": "Media posts by {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweeturi cu răspunsuri de la {fullName} (@{screenName})",
+    "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posts with replies by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Afișează {count} {count}Tweeturi",
     "XtoTwitter-PostToTweet-addTweet": "Adaugă un Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Când cineva (chiar și tu) apasă pe simbolul inimă pentru a aprecia acest Tweet, acest lucru se va afișa aici.",
