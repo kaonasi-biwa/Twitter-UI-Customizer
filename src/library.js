@@ -22,35 +22,6 @@ function getPointerFromKey(object, key) {
     }
 }
 
-/* eslint-disable */
-export const TUICPref = {
-    config: JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref)),
-    get: function (identifier) {
-        const { object, key } = getPointerFromKey(this.config, identifier);
-        return object[key];
-    },
-    set: function (identifier, value) {
-        const { object, key } = getPointerFromKey(this.config, identifier);
-        object[key] = value;
-    },
-    delete: function (identifier) {
-        const { object, key } = getPointerFromKey(this.config, identifier);
-        delete object[key];
-    },
-    save: function () {
-        localStorage.setItem("TUIC", JSON.stringify(this.config));
-    },
-    import: function (object) {
-        if (typeof object === "string") {
-            this.config = JSON.parse(object);
-        } else {
-            this.config = object;
-        }
-    },
-    export: function () {
-        return JSON.stringify(this.object);
-    },
-};
 export const TUICLibrary = {
     color: {
         rgb2hex: function (rgb) {
@@ -296,6 +267,46 @@ export const TUICLibrary = {
                 });
                 observer.observe(document, { subtree: true, childList: true });
             });
+        }
+    },
+};
+
+/* eslint-disable */
+export const TUICPref = {
+    config: null,
+    get: function (identifier) {
+        this.getConfig();
+        const { object, key } = getPointerFromKey(this.config, identifier);
+        return object[key];
+    },
+    set: function (identifier, value) {
+        this.getConfig();
+        const { object, key } = getPointerFromKey(this.config, identifier);
+        object[key] = value;
+    },
+    delete: function (identifier) {
+        this.getConfig();
+        const { object, key } = getPointerFromKey(this.config, identifier);
+        delete object[key];
+    },
+    save: function () {
+        this.getConfig();
+        localStorage.setItem("TUIC", JSON.stringify(this.config));
+    },
+    import: function (object) {
+        if (typeof object === "string") {
+            this.config = JSON.parse(object);
+        } else {
+            this.config = object;
+        }
+    },
+    export: function () {
+        this.getConfig();
+        return JSON.stringify(this.object);
+    },
+    getConfig: function () {
+        if (this.config == null) {
+            this.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
         }
     },
 };
