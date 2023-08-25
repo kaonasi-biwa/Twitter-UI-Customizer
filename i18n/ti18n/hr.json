@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Prikaži {count} {count}tweeta",
+    "XtoTwitter-PostToTweet-addTweet": "Dodaj Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Kada netko (čak i vi) dodirne znak srca da bi taj Tweet označio oznakom „sviđa mi se”, to će se pojaviti ovdje.",
     "XtoTwitter-PostToTweet-liked-none-header": "Tweetovi još nemaju oznaku „sviđa mi se”",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Istaknite tweetove koji vam se sviđaju",

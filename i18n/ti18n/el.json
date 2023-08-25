@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Εμφάνιση {count} Tweet",
+    "XtoTwitter-PostToTweet-addTweet": "Προσθήκη Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Όταν κάποιος χρήστης (ακόμα και εσείς) πατήσει την καρδιά για να επισημάνει ότι του αρέσει αυτό το Tweet, θα εμφανιστεί εδώ.",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Ενισχύστε τα Tweet που σας αρέσουν",
     "XtoTwitter-PostToTweet-retweeted-none-body": "Κάντε κοινή χρήση το Tweet κάποιου άλλου χρήστη στο χρονολόγιό σας κάνοντας Retweet. Όταν το κάνετε, θα εμφανιστεί εδώ.",

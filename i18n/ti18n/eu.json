@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Show {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Gehitu txioa",
     "XtoTwitter-PostToTweet-liked-none-body": "Norbaitek (zuk barne) bihotza sakatzen duenean txio honi Atsegin dut esateko, hemen agertuko da.",
     "XtoTwitter-PostToTweet-liked-none-header": "Oraindik ez dago atsegindako txiorik",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Handitu gustuko dituzun txioak",

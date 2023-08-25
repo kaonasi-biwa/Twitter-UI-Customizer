@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "显示 {count} 推文",
+    "XtoTwitter-PostToTweet-addTweet": "添加推文",
     "XtoTwitter-PostToTweet-liked-none-body": "要是有人（即便是你）点击红心为这条推文点赞，它就会显示在这里。",
     "XtoTwitter-PostToTweet-liked-none-header": "还没有推文点赞",
     "XtoTwitter-PostToTweet-retweeted-none-header": "扩大你喜欢的推文的影响力",

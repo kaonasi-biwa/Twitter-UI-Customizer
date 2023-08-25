@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Mostra {count} Tuit{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Afegeix un tuit",
     "XtoTwitter-PostToTweet-liked-none-body": "Quan algú (fins i tot tu) toqui el cor per dir que li agrada el tuit, es mostrarà aquí.",
     "XtoTwitter-PostToTweet-liked-none-header": "Encara no hi ha cap agradament al tuit",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Amplia els tuits que t'agraden",

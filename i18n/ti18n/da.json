@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Vis {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Tilføj Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Når nogen (også dig) trykker på hjertet for at like dette Tweet, bliver det vist her.",
     "XtoTwitter-PostToTweet-liked-none-header": "Ingen Tweet-likes endnu",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Forstærk Tweets, du synes om",

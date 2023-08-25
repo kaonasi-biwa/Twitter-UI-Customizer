@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Göster {count} Tweet",
+    "XtoTwitter-PostToTweet-addTweet": "Tweet ekle",
     "XtoTwitter-PostToTweet-liked-none-body": "Birisi (hatta sen) bu Tweeti beğenmek için kalbe dokunduğunda burada görüntülenir.",
     "XtoTwitter-PostToTweet-liked-none-header": "Henüz Tweet Beğenisi yok",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Beğendiğin Tweetlerin etkisini artır",

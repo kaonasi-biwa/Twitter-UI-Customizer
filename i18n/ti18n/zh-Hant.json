@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "顯示 {count} 則推文",
+    "XtoTwitter-PostToTweet-addTweet": "加入推文",
     "XtoTwitter-PostToTweet-liked-none-body": "當有人 (甚至是你) 點選愛心喜歡此推文後，它就會顯示在這裡。",
     "XtoTwitter-PostToTweet-liked-none-header": "還沒有人喜歡此推文",
     "XtoTwitter-PostToTweet-retweeted-none-header": "讓更多人看到你喜歡的推文",

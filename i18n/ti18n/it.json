@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Mostra {count} Tweet",
+    "XtoTwitter-PostToTweet-addTweet": "Aggiungi il Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Quando qualcuno (anche tu) tocca il cuore per mettere Mi piace a questo Tweet, te lo mostreremo qui.",
     "XtoTwitter-PostToTweet-liked-none-header": "Ancora nessun Mi piace ai Tweet",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Diffondi i Tweet che apprezzi",

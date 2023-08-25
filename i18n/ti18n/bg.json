@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Показване на {count} туит{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Добавяне на туит",
     "XtoTwitter-PostToTweet-liked-none-body": "Когато някой (дори ти) натисне сърцето, за да хареса този туит, това ще се покаже тук.",
     "XtoTwitter-PostToTweet-liked-none-header": "Още няма харесвания на туита",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Усилвай туитовете, които харесваш",
