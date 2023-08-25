@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "{count} টুইট{count} দেখান",
+    "XtoTwitter-PostToTweet-addTweet": "টুইট যোগ করুন",
     "XtoTwitter-PostToTweet-liked-none-body": "কেউ (এমনকি আপনিও) এই টুইটটি লাইক করার জন্য হার্টে ট্যাপ করলে, এটি এখানে দেখা যাবে।",
     "XtoTwitter-PostToTweet-liked-none-header": "টুইটে এখনও পর্যন্ত কোনো লাইক নেই",
     "XtoTwitter-PostToTweet-retweeted-none-header": "আপনার পছন্দের টুইট বৃদ্ধি করুন",

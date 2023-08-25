@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Mostrar {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Adicionar Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Quando alguém (mesmo você) tocar no coração para curtir este Tweet, a reação aparecerá aqui.",
     "XtoTwitter-PostToTweet-liked-none-header": "Nenhuma curtida no Tweet ainda",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Amplifique os Tweets de que você gosta",

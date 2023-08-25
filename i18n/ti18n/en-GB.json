@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Show {count} Tweet{count}",
+    "XtoTwitter-PostToTweet-addTweet": "Add Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "When someone (even you) taps the heart to Like this Tweet, it’ll show up here.",
     "XtoTwitter-PostToTweet-liked-none-header": "No Tweet Likes yet",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Amplify Tweets you like",

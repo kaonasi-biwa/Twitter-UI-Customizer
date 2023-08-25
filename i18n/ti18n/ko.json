@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "보기 {count} 트윗",
+    "XtoTwitter-PostToTweet-addTweet": "트윗 추가하기",
     "XtoTwitter-PostToTweet-liked-none-body": "다른 사람(본인 포함)이 하트를 탭해 이 트윗에 마음에 들어요를 보내면 여기에 표시됩니다.",
     "XtoTwitter-PostToTweet-liked-none-header": "아직 마음에 들어요를 받은 트윗이 없습니다",
     "XtoTwitter-PostToTweet-retweeted-none-header": "마음에 드는 트윗 널리 알리기",

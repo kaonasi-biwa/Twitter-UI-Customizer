@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Pokaż {count} Tweet{count}y",
+    "XtoTwitter-PostToTweet-addTweet": "Dodaj Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Kiedy ktoś (w tym Ty) polubi tego Tweeta, informacja o tym pojawi się tutaj.",
     "XtoTwitter-PostToTweet-liked-none-header": "Nikt nie polubił jeszcze tego Tweeta",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Podaj dalej Tweety, które Ci się spodobały",

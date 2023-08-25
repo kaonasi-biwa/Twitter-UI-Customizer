@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Afișează {count} {count}Tweeturi",
+    "XtoTwitter-PostToTweet-addTweet": "Adaugă un Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Când cineva (chiar și tu) apasă pe simbolul inimă pentru a aprecia acest Tweet, acest lucru se va afișa aici.",
     "XtoTwitter-PostToTweet-liked-none-header": "Nicio apreciere a Tweetului încă",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Fă cunoscute Tweeturile care îți plac",
