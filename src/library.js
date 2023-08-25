@@ -24,7 +24,7 @@ function getPointerFromKey(object, key) {
 
 /* eslint-disable */
 export const TUICPref = {
-    config: JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString()),
+    config: JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref)),
     get: function (identifier) {
         const { object, key } = getPointerFromKey(this.config, identifier);
         return object[key];
@@ -88,17 +88,8 @@ export const TUICLibrary = {
         },
         query: "",
     },
-    defaultPref: {
-        get: function () {
-            return JSON.parse(this.getString());
-        },
-        getString: function () {
-            return JSON.stringify(TUICData.defaultPref);
-        },
-    },
     updatePref: {
         update: async function () {
-            const dPref = TUICLibrary.defaultPref.get();
             if (localStorage.getItem("unsent-tweet-background")) {
                 this.parallelToSerial();
             }
@@ -171,7 +162,7 @@ export const TUICLibrary = {
                 );
             }
 
-            TUICPref.set("", this.merge(dPref, TUICPref.get("")));
+            TUICPref.set("", this.merge(structuredClone(TUICData.defaultPref), TUICPref.get("")));
         },
         parallelToSerial: function () {
             TUICPref.set("CSS", localStorage.getItem("CSS"));
