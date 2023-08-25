@@ -59,17 +59,8 @@ export const TUICLibrary = {
         },
         query: "",
     },
-    defaultPref: {
-        get: function () {
-            return JSON.parse(this.getString());
-        },
-        getString: function () {
-            return JSON.stringify(TUICData.defaultPref);
-        },
-    },
     updatePref: {
         update: async function () {
-            const dPref = TUICLibrary.defaultPref.get();
             if (localStorage.getItem("unsent-tweet-background")) {
                 this.parallelToSerial();
             }
@@ -142,7 +133,7 @@ export const TUICLibrary = {
                 );
             }
 
-            TUICPref.set("", this.merge(dPref, TUICPref.get("")));
+            TUICPref.set("", this.merge(structuredClone(TUICData.defaultPref), TUICPref.get("")));
         },
         parallelToSerial: function () {
             TUICPref.set("CSS", localStorage.getItem("CSS"));
@@ -315,7 +306,7 @@ export const TUICPref = {
     },
     getConfig: function () {
         if (this.config == null) {
-            this.config = JSON.parse(localStorage.getItem("TUIC") ?? TUICLibrary.defaultPref.getString());
+            this.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
         }
     },
 };
