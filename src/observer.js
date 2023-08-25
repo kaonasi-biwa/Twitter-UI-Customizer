@@ -502,6 +502,14 @@ export const TUICObserver = {
                 // 「変身できるユーザーを変更」ダイアログの説明文
                 for (const elem of getNotReplacedElements("#conversation-controls-details > span")) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-replyRangeDetail");
 
+                // TLの「n件のツイートを表示」
+                for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] > div > [role="button"] > div > div > span`)) {
+                    let n = 0;
+                    elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tlShowMoreTweet").replaceAll("{count}", (match) => {
+                        return n++ == 0 ? elem.textContent.match(/(\d+)/)[0] : "";
+                    });
+                }
+
                 // プライマリカラム（中央に表示される画面）のヘッダー
                 for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] > span')) {
                     if (isQuotesPage) {
@@ -678,7 +686,7 @@ export const TUICObserver = {
                 });
             } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
                 TUICObserver.headObserver.disconnect();
-                document.title = (document.title.match(/\(\d\)/) ?? "") + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
+                document.title = document.title.startsWith("(") ? document.title.match(/\(\d*\)/) ?? "" : "" + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
                 TUICObserver.headObserver.observe(document.querySelector("title"), {
                     characterData: true,
                     childList: true,
@@ -692,13 +700,14 @@ export const TUICObserver = {
                 if (!titleInfo || titleInfo.length <= 1) {
                     document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
                 } else {
-                    document.title =
-                        (document.title.match(/\(\d\)/) ?? "") +
-                        TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted")
-                            .replaceAll("&quot;", '"')
-                            .replace(`{fullName}`, titleInfo[1])
-                            .replace("{tweetText}", titleInfo[2])
-                            .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
+                    document.title = document.title.startsWith("(")
+                        ? document.title.match(/\(\d*\)/) ?? ""
+                        : "" +
+                          TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted")
+                              .replaceAll("&quot;", '"')
+                              .replace(`{fullName}`, titleInfo[1])
+                              .replace("{tweetText}", titleInfo[2])
+                              .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
                 } /**/
             } else if (document.title.endsWith(" / X")) {
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
