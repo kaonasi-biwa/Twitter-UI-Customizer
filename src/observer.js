@@ -521,7 +521,7 @@ export const TUICObserver = {
                     }
                 }
 
-                // RT一覧とかで誰にもされていない場合の上
+                // 誰にも反応（いいね/RT/引用）されていない状況においての、一覧ページの「まだ○○はありません」
                 for (const elem of getNotReplacedElements('[data-testid="emptyState"] [data-testid="empty_state_header_text"]')) {
                     if (isQuotesPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTweeted-none-header");
@@ -531,7 +531,7 @@ export const TUICObserver = {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-liked-none-header");
                     }
                 }
-                // RT一覧とかで誰にもされていない場合の下
+                // 誰にも反応（いいね/RT/引用）されていない状況においての、一覧ページの「まだ○○はありません」
                 for (const elem of getNotReplacedElements('[data-testid="emptyState"] [data-testid="empty_state_body_text"]')) {
                     if (isQuotesPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTweeted-none-body");
@@ -543,7 +543,7 @@ export const TUICObserver = {
                 }
 
                 // 下に出てくるトーストボックス
-                for (const elem of getNotReplacedElements(`#layers div[data-testid="toast"]>div>span`)) {
+                for (const elem of getNotReplacedElements(`#layers div[data-testid="toast"] > div > span`)) {
                     if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-tweeted-one-latest-layer"))) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted-one-old-layer");
                     } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-tweeted-some-latest-layer"))) {

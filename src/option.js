@@ -187,8 +187,8 @@ export const TUICOptionHTML = {
         ".default_set": {
             type: "click",
             function: function () {
-                localStorage.setItem("TUIC", TUICLibrary.defaultPref.getString());
-                TUICPref.set("", TUICLibrary.defaultPref.get());
+                localStorage.setItem("TUIC", JSON.stringify(TUICData.defaultPref));
+                TUICPref.set("", TUICData.defaultPref);
 
                 if (isSafemode) {
                     location.href = `${location.protocol}//${location.hostname}`;
@@ -281,7 +281,7 @@ export const TUICOptionHTML = {
                 const rightBox = parentBox.children[2].children[2];
 
                 const settingId = parentBox.getAttribute("TUICUDBox");
-                TUICPref.set(settingId, TUICLibrary.defaultPref.get()[settingId]);
+                TUICPref.set(settingId, TUICData.defaultPref[settingId]);
                 TUICPref.save();
                 parentBox.setAttribute("TUICSelectedItem", "");
                 const ListItem = TUICOptionHTML.upDownListItem(settingId);
