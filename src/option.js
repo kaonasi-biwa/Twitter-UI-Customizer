@@ -87,8 +87,7 @@ export const TUICOptionHTML = {
                     // TODO: 謎
                     document.getElementById(`${colorAttr}-${colorType}-check`).checked = TUIC_color[3] == 0;
 
-                if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`))
-                    TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
+                if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
 
                 document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT"));
                 event.currentTarget.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
@@ -505,9 +504,12 @@ export const TUICOptionHTML = {
                     },
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
-                TUICPref.set("sidebarButtons", TUICPref.get("sidebarButtons").filter((elem) => {
-                    return elem != "twiter-blue" && elem != "verified-choose";
-                }));
+                TUICPref.set(
+                    "sidebarButtons",
+                    TUICPref.get("sidebarButtons").filter((elem) => {
+                        return elem != "twiter-blue" && elem != "verified-choose";
+                    }),
+                );
                 TUICPref.save();
                 document.querySelector("#TUIC_setting").remove();
                 TUICLibrary.getClasses.update();
