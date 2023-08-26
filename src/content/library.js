@@ -310,7 +310,6 @@ export const TUICPref = {
     },
     getConfig: function () {
         if (this.config == null) {
-            console.log("aiueoaouey");
             this.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
         }
     },

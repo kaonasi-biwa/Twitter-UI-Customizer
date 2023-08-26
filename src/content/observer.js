@@ -391,9 +391,6 @@ export const TUICObserver = {
                 const isHoveringUnretweetButton = !!document.querySelector('[role="button"][data-testid="unretweet"] > div > div > div.r-15azkrj');
 
                 if (isTweetPage) {
-                    // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
-                    for (const elem of getNotReplacedElements('.public-DraftEditorPlaceholder-inner:not([role="dialog"])')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-reply");
-
                     // ツイート画面の「n件のリツイート」のテキスト
                     for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweetCount");
                     // ツイート画面の「n件の引用ツイート」のテキスト
@@ -459,14 +456,12 @@ export const TUICObserver = {
                     }
                     // NOTE: kaonasi_biwa さんと連絡を取り合い、返信ボタンは現時点では改変しないことになりました: https://twitter.com/fami_kotone/status/1692551624714231961
                 }
-                // ツイート入力ボックス
-                for (const elem of getNotReplacedElements('[role="dialog"] .public-DraftEditorPlaceholder-inner')) {
-                    if (isDialog && isMultipleTweet) {
-                        // ダイアログで複数ツイートする場合
-                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-addTweet");
-                    } else if (isDialog && isReply) {
-                        // ダイアログでリプライを送る場合
+                // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
+                for (const elem of getNotReplacedElements(".public-DraftEditorPlaceholder-inner")) {
+                    if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-placeholder-reply-latest")) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-reply");
+                    } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-placeholder-addTweet-latest")) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-addTweet-old");
                     }
                 }
                 // ツイート入力ダイアログの、送信先ポップアップの「Twitterサークル」の文字
