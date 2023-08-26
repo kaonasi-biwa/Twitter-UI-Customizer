@@ -133,7 +133,7 @@ export const TUICLibrary = {
                 );
             }
 
-            TUICPref.set("", this.merge(structuredClone(TUICData.defaultPref), TUICPref.get("")));
+            TUICPref.set("", this.merge(structuredClone(TUICData.defaultPref), structuredClone(TUICPref.get(""))));
         },
         parallelToSerial: function () {
             TUICPref.set("CSS", localStorage.getItem("CSS"));
@@ -188,7 +188,7 @@ export const TUICLibrary = {
             TUICPref.save();
         },
         /**
-         * `source` に `object` をマージします。 `target` オブジェクトは上書きされます。
+         * `target` に `source` をマージします。 `target` オブジェクトは上書きされます。
          * @param {object} source マージ元
          * @param {object} target マージ先
          */
