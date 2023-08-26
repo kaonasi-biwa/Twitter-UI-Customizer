@@ -35,7 +35,7 @@
             "default_popup": "src/popup/popup.html"
         },
         "background": {
-            "scripts": ["src/background/background.js"]
+            "scripts": ["background.js"]
         },
         "browser_specific_settings": {
             "gecko": {
@@ -71,7 +71,7 @@
             "default_popup": "src/popup/popup.html"
         },
         "background": {
-            "service_worker": "src/background/background.js"
+            "service_worker": "background.js"
         },
         "host_permissions": ["https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"]
     },
