@@ -1,9 +1,8 @@
-import fetch from "node-fetch";
-import fs from "fs";
+import fs from "fs/promises";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
-    const config = JSON.parse(fs.readFileSync("./manifestConfigs.json", "utf8"));
+    const config = JSON.parse(await fs.readFile("./manifestConfigs.json", "utf8"));
 
     let output = {};
     if (process.argv[2] == "chromeCRX") {
@@ -12,5 +11,5 @@ import fs from "fs";
         output = Object.assign(config.common, config[process.argv[2]]);
     }
 
-    fs.writeFileSync(`./manifest.json`, JSON.stringify(output, undefined, 4));
+    await fs.writeFile("./manifest.json", JSON.stringify(output, undefined, 4));
 })();
