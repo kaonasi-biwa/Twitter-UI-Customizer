@@ -1,4 +1,7 @@
 {
+    "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "This can’t be undone and it will be removed from your profile, the timeline of any accounts that follow you, and from search results.",
+    "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "この操作は取り消せません。プロフィール、あなたをフォローしているアカウントのタイムライン、Twitterの検索結果からツイートが削除されます。",
+    "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "ツイートを削除しますか？",
     "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "ツイートがブックマークから削除されました",
     "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "ポストをブックマークから削除しました",
     "XtoTwitter-PostToTweet-profile-likes-old": "{fullName}（@{screenName}）さんがいいねしたツイート",
