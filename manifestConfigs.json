@@ -7,12 +7,12 @@
         "content_scripts": [
             {
                 "matches": ["*://*.twitter.com/*"],
-                "js": ["src/index.js"],
+                "js": ["src/content/index.js"],
                 "run_at": "document_start"
             }
         ],
         "options_ui": {
-            "page": "TUIC/options/options.html",
+            "page": "src/options/options.html",
             "browser_style": true
         }
     },
@@ -32,10 +32,10 @@
                 "128": "icon/newIcon_TUIC_C_Blue.svg"
             },
             "default_title": "Twitter UI Customizer",
-            "default_popup": "TUIC/popup/popup.html"
+            "default_popup": "src/popup/popup.html"
         },
         "background": {
-            "scripts": ["background.js"]
+            "scripts": ["src/background/background.js"]
         },
         "browser_specific_settings": {
             "gecko": {
@@ -68,10 +68,10 @@
                 "128": "icon/newIcon_TUIC_C_Blue.png"
             },
             "default_title": "Twitter UI Customizer",
-            "default_popup": "TUIC/popup/popup.html"
+            "default_popup": "src/popup/popup.html"
         },
         "background": {
-            "service_worker": "background.js"
+            "service_worker": "src/background/background.js"
         },
         "host_permissions": ["https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"]
     },
