@@ -1,5 +1,11 @@
 let setting = {};
 
+function i18nApply() {
+    for (const elem of document.querySelectorAll(".i18n")) {
+        elem.textContent = chrome.i18n.getMessage(elem.getAttribute("i18n-id") ?? "");
+    }
+}
+
 const checkbox = (event) => {
     const elem = event.target;
     setting[elem.id] = elem.checked;

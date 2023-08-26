@@ -1,5 +1,11 @@
 const isFirefox = "browser" in window;
 
+function i18nApply() {
+    for (const elem of document.querySelectorAll(".i18n")) {
+        elem.textContent = chrome.i18n.getMessage(elem.getAttribute("i18n-id") ?? "");
+    }
+}
+
 window.onload = async () => {
     chrome.runtime.sendMessage({ type: "update", updateType: "iconClick" });
     document.getElementById("link1").onclick = () => {
