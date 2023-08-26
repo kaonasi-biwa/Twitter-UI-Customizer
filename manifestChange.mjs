@@ -4,10 +4,11 @@ import fs from "fs/promises";
     // CLI引数または_langList.jsonファイルからロケールを取得
     const config = JSON.parse(await fs.readFile("./manifestConfigs.json", "utf8"));
 
+    const targets = Object.keys(config).filter(k => k !== "common");
     const target = process.argv[2];
 
-    if (target === undefined) {
-        console.error(`Error: Please specify a platform for generate. (${Object.keys(config).filter(k => k !== "common").join(", ")})`);
+    if (!targets.includes(target)) {
+        console.error(`Error: Invalid platform "${target ?? ""}". (${targets.join(", ")})`);
         process.exit(1);
     }
 
