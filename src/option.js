@@ -421,7 +421,10 @@ export const TUICOptionHTML = {
             function: function () {
                 try {
                     const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
-                    TUICPref.set("", TUICLibrary.updatePref.merge(importPref, TUICData.defaultPref));
+                    console.log(importPref);
+                    console.log(TUICData.defaultPref);
+                    console.log(TUICLibrary.updatePref.merge(structuredClone(TUICData.defaultPref), importPref));
+                    TUICPref.set("", TUICLibrary.updatePref.merge(TUICData.defaultPref, importPref));
                     TUICPref.save();
                     if (isSafemode) {
                         location.href = `${location.protocol}//${location.hostname}`;
