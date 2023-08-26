@@ -3,12 +3,11 @@
  * << Twitter を思いのままに。 >>
  */
 (async () => {
-    const { TUICObserver } = await import(chrome.runtime.getURL("src/observer.js"));
-    const { TUICLibrary } = await import(chrome.runtime.getURL("src/library.js"));
-    const { TUICI18N } = await import(chrome.runtime.getURL("src/i18n.js"));
-    const { addCssElement } = await import(chrome.runtime.getURL("src/applyCSS.js"));
-    const { TUICOptionHTML } = await import(chrome.runtime.getURL("src/option.js"));
-    const { isSafemode, runSafemode } = await import(chrome.runtime.getURL("src/safemode.js"));
+    const { TUICObserver } = await import(chrome.runtime.getURL("src/content/observer.js"));
+    const { TUICLibrary } = await import(chrome.runtime.getURL("src/content/library.js"));
+    const { TUICI18N } = await import(chrome.runtime.getURL("src/content/i18n.js"));
+    const { addCssElement } = await import(chrome.runtime.getURL("src/content/applyCSS.js"));
+    const { isSafemode, runSafemode } = await import(chrome.runtime.getURL("src/content/safemode.js"));
 
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
