@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "ツイートがブックマークから削除されました",
+    "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "ポストをブックマークから削除しました",
     "XtoTwitter-PostToTweet-profile-likes-old": "{fullName}（@{screenName}）さんがいいねしたツイート",
     "XtoTwitter-PostToTweet-profile-likes-latest": "Posts liked by {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-profile-media-old": "{fullName}（@{screenName}）さんのメディアツイート",
