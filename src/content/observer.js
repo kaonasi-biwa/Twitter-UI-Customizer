@@ -206,7 +206,7 @@ export const TUICObserver = {
                         if (!cannotRT) {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
-                        const isBigArticle = elem.querySelector(`[role="separator"]`);
+                        const isBigArticle = !!elem.querySelector(`.r-1srniue`);
                         let lastButton;
                         for (const i of TUICPref.get("visibleButtons")) {
                             let div = -1;
