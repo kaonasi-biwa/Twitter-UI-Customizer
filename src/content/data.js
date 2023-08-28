@@ -182,7 +182,7 @@ export const TUICData = {
             "reply-button": '[data-testid$="reply"]',
             "retweet-button": '[data-testid$="retweet"]',
             "like-button": '[data-testid$="like"]',
-            "share-button": '[aria-haspopup="menu"]:not([data-testid="retweet"])',
+            "share-button": '[aria-haspopup="menu"]:not([data-testid="retweet"]):not([data-testid="unretweet"])',
             tweet_analytics: '[href$="/analytics"],[d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"]',
             boolkmark: `[TUICButton="bookmark"],[data-testid="bookmark"],[data-testid="removeBookmark"]`,
             "url-copy": `[TUICButton="urlCopy"]`,
