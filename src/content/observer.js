@@ -385,6 +385,8 @@ export const TUICObserver = {
                 const isNotifications = location.pathname.endsWith("/notifications");
                 const isNotificationsTimeline = location.pathname.endsWith("/i/timeline");
                 const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
+                const isUnsentPage = location.pathname.includes("/unsent/");
+                const isTweetingPage = location.pathname.includes("/compose/tweet");
 
                 const isHoveringMiniSidenavTweetButton = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
                 const isHoveringRetweetButton = !!document.querySelector('[role="button"][data-testid="retweet"] > div > div > div.r-15azkrj');
@@ -423,6 +425,18 @@ export const TUICObserver = {
                             elem.textContent = elem.textContent.replace(TUICI18N.get("XtoTwitter-PostToTweet-notificationsRepost").toLowerCase(), TUICI18N.get("XtoTwitter-PostToTweet-notificationsRetweet").toLowerCase());
                         }
                     } /**/
+                }
+
+                // 予約ツイート関連
+                if (isUnsentPage) {
+                    // タブの未送信ポスト
+                    if (isUnsentPage) {
+                        // 作成したツイートを～
+                        for (const elem of getNotReplacedElements(`[role="dialog"] [data-testid="empty_state_body_text"]`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTitle");
+
+                        //未送信ツイートのタブ
+                        for (const elem of getNotReplacedElements(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTab1");
+                    }
                 }
 
                 // 共有 > リンクをコピー
@@ -464,13 +478,6 @@ export const TUICObserver = {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-addTweet-old");
                     }
                 }
-                // ツイートを削除するときのダイアログ
-                for (const elem of getNotReplacedElements(`[data-testid="confirmationSheetDialog"] > h1+div > span`)) {
-                    if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest")) {
-                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-old");
-                        elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogTitle");
-                    }
-                }
                 // ツイート入力ダイアログの、送信先ポップアップの「Twitterサークル」の文字
                 for (const elem of getNotReplacedElements(
                     '[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]',
@@ -479,7 +486,26 @@ export const TUICObserver = {
                 // ツイート入力ダイアログの、送信先としてサークルが設定されているときに表示される、「Twitterサークル」の文字
                 for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`)) elem.textContent = TUICI18N.get("sidebarButtons-circles");
                 // ツイート下書き保存確認ダイアログのヘッダー
-                if (isDialog) for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetSaveConfirm");
+                if (isDialog) {
+                    for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) {
+                        if (isUnsentPage) {
+                            elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle");
+                        } else if (isTweetingPage) {
+                            elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetSaveConfirm");
+                        }
+                    }
+
+                    for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1+div > span`)) {
+                        if (elem.textContent != " ") {
+                            if (isUnsentPage) {
+                                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan");
+                            } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest")) {
+                                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-old");
+                                elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogTitle");
+                            }
+                        }
+                    }
+                }
 
                 // リツイート確認ポップアップの「リツイート」ボタン
                 for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet");
@@ -565,6 +591,8 @@ export const TUICObserver = {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-addBookmark-old-layer");
                     } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-deleteBookmark-latest-layer"))) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteBookmark-old-layer");
+                    } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer"))) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteUnsentTweet-old-layer");
                     }
                 }
 
@@ -690,7 +718,7 @@ export const TUICObserver = {
                 document.title = "Twitter";
             } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {
                 TUICObserver.headObserver.disconnect();
-                document.title = document.title.startsWith("(") ? document.title.match(/\(\d*\)/) ?? "" : "" + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
+                document.title = (document.title.startsWith("(") ? document.title.match(/\(\d*\)/) + " " : "") + TUICI18N.get("XtoTwitter-PostToTweet-tweetNotificationsTitle") + " / Twitter";
             } else if (window.location.pathname.endsWith("/with_replies") && !window.location.pathname.includes("/status/")) {
                 TUICObserver.headObserver.disconnect();
                 const titleInfo = document.title.match(

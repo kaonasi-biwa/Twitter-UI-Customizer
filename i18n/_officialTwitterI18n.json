@@ -85,7 +85,13 @@
     "XtoTwitter-PostToTweet-addBookmark-old-layer": "b59d8d10",
     "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "b593b396",
     "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "h5d6c720",
+    "XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer": "a1e1b748",
+    "XtoTwitter-PostToTweet-deleteUnsentTweet-old-layer": "i26eed06",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "dd211108",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "c55d72d0",
-    "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "d9442996"
+    "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "d9442996",
+    "XtoTwitter-PostToTweet-unsentPageTitle": "g32f19e4",
+    "XtoTwitter-PostToTweet-unsentPageTab1": "a133d13e",
+    "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "f842d5d4",
+    "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan": "hb0c8242"
 }
