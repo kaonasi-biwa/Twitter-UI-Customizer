@@ -456,7 +456,7 @@ export const TUICObserver = {
                 const isReply = !!document.querySelector('[role="dialog"] [data-testid="tweet"]');
                 const isMultipleTweet = !isReply && document.querySelectorAll('[role="dialog"] [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length !== 1;
                 // ツイートボタン
-                for (const elem of getNotReplacedElements('[data-testid="tweetButton"] > div > span > span, [data-testid="tweetButtonInline"] > div > span > span')) {
+                for (const elem of document.querySelectorAll('[data-testid="tweetButton"] > div > span > span, [data-testid="tweetButtonInline"] > div > span > span')) {
                     // TODO: ツイートダイアログを開いて、別のツイートを追加→追加のツイートを削除 すると、すでに置き換えフラグが立っているためもう一度置き換え処理が走らないバグがある。
                     if (isDialog && isMultipleTweet) {
                         // ダイアログで複数ツイートする場合
@@ -464,7 +464,7 @@ export const TUICObserver = {
                     } else if (isDialog && !isReply) {
                         // ダイアログでツイートする場合
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
-                    } else if (!isDialog) {
+                    } else if (!isDialog && !isTweetPage) {
                         // TL上部のツイートダイアログの場合
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
                     }
