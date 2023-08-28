@@ -430,13 +430,11 @@ export const TUICObserver = {
                 // 予約ツイート関連
                 if (isUnsentPage) {
                     // タブの未送信ポスト
-                    if (isUnsentPage) {
-                        // 作成したツイートを～
-                        for (const elem of getNotReplacedElements(`[role="dialog"] [data-testid="empty_state_body_text"]`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTitle");
+                    // 作成したツイートを～
+                    for (const elem of getNotReplacedElements(`[role="dialog"] [data-testid="empty_state_body_text"]`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTitle");
 
-                        //未送信ツイートのタブ
-                        for (const elem of getNotReplacedElements(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTab1");
-                    }
+                    //未送信ツイートのタブ
+                    for (const elem of getNotReplacedElements(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTab1");
                 }
 
                 // 共有 > リンクをコピー
@@ -488,9 +486,7 @@ export const TUICObserver = {
                 // ツイート下書き保存確認ダイアログのヘッダー
                 if (isDialog) {
                     for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) {
-                        if (isUnsentPage) {
-                            elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle");
-                        } else if (isTweetingPage) {
+                        if (isTweetingPage) {
                             elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetSaveConfirm");
                         }
                     }
@@ -499,6 +495,7 @@ export const TUICObserver = {
                         if (elem.textContent != " ") {
                             if (isUnsentPage) {
                                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan");
+                                elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle");
                             } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest")) {
                                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-old");
                                 elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogTitle");
