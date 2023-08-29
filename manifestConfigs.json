@@ -7,7 +7,7 @@
         "content_scripts": [
             {
                 "matches": ["*://*.twitter.com/*"],
-                "js": ["index.umd.cjs"],
+                "js": ["index.iife.js"],
                 "run_at": "document_start"
             }
         ],
@@ -23,7 +23,7 @@
             "48": "icon/newIcon_TUIC_C_Blue.svg",
             "128": "icon/newIcon_TUIC_C_Blue.svg"
         },
-        "web_accessible_resources": ["options/*", "popup/*"],
+        "web_accessible_resources": ["*"],
         "permissions": ["notifications", "storage", "https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*", "alarms"],
         "browser_action": {
             "default_icon": {
@@ -35,7 +35,7 @@
             "default_popup": "popup/popup.html"
         },
         "background": {
-            "scripts": ["background.umd.cjs"]
+            "scripts": ["background.iife.js"]
         },
         "browser_specific_settings": {
             "gecko": {
@@ -56,7 +56,7 @@
         },
         "web_accessible_resources": [
             {
-                "resources": ["options/*", "popup/*"],
+                "resources": ["*"],
                 "matches": ["*://*.twitter.com/*"]
             }
         ],
@@ -71,7 +71,7 @@
             "default_popup": "popup/popup.html"
         },
         "background": {
-            "service_worker": "background.umd.cjs"
+            "service_worker": "background.iife.js"
         },
         "host_permissions": ["https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"]
     },
