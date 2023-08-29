@@ -11,7 +11,7 @@ export default defineConfig({
             entry: [resolve(__dirname, "src/background.js")],
             name: "bundle",
             fileName: "background",
-            formats: ["umd"],
+            formats: ["iife"],
         },
         outDir,
         minify: true,

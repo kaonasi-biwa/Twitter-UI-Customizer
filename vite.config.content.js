@@ -11,7 +11,7 @@ export default defineConfig({
             entry: [resolve(__dirname, "src/content/index.js")],
             name: "bundle",
             fileName: "index",
-            formats: ["umd"],
+            formats: ["iife"],
         },
         outDir,
         minify: true,

@@ -9,7 +9,7 @@ import { TUICI18N } from "./i18n.js";
 import { addCssElement } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
 
-export default async () => {
+(async () => {
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
@@ -65,4 +65,4 @@ export default async () => {
     });
 
     if (isSafemode) runSafemode();
-};
+})();
