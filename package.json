@@ -12,7 +12,11 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "yarn build:other && yarn build:content && yarn build:background && yarn build:copy_assets",
+        "build:other": "vite build",
+        "build:content": "vite build --config ./vite.config.content.js",
+        "build:background": "vite build --config ./vite.config.background.js",
+        "build:copy_assets": "node ./npm-scripts/copy-assets2dist.cjs",
         "preview": "vite preview",
         "debug": "node npm-scripts/run.js",
         "debug firefox": "node npm-scripts/run.js firefox",

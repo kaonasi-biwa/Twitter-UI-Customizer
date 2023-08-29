@@ -2,13 +2,14 @@
  * Twitter UI Customizer
  * << Twitter を思いのままに。 >>
  */
-(async () => {
-    const { TUICObserver } = await import(chrome.runtime.getURL("src/content/observer.js"));
-    const { TUICLibrary } = await import(chrome.runtime.getURL("src/content/library.js"));
-    const { TUICI18N } = await import(chrome.runtime.getURL("src/content/i18n.js"));
-    const { addCssElement } = await import(chrome.runtime.getURL("src/content/applyCSS.js"));
-    const { isSafemode, runSafemode } = await import(chrome.runtime.getURL("src/content/safemode.js"));
 
+import { TUICObserver } from "./observer.js";
+import { TUICLibrary } from "./library.js";
+import { TUICI18N } from "./i18n.js";
+import { addCssElement } from "./applyCSS.js";
+import { isSafemode, runSafemode } from "./safemode.js";
+
+export default async () => {
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
@@ -64,4 +65,4 @@
     });
 
     if (isSafemode) runSafemode();
-})();
+};

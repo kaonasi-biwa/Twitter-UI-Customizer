@@ -6,6 +6,7 @@ function i18nApply() {
     }
 }
 
+// export default () => {
 window.onload = async () => {
     chrome.runtime.sendMessage({ type: "update", updateType: "iconClick" });
     document.getElementById("link1").onclick = () => {
@@ -36,3 +37,4 @@ window.onload = async () => {
     } // Firefoxの場合のみ有効
     i18nApply();
 };
+// };

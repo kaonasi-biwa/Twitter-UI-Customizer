@@ -1,10 +1,11 @@
 import fs from "fs/promises";
+import fsSync from "fs";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
     const config = JSON.parse(await fs.readFile("./manifestConfigs.json", "utf8"));
 
-    const targets = Object.keys(config).filter(k => k !== "common");
+    const targets = Object.keys(config).filter((k) => k !== "common");
     const target = process.argv[2];
 
     if (!targets.includes(target)) {
@@ -19,5 +20,9 @@ import fs from "fs/promises";
         output = Object.assign(config.common, config[target]);
     }
 
-    await fs.writeFile("./manifest.json", JSON.stringify(output, undefined, 4));
+    if (!fsSync.existsSync("./dist")) {
+        fsSync.mkdirSync("./dist");
+    }
+
+    await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
 })();

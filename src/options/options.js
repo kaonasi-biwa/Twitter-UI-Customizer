@@ -12,6 +12,7 @@ const checkbox = (event) => {
     chrome.storage.sync.set({ TUIC: setting });
 };
 
+// export default () => {
 window.onload = () => {
     chrome.storage.sync.get("TUIC", async (settingT) => {
         const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
@@ -30,3 +31,4 @@ window.onload = () => {
     });
     i18nApply();
 };
+// };
