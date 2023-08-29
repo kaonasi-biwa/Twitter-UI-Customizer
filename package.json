@@ -3,14 +3,17 @@
         "@typescript-eslint/parser": "^6.0.0",
         "eslint-config-prettier": "^8.8.0",
         "prettier": "^3.0.0",
-        "web-ext": "^7.6.2"
-    },
-    "dependencies": {
+        "web-ext": "^7.6.2",
         "@microsoft/eslint-formatter-sarif": "^2.1.7",
         "eslint": "^8.10.0",
-        "node-fetch": "^3.3.2"
+        "node-fetch": "^3.3.2",
+        "vite": "^4.4.9"
     },
+    "type": "module",
     "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
         "debug": "node npm-scripts/run.js",
         "debug firefox": "node npm-scripts/run.js firefox",
         "debug chrome": "node npm-scripts/run.js chrome"
