@@ -16,10 +16,10 @@ jobs:
 
             - name: Install ESLint
               run: |
-                  npm install eslint@8.10.0
-                  npm install @microsoft/eslint-formatter-sarif@2.1.7
+                  yarn add eslint@8.10.0 -D
+                  yarn add @microsoft/eslint-formatter-sarif@2.1.7 -D
 
             - name: Run ESLint
               run: |
-                  npx eslint ./**/*.js
+                  yarn eslint ./**/*.js
               continue-on-error: true

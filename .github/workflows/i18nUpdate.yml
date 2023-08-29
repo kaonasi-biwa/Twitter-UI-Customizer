@@ -12,7 +12,7 @@ jobs:
 
             - name: Update
               run: |
-                  yarn add node-fetch
+                  yarn add node-fetch -D
 
                   node ./updateI18n.mjs
                   git config user.name  "i18n Updater"

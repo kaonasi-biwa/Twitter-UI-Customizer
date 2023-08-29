@@ -4,10 +4,10 @@ import { type } from "os";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
-    const locales = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+    const locales = process.argv.length == 2 ? JSON.parse(await fs.readFile("./assets/i18n/_langList.json", "utf8")) : process.argv.slice(2);
 
     // 設定をロード
-    const config = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18nConfig.json", "utf8"));
+    const config = JSON.parse(await fs.readFile("./assets/i18n/_officialTwitterI18nConfig.json", "utf8"));
 
     // i18nデータを格納するオブジェクト
     const i18nObjectNew = {};
@@ -27,7 +27,7 @@ import { type } from "os";
     );
 
     // 翻訳IDをロード
-    const TUICI18ns = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
+    const TUICI18ns = JSON.parse(await fs.readFile("./assets/i18n/_officialTwitterI18n.json", "utf8"));
 
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
     //https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json
@@ -83,7 +83,7 @@ import { type } from "os";
                     tmpObj = { [elem2]: translatedText, ...tmpObj };
                 }
             }
-            await fs.writeFile(`./i18n/ti18n/${elem}.json`, JSON.stringify(tmpObj, undefined, 4));
+            await fs.writeFile(`./assets/i18n/ti18n/${elem}.json`, JSON.stringify(tmpObj, undefined, 4));
         }),
     );
 })();
