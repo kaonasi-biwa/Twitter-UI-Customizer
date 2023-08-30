@@ -12,14 +12,14 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "yarn build:other && yarn build:content && yarn build:background && yarn build:copy_assets",
-        "build:other": "vite build",
-        "build:content": "vite build --config ./vite.config.content.js",
-        "build:background": "vite build --config ./vite.config.background.js",
-        "build:copy_assets": "node ./npm-scripts/copy-assets2dist.cjs",
+        "build": "yarn build:other & yarn build:content & yarn build:background & yarn build:copy_assets",
+        "build:other": "vite build --mode html",
+        "build:content": "vite build --mode content",
+        "build:background": "vite build --mode background",
+        "build:copy_assets": "node ./scripts/copy-assets2dist.cjs",
         "preview": "vite preview",
-        "debug": "node npm-scripts/run.js",
-        "debug firefox": "node npm-scripts/run.js firefox",
-        "debug chrome": "node npm-scripts/run.js chrome"
+        "debug": "node scripts/run.js",
+        "debug firefox": "node scripts/run.js firefox",
+        "debug chrome": "node scripts/run.js chrome"
     }
 }

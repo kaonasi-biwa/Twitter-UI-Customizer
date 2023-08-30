@@ -1,5 +1,9 @@
 import fs from "fs/promises";
 import fsSync from "fs";
+import { fileURLToPath } from "url";
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+process.chdir(__dirname);
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
@@ -20,9 +24,9 @@ import fsSync from "fs";
         output = Object.assign(config.common, config[target]);
     }
 
-    if (!fsSync.existsSync("./dist")) {
-        fsSync.mkdirSync("./dist");
+    if (!fsSync.existsSync("../dist")) {
+        fsSync.mkdirSync("../dist");
     }
 
-    await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
+    await fs.writeFile("../dist/manifest.json", JSON.stringify(output, undefined, 4));
 })();

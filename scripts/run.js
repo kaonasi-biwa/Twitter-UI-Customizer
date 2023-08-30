@@ -4,6 +4,8 @@ const { exec, execSync } = require("child_process");
 const browser = process.argv[2];
 const BinaryPath = `"${process.argv[3]}"`;
 
+const root = process.cwd();
+process.chdir(__dirname);
 // Check if web-ext is installed
 try {
     require.resolve("web-ext");
@@ -18,6 +20,7 @@ const Functions = {
             const stdout = execSync("node ./manifestChange.mjs firefox");
             {
                 if (BinaryPath) {
+                    process.chdir(root);
                     exec(`web-ext run --keep-profile-changes --firefox-profile=development --start-url=twitter.com ${BinaryPath}`, (error, stdout, stderr) => {
                         if (error) {
                             console.error("Error occurred while running web-ext:", error.message);
@@ -28,6 +31,7 @@ const Functions = {
                         console.log("If Firefox didn't open, Please check if you have 'Firefox' installed. & Profile 'development' exists.");
                     });
                 } else {
+                    process.chdir(root);
                     exec(`web-ext run --keep-profile-changes --firefox-profile=development --start-url=twitter.com`, (error, stdout, stderr) => {
                         if (error) {
                             console.error("Error occurred while running web-ext:", error.message);
