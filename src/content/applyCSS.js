@@ -2,10 +2,13 @@ import { TUICData } from "./data.js";
 import { DOG, TWITTER, X } from "./data/icons.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { isSafemode } from "./safemode.js";
+import { TLUI_CSS } from "./tlui/css.js";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
     document.querySelector("#twitter_ui_customizer")?.remove();
+
+    document.querySelector("head").appendChild(TLUI_CSS);
 
     const twitterHead = document.querySelector("head");
 

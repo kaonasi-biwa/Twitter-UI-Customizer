@@ -11,11 +11,25 @@
 
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
+    await TUICLibrary.waitForElement("#layers");
 
     String.prototype.escapeToUseHTML = function () {
         return TUICLibrary.escapeToUseHTML(this);
     };
     TUICObserver.titleObserverFunction();
+
+    // import { ButtonComponent, Dialog } from "./tlui/popup";
+    const { ButtonComponent, Dialog } = await import("./tlui/popup.js");
+
+    const dialog = new Dialog("Hello!");
+    dialog.addComponents([
+        "こんな感じで簡単にダイアログを出せるようになりました。",
+        "いい感じのAPIにしたつもりなのですが、もしここが使いにくいとかあれば言ってくださいね。",
+        new ButtonComponent("ふぁみちゃんだいすき", () => dialog.close(), {
+            invertColor: true
+        }),
+        new ButtonComponent("閉じる", () => dialog.close())
+    ]).open();
 
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
