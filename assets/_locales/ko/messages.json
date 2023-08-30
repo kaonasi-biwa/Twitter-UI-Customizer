@@ -168,5 +168,9 @@
     "optionSpecialThanks_nakasyou": {
         "message": "디자인 개선",
         "description": "設定画面のSpecial thanks(nakasyouさん)"
+    },
+    "optionSpecialThanks_typeling1578": {
+        "message": "소스코드 정리",
+        "description": "設定画面のSpecial thanks(typeling1578さん)"
     }
 }

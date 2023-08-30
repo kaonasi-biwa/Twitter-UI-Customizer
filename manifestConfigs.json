@@ -2,7 +2,7 @@
     "common": {
         "name": "__MSG_extensionName__",
         "description": "__MSG_extensionDescription__",
-        "version": "3.4.4",
+        "version": "3.4.5",
         "default_locale": "ja",
         "content_scripts": [
             {
@@ -23,8 +23,8 @@
             "48": "icon/newIcon_TUIC_C_Blue.svg",
             "128": "icon/newIcon_TUIC_C_Blue.svg"
         },
-        "web_accessible_resources": ["*"],
-        "permissions": ["notifications", "storage", "https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*", "alarms"],
+        "web_accessible_resources": ["src/*"],
+        "permissions": ["notifications", "storage", "https://api.github.com/*", "https://mico.re/*", "https://abs.twimg.com/*", "alarms"],
         "browser_action": {
             "default_icon": {
                 "16": "icon/newIcon_TUIC_C_Blue.svg",
@@ -73,7 +73,7 @@
         "background": {
             "service_worker": "background.iife.js"
         },
-        "host_permissions": ["https://api.github.com/*", "https://*.mico.re/*", "https://abs.twimg.com/*"]
+        "host_permissions": ["https://api.github.com/*", "https://mico.re/*", "https://abs.twimg.com/*"]
     },
     "chromeCRX": {
         "update_url": "https://github.com/${github.repository}/releases/latest/download/crxupdate.xml"
