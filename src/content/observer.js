@@ -131,33 +131,52 @@ export const TUICObserver = {
         },
         sidebarButtons: function () {
             const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
-            if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
-                if (!window.location.pathname.startsWith("/i/communitynotes")) {
-                    for (const i of TUICPref.get("sidebarButtons")) {
-                        let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-                        if (moveElem != null) {
-                            bannerRoot.appendChild(moveElem);
-                            moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                        } else if (i in TUICData.sidebarButtons.html) {
-                            moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
-                            moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                            moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
-                            moveElem.addEventListener("keydown", (e) => {
-                                if (e.keyCode === 13) {
-                                    TUICData.sidebarButtons.buttonFunctions[i]({
-                                        currentTarget: e.target.parentElement,
-                                    });
-                                }
-                            });
-                            bannerRoot.appendChild(moveElem);
+            if (bannerRoot != null) {
+                if (bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
+                    this.sidebarButtonProcess(bannerRoot);
+                } else {
+                    let changeElem = false;
+                    for (const selector in TUICData.sidebarButtons.selectors) {
+                        const elems = bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]);
+                        if (elems.length == 1) {
+                            continue;
+                        } else if (elems.length > 1) {
+                            for (const elem of elems) {
+                                elem.remove();
+                            }
+                            changeElem = true;
                         }
                     }
+                    if (changeElem) this.sidebarButtonProcess(bannerRoot);
                 }
-                for (const i of TUICData.settings.sidebarButtons.all) {
-                    if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
-                        const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-                        if (moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+            }
+        },
+        sidebarButtonProcess: function (bannerRoot) {
+            if (!window.location.pathname.startsWith("/i/communitynotes")) {
+                for (const i of TUICPref.get("sidebarButtons")) {
+                    let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
+                    if (moveElem != null) {
+                        bannerRoot.appendChild(moveElem);
+                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                    } else if (i in TUICData.sidebarButtons.html) {
+                        moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
+                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                        moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
+                        moveElem.addEventListener("keydown", (e) => {
+                            if (e.keyCode === 13) {
+                                TUICData.sidebarButtons.buttonFunctions[i]({
+                                    currentTarget: e.target.parentElement,
+                                });
+                            }
+                        });
+                        bannerRoot.appendChild(moveElem);
                     }
+                }
+            }
+            for (const i of TUICData.settings.sidebarButtons.all) {
+                if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
+                    const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
+                    if (moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             }
         },

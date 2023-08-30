@@ -634,6 +634,9 @@ display:none !important;
 .r-z2wwpe{
     border-radius:4px;
 }
+.r-115tad6{
+    color:rgb(139, 152, 165);
+}
 ${
     TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
         ? `
