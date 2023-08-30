@@ -360,15 +360,14 @@ scrollbar-width:thin;
 .TUICTextInput{
     padding-top:5px;
     padding-bottom:5px;
-    padding-left:10px;
-    padding-right:10px;
 }
 
 textarea#css_textarea{
     height: 300px;
+    resize: vertical;
 }
 textarea#css_textarea,.TUICTextInput {
-    width: calc(100% - 10px) !important;
+    width: calc(100% - 10px);
     border: 1px solid #808080;
     border-radius: 6px;
     margin-bottom: 20px;
