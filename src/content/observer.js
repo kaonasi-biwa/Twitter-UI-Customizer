@@ -131,33 +131,57 @@ export const TUICObserver = {
         },
         sidebarButtons: function () {
             const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
-            if (bannerRoot != null && bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
-                if (!window.location.pathname.startsWith("/i/communitynotes")) {
-                    for (const i of TUICPref.get("sidebarButtons")) {
-                        let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-                        if (moveElem != null) {
-                            bannerRoot.appendChild(moveElem);
-                            moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                        } else if (i in TUICData.sidebarButtons.html) {
-                            moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
-                            moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
-                            moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
-                            moveElem.addEventListener("keydown", (e) => {
-                                if (e.keyCode === 13) {
-                                    TUICData.sidebarButtons.buttonFunctions[i]({
-                                        currentTarget: e.target.parentElement,
-                                    });
+            if (bannerRoot != null) {
+                if (bannerRoot.querySelector(`a:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")})`) != null) {
+                    this.sidebarButtonProcess(bannerRoot);
+                } else {
+                    let changeElem = false;
+                    for (const selector of TUICPref.get("sidebarButtons")) {
+                        const elems = bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]);
+                        if (elems.length == 1) {
+                            continue;
+                        } else if (elems.length > 1) {
+                            const elems = Array.from(bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]));
+                            for (const elem of elems) {
+                                if (elem.id.includes("TUIC")) {
+                                    elem.remove();
                                 }
-                            });
-                            bannerRoot.appendChild(moveElem);
+                            }
+                            changeElem = true;
+                        } else if (elems.length == 0 && selector in TUICData.sidebarButtons.html) {
+                            changeElem = true;
                         }
                     }
+                    if (changeElem) this.sidebarButtonProcess(bannerRoot);
                 }
-                for (const i of TUICData.settings.sidebarButtons.all) {
-                    if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
-                        const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-                        if (moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+            }
+        },
+        sidebarButtonProcess: function (bannerRoot) {
+            if (!window.location.pathname.startsWith("/i/communitynotes")) {
+                for (const i of TUICPref.get("sidebarButtons")) {
+                    let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
+                    if (moveElem != null) {
+                        bannerRoot.appendChild(moveElem);
+                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                    } else if (i in TUICData.sidebarButtons.html) {
+                        moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
+                        moveElem.classList.add("NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
+                        moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
+                        moveElem.addEventListener("keydown", (e) => {
+                            if (e.keyCode === 13) {
+                                TUICData.sidebarButtons.buttonFunctions[i]({
+                                    currentTarget: e.target.parentElement,
+                                });
+                            }
+                        });
+                        bannerRoot.appendChild(moveElem);
                     }
+                }
+            }
+            for (const i of TUICData.settings.sidebarButtons.all) {
+                if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
+                    const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
+                    if (moveElem != null) moveElem.classList.add(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             }
         },
@@ -450,12 +474,20 @@ export const TUICObserver = {
                     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
 
                 // ツイート入力ダイアログ
-                const isDialog = !!document.querySelector('[role="dialog"]');
+                const isDialog = !!document.querySelector('[role="dialog"],[data-testid="twc-cc-mask"]+div');
                 const isReply = !!document.querySelector('[role="dialog"] [data-testid="tweet"]');
-                const isMultipleTweet = !isReply && document.querySelectorAll('[role="dialog"] [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length !== 1;
+                const isMultipleTweet = !isReply && document.querySelectorAll(':is([role="dialog"],[data-testid="twc-cc-mask"]+div) [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length !== 1;
+                const writingTweetCount = document.querySelectorAll(':is([role="dialog"],[data-testid="twc-cc-mask"]+div) [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length;
+                if (writingTweetCount != TUICObserver.data.tweetCount) {
+                    for (const elem of document.querySelectorAll(
+                        `${!document.querySelector(`[data-testid="twc-cc-mask"]`) ? `:is([role="dialog"])` : ""} :is([data-testid="tweetButton"], [data-testid="tweetButtonInline"]) > div > span > span.${TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE")}`,
+                    )) {
+                        elem.classList.remove(TUICLibrary.getClasses.getClass("TUIC_TWEETREPLACE"));
+                    }
+                }
+                TUICObserver.data.tweetCount = writingTweetCount;
                 // ツイートボタン
-                for (const elem of document.querySelectorAll('[data-testid="tweetButton"] > div > span > span, [data-testid="tweetButtonInline"] > div > span > span')) {
-                    // TODO: ツイートダイアログを開いて、別のツイートを追加→追加のツイートを削除 すると、すでに置き換えフラグが立っているためもう一度置き換え処理が走らないバグがある。
+                for (const elem of getNotReplacedElements(':is([data-testid="tweetButton"], [data-testid="tweetButtonInline"]) > div > span > span')) {
                     if (isDialog && isMultipleTweet) {
                         // ダイアログで複数ツイートする場合
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton");
@@ -465,9 +497,15 @@ export const TUICObserver = {
                     } else if (!isDialog && !isTweetPage) {
                         // TL上部のツイートダイアログの場合
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
+                    } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-tweetButton-latest")) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
+                    } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton-latest")) {
+                        // ダイアログで複数ツイートする場合
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton");
                     }
                     // NOTE: kaonasi_biwa さんと連絡を取り合い、返信ボタンは現時点では改変しないことになりました: https://twitter.com/fami_kotone/status/1692551624714231961
                 }
+
                 // ツイート画面の「返信をツイートする」のプレースホルダーテキスト
                 for (const elem of getNotReplacedElements(".public-DraftEditorPlaceholder-inner")) {
                     if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-placeholder-reply-latest")) {
@@ -787,5 +825,6 @@ export const TUICObserver = {
             attributes: true,
         });
     },
+    data: {},
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);

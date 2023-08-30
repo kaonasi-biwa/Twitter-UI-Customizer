@@ -280,23 +280,30 @@ export const TUICOptionHTML = {
                 const rightBox = parentBox.children[2].children[2];
 
                 const settingId = parentBox.getAttribute("TUICUDBox");
-                TUICPref.set(settingId, TUICData.defaultPref[settingId]);
+                TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
                 TUICPref.save();
                 parentBox.setAttribute("TUICSelectedItem", "");
                 const ListItem = TUICOptionHTML.upDownListItem(settingId);
+                let listElem;
 
-                for (const elem of TUICLibrary.HTMLParse(ListItem[0])) {
-                    leftBox.appendChild(elem);
-                }
-                for (let i = 0; i < leftBox.childNodes.length; i++) {
-                    leftBox.childNodes[0].remove();
+                listElem = leftBox.children;
+                while (listElem.length != 0) {
+                    listElem[0].remove();
                 }
 
-                for (const elem of TUICLibrary.HTMLParse(ListItem[1])) {
-                    rightBox.appendChild(elem);
+                listElem = TUICLibrary.HTMLParse(ListItem[0]);
+                while (listElem.length != 0) {
+                    leftBox.appendChild(listElem[0]);
                 }
-                for (let i = 0; i < rightBox.childNodes.length; i++) {
-                    rightBox.childNodes[0].remove();
+
+                listElem = rightBox.children;
+                while (listElem.length != 0) {
+                    listElem[0].remove();
+                }
+
+                listElem = TUICLibrary.HTMLParse(ListItem[1]);
+                while (listElem.length != 0) {
+                    rightBox.appendChild(listElem[0]);
                 }
 
                 TUICOptionHTML.upDownListSetting(parentBox);
@@ -894,7 +901,10 @@ ${TUICVisibleButtons}
     upDownListItem: function (id) {
         let TUICVisibleButtons = "";
         let TUICInvisibleButtons = "";
+        console.log(TUICPref.get(id));
+        console.log(TUICData.settings[id].all);
         for (const i of TUICPref.get(id)) {
+            console.log(i);
             TUICVisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICI18N.get(TUICData.settings[id].i18n[i])}</span></div>`;
         }
         for (const i of TUICData.settings[id].all) {
@@ -902,6 +912,8 @@ ${TUICVisibleButtons}
                 TUICInvisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICI18N.get(TUICData.settings[id].i18n[i])}</span></div>`;
             }
         }
+        console.log(TUICVisibleButtons);
+        console.log(TUICInvisibleButtons);
         return [TUICVisibleButtons, TUICInvisibleButtons];
     },
     uploadImageFile: function (title, id) {
