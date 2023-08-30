@@ -151,6 +151,8 @@ export const TUICObserver = {
                                 }
                             }
                             changeElem = true;
+                        } else if (elems.length == 0 && selector in TUICData.sidebarButtons.html) {
+                            changeElem = true;
                         }
                     }
                     if (changeElem) this.sidebarButtonProcess(bannerRoot);
