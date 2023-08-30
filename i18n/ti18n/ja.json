@@ -62,6 +62,8 @@
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "別のツイートを追加しましょう。",
     "XtoTwitter-PostToTweet-placeholder-reply-latest": "返信をポスト",
     "XtoTwitter-PostToTweet-placeholder-reply": "返信をツイートしましょう。",
+    "XtoTwitter-PostToTweet-tweetAllButton-latest": "すべてポスト",
+    "XtoTwitter-PostToTweet-tweetButton-latest": "ポストする",
     "XtoTwitter-PostToTweet-tweetAllButton": "すべてツイート",
     "XtoTwitter-PostToTweet-tweetButton": "ツイートする",
     "sidebarButtons-muteAndBlock": "ミュートとブロック",

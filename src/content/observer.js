@@ -464,7 +464,6 @@ export const TUICObserver = {
                 TUICObserver.data.tweetCount = writingTweetCount;
                 // ツイートボタン
                 for (const elem of getNotReplacedElements(':is([data-testid="tweetButton"], [data-testid="tweetButtonInline"]) > div > span > span')) {
-                    // TODO: ツイートダイアログを開いて、別のツイートを追加→追加のツイートを削除 すると、すでに置き換えフラグが立っているためもう一度置き換え処理が走らないバグがある。
                     if (isDialog && isMultipleTweet) {
                         // ダイアログで複数ツイートする場合
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton");
@@ -474,6 +473,11 @@ export const TUICObserver = {
                     } else if (!isDialog && !isTweetPage) {
                         // TL上部のツイートダイアログの場合
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
+                    } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-tweetButton-latest")) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
+                    } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton-latest")) {
+                        // ダイアログで複数ツイートする場合
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAllButton");
                     }
                     // NOTE: kaonasi_biwa さんと連絡を取り合い、返信ボタンは現時点では改変しないことになりました: https://twitter.com/fami_kotone/status/1692551624714231961
                 }

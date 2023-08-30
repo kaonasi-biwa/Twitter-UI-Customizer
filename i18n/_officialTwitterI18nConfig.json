@@ -1,6 +1,6 @@
 {
     "oldTranslate": ["e2414185"],
-    "latestTranslate": ["a4d3eb67", "df34a454", "g062295e", "c7999d10", "h4dd544e", "b9891db3", "hbf64b75", "h6e91bb1", "b59d8d10", "b593b396", "cf5af90c", "d29edd5a", "d9442996", "a1e1b748"],
+    "latestTranslate": ["a4d3eb67", "df34a454", "g062295e", "c7999d10", "h4dd544e", "b9891db3", "hbf64b75", "h6e91bb1", "b59d8d10", "b593b396", "cf5af90c", "d29edd5a", "d9442996", "a1e1b748", "ee69d769", "ge8e4a38"],
     "fixPlural": ["c42234da", "e2414185", "e74e9bb7"],
     "fixSingular": [],
     "deleteString": {
@@ -8,6 +8,7 @@
         "e74e9bb7": [".", "。", "{tweetCount}", "(de)", "uri"],
         "fdc023d7": ["{formattedCount}", "{count}"],
         "c42234da": ["{count}", "uri"],
-        "h99e9c95": ["{0}"]
+        "h99e9c95": ["{0}"],
+        "ee69d769": ["{verb}"]
     }
 }
