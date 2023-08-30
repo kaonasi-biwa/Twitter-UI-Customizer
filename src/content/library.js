@@ -232,7 +232,7 @@ export const TUICLibrary = {
         } else if (fontSize == "15px") {
             return x3;
         } else if (fontSize == "14px") {
-            return document.querySelector(`h1[role="heading"] > a[href="/home"]`).className.includes("r-116um31") ? x1 : x2;
+            return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
         }
     },
     HTMLParse: function (elem) {

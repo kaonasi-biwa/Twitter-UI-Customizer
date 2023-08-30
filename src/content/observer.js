@@ -136,13 +136,19 @@ export const TUICObserver = {
                     this.sidebarButtonProcess(bannerRoot);
                 } else {
                     let changeElem = false;
-                    for (const selector in TUICData.sidebarButtons.selectors) {
+                    for (const selector of TUICPref.get("sidebarButtons")) {
                         const elems = bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]);
+                        console.log(selector);
+                        console.log(elems);
+                        console.log(elems.length);
                         if (elems.length == 1) {
                             continue;
                         } else if (elems.length > 1) {
+                            const elems = Array.from(bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]));
                             for (const elem of elems) {
-                                elem.remove();
+                                if (elem.id.includes("TUIC")) {
+                                    elem.remove();
+                                }
                             }
                             changeElem = true;
                         }
