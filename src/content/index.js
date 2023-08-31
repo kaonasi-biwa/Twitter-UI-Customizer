@@ -9,7 +9,14 @@ import { TUICI18N } from "./i18n.js";
 import { addCssElement } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
 
-(async () => {
+let loaded = false;
+
+const load = async () => {
+    if (loaded) {
+        return;
+    }
+    loaded = true;
+
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
@@ -65,4 +72,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
     });
 
     if (isSafemode) runSafemode();
-})();
+};
+
+load();
+window.onload = load;

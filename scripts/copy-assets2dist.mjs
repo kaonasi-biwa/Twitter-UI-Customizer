@@ -1,4 +1,5 @@
-const fs = require("fs");
+import fs from "fs";
+import { fileURLToPath } from "url";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const __filename = fileURLToPath(import.meta.url);
 process.chdir(__dirname);

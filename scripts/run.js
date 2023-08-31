@@ -21,7 +21,7 @@ const Functions = {
             {
                 if (BinaryPath) {
                     process.chdir(root);
-                    exec(`web-ext run --keep-profile-changes --firefox-profile=development --start-url=twitter.com ${BinaryPath}`, (error, stdout, stderr) => {
+                    exec(`web-ext run --watch-files dist/* --keep-profile-changes --firefox-profile=development --start-url=twitter.com ${BinaryPath}`, (error, stdout, stderr) => {
                         if (error) {
                             console.error("Error occurred while running web-ext:", error.message);
                             console.error("If you are using a custom Firefox binary, Please check if it exists. get more info: https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#firefox");
@@ -32,7 +32,7 @@ const Functions = {
                     });
                 } else {
                     process.chdir(root);
-                    exec(`web-ext run --keep-profile-changes --firefox-profile=development --start-url=twitter.com`, (error, stdout, stderr) => {
+                    exec(`web-ext run --watch-files dist/* --keep-profile-changes --firefox-profile=development --start-url=twitter.com`, (error, stdout, stderr) => {
                         if (error) {
                             console.error("Error occurred while running web-ext:", error.message);
                             process.exit(1);
