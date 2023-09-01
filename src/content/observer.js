@@ -227,6 +227,7 @@ export const TUICObserver = {
                         }
                         const statusButton = elem.querySelector(`[href*="/status/"] > time`)?.parentElement;
                         const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
+                        const cannotShare = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                         if (!cannotRT) {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
@@ -238,7 +239,7 @@ export const TUICObserver = {
                                 div = bar_item[i];
                             } else if (i in TUICData.visibleButtons.buttonElement) {
                                 div = TUICData.visibleButtons.buttonElement[i](
-                                    { elements: { buttonBarBase: bar_base, article: elem, statusButton: statusButton }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, isMe: isMe, isBigArticle: isBigArticle } } /*bar_base, elem, lockedAccount*/,
+                                    { elements: { buttonBarBase: bar_base, article: elem, statusButton: statusButton }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle } } /*bar_base, elem, lockedAccount*/,
                                 );
                             }
                             if (div != -1) {
