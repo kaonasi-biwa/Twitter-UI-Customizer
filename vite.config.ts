@@ -13,6 +13,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 root,
                 base: "/",
                 build: {
+                    sourcemap: true,
                     outDir,
                     rollupOptions: {
                         input: {
@@ -23,19 +24,12 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                         },
                         output: {
                             dynamicImportInCjs: true,
-                            //inlineDynamicImports: true,
                             format: "es",
                             entryFileNames: "[name].js",
                         },
                         plugins: [],
                     },
-
-                    // lib: {
-                    //     entry: [resolve(__dirname, "src/content/index.js")],
-                    //     name: "bundle",
-                    //     fileName: "index",
-                    //     formats: ["iife"],
-                    // },
+                    minify: false,
                 },
                 resolve: {
                     alias: {
@@ -48,8 +42,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         case "content":
             json = {
                 root,
-                //base: "/",
                 build: {
+                    sourcemap: true,
                     outDir,
                     lib: {
                         entry: [resolve(__dirname, "src/content/index.js")],
@@ -59,40 +53,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                         },
                         formats: ["iife"],
                     },
+                    minify: false,
                 },
                 plugins: [myPlugin()],
             };
             break;
-        // case "content":
-        //     json = {
-        //         root,
-        //         build: {
-        //             lib: {
-        //                 entry: [resolve(__dirname, "src/content/index.js")],
-        //                 name: "bundle",
-        //                 fileName: "index",
-        //                 formats: ["iife"],
-        //             },
-        //             outDir,
-        //             minify: true,
-        //         },
-        //     };
-        //     break;
-        // case "background":
-        //     json = {
-        //         root,
-        //         build: {
-        //             lib: {
-        //                 entry: [resolve(__dirname, "src/background.js")],
-        //                 name: "bundle",
-        //                 fileName: "background",
-        //                 formats: ["iife"],
-        //             },
-        //             outDir,
-        //             minify: true,
-        //         },
-        //     };
-        //     break;
     }
 
     console.log(json);
