@@ -2,13 +2,14 @@
  * Twitter UI Customizer
  * << Twitter を思いのままに。 >>
  */
-(async () => {
-    const { TUICObserver } = await import(chrome.runtime.getURL("src/content/observer.js"));
-    const { TUICLibrary } = await import(chrome.runtime.getURL("src/content/library.js"));
-    const { TUICI18N } = await import(chrome.runtime.getURL("src/content/i18n.js"));
-    const { addCssElement } = await import(chrome.runtime.getURL("src/content/applyCSS.js"));
-    const { isSafemode, runSafemode } = await import(chrome.runtime.getURL("src/content/safemode.js"));
 
+import { TUICObserver } from "./observer.js";
+import { TUICLibrary } from "./library.js";
+import { TUICI18N } from "./i18n.js";
+import { addCssElement } from "./applyCSS.js";
+import { isSafemode, runSafemode } from "./safemode.js";
+
+(async () => {
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
@@ -18,7 +19,7 @@
     TUICObserver.titleObserverFunction();
 
     console.log(
-        `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
+        `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );

@@ -3,6 +3,7 @@
         "@typescript-eslint/parser": "^6.0.0",
         "eslint-config-prettier": "^8.8.0",
         "prettier": "^3.0.0",
+        "vite": "^4.4.9",
         "web-ext": "^7.6.2"
     },
     "dependencies": {
@@ -11,8 +12,13 @@
         "node-fetch": "^3.3.2"
     },
     "scripts": {
-        "debug": "node npm-scripts/run.js",
-        "debug firefox": "node npm-scripts/run.js firefox",
-        "debug chrome": "node npm-scripts/run.js chrome"
+        "build": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite",
+        "build:vite": "vite build",
+        "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
+        "build:gen_manifest": "node ./manifestChange.mjs firefox",
+        "build:vite_watch": "vite build --mode development --watch",
+        "debug": "yarn debug:firefox",
+        "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite_watch",
+        "debug:chrome": "node npm-scripts/run.js chrome"
     }
 }
