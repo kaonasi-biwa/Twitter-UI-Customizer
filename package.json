@@ -23,7 +23,7 @@
         "build:gen_manifest:chrome": "node ./manifestChange.mjs chrome",
         "build:gen_manifest:chromeCRX": "node ./manifestChange.mjs chromeCRX",
         "debug": "yarn debug:firefox",
-        "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite_watch",
+        "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest:firefox & yarn build:vite_watch",
         "debug:chrome": "node npm-scripts/run.js chrome"
     }
 }
