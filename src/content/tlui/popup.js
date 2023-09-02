@@ -97,7 +97,7 @@ export class ButtonComponent {
     constructor(text, onclick, options = {}) {
         this.element = new DOMParser().parseFromString(`
             <button type="button" class="full-width">${text}</button>
-            `, "text/html").body.children[0]
+            `, "text/html").body.children[0];
         this.onclick = onclick;
 
         this.element.onclick = onclick;
