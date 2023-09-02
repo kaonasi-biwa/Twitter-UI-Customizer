@@ -18,15 +18,15 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             // outDir,
 
             rollupOptions: {
-                watch: {
-                    // chokidar: {
-                    //     cwd: __dirname,
-                    // },
-                    exclude: ["dist/*"],
-                    // include: ["vite.config.ts", "package.json", "_locales", "i18n", "icon", "npm-scripts", "manifestChange.mjs", "manifestConfigs.json", "src"].map((value) => {
-                    //     return resolve(__dirname, value);
-                    // }),
-                },
+                // watch: {
+                //     // chokidar: {
+                //     //     cwd: __dirname,
+                //     // },
+                //     exclude: ["dist/*"],
+                //     // include: ["vite.config.ts", "package.json", "_locales", "i18n", "icon", "npm-scripts", "manifestChange.mjs", "manifestConfigs.json", "src"].map((value) => {
+                //     //     return resolve(__dirname, value);
+                //     // }),
+                // },
                 input: {
                     "ent-options_html": resolve(__dirname, "src/options/options.html"),
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
