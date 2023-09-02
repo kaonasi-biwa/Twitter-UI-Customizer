@@ -16,7 +16,7 @@ export default async (sourceDir: string, artifactsDir: string): Promise<Plugin> 
         enforce: "post",
         apply: "build",
         options(options) {
-            console.log(options.watch);
+            // console.log(options.watch);
             watch = options.watch != undefined && options.watch != false;
         },
         async closeBundle() {

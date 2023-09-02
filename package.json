@@ -13,11 +13,11 @@
     },
     "scripts": {
         "build": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite",
-        "build:vite": "vite build --mode development",
+        "build:vite": "vite build",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
         "build:gen_manifest": "node ./manifestChange.mjs firefox",
-        "debug": "node npm-scripts/run.js",
-        "debug firefox": "node npm-scripts/run.js firefox",
+        "build:vite_watch": "vite build --mode development --watch",
+        "debug": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite_watch",
         "debug chrome": "node npm-scripts/run.js chrome"
     }
 }

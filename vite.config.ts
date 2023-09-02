@@ -72,6 +72,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         //     break;
     };
 
-    console.log(json);
+    // console.log(json);
     return json;
 });
