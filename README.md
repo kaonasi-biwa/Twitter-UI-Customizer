@@ -132,7 +132,7 @@ yarn debug:chrome
 
 ## Firefox または Firefox 系ブラウザーでデバッグする場合
 
-#環境変数で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxのexe経路に設定した後に
+#環境変数で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxの経路に設定した後に
 yarn debug:firefox
 
 # 例
