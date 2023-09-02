@@ -405,6 +405,7 @@ export const TUICObserver = {
                 const isTweetPage = location.pathname.includes("/status/");
                 const isRetweetPage = location.pathname.endsWith("/retweets");
                 const isLikesPage = location.pathname.endsWith("/likes");
+                const isHistoryPage = location.pathname.endsWith("/history");
                 const isQuotesPage = location.pathname.endsWith("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
                 const isNotifications = location.pathname.endsWith("/notifications");
@@ -435,6 +436,12 @@ export const TUICObserver = {
                     if (isAnalyticsPage) {
                         // ツイートアナリティクスのダイアログヘッダー
                         for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                    }
+
+                    if (isHistoryPage) {
+                        // ツイートのバージョンの「最新のポスト」
+                        // i18nが存在するんで一旦保留
+                        //for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
                     }
                 } else if (isUserPage) {
                     // ユーザーの「n件のツイート」
