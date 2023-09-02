@@ -109,13 +109,13 @@ manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https:
 ただし、下記のデバッグ方法を使用する場合は、Wikiの情報は必要ありません。
 
 **重要**: Firefox ブラウザーが事前にインストールされている必要があります。また、新しいプロファイルを "about:profiles" で "development" という名前で作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
-また、バージョンの違うFirefoxで作られたプロフィールは実行時にエラーが出る場合があります。 \
-例えばFirefox Developer Edition (aurora channel)で作られたプロフィールは
+また、バージョンの違うFirefoxで作られたプロファイルは実行時にエラーが出る場合があります。 \
+例えばFirefox Developer Edition (aurora channel)で作られたプロファイルは
 Firefox (Stable)で実行される時、Dev Editionより旧バージョンなため、互換性がないとエラーが出ます。\
-デバッグの時実行されるFirefoxでプロフィールを作成してください。
+デバッグの時実行されるFirefoxでプロファイルを作成してください。
 
-デバッグは、元のプロフィールをコピーして行われるので、変更点が保存されません。 \
-予め "about:profiles"でTwitterにログインして置くことをおすすめします。
+デバッグは、元のプロファイルをコピーして行われるので、変更点が保存されません。 \
+予め "development"プロファイルでTwitterにログインして置くことをおすすめします。
 
 ```bash
 
@@ -132,11 +132,11 @@ yarn debug:chrome
 
 ## Firefox または Firefox 系ブラウザーでデバッグする場合
 
-#環境変数で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxの経路に設定した後に
+# 環境変数で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxの経路に設定した後に
 yarn debug:firefox
 
 # 例
-#$TUIC_WEBEXT_FIREFOX_EXECUTABLE="C:\Program Files\Firefox Developer Edition\firefox.exe"
+# $TUIC_WEBEXT_FIREFOX_EXECUTABLE="C:\Program Files\Firefox Developer Edition\firefox.exe"
 yarn debug:firefox
 
 ```
