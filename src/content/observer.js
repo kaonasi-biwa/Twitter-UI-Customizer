@@ -227,6 +227,7 @@ export const TUICObserver = {
                         }
                         const statusButton = elem.querySelector(`[href*="/status/"] > time`)?.parentElement;
                         const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
+                        const cannotShare = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                         if (!cannotRT) {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
@@ -238,7 +239,7 @@ export const TUICObserver = {
                                 div = bar_item[i];
                             } else if (i in TUICData.visibleButtons.buttonElement) {
                                 div = TUICData.visibleButtons.buttonElement[i](
-                                    { elements: { buttonBarBase: bar_base, article: elem, statusButton: statusButton }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, isMe: isMe, isBigArticle: isBigArticle } } /*bar_base, elem, lockedAccount*/,
+                                    { elements: { buttonBarBase: bar_base, article: elem, statusButton: statusButton }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle } } /*bar_base, elem, lockedAccount*/,
                                 );
                             }
                             if (div != -1) {
@@ -404,6 +405,7 @@ export const TUICObserver = {
                 const isTweetPage = location.pathname.includes("/status/");
                 const isRetweetPage = location.pathname.endsWith("/retweets");
                 const isLikesPage = location.pathname.endsWith("/likes");
+                const isHistoryPage = location.pathname.endsWith("/history");
                 const isQuotesPage = location.pathname.endsWith("/retweets/with_comments");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
                 const isNotifications = location.pathname.endsWith("/notifications");
@@ -435,6 +437,12 @@ export const TUICObserver = {
                         // ツイートアナリティクスのダイアログヘッダー
                         for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
                     }
+
+                    if (isHistoryPage) {
+                        // ツイートのバージョンの「最新のポスト」
+                        // i18nが存在するんで一旦保留
+                        //for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                    }
                 } else if (isUserPage) {
                     // ユーザーの「n件のツイート」
                     for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
@@ -450,6 +458,8 @@ export const TUICObserver = {
                         }
                     } /**/
                 }
+
+                for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent = elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
 
                 // 予約ツイート関連
                 if (isUnsentPage) {
