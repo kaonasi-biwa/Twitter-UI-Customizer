@@ -8,6 +8,7 @@
     const { TUICI18N } = await import(chrome.runtime.getURL("src/content/i18n.js"));
     const { addCssElement } = await import(chrome.runtime.getURL("src/content/applyCSS.js"));
     const { isSafemode, runSafemode } = await import(chrome.runtime.getURL("src/content/safemode.js"));
+    const { startTluiObserver } = await import(chrome.runtime.getURL("src/content/tlui/observer.js"));
 
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
@@ -24,10 +25,10 @@
     // dialog.addComponents([
     //     "こんな感じで簡単にダイアログを出せるようになりました。",
     //     "いい感じのAPIにしたつもりなのですが、もしここが使いにくいとかあれば言ってくださいね。",
-    //     new ButtonComponent("ふぁみちゃんだいすき", () => dialog.close(), {
+    //     new ButtonComponent("ふぁみちゃんだいすき", () => dialog.close()),
+    //     new ButtonComponent("閉じる", () => dialog.close(), {
     //         invertColor: true
-    //     }),
-    //     new ButtonComponent("閉じる", () => dialog.close())
+    //     })
     // ]).open();
 
     console.log(
@@ -35,6 +36,8 @@
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
+
+    startTluiObserver();
 
     if (document.querySelector("#twitter_ui_customizer_query") == null) {
         const queryElem = document.createElement("meta");

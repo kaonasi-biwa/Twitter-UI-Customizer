@@ -7,12 +7,10 @@ TLUI_CSS.textContent = `
     --tlui-dialog-text: #ffffff;
     --tlui-dialog-mask: rgba(91, 112, 131, 0.4);
 
-    --tlui-button-background: rgba(0, 0, 0, 0);
-    --tlui-button-text: #ffffff;
-    --tlui-button-background-hover: rgba(239, 243, 244, 0.1);
-    --tlui-button-background-invert: #ffffff;
-    --tlui-button-text-invert: #0f1419;
-    --tlui-button-background-invert-hover: rgb(215, 219, 220);
+    --tlui-button-background: var(--tlui-dialog-text);
+    --tlui-button-text: var(--tlui-dialog-background);
+    --tlui-button-background-hover: rgb(215, 219, 220);
+    --tlui-button-background-invert-hover: rgba(239, 243, 244, 0.1);
 }
 
 /* ダイアログ > マスク */
@@ -75,22 +73,21 @@ TLUI_CSS.textContent = `
     border: 1px solid rgb(83, 100, 113);
     border-radius: 100000px;
 
-    font-size: 15px;
+    font-size: 1.1em;
     font-weight: 700;
-    line-height: 20px;
+    line-height: 1em;
     padding-inline: 16px;
     margin-inline: auto;
     margin-top: 16px;
-    height: 40px;
-    color: currentColor;
+    height: 45px;
     transition-duration: 0.2s;
 }
 #layers .tlui-dialog button.full-width {
     width: 100%;
 }
 #layers .tlui-dialog button.invert-color {
-    background-color: var(--tlui-button-background-invert);
-    color: var(--tlui-button-text-invert);
+    background-color: var(--tlui-button-text);
+    color: var(--tlui-button-background);
 }
 #layers .tlui-dialog button:hover {
     background-color: var(--tlui-button-background-hover);

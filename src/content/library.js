@@ -204,14 +204,13 @@ export const TUICLibrary = {
         },
     },
     backgroundColorCheck: function () {
-        const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
-        if (bodyStyle == "rgb(0, 0, 0)") {
-            return "dark";
-        } else if (bodyStyle == "rgb(21, 32, 43)") {
-            return "blue";
-        } else {
-            return "light";
-        }
+        const backgroundList = {
+            dark: "rgb(0, 0, 0)",
+            blue: "rgb(21, 32, 43)",
+            light: "rgb(255, 255, 255)"
+        };
+
+        return Object.entries(backgroundList).find(b => b[1] === document.body.style.backgroundColor)?.[0];
     },
     backgroundColorClass: function (dark, blue, white) {
         const backgroundType = this.backgroundColorCheck();
