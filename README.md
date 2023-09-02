@@ -137,6 +137,8 @@ yarn debug:firefox
 
 # 例
 # $TUIC_WEBEXT_FIREFOX_EXECUTABLE="C:\Program Files\Firefox Developer Edition\firefox.exe"
+# プロファイルでエラーが出る場合や直接指定したい場合
+# $TUIC_WEBEXT_FIREFOX_PROFILE="C:\Users\user\AppData\Roaming\Mozilla\Firefox\Profiles\h6jvvuqd.dev_tuic"
 yarn debug:firefox
 
 ```
