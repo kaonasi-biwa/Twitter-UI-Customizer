@@ -459,6 +459,8 @@ export const TUICObserver = {
                     } /**/
                 }
 
+                for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent = elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
+
                 // 予約ツイート関連
                 if (isUnsentPage) {
                     // タブの未送信ポスト
