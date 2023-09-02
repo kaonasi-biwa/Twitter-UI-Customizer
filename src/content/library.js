@@ -252,9 +252,9 @@ export const TUICLibrary = {
             }[match];
         });
     },
-    waitForElement: async function (selector) {
-        if (document.querySelectorAll(selector).length !== 0) {
-            return Array.from(document.querySelectorAll(selector));
+    waitForElement: async function (selector, parentElement = document) {
+        if (parentElement.querySelectorAll(selector).length !== 0) {
+            return Array.from(parentElement.querySelectorAll(selector));
         } else {
             return new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
@@ -265,7 +265,7 @@ export const TUICLibrary = {
                         resolve(matchedAddedNodes);
                     }
                 });
-                observer.observe(document, { subtree: true, childList: true });
+                observer.observe(parentElement, { subtree: true, childList: true });
             });
         }
     },
