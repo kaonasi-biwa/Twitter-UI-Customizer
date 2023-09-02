@@ -42,6 +42,7 @@ export default async (sourceDir: string, artifactsDir: string): Promise<Plugin> 
                         {
                             sourceDir,
                             artifactsDir,
+                            overwriteDest: true,
                         },
                         {},
                     );

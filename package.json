@@ -12,11 +12,15 @@
         "node-fetch": "^3.3.2"
     },
     "scripts": {
-        "build": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite",
-        "build:vite": "vite build",
+        "build": "yarn build:firefox",
+        "build:firefox": " yarn build:gen_manifest:firefox & yarn build:common",
+        "build:chrome": "yarn build:gen_manifest:chrome & yarn build:common",
+        "build:common": "yarn build:copy_assets & yarn build:vite",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
-        "build:gen_manifest": "node ./manifestChange.mjs firefox",
+        "build:vite": "vite build",
         "build:vite_watch": "vite build --mode development --watch",
+        "build:gen_manifest:firefox": "node ./manifestChange.mjs firefox",
+        "build:gen_manifest:chrome": "node ./manifestChange.mjs chrome",
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite_watch",
         "debug:chrome": "node npm-scripts/run.js chrome"
