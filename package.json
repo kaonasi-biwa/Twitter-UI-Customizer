@@ -3,8 +3,8 @@
         "@typescript-eslint/parser": "^6.0.0",
         "eslint-config-prettier": "^8.8.0",
         "prettier": "^3.0.0",
-        "web-ext": "^7.6.2",
-        "vite": "^4.4.9"
+        "vite": "^4.4.9",
+        "web-ext": "^7.6.2"
     },
     "dependencies": {
         "@microsoft/eslint-formatter-sarif": "^2.1.7",
@@ -12,10 +12,8 @@
         "node-fetch": "^3.3.2"
     },
     "scripts": {
-        "build": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:watch",
-        "build:watch": "node ./npm-scripts/watch.mjs",
-        "build:other": "vite build --mode html --watch",
-        "build:content": "vite build --mode content",
+        "build": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite",
+        "build:vite": "vite build --mode development",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
         "build:gen_manifest": "node ./manifestChange.mjs firefox",
         "debug": "node npm-scripts/run.js",
