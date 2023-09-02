@@ -428,9 +428,6 @@ export const TUICOptionHTML = {
             function: function () {
                 try {
                     const importPref = JSON.parse(document.querySelector("#TUICImportBox").value);
-                    console.log(importPref);
-                    console.log(TUICData.defaultPref);
-                    console.log(TUICLibrary.updatePref.merge(structuredClone(TUICData.defaultPref), importPref));
                     TUICPref.set("", TUICLibrary.updatePref.merge(TUICData.defaultPref, importPref));
                     TUICPref.save();
                     if (isSafemode) {
@@ -901,10 +898,7 @@ ${TUICVisibleButtons}
     upDownListItem: function (id) {
         let TUICVisibleButtons = "";
         let TUICInvisibleButtons = "";
-        console.log(TUICPref.get(id));
-        console.log(TUICData.settings[id].all);
         for (const i of TUICPref.get(id)) {
-            console.log(i);
             TUICVisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICI18N.get(TUICData.settings[id].i18n[i])}</span></div>`;
         }
         for (const i of TUICData.settings[id].all) {
@@ -912,8 +906,6 @@ ${TUICVisibleButtons}
                 TUICInvisibleButtons += `<div value="${i}" id="${i}" class="TUICUpDownContent"><span>${TUICI18N.get(TUICData.settings[id].i18n[i])}</span></div>`;
             }
         }
-        console.log(TUICVisibleButtons);
-        console.log(TUICInvisibleButtons);
         return [TUICVisibleButtons, TUICInvisibleButtons];
     },
     uploadImageFile: function (title, id) {
