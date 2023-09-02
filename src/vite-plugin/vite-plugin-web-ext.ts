@@ -8,6 +8,10 @@ export default async (sourceDir: string, artifactsDir: string): Promise<Plugin> 
     const webExt = await import("web-ext");
     let watch = false;
     let firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
+    let firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"];
+    if (!firefox_profile) {
+        firefox_profile = "development";
+    }
     console.log("firefox_executable");
     console.log(firefox_executable);
     //let chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
@@ -29,9 +33,9 @@ export default async (sourceDir: string, artifactsDir: string): Promise<Plugin> 
                         {
                             sourceDir,
                             noReload: true,
-                            firefoxProfile: "development",
                             startUrl: "twitter.com",
                             firefox: firefox_executable,
+                            firefoxProfile: firefox_profile,
                             // keepProfileChanges: true,
                         },
                         {},

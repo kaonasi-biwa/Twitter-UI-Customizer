@@ -21,6 +21,7 @@
         "build:vite_watch": "vite build --mode development --watch",
         "build:gen_manifest:firefox": "node ./manifestChange.mjs firefox",
         "build:gen_manifest:chrome": "node ./manifestChange.mjs chrome",
+        "build:gen_manifest:chromeCRX": "node ./manifestChange.mjs chromeCRX",
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite_watch",
         "debug:chrome": "node npm-scripts/run.js chrome"
