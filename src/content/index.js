@@ -8,6 +8,7 @@ import { TUICLibrary } from "./library.js";
 import { TUICI18N } from "./i18n.js";
 import { addCssElement } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
+import { startTluiObserver } from "./tlui/observer.js";
 
 (async () => {
     await TUICI18N.fetch();
