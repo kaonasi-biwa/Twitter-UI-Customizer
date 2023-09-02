@@ -1,7 +1,7 @@
 export const TLUI_CSS = document.createElement("style");
 
 TLUI_CSS.id = "tlui-stylesheet";
-TLUI_CSS.innerHTML = `
+TLUI_CSS.textContent = `
 :root {
     --tlui-dialog-background: #000000;
     --tlui-dialog-text: #ffffff;
