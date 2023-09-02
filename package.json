@@ -12,10 +12,12 @@
         "node-fetch": "^3.3.2"
     },
     "scripts": {
-        "build": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite",
+        "build-firefox": "yarn build:copy_assets & yarn build:gen_manifest firefox & yarn build:vite",
+        "build-chrome": "yarn build:copy_assets & yarn build:gen_manifest chrome & yarn build:vite",
+        "build-chromecrx": "yarn build:copy_assets & yarn build:gen_manifest chromeCRX & yarn build:vite",
         "build:vite": "vite build",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
-        "build:gen_manifest": "node ./manifestChange.mjs firefox",
+        "build:gen_manifest": "node ./npm-scripts/change-manifest.mjs",
         "build:vite_watch": "vite build --mode development --watch",
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest & yarn build:vite_watch",

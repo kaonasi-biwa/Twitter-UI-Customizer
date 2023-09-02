@@ -23,7 +23,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     //     cwd: __dirname,
                     // },
                     exclude: ["dist/*"],
-                    // include: ["vite.config.ts", "package.json", "_locales", "i18n", "icon", "npm-scripts", "manifestChange.mjs", "manifestConfigs.json", "src"].map((value) => {
+                    // include: ["vite.config.ts", "package.json", "_locales", "i18n", "icon", "npm-scripts", "manifestConfigs.json", "src"].map((value) => {
                     //     return resolve(__dirname, value);
                     // }),
                 },
