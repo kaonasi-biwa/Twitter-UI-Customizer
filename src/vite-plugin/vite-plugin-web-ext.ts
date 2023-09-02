@@ -8,6 +8,8 @@ export default async (sourceDir: string, artifactsDir: string): Promise<Plugin> 
     const webExt = await import("web-ext");
     let watch = false;
     let firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
+    console.log("firefox_executable");
+    console.log(firefox_executable);
     //let chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
     return {
         name: "web-ext",
