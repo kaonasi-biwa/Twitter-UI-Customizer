@@ -11,10 +11,9 @@ jobs:
             - uses: actions/checkout@v3
             - name: Archive
               run: |
-                  yarn add node-fetch
-                  node ./manifestChange.mjs firefox
-                  rm -rf ./node_modules/
-                  zip -r Twitter_UI_Customizer_Firefox.xpi ./ -x "*.git*"
+                  yarn
+                  yarn build:firefox
+                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer.xpi
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
@@ -27,9 +26,9 @@ jobs:
             - uses: actions/checkout@v3
             - name: Archive
               run: |
-                  yarn add node-fetch
-                  node ./manifestChange.mjs chrome
-                  rm -rf ./node_modules/
+                  yarn
+                  yarn build:chrome
+                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
                   zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -43,11 +42,11 @@ jobs:
             - uses: actions/checkout@v3
             - name: Archive
               run: |
-                  yarn add node-fetch
-                  node ./manifestChange.mjs chromeCRX
-                  sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' manifest.json
-                  rm -rf ./node_modules/
-                  zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
+                  yarn
+                  yarn build:gen_manifest:chromeCRX
+                  sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' ./dist/manifest.json
+                  yarn build:common
+                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
               with:
