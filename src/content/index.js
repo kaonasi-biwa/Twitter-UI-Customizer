@@ -9,6 +9,7 @@ import { TUICI18N } from "./i18n.js";
 import { addCssElement } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
 import { startTluiObserver } from "./tlui/observer.js";
+// import { ButtonComponent, ContainerComponent, Dialog } from "./tlui/popup.js";
 
 (async () => {
     await TUICI18N.fetch();
@@ -18,8 +19,6 @@ import { startTluiObserver } from "./tlui/observer.js";
 
     await TUICLibrary.waitForElement("#react-root");
 
-    // import { ButtonComponent, Dialog } from "./tlui/popup";
-    // const { ButtonComponent, Dialog } = await import("./tlui/popup.js");
     // await TUICLibrary.waitForElement("#layers");
     // const dialog = new Dialog("Hello!");
     // dialog.addComponents([
@@ -28,7 +27,12 @@ import { startTluiObserver } from "./tlui/observer.js";
     //     new ButtonComponent("ふぁみちゃんだいすき", () => dialog.close()),
     //     new ButtonComponent("閉じる", () => dialog.close(), {
     //         invertColor: true
-    //     })
+    //     }),
+    //     new ContainerComponent([
+    //         new ButtonComponent("第三の選択肢！", () => dialog.close(), {
+    //             invertColor: true
+    //         })
+    //     ])
     // ]).open();
 
     console.log(
