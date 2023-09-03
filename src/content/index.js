@@ -12,12 +12,11 @@ import { startTluiObserver } from "./tlui/observer.js";
 
 (async () => {
     await TUICI18N.fetch();
-    await TUICLibrary.waitForElement("#react-root");
 
-    String.prototype.escapeToUseHTML = function () {
-        return TUICLibrary.escapeToUseHTML(this);
-    };
-    TUICObserver.titleObserverFunction();
+    // 旧バージョンからのアップデート
+    await TUICLibrary.updatePref.update();
+
+    await TUICLibrary.waitForElement("#react-root");
 
     // import { ButtonComponent, Dialog } from "./tlui/popup";
     // const { ButtonComponent, Dialog } = await import("./tlui/popup.js");
@@ -37,7 +36,8 @@ import { startTluiObserver } from "./tlui/observer.js";
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
-
+0.
+    TUICObserver.titleObserverFunction();
     startTluiObserver();
 
     if (document.querySelector("#twitter_ui_customizer_query") == null) {
@@ -67,14 +67,10 @@ import { startTluiObserver } from "./tlui/observer.js";
         updateType: "openTwitter",
     });
 
-    // 旧バージョンからのアップデート
-    await TUICLibrary.updatePref.update();
-
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     TUICObserver.observerFunction();
 
-    const bodyAttributeObserver = new MutationObserver(addCssElement);
-    bodyAttributeObserver.observe(document.querySelector("body"), {
+    new MutationObserver(addCssElement).observe(document.querySelector("body"), {
         childList: false,
         subtree: false,
         attributes: true,
