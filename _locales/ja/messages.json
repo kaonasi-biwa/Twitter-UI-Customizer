@@ -126,8 +126,8 @@
         "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksTwitter": {
-        "message": "(Twitter)",
+    "optionSpecialThanksOtherTwitter": {
+        "message": "Twitter",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
@@ -173,5 +173,9 @@
     "optionSpecialThanks_typeling1578": {
         "message": "ソースコードの整理",
         "description": "設定画面のSpecial thanks(typeling1578さん)"
+    },
+    "optionSpecialThanks_PianoCat1010": {
+        "message": "「いいねとリツイート」のアイコンの作成者",
+        "description": "設定画面のSpecial thanks(PianoCat1010さん)"
     }
 }

@@ -50,7 +50,7 @@ export const TUICData = {
     },
     settings: {
         visibleButtons: {
-            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM"],
+            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM", "likeAndRT"],
             i18n: {
                 "reply-button": "bottomTweetButtons-reply",
                 "retweet-button": "bottomTweetButtons-retweet",
@@ -64,6 +64,7 @@ export const TUICData = {
                 quoteTweet: "bottomTweetButtons-quoteTweet",
                 deleteButton: "bottomTweetButtons-deleteButton",
                 sendDM: "bottomTweetButtons-sendDM",
+                likeAndRT: "bottomTweetButtons-likeAndRT",
             },
         },
         sidebarButtons: {
@@ -192,6 +193,7 @@ export const TUICData = {
             quoteTweet: `[TUICButton="quoteTweet"]`,
             deleteButton: `[TUICButton="deleteButton"]`,
             sendDM: `[TUICButton="sendDM"]`,
+            likeAndRT: `[TUICButton="likeAndRT"]`,
         },
         buttonHTML: {
             _base: function (id, svg, isBigArticle, disable = false, redButton = false) {
@@ -206,7 +208,7 @@ export const TUICData = {
               >
                 <div
                   dir="ltr"
-                  class="css-901oao r-1awozwy r-115tad6 r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-hjklzo", "r-rjixqe", "r-1inkyih", "r-1i10wst")} TUIC_ButtonHover2"
+                  class="css-901oao r-1awozwy r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-hjklzo", "r-rjixqe", "r-1inkyih", "r-1i10wst")} TUIC_ButtonHover2"
                 >
                   <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
                     <div
@@ -215,7 +217,7 @@ export const TUICData = {
                     <svg
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                      class="r-115tad6 r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"}${redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorCheck() == "light" ? "r-14j79pv" : "r-1bwzh9t"}"
+                      class="r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"}${redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}"
                     >
                       <g>
                         ${svg}
@@ -260,6 +262,53 @@ export const TUICData = {
                     isBigArticle,
                     locked,
                 );
+            },
+            likeAndRT: function (isBigArticle, disable) {
+                return `
+        <div class="css-1dbjc4n TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
+            <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+              <div
+                TUICButton="likeAndRT"
+                role="button"
+                tabindex="${disable ? -1 : 0}"
+                class="css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
+              >
+                <div
+                  dir="ltr"
+                  class="css-901oao r-1awozwy r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-hjklzo", "r-rjixqe", "r-1inkyih", "r-1i10wst")} TUIC_ButtonHover2"
+                >
+                  <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
+                    <div
+                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                    ></div>
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      class="r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}"
+                    >
+                    <g
+                    id="layer1"
+                    transform="matrix(0.95510786,0,0,0.95510786,0.63270977,0.61735767)">
+                   <g
+                      id="g227"
+                      transform="matrix(0.1814,0,0,0.1814,-0.576,-0.37241)"
+                      >
+                     <path
+                        id="path113"
+                        style="stroke-width:0;stroke-linecap:square"
+                        d="m 72.837891,46.425781 c -9.652109,0.200834 -18.956245,6.337612 -22.75997,15.243135 -3.159699,7.093975 -2.992614,15.350768 -0.466004,22.609825 2.961198,8.79777 8.745866,16.356289 15.32486,22.782359 7.800292,7.60655 16.907234,13.71966 26.299551,19.17328 0.957695,0.89744 2.525379,0.76335 3.459442,-0.0956 11.36649,-6.62888 22.39185,-14.25316 31.03262,-24.28757 5.67623,-6.637785 10.33495,-14.480638 11.82832,-23.186221 1.33419,-7.381361 -0.0245,-15.401914 -4.49237,-21.524612 -4.24062,-6.006304 -11.19174,-9.983679 -18.51962,-10.598886 -6.45309,-0.635711 -13.03473,1.253 -18.346725,4.927244 -1.157082,0.788363 -2.272568,1.640653 -3.313229,2.57818 -5.451028,-4.851816 -12.684962,-7.901221 -20.046875,-7.621094 z m 40.062499,13.660157 c 4.52578,0.272748 8.9377,3.400684 10.49352,7.710465 1.72092,4.501768 0.90402,9.622972 -0.89525,13.904567 -2.85714,6.810556 -7.8485,12.465988 -13.21197,17.432765 -5.03573,4.598735 -10.628285,8.544645 -16.407784,12.147515 -8.408146,-5.23983 -16.394175,-11.1946 -22.824481,-18.796776 -4.216596,-4.982764 -7.783787,-10.876247 -8.57005,-17.468849 -0.114535,-1.127686 -0.13276,-2.469355 0.0025,-3.605358 0.350464,-3.787275 2.404412,-7.425866 5.659236,-9.452189 2.465577,-1.563893 5.431225,-2.180151 8.276837,-1.748845 4.616006,0.672216 8.556959,3.665625 11.360252,7.273189 1.789916,2.243853 3.372258,4.672722 5.15625,6.902344 0.874717,0.451317 1.783682,-0.337927 2.435547,-0.871094 1.215605,-1.194444 1.987888,-2.746709 3.086496,-4.041069 2.488601,-3.417547 5.448537,-6.778499 9.494817,-8.331364 1.86775,-0.7802 3.98988,-1.159805 5.94408,-1.055301 z" />
+                     <path
+                        id="path223"
+                        style="stroke-width:0;stroke-linecap:square"
+                        d="m 21.697266,8.984375 c -7.391527,6.904028 -14.7819613,13.809227 -22.1738285,20.712891 3.1109061,3.332425 6.2231931,6.663561 9.3339844,9.996093 2.1159811,-1.974506 4.2317551,-3.949235 6.3476561,-5.923828 0.02622,10.73013 -0.08323,21.463188 0.122478,32.191174 0.830231,8.785406 8.363697,16.518512 17.201741,17.297107 4.60119,0.401501 9.222534,0.05631 13.832812,0.177735 4.826563,0 9.653125,0 14.479688,0 0,-4.563151 0,-9.126302 0,-13.689453 -9.10165,-0.05925 -18.210104,0.122439 -27.307043,-0.142659 -2.667069,-0.530449 -4.690762,-3.253239 -4.667566,-5.83781 0.08693,-5.103062 0.01375,-10.211897 0.03899,-15.317187 -0.0018,-4.892969 -0.0053,-9.785938 -0.0077,-14.678907 2.1159,1.974594 4.231675,3.949321 6.347656,5.923828 3.110791,-3.332532 6.223078,-6.663668 9.333984,-9.996093 C 37.06976,22.683534 29.56076,15.668391 22.050781,8.6542969 21.932943,8.7643229 21.815104,8.874349 21.697266,8.984375 Z m 49.853515,1.128906 c -8.134114,0 -16.268229,0 -24.402343,0 0,4.563802 0,9.127604 0,13.691407 9.100559,0.05675 18.209588,-0.12189 27.304439,0.141761 2.8967,0.61623 4.966756,3.613569 4.645818,6.538313 -0.01921,9.765475 -0.0025,19.530995 -0.0069,29.296488 -2.115286,-1.975205 -4.230138,-3.950875 -6.345703,-5.925781 -3.111436,3.33319 -6.224387,6.664964 -9.335938,9.998047 7.510279,7.013122 15.019355,14.027532 22.529297,21.041015 7.509942,-7.013483 15.019019,-14.027893 22.529299,-21.041015 -3.11155,-3.333083 -6.2245,-6.664858 -9.33594,-9.998047 -2.115444,1.974384 -4.230434,3.949255 -6.345703,5.923828 C 92.764137,49.040706 92.866688,38.299119 92.658581,27.562755 91.823471,18.800597 84.32462,11.113334 75.522612,10.287668 74.20662,10.118009 72.876073,10.096232 71.550781,10.113281 Z" />
+                   </g>
+                 </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>`;
             },
             deleteButton: function (isBigArticle, isMe) {
                 return TUICData.visibleButtons.buttonHTML._base(
@@ -432,6 +481,22 @@ export const TUICData = {
                     }
                 }
             },
+            likeAndRT: function (retButton, likeButton) {
+                likeButton.click();
+                if (TUICPref.get("otherBoolSetting.RTNotQuote")) {
+                    retButton.click();
+                } else {
+                    for (let i = 0; i <= 2; i++) {
+                        const quoteButton = document.querySelector(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])`);
+                        if (quoteButton == null) {
+                            retButton.click();
+                        } else {
+                            quoteButton.click();
+                            break;
+                        }
+                    }
+                }
+            },
             "retweet-button": function () {
                 if (TUICPref.get("otherBoolSetting.RTNotQuote")) {
                     window.setTimeout(() => {
@@ -510,6 +575,14 @@ export const TUICData = {
                 if (!val.option.cannotRT)
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                         TUICData.visibleButtons.buttonFunction["quoteTweet"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
+                    });
+                return elem;
+            },
+            likeAndRT: function (val) {
+                const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["likeAndRT"](val.option.isBigArticle, val.option.cannotRT)).item(0);
+                if (!val.option.cannotRT)
+                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
+                        TUICData.visibleButtons.buttonFunction["likeAndRT"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]), val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["like-button"]));
                     });
                 return elem;
             },
