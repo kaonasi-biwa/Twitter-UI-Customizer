@@ -108,7 +108,9 @@ Crowdinで試験的にやってみています！ \
 manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！ \
 ただし、下記のデバッグ方法を使用する場合は、Wikiの情報は必要ありません。
 
-**重要**: Firefox ブラウザーが事前にインストールされている必要があります。また、新しいプロファイルを "about:profiles" で "development" という名前で作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
+**重要**: Firefox ブラウザーが事前にインストールされている必要があります。また、新しいプロファイルを "about:profiles" で "development" という名前で
+作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
+
 また、バージョンの違うFirefoxで作られたプロファイルは実行時にエラーが出る場合があります。 \
 例えばFirefox Developer Edition (aurora channel)で作られたプロファイルは
 Firefox (Stable)で実行される時、Dev Editionより旧バージョンなため、互換性がないとエラーが出ます。\
@@ -116,6 +118,9 @@ Firefox (Stable)で実行される時、Dev Editionより旧バージョンな�
 
 デバッグは、元のプロファイルをコピーして行われるので、変更点が保存されません。 \
 予め "development"プロファイルでTwitterにログインして置くことをおすすめします。
+
+詳細は.env.local.exampleを御覧ください。
+[.env.local.example](./.env.local.example)
 
 ```bash
 
@@ -128,19 +133,19 @@ yarn debug
 yarn debug:firefox
 
 ## Chrome でデバッグする場合（インストールは手動）
-yarn debug:chrome
+yarn debug:chromium
 
 ## Firefox または Firefox 系ブラウザーでデバッグする場合
 
-# 環境変数で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxの経路に設定した後に
+# .env.local で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxの経路に設定した後に
 yarn debug:firefox
 
 # 例
-# $TUIC_WEBEXT_FIREFOX_EXECUTABLE="C:\Program Files\Firefox Developer Edition\firefox.exe"
+# TUIC_WEBEXT_FIREFOX_EXECUTABLE="C:\Program Files\Firefox Developer Edition\firefox.exe"
 # プロファイルでエラーが出る場合や直接指定したい場合
-# $TUIC_WEBEXT_FIREFOX_PROFILE="C:\Users\user\AppData\Roaming\Mozilla\Firefox\Profiles\h6jvvuqd.dev_tuic"
+# TUIC_WEBEXT_FIREFOX_PROFILE="C:\Users\user\AppData\Roaming\Mozilla\Firefox\Profiles\h6jvvuqd.dev_tuic"
 yarn debug:firefox
 
 ```
 
-`yarn debug:firefox` も同じ動作を行います。 `yarn debug:chrome` は、Chrome でデバッグするために必要な準備を行います。手動でのインストールが必要です。また、Firefox 系ブラウザーでのデバッグでは web-ext を使用しているためデバッグ中に加えた変更はリロードしなくても反映されます。
+デバッグでは web-ext を使用しているためデバッグ中に加えた変更はリロードしなくても反映されます。
