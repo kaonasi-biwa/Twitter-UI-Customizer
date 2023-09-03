@@ -3,9 +3,8 @@ import { MultiExtensionRunner } from "web-ext/lib/extension-runners";
 import type webExt from "web-ext";
 import { exec } from "child_process";
 import dotenv from "dotenv";
+import webext from "web-ext";
 dotenv.config({ path: ".env.local" });
-
-let webExtRunner: MultiExtensionRunner | null = null;
 
 export default async (sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
     const webExt = await import("web-ext");
@@ -17,6 +16,7 @@ export default async (sourceDir: string, artifactsDir: string, mode: string): Pr
 
     let firefox_keep_profile_changes = process.env["TUIC_WEBEXT_FIREFOX_KEEP_PROFILE_CHANGES"] === "true";
     let chromium_keep_profile_changes = process.env["TUIC_WEBEXT_CHROMIUM_KEEP_PROFILE_CHANGES"] === "true";
+    let webExtRunner: MultiExtensionRunner | null = null;
 
     if (!firefox_profile) {
         firefox_profile = "development";
@@ -35,9 +35,10 @@ export default async (sourceDir: string, artifactsDir: string, mode: string): Pr
             switch (mode) {
                 case "firefox":
                 case "chromium":
+                case "disable-web-ext":
                     break;
                 default:
-                    this.error("mode should be 'firefox', or 'chromium'");
+                    this.error("mode should be 'firefox', 'chromium', or 'disable-web-ext'");
             }
         },
         options(options) {
@@ -45,15 +46,19 @@ export default async (sourceDir: string, artifactsDir: string, mode: string): Pr
         },
         async closeBundle() {
             console.log("Run web-ext");
+            if (mode === "disable-web-ext") {
+                return;
+            }
             if (webExtRunner) {
-                webExtRunner.reloadAllExtensions();
+                // webExtRunner.reloadExtensionBySourceDir();
+                // //webExtRunner.reloadAllExtensions();
             } else {
                 if (watch) {
                     if (mode === "firefox") {
                         webExtRunner = await webExt.cmd.run(
                             {
                                 sourceDir,
-                                noReload: true,
+                                // noReload: true,
                                 startUrl: "twitter.com",
                                 firefox: firefox_executable,
                                 firefoxProfile: firefox_profile,
@@ -65,7 +70,7 @@ export default async (sourceDir: string, artifactsDir: string, mode: string): Pr
                         webExtRunner = await webExt.cmd.run(
                             {
                                 sourceDir,
-                                noReload: true,
+                                // noReload: true,
                                 startUrl: "twitter.com",
                                 target: "chromium",
                                 chromium: chromium_executable,
