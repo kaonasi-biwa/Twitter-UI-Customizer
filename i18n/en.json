@@ -29,6 +29,7 @@
     "bottomTweetButtons-setting-removeSpaceBottomTweet": "Remove space below the text content of a tweet.",
     "bottomTweetButtons-userBlock": "Block User",
     "bottomTweetButtons-userMute": "Mute User",
+    "bottomTweetButtons-likeAndRT": "Like and Retweet",
     "bottomTweetButtons-deleteButton": "Delete Tweet",
     "bottomTweetButtons-setting-RTNotQuote": "Don't show menu on press Retweet",
     "bottomTweetButtons-setting-noModal": "Don't show \"Block User\" button or other confirmations",
