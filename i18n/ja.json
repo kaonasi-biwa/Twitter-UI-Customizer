@@ -28,7 +28,7 @@
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
-    "bottomTweetButtons-setting-removeSpaceBottomTweet": "ツイートの内容の下にあ(ったりなかったりす)る空白を削除",
+    "bottomTweetButtons-setting-removeSpaceBottomTweet-v2": "ツイートの内容の下に存在することがある空白を削除",
     "bottomTweetButtons-userBlock": "ユーザーをブロック",
     "bottomTweetButtons-userMute": "ユーザーをミュート",
     "bottomTweetButtons-likeAndRT": "いいねとリツイート",
