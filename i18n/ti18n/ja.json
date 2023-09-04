@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-retweet-dialogConfirm": "リツイート",
+    "XtoTwitter-PostToTweet-retweet-dialogTitle": "リツイートしますか？",
+    "XtoTwitter-PostToTweet-retweet-dialogBody-old": "下書きは、引用ツイートする前に破棄されます。",
+    "XtoTwitter-PostToTweet-retweet-dialogBody-latest": "下書きは、引用する前に破棄されます。",
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan": "この操作は取り消しできません。未送信ツイートは失われます。",
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "未送信ツイートを破棄",
     "XtoTwitter-PostToTweet-unsentPageTab1": "未送信ツイート",

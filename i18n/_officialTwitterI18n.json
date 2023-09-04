@@ -96,5 +96,9 @@
     "XtoTwitter-PostToTweet-unsentPageTitle": "g32f19e4",
     "XtoTwitter-PostToTweet-unsentPageTab1": "a133d13e",
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "f842d5d4",
-    "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan": "hb0c8242"
+    "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan": "hb0c8242",
+    "XtoTwitter-PostToTweet-retweet-dialogBody-latest": "gad04d1a",
+    "XtoTwitter-PostToTweet-retweet-dialogBody-old": "aec89ef0",
+    "XtoTwitter-PostToTweet-retweet-dialogTitle": "g449dfaa",
+    "XtoTwitter-PostToTweet-retweet-dialogConfirm": "bac8f4c2"
 }

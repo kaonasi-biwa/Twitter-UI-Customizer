@@ -484,7 +484,7 @@ export const TUICObserver = {
                     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
 
                 // ツイート入力ダイアログ
-                const isDialog = !!document.querySelector('[role="dialog"],[data-testid="twc-cc-mask"]+div');
+                const isDialog = !!document.querySelector('[role="alertdialog"],[role="dialog"],[data-testid="twc-cc-mask"]+div');
                 const isReply = !!document.querySelector('[role="dialog"] [data-testid="tweet"]');
                 const isMultipleTweet = !isReply && document.querySelectorAll(':is([role="dialog"],[data-testid="twc-cc-mask"]+div) [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length !== 1;
                 const writingTweetCount = document.querySelectorAll(':is([role="dialog"],[data-testid="twc-cc-mask"]+div) [data-testid^="UserAvatar-Container-"]:not([data-testid="attachments"] *)').length;
@@ -547,6 +547,10 @@ export const TUICObserver = {
                             } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest")) {
                                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-old");
                                 elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogTitle");
+                            } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogBody-latest")) {
+                                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogBody-old");
+                                elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogTitle");
+                                elem.parentElement.parentElement.querySelector(`[data-testid="confirmationSheetConfirm"] > div > span > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogConfirm");
                             }
                         }
                     }
