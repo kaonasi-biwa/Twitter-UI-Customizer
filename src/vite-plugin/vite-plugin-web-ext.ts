@@ -2,11 +2,15 @@ import { Plugin } from "vite";
 import { MultiExtensionRunner } from "web-ext/lib/extension-runners";
 import type webExt from "web-ext";
 import { exec } from "child_process";
+import { Worker, workerData, isMainThread, parentPort } from "node:worker_threads";
+
+// import { Args, WebExtRun } from "./wip/worker-web-ext";
+
 import dotenv from "dotenv";
-import webext from "web-ext";
+import { Args, WebExtRun } from "./web-ext";
 dotenv.config({ path: ".env.local" });
 
-export default async (sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
+export default async (root: string, sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
     const webExt = await import("web-ext");
     let watch = false;
     let firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
@@ -16,7 +20,9 @@ export default async (sourceDir: string, artifactsDir: string, mode: string): Pr
 
     let firefox_keep_profile_changes = process.env["TUIC_WEBEXT_FIREFOX_KEEP_PROFILE_CHANGES"] === "true";
     let chromium_keep_profile_changes = process.env["TUIC_WEBEXT_CHROMIUM_KEEP_PROFILE_CHANGES"] === "true";
-    let webExtRunner: MultiExtensionRunner | null = null;
+    // let webExtRunner: MultiExtensionRunner | null = null;
+
+    // let worker;
 
     if (!firefox_profile) {
         firefox_profile = "development";
@@ -46,55 +52,44 @@ export default async (sourceDir: string, artifactsDir: string, mode: string): Pr
         },
         async closeBundle() {
             console.log("Run web-ext");
+            console.log(isMainThread);
             if (mode === "disable-web-ext") {
                 return;
             }
-            if (webExtRunner) {
-                // webExtRunner.reloadExtensionBySourceDir();
-                // //webExtRunner.reloadAllExtensions();
-            } else {
-                if (watch) {
-                    if (mode === "firefox") {
-                        webExtRunner = await webExt.cmd.run(
-                            {
-                                sourceDir,
-                                // noReload: true,
-                                startUrl: "twitter.com",
-                                firefox: firefox_executable,
-                                firefoxProfile: firefox_profile,
-                                keepProfileChanges: firefox_keep_profile_changes,
-                            },
-                            {},
-                        );
-                    } else if (mode === "chromium") {
-                        webExtRunner = await webExt.cmd.run(
-                            {
-                                sourceDir,
-                                // noReload: true,
-                                startUrl: "twitter.com",
-                                target: "chromium",
-                                chromium: chromium_executable,
-                                chromiumProfile: chromium_profile,
-                                keepProfileChanges: chromium_keep_profile_changes,
-                            },
-                            {},
-                        );
-                    }
-                } else {
-                    console.log(sourceDir);
-                    await webExt.cmd.build(
-                        {
-                            sourceDir,
-                            artifactsDir,
-                            overwriteDest: true,
-                        },
-                        {},
-                    );
-                }
+            const args: Args = {
+                mode,
+                watch,
+                sourceDir,
+                artifactsDir,
+                firefox: { executable: firefox_executable, profile: firefox_profile, keep_profile_changes: firefox_keep_profile_changes },
+                chromium: { executable: chromium_executable, profile: chromium_profile, keep_profile_changes: chromium_keep_profile_changes },
+            };
+            if (mode === "firefox") {
+                //TODO: この変数再利用＆Reload
+                const webExtRunner = new WebExtRun(args);
+                await webExtRunner.run();
+            } else if (mode === "chromium") {
+                //TODO: outputをコンソールに直結＆終了時kill
+                exec("web-ext run --source-dir ./dist -t chromium --keep-profile-changes --firefox-profile=development --start-url=twitter.com");
             }
+
+            // if (!worker) {
+            // const args: Args = {
+            //     mode,
+            //     watch,
+            //     sourceDir,
+            //     artifactsDir,
+            //     firefox: { executable: firefox_executable, profile: firefox_profile, keep_profile_changes: firefox_keep_profile_changes },
+            //     chromium: { executable: chromium_executable, profile: chromium_profile, keep_profile_changes: chromium_keep_profile_changes },
+            // };
+            //     worker = new Worker(root + "/src/vite-plugin/worker-web-ext.js", { workerData: args });
+            // }
+            console.log("init");
+
+            //worker.postMessage("run");
         },
         buildEnd(error) {
-            webExtRunner?.exit();
+            // webExtRunner?.exit();
         },
     };
 };
