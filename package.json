@@ -1,29 +1,27 @@
 {
     "devDependencies": {
+        "@microsoft/eslint-formatter-sarif": "^2.1.7",
         "@typescript-eslint/parser": "^6.0.0",
+        "dotenv": "^16.3.1",
+        "eslint": "^8.10.0",
         "eslint-config-prettier": "^8.8.0",
+        "node-fetch": "^3.3.2",
         "prettier": "^3.0.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2",
         "vite": "^4.4.9",
         "web-ext": "^7.6.2"
     },
-    "dependencies": {
-        "@microsoft/eslint-formatter-sarif": "^2.1.7",
-        "eslint": "^8.10.0",
-        "node-fetch": "^3.3.2"
-    },
     "scripts": {
         "build": "yarn build:firefox",
-        "build:firefox": " yarn build:gen_manifest:firefox & yarn build:common",
-        "build:chrome": "yarn build:gen_manifest:chrome & yarn build:common",
-        "build:common": "yarn build:copy_assets & yarn build:vite",
+        "build:pre:firefox": "yarn build:gen_manifest firefox && yarn build:copy_assets",
+        "build:pre:chromium": "yarn build:gen_manifest chrome && yarn build:copy_assets",
+        "build:firefox": " yarn build:pre:firefox & vite build --mode firefox",
+        "build:chromium": "yarn build:pre:chromium & vite build --mode chromium",
+        "build:gen_manifest": "node ./manifestChange.mjs",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
-        "build:vite": "vite build",
-        "build:vite_watch": "vite build --mode development --watch",
-        "build:gen_manifest:firefox": "node ./manifestChange.mjs firefox",
-        "build:gen_manifest:chrome": "node ./manifestChange.mjs chrome",
-        "build:gen_manifest:chromeCRX": "node ./manifestChange.mjs chromeCRX",
         "debug": "yarn debug:firefox",
-        "debug:firefox": "yarn build:copy_assets & yarn build:gen_manifest:firefox & yarn build:vite_watch",
-        "debug:chrome": "node npm-scripts/run.js chrome"
+        "debug:firefox": "yarn build:firefox --watch",
+        "debug:chromium": "yarn build:chromium --watch"
     }
 }

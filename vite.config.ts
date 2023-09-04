@@ -48,7 +48,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         //         "@content": "/",
         //     },
         // },
-        plugins: [vitePluginWebExt(path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"))],
+        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode)],
         // };
         // break;
         // case "content":
