@@ -30,6 +30,10 @@ class WebExtRun {
         this.args = args;
     }
 
+    exit() {
+        this.webExtRunner.exit();
+    }
+
     async run() {
         if (!this.webExt) {
             this.webExt = await import("web-ext");
@@ -42,7 +46,7 @@ class WebExtRun {
             return;
         }
         if (this.webExtRunner) {
-            // await webExtRunner.reloadExtensionBySourceDir();
+            await this.webExtRunner.reloadExtensionBySourceDir();
             // //webExtRunner.reloadAllExtensions();
         } else {
             if (this.args.watch) {
@@ -50,7 +54,7 @@ class WebExtRun {
                     this.webExtRunner = await this.webExt.cmd.run(
                         {
                             sourceDir: this.args.sourceDir,
-                            // noReload: true,
+                            noReload: true,
                             startUrl: "twitter.com",
                             firefox: this.args.firefox.executable,
                             firefoxProfile: this.args.firefox.profile,
