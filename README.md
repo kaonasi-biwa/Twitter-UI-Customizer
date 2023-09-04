@@ -105,6 +105,8 @@ Crowdinで試験的にやってみています！ \
 
 ## アドオンのデバッグ方法
 
+**Chromium、またはFirefoxでのデバッグの詳細は [.env.local.example](./.env.local.example)を御覧ください。**
+
 manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！ \
 ただし、下記のデバッグ方法を使用する場合は、Wikiの情報は必要ありません。
 
@@ -118,9 +120,6 @@ Firefox (Stable)で実行される時、Dev Editionより旧バージョンな�
 
 デバッグは、元のプロファイルをコピーして行われるので、変更点が保存されません。 \
 予め "development"プロファイルでTwitterにログインして置くことをおすすめします。
-
-詳細は.env.local.exampleを御覧ください。
-[.env.local.example](./.env.local.example)
 
 ```bash
 
