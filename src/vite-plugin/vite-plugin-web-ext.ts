@@ -66,7 +66,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                 firefox: { executable: firefox_executable, profile: firefox_profile, keep_profile_changes: firefox_keep_profile_changes },
                 chromium: { executable: chromium_executable, profile: chromium_profile, keep_profile_changes: chromium_keep_profile_changes },
             };
-            if (mode !== "chromium") {
+            if (!watch || mode !== "chromium") {
                 //TODO: この変数再利用＆Reload
                 webExtRunner = new WebExtRun(args);
                 await webExtRunner.run();
