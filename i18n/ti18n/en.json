@@ -1,4 +1,8 @@
 {
+    "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
+    "XtoTwitter-PostToTweet-retweet-dialogTitle": "Retweet instead?",
+    "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Your drafted Tweet will be discarded before you Quote Tweet.",
+    "XtoTwitter-PostToTweet-retweet-dialogBody-latest": "Your drafted post will be discarded before you Quote.",
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan": "This can’t be undone and you’ll lose your unsent Tweets.",
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Discard unsent Tweet",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Unsent Tweets",
