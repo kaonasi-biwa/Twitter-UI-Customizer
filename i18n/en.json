@@ -26,7 +26,7 @@
     "easySetting-defaultTwitterColor": "Are you already get used to new color of Twitter? If so, Let's match to color of Now!",
     "bottomTweetButtons-settingTitle": "Tweet Bottom Button Settings",
     "bottomTweetButtons-setting-visibleScrollBar": "Scroll bar on button below tweet",
-    "bottomTweetButtons-setting-removeSpaceBottomTweet": "Remove space below the text content of a tweet.",
+    "bottomTweetButtons-setting-removeSpaceBottomTweet-v2": "Remove space that may exist below the text content of a tweet.",
     "bottomTweetButtons-userBlock": "Block User",
     "bottomTweetButtons-userMute": "Mute User",
     "bottomTweetButtons-likeAndRT": "Like and Retweet",
