@@ -13,7 +13,7 @@ jobs:
               run: |
                   yarn
                   yarn build:firefox
-                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer.xpi
+                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
