@@ -19,5 +19,6 @@ import fs from "fs/promises";
         output = Object.assign(config.common, config[target]);
     }
 
+    await fs.mkdir("./dist");
     await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
 })();
