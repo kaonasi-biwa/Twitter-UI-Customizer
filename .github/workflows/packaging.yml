@@ -29,7 +29,6 @@ jobs:
                   yarn
                   yarn build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
-                  zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
