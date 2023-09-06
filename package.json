@@ -19,7 +19,6 @@
         "build:firefox": " yarn build:pre:firefox & vite build --mode firefox",
         "build:chromium": "yarn build:pre:chromium & vite build --mode chromium",
         "build:gen_manifest": "node ./manifestChange.mjs",
-        "build:gen_manifest:chromeCRX": "node ./manifestChange.mjs chromeCRX",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:firefox --watch",
