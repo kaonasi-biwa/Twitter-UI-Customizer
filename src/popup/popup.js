@@ -1,6 +1,11 @@
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 const isFirefox = "browser" in window;
 
 function i18nApply() {
+    for (const elem of document.querySelectorAll(".i18n-t")) {
+        elem.title = chrome.i18n.getMessage(elem.getAttribute("i18n-t-id") ?? "");
+    }
     for (const elem of document.querySelectorAll(".i18n")) {
         elem.textContent = chrome.i18n.getMessage(elem.getAttribute("i18n-id") ?? "");
     }

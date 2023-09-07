@@ -23,5 +23,8 @@
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:firefox --watch",
         "debug:chromium": "yarn build:chromium --watch"
+    },
+    "dependencies": {
+        "bootstrap-icons": "^1.10.5"
     }
 }
