@@ -7,6 +7,7 @@
         "eslint-config-prettier": "^8.8.0",
         "node-fetch": "^3.3.2",
         "prettier": "^3.0.0",
+        "sass": "^1.66.1",
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2",
         "vite": "^4.4.9",
@@ -23,5 +24,8 @@
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:firefox --watch",
         "debug:chromium": "yarn build:chromium --watch"
+    },
+    "dependencies": {
+        "bootstrap-icons": "^1.10.5"
     }
 }

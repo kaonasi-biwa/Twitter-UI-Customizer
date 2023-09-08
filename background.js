@@ -19,7 +19,7 @@ const updateCheck = async () => {
             type: "basic",
             title: chrome.i18n.getMessage("extensionName"),
             message: chrome.i18n.getMessage("notificationMessage", [extensionVersion.replace(/\r?\n/g, ""), githubVersion.replace(/\r?\n/g, "")]),
-            iconUrl: "icon/icon128.png",
+            iconUrl: "icon/newIcon_TUIC_C_Blue.png",
         });
         chrome.notifications.onClicked.addListener(updateNotification);
         chrome.notifications.onClosed.addListener(() => chrome.notifications.onClicked.removeListener(updateNotification));
