@@ -16,5 +16,8 @@
     "prettier.semi": true,
     "prettier.singleQuote": false,
     "prettier.endOfLine": "auto",
-    "prettier.printWidth": 300
+    "prettier.printWidth": 300,
+    "editor.quickSuggestions": {
+        "strings": true
+    }
 }

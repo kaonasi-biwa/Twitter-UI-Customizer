@@ -2,12 +2,15 @@
     "devDependencies": {
         "@microsoft/eslint-formatter-sarif": "^2.1.7",
         "@typescript-eslint/parser": "^6.0.0",
+        "autoprefixer": "^10.4.15",
         "dotenv": "^16.3.1",
         "eslint": "^8.10.0",
         "eslint-config-prettier": "^8.8.0",
         "node-fetch": "^3.3.2",
+        "postcss-import": "^15.1.0",
         "prettier": "^3.0.0",
         "sass": "^1.66.1",
+        "tailwindcss": "^3.3.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2",
         "vite": "^4.4.9",
@@ -26,6 +29,9 @@
         "debug:chromium": "yarn build:chromium --watch"
     },
     "dependencies": {
-        "bootstrap-icons": "^1.10.5"
+        "@types/chrome": "^0.0.245",
+        "@types/webextension-polyfill": "^0.10.2",
+        "bootstrap-icons": "^1.10.5",
+        "webextension-polyfill": "^0.10.0"
     }
 }

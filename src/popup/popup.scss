@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $white: #eee;
 $black: #111;
 $black_sub: #333;
@@ -78,4 +82,24 @@ body {
     display: inline-block;
     width: 150px;
     margin: 15px;
+}
+
+details {
+    div {
+        label {
+            input {
+                @apply appearance-none relative  w-4 h-4 bg-gray-700 border-gray-600 rounded;
+                &:hover,
+                &:focus {
+                    @apply ring-2 ring-offset-2 ring-blue-500 ring-offset-slate-900;
+                }
+            }
+            i {
+                @apply absolute left-0 -top-0.5 opacity-0;
+            }
+        }
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 }

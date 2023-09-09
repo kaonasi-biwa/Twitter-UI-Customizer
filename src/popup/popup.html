@@ -9,36 +9,55 @@
         <script type="module" src="../content/i18n.js"></script>
         <script type="module" src="./popup.js"></script>
         <img id="logo" src="../../icon/TUIC_TextWhite.svg" />
-        <div class="message_container">
-            <!-- <h1>HALLO!!</h1> -->
-            <div>
-                <!-- <span style="vertical-align: -7px; font-size: 25px; color: #eee"><b>TUIC</b></span> -->
+        <div class="w-72">
+            <div class="message_container">
+                <h1 class="thankyou i18n" i18n-id="popupContent1">使ってくれてありがとう！</h1>
+                <p class="i18n" i18n-id="popupContent2">バグの報告や機能の要望は</p>
+                <p class="i18n" i18n-id="popupContent3">Twitterからよろしくね！</p>
             </div>
-            <h1 class="thankyou i18n" i18n-id="popupContent1">使ってくれてありがとう！</h1>
-            <p class="i18n" i18n-id="popupContent2">バグの報告や機能の要望は</p>
-            <p class="i18n" i18n-id="popupContent3">Twitterからよろしくね！</p>
-        </div>
-        <div class="links">
-            <a href="#" id="link1"
-                ><div class="bi bi-gear"></div>
-                <div class="i18n-t i18n" i18n-t-id="popupButton1" i18n-id="pSettings">設定</div></a
-            >
-            <a href="#" id="link4"
-                ><div class="bi bi-gear"></div>
-                <div class="i18n-t i18n" i18n-t-id="popupButton2" i18n-id="pSettingsInSafemode">セーフモード</div></a
-            >
-            <a href="#" id="link3"
-                ><div class="bi bi-gear"></div>
-                <div class="i18n-t i18n" i18n-t-id="popupButton3" i18n-id="pSettingsUpdateNotification">アップデート通知</div></a
-            >
-            <a href="#" id="link2"
-                ><div class="bi bi-twitter"></div>
-                <div class="i18n-t i18n" i18n-t-id="popupButton4" i18n-id="pTwitterOfAuthor">作者(kaonasi_biwa)</div></a
-            >
-            <a href="#" id="link5" hidden
-                ><div class="bi bi-github"></div>
-                <div class="i18n-t i18n" i18n-t-id="popupButton5" i18n-id="pInstallFromGH">最新版をインストール</div></a
-            >
+            <div class="links">
+                <a href="#" id="link1"
+                    ><div class="bi bi-gear"></div>
+                    <div class="i18n-t i18n" i18n-t-id="popupButton1" i18n-id="pSettings">設定</div></a
+                >
+                <a href="#" id="link4"
+                    ><div class="bi bi-gear"></div>
+                    <div class="i18n-t i18n" i18n-t-id="popupButton2" i18n-id="pSettingsInSafemode">セーフモード</div></a
+                >
+                <a href="#" id="link3"
+                    ><div class="bi bi-gear"></div>
+                    <div class="i18n-t i18n" i18n-t-id="popupButton3" i18n-id="pSettingsUpdateNotification">アップデート通知</div></a
+                >
+                <a href="#" id="link2"
+                    ><div class="bi bi-twitter"></div>
+                    <div class="i18n-t i18n" i18n-t-id="popupButton4" i18n-id="pTwitterOfAuthor">作者(kaonasi_biwa)</div></a
+                >
+                <a href="#" id="link5" hidden
+                    ><div class="bi bi-github"></div>
+                    <div class="i18n-t i18n" i18n-t-id="popupButton5" i18n-id="pInstallFromGH">最新版をインストール</div></a
+                >
+            </div>
+            <details open>
+                <summary>アップデート通知の設定</summary>
+                <div>
+                    <label for="runBrowser" class="relative block select-none">
+                        <input type="checkbox" id="runBrowser" class="peer" />
+                        <i class="bi bi-check peer-checked:opacity-100"></i>
+                        ブラウザを起動したとき
+                    </label>
+                    <label for="iconClick" class="relative block select-none">
+                        <input type="checkbox" id="iconClick" class="peer" />
+                        <i class="bi bi-check peer-checked:opacity-100"></i>
+                        アイコンをクリックしたとき
+                    </label>
+
+                    <label for="openTwitter" class="relative block select-none"
+                        ><input type="checkbox" id="openTwitter" class="peer" />
+                        <i class="bi bi-check absolute peer-checked:opacity-100"></i>
+                        Twitterを開いたとき
+                    </label>
+                </div>
+            </details>
         </div>
     </body>
 </html>
