@@ -125,8 +125,8 @@
         "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksTwitter": {
-        "message": "(Twitter)",
+    "optionSpecialThanksOtherTwitter": {
+        "message": "Twitter",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
@@ -168,5 +168,13 @@
     "optionSpecialThanks_nakasyou": {
         "message": "设计改良",
         "description": "設定画面のSpecial thanks(nakasyouさん)"
+    },
+    "optionSpecialThanks_typeling1578": {
+        "message": "整理源代码",
+        "description": "設定画面のSpecial thanks(typeling1578さん)"
+    },
+    "optionSpecialThanks_PianoCat1010": {
+        "message": "\"赞并转发\" 图标的创造者",
+        "description": "設定画面のSpecial thanks(PianoCat1010さん)"
     }
 }

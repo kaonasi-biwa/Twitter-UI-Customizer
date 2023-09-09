@@ -251,6 +251,8 @@ export const TUICObserver = {
                                   "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
 
                         let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
+                        console.log(TUICData.visibleButtons.selectors["reply-button"]);
+                        console.log(bar_base);
                         while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
                             bar_base = bar_base.parentElement;
                         }
@@ -274,6 +276,7 @@ export const TUICObserver = {
                             }
                         }
                         const statusButton = elem.querySelector(`[href*="/status/"] > time`)?.parentElement;
+                        console.log(bar_item);
                         const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                         const cannotShare = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                         if (!cannotRT) {
@@ -587,9 +590,13 @@ export const TUICObserver = {
                         }
                     }
 
+                    const blockText = new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-block-dialogBody-latest").replaceAll("&quot;", '"').replaceAll("(", "\\(").replaceAll(")", "\\)").replace("{screenName}", "(.*)"));
                     for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1+div > span`)) {
                         if (elem.textContent != " ") {
-                            if (isUnsentPage) {
+                            const blockTextMatch = elem.textContent.match(blockText);
+                            if (blockTextMatch && blockTextMatch.length > 1) {
+                                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-block-dialogBody-old").replaceAll("{screenName}", blockTextMatch[1]);
+                            } else if (isUnsentPage) {
                                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan");
                                 elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle");
                             } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest")) {
@@ -668,13 +675,18 @@ export const TUICObserver = {
                     }
                 }
                 // 誰にも反応（いいね/RT/引用）されていない状況においての、一覧ページの「まだ○○はありません」
+                const blockTextEmptyProfile = new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-blocked-none-body-latest").replaceAll("&quot;", '"').replaceAll("(", "\\(").replaceAll(")", "\\)").replace("{screenName}", "(.*)"));
                 for (const elem of getNotReplacedElements('[data-testid="emptyState"] [data-testid="empty_state_body_text"]')) {
+                    const blockTextMatch = elem.textContent.match(blockTextEmptyProfile);
                     if (isQuotesPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTweeted-none-body");
                     } else if (isRetweetPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted-none-body");
                     } else if (isLikesPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-liked-none-body");
+                    } else if (blockTextMatch && blockTextMatch.length > 1) {
+                        elem.childNodes[0].textContent = TUICI18N.get("XtoTwitter-PostToTweet-blocked-none-body-old").replaceAll("{screenName}", blockTextMatch[1]);
+                        elem.parentElement.querySelector(`[data-testid="empty_state_button_text"] > div > span > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-blocked-none-button");
                     }
                 }
 

@@ -13,7 +13,7 @@ jobs:
               run: |
                   yarn
                   yarn build:firefox
-                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer.xpi
+                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
@@ -27,9 +27,8 @@ jobs:
             - name: Archive
               run: |
                   yarn
-                  yarn build:chrome
+                  yarn build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
-                  zip -r Twitter_UI_Customizer_Chromium.zip ./ -x "*.git*"
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
@@ -43,9 +42,10 @@ jobs:
             - name: Archive
               run: |
                   yarn
-                  yarn build:gen_manifest:chromeCRX
+                  yarn build:gen_manifest chromeCRX
                   sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' ./dist/manifest.json
-                  yarn build:common
+                  yarn build:copy_assets
+                  yarn vite build --mode chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2

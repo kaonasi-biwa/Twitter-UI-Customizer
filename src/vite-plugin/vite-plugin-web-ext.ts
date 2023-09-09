@@ -68,7 +68,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
             };
             if (!watch || mode !== "chromium") {
                 //TODO: この変数再利用＆Reload
-                webExtRunner = new WebExtRun(args);
+                if (!webExtRunner) webExtRunner = new WebExtRun(args);
                 await webExtRunner.run();
             } else if (mode === "chromium") {
                 //TODO: outputをコンソールに直結＆終了時kill
