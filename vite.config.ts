@@ -2,6 +2,7 @@ import { resolve } from "path";
 import { UserConfig, defineConfig } from "vite";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import path from "path";
+import tailwindcss from "tailwindcss";
 
 const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
@@ -31,7 +32,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     "ent-options_html": resolve(__dirname, "src/options/options.html"),
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
                     index: resolve(__dirname, "src/content/index.js"),
-                    background: resolve(__dirname, "background.js"),
+                    background: resolve(__dirname, "./src/background.ts"),
                     inject: resolve(__dirname, "src/inject.js"),
                 },
                 output: {
