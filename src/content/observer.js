@@ -99,7 +99,7 @@ export const TUICObserver = {
             }
         },
         twitterIcon: function (elem, base) {
-            switch (TUICPref.get("twitterIcon") /* eslint-disable */) {
+            switch (TUICPref.get("twitterIcon")) {
                 case "invisible":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         document.querySelector(`[rel="shortcut icon"]`).href = EMPTY;
@@ -140,7 +140,7 @@ export const TUICObserver = {
                     document.querySelector(`[rel="shortcut icon"]`).href = "//abs.twimg.com/favicons/twitter.3.ico";
                     elem.classList.add(TUICLibrary.getClasses.getClass("TUIC_NOTSVGDISPNONE"));
                     break;
-            } /* eslint-enable */
+            }
             if (!TUICPref.get("otherBoolSetting.faviconSet")) {
                 document.querySelector(`[rel="shortcut icon"]`).href = "//abs.twimg.com/favicons/twitter.3.ico";
             }

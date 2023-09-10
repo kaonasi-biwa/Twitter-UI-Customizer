@@ -1,6 +1,7 @@
-/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require("fs");
 const { exec, execSync } = require("child_process");
+/* eslint-enable @typescript-eslint/no-var-requires */
 const browser = process.argv[2];
 const BinaryPath = `"${process.argv[3]}"`;
 

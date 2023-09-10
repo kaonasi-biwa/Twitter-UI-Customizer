@@ -271,7 +271,6 @@ export const TUICLibrary = {
     },
 };
 
-/* eslint-disable */
 export const TUICPref = {
     config: null,
     get: function (identifier) {

@@ -33,7 +33,7 @@ export function applySystemCss() {
             }
         }
     }
-    /* eslint-disable */
+    /* eslint-disable indent */
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}

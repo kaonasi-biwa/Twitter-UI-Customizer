@@ -588,7 +588,7 @@ export const TUICOptionHTML = {
         applySystemCss();
     },
     TUICOptionHTML: function () {
-        /* eslint-disable */
+        /* eslint-disable indent */
         return `
 <div id="TUIC_setting" class="css-1dbjc4n r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
     <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
@@ -699,7 +699,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
     </div>
 </div>
 
-`; /* eslint-enable */
+`; /* eslint-enable indent */
     },
     //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
     colorSetting: function (id, type, color_, text, isDefault, colorKind) {
@@ -860,7 +860,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
                 btnAction: "TUIC_up_down_list_to_default",
                 tooltiptag: "settingUI-upDownList-restoreDefault",
             },
-        ]; /* eslint-disable */
+        ]; /* eslint-disable indent */
         return `
 <details class="TUICDetails">
         <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
@@ -892,7 +892,7 @@ ${TUICVisibleButtons}
         </div>
         <br>
 </details>
-`; /* eslint-enable */
+`; /* eslint-enable indent */
     },
     //アップダウンリストの内容(id:設定のID)
     upDownListItem: function (id) {
