@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { UserConfig, defineConfig } from "vite";
-import vitePluginWebExt from "./src/vite-plugin/vite-plugin-web-ext";
+import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import path from "path";
 
 const root = resolve(__dirname, "src");
