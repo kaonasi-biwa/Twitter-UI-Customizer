@@ -379,7 +379,7 @@ export const TUICData = {
 
                 const baseElem = document.querySelector(`#layers`);
                 if (baseElem != null) {
-                    /* eslint-disable */
+                    /* eslint-disable indent */
                     const layerElem = TUICLibrary.HTMLParse(
                         `<div class="css-1dbjc4n r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
                     <div class="css-1dbjc4n r-12vffkv">
@@ -406,7 +406,7 @@ export const TUICData = {
                     </div>
                   </div>`,
                     ).item(0);
-                    /* eslint-enable */
+                    /* eslint-enable indent */
                     baseElem.appendChild(layerElem);
                     window.setTimeout(() => {
                         layerElem.remove();
@@ -623,7 +623,7 @@ export const TUICData = {
         },
         html: {
             __base: (id, svg) => {
-                /* eslint-disable */
+                /* eslint-disable indent */
                 return `
         <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-13awgt0 r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
@@ -643,7 +643,7 @@ export const TUICData = {
             </div>
           </div>
         </a>`;
-                /* eslint-disable */
+                /* eslint-enable indent */
             },
             topics: function () {
                 return TUICData.sidebarButtons.html.__base(
