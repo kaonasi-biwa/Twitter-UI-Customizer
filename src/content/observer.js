@@ -67,6 +67,8 @@ export const TUICObserver = {
 
         TUICObserver.functions.updateStyles();
 
+        TUICObserver.functions.fixDMBox();
+
         addCssElement();
         if (window.location.pathname == "/tuic/safemode") {
         } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/settings/display") {
@@ -82,6 +84,20 @@ export const TUICObserver = {
         subtree: true,
     },
     functions: {
+        fixDMBox() {
+            if (!TUICObserver.data.fixedDMBox) {
+                const dmBox = document.querySelector(`[data-testid="DMDrawerHeader"]`);
+                if (dmBox) {
+                    if (dmBox.querySelector(`[d="M12 11.59L3.96 3.54 2.54 4.96 12 14.41l9.46-9.45-1.42-1.42L12 11.59zm0 7l-8.04-8.05-1.42 1.42L12 21.41l9.46-9.45-1.42-1.42L12 18.59z"]`)) {
+                        dmBox.querySelector(`div[role="button"]+div[role="button"]`).click();
+                        window.setTimeout(() => {
+                            document.querySelector(`[data-testid="DMDrawerHeader"] div[role="button"]+div[role="button"]`).click();
+                        }, 100);
+                    }
+                    TUICObserver.data.fixedDMBox = true;
+                }
+            }
+        },
         twitterIcon: function (elem, base) {
             switch (TUICPref.get("twitterIcon") /* eslint-disable */) {
                 case "invisible":
@@ -851,6 +867,6 @@ export const TUICObserver = {
             attributes: true,
         });
     },
-    data: {},
+    data: { fixedDMBox: false },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
