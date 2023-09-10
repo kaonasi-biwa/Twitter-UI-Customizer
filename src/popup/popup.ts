@@ -24,9 +24,9 @@ window.onload = async () => {
     document.getElementById("link2").onclick = () => {
         chrome.tabs.create({ url: "https://twitter.com/kaonasi_biwa_ar" });
     };
-    document.getElementById("link3").onclick = () => {
-        chrome.runtime.openOptionsPage();
-    };
+    // document.getElementById("link3").onclick = () => {
+    //     chrome.runtime.openOptionsPage();
+    // };
     document.getElementById("link4").onclick = () => {
         chrome.tabs.create({ url: "https://twitter.com/tuic/safemode" });
     };
