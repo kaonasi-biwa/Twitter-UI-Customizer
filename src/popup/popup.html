@@ -7,7 +7,7 @@
     </head>
     <body>
         <script type="module" src="../content/i18n.js"></script>
-        <script type="module" src="./popup.js"></script>
+        <script type="module" src="./popup.ts"></script>
         <img id="logo" src="../../icon/TUIC_TextWhite.svg" />
         <div class="w-72">
             <div class="message_container">
@@ -24,10 +24,6 @@
                     ><div class="bi bi-gear"></div>
                     <div class="i18n-t i18n" i18n-t-id="popupButton2" i18n-id="pSettingsInSafemode">セーフモード</div></a
                 >
-                <a href="#" id="link3"
-                    ><div class="bi bi-gear"></div>
-                    <div class="i18n-t i18n" i18n-t-id="popupButton3" i18n-id="pSettingsUpdateNotification">アップデート通知</div></a
-                >
                 <a href="#" id="link2"
                     ><div class="bi bi-twitter"></div>
                     <div class="i18n-t i18n" i18n-t-id="popupButton4" i18n-id="pTwitterOfAuthor">作者(kaonasi_biwa)</div></a
@@ -37,9 +33,9 @@
                     <div class="i18n-t i18n" i18n-t-id="popupButton5" i18n-id="pInstallFromGH">最新版をインストール</div></a
                 >
             </div>
-            <details open>
+            <details>
                 <summary>アップデート通知の設定</summary>
-                <div>
+                <div id="notifySettings">
                     <label for="runBrowser" class="relative block select-none">
                         <input type="checkbox" id="runBrowser" class="peer" />
                         <i class="bi bi-check peer-checked:opacity-100"></i>
