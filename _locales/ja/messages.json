@@ -78,6 +78,18 @@
         "message": "最新版をインストール",
         "description": "ポップアップのGitHubから最新版をインストールするボタン"
     },
+    "pUpdateOnBrowserLaunch": {
+        "message": "ブラウザを起動したとき",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnClickIcon": {
+        "message": "アイコンをクリックしたとき",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnOpenTwitter": {
+        "message": "Twitterを開いたとき",
+        "description": "ポップアップのアップデート通知設定"
+    },
     "optionTitle": {
         "message": "設定及び操作方法(Twitter UI Customizer)",
         "description": "設定画面のタイトル"
