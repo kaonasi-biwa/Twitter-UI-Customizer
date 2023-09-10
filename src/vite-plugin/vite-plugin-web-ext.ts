@@ -13,13 +13,13 @@ dotenv.config({ path: ".env.local" });
 export default async (root: string, sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
     const webExt = await import("web-ext");
     let watch = false;
-    let firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
+    const firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
     let firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"];
-    let chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
-    let chromium_profile = process.env["TUIC_WEBEXT_CHROMIUM_PROFILE"];
+    const chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
+    const chromium_profile = process.env["TUIC_WEBEXT_CHROMIUM_PROFILE"];
 
-    let firefox_keep_profile_changes = process.env["TUIC_WEBEXT_FIREFOX_KEEP_PROFILE_CHANGES"] === "true";
-    let chromium_keep_profile_changes = process.env["TUIC_WEBEXT_CHROMIUM_KEEP_PROFILE_CHANGES"] === "true";
+    const firefox_keep_profile_changes = process.env["TUIC_WEBEXT_FIREFOX_KEEP_PROFILE_CHANGES"] === "true";
+    const chromium_keep_profile_changes = process.env["TUIC_WEBEXT_CHROMIUM_KEEP_PROFILE_CHANGES"] === "true";
     // let webExtRunner: MultiExtensionRunner | null = null;
 
     // let worker;
