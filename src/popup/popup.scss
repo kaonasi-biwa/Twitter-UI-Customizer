@@ -26,7 +26,7 @@ body {
 .message_container {
     display: flex;
     flex-direction: column;
-    margin: 0px 30px 15px 30px;
+    margin: 0 30px 15px;
     * {
         margin: 0;
     }
@@ -36,7 +36,7 @@ body {
     }
     .thankyou {
         border-bottom: 2px solid #2e7eb4;
-        border-image: linear-gradient(90deg, rgba(46, 126, 180, 0) 0%, $tuic 50%, rgba(0, 212, 255, 0) 100%);
+        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, $tuic 50%, rgb(0 212 255 / 0%) 100%);
         border-image-slice: 1;
         padding-bottom: 0.3rem;
         margin-bottom: 1rem;

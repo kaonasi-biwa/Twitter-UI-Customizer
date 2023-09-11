@@ -11,6 +11,8 @@
         "prettier": "^3.0.3",
         "postcss-import": "^15.1.0",
         "sass": "^1.66.1",
+        "stylelint": "^15.10.3",
+        "stylelint-config-standard-scss": "^11.0.0",
         "tailwindcss": "^3.3.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2",
@@ -28,12 +30,14 @@
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:firefox --watch",
         "debug:chromium": "yarn build:chromium --watch",
-        "lint": "yarn lint:eslint & yarn lint:prettier",
+        "lint": "yarn lint:eslint & yarn lint:prettier & yarn lint:stylelint",
         "lint:eslint": "yarn -s eslint --ext .js,.mjs,.ts .",
         "lint:prettier": "yarn -s prettier --check **/*.js **/*.mjs **/*.ts",
-        "format": "yarn format:eslint & yarn format:prettier",
+        "lint:stylelint": "yarn -s stylelint **/*.{css,scss}",
+        "format": "yarn format:eslint & yarn format:prettier & yarn format:stylelint",
         "format:eslint": "yarn -s eslint --fix --ext .js,.mjs,.ts .",
-        "format:prettier": "yarn -s prettier --write **/*.js **/*.mjs **/*.ts"
+        "format:prettier": "yarn -s prettier --write **/*.js **/*.mjs **/*.ts",
+        "format:stylelint": "yarn -s stylelint --fix **/*.{css,scss}"
     },
     "dependencies": {
         "@types/chrome": "^0.0.245",
