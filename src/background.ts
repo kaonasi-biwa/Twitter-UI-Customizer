@@ -42,7 +42,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 const update1 = async (updateType) => {
     updateID = updateType;
-    let settingT = await browser.storage.sync.get("TUIC");
+    const settingT = await browser.storage.sync.get("TUIC");
 
     const updateUrl = chrome.runtime.getManifest().update_url;
     const isWebstore = typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined;
