@@ -10,7 +10,7 @@ on:
 
 jobs:
     lint:
-        name: Run ESLint & Prettier scanning
+        name: Run ESLint & Prettier & Stylelint scanning
         runs-on: ubuntu-latest
         #permissions:
         #    contents: read
@@ -20,11 +20,13 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
 
-            - name: Install ESLint & Prettier
+            - name: Install ESLint & Prettier & Stylelint
               run: |
                   yarn add eslint
                   yarn add prettier
                   yarn add eslint-config-prettier
+                  yarn add stylelint
+                  yarn add stylelint-config-standard-scss
                   yarn add @typescript-eslint/eslint-plugin
                   yarn add @typescript-eslint/parser
             #      yarn add @microsoft/eslint-formatter-sarif
@@ -40,7 +42,7 @@ jobs:
             #      sarif_file: eslint-results.sarif
             #      wait-for-processing: true
 
-            - name: Run ESLint & Prettier
+            - name: Run ESLint & Prettier & Stylelint
               run: |
                   yarn lint
               continue-on-error: false

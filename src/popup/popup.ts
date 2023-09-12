@@ -54,7 +54,7 @@ window.onload = async () => {
         };
         const settingList = ["iconClick", "openTwitter", "runBrowser"];
         for (const i of settingList) {
-            let elem = document.getElementById(i);
+            const elem = document.getElementById(i);
             if (elem instanceof HTMLInputElement) {
                 if (setting[i]) {
                     elem.checked = true;
