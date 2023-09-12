@@ -26,7 +26,7 @@ body {
 .message_container {
     display: flex;
     flex-direction: column;
-    margin: 0 30px 15px;
+    margin: 0 15px 15px;
     * {
         margin: 0;
     }
@@ -40,7 +40,7 @@ body {
         border-image-slice: 1;
         padding-bottom: 0.3rem;
         margin-bottom: 1rem;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
