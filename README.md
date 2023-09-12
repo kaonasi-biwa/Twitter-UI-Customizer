@@ -2,11 +2,12 @@
 
 ![ヘッダー](./icon/header.png)
 [![Github Actions](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/packaging.yml)
-[![ESLint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/ESLint/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
+[![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
 [![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)
 [![License](https://img.shields.io/github/license/kaonasi-biwa/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE)  
 [![Firefox Browser ADD-ONS](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/)
 [![Chrome WebStore](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja)
+[![Crowdin](https://badges.crowdin.net/badge/light/crowdin-on-dark.png)](https://crowdin.com/project/twiter-ui-customizer)
 
 [crxファイルでのインストール方法はこちら](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)  
 [情報・設定・CSS集(TwitterのUIの色を公式Twitterに近くすることも出来ます！)](https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md)
@@ -50,6 +51,7 @@ Crowdin:
 その他:
 
 -   @CutterKnife\_ / Twitter **(アイコン・ロゴの作成者)**
+-   @PianoCat1010 / Twitter **(「いいねとリツイート」のアイコンの作成者)**
 
 ## 実装されている機能
 
@@ -81,8 +83,8 @@ Crowdin:
 
 ## いるかもわからぬ翻訳者の方へ
 
-Crowdinで試験的にやってみています！ \
-良ければ[こちら](https://crowdin.com/project/twiter-ui-customizer)からよろしくお願いします！
+Crowdinで試験的にやってみています！  
+[![Crowdin](https://badges.crowdin.net/badge/light/crowdin-on-dark.png)](https://crowdin.com/project/twiter-ui-customizer)
 
 ### Twitter上でのTUICの翻訳
 
@@ -105,7 +107,7 @@ Crowdinで試験的にやってみています！ \
 
 ## アドオンのデバッグ方法
 
-**Chromium、またはFirefoxでのデバッグの詳細は [.env.local.example](./.env.local.example)を御覧ください。**
+**Chromium、またはFirefoxでのデバッグの詳細は [`.env.local.example`](./.env.local.example)を御覧ください。**
 
 manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！
 
