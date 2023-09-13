@@ -9,7 +9,6 @@ export const TUICData = {
         visibleButtons: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
         sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "twiter-blue", "profile", "moremenu"],
         invisibleItems: {
-            "osusume-user-timeline": false,
             "twitter-pro-promotion-btn": false,
             discoverMore: false,
             "subscribe-profile": false,
