@@ -422,10 +422,11 @@ export const TUICObserver = {
 
             if (TUICPref.get("XToTwitter.PostToTweet")) {
                 const isTweetPage = location.pathname.includes("/status/");
+                const isEngagementsPage = document.querySelector(`[role="tab"]`) && location.pathname.includes("/status/") && (location.pathname.endsWith("/quotes") || location.pathname.endsWith("/retweets") || location.pathname.endsWith("/likes"));
                 const isRetweetPage = location.pathname.endsWith("/retweets");
                 const isLikesPage = location.pathname.endsWith("/likes");
                 const isHistoryPage = location.pathname.endsWith("/history");
-                const isQuotesPage = location.pathname.endsWith("/retweets/with_comments");
+                const isQuotesPage = location.pathname.endsWith("/retweets/with_comments") || location.pathname.endsWith("/quotes");
                 const isAnalyticsPage = location.pathname.endsWith("/analytics");
                 const isNotifications = location.pathname.endsWith("/notifications");
                 const isNotificationsTimeline = location.pathname.endsWith("/i/timeline");
@@ -616,7 +617,9 @@ export const TUICObserver = {
 
                 // プライマリカラム（中央に表示される画面）のヘッダー
                 for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] > span')) {
-                    if (isQuotesPage) {
+                    if (isEngagementsPage) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-engagementsTitle");
+                    } else if (isQuotesPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTitle");
                     } else if (isTweetPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetTitle");
@@ -655,6 +658,13 @@ export const TUICObserver = {
                     } else if (blockTextMatch && blockTextMatch.length > 1) {
                         elem.childNodes[0].textContent = TUICI18N.get("XtoTwitter-PostToTweet-blocked-none-body-old").replaceAll("{screenName}", blockTextMatch[1]);
                         elem.parentElement.querySelector(`[data-testid="empty_state_button_text"] > div > span > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-blocked-none-button");
+                    }
+                }
+
+                // エンゲージメントの引用ツイートのタブ
+                if (isQuotesPage) {
+                    for (const elem of getNotReplacedElements(`[role="tab"][href$="/quotes"] > div > div > span`)) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTitle");
                     }
                 }
 
