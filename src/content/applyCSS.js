@@ -672,6 +672,16 @@ header > div > div > div > div.r-1rnoaur{overflow:clip;}
         : ""
 }
 
+${
+    TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons") ?? TUICData.defaultPref.otherBoolSetting.noNumberBottomTweetButtons
+        ? `
+.${TUICLibrary.getClasses.getClass("TUICItIsBigArticle")} [data-testid="app-text-transition-container"]{
+    display:none !important;
+}
+`
+        : ""
+}
+
 `;
     /* eslint-enable */
 }

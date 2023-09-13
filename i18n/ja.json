@@ -35,6 +35,7 @@
     "bottomTweetButtons-deleteButton": "ツイートを削除",
     "bottomTweetButtons-setting-RTNotQuote": "リツイート時にメニューを表示しない",
     "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
+    "bottomTweetButtons-setting-noNumber": "ツイート拡大表示時のボタン横の数字を非表示にする",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",

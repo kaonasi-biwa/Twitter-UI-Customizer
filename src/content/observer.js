@@ -219,8 +219,6 @@ export const TUICObserver = {
                                   "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
 
                         let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
-                        console.log(TUICData.visibleButtons.selectors["reply-button"]);
-                        console.log(bar_base);
                         while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
                             bar_base = bar_base.parentElement;
                         }
@@ -244,13 +242,15 @@ export const TUICObserver = {
                             }
                         }
                         const statusButton = elem.querySelector(`[href*="/status/"] > time`)?.parentElement;
-                        console.log(bar_item);
                         const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                         const cannotShare = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                         if (!cannotRT) {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
                         const isBigArticle = !!elem.querySelector(`.r-1srniue`);
+                        if (isBigArticle) {
+                            elem.classList.add(TUICLibrary.getClasses.getClass("TUICItIsBigArticle"));
+                        }
                         let lastButton;
                         for (const i of TUICPref.get("visibleButtons")) {
                             let div = -1;

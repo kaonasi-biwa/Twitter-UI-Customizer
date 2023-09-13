@@ -26,6 +26,7 @@ export const TUICData = {
             sidebarNoneScrollbar: false,
             noModalbottomTweetButtons: false,
             faviconSet: false,
+            noNumberBottomTweetButtons: false,
         },
         XToTwitter: { XToTwitter: false, PostToTweet: false },
         clientInfo: {
