@@ -239,18 +239,20 @@ export const TUICLibrary = {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     escapeToUseHTML: function (text) {
-        return text.replace(/[&'`"<>=;]/g, function (match) {
-            return {
-                "&": "&amp;",
-                "'": "&#x27;",
-                "`": "&#x60;",
-                '"': "&quot;",
-                "<": "&lt;",
-                ">": "&gt;",
-                "=": "&equals;",
-                ";": "&semi;",
-            }[match];
-        });
+        return text
+            .replace(/[&'`"<>=;]/g, function (match) {
+                return {
+                    "&": "&amp;",
+                    "'": "&#x27;",
+                    "`": "&#x60;",
+                    '"': "&quot;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    "=": "&equals;",
+                    ";": "&semi;",
+                }[match];
+            })
+            .replaceAll("\\r", "\r");
     },
     waitForElement: async function (selector) {
         if (document.querySelectorAll(selector).length !== 0) {

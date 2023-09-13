@@ -248,9 +248,30 @@ export const TUICObserver = {
                             TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                         }
                         const isBigArticle = !!elem.querySelector(`.r-1srniue`);
+                        for (const boxElem of Array.from(elem.querySelectorAll(`.TUICEngagementsBox`))) {
+                            boxElem.remove();
+                        }
                         if (isBigArticle) {
                             elem.classList.add(TUICLibrary.getClasses.getClass("TUICItIsBigArticle"));
+
+                            if (TUICPref.get("otherBoolSetting.placeEngagementsLink")) {
+                                {
+                                    const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
+                                    for (const engagementsID of ["likes", "retweets"]) {
+                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem));
+                                    }
+                                    bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
+                                }
+                                {
+                                    const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
+                                    for (const engagementsID of ["quotes"]) {
+                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem));
+                                    }
+                                    bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
+                                }
+                            }
                         }
+
                         let lastButton;
                         for (const i of TUICPref.get("visibleButtons")) {
                             let div = -1;
@@ -665,6 +686,13 @@ export const TUICObserver = {
                 if (isQuotesPage) {
                     for (const elem of getNotReplacedElements(`[role="tab"][href$="/quotes"] > div > div > span`)) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteTitle");
+                    }
+                }
+
+                // エンゲージメントリツイートのタブ
+                if (isQuotesPage) {
+                    for (const elem of getNotReplacedElements(`[role="tab"][href$="/retweets"] > div > div > span`)) {
+                        elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-engagements-retweetTitle");
                     }
                 }
 
