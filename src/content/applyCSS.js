@@ -451,9 +451,7 @@ textarea#css_textarea,.TUICTextInput {
     content: "";
 }
 
-.${TUICLibrary.getClasses.getClass("TUICScrollBottom")} {
-    overflow-x:auto;
-scrollbar-width:thin;
+.${TUICLibrary.getClasses.getClass("TUICScrollBottom")}{
 padding-right:8px;
 margin-right:-8px;
 padding-left:8px;
@@ -461,8 +459,14 @@ margin-left:-8px;
 padding-bottom:16px;
 margin-bottom:-16px;
 }
+.${TUICLibrary.getClasses.getClass("TUICScrollBottom")},
+.${TUICLibrary.getClasses.getClass("TUICItIsBigArticlePhoto")} .${TUICLibrary.getClasses.getClass("TUICScrollBottom")} > div {
+    overflow-x:auto;
+    scrollbar-width:thin;
 
-.${TUICLibrary.getClasses.getClass("TUICScrollBottom")}::-webkit-scrollbar {
+}
+:is(.${TUICLibrary.getClasses.getClass("TUICItIsBigArticlePhoto")} .${TUICLibrary.getClasses.getClass("TUICScrollBottom")} > div,
+.${TUICLibrary.getClasses.getClass("TUICScrollBottom")})::-webkit-scrollbar {
 height:8px
 }
 

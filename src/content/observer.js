@@ -253,6 +253,9 @@ export const TUICObserver = {
                         }
                         if (isBigArticle) {
                             elem.classList.add(TUICLibrary.getClasses.getClass("TUICItIsBigArticle"));
+                            if (location.pathname.includes("/photo/")) {
+                                elem.classList.add(TUICLibrary.getClasses.getClass("TUICItIsBigArticlePhoto"));
+                            }
 
                             if (TUICPref.get("otherBoolSetting.placeEngagementsLink")) {
                                 if (location.pathname.includes("/photo/")) {
