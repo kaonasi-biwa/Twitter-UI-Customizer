@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Mga Retweet",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Mga Pakikipag-ugnayan",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "I-retweet",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "I-retweet na lang?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Idi-discard ang na-draft mong Tweet bago ka makapag-quote ng Tweet.",
@@ -7,6 +9,9 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "I-discard ang hindi napadalang Tweet",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Mga Hindi Naipadalang Tweet",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Hindi ka pa ba handang magpadala ng Tweet? I-save ito sa iyong mga draft o iiskedyul ito para sa susunod.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Tingnan ang mga Tweet",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Sigurado ka bang gusto mong tingnan ang mga Tweet na ito? Hindi maa-unblock si @{screenName} sa pagtingin sa mga Tweet. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Sigurado ka bang gusto mong tingnan ang mga post na ito? Hindi maa-unblock si @{screenName} sa pagtingin mo sa mga post. ",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Hindi ito maa-undo at aalisin ito sa profile mo, sa timeline ng anumang account na nagfa-follow sa iyo, at sa mga resulta ng paghahanap.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Hindi ito maa-undo at aalisin ito sa iyong profile, sa timeline ng anumang account na sumusunod sa iyo, at sa mga resulta ng paghahanap sa Twitter.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Burahin ang Tweet?",

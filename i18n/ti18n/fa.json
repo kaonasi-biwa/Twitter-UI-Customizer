@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "بازتوییت‌ها",
+    "XtoTwitter-PostToTweet-engagementsTitle": "تعامل‌ها",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "بازتوییت",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "به‌جای آن بازتوییت می‌کنید؟",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "پیش از اینکه نقل‌توییت کنید از پیش‌نویس توییت شما صرف‌نظر خواهد شد.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "از توییت فرستاده‌نشده صرف‌نظر شود",
     "XtoTwitter-PostToTweet-unsentPageTab1": "توییت‌های فرستاده‌نشده",
     "XtoTwitter-PostToTweet-unsentPageTitle": "هنوز آماده فرستادن توییت نیستید؟ آن را در پیش‌نویس‌هایتان ذخیره کنید یا برای بعد زمان‌بندی کنید.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "مشاهده توییت‌ها",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "مطمئنید می‌خواهید این توییت‌ها را ببینید؟ دیدن توییت‌ها باعث رفع مسدودسازی @{screenName} نمی‌شود. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "حتماً می‌خواهید این پست‌ها را ببینید؟ با دیدن پست‌ها از مسدودشدگی درنمی‌آید @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "نمی‌تواند شما را دنبال کند یا پست‌هایتان را ببیند، و شما هم پست‌ها یا آگاه‌سازی‌های از @{screenName} را نخواهید دید.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "@{screenName} را مسدود کنید تا @{screenName} دیگر نتواند شما را دنبال کند یا به شما پیام دهد و شما هم دیگر آگاه‌سازی‌های @{screenName} را نخواهید دید.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "این کار را نمی‌توان واگرد کرد و از نمایه شما، خط زمان حساب‌های کاربری که شما را دنبال می‌کنند، و نتایج جست‌وجو حذف خواهد شد.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "این کار را نمی‌توان لغو کرد و از نمایه شما، خط زمان حساب‌های کاربری که شما را دنبال می‌کنند، و نتایج جستجوی توییتر حذف خواهد شد.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "توییت حذف شود؟",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Atweetanna",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Engagements",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Atweetáil",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Atweetáil ina ionad sin?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Cuileálfar do dhréacht-tvuít sula gcuirfidh tú ráiteas leis an Tvuít.",
@@ -7,6 +9,9 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Scrios an Tweet nár seoladh",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Tweetanna nár seoladh",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Níl tú réidh chun Tweet a sheoladh díreach go fóill? Sábháil le do dhréachtaí é nó sceidealaigh le haghaidh níos déanaí é.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Breathnaigh ar Tweetanna",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "An bhfuil tú cinnte gur mhaith leat breathnú ar na Tweetanna seo? Ní bhainfear an cosc de @{screenName} trí bhreathnú ar Tweetanna. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Are you sure you want to view these posts? Viewing posts won’t unblock @{screenName}. ",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "This can’t be undone and it will be removed from your profile, the timeline of any accounts that follow you, and from search results.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Ní féidir é seo a chur ar ceal agus bainfear é de do phróifíl, d'amlínte na gcuntas ina bhfuil tú á leanúint, agus de thorthaí cuardaigh Twitter.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Scrios an Tweet?",

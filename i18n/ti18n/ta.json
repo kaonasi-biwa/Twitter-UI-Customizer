@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "மறுகீச்சுகள்",
+    "XtoTwitter-PostToTweet-engagementsTitle": "ஈடுபாடுகள்",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "மறுட்விட் செய்",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "பதிலாக மறுட்விட் செய்யவா?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "நீங்கள் கீச்சை மேற்கோள் காட்டும் முன், உங்கள் வரைவுக் கீச்சு நிராகரிக்கப்படும்.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "அனுப்பப்படாத கீச்சை நிராகரி",
     "XtoTwitter-PostToTweet-unsentPageTab1": "அனுப்பப்படாத கீச்சுகள்",
     "XtoTwitter-PostToTweet-unsentPageTitle": "கீச்சை அனுப்ப இன்னும் தயாராக இல்லையா? அதை உங்கள் வரைவுகளில் சேமிக்கவும் அல்லது பின்னர் அனுப்ப திட்டமிடவும்.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "ட்விட்களைப் பார்க்க",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "நிச்சயமாக இந்தக் கீச்சுகளைப் பார்க்க விரும்புகிறீர்களா? கீச்சுகளைப் பார்ப்பது @{screenName} -ஐத் தடைநீக்காது. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "இந்த இடுகைகளைப் பார்க்க விரும்புகிறீர்களா? இடுகைகளைப் பார்ப்பது @{screenName} -ஐத் தடைநீக்காது. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "அவர்களால் உங்களைப் பின்தொடரவோ அல்லது உங்கள் இடுகைகளைப் பார்க்கவோ முடியாது, மேலும் நீங்கள் @{screenName} இடமிருந்து இடுகைகளை அல்லது அறிவிப்புகளைப் பார்க்கமாட்டீர்கள்.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "@{screenName} -ஐத் தடைசெய், @{screenName} -ஆல் இனி உங்களைப் பின்தொடரவோ, செய்தி அனுப்பவோ முடியாது, @{screenName} -இன் அறிவிப்புகளை இனி பார்க்க மாட்டீர்கள்",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "இதைச் செயல்தவிர்க்க முடியாது, மேலும் இது உங்கள் சுயவிவரம், உங்களைப் பின்தொடரும் ஏதேனும் கணக்குகளின் காலவரிசை மற்றும் தேடல் முடிவுகளிலிருந்து அகற்றப்படும்.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "இதைச் செயல்தவிர்க்க முடியாது, மேலும் இது உங்கள் சுயவிவரம், உங்களைப் பின்தொடரும் ஏதேனும் கணக்குகளின் காலவரிசை மற்றும் Twitter தேடல் முடிவுகளிலிருந்து அகற்றப்படும்.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "கீச்சை நீக்கவா?",

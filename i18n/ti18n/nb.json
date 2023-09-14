@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Engasjement",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Vil du heller retweete?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Tweet-utkastet forkastes før du siterer tweeten.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Forkast usendt Tweet",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Usendte Tweets",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Ikke helt klar til å sende en tweet? Lagre den i utkastene eller planlegg den til å sendes senere.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Vis Tweets",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Er du sikker på at du vil se disse tweetene? Det vil ikke oppheve blokkeringen av @{screenName}. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Er du sikker på at du vil se disse innleggene? Dette vil ikke oppheve blokkeringen av @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Hen kan ikke følge deg eller se innleggene dine, og du kan ikke se innlegg eller varsler fra @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Blokker @{screenName}. @{screenName} vil ikke lenger kunne følge deg eller sende deg meldinger. Du vil heller ikke se varsler fra @{screenName}",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Dette kan ikke angres, og det fjernes fra profilen din, fra tidslinjen til alle kontoer som følger deg, og fra søkeresultater.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Du kan ikke angre denne handlingen, og den blir fjernet fra profilen din, fra tidslinjen til alle kontoer som følger deg, og fra Twitters søkeresultater.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Vil du slette tweeten?",

@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвіти",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Взаємодія",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Ретвітнути",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Ретвітнути замість цього?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Чернетка вашого твіта буде вилучена, перш ніж ви процитуєте твіт.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Відхилити ненадісланий твіт",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Ненадіслані твіти",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Ще не готові надіслати твіт? Збережіть його в чернетках або заплануйте на потім.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Переглянути твіти",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Ви впевнені, що хочете переглянути ці твіти? Перегляд твітів не розблокує @{screenName}. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Ви впевнені, що хочете переглянути ці пости? Перегляд постів не розблокує @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Цей користувач не зможе читати вас та переглядати ваші пости, а ви не бачитимете постів і сповіщень від @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Заблокуйте @{screenName}, тоді @{screenName} більше не зможе читати вас або надсилати вам повідомлення, а ви не бачитимете сповіщень від @{screenName}",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Пост буде видалено з вашого профілю, стрічок усіх профілів, які вас читають, і з результатів пошуку. Цю дію не можна скасувати.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Твіт буде видалено з вашого профілю, стрічок усіх профілів, які вас читають, і з результатів пошуку Твіттера. Цю дію не можна скасувати.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Видалити твіт?",

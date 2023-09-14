@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретуитове",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Ангажирания",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Ретуитване",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Искаш да ретуитнеш вместо това?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Черновата на твоя туит ще бъде отхвърлена, преди да цитираш туита.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Отхвърляне на неизпратения туит",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Неизпратени туитове",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Още нямаш готовност да изпратиш даден туит? Запиши го в черновите си или го насрочи за по-късно.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Преглед на туитовете",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Наистина ли искаш да прегледаш тези туитове? Това няма да разблокира @{screenName}. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Наистина ли искаш да прегледаш тези публикации? Преглеждането на публикации няма да разблокира @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Този потребител няма да може да те следва или да вижда публикациите ти, а ти няма да виждаш публикации или известия от @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Блокирай @{screenName}, @{screenName} вече няма да може да те следва или да ти изпраща съобщения, а ти няма да получаваш известия от @{screenName}.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Това не може да бъде отменено. Публикацията ще бъде премахната от профила ти, от хрониката на профилите, които те следват, и от резултатите от търсенето.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Това не може да бъде отменено. Туитът ще бъде премахнат от профила ти, от хрониката на профилите, които те следват, и от резултатите от търсенето в Twitter.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Да се изтрие ли туитът?",

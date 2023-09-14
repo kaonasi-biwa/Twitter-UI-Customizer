@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "รีทวีต",
+    "XtoTwitter-PostToTweet-engagementsTitle": "การมีส่วนร่วม",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "รีทวีต",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "ตอบกลับแทนใช่ไหม",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "ทวีตที่คุณร่างไว้จะถูกละทิ้งก่อนที่คุณจะอ้างอิงทวีต",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "ละทิ้งทวีตที่ไม่ได้ส่ง",
     "XtoTwitter-PostToTweet-unsentPageTab1": "ทวีตที่ไม่ได้ส่ง",
     "XtoTwitter-PostToTweet-unsentPageTitle": "ยังไม่พร้อมที่จะส่งทวีตใช่ไหม บันทึกลงในฉบับร่าง หรือตั้งเวลาไว้สำหรับภายหลัง",
+    "XtoTwitter-PostToTweet-blocked-none-button": "ดูทวีต",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "คุณแน่ใจหรือว่าต้องการดูทวีตเหล่านี้ การดูทวีตจะไม่ยกเลิกการบล็อค @{screenName} ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "คุณแน่ใจหรือไม่ว่าต้องการดูโพสต์เหล่านี้ การดูโพสต์จะไม่ถือเป็นการยกเลิกการบล็อค @{screenName} ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "พวกเขาจะไม่สามารถติดตามคุณหรือดูโพสต์ของคุณ และคุณจะไม่เห็นโพสต์หรือการแจ้งเตือนจาก @{screenName}",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "บล็อค @{screenName} โดย @{screenName} จะไม่สามารถติดตามหรือส่งข้อความถึงคุณได้อีกต่อไป และคุณจะไม่เห็นการแจ้งเตือนจาก @{screenName}",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "การดำเนินการนี้ไม่สามารถยกเลิกได้ และข้อมูลนี้จะถูกลบออกจากข้อมูลส่วนตัวของคุณ ลำดับเหตุการณ์ของบัญชีใดๆ ที่ติดตามคุณ และถูกลบออกจากผลลัพธ์การค้นหา",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "การดำเนินการนี้ไม่สามารถยกเลิกได้ และข้อมูลนี้จะถูกลบออกจากข้อมูลส่วนตัวของคุณ ลำดับเหตุการณ์ของบัญชีใดๆ ที่ติดตามคุณ และถูกลบออกจากผลลัพธ์การค้นหาของทวิตเตอร์",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "ลบทวีตหรือไม่",

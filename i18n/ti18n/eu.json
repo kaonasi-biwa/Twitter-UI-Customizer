@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Bertxioak",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Engagements",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Bertxiotu",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Horren ordez bertxiotu nahi duzu?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Txioaren zirriborra baztertuko da txioa aipatu baino lehen.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Baztertu bidali gabeko txioa",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Bidali gabeko txioak",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Oraindik ez zaude prest txio bat bidaltzeko? Gorde zure zirriborroetan edo programatu gerorako.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Ikusi Txioak",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Ziur txio hauek ikusi nahi dituzula? Txioak ikusteak ez du @{screenName} desblokeatuko. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Are you sure you want to view these posts? Viewing posts won’t unblock @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "They will not be able to follow you or view your posts, and you will not see posts or notifications from @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Blokeatu @{screenName}, @{screenName}(e)k ezingo dizu jarraitu ezta mezurik bidali, eta ez duzu @{screenName} erabiltzailearen jakinarazpenik ikusiko.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "This can’t be undone and it will be removed from your profile, the timeline of any accounts that follow you, and from search results.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Ezin duzu hau desegin, eta profiletik, jarraitzen dizuten kontuen denbora-lerrotik eta Twitterren bilaketa-emaitzetatik kendu egingo da.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Txioa ezabatu nahi duzu?",

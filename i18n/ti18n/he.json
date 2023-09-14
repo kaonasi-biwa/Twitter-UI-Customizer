@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "ציוצים מחדש",
+    "XtoTwitter-PostToTweet-engagementsTitle": "פעילויות",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "צייץ מחדש",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "לצייץ מחדש במקום זאת?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "ציוץ הטיוטה שלך ימחק לפני ביצוע ציוץ ציטוט.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "מחק ציוץ שלא נשלח",
     "XtoTwitter-PostToTweet-unsentPageTab1": "ציוצים שלא נשלחו",
     "XtoTwitter-PostToTweet-unsentPageTitle": "עדיין לא מוכן לשלוח ציוץ? שמור אותו כטיוטה או תזמן אותו למועד מאוחר יותר.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "הצג ציוצים",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "האם אתה בטוח שברצונך להציג את הציוצים האלה? הצגת הציוצים לא תגרום להסרת החסימה של ‎@{screenName}‎.‏ ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "האם אתה בטוח שברצונך להציג פוסטים אלה? הצגת הפוסטים לא תוביל לשחרור ‎@{screenName}‎. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "הוא לא יוכל לעקוב אחריך, להציג את הפוסטים שלך או להשיב לשיחה הזו, אך אתה לא תראה פוסטים או הודעות מ-‎@{screenName}‎.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "חסום את ‎@{screenName}‎‏, ‎@{screenName}‎ לא יוכל יותר לעקוב אחריך או לשלוח אליך מסרים וגם לא יתקבלו יותר הודעות מ-‎@{screenName}‎",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "לא ניתן לבטל זאת והפריט יוסר מהפרופיל שלך, מצירי הזמן של החשבונות שעוקבים אחריך ומתוצאות החיפוש.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "לא ניתן לבטל זאת והפריט יוסר מהפרופיל שלך, מצירי הזמן של החשבונות שעוקבים אחריך ומתוצאות החיפוש של טוויטר.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "למחוק את הציוץ?",

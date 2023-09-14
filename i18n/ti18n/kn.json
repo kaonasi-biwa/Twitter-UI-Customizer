@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "ಮರುಟ್ವೀಟ್‌ಗಳು",
+    "XtoTwitter-PostToTweet-engagementsTitle": "ತೊಡಗಿಸಿಕೊಳ್ಳುವಿಕೆಗಳು",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "ಮರುಟ್ವೀಟಿಸಿ",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "ಬದಲಿಗೆ ಮರುಟ್ವೀಟಿಸುವುದೇ?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "ನೀವು ಟ್ವೀಟ್ ಕೋಟ್ ಮಾಡುವ ಮೊದಲು ನಿಮ್ಮ ಡ್ರಾಫ್ಟ್ ಮಾಡಲಾದ ಟ್ವೀಟ್ ಅನ್ನು ತ್ಯಜಿಸಲಾಗುತ್ತದೆ.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "ಕಳುಹಿಸಿಲ್ಲದ ಟ್ವೀಟ್ ಅನ್ನು ತ್ಯಜಿಸಿ",
     "XtoTwitter-PostToTweet-unsentPageTab1": "ಕಳುಹಿಸದೇ ಇರುವ ಟ್ವೀಟ್‌ಗಳು",
     "XtoTwitter-PostToTweet-unsentPageTitle": "ಇನ್ನೂ ಟ್ವೀಟ್ ಕಳುಹಿಸಲು ಸಿದ್ಧರಿಲ್ಲವೇ? ಕರಡು ರೂಪದಲ್ಲಿ ಅವುಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಿ ಅಥವಾ ನಂತರ ಟ್ವೀಟ್‌ ಮಾಡಲು ಶೆಡ್ಯೂಲ್ ಮಾಡಿ.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "ಟ್ವೀಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "ಈ ಟ್ವೀಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ? ಟ್ವೀಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸುವುದರಿಂದ @{screenName} ಅವರ ತಡೆತೆರವುಗೊಳಿಸುವುದಿಲ್ಲ. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "ಈ ಪೋಸ್ಟ್‌ಗಳನ್ನು ಖಚಿತವಾಗಿಯೂ ನೋಡಲು ಬಯಸುತ್ತೀರಾ? ಪೋಸ್ಟ್‌ಗಳನ್ನು ನೋಡಿದರೆ @{screenName} ತಡೆತೆರವು ಆಗುವುದಿಲ್ಲ. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "ಅವರು ನಿಮ್ಮನ್ನು ಅನುಸರಿಸಲು ಅಥವಾ ನಿಮ್ಮ ಪೋಸ್ಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ ಮತ್ತು ನೀವು @{screenName} ರಿಂದ ಪೋಸ್ಟ್‌ಗಳು ಅಥವಾ ಸೂಚನೆಗಳನ್ನು ನೋಡುವುದಿಲ್ಲ.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "@{screenName} ಅವರನ್ನು ತಡೆಹಿಡಿಯಿರಿ, @{screenName} ಅವರಿಗೆ ಇನ್ನು ಮುಂದೆ ನಿಮ್ಮನ್ನು ಹಿಂಬಾಲಿಸಲು ಅಥವಾ ನಿಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ ಮತ್ತು ನೀವು @{screenName} ಅವರ ಸೂಚನೆಗಳನ್ನು ನೋಡುವುದಿಲ್ಲ",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಅದನ್ನು ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ನಿಂದ, ನಿಮ್ಮನ್ನು ಹಿಂಬಾಲಿಸುವ ಯಾವುದೇ ಖಾತೆಗಳ ಕಾಲರೇಖೆಯಿಂದ ಮತ್ತು ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳಿಂದ ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ಅದನ್ನು ನಿಮ್ಮ ಪ್ರೊಫೈಲ್‌ನಿಂದ, ನಿಮ್ಮನ್ನು ಹಿಂಬಾಲಿಸುವ ಯಾವುದೇ ಖಾತೆಗಳ ಕಾಲರೇಖೆಯಿಂದ ಮತ್ತು Twitter ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳಿಂದ ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "ಟ್ವೀಟ್ ಅಳಿಸುವುದೇ?",

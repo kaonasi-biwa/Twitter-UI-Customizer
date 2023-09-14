@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "পুনঃটুইটগুলো",
+    "XtoTwitter-PostToTweet-engagementsTitle": "এনগেজমেন্ট",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "পুনঃটুইট",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "এর পরিবর্তে পুনঃটুইট করবেন?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "আপনি টুইট উদ্ধৃতি করার আগে আপনার পূর্বলেখ টুইটটি বাতিল করা হবে।",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "যে টুইটটি পাঠানো হয়নি সেটি বাতিল করুন",
     "XtoTwitter-PostToTweet-unsentPageTab1": "অপ্রেরিত টুইট",
     "XtoTwitter-PostToTweet-unsentPageTitle": "এখনই কোনো টুইট পাঠানোর জন্য প্রস্তুত নন? এটিকে আপনার ড্রাফটে সেভ করে রাখুন বা পরবর্তী কোনো সময়ের জন্য সময় নির্ধারণ করে রাখুন।",
+    "XtoTwitter-PostToTweet-blocked-none-button": "টুইটগুলি দেখুন",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "আপনি কি নিশ্চিত এই টুইটগুলি দেখতে চান? টুইটগুলি দেখা হলে @{screenName} অবরোধমুক্ত হবে না। ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "আপনি কি সত্যিই এই পোস্টগুলো দেখতে চান? পোস্ট দেখা হলে @{screenName} আনব্লক হবে না। ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "তারা আপনাকে অনুসরণ করতে, আপনার পোস্টগুলো দেখতে পারবেন না এবং আপনি @{screenName}-এর পোস্ট অথবা বিজ্ঞপ্তিগুলি দেখতে পাবেন না।",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "@{screenName}-কে ব্লক করুন৷ @{screenName} আপনাকে আর অনুসরণ করতে বা বার্তা পাঠাতে পারবেন না, এবং আপনি @{screenName}-এর বিজ্ঞপ্তিগুলি দেখবেন না৷",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "এটি পূর্বাবস্থায় ফেরানো যাবে না এবং আপনার প্রোফাইল, টাইমলাইন ও যেকোনো অ্যাকাউন্ট যা আপনি অনুসরণ করেন এবং X অনুসন্ধানের ফলাফল থেকে মুছে যাবে।",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "এটি পূর্বাবস্থায় ফেরানো যাবে না এবং আপনার প্রোফাইল, সময়রেখা ও যেকোনো অ্যাকাউন্ট যা আপনি অনুসরণ করেন এবং টুইটার অনুসন্ধানের ফলাফল থেকে মুছে যাবে।",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "টুইট মুছবেন?",

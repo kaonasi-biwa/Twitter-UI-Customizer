@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Các Tweet lại",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Số người tương tác",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Tweet lại",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Tweet lại thay thế?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Tweet nháp của bạn sẽ bị hủy trước khi bạn Trích dẫn Tweet.",
@@ -7,6 +9,9 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Xóa bỏ Tweet chưa gửi",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Tweet chưa gửi",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Bạn chưa sẵn sàng gửi Tweet? Lưu nó vào bản thảo của mình hoặc lên lịch để sử dụng sau.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Xem Tweet",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Bạn có chắc muốn xem những Tweet này? Xem các Tweet sẽ không bỏ chặn @{screenName}. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Bạn có chắc muốn xem các bài đăng này không? Việc xem bài đăng sẽ không bỏ chặn @{screenName}. ",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Điều này không thể hoàn tác và nội dung này sẽ bị xóa khỏi hồ sơ của bạn, dòng thời gian của bất kỳ tài khoản nào theo dõi bạn và kết quả tìm kiếm.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Điều này không thể hoàn tác và nó sẽ bị xóa khỏi hồ sơ của bạn, dòng thời gian của bất kỳ tài khoản nào theo dõi bạn và kết quả tìm kiếm Twitter.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Xóa Tweet?",

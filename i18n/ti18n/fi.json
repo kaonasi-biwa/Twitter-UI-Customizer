@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Uudelleentwiittaukset",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Toiminnat",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Uudelleentwiittaa",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Uudelleentwiitataanko?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Luonnostelemasi twiitti poistetaaan, ennen kuin lainaat twiittiä.",
@@ -7,6 +9,9 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Hylkää lähettämätön twiitti",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Lähettämättömät twiitit",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Etkö ole valmis twiittaamaan ihan vielä? Tallenna twiitti luonnoksiin tai ajasta sen julkaisu myöhemmälle.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Näytä twiitit",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Haluatko varmasti nähdä nämä twiitit? Twiittien katselu ei poista käyttäjän @{screenName} estoa. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Haluatko varmasti nähdä nämä julkaisut? Julkaisujen näyttäminen ei poista käyttäjän @{screenName} estoa. ",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Tätä ei voi kumota. Se poistetaan profiilistasi, sinua seuraavien tilien aikajanalta ja X:n hakutuloksista.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Tätä ei voi kumota. Se poistetaan profiilistasi, sinua seuraavien tilien aikajanalta ja Twitterin hakutuloksista.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Poistetaanko twiitti?",

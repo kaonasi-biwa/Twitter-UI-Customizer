@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Engajamentos",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweetar",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Retweetar?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "O rascunho do seu Tweet será descartado antes de você enviar o Tweet com comentário.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Descartar Tweet não enviado",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Tweets não enviados",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Sentiu que ainda não é a hora de enviar esse Tweet? Salve-o nos rascunhos ou programe-o para mais tarde.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Ver Tweets",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Tem certeza de que deseja ver estes Tweets? Ver os Tweets não desbloqueará @{screenName}. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Tem certeza de que deseja ver estes posts? Ver os posts não desbloqueará @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Ele não poderá seguir você ou ver seus posts, e você não verá posts nem notificações de @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Ao bloquear @{screenName}, @{screenName} não poderá seguir nem enviar mensagens a você, e você não verá mais as notificações de @{screenName}",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Essa ação não poderá ser desfeita, e o post será removido do seu perfil, da timeline de todas as contas que seguem você e dos resultados de busca.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Essa ação não poderá ser desfeita, e ele será removido do seu perfil, da timeline de todas as contas que seguem você e dos resultados de busca do Twitter.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Excluir Tweet?",

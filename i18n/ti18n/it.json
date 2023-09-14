@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Interazioni",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Ritwitta",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Vuoi ritwittare invece?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "La tua bozza di Tweet verrà cestinata prima dell'invio del tuo Tweet di citazione.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Cestina Tweet non inviato",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Tweet non inviati",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Non è ancora il momento adatto per inviare un Tweet? Salvalo nelle bozze o programmalo per più tardi.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Visualizza i Tweet",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Vuoi davvero vedere questi Tweet? Procedendo non sbloccherai @{screenName}. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Vuoi davvero vedere questi post? Procedendo non sbloccherai @{screenName}. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Non potrà seguirti né vedere i tuoi post e tu non vedrai i post né le notifiche di @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Se blocchi @{screenName}, @{screenName} non potrà più seguirti o inviarti messaggi, mentre tu non riceverai più notifiche da @{screenName}",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "L'azione non può annullata e questa informazione verrà rimossa dal tuo profilo, dalla cronologia di qualsiasi account che segui e dai risultati di ricerca.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "L'azione non potrà annullata e questa informazione verrà rimossa dal tuo profilo, dalla cronologia di qualsiasi account che segui e dai nostri risultati di ricerca.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Eliminare il Tweet?",

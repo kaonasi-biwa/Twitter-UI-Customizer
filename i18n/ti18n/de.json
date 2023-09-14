@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Interaktionen",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweeten",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Stattdessen retweeten?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Dein Tweet-Entwurf wird verworfen, bevor du den Tweet zitierst.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Nicht gesendeten Tweet verwerfen",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Nicht gesendete Tweets",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Dein Tweet ist noch nicht ganz sendefertig? Dann speichere ihn in deinen Entwürfen oder plane ihn für später ein.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Tweets anzeigen",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Bist du sicher, dass du diese Tweets ansehen möchtest? Das Anzeigen der Tweets wird @{screenName} nicht entblocken. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Bist du sicher, dass du diese Posts ansehen möchtest? Das Ansehen von Posts hebt die Blockierung von @{screenName} nicht auf. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Die Person kann dir nicht länger folgen und deine Posts nicht mehr anzeigen. Außerdem siehst du keine Posts oder Mitteilungen mehr von @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "@{screenName} blockieren, @{screenName} kann dir nicht länger folgen oder dir Nachrichten senden, und es werden dir auch keine Mitteilungen von @{screenName} angezeigt",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Das kann nicht rückgängig gemacht werden und er/sie/es wird aus deinem Profil, der Timeline aller Accounts, die dir folgen, und den X Suchergebnissen entfernt.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Das kann nicht rückgängig gemacht werden und er wird aus deinem Profil, der Timeline aller Accounts, die dir folgen, und den Twitter Suchergebnissen entfernt.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Tweet löschen?",

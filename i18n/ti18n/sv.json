@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
+    "XtoTwitter-PostToTweet-engagementsTitle": "Engagemang",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweeta",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "Vill du retweeta i stället?",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "Utkastet till en Tweet kasseras innan du citerar tweeten.",
@@ -7,6 +9,11 @@
     "XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle": "Ignorera tweeten som inte har skickats",
     "XtoTwitter-PostToTweet-unsentPageTab1": "Tweets som inte har skickats",
     "XtoTwitter-PostToTweet-unsentPageTitle": "Är du inte redo att skicka en Tweet än? Spara den bland utkasten eller planera in den till ett senare tillfälle.",
+    "XtoTwitter-PostToTweet-blocked-none-button": "Visa Tweets",
+    "XtoTwitter-PostToTweet-blocked-none-body-old": "Vill du verkligen visa dessa Tweets? Blockeringen av @{screenName} hävs inte om du visar dessa Tweets. ",
+    "XtoTwitter-PostToTweet-blocked-none-body-latest": "Är du säker på att du vill visa dessa inlägg? Att visa inlägg innebär inte att @{screenName} avblockeras. ",
+    "XtoTwitter-PostToTweet-block-dialogBody-latest": "Personen kommer inte att kunna följa dig eller visa dina inlägg, och och du ser inte inlägg eller notiser från @{screenName}.",
+    "XtoTwitter-PostToTweet-block-dialogBody-old": "Blockera @{screenName}. @{screenName} kommer inte längre kunna följa dig eller skicka meddelanden till dig, och du kommer inte att kunna se notiser från @{screenName}.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "Detta går inte att ångra, och den tas bort från din profil, från tidslinjen i eventuella konton som följer dig, samt från sökresultat.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "Detta går inte att ångra, och det tas bort från din profil, från tidslinjen i eventuella konton som följer dig, samt från Twitters sökresultat.",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "Vill du radera tweeten?",
