@@ -46,7 +46,8 @@ window.onload = async () => {
     } // Firefoxの場合のみ有効
 
     chrome.storage.sync.get("TUIC", async (settingT) => {
-        const isWebstore = !chrome.runtime.getManifest().update_url?.includes("google.com");
+        const updateUrl = chrome.runtime.getManifest().update_url;
+        const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
         setting = settingT.TUIC ?? {
             iconClick: isWebstore,
             runBrowser: isWebstore,

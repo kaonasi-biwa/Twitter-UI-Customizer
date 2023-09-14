@@ -45,7 +45,7 @@ const update1 = async (updateType) => {
     const settingT = await browser.storage.sync.get("TUIC");
 
     const updateUrl = chrome.runtime.getManifest().update_url;
-    const isWebstore = typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined;
+    const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
     console.log(`isWebstore : ${isWebstore}`);
     const setting = settingT.TUIC ?? {
         iconClick: isWebstore,
