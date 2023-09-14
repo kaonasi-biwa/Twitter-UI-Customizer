@@ -258,39 +258,33 @@ export const TUICObserver = {
                             }
 
                             if (TUICPref.get("otherBoolSetting.placeEngagementsLink")) {
+                                const engageentsTypeList = TUICPref.get("fixEngagements");
+                                const engagementsFixList = [];
+                                const engageFixListFunc = (count) => {
+                                    let tempArr = [];
+                                    for (let i = 0; i < engageentsTypeList.length; i++) {
+                                        console.log(engageentsTypeList[i]);
+                                        tempArr.push([engageentsTypeList[i]]);
+                                        if (tempArr.length == count) {
+                                            engagementsFixList.push(tempArr);
+                                            tempArr = [];
+                                        }
+                                    }
+                                    if (tempArr.length != 0) {
+                                        engagementsFixList.push(tempArr);
+                                    }
+                                };
                                 if (location.pathname.includes("/photo/")) {
-                                    {
-                                        const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
-                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links("likes", elem));
-
-                                        bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
-                                    }
-                                    {
-                                        const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
-                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links("retweets", elem));
-
-                                        bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
-                                    }
-                                    {
-                                        const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
-                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links("quotes", elem));
-                                        bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
-                                    }
+                                    engageFixListFunc(1);
                                 } else {
-                                    {
-                                        const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
-                                        for (const engagementsID of ["likes", "retweets"]) {
-                                            engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem));
-                                        }
-                                        bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
+                                    engageFixListFunc(2);
+                                }
+                                for (const engageList of engagementsFixList) {
+                                    const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
+                                    for (const engagementsID of engageList) {
+                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem));
                                     }
-                                    {
-                                        const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
-                                        for (const engagementsID of ["quotes"]) {
-                                            engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem));
-                                        }
-                                        bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
-                                    }
+                                    bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
                                 }
                             }
                         }

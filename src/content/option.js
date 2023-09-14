@@ -649,9 +649,9 @@ ${this.upDownList(
         this.checkbox("bottomSpace", TUICPref.get("otherBoolSetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", "otherBoolSetting") +
         this.checkbox("RTNotQuote", TUICPref.get("otherBoolSetting.RTNotQuote"), "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting") +
         this.checkbox("noModalbottomTweetButtons", TUICPref.get("otherBoolSetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "otherBoolSetting") +
-        this.checkbox("noNumberBottomTweetButtons", TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "otherBoolSetting") +
-        this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting"),
+        this.checkbox("noNumberBottomTweetButtons", TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "otherBoolSetting"),
 )}
+${this.upDownList("fixEngagements", "fixEngagements-settingTitle", this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting"))}
 ${this.upDownList(
     "sidebarButtons",
     "sidebarButton-settingTitle",
@@ -850,6 +850,10 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         const ListItem = this.upDownListItem(id);
         const TUICVisibleButtons = ListItem[0];
         const TUICInvisibleButtons = ListItem[1];
+        let contentCount = 5;
+        if (UDAllValue.length >= 5) {
+            contentCount = UDAllValue.length;
+        }
         const UpdownButtonFuncs = [
             {
                 iconSrc: ARROW_LEFT,
@@ -885,7 +889,7 @@ ${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
             <div style="display:flex;" TUICUDBox="${id}" TUICSelectedItem="">
                 <div style="flex: 1 2;width:50px;">
                     <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-visible")}</h2><br>
-                    <div id="TUIC_visible" class="TUIC_selectbox" style="--contentCount:${UDAllValue.length};">
+                    <div id="TUIC_visible" class="TUIC_selectbox" style="--contentCount:${contentCount};">
 ${TUICVisibleButtons}
                     </div>
                 </div>
@@ -898,7 +902,7 @@ ${TUICVisibleButtons}
                </div>
                 <div style="flex: 1 2;width:50px;">
                     <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-invisible")}</h2><br>
-                    <div id="TUIC_invisible" class="TUIC_selectbox" style="--contentCount:${UDAllValue.length};">
+                    <div id="TUIC_invisible" class="TUIC_selectbox" style="--contentCount:${contentCount};">
     ${TUICInvisibleButtons}
                     </div>
                 </div>

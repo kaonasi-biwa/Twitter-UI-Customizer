@@ -8,6 +8,7 @@ export const TUICData = {
         buttonColorDark: {},
         visibleButtons: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
         sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "twiter-blue", "profile", "moremenu"],
+        fixEngagements: ["likes", "retweets", "quotes"],
         invisibleItems: {
             "twitter-pro-promotion-btn": false,
             discoverMore: false,
@@ -89,6 +90,14 @@ export const TUICData = {
                 "verified-choose": "sidebarButtons-verified-choose",
                 display: "sidebarButtons-display",
                 muteAndBlock: "sidebarButtons-muteAndBlock",
+            },
+        },
+        fixEngagements: {
+            all: ["likes", "retweets", "quotes"],
+            i18n: {
+                likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
+                retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
+                quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
             },
         },
         colors: {
