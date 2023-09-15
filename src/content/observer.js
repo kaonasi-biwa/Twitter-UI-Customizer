@@ -259,6 +259,7 @@ export const TUICObserver = {
 
                             if (TUICPref.get("otherBoolSetting.placeEngagementsLink")) {
                                 const engageentsTypeList = TUICPref.get("fixEngagements");
+                                const shortName = TUICPref.get("otherBoolSetting.placeEngagementsLinkShort");
                                 const engagementsFixList = [];
                                 const engageFixListFunc = (count) => {
                                     let tempArr = [];
@@ -274,15 +275,19 @@ export const TUICObserver = {
                                         engagementsFixList.push(tempArr);
                                     }
                                 };
-                                if (location.pathname.includes("/photo/")) {
-                                    engageFixListFunc(1);
-                                } else {
+                                console.log(shortName);
+                                const isPhotoPage = location.pathname.includes("/photo/");
+                                if (shortName && !isPhotoPage) {
+                                    engageFixListFunc(3);
+                                } else if ((shortName && isPhotoPage) || (!shortName && !isPhotoPage)) {
                                     engageFixListFunc(2);
+                                } else {
+                                    engageFixListFunc(1);
                                 }
                                 for (const engageList of engagementsFixList) {
                                     const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
                                     for (const engagementsID of engageList) {
-                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem));
+                                        engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, elem, shortName));
                                     }
                                     bar_base.parentElement.parentElement.insertBefore(engagementsBox, bar_base.parentElement);
                                 }

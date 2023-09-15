@@ -651,7 +651,12 @@ ${this.upDownList(
         this.checkbox("noModalbottomTweetButtons", TUICPref.get("otherBoolSetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "otherBoolSetting") +
         this.checkbox("noNumberBottomTweetButtons", TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "otherBoolSetting"),
 )}
-${this.upDownList("fixEngagements", "fixEngagements-settingTitle", this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting"))}
+${this.upDownList(
+    "fixEngagements",
+    "fixEngagements-settingTitle",
+    this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting") +
+        this.checkbox("placeEngagementsLinkShort", TUICPref.get("otherBoolSetting.placeEngagementsLinkShort"), "fixEngagements-shortName", "otherBoolSetting"),
+)}
 ${this.upDownList(
     "sidebarButtons",
     "sidebarButton-settingTitle",
