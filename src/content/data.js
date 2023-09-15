@@ -31,9 +31,6 @@ export const TUICData = {
             placeEngagementsLinkShort: false,
         },
         XToTwitter: { XToTwitter: false, PostToTweet: false },
-        clientInfo: {
-            clientInfoVisible: false,
-        },
         timeline: {
             "osusume-user-timeline": false,
             hideOhterRTTL: false,
@@ -844,10 +841,6 @@ export const TUICData = {
     XToTwitter: {
         all: ["XToTwitter", "PostToTweet"],
         i18n: { XToTwitter: "XtoTwitter-XtoTwitter", PostToTweet: "XtoTwitter-PostToTweet" },
-    },
-    clientInfo: {
-        all: ["clientInfoVisible"],
-        i18n: { clientInfoVisible: "clientInfo-clientInfoVisible" },
     },
     timeline: {
         all: ["osusume-user-timeline", "hideOhterRTTL", "accountStart"],

@@ -65,11 +65,6 @@ export const TUICLibrary = {
                 this.parallelToSerial();
             }
 
-            if (TUICPref.get("otherBoolSetting.clientInfo") == true) {
-                TUICPref.set("clientInfo", { clientInfoVisible: true });
-            }
-            TUICPref.delete("otherBoolSetting.clientInfo");
-
             if (typeof TUICPref.get("timeline") != "object") TUICPref.set("timeline", {});
 
             if (typeof TUICPref.get("rightSidebar") != "object") TUICPref.set("rightSidebar", {});

@@ -63,8 +63,6 @@ export const TUICObserver = {
         TUICObserver.functions.replacePost();
         TUICObserver.functions.invisibleItems();
 
-        TUICObserver.functions.clientInfo();
-
         TUICObserver.functions.updateStyles();
 
         TUICObserver.functions.fixDMBox();
@@ -794,35 +792,6 @@ export const TUICObserver = {
                     e.classList.remove(TUICLibrary.getClasses.getClass("TUIC_DISPNONE"));
                 }
             });
-        },
-        clientInfo: function () {
-            if (document.getElementById("client-info") == null && TUICPref.get("clientInfo.clientInfoVisible") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.getElementsByClassName("css-1dbjc4n r-1d09ksm r-1471scf r-18u37iz r-1wbh5a2").length >= 1) {
-                TUICObserver.functions.clientInfoVisible();
-            } else if (document.getElementById("client-info") != null && !TUICPref.get("clientInfo.clientInfoVisible")) {
-                document.getElementById("client-info").remove();
-            }
-        },
-        clientInfoVisible: async function () {
-            const client = document.createElement("a");
-            client.style.marginLeft = "4px";
-            client.id = "client-info";
-            client.classList.add("css-4rbku5", "css-18t94o4", "css-901oao", "css-16my406", "r-1loqt21", "r-xoduu5", "r-1q142lx", "r-1w6e6rj", "r-1tl8opc", "r-9aw3ui", "r-bcqeeo", "r-3s2u2q", "r-qvutc0");
-            document.querySelector(".css-1dbjc4n.r-1d09ksm.r-1471scf.r-18u37iz.r-1wbh5a2").children[0].appendChild(client);
-            chrome.runtime.sendMessage(
-                {
-                    type: "clientInfo",
-                    endpoint: "https://mico.re/api/getclient.php?id=" + new URL(location.href).pathname.split("/")[3],
-                },
-                (response) => {
-                    const json = response;
-                    const cliantInfoElem = document.querySelector("#client-info");
-                    if (json.source ?? "unknwon" != "unknwon") {
-                        cliantInfoElem.textContent = json.source.replace("</a>", "").split(">")[1];
-                    } else {
-                        cliantInfoElem.textContent = TUICI18N.get("clientInfo-cannotGetInfo");
-                    }
-                },
-            );
         },
         updateStyles: function () {
             for (const i of document.querySelectorAll(".TUICSidebarButton")) {
