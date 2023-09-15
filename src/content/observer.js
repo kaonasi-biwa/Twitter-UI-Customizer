@@ -262,7 +262,6 @@ export const TUICObserver = {
                                 const engageFixListFunc = (count) => {
                                     let tempArr = [];
                                     for (let i = 0; i < engageentsTypeList.length; i++) {
-                                        console.log(engageentsTypeList[i]);
                                         tempArr.push([engageentsTypeList[i]]);
                                         if (tempArr.length == count) {
                                             engagementsFixList.push(tempArr);
@@ -273,7 +272,6 @@ export const TUICObserver = {
                                         engagementsFixList.push(tempArr);
                                     }
                                 };
-                                console.log(shortName);
                                 const isPhotoPage = location.pathname.includes("/photo/");
                                 if (shortName && !isPhotoPage) {
                                     engageFixListFunc(3);

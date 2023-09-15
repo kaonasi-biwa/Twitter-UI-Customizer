@@ -255,17 +255,17 @@ export const TUICLibrary = {
         if (document.querySelectorAll(selector).length !== 0) {
             return Array.from(document.querySelectorAll(selector));
         } else {
-            return new Promise((resolve) => {
+            const returns = await new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
-                    const addedNodes = mutations.flatMap((m) => Array.from(m.addedNodes)).filter((n) => n instanceof HTMLElement);
-                    const matchedAddedNodes = addedNodes.filter((e) => e.matches(selector));
+                    const matchedAddedNodes = document.querySelectorAll(selector);
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
                         resolve(matchedAddedNodes);
                     }
                 });
-                observer.observe(document, { subtree: true, childList: true });
+                observer.observe(document.querySelector("html"), { subtree: true, childList: true });
             });
+            return returns;
         }
     },
 };
