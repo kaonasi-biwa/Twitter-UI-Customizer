@@ -40,6 +40,12 @@
     "bottomTweetButtons-setting-placeEngagementsLink-likes": "いいねしたユーザー一覧を開く",
     "bottomTweetButtons-setting-placeEngagementsLink-retweets": "リツイートしたユーザー一覧を開く",
     "bottomTweetButtons-setting-placeEngagementsLink-quotes": "引用ツイート一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-likes-short": "いいね一覧",
+    "bottomTweetButtons-setting-placeEngagementsLink-retweets-short": "リツイート一覧",
+    "bottomTweetButtons-setting-placeEngagementsLink-quotes-short": "引用ツイート一覧",
+
+    "fixEngagements-settingTitle": "エンゲージメントに関する設定",
+    "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
