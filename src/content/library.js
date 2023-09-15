@@ -65,16 +65,13 @@ export const TUICLibrary = {
                 this.parallelToSerial();
             }
 
-            if (TUICPref.get("otherBoolSetting.clientInfo") == true) {
-                TUICPref.set("clientInfo", { clientInfoVisible: true });
-            }
-            TUICPref.delete("otherBoolSetting.clientInfo");
-
             if (typeof TUICPref.get("timeline") != "object") TUICPref.set("timeline", {});
 
             if (typeof TUICPref.get("rightSidebar") != "object") TUICPref.set("rightSidebar", {});
 
             if (typeof TUICPref.get("XToTwitter") != "object") TUICPref.set("XToTwitter", {});
+
+            if (typeof TUICPref.get("clientInfo") == "object") TUICPref.delete("clientInfo");
 
             /**
              * boolean 値の設定キーを変更します。

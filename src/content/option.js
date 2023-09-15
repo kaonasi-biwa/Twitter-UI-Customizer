@@ -155,16 +155,6 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
-        ".clientInfo": {
-            type: "click",
-            function: function (event) {
-                TUICPref.set("clientInfo." + event.target.id, event.target.checked);
-                TUICPref.save();
-                TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
-            },
-            single: false,
-        },
         ".rightSidebar": {
             type: "click",
             function: function (event) {
@@ -678,7 +668,6 @@ ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisi
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
 ${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICXToTwitter", `<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom:10px;" id="XToTwitterRestoreIcon">${TUICI18N.get("XtoTwitter-twitterIcon")}</button>`)}
 ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
-${this.checkboxList("clientInfo", "clientInfo-settingTitle", "clientInfo")}
         <br>
         <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">${TUICI18N.get("settingUI-restoreDefaultAll")}</button>
         <br><br>

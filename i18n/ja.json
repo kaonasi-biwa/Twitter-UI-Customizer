@@ -78,11 +78,6 @@
     "timeline-discoverMore-detailOpen": "折りたたみ可能にし、デフォルトは開く",
     "timeline-discoverMore-detailClose": "折りたたみ可能にし、デフォルトは閉じる",
     "timeline-discoverMore-invisible": "非表示にする",
-
-    "clientInfo-settingTitle": "クライアント情報 (廃止される可能性があります)",
-    "clientInfo-clientInfoVisible": "クライアント情報を表示",
-    "clientInfo-cannotGetInfo": "情報を取得できませんでした",
-
     "customCSS-settingTitle": "カスタムCSS",
     "customCSS-save": "カスタムCSSを保存",
 
