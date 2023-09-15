@@ -71,6 +71,8 @@ export const TUICLibrary = {
 
             if (typeof TUICPref.get("XToTwitter") != "object") TUICPref.set("XToTwitter", {});
 
+            if (typeof TUICPref.get("clientInfo") == "object") TUICPref.delete("clientInfo");
+
             /**
              * boolean 値の設定キーを変更します。
              *
