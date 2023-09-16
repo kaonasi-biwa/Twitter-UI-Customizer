@@ -223,7 +223,7 @@ export const TUICObserver = {
                         if (TUICPref.get("otherBoolSetting.bottomScroll") ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add(TUICLibrary.getClasses.getClass("TUICScrollBottom"));
                         if (TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace) {
                             const space = elem.querySelector(`[aria-labelledby]`);
-                            if (space != null && space.children[0].childElementCount == 0) {
+                            if (space && space.children[0].childElementCount == 0) {
                                 space.classList.add(TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET"));
                             }
                         }
