@@ -152,7 +152,7 @@ export function applySystemCss() {
     border-color:#71767b !important;
 }
 
-.${TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT")}:not(:last-of-type){
+.${"TUIC_ISNOTDEFAULT".addClass()}:not(:last-of-type){
     margin-bottom:calc(12px + 1em);
 }
 /*色選択*/
@@ -309,7 +309,7 @@ scrollbar-width:thin;
     -ms-overflow-style: none;
 }
 .TUIC_none_scroll::-webkit-scrollbar{display:none}
-.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}{
+.${"TUIC_DISPNONE".addClass()}{
     display: none !important;
 }
 
@@ -451,7 +451,7 @@ textarea#css_textarea,.TUICTextInput {
     content: "";
 }
 
-.${TUICLibrary.getClasses.getClass("TUICScrollBottom")}{
+.${"TUICScrollBottom".addClass()}{
 padding-right:8px;
 margin-right:-8px;
 padding-left:8px;
@@ -459,51 +459,51 @@ margin-left:-8px;
 padding-bottom:16px;
 margin-bottom:-16px;
 }
-.${TUICLibrary.getClasses.getClass("TUICScrollBottom")},
-.${TUICLibrary.getClasses.getClass("TUICItIsBigArticlePhoto")} .${TUICLibrary.getClasses.getClass("TUICScrollBottom")} > div {
+.${"TUICScrollBottom".addClass()},
+.${"TUICItIsBigArticlePhoto".addClass()} .${"TUICScrollBottom".addClass()} > div {
     overflow-x:auto;
     scrollbar-width:thin;
 
 }
-:is(.${TUICLibrary.getClasses.getClass("TUICItIsBigArticlePhoto")} .${TUICLibrary.getClasses.getClass("TUICScrollBottom")} > div,
-.${TUICLibrary.getClasses.getClass("TUICScrollBottom")})::-webkit-scrollbar {
+:is(.${"TUICItIsBigArticlePhoto".addClass()} .${"TUICScrollBottom".addClass()} > div,
+.${"TUICScrollBottom".addClass()})::-webkit-scrollbar {
 height:8px
 }
 
-:is(.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")},
+:is(.${"TUICTwitterIcon_Twitter".addClass()},
+.${"TUICTwitterIcon_Dog".addClass()},
+.${"TUICTwitterIcon_IconImg".addClass()},
+.${"TUICTwitterIcon_X".addClass()},
 .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *){
     margin: 8px;
     background-size: cover;
 }
 
-#placeholder > :is(.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}){
+#placeholder > :is(.${"TUICTwitterIcon_Twitter".addClass()},
+.${"TUICTwitterIcon_Dog".addClass()},
+.${"TUICTwitterIcon_IconImg".addClass()},
+.${"TUICTwitterIcon_X".addClass()}){
     position: absolute;
     margin: auto;
 }
-:is(.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *){
+:is(.${"TUICTwitterIcon_Twitter".addClass()},
+.${"TUICTwitterIcon_Dog".addClass()},
+.${"TUICTwitterIcon_IconImg".addClass()},
+.${"TUICTwitterIcon_X".addClass()}):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *){
     height:inherit !important;
 }
 
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] .${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")}{
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] .${"TUICTwitterIcon_IconImg".addClass()}{
     height:40px;
     width:40px;
     margin-left:auto;
     margin-right:auto;
 }
 
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}){
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.${"TUICTwitterIcon_Twitter".addClass()},
+.${"TUICTwitterIcon_Dog".addClass()},
+.${"TUICTwitterIcon_IconImg".addClass()},
+.${"TUICTwitterIcon_X".addClass()}){
     mask-size:contain !important;
     mask-repeat:no-repeat;
     mask-position:center;
@@ -514,29 +514,29 @@ height:8px
     background-repeat:no-repeat;
     background-position:center;
 }
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Dog")}{
+.${"TUICTwitterIcon_Dog".addClass()}{
     background-image:url('${DOG}');
 }
 
-:is(.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")},.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *){
+:is(.${"TUICTwitterIcon_Twitter".addClass()},.${"TUICTwitterIcon_X".addClass()}):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *){
     mask-size: cover !important;
     -webkit-mask-size: cover !important;
 }
 
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_Twitter")}{
+.${"TUICTwitterIcon_Twitter".addClass()}{
     background-color:var(--twitter-twitterIcon-color);
     --TUIC-twitter-icon:url('${TWITTER}') !important;
     -webkit-mask-image:var(--TUIC-twitter-icon) !important;
     mask-image:var(--TUIC-twitter-icon) !important;
 }
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_X")}{
+.${"TUICTwitterIcon_X".addClass()}{
     background-color:var(--twitter-twitterIcon-color);
     --TUIC-twitter-icon:url('${X}') !important;
     -webkit-mask-image:var(--TUIC-twitter-icon) !important;
     mask-image:var(--TUIC-twitter-icon) !important;
 }
 
-.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")},
+.${"TUICTwitterIcon_IconImg".addClass()},
 #TUICIcon_IconImg{
     background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
     ${
@@ -548,14 +548,14 @@ height:8px
     }
 }
 
-#layers [data-testid="TopNavBar"] div+.${TUICLibrary.getClasses.getClass("TUICTwitterIcon_IconImg")}{
+#layers [data-testid="TopNavBar"] div+.${"TUICTwitterIcon_IconImg".addClass()}{
     background-size:contain !important;
     background-repeat:no-repeat !important;
     background-position:center;
     width:auto !important;
 }
 
-.${TUICLibrary.getClasses.getClass("TUIC_SVGDISPNONE")} > *{
+.${"TUIC_SVGDISPNONE".addClass()} > *{
 display:none !important;
 }
 
@@ -581,7 +581,7 @@ display:none !important;
     border-top: 7px solid #555;   /* 好みで色を変えてください */
 }
 
-.${TUICLibrary.getClasses.getClass("TUIC_DISCOVERMORE")}{
+.${"TUIC_DISCOVERMORE".addClass()}{
     display:var(--TUIC-DISCOVERMORE,block) !important;
     }
 .TUICUploadedImg:not([data-testid="interstitialGraphic"] > svg){
@@ -667,7 +667,7 @@ display:none !important;
 ${
     TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
         ? `
-[role="navigation"] .${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}{
+[role="navigation"] .${"NOT_" + "TUIC_DISPNONE".addClass()}{
     padding-bottom:0px !important;
     padding-top:0px !important;
 }
@@ -687,7 +687,7 @@ ${TUICPref.get("invisibleItems.hideBelowDM") ? `[data-testid="DMDrawer"]{display
 ${
     TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
         ? `
-.${TUICLibrary.getClasses.getClass("TUIC_NONE_SPACE_BOTTOM_TWEET")}{margin-top:0px !important;}
+.${"TUIC_NONE_SPACE_BOTTOM_TWEET".addClass()}{margin-top:0px !important;}
 `
         : ""
 }
@@ -702,7 +702,7 @@ header > div > div > div > div.r-1rnoaur{overflow:clip;}
 ${
     TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons") ?? TUICData.defaultPref.otherBoolSetting.noNumberBottomTweetButtons
         ? `
-.${TUICLibrary.getClasses.getClass("TUICItIsBigArticle")} [data-testid="app-text-transition-container"]{
+.${"TUICItIsBigArticle".addClass()} [data-testid="app-text-transition-container"]{
     display:none !important;
 }
 `
