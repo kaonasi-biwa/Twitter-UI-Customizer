@@ -9,6 +9,8 @@
         "fdc023d7": ["{formattedCount}", "{count}"],
         "c42234da": ["{count}", "uri"],
         "h99e9c95": ["{0}"],
-        "ee69d769": ["{verb}"]
+        "ee69d769": ["{verb}"],
+        "cf5af90c": ["!"],
+        "d29edd5a": ["!"]
     }
 }
