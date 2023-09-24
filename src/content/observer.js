@@ -781,6 +781,24 @@ export const TUICObserver = {
                     e.classList.remove("TUIC_DISPNONE".addClass());
                 }
             });
+
+            if (TUICPref.get("invisibleItems.verifiedFollowerTab")) {
+                const nowURL = location.pathname;
+                if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/verified_followers")) {
+                    const tab = document.querySelector(`[role="presentation"]:not(.${"TUIC_DISPNONE".addClass()}) > [role="tab"][href$="/verified_followers"]`);
+                    if (tab) {
+                        tab.parentElement.classList.add("TUIC_DISPNONE".addClass());
+                        if (nowURL.endsWith("/verified_followers")) {
+                            document.querySelector(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
+                        }
+                    }
+                    document.querySelector(`nav [data-testid="ScrollSnap-prevButtonWrapper"]:not(.${"TUIC_DISPNONE_PARENT".addClass()} > *)`)?.parentElement.classList.add("TUIC_DISPNONE_PARENT".addClass());
+                }
+            }
+
+            if (TUICPref.get("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
+                document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.${"TUIC_DISPNONE".addClass()} > *)`)?.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
         },
         updateStyles: function () {
             for (const i of document.querySelectorAll(".TUICSidebarButton")) {

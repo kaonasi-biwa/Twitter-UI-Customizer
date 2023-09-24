@@ -505,6 +505,8 @@ export const TUICOptionHTML = {
                         "twitter-pro-promotion-btn": true,
                         "subscribe-profile": true,
                         "subscribe-tweets": true,
+                        verifiedFollowerTab: true,
+                        verifiedNotifications: true,
                     },
                     rightSidebar: {
                         verified: true,

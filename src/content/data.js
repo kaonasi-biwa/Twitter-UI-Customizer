@@ -16,6 +16,8 @@ export const TUICData = {
             "subscribe-tweets": false,
             profileHighlights: false,
             hideBelowDM: false,
+            verifiedFollowerTab: false,
+            verifiedNotifications: false,
         },
         otherBoolSetting: {
             bottomScroll: false,
@@ -816,7 +818,7 @@ export const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "config-premium", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
+        all: ["twitter-pro-promotion-btn", "config-premium", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM", "verifiedFollowerTab", "verifiedNotifications"],
         i18n: {
             "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
             "config-premium": "invisibleItems-configPremium",
@@ -824,6 +826,8 @@ export const TUICData = {
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
             hideBelowDM: "invisibleItems-hideBelowDM",
+            verifiedFollowerTab: "invisibleItems-verifiedFollowerTab",
+            verifiedNotifications: "invisibleItems-verifiedNotifications",
         },
     },
     rightSidebar: {

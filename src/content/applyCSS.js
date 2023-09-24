@@ -559,6 +559,10 @@ height:8px
 display:none !important;
 }
 
+.${"TUIC_DISPNONE_PARENT".addClass()} > [data-testid="ScrollSnap-prevButtonWrapper"]{
+    display:none !important;
+}
+
 [TUICDiscoberMore]{
     padding-left:20px;
 }
