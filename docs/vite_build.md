@@ -1,8 +1,8 @@
 ## Viteの導入による変更
 
-ビルドツール Vite の導入により、TypeScriptやSCSSなどコンパイルが必要なソースを使えるようになりました。  
-これにより、ビルド方法が変わりました。
-READMEにも書いたように、`yarn debug`でパッケージ、及びデバッグが実行されます。
+ビルドツール Vite の導入により、TypeScriptやSCSSなどコンパイルが必要なソースを使用できるようになりました。  
+また、ビルド方法が変わりました。
+READMEにも記載されているように、`yarn debug`でパッケージ、及びデバッグが実行されます。
 
 参照：[PR #73](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/pull/73) （2023年9月2日）
 
