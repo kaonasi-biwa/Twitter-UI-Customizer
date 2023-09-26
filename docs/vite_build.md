@@ -10,8 +10,8 @@ READMEにも記載されているように、`yarn debug`でパッケージ、�
 
 ### yarn debug系
 
-    コードが変更されたときに自動反映されます。
-    リソース及びbackground.tsの変更には対応していません。
+コードが変更されたときに自動反映されます。
+リソース及びbackground.tsの変更には対応していません。
 
 [`.env.local.example`](../.env.local.example)で、他のFirefox系ブラウザ（Floorpなど）
 またはChromium系ブラウザを指定することができます。  
@@ -41,8 +41,8 @@ Firefox (Stable)で実行される時、Dev Editionより旧バージョンな�
 
 ### yarn build系
 
-    自動反映はされません。
-    zipファイルが生成されます。
+自動反映はされません。
+zipファイルが生成されます。
 
 -   `yarn build` または `yarn build:firefox`  
     Firefox 及び Firefox系ブラウザ向けのビルドをします。
