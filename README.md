@@ -22,6 +22,12 @@ Chromiumの場合は、
 
 の中のお好きなものをお選びください！
 
+## 貢献者様へ
+
+**ビルドツール Vite導入により、デバッグ方法が変わりました！**  
+ビルド及びデバッグ方法については、このREADME下部及び[docs/vite_build](./docs/vite_build.md)を御覧ください。  
+この変更は2023年9月2日からの適用です。
+
 ## Special Thanks (使い方あってるか知らんけど)
 
 GitHub:
@@ -107,21 +113,13 @@ Crowdinで試験的にやってみています！
 
 ## アドオンのデバッグ方法
 
-**Chromium、またはFirefoxでのデバッグの詳細は [`.env.local.example`](./.env.local.example)を御覧ください。**
+**Chromium、またはFirefoxでのデバッグの詳細は [`docs/vite_build`](./docs/vite_build.md)を御覧ください。**
 
 manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！
 
 **重要**: Firefox ブラウザーが事前にインストールされている必要があります。  
 また、新しいプロファイルを "about:profiles" で "development" という名前で作成する必要があります。  
 プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
-
-また、バージョンの違うFirefoxで作られたプロファイルは実行時にエラーが出る場合があります。  
-例えばFirefox Developer Edition (aurora channel)で作られたプロファイルは
-Firefox (Stable)で実行される時、Dev Editionより旧バージョンなため、互換性がないとエラーが出ます。  
-デバッグの時実行されるFirefoxでプロファイルを作成してください。
-
-デバッグは、元のプロファイルをコピーして行われるので、変更点が保存されません。  
-予め "development"プロファイルでTwitterにログインして置くことをおすすめします。
 
 ```bash
 
