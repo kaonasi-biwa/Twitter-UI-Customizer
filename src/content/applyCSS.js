@@ -451,6 +451,10 @@ textarea#css_textarea,.TUICTextInput {
     content: "";
 }
 
+.${"TUICTweetButtomBarBase".addClass()} > .r-13awgt0{
+    flex: inherit !important;
+}
+
 .${"TUICScrollBottom".addClass()}{
 padding-right:8px;
 margin-right:-8px;
