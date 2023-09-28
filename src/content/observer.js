@@ -218,7 +218,7 @@ export const TUICObserver = {
                             bar_base = bar_base.parentElement;
                         }
                         if (TUICPref.get("otherBoolSetting.bottomScroll") ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add("TUICScrollBottom".addClass());
-                        bar_base.classList.add("TUICTweetButtomBarBase".addClass());
+                        bar_base.parentElement.classList.add("TUICTweetButtomBarBase".addClass());
                         if (TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace) {
                             const space = elem.querySelector(`[aria-labelledby]`);
                             if (space && space.children?.[0]?.childElementCount === 0) {

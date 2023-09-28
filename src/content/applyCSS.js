@@ -451,7 +451,7 @@ textarea#css_textarea,.TUICTextInput {
     content: "";
 }
 
-.${"TUICTweetButtomBarBase".addClass()} > .r-13awgt0{
+.${"TUICTweetButtomBarBase".addClass()} > div > .r-13awgt0{
     flex: inherit !important;
 }
 
