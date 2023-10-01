@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "Цей твіт можуть бачити лише люди з Кола @{screenName} у Twitter",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвіти",
     "XtoTwitter-PostToTweet-engagementsTitle": "Взаємодія",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "Визначте, хто може відповідати на цей твіт. Згадані особи завжди можуть відповідати.",
     "XtoTwitter-PostToTweet-tweeted": " твітнув(ла)…",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Додайте ще один твіт!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Додайте ще один пост",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Додайте ще один твіт!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Опублікуйте свою відповідь",
     "XtoTwitter-PostToTweet-placeholder-reply": "Твітніть свою відповідь!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Опублікувати все",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Опублікувати пост",

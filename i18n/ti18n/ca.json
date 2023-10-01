@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Només els membres del Cercle de l'usuari @{screenName} poden veure la publicació",
     "XtoTwitter-PostToTweet-circleTweet-old": "Només els membres del cercle del Twitter de l'usuari @{screenName} poden veure el tuit.",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retuits",
     "XtoTwitter-PostToTweet-engagementsTitle": "Implicació",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "Tria qui pot respondre al tuit. Els usuaris mencionats sempre hi poden respondre.",
     "XtoTwitter-PostToTweet-tweeted": " ha tuitat...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Afegeix un altre tuit",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Afegeix una altra publicació",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Afegeix un altre tuit",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Publica la resposta",
     "XtoTwitter-PostToTweet-placeholder-reply": "Tuita la teva resposta",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Publica-ho tot",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Publica",

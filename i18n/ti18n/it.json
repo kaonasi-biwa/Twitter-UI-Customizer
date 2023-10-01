@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "Solo chi fa parte della Twitter Circle di {screenName} può vedere questo Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interazioni",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "Scegli chi può rispondere a questo Tweet. Gli utenti menzionati possono rispondere sempre.",
     "XtoTwitter-PostToTweet-tweeted": " ha twittato...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Aggiungi un altro Tweet.",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Aggiungi un altro post",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Aggiungi un altro Tweet.",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Posta la tua risposta",
     "XtoTwitter-PostToTweet-placeholder-reply": "Twitta la tua risposta.",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Pubblica tutto",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Pubblica",

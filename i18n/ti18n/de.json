@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Nur Leute im Circle von @{screenName} können diesen Post sehen",
     "XtoTwitter-PostToTweet-circleTweet-old": "Nur Leute im Twitter Circle von @{screenName} können diesen Tweet sehen",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interaktionen",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "Wähle selbst, wer auf diesen Tweet antworten kann. Alle, die erwähnt werden, können stets antworten.",
     "XtoTwitter-PostToTweet-tweeted": " hat getwittert...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Füge einen weiteren Tweet hinzu!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Füge einen weiteren Post hinzu",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Füge einen weiteren Tweet hinzu!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Poste deine Antwort",
     "XtoTwitter-PostToTweet-placeholder-reply": "Twittere deine Antwort!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Alle posten",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Posten",
