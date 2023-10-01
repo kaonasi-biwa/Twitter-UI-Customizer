@@ -1,4 +1,6 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-circleTweet-old": "@{screenName}さんのTwitterサークルに追加されているユーザーのみこのツイートを表示できます",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "リツイート",
     "XtoTwitter-PostToTweet-engagementsTitle": "エンゲージメント",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "リツイート",
@@ -69,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "このツイートに返信できるアカウントを選択します。@ツイートされたアカウントは常に返信できます。",
     "XtoTwitter-PostToTweet-tweeted": "さんがツイートしました",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "別のツイートを追加しましょう。",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "別のポストを追加してください。",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "別のツイートを追加しましょう。",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "返信をポスト",
     "XtoTwitter-PostToTweet-placeholder-reply": "返信をツイートしましょう。",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "すべてポスト",
     "XtoTwitter-PostToTweet-tweetButton-latest": "ポストする",

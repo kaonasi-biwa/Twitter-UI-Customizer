@@ -611,6 +611,17 @@ export const TUICObserver = {
                     }
                 }
 
+                // サークルツイートの下のやつ
+                const circleThumbnail = new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-circleTweet-latest").replaceAll("&quot;", '"').replaceAll("(", "\\(").replaceAll(")", "\\)").replace("{screenName}", "(.*)"));
+                for (const elem of getNotReplacedElements(`[role="status"][aria-live="polite"] > [data-testid="thumbnail"] > div+div > [id] > span`)) {
+                    if (elem.textContent != " ") {
+                        const blockTextMatch = elem.textContent.match(circleThumbnail);
+                        if (blockTextMatch && blockTextMatch.length > 1) {
+                            elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-circleTweet-old").replaceAll("{screenName}", blockTextMatch[1]);
+                        }
+                    }
+                }
+
                 // リツイート確認ポップアップの「リツイート」ボタン
                 for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet");
                 // リツイート確認ポップアップの「リツイート」ボタン
