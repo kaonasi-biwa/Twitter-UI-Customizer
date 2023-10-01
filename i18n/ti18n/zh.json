@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "只有 @{screenName} 的 Twitter 圈子中的用户可以查看这条推文。",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "转推",
     "XtoTwitter-PostToTweet-engagementsTitle": "参与",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "选择谁可以回复这条推文。任何提及的人始终都能回复。",
     "XtoTwitter-PostToTweet-tweeted": " 发布了推文...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "添加另一条推文！",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "添加另一个帖子！",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "添加另一条推文！",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "发布你的回复！",
     "XtoTwitter-PostToTweet-placeholder-reply": "发布你的回复！",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "全部发帖",
     "XtoTwitter-PostToTweet-tweetButton-latest": "发帖",

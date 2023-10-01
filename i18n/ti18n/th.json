@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "เฉพาะผู้คนในวงในของ @{screenName} เท่านั้นที่สามารถเห็นโพสต์นี้",
     "XtoTwitter-PostToTweet-circleTweet-old": "เฉพาะคนในวงใน Twitter ของ @{screenName} เท่านั้นที่เห็นทวีตนี้",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "รีทวีต",
     "XtoTwitter-PostToTweet-engagementsTitle": "การมีส่วนร่วม",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "เลือกว่าใครสามารถตอบกลับทวีตนี้ได้บ้าง ผู้คนที่ถูกพูดถึงจะสามารถตอบกลับได้เสมอ",
     "XtoTwitter-PostToTweet-tweeted": " ทวีต...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "เพิ่มอีกทวีต!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "เพิ่มอีกโพสต์",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "เพิ่มอีกทวีต!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "โพสต์การตอบกลับของคุณ",
     "XtoTwitter-PostToTweet-placeholder-reply": "ทวีตการตอบกลับของคุณ",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "โพสต์ทั้งหมด",
     "XtoTwitter-PostToTweet-tweetButton-latest": "โพสต์",

@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "Dette Tweet kan kun ses af personer i @{screenName}s Twitter-cirkel",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagementer",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "Vælg, hvem der kan svare på dette Tweet. Alle, der omtales, kan altid svare.",
     "XtoTwitter-PostToTweet-tweeted": " tweetede ...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Tilføj et nyt Tweet!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Tilføj en ny post",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Tilføj et nyt Tweet!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Post dit svar",
     "XtoTwitter-PostToTweet-placeholder-reply": "Tweet dit svar!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Post alle",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Post",

@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "يمكن فقط للأشخاص الذين تمت إضافتهم إلى دائرة Twitter الخاصة بـ @{screenName} رؤية هذه التغريدة",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "إعادات التغريد",
     "XtoTwitter-PostToTweet-engagementsTitle": "المشاركات",
@@ -69,9 +70,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "اختاري من يمكنه الرد على هذه التغريدة. يمكن لأي شخص الرد دائمًا.",
     "XtoTwitter-PostToTweet-tweeted": "غرّدت ...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "إضافة تغريدة أخرى!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "أضيفي منشورًا آخر",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "إضافة تغريدة أخرى!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "انشري ردّكِ",
     "XtoTwitter-PostToTweet-placeholder-reply": "التغريد بردك!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "نشر الكل",
     "XtoTwitter-PostToTweet-tweetButton-latest": "نشر",

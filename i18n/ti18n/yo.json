@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Àwọn Rìtíwìtì",
     "XtoTwitter-PostToTweet-engagementsTitle": "Àwọn ìdásí",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Rìtíwìtì",
@@ -60,9 +61,7 @@
     "XtoTwitter-PostToTweet-pinnedTweet": "Pinned Tweet",
     "XtoTwitter-PostToTweet-replyRangeDetail": "Yan ẹni tó lè fèsì sí Twíìtì yí. Ẹnikẹ́ni tí o bá dárúkọ lè fèsì.",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Add another Tweet!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Add another post",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Add another Tweet!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Post your reply",
     "XtoTwitter-PostToTweet-placeholder-reply": "Tweet your reply!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Post all",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Post",

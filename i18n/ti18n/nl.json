@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Alleen de mensen in de Circle van @{screenName} kunnen deze post bekijken",
     "XtoTwitter-PostToTweet-circleTweet-old": "Alleen de mensen in de Twitter Circle van @{screenName} kunnen deze Tweet bekijken",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interacties",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "Kies wie kan antwoorden op deze Tweet. Iedereen die wordt vermeld, kan altijd antwoorden.",
     "XtoTwitter-PostToTweet-tweeted": "{screenName} heeft getweet ...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "Voeg nog een Tweet toe!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "Nog een post toevoegen",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "Voeg nog een Tweet toe!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "Plaats je antwoord",
     "XtoTwitter-PostToTweet-placeholder-reply": "Tweet je antwoord!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "Alles plaatsen",
     "XtoTwitter-PostToTweet-tweetButton-latest": "Plaatsen",

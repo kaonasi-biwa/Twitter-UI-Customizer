@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "শুধুমাত্র @{screenName}-এর Twitter সার্কেলে থাকা লোকজন এই টুইটটি দেখতে পাবেন",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "পুনঃটুইটগুলো",
     "XtoTwitter-PostToTweet-engagementsTitle": "এনগেজমেন্ট",
@@ -70,9 +71,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "কারা এই টুইটে উত্তর দিতে পারবেন তাদের বাছুন। উল্লিখিত যে কোনও ব্যক্তি সর্বদা উত্তর দিতে পারবেন।",
     "XtoTwitter-PostToTweet-tweeted": " টুইট করেছেন...",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "আরেকটি টুইট যোগ করুন!",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "আরেকটি পোস্ট যোগ করুন",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "আরেকটি টুইট যোগ করুন!",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "আপনার উত্তর পোস্ট করুন",
     "XtoTwitter-PostToTweet-placeholder-reply": "আপনার উত্তর টুইট করুন!",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "সবকটি পোস্ট করুন",
     "XtoTwitter-PostToTweet-tweetButton-latest": "পোস্ট",
