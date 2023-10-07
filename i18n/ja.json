@@ -27,6 +27,8 @@
     "easySetting-defaultTwitterColor": "Twitterの新しい色はにもう慣れた？それなら、今の色に合わせよう！",
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
+    "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
+    "bottomTweetButtons-settingTitle-invisible": "非表示設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
     "bottomTweetButtons-setting-removeSpaceBottomTweet-v2": "ツイートの内容の下に存在することがある空白を削除",
     "bottomTweetButtons-userBlock": "ユーザーをブロック",
@@ -50,6 +52,10 @@
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
+    "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニューの設定",
+    "sidebarButton-accountSwitcher-Icon": "アイコンを非表示にする",
+    "sidebarButton-accountSwitcher-NameID": "ユーザー名とIDを非表示にする",
+    "sidebarButton-accountSwitcher-MoreMenu": "右端の三点を非表示にする",
 
     "rightSidebar-settingTitle": "右サイドバーの設定",
     "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
