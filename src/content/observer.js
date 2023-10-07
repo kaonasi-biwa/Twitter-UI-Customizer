@@ -196,27 +196,47 @@ export const TUICObserver = {
                 }
             }
         },
+        showLinkCardInfoAsync: async function (elem) {
+            const isElem = await (async () => {
+                for (let i = 0; i <= 25; i++) {
+                    const re = await new Promise((resolve2) => {
+                        const elem = document.querySelector(`[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]`);
+                        if (elem != null) {
+                            resolve2("ok");
+                        }
+                        resolve2("bb");
+                    });
+                    if (re == "ok") return true;
+                    await new Promise((resolve2) => {
+                        window.setTimeout(() => {
+                            resolve2("");
+                        }, 100);
+                    });
+                }
+                return false;
+            })();
+            if (isElem && elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]') != null) {
+                const card = elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
+
+                if (card.querySelector(".TUIC_LinkCardInfo") == null) {
+                    card.childNodes[1].classList.add("TUIC_DISPNONE".addClass());
+                    card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d').classList.add("TUIC_DISPNONE".addClass());
+
+                    const link = card.querySelector('[data-testid="card.layoutLarge.media"] a').href;
+                    const domain = card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d span').textContent;
+                    const title = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/^.*? /, "");
+                    const description = "";
+                    const oldDisplay = TUICData.showLinkCardInfo(link, domain, title, description);
+                    card.appendChild(oldDisplay);
+                }
+            }
+        },
         buttonUnderTweet: function () {
             const articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${"TUICDidArticle".addClass()}"])`);
             if (articles.length != 0) {
                 articles.forEach(async function (elem) {
-                    if (TUICPref.get("otherBoolSetting.showLinkCardInfo") ?? TUICData.defaultPref.otherBoolSetting.showLinkCardInfo) {
-                        await TUICLibrary.waitForElement('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]');
-                        if (elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]') != null) {
-                            const card = elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
-
-                            if (card.querySelector(".TUIC_LinkCardInfo") == null) {
-                                card.childNodes[1].classList.add("TUIC_DISPNONE".addClass());
-                                card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d').classList.add("TUIC_DISPNONE".addClass());
-
-                                const link = card.querySelector('[data-testid="card.layoutLarge.media"] a').href;
-                                const domain = card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d span').textContent;
-                                const title = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/^.*? /, "");
-                                const description = "";
-                                const oldDisplay = TUICData.showLinkCardInfo(link, domain, title, description);
-                                card.appendChild(oldDisplay);
-                            }
-                        }
+                    if (TUICPref.get("otherBoolSetting.showLinkCardInfo") && document.querySelector(`a[href*="://t.co/"]`)) {
+                        TUICObserver.functions.showLinkCardInfoAsync(elem);
                     } else {
                         elem.querySelector(".TUIC_LinkCardInfo")?.remove();
                     }
