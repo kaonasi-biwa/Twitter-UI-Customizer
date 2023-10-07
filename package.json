@@ -25,7 +25,7 @@
         "build:pre:chromium": "yarn build:gen_manifest chrome && yarn build:copy_assets",
         "build:firefox": " yarn build:pre:firefox & vite build --mode firefox",
         "build:chromium": "yarn build:pre:chromium & vite build --mode chromium",
-        "build:gen_manifest": "node ./manifestChange.mjs",
+        "build:gen_manifest": "node ./npm-scripts/change-manifest.mjs",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:firefox --watch",

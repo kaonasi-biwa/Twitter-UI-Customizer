@@ -22,6 +22,10 @@ function getPointerFromKey(object, key) {
     }
 }
 
+String.prototype.escapeToUseHTML = function () {
+    return TUICLibrary.escapeToUseHTML(this);
+};
+
 export const TUICLibrary = {
     color: {
         rgb2hex: function (rgb) {
@@ -201,14 +205,13 @@ export const TUICLibrary = {
         },
     },
     backgroundColorCheck: function () {
-        const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
-        if (bodyStyle == "rgb(0, 0, 0)") {
-            return "dark";
-        } else if (bodyStyle == "rgb(21, 32, 43)") {
-            return "blue";
-        } else {
-            return "light";
-        }
+        const backgroundList = {
+            dark: "rgb(0, 0, 0)",
+            blue: "rgb(21, 32, 43)",
+            light: "rgb(255, 255, 255)"
+        };
+
+        return Object.entries(backgroundList).find(b => b[1] === document.body.style.backgroundColor)?.[0];
     },
     backgroundColorClass: function (dark, blue, white) {
         const backgroundType = this.backgroundColorCheck();
@@ -251,9 +254,9 @@ export const TUICLibrary = {
             })
             .replaceAll("\\r", "\r");
     },
-    waitForElement: async function (selector) {
-        if (document.querySelectorAll(selector).length !== 0) {
-            return Array.from(document.querySelectorAll(selector));
+    waitForElement: async function (selector, parentElement = document) {
+        if (parentElement.querySelectorAll(selector).length !== 0) {
+            return Array.from(parentElement.querySelectorAll(selector));
         } else {
             const returns = await new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
@@ -263,7 +266,7 @@ export const TUICLibrary = {
                         resolve(matchedAddedNodes);
                     }
                 });
-                observer.observe(document.querySelector("html"), { subtree: true, childList: true });
+                observer.observe(parentElement, { subtree: true, childList: true });
             });
             return returns;
         }
