@@ -199,7 +199,28 @@ export const TUICObserver = {
         buttonUnderTweet: function () {
             const articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${"TUICDidArticle".addClass()}"])`);
             if (articles.length != 0) {
-                articles.forEach(function (elem) {
+                articles.forEach(async function (elem) {
+                    if (TUICPref.get("otherBoolSetting.showLinkCardInfo") ?? TUICData.defaultPref.otherBoolSetting.showLinkCardInfo) {
+                        await TUICLibrary.waitForElement('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]');
+                        if (elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]') != null) {
+                            const card = elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
+
+                            if (card.querySelector(".TUIC_LinkCardInfo") == null) {
+                                card.childNodes[1].classList.add("TUIC_DISPNONE".addClass());
+                                card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d').classList.add("TUIC_DISPNONE".addClass());
+
+                                const link = card.querySelector('[data-testid="card.layoutLarge.media"] a').href;
+                                const domain = card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d span').textContent;
+                                const title = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/^.*? /, "");
+                                const description = "";
+                                const oldDisplay = TUICData.showLinkCardInfo(link, domain, title, description);
+                                card.appendChild(oldDisplay);
+                            }
+                        }
+                    } else {
+                        elem.querySelector(".TUIC_LinkCardInfo")?.remove();
+                    }
+
                     const xCIcon = elem.querySelector(`path[d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"]`)?.parentElement?.parentElement;
                     if (xCIcon != null) {
                         TUICObserver.functions.twitterIcon(xCIcon, xCIcon.parentElement);
