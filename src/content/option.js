@@ -670,6 +670,8 @@ ${this.upDownList(
         "<br>" +
         this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting") +
         this.checkbox("placeEngagementsLinkShort", TUICPref.get("otherBoolSetting.placeEngagementsLinkShort"), "fixEngagements-shortName", "otherBoolSetting") +
+        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle-linkCard")}</h2>` +
+        this.checkbox("showLinkCardInfo", TUICPref.get("otherBoolSetting.showLinkCardInfo"), "bottomTweetButtons-setting-showLinkCardInfo", "otherBoolSetting") +
         `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle-invisible")}</h2>` +
         this.checkbox("bottomSpace", TUICPref.get("tweetDisplaySetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", "tweetDisplaySetting") +
         this.checkbox("twitter-pro-promotion-btn", TUICPref.get("tweetDisplaySetting.twitter-pro-promotion-btn"), "invisibleItems-twitterProPromotionBtn", "tweetDisplaySetting") +

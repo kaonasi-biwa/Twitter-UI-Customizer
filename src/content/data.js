@@ -33,6 +33,7 @@ export const TUICData = {
             faviconSet: false,
             placeEngagementsLink: false,
             placeEngagementsLinkShort: false,
+            showLinkCardInfo: true,
         },
         XToTwitter: { XToTwitter: false, PostToTweet: false },
         timeline: {
@@ -639,6 +640,31 @@ export const TUICData = {
                 return returnELem;
             },
         },
+    },
+    showLinkCardInfo: (link, domain, title, description) => {
+        return TUICLibrary.HTMLParse(
+            `<div class="css-1dbjc4n r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
+                <a href="${link}" rel="noopener noreferrer nofollow" target="_blank" role="link" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg">
+                    <div class="css-1dbjc4n r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci r-kzbkwu r-1e081e0 r-ttdzmv" id="id__7fpkgwkoke8" data-testid="card.layoutSmall.detail">
+                        <div dir="auto" class="css-901oao css-1hf3ou5 r-1bwzh9t r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0">
+                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
+                                <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${domain}</span>
+                            </span>
+                        </div>
+                        <div dir="auto" class="css-901oao css-1hf3ou5 r-1nao33i r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0">
+                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
+                                <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${title}</span>
+                            </span>
+                        </div>
+                        <div dir="auto" class="css-901oao css-cens5h r-1bwzh9t r-37j5jr r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0" style="-webkit-line-clamp: 2; white-space: normal;">
+                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
+                                <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${description}</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>`,
+        ).item(0);
     },
     sidebarButtons: {
         selectors: {
