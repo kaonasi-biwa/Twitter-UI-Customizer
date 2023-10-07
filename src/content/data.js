@@ -10,26 +10,27 @@ export const TUICData = {
         sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "twiter-blue", "profile", "moremenu"],
         fixEngagements: ["likes", "retweets", "quotes"],
         invisibleItems: {
-            "twitter-pro-promotion-btn": false,
-            discoverMore: false,
             "subscribe-profile": false,
-            "subscribe-tweets": false,
             profileHighlights: false,
             profileAffiliates: false,
             hideBelowDM: false,
             verifiedFollowerTab: false,
             verifiedNotifications: false,
         },
-        otherBoolSetting: {
+        tweetDisplaySetting: {
+            "twitter-pro-promotion-btn": false,
+            "subscribe-tweets": false,
             bottomScroll: false,
-            smallerSidebarContent: true,
-            roundIcon: true,
             bottomSpace: false,
             RTNotQuote: false,
-            sidebarNoneScrollbar: false,
             noModalbottomTweetButtons: false,
-            faviconSet: false,
             noNumberBottomTweetButtons: false,
+        },
+        otherBoolSetting: {
+            smallerSidebarContent: true,
+            roundIcon: true,
+            sidebarNoneScrollbar: false,
+            faviconSet: false,
             placeEngagementsLink: false,
             placeEngagementsLinkShort: false,
         },
@@ -431,7 +432,7 @@ export const TUICData = {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         blockButton.click();
-                        if (TUICPref.get("otherBoolSetting.noModalbottomTweetButtons")) {
+                        if (TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons")) {
                             document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
                             document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -454,7 +455,7 @@ export const TUICData = {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         deleteButtonButton.parentElement.parentElement.parentElement.parentElement.click();
-                        if (TUICPref.get("otherBoolSetting.noModalbottomTweetButtons")) {
+                        if (TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons")) {
                             document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
                             document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -494,7 +495,7 @@ export const TUICData = {
             },
             likeAndRT: function (retButton, likeButton) {
                 likeButton.click();
-                if (TUICPref.get("otherBoolSetting.RTNotQuote")) {
+                if (TUICPref.get("tweetDisplaySetting.RTNotQuote")) {
                     retButton.click();
                 } else {
                     for (let i = 0; i <= 2; i++) {
@@ -509,7 +510,7 @@ export const TUICData = {
                 }
             },
             "retweet-button": function () {
-                if (TUICPref.get("otherBoolSetting.RTNotQuote")) {
+                if (TUICPref.get("tweetDisplaySetting.RTNotQuote")) {
                     window.setTimeout(() => {
                         TUICData.sidebarButtons.waitSetElement(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`);
                     }, 100);
@@ -819,14 +820,12 @@ export const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "config-premium", "subscribe-tweets", "subscribe-profile", "profileHighlights","profileAffiliates", "hideBelowDM", "verifiedFollowerTab", "verifiedNotifications"],
+        all: ["config-premium", "subscribe-profile", "profileHighlights", "profileAffiliates", "hideBelowDM", "verifiedFollowerTab", "verifiedNotifications"],
         i18n: {
-            "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
             "config-premium": "invisibleItems-configPremium",
-            "subscribe-tweets": "invisibleItems-subscribeTweets",
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
-            profileAffiliates:"invisibleItems-profileAffiliates",
+            profileAffiliates: "invisibleItems-profileAffiliates",
             hideBelowDM: "invisibleItems-hideBelowDM",
             verifiedFollowerTab: "invisibleItems-verifiedFollowerTab",
             verifiedNotifications: "invisibleItems-verifiedNotifications",

@@ -97,7 +97,13 @@ export const TUICLibrary = {
             changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
             changeBooleanKey("otherBoolSetting.XtoTwitter", "XToTwitter.XToTwitter");
             changeBooleanKey("otherBoolSetting.PostToTweet", "XToTwitter.PostToTweet");
-
+            changeBooleanKey("invisibleItems.twitter-pro-promotion-btn", "tweetDisplaySetting.twitter-pro-promotion-btn");
+            changeBooleanKey("invisibleItems.subscribe-tweets", "tweetDisplaySetting.subscribe-tweets");
+            changeBooleanKey("otherBoolSetting.bottomScroll", "tweetDisplaySetting.bottomScroll");
+            changeBooleanKey("otherBoolSetting.bottomSpace", "tweetDisplaySetting.bottomSpace");
+            changeBooleanKey("otherBoolSetting.RTNotQuote", "tweetDisplaySetting.RTNotQuote");
+            changeBooleanKey("otherBoolSetting.noModalbottomTweetButtons", "tweetDisplaySetting.noModalbottomTweetButtons");
+            changeBooleanKey("otherBoolSetting.noNumberBottomTweetButtons", "tweetDisplaySetting.noNumberBottomTweetButtons");
             if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
             TUICPref.set("CSS");
 

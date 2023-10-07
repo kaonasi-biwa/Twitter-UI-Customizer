@@ -454,6 +454,12 @@ textarea#css_textarea,.TUICTextInput {
     content: "";
 }
 
+.TUICSettingSubTitle{
+    margin-top:0px !important;
+    margin-bottom:5px !important;
+    margin-left:10px !important;
+}
+
 .${"TUICTweetButtomBarBase".addClass()} > div > .r-13awgt0{
     flex: inherit !important;
 }
@@ -676,7 +682,7 @@ display:none !important;
     color:rgb(139, 152, 165);
 }
 ${
-    TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? TUICData.defaultPref.otherBoolSetting.smallerSidebarContent
+    TUICPref.get("otherBoolSetting.smallerSidebarContent")
         ? `
 [role="navigation"] .${"NOT_" + "TUIC_DISPNONE".addClass()}{
     padding-bottom:0px !important;
@@ -687,7 +693,7 @@ ${
 }
 
 ${
-    TUICPref.get("invisibleItems.subscribe-profile") ?? TUICData.defaultPref.otherBoolSetting["subscribe-profile"]
+    TUICPref.get("invisibleItems.subscribe-profile")
         ? `[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
     display:none !important;
     }`
@@ -696,14 +702,14 @@ ${
 ${TUICPref.get("invisibleItems.hideBelowDM") ? `[data-testid="DMDrawer"]{display:none !important;}` : ""}
 
 ${
-    TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace
+    TUICPref.get("tweetDisplaySetting.bottomSpace")
         ? `
 .${"TUIC_NONE_SPACE_BOTTOM_TWEET".addClass()}{margin-top:0px !important;}
 `
         : ""
 }
 ${
-    TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? TUICData.defaultPref.otherBoolSetting.sidebarNoneScrollbar
+    TUICPref.get("otherBoolSetting.sidebarNoneScrollbar")
         ? `
 header > div > div > div > div.r-1rnoaur{overflow:clip;}
 `
@@ -711,7 +717,7 @@ header > div > div > div > div.r-1rnoaur{overflow:clip;}
 }
 
 ${
-    TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons") ?? TUICData.defaultPref.otherBoolSetting.noNumberBottomTweetButtons
+    TUICPref.get("tweetDisplaySetting.noNumberBottomTweetButtons")
         ? `
 .${"TUICItIsBigArticle".addClass()} [data-testid="app-text-transition-container"]{
     display:none !important;
