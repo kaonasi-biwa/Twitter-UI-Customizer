@@ -19,13 +19,6 @@ import { startTluiObserver } from "./tlui/observer.js";
 
     await TUICLibrary.waitForElement("#react-root");
 
-    String.prototype.escapeToUseHTML = function () {
-        return TUICLibrary.escapeToUseHTML(this);
-    };
-    String.prototype.addClass = function () {
-        return TUICLibrary.getClasses.getClass(this);
-    };
-    TUICObserver.titleObserverFunction();
     // await TUICLibrary.waitForElement("#layers");
     // const dialog = new Dialog("Hello!");
     // dialog.addComponents([
@@ -41,6 +34,13 @@ import { startTluiObserver } from "./tlui/observer.js";
     //         })
     //     ])
     // ]).open();
+    String.prototype.escapeToUseHTML = function () {
+        return TUICLibrary.escapeToUseHTML(this);
+    };
+    String.prototype.addClass = function () {
+        return TUICLibrary.getClasses.getClass(this);
+    };
+    TUICObserver.titleObserverFunction();
 
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
