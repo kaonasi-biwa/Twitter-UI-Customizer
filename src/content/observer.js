@@ -62,7 +62,7 @@ export const TUICObserver = {
 
         TUICObserver.functions.updateStyles();
 
-        //TUICObserver.functions.fixDMBox();
+        TUICObserver.functions.fixDMBox();
 
         addCssElement();
         if (window.location.pathname == "/tuic/safemode") {
@@ -79,7 +79,7 @@ export const TUICObserver = {
         subtree: true,
     },
     functions: {
-        /*fixDMBox() {
+        /**/ fixDMBox() {
             if (!TUICObserver.data.fixedDMBox) {
                 const dmBox = document.querySelector(`[data-testid="DMDrawerHeader"]`);
                 if (dmBox) {
@@ -92,7 +92,7 @@ export const TUICObserver = {
                     TUICObserver.data.fixedDMBox = true;
                 }
             }
-        },*/
+        } /**/,
         twitterIcon: function (elem, base) {
             switch (TUICPref.get("twitterIcon")) {
                 case "invisible":
@@ -217,9 +217,9 @@ export const TUICObserver = {
                         while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
                             bar_base = bar_base.parentElement;
                         }
-                        if (TUICPref.get("otherBoolSetting.bottomScroll") ?? TUICData.defaultPref.otherBoolSetting.bottomScroll) bar_base.parentElement.classList.add("TUICScrollBottom".addClass());
+                        if (TUICPref.get("tweetDisplaySetting.bottomScroll")) bar_base.parentElement.classList.add("TUICScrollBottom".addClass());
                         bar_base.parentElement.classList.add("TUICTweetButtomBarBase".addClass());
-                        if (TUICPref.get("otherBoolSetting.bottomSpace") ?? TUICData.defaultPref.otherBoolSetting.bottomSpace) {
+                        if (TUICPref.get("tweetDisplaySetting.bottomSpace")) {
                             const space = elem.querySelector(`[aria-labelledby]`);
                             if (space && space.children?.[0]?.childElementCount === 0) {
                                 space.classList.add("TUIC_NONE_SPACE_BOTTOM_TWEET".addClass());
@@ -430,7 +430,7 @@ export const TUICObserver = {
                     .querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="pill-contents-container"]`)
                     .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
             }
-            if (TUICPref.get("invisibleItems.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [data-testid$="-subscribe"]`) != null) {
+            if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [data-testid$="-subscribe"]`) != null) {
                 document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE".addClass());
             }
             if (TUICPref.get("invisibleItems.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`) != null) {
@@ -772,7 +772,7 @@ export const TUICObserver = {
         },
         invisibleItems: function () {
             document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-                if (TUICPref.get("invisibleItems.twitter-pro-promotion-btn")) {
+                if (TUICPref.get("tweetDisplaySetting.twitter-pro-promotion-btn")) {
                     e.classList.add("TUIC_DISPNONE".addClass());
                 } else {
                     e.classList.remove("TUIC_DISPNONE".addClass());
@@ -791,6 +791,10 @@ export const TUICObserver = {
                 for (const elem of tabs) {
                     elem.parentElement.classList.add("TUIC_DISPNONE".addClass());
                 }
+            }
+
+            if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu")) {
+                document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
             }
 
             document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {

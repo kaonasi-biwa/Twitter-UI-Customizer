@@ -145,6 +145,26 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        ".accountSwitcher": {
+            type: "click",
+            function: function (event) {
+                TUICPref.set("accountSwitcher." + event.target.id, event.target.checked);
+                TUICPref.save();
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
+        ".tweetDisplaySetting": {
+            type: "click",
+            function: function (event) {
+                TUICPref.set("tweetDisplaySetting." + event.target.id, event.target.checked);
+                TUICPref.save();
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
         ".timelineSetting": {
             type: "click",
             function: function (event) {
@@ -502,14 +522,16 @@ export const TUICOptionHTML = {
             function: () => {
                 const importPref = {
                     invisibleItems: {
-                        "twitter-pro-promotion-btn": true,
                         "subscribe-profile": true,
-                        "subscribe-tweets": true,
                         verifiedFollowerTab: true,
                         verifiedNotifications: true,
                     },
                     rightSidebar: {
                         verified: true,
+                    },
+                    tweetDisplaySetting: {
+                        "twitter-pro-promotion-btn": true,
+                        "subscribe-tweets": true,
                     },
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
@@ -636,24 +658,22 @@ export const TUICOptionHTML = {
 
 ${this.upDownList(
     "visibleButtons",
-    "bottomTweetButtons-settingTitle",
-    this.checkbox("bottomScroll", TUICPref.get("otherBoolSetting.bottomScroll"), "bottomTweetButtons-setting-visibleScrollBar", "otherBoolSetting") +
-        this.checkbox("bottomSpace", TUICPref.get("otherBoolSetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", "otherBoolSetting") +
-        this.checkbox("RTNotQuote", TUICPref.get("otherBoolSetting.RTNotQuote"), "bottomTweetButtons-setting-RTNotQuote", "otherBoolSetting") +
-        this.checkbox("noModalbottomTweetButtons", TUICPref.get("otherBoolSetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "otherBoolSetting") +
-        this.checkbox("noNumberBottomTweetButtons", TUICPref.get("otherBoolSetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "otherBoolSetting"),
-)}
-${this.upDownList(
-    "fixEngagements",
-    "fixEngagements-settingTitle",
-    this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting") +
-        this.checkbox("placeEngagementsLinkShort", TUICPref.get("otherBoolSetting.placeEngagementsLinkShort"), "fixEngagements-shortName", "otherBoolSetting"),
-)}
-${this.upDownList(
-    "sidebarButtons",
-    "sidebarButton-settingTitle",
-    this.checkbox("smallerSidebarContent", TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
-        this.checkbox("sidebarNoneScrollbar", TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting"),
+    "bottomTweetButtons-settingTitle-v2",
+    `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle")}</h2>` +
+        this.checkbox("bottomScroll", TUICPref.get("tweetDisplaySetting.bottomScroll"), "bottomTweetButtons-setting-visibleScrollBar", "tweetDisplaySetting") +
+        this.checkbox("RTNotQuote", TUICPref.get("tweetDisplaySetting.RTNotQuote"), "bottomTweetButtons-setting-RTNotQuote", "tweetDisplaySetting") +
+        this.checkbox("noModalbottomTweetButtons", TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "othetweetDisplaySettingrBoolSetting") +
+        this.checkbox("noNumberBottomTweetButtons", TUICPref.get("tweetDisplaySetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "tweetDisplaySetting") +
+        this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio") +
+        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("fixEngagements-settingTitle")}</h2>` +
+        this.upDownListSub("fixEngagements") +
+        "<br>" +
+        this.checkbox("placeEngagementsLink", TUICPref.get("otherBoolSetting.placeEngagementsLink"), "bottomTweetButtons-setting-placeEngagementsLink", "otherBoolSetting") +
+        this.checkbox("placeEngagementsLinkShort", TUICPref.get("otherBoolSetting.placeEngagementsLinkShort"), "fixEngagements-shortName", "otherBoolSetting") +
+        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle-invisible")}</h2>` +
+        this.checkbox("bottomSpace", TUICPref.get("tweetDisplaySetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", "tweetDisplaySetting") +
+        this.checkbox("twitter-pro-promotion-btn", TUICPref.get("tweetDisplaySetting.twitter-pro-promotion-btn"), "invisibleItems-twitterProPromotionBtn", "tweetDisplaySetting") +
+        this.checkbox("subscribe-tweets", TUICPref.get("tweetDisplaySetting.subscribe-tweets"), "invisibleItems-subscribeTweets", "tweetDisplaySetting"),
 )}
 
 ${this.radioButtonList(
@@ -665,9 +685,19 @@ ${this.radioButtonList(
         this.checkbox("roundIcon", TUICPref.get("otherBoolSetting.roundIcon") ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
 )}
+${this.upDownList(
+    "sidebarButtons",
+    "sidebarButton-settingTitle",
+    this.checkbox("smallerSidebarContent", TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
+        this.checkbox("sidebarNoneScrollbar", TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting") +
+        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("sidebarButton-accountSwitcher-settingTitle")}</h2>` +
+        this.checkbox("icon", TUICPref.get("accountSwitcher.icon"), "sidebarButton-accountSwitcher-Icon", "accountSwitcher") +
+        this.checkbox("nameID", TUICPref.get("accountSwitcher.nameID"), "sidebarButton-accountSwitcher-NameID", "accountSwitcher") +
+        this.checkbox("moreMenu", TUICPref.get("accountSwitcher.moreMenu"), "sidebarButton-accountSwitcher-MoreMenu", "accountSwitcher"),
+)}
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
-${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting", this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio"))}
+${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting")}
 ${this.checkboxList("XToTwitter", "XToTwitter-settingTitle", "TUICXToTwitter", `<button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom:10px;" id="XToTwitterRestoreIcon">${TUICI18N.get("XtoTwitter-twitterIcon")}</button>`)}
 ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")}
         <br>
@@ -831,8 +861,8 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
             TUICInvisibleRadioBox += this.radioButton(id, i, TUICPref.get(id) == i, TUICData[id].i18n[i], type);
         }
         return `
-        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title" style="margin-top:0px !important;margin-bottom:0px !important;margin-left:10px !important;">${TUICI18N.get(title)}</h2>
-        <div class="TUIC_col_setting_container">
+        <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get(title)}</h2>
+        <div>
             ${TUICInvisibleRadioBox}
         </div>
         <br>`;
@@ -842,6 +872,21 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
     },
     //アップダウンリスト(id:設定のID。TUICPref直下 title:設定の名前, option:下に表示する設定)
     upDownList: function (id, title, option) {
+        /* eslint-disable indent */
+        return `
+<details class="TUICDetails">
+        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
+
+        <div class="TUIC_col_setting_container">
+        ${this.upDownListSub(id)}
+            <br>
+            ${option}
+        </div>
+        <br>
+</details>
+`;
+    },
+    upDownListSub: function (id) {
         const UDAllValue = TUICData.settings[id].all;
         const ListItem = this.upDownListItem(id);
         const TUICVisibleButtons = ListItem[0];
@@ -876,40 +921,29 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
                 btnAction: "TUIC_up_down_list_to_default",
                 tooltiptag: "settingUI-upDownList-restoreDefault",
             },
-        ]; /* eslint-disable indent */
-        return `
-<details class="TUICDetails">
-        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
-
-        <div class="TUIC_col_setting_container">
-            <div style="display:flex;" TUICUDBox="${id}" TUICSelectedItem="">
-                <div style="flex: 1 2;width:50px;">
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-visible")}</h2><br>
-                    <div id="TUIC_visible" class="TUIC_selectbox" style="--contentCount:${contentCount};">
+        ];
+        return `<div style="display:flex;" TUICUDBox="${id}" TUICSelectedItem="">
+        <div style="flex: 1 2;width:50px;">
+            <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-visible")}</h2><br>
+            <div id="TUIC_visible" class="TUIC_selectbox" style="--contentCount:${contentCount};">
 ${TUICVisibleButtons}
-                    </div>
-                </div>
-                <div style="text-align: center;width:30px;">
-                    <br>
-                    <br>
-                    ${UpdownButtonFuncs.map((btn) => {
-                        return this.iconButton(btn.iconSrc, btn.btnAction, btn.tooltiptag);
-                    }).join("")}
-               </div>
-                <div style="flex: 1 2;width:50px;">
-                    <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-invisible")}</h2><br>
-                    <div id="TUIC_invisible" class="TUIC_selectbox" style="--contentCount:${contentCount};">
-    ${TUICInvisibleButtons}
-                    </div>
-                </div>
             </div>
-            <br>
-            ${option}
         </div>
-        <br>
-</details>
-`; /* eslint-enable indent */
-    },
+        <div style="text-align: center;width:30px;">
+            <br>
+            <br>
+            ${UpdownButtonFuncs.map((btn) => {
+                return this.iconButton(btn.iconSrc, btn.btnAction, btn.tooltiptag);
+            }).join("")}
+       </div>
+        <div style="flex: 1 2;width:50px;">
+            <h2 style="font-size:15px;" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">${TUICI18N.get("settingUI-upDownList-invisible")}</h2><br>
+            <div id="TUIC_invisible" class="TUIC_selectbox" style="--contentCount:${contentCount};">
+${TUICInvisibleButtons}
+            </div>
+        </div>
+    </div>`;
+    } /* eslint-enable indent */,
     //アップダウンリストの内容(id:設定のID)
     upDownListItem: function (id) {
         let TUICVisibleButtons = "";
