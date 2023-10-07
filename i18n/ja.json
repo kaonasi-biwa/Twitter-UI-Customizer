@@ -35,6 +35,17 @@
     "bottomTweetButtons-deleteButton": "ツイートを削除",
     "bottomTweetButtons-setting-RTNotQuote": "リツイート時にメニューを表示しない",
     "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
+    "bottomTweetButtons-setting-noNumber": "ツイート拡大表示時のボタン横の数字を非表示にする",
+    "bottomTweetButtons-setting-placeEngagementsLink": "エンゲージメントへのリンクを置く",
+    "bottomTweetButtons-setting-placeEngagementsLink-likes": "いいねしたユーザー一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-retweets": "リツイートしたユーザー一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-quotes": "引用ツイート一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-likes-short": "いいね一覧",
+    "bottomTweetButtons-setting-placeEngagementsLink-retweets-short": "リツイート一覧",
+    "bottomTweetButtons-setting-placeEngagementsLink-quotes-short": "引用ツイート一覧",
+
+    "fixEngagements-settingTitle": "エンゲージメントに関する設定",
+    "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
@@ -56,7 +67,10 @@
     "invisibleItems-subscribeTweets": "ツイート右上にたまにある「購入する」",
     "invisibleItems-subscribeProfile": "プロフィールのサブスクリプションボタン",
     "invisibleItems-profileHighlights": "プロフィールの「ハイライト」タブ",
+    "invisibleItems-profileAffiliates": "プロフィールの「関連アカウント」タブ",
     "invisibleItems-hideBelowDM": "画面右下に存在するDMの欄",
+    "invisibleItems-verifiedFollowerTab": "フォロワー一覧の「認証済みのフォロワー」タブ",
+    "invisibleItems-verifiedNotifications": "通知の「認証済み」タブ",
 
     "timeline-settingTitle": "タイムラインの設定",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
@@ -67,11 +81,6 @@
     "timeline-discoverMore-detailOpen": "折りたたみ可能にし、デフォルトは開く",
     "timeline-discoverMore-detailClose": "折りたたみ可能にし、デフォルトは閉じる",
     "timeline-discoverMore-invisible": "非表示にする",
-
-    "clientInfo-settingTitle": "クライアント情報 (廃止される可能性があります)",
-    "clientInfo-clientInfoVisible": "クライアント情報を表示",
-    "clientInfo-cannotGetInfo": "情報を取得できませんでした",
-
     "customCSS-settingTitle": "カスタムCSS",
     "customCSS-save": "カスタムCSSを保存",
 

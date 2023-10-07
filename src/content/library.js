@@ -69,16 +69,13 @@ export const TUICLibrary = {
                 this.parallelToSerial();
             }
 
-            if (TUICPref.get("otherBoolSetting.clientInfo") == true) {
-                TUICPref.set("clientInfo", { clientInfoVisible: true });
-            }
-            TUICPref.delete("otherBoolSetting.clientInfo");
-
             if (typeof TUICPref.get("timeline") != "object") TUICPref.set("timeline", {});
 
             if (typeof TUICPref.get("rightSidebar") != "object") TUICPref.set("rightSidebar", {});
 
             if (typeof TUICPref.get("XToTwitter") != "object") TUICPref.set("XToTwitter", {});
+
+            if (typeof TUICPref.get("clientInfo") == "object") TUICPref.delete("clientInfo");
 
             /**
              * boolean 値の設定キーを変更します。
@@ -242,27 +239,28 @@ export const TUICLibrary = {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     escapeToUseHTML: function (text) {
-        return text.replace(/[&'`"<>=;]/g, function (match) {
-            return {
-                "&": "&amp;",
-                "'": "&#x27;",
-                "`": "&#x60;",
-                '"': "&quot;",
-                "<": "&lt;",
-                ">": "&gt;",
-                "=": "&equals;",
-                ";": "&semi;",
-            }[match];
-        });
+        return text
+            .replace(/[&'`"<>=;]/g, function (match) {
+                return {
+                    "&": "&amp;",
+                    "'": "&#x27;",
+                    "`": "&#x60;",
+                    '"': "&quot;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    "=": "&equals;",
+                    ";": "&semi;",
+                }[match];
+            })
+            .replaceAll("\\r", "\r");
     },
     waitForElement: async function (selector, parentElement = document) {
         if (parentElement.querySelectorAll(selector).length !== 0) {
             return Array.from(parentElement.querySelectorAll(selector));
         } else {
-            return new Promise((resolve) => {
+            const returns = await new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
-                    const addedNodes = mutations.flatMap((m) => Array.from(m.addedNodes)).filter((n) => n instanceof HTMLElement);
-                    const matchedAddedNodes = addedNodes.filter((e) => e.matches(selector));
+                    const matchedAddedNodes = document.querySelectorAll(selector);
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
                         resolve(matchedAddedNodes);
@@ -270,11 +268,11 @@ export const TUICLibrary = {
                 });
                 observer.observe(parentElement, { subtree: true, childList: true });
             });
+            return returns;
         }
     },
 };
 
-/* eslint-disable */
 export const TUICPref = {
     config: null,
     get: function (identifier) {

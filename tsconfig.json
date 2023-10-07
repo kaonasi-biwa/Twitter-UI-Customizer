@@ -1,0 +1,8 @@
+{
+    "typeAcquisition": {
+        "include": ["@types/chrome"]
+    },
+    "compilerOptions": {
+        "esModuleInterop": true
+    }
+}

@@ -8,14 +8,17 @@ export const TUICData = {
         buttonColorDark: {},
         visibleButtons: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
         sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "twiter-blue", "profile", "moremenu"],
+        fixEngagements: ["likes", "retweets", "quotes"],
         invisibleItems: {
-            "osusume-user-timeline": false,
             "twitter-pro-promotion-btn": false,
             discoverMore: false,
             "subscribe-profile": false,
             "subscribe-tweets": false,
             profileHighlights: false,
+            profileAffiliates: false,
             hideBelowDM: false,
+            verifiedFollowerTab: false,
+            verifiedNotifications: false,
         },
         otherBoolSetting: {
             bottomScroll: false,
@@ -26,11 +29,11 @@ export const TUICData = {
             sidebarNoneScrollbar: false,
             noModalbottomTweetButtons: false,
             faviconSet: false,
+            noNumberBottomTweetButtons: false,
+            placeEngagementsLink: false,
+            placeEngagementsLinkShort: false,
         },
         XToTwitter: { XToTwitter: false, PostToTweet: false },
-        clientInfo: {
-            clientInfoVisible: false,
-        },
         timeline: {
             "osusume-user-timeline": false,
             hideOhterRTTL: false,
@@ -88,6 +91,14 @@ export const TUICData = {
                 "verified-choose": "sidebarButtons-verified-choose",
                 display: "sidebarButtons-display",
                 muteAndBlock: "sidebarButtons-muteAndBlock",
+            },
+        },
+        fixEngagements: {
+            all: ["likes", "retweets", "quotes"],
+            i18n: {
+                likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
+                retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
+                quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
             },
         },
         colors: {
@@ -181,12 +192,12 @@ export const TUICData = {
     },
     visibleButtons: {
         selectors: {
-            "reply-button": '[data-testid$="reply"]',
-            "retweet-button": '[data-testid$="retweet"]',
-            "like-button": '[data-testid$="like"]',
+            "reply-button": '[data-testid$="reply"]:not([data-testid*="UserAvatar-Container-"])',
+            "retweet-button": '[data-testid$="retweet"]:not([data-testid*="UserAvatar-Container-"])',
+            "like-button": '[data-testid$="like"]:not([data-testid*="UserAvatar-Container-"])',
             "share-button": '[aria-haspopup="menu"]:not([data-testid="retweet"]):not([data-testid="unretweet"])',
             tweet_analytics: '[href$="/analytics"],[d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"]',
-            boolkmark: `[TUICButton="bookmark"],[data-testid="bookmark"],[data-testid="removeBookmark"]`,
+            boolkmark: `[TUICButton="bookmark"],[data-testid="bookmark"]:not([data-testid*="UserAvatar-Container-"]),[data-testid="removeBookmark"]:not([data-testid*="UserAvatar-Container-"])`,
             "url-copy": `[TUICButton="urlCopy"]`,
             userBlock: `[TUICButton="userBlock"]`,
             userMute: `[TUICButton="userMute"]`,
@@ -351,7 +362,7 @@ export const TUICData = {
             sendDM: function (e) {
                 for (let i = 0; i <= 2; i++) {
                     const urlCopyButton = document.querySelector(
-                        `[d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"]:not(.TUIC_sendDM)`,
+                        `[role="menu"] [role="menuitem"] [d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"]:not(.TUIC_sendDM)`,
                     );
                     if (urlCopyButton == null) {
                         e.click();
@@ -379,7 +390,7 @@ export const TUICData = {
 
                 const baseElem = document.querySelector(`#layers`);
                 if (baseElem != null) {
-                    /* eslint-disable */
+                    /* eslint-disable indent */
                     const layerElem = TUICLibrary.HTMLParse(
                         `<div class="css-1dbjc4n r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
                     <div class="css-1dbjc4n r-12vffkv">
@@ -406,7 +417,7 @@ export const TUICData = {
                     </div>
                   </div>`,
                     ).item(0);
-                    /* eslint-enable */
+                    /* eslint-enable indent */
                     baseElem.appendChild(layerElem);
                     window.setTimeout(() => {
                         layerElem.remove();
@@ -599,6 +610,29 @@ export const TUICData = {
                 "text/html",
             ).item(0);
         },
+        fixEngagements: {
+            engagementsBox: () => {
+                return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-1dbjc4n r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`, "text/html").item(0);
+            },
+            links: (id, article, isShort) => {
+                const returnELem = TUICLibrary.HTMLParse(
+                    `<div dir="ltr" class="css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-23eiwj", "r-9qu9m4", "r-1yzf0co", "r-w0qc3r", "r-18scu15")}" style="cursor: pointer;margin-right:1em;">
+                           <span class="css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-1bwzh9t")}">
+                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
+                           </span>
+                         </div>`.replace(/( |\n|\r)( |\n|\r)+/g, ""),
+                    "text/html",
+                ).item(0);
+                returnELem.addEventListener("click", async () => {
+                    article.querySelector(`[data-testid="caret"]`).click();
+                    await TUICLibrary.waitForElement(`[data-testid="tweetEngagements"]`);
+                    document.querySelector(`[data-testid="tweetEngagements"]`).click();
+                    await TUICLibrary.waitForElement(`[role="tab"][href$="/${id}"]`);
+                    document.querySelector(`[role="tab"][href$="/${id}"]`).click();
+                });
+                return returnELem;
+            },
+        },
     },
     sidebarButtons: {
         selectors: {
@@ -623,7 +657,7 @@ export const TUICData = {
         },
         html: {
             __base: (id, svg) => {
-                /* eslint-disable */
+                /* eslint-disable indent */
                 return `
         <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
@@ -643,7 +677,7 @@ export const TUICData = {
             </div>
           </div>
         </a>`;
-                /* eslint-disable */
+                /* eslint-enable indent */
             },
             topics: function () {
                 return TUICData.sidebarButtons.html.__base(
@@ -785,14 +819,17 @@ export const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["twitter-pro-promotion-btn", "config-premium", "subscribe-tweets", "subscribe-profile", "profileHighlights", "hideBelowDM"],
+        all: ["twitter-pro-promotion-btn", "config-premium", "subscribe-tweets", "subscribe-profile", "profileHighlights","profileAffiliates", "hideBelowDM", "verifiedFollowerTab", "verifiedNotifications"],
         i18n: {
             "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
             "config-premium": "invisibleItems-configPremium",
             "subscribe-tweets": "invisibleItems-subscribeTweets",
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
+            profileAffiliates:"invisibleItems-profileAffiliates",
             hideBelowDM: "invisibleItems-hideBelowDM",
+            verifiedFollowerTab: "invisibleItems-verifiedFollowerTab",
+            verifiedNotifications: "invisibleItems-verifiedNotifications",
         },
     },
     rightSidebar: {
@@ -810,10 +847,6 @@ export const TUICData = {
     XToTwitter: {
         all: ["XToTwitter", "PostToTweet"],
         i18n: { XToTwitter: "XtoTwitter-XtoTwitter", PostToTweet: "XtoTwitter-PostToTweet" },
-    },
-    clientInfo: {
-        all: ["clientInfoVisible"],
-        i18n: { clientInfoVisible: "clientInfo-clientInfoVisible" },
     },
     timeline: {
         all: ["osusume-user-timeline", "hideOhterRTTL", "accountStart"],

@@ -34,6 +34,13 @@ import { startTluiObserver } from "./tlui/observer.js";
     //         })
     //     ])
     // ]).open();
+    String.prototype.escapeToUseHTML = function () {
+        return TUICLibrary.escapeToUseHTML(this);
+    };
+    String.prototype.addClass = function () {
+        return TUICLibrary.getClasses.getClass(this);
+    };
+    TUICObserver.titleObserverFunction();
 
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
@@ -63,7 +70,7 @@ import { startTluiObserver } from "./tlui/observer.js";
 
     addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`), document.querySelector(`#placeholder`));
+        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`#placeholder`));
     }
 
     chrome.runtime.sendMessage({

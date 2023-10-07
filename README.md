@@ -2,11 +2,12 @@
 
 ![ヘッダー](./icon/header.png)
 [![Github Actions](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/packaging.yml)
-[![ESLint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/ESLint/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
+[![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
 [![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)
 [![License](https://img.shields.io/github/license/kaonasi-biwa/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE)  
 [![Firefox Browser ADD-ONS](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/)
 [![Chrome WebStore](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja)
+[![Crowdin](https://badges.crowdin.net/badge/light/crowdin-on-dark.png)](https://crowdin.com/project/twiter-ui-customizer)
 
 [crxファイルでのインストール方法はこちら](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)  
 [情報・設定・CSS集(TwitterのUIの色を公式Twitterに近くすることも出来ます！)](https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md)
@@ -20,6 +21,12 @@ Chromiumの場合は、
 -   初期設定が少し面倒だけどすぐに自動で更新を適用できるcrxファイル
 
 の中のお好きなものをお選びください！
+
+## 貢献者様へ
+
+**ビルドツール Vite導入により、デバッグ方法が変わりました！**  
+ビルド及びデバッグ方法については、このREADME下部及び[docs/vite_build](./docs/vite_build.md)を御覧ください。  
+この変更は2023年9月2日からの適用です。
 
 ## Special Thanks (使い方あってるか知らんけど)
 
@@ -50,12 +57,13 @@ Crowdin:
 その他:
 
 -   @CutterKnife\_ / Twitter **(アイコン・ロゴの作成者)**
+-   @PianoCat1010 / Twitter **(「いいねとリツイート」のアイコンの作成者)**
 
 ## 実装されている機能
 
 -   「未送信ツイートの編集」「未フォローのフォローボタン」「フォロー中のフォローボタン」「フォロー解除ボタン」「ホバー時のフォローボタン」「ブロック中の人のフォローボタン」「ブロック解除時のフォローボタン」「プロフィール設定」「最終決定(ログアウト時のやつなど)」のボタンについて、それぞれ枠線色・背景色・文字色を設定できる
 -   ツイートの下にあるボタンの順番をいじれる
--   ツイートの下にあるボタンに「ブックマークに追加」「ツイートのリンクをコピー」「引用ツイート」「ユーザーをブロック」「ユーザーをミュート」「ツイートを削除」を追加できる
+-   ツイートの下にあるボタンに「ブックマークに追加」「ツイートのリンクをコピー」「引用ツイート」「ユーザーをブロック」「ユーザーをミュート」「ツイートを削除」「いいねとRT」「DMで送信」を追加できる
 -   リツイートボタンを押したときに、メニューを出さずにリツイートすることができる
 -   「ツイートを削除」「ユーザーをブロック」をツイート下ボタンからするときに、モーダルを出さずにできるように
 -   ツイートの下のボタンが横に溢れたときににスクロールバーを表示できる
@@ -81,8 +89,8 @@ Crowdin:
 
 ## いるかもわからぬ翻訳者の方へ
 
-Crowdinで試験的にやってみています！ \
-良ければ[こちら](https://crowdin.com/project/twiter-ui-customizer)からよろしくお願いします！
+Crowdinで試験的にやってみています！  
+[![Crowdin](https://badges.crowdin.net/badge/light/crowdin-on-dark.png)](https://crowdin.com/project/twiter-ui-customizer)
 
 ### Twitter上でのTUICの翻訳
 
@@ -105,21 +113,13 @@ Crowdinで試験的にやってみています！ \
 
 ## アドオンのデバッグ方法
 
-**Chromium、またはFirefoxでのデバッグの詳細は [.env.local.example](./.env.local.example)を御覧ください。**
+**Chromium、またはFirefoxでのデバッグの詳細は [`docs/vite_build`](./docs/vite_build.md)を御覧ください。**
 
-manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！ \
-ただし、下記のデバッグ方法を使用する場合は、Wikiの情報は必要ありません。
+manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！
 
-**重要**: Firefox ブラウザーが事前にインストールされている必要があります。また、新しいプロファイルを "about:profiles" で "development" という名前で
-作成する必要があります。プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
-
-また、バージョンの違うFirefoxで作られたプロファイルは実行時にエラーが出る場合があります。 \
-例えばFirefox Developer Edition (aurora channel)で作られたプロファイルは
-Firefox (Stable)で実行される時、Dev Editionより旧バージョンなため、互換性がないとエラーが出ます。\
-デバッグの時実行されるFirefoxでプロファイルを作成してください。
-
-デバッグは、元のプロファイルをコピーして行われるので、変更点が保存されません。 \
-予め "development"プロファイルでTwitterにログインして置くことをおすすめします。
+**重要**: Firefox ブラウザーが事前にインストールされている必要があります。  
+また、新しいプロファイルを "about:profiles" で "development" という名前で作成する必要があります。  
+プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
 
 ```bash
 
@@ -131,7 +131,7 @@ yarn debug
 # or
 yarn debug:firefox
 
-## Chrome でデバッグする場合（インストールは手動）
+## Chrome でデバッグする場合
 yarn debug:chromium
 
 ## Firefox または Firefox 系ブラウザーでデバッグする場合

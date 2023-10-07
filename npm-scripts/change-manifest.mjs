@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import fsSync from "fs";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
@@ -17,6 +18,10 @@ import fs from "fs/promises";
         output = Object.assign(config.common, config.chrome, config.chromeCRX);
     } else {
         output = Object.assign(config.common, config[target]);
+    }
+
+    if (!fsSync.existsSync("./dist")) {
+        await fs.mkdir("./dist");
     }
 
     await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
