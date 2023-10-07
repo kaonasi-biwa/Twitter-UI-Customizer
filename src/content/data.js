@@ -50,6 +50,11 @@ export const TUICData = {
             space: false,
             relevantPeople: false,
         },
+        accountSwitcher: {
+            icon: false,
+            nameID: false,
+            moreMenu: false,
+        },
         "timeline-discoverMore": "discoverMore_nomal",
     },
     settings: {

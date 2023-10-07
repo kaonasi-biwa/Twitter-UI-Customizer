@@ -145,6 +145,16 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        ".accountSwitcher": {
+            type: "click",
+            function: function (event) {
+                TUICPref.set("accountSwitcher." + event.target.id, event.target.checked);
+                TUICPref.save();
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
         ".tweetDisplaySetting": {
             type: "click",
             function: function (event) {
@@ -665,12 +675,6 @@ ${this.upDownList(
         this.checkbox("twitter-pro-promotion-btn", TUICPref.get("tweetDisplaySetting.twitter-pro-promotion-btn"), "invisibleItems-twitterProPromotionBtn", "tweetDisplaySetting") +
         this.checkbox("subscribe-tweets", TUICPref.get("tweetDisplaySetting.subscribe-tweets"), "invisibleItems-subscribeTweets", "tweetDisplaySetting"),
 )}
-${this.upDownList(
-    "sidebarButtons",
-    "sidebarButton-settingTitle",
-    this.checkbox("smallerSidebarContent", TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
-        this.checkbox("sidebarNoneScrollbar", TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting"),
-)}
 
 ${this.radioButtonList(
     "twitterIcon",
@@ -680,6 +684,16 @@ ${this.radioButtonList(
         this.checkbox("faviconSet", TUICPref.get("otherBoolSetting.faviconSet") ?? true, "twitterIcon-favicon", "otherBoolSetting") +
         this.checkbox("roundIcon", TUICPref.get("otherBoolSetting.roundIcon") ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
+)}
+${this.upDownList(
+    "sidebarButtons",
+    "sidebarButton-settingTitle",
+    this.checkbox("smallerSidebarContent", TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
+        this.checkbox("sidebarNoneScrollbar", TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting") +
+        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("sidebarButton-accountSwitcher-settingTitle")}</h2>` +
+        this.checkbox("icon", TUICPref.get("accountSwitcher.icon"), "sidebarButton-accountSwitcher-Icon", "accountSwitcher") +
+        this.checkbox("nameID", TUICPref.get("accountSwitcher.nameID"), "sidebarButton-accountSwitcher-NameID", "accountSwitcher") +
+        this.checkbox("moreMenu", TUICPref.get("accountSwitcher.moreMenu"), "sidebarButton-accountSwitcher-MoreMenu", "accountSwitcher"),
 )}
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}

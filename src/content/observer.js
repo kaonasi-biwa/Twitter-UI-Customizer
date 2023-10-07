@@ -793,6 +793,10 @@ export const TUICObserver = {
                 }
             }
 
+            if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu")) {
+                document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+
             document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
                 if (TUICPref.get("invisibleItems.config-premium")) {
                     e.classList.add("TUIC_DISPNONE".addClass());

@@ -723,6 +723,33 @@ ${
         : ""
 }
 
+${
+    TUICPref.get("accountSwitcher.icon")
+        ? `
+        [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child { display: none; }
+
+`
+        : ""
+}
+
+${
+    TUICPref.get("accountSwitcher.nameID")
+        ? `
+        [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div { display: none; }
+
+`
+        : ""
+}
+
+${
+    TUICPref.get("accountSwitcher.moreMenu")
+        ? `
+        [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div { display: none; }
+
+`
+        : ""
+}
+
 `;
     /* eslint-enable */
 }
