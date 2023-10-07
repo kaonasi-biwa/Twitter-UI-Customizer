@@ -62,7 +62,7 @@ export const TUICObserver = {
 
         TUICObserver.functions.updateStyles();
 
-        //TUICObserver.functions.fixDMBox();
+        TUICObserver.functions.fixDMBox();
 
         addCssElement();
         if (window.location.pathname == "/tuic/safemode") {
@@ -79,7 +79,7 @@ export const TUICObserver = {
         subtree: true,
     },
     functions: {
-        /*fixDMBox() {
+        /**/ fixDMBox() {
             if (!TUICObserver.data.fixedDMBox) {
                 const dmBox = document.querySelector(`[data-testid="DMDrawerHeader"]`);
                 if (dmBox) {
@@ -92,7 +92,7 @@ export const TUICObserver = {
                     TUICObserver.data.fixedDMBox = true;
                 }
             }
-        },*/
+        } /**/,
         twitterIcon: function (elem, base) {
             switch (TUICPref.get("twitterIcon")) {
                 case "invisible":
