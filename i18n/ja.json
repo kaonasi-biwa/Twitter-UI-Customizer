@@ -27,6 +27,8 @@
     "easySetting-defaultTwitterColor": "Twitterの新しい色はにもう慣れた？それなら、今の色に合わせよう！",
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
+    "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
+    "bottomTweetButtons-settingTitle-invisible": "非表示設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
     "bottomTweetButtons-setting-removeSpaceBottomTweet-v2": "ツイートの内容の下に存在することがある空白を削除",
     "bottomTweetButtons-userBlock": "ユーザーをブロック",
