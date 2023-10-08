@@ -10,12 +10,20 @@ export const TUICData = {
         sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "twiter-blue", "profile", "moremenu"],
         fixEngagements: ["likes", "retweets", "quotes"],
         invisibleItems: {
-            "subscribe-profile": false,
-            profileHighlights: false,
-            profileAffiliates: false,
             hideBelowDM: false,
-            verifiedFollowerTab: false,
+
             verifiedNotifications: false,
+        },
+        profileSetting: {
+            tabs: {
+                pinnedTab: false,
+            },
+            invisible: {
+                "subscribe-profile": false,
+                profileHighlights: false,
+                profileAffiliates: false,
+                verifiedFollowerTab: false,
+            },
         },
         tweetDisplaySetting: {
             "twitter-pro-promotion-btn": false,
@@ -851,15 +859,34 @@ export const TUICData = {
         },
     },
     invisibleItems: {
-        all: ["config-premium", "subscribe-profile", "profileHighlights", "profileAffiliates", "hideBelowDM", "verifiedFollowerTab", "verifiedNotifications"],
+        all: ["config-premium", "hideBelowDM", "verifiedNotifications"],
         i18n: {
             "config-premium": "invisibleItems-configPremium",
+            hideBelowDM: "invisibleItems-hideBelowDM",
+            verifiedNotifications: "invisibleItems-verifiedNotifications",
+        },
+    },
+    "profileSetting.invisible": {
+        all: ["subscribe-profile", "profileHighlights", "profileAffiliates", "verifiedFollowerTab"],
+        i18n: {
             "subscribe-profile": "invisibleItems-subscribeProfile",
             profileHighlights: "invisibleItems-profileHighlights",
             profileAffiliates: "invisibleItems-profileAffiliates",
-            hideBelowDM: "invisibleItems-hideBelowDM",
             verifiedFollowerTab: "invisibleItems-verifiedFollowerTab",
-            verifiedNotifications: "invisibleItems-verifiedNotifications",
+        },
+    },
+    "profileSetting.tabs": {
+        all: ["pinnedTab"],
+        i18n: {
+            pinnedTab: "profileSetting-tabs-pinnedTab",
+        },
+    },
+    tweetDisplaySetting: {
+        all: ["bottomSpace", "twitter-pro-promotion-btn", "subscribe-tweets"],
+        i18n: {
+            bottomSpace: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2",
+            "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
+            "subscribe-tweets": "invisibleItems-subscribeTweets",
         },
     },
     rightSidebar: {

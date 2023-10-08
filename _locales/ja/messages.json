@@ -209,5 +209,9 @@
     "optionSpecialThanks_PianoCat1010": {
         "message": "「いいねとリツイート」のアイコンの作成者",
         "description": "設定画面のSpecial thanks(PianoCat1010さん)"
+    },
+    "optionSpecialThanks_GreenDotBlue99": {
+        "message": "タブの固定機能",
+        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }

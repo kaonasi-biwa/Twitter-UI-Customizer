@@ -28,7 +28,6 @@
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
-    "bottomTweetButtons-settingTitle-invisible": "非表示設定",
     "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
     "bottomTweetButtons-setting-removeSpaceBottomTweet-v2": "ツイートの内容の下に存在することがある空白を削除",
@@ -79,6 +78,10 @@
     "invisibleItems-hideBelowDM": "画面右下に存在するDMの欄",
     "invisibleItems-verifiedFollowerTab": "フォロワー一覧の「認証済みのフォロワー」タブ",
     "invisibleItems-verifiedNotifications": "通知の「認証済み」タブ",
+
+    "profileSetting-settingTitle": "プロフィール周辺の設定",
+    "profileSetting-tabs-settingTitle": "タブの設定",
+    "profileSetting-tabs-pinnedTab": "タブを上部に固定する",
 
     "timeline-settingTitle": "タイムラインの設定",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",

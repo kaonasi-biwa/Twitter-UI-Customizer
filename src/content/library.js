@@ -81,7 +81,7 @@ export const TUICLibrary = {
              * @param {string} nextKey 変更先のキー
              * @param {any} replaceValue 置き換える値
              */
-            function changeBooleanKey(previousKey, nextKey, replaceValue = true) {
+            function changeBooleanKey(previousKey, nextKey, replaceValue = "") {
                 if (TUICPref.get(previousKey) === true) TUICPref.set(nextKey, replaceValue);
                 TUICPref.delete(previousKey);
             }
@@ -100,6 +100,11 @@ export const TUICLibrary = {
             changeBooleanKey("otherBoolSetting.RTNotQuote", "tweetDisplaySetting.RTNotQuote");
             changeBooleanKey("otherBoolSetting.noModalbottomTweetButtons", "tweetDisplaySetting.noModalbottomTweetButtons");
             changeBooleanKey("otherBoolSetting.noNumberBottomTweetButtons", "tweetDisplaySetting.noNumberBottomTweetButtons");
+
+            changeBooleanKey("invisibleItems.subscribe-profile", "profileSetting.invisible.subscribe-profile");
+            changeBooleanKey("invisibleItems.profileHighlights", "profileSetting.invisible.profileHighlights");
+            changeBooleanKey("invisibleItems.profileAffiliates", "profileSetting.invisible.profileAffiliates");
+            changeBooleanKey("invisibleItems.verifiedFollowerTab", "profileSetting.invisible.verifiedFollowerTab");
             if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
             TUICPref.set("CSS");
 

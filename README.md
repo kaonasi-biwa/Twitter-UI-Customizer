@@ -41,6 +41,7 @@ GitHub:
 -   @surapunoyousei (デバッグしやすく)
 -   @typeling1578 (リファクタリング)
 -   @regularenthropy (リファクタリング・パフォーマンス向上)
+-   @GreenDotBlue99 (タブの固定機能)
 
 Crowdin:
 

@@ -155,6 +155,26 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        ".profileSettingInvisible": {
+            type: "click",
+            function: function (event) {
+                TUICPref.set("profileSetting.invisible." + event.target.id, event.target.checked);
+                TUICPref.save();
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
+        ".profileSettingTabs": {
+            type: "click",
+            function: function (event) {
+                TUICPref.set("profileSetting.tabs." + event.target.id, event.target.checked);
+                TUICPref.save();
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
         ".tweetDisplaySetting": {
             type: "click",
             function: function (event) {
@@ -522,9 +542,13 @@ export const TUICOptionHTML = {
             function: () => {
                 const importPref = {
                     invisibleItems: {
-                        "subscribe-profile": true,
-                        verifiedFollowerTab: true,
                         verifiedNotifications: true,
+                    },
+                    profileSetting: {
+                        invisible: {
+                            "subscribe-profile": true,
+                            verifiedFollowerTab: true,
+                        },
                     },
                     rightSidebar: {
                         verified: true,
@@ -672,10 +696,8 @@ ${this.upDownList(
         this.checkbox("placeEngagementsLinkShort", TUICPref.get("otherBoolSetting.placeEngagementsLinkShort"), "fixEngagements-shortName", "otherBoolSetting") +
         `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle-linkCard")}</h2>` +
         this.checkbox("showLinkCardInfo", TUICPref.get("otherBoolSetting.showLinkCardInfo"), "bottomTweetButtons-setting-showLinkCardInfo", "otherBoolSetting") +
-        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle-invisible")}</h2>` +
-        this.checkbox("bottomSpace", TUICPref.get("tweetDisplaySetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", "tweetDisplaySetting") +
-        this.checkbox("twitter-pro-promotion-btn", TUICPref.get("tweetDisplaySetting.twitter-pro-promotion-btn"), "invisibleItems-twitterProPromotionBtn", "tweetDisplaySetting") +
-        this.checkbox("subscribe-tweets", TUICPref.get("tweetDisplaySetting.subscribe-tweets"), "invisibleItems-subscribeTweets", "tweetDisplaySetting"),
+        `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("invisibleItems-settingTitle")}</h2>` +
+        this.checkboxListSub("tweetDisplaySetting", "tweetDisplaySetting"),
 )}
 
 ${this.radioButtonList(
@@ -697,6 +719,17 @@ ${this.upDownList(
         this.checkbox("nameID", TUICPref.get("accountSwitcher.nameID"), "sidebarButton-accountSwitcher-NameID", "accountSwitcher") +
         this.checkbox("moreMenu", TUICPref.get("accountSwitcher.moreMenu"), "sidebarButton-accountSwitcher-MoreMenu", "accountSwitcher"),
 )}
+
+<details class="TUICDetails">
+<summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get("profileSetting-settingTitle")}</summary>
+<div class="TUIC_col_setting_container">
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${`${TUICI18N.get("profileSetting-tabs-settingTitle")}`}</h2>
+ ${this.checkboxListSub("profileSetting.tabs", "profileSettingTabs")}
+<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${`${TUICI18N.get("invisibleItems-settingTitle")}`}</h2>
+ ${this.checkboxListSub("profileSetting.invisible", "profileSettingInvisible")}
+</div>
+
+</details>
 
 ${this.checkboxList("invisibleItems", "invisibleItems-settingTitle", "TUICInvisibleItems")}
 ${this.checkboxList("timeline", "timeline-settingTitle", "timelineSetting")}
@@ -817,10 +850,7 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
     },
     //チェックボックスリスト(id:ID title:Stringでタイトル)
     checkboxList: function (id, title, type, otherSetting) {
-        let TUICInvisibleCheckBox = "";
-        for (const i of TUICData[id].all) {
-            TUICInvisibleCheckBox += this.checkbox(i, TUICPref.get(id)[i], TUICData[id].i18n[i], type);
-        }
+        const TUICInvisibleCheckBox = this.checkboxListSub(id, type);
         return `
         <details class="TUICDetails">
             <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">${TUICI18N.get(title)}</summary>
@@ -831,6 +861,13 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
           ${otherSetting ?? ""}
         </details>
           `;
+    },
+    checkboxListSub: function (id, type) {
+        let TUICInvisibleCheckBox = "";
+        for (const i of TUICData[id].all) {
+            TUICInvisibleCheckBox += this.checkbox(i, TUICPref.get(id)[i], TUICData[id].i18n[i], type);
+        }
+        return TUICInvisibleCheckBox;
     },
     radioButton: function (id, valueName, value, name, type) {
         return `

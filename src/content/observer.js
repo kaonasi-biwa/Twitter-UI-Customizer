@@ -200,8 +200,8 @@ export const TUICObserver = {
             const isElem = await (async () => {
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve2) => {
-                        const elem = document.querySelector(`[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]`);
-                        if (elem != null) {
+                        const isOK = elem.querySelector(`[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]`) && elem.querySelector(`[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d`);
+                        if (isOK) {
                             resolve2("ok");
                         }
                         resolve2("bb");
@@ -474,7 +474,7 @@ export const TUICObserver = {
             if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [data-testid$="-subscribe"]`) != null) {
                 document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE".addClass());
             }
-            if (TUICPref.get("invisibleItems.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`) != null) {
+            if (TUICPref.get("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`) != null) {
                 document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`).classList.add("TUIC_DISPNONE".addClass());
             }
         },
@@ -820,14 +820,14 @@ export const TUICObserver = {
                 }
             });
 
-            if (TUICPref.get("invisibleItems.profileHighlights")) {
+            if (TUICPref.get("profileSetting.invisible.profileHighlights")) {
                 const tabs = document.querySelectorAll(`:not(.${"TUIC_DISPNONE".addClass()}) > [role="tab"][href$="/highlights"]`);
                 for (const elem of tabs) {
                     elem.parentElement.classList.add("TUIC_DISPNONE".addClass());
                 }
             }
 
-            if (TUICPref.get("invisibleItems.profileAffiliates")) {
+            if (TUICPref.get("profileSetting.invisible.profileAffiliates")) {
                 const tabs = document.querySelectorAll(`:not(.${"TUIC_DISPNONE".addClass()}) > [role="tab"][href$="/affiliates"]`);
                 for (const elem of tabs) {
                     elem.parentElement.classList.add("TUIC_DISPNONE".addClass());
@@ -846,7 +846,7 @@ export const TUICObserver = {
                 }
             });
 
-            if (TUICPref.get("invisibleItems.verifiedFollowerTab")) {
+            if (TUICPref.get("profileSetting.invisible.verifiedFollowerTab")) {
                 const nowURL = location.pathname;
                 if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/verified_followers")) {
                     const tab = document.querySelector(`[role="presentation"]:not(.${"TUIC_DISPNONE".addClass()}) > [role="tab"][href$="/verified_followers"]`);

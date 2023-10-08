@@ -750,6 +750,21 @@ ${
         : ""
 }
 
+${
+    TUICPref.get("profileSetting.tabs.pinnedTab")
+        ? `
+        [data-testid="primaryColumn"] nav[role="navigation"] {
+            position: sticky;
+            top: 53px;
+            z-index: 1;
+             backdrop-filter: blur(12px);
+             background-color:rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")});
+           }
+           
+`
+        : ""
+}
+
 `;
     /* eslint-enable */
 }
