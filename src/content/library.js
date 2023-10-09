@@ -81,7 +81,7 @@ export const TUICLibrary = {
              * @param {string} nextKey 変更先のキー
              * @param {any} replaceValue 置き換える値
              */
-            function changeBooleanKey(previousKey, nextKey, replaceValue = "") {
+            function changeBooleanKey(previousKey, nextKey, replaceValue = true) {
                 if (TUICPref.get(previousKey) === true) TUICPref.set(nextKey, replaceValue);
                 TUICPref.delete(previousKey);
             }
