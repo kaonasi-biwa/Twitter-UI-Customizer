@@ -699,7 +699,9 @@ export const TUICData = {
             __base: (id, svg) => {
                 /* eslint-disable indent */
                 return `
-        <a id="TUICSidebar_${id}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
+        <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction(
+            TUICData.sidebarButtons.tuicButtonGoToUrl[id],
+        )}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-rjfia r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
           <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
             <div class="css-1dbjc4n">
               <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
@@ -796,6 +798,7 @@ export const TUICData = {
         },
         buttonFunctions: {
             topics: async function (e) {
+                e?.preventDefault?.();
                 if (!location.pathname.endsWith("/topics")) {
                     const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
@@ -809,9 +812,11 @@ export const TUICData = {
                 }
             },
             lists: function (e) {
+                e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/lists"]`);
             },
             circles: async function (e) {
+                e?.preventDefault?.();
                 document.querySelector(`[href="/compose/tweet"]`).click();
                 await TUICData.sidebarButtons.waitSetElement(`[data-viewportview="true"] [role="button"][aria-haspopup="menu"]`);
                 await TUICData.sidebarButtons.waitSetElement(`span+[role="button"]`);
@@ -819,18 +824,24 @@ export const TUICData = {
       "communities": function (e) {
         TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/communities"]`)
       },*/,
-            drafts: function (e) {
-                TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/compose/tweet/unsent/drafts"]`);
+            drafts: async function (e) {
+                e?.preventDefault?.();
+                //TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/compose/tweet/unsent/drafts"]`);
+                document.querySelector(`[href="/compose/tweet"]`).click();
+                await TUICData.sidebarButtons.waitSetElement(`[data-testid="unsentButton"]`);
             },
             connect: function (e) {
+                e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/connect_people"]`);
             },
             display: async function (e) {
+                e?.preventDefault?.();
                 if (TUICData.sidebarButtons.buttonClickInMoreMenu(e, `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
                     await TUICData.sidebarButtons.waitSetElement(`[href="/i/display"]`);
                 }
             },
             muteAndBlock: async function (e) {
+                e?.preventDefault?.();
                 if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
                     const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
@@ -843,6 +854,7 @@ export const TUICData = {
                 }
             },
             bookmarks: function (e) {
+                e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/bookmarks"]`);
             },
         },
@@ -856,6 +868,25 @@ export const TUICData = {
             display: "/i/display",
             muteAndBlock: "/settings/mute_and_block",
             bookmarks: "/i/bookmarks",
+        },
+        tuicButtonGoToUrl: {
+            topics: () => {
+                return `https://twitter.com/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/topics`;
+            },
+            lists: () => {
+                return `https://twitter.com/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/lists`;
+            },
+            circles: () => {
+                return `https://twitter.com/i/circles/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [role="presentation"] img`).src.split("/")[4]}/members`;
+            },
+            communities: () => {
+                return `https://twitter.com/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/communities`;
+            },
+            connect: "https://twitter.com/i/connect_people",
+            drafts: "https://twitter.com/compose/tweet/unsent/drafts",
+            display: "https://twitter.com/i/display",
+            muteAndBlock: "https://twitter.com/settings/mute_and_block",
+            bookmarks: "https://twitter.com/i/bookmarks",
         },
     },
     invisibleItems: {

@@ -211,6 +211,13 @@ export const TUICLibrary = {
             return target;
         },
     },
+    getPrimitiveOrFunction: (functionOrPrimitive) => {
+        if (typeof functionOrPrimitive == "function") {
+            return functionOrPrimitive();
+        } else {
+            return functionOrPrimitive;
+        }
+    },
     backgroundColorCheck: function () {
         const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {

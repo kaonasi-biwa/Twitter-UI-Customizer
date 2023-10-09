@@ -180,6 +180,7 @@ export const TUICObserver = {
                         moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
                         moveElem.addEventListener("keydown", (e) => {
                             if (e.keyCode === 13) {
+                                e.preventDefault();
                                 TUICData.sidebarButtons.buttonFunctions[i]({
                                     currentTarget: e.target.parentElement,
                                 });
