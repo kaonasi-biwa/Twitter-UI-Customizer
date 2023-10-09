@@ -201,7 +201,7 @@ export const TUICObserver = {
             const isElem = await (async () => {
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve2) => {
-                        const isOK = elem.querySelector(`[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]`) && elem.querySelector(`[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d`);
+                        const isOK = elem.querySelector(`[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]`) && elem.querySelector(`[data-testid="card.layoutLarge.media"] a > div+div span`);
                         if (isOK) {
                             resolve2("ok");
                         }
@@ -221,10 +221,10 @@ export const TUICObserver = {
 
                 if (card.querySelector(".TUIC_LinkCardInfo") == null) {
                     card.childNodes[1].classList.add("TUIC_DISPNONE".addClass());
-                    card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d').classList.add("TUIC_DISPNONE".addClass());
+                    card.querySelector('[data-testid="card.layoutLarge.media"]  a > div+div').classList.add("TUIC_DISPNONE".addClass());
 
                     const link = card.querySelector('[data-testid="card.layoutLarge.media"] a').href;
-                    const domain = card.querySelector('[data-testid="card.layoutLarge.media"] .r-rki7wi.r-161ttwi.r-u8s1d span').textContent;
+                    const domain = card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div span').textContent;
                     const title = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/^.*? /, "");
                     const description = "";
                     const oldDisplay = TUICData.showLinkCardInfo(link, domain, title, description);
