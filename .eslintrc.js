@@ -21,7 +21,7 @@ module.exports = {
         sourceType: "module",
     },
     rules: {
-        indent: ["error", 4, { SwitchCase: 1 }],
+        indent: 0,
         semi: ["error", "always"],
         "prefer-const": ["error"],
         "linebreak-style": 0,
