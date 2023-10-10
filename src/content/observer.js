@@ -200,7 +200,7 @@ export const TUICObserver = {
         },
         showLinkCardInfo: function () {
             if (TUICPref.get("otherBoolSetting.showLinkCardInfo")) {
-                for (const infoCardElem of document.querySelectorAll(`article:not(.${"TUICDidInfoArticle".addClass()}) [data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]`)) {
+                for (const infoCardElem of document.querySelectorAll(`article:not(.${"TUICDidInfoArticle".addClass()}) [data-testid="card.layoutLarge.media"]  a > div+div`)) {
                     let elem = infoCardElem;
                     while (elem.tagName != "ARTICLE") {
                         elem = elem.parentNode;
