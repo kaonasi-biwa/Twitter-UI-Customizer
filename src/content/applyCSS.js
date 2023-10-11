@@ -765,6 +765,10 @@ ${
         : ""
 }
 
+/* Twitter Blue以外の長文のもっと見るを非表示にするCSS */
+div[data-testid="tweetText"] 
+{-webkit-line-clamp: initial !important;}
+
 `;
     /* eslint-enable */
 }
