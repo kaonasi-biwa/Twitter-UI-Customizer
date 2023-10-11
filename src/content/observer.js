@@ -419,53 +419,6 @@ export const TUICObserver = {
                     }
                 }
             }
-            if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
-                const cells = document.querySelectorAll(
-                    `div[data-testid="cellInnerDiv"]:not(.${"TUICDidArticle".addClass()}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`,
-                );
-                for (const elem of cells) {
-                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add("TUIC_DISPNONE".addClass());
-                }
-            }
-            if (TUICPref.get("rightSidebar.verified") && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
-                document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [role="complementary"] [href="/i/verified-choose"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (TUICPref.get("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="trend"]`) != null) {
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="trend"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (
-                TUICPref.get("rightSidebar.osusumeUser") &&
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]`) != null &&
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"] [dir="auto"] > span`) == null
-            ) {
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-
-            if (
-                TUICPref.get("rightSidebar.relevantPeople") &&
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]`) != null &&
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"] [dir="auto"] > span`) != null
-            ) {
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (TUICPref.get("rightSidebar.links") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) > nav`) != null) {
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) > nav`).parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (TUICPref.get("rightSidebar.searchBox") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [role="search"]`) != null) {
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [role="search"]`).parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (TUICPref.get("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="pill-contents-container"]`) != null) {
-                document
-                    .querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="pill-contents-container"]`)
-                    .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [data-testid$="-subscribe"]`) != null) {
-                document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE".addClass());
-            }
-            if (TUICPref.get("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`) != null) {
-                document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`).classList.add("TUIC_DISPNONE".addClass());
-            }
         },
         replacePost: function () {
             // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
@@ -808,6 +761,54 @@ export const TUICObserver = {
                     e.classList.remove("TUIC_DISPNONE".addClass());
                 }
             });
+
+            if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
+                const cells = document.querySelectorAll(
+                    `div[data-testid="cellInnerDiv"]:not(.${"TUICDidArticle".addClass()}):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`,
+                );
+                for (const elem of cells) {
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add("TUIC_DISPNONE".addClass());
+                }
+            }
+            if (TUICPref.get("rightSidebar.verified") && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
+                document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [role="complementary"] [href="/i/verified-choose"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (TUICPref.get("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="trend"]`) != null) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="trend"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (
+                TUICPref.get("rightSidebar.osusumeUser") &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]:not([role="search"] *)`) != null &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null
+            ) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]:not([role="search"] *)`).parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+
+            if (
+                TUICPref.get("rightSidebar.relevantPeople") &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]`) != null &&
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"] [dir="auto"] > span`) != null
+            ) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (TUICPref.get("rightSidebar.links") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) > nav`) != null) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) > nav`).parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (TUICPref.get("rightSidebar.searchBox") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [role="search"]`) != null) {
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [role="search"]`).parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (TUICPref.get("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="pill-contents-container"]`) != null) {
+                document
+                    .querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="pill-contents-container"]`)
+                    .parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.${"TUIC_DISPNONE".addClass()}) > [data-testid$="-subscribe"]`) != null) {
+                document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE".addClass());
+            }
+            if (TUICPref.get("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`) != null) {
+                document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.${"TUIC_DISPNONE".addClass()})`).classList.add("TUIC_DISPNONE".addClass());
+            }
 
             if (TUICPref.get("profileSetting.invisible.profileHighlights")) {
                 const tabs = document.querySelectorAll(`:not(.${"TUIC_DISPNONE".addClass()}) > [role="tab"][href$="/highlights"]`);
