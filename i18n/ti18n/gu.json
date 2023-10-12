@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Spacesમાં લાઈવ સાંભળો",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "માત્ર @{screenName}ના સર્કલમાં રહેલા લોકો જ આ પોસ્ટને જોઈ શકે છે",
     "XtoTwitter-PostToTweet-circleTweet-old": "માત્ર @{screenName}ના Twitter સર્કલમાં રહેલા લોકો જ આ ટ્વીટને જોઈ શકે છે",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "પુનટ્વીટ્સ",
     "XtoTwitter-PostToTweet-engagementsTitle": "જોડાણો",

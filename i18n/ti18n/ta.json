@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "ஸ்பேசஸில் நேரலையில் கேளுங்கள்",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "@{screenName} -இன் சர்கிளில் உள்ளவர்கள் மட்டுமே இந்த இடுகையைப் பார்க்கலாம்",
     "XtoTwitter-PostToTweet-circleTweet-old": "@{screenName} -இன் Twitter சர்கிளில் உள்ளவர்கள் மட்டுமே இந்தக் கீச்சைக் காணலாம்",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "மறுகீச்சுகள்",
     "XtoTwitter-PostToTweet-engagementsTitle": "ஈடுபாடுகள்",

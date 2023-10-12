@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Слушайте в прямом эфире в Аудиокомнатах",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Этот пост виден только тем, кто входит в близкий круг @{screenName}",
     "XtoTwitter-PostToTweet-circleTweet-old": "Этот твит виден только тем, кто входит в Близкий круг @{screenName}",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвиты",
     "XtoTwitter-PostToTweet-engagementsTitle": "Взаимодействия",

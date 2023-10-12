@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "收听空间直播",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "只有 @{screenName} 的圈子中的用户可以查看这个帖子",
     "XtoTwitter-PostToTweet-circleTweet-old": "只有 @{screenName} 的 Twitter 圈子中的用户可以查看这条推文。",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "转推",
     "XtoTwitter-PostToTweet-engagementsTitle": "参与",

@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Слухайте наживо в Просторах",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Цей пост можуть бачити лише люди з кола @{screenName}.",
     "XtoTwitter-PostToTweet-circleTweet-old": "Цей твіт можуть бачити лише люди з Кола @{screenName} у Twitter",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвіти",
     "XtoTwitter-PostToTweet-engagementsTitle": "Взаємодія",

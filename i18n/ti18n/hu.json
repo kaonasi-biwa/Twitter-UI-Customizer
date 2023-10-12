@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Hallgass Tereket élőben!",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Csak @{screenName} körének tagjai láthatják ezt a bejegyzést",
     "XtoTwitter-PostToTweet-circleTweet-old": "Csak @{screenName} Twitter-körének tagjai láthatják ezt a Tweetet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweetek",
     "XtoTwitter-PostToTweet-engagementsTitle": "Kapcsolatok",
