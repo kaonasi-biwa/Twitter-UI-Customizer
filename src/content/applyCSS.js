@@ -611,7 +611,7 @@ display:none !important;
 }
 .TUICSidebarSelected > div > div > svg{
     stroke:currentColor;
-    stroke-width:0.5;
+    stroke-width:1;
 }
 .TUICSidebarButton:hover > div{
     background-color:var(--TUIC-sidebar-hover-color);
