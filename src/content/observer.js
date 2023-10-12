@@ -882,13 +882,10 @@ export const TUICObserver = {
                     if (TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome")) {
                         if (isHome) {
                             SVGElem.setAttribute("d", HOME_ICON.oldSelected);
-                            elem.classList.add("TUICSidebarSelected");
                         } else {
                             SVGElem.setAttribute("d", HOME_ICON.old);
-                            elem.classList.remove("TUICSidebarSelected");
                         }
                     } else {
-                        elem.classList.remove("TUICSidebarSelected");
                         if (isHome) {
                             SVGElem.setAttribute("d", HOME_ICON.latestSelected);
                         } else {
