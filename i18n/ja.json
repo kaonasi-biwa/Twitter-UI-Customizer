@@ -53,6 +53,7 @@
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
+    "sidebarButton-setting-birdGoBackHome": "ホームのアイコンを巣箱に戻す",
     "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニューの設定",
     "sidebarButton-accountSwitcher-Icon": "アイコンを非表示にする",
     "sidebarButton-accountSwitcher-NameID": "ユーザー名とIDを非表示にする",
