@@ -1,6 +1,6 @@
 import { addCssElement } from "./applyCSS.js";
 import { TUICData } from "./data.js";
-import { DOG, EMPTY, TWITTER, X } from "./data/icons.js";
+import { DOG, EMPTY, TWITTER, X, HOME_ICON } from "./data/icons.js";
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICOptionHTML } from "./option.js";
@@ -869,6 +869,29 @@ export const TUICObserver = {
                     i.classList.remove("TUICSidebarSelected");
                 }
                 if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
+            }
+            {
+                const elem = document.querySelector("[role=banner] > div > div > div > div > div > nav " + TUICData.sidebarButtons.selectors.home);
+                if (elem) {
+                    const isHome = location.href == "https://twitter.com/home";
+                    const SVGElem = elem.querySelector("svg path");
+                    if (TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome")) {
+                        if (isHome) {
+                            SVGElem.setAttribute("d", HOME_ICON.oldSelected);
+                            elem.classList.add("TUICSidebarSelected");
+                        } else {
+                            SVGElem.setAttribute("d", HOME_ICON.old);
+                            elem.classList.remove("TUICSidebarSelected");
+                        }
+                    } else {
+                        elem.classList.remove("TUICSidebarSelected");
+                        if (isHome) {
+                            SVGElem.setAttribute("d", HOME_ICON.latestSelected);
+                        } else {
+                            SVGElem.setAttribute("d", HOME_ICON.latest);
+                        }
+                    }
+                }
             }
         },
     },

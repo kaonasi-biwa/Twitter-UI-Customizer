@@ -679,7 +679,7 @@ display:none !important;
     color:rgb(139, 152, 165);
 }
 ${
-    TUICPref.get("otherBoolSetting.smallerSidebarContent")
+    TUICPref.get("sidebarSetting.buttonConfigsmallerSidebarContent")
         ? `
 [role="navigation"] .${"NOT_" + "TUIC_DISPNONE".addClass()}{
     padding-bottom:0px !important;
@@ -706,7 +706,7 @@ ${
         : ""
 }
 ${
-    TUICPref.get("otherBoolSetting.sidebarNoneScrollbar")
+    TUICPref.get("sidebarSetting.buttonConfig.sidebarNoneScrollbar")
         ? `
 header > div > div > div > div.r-1rnoaur{overflow:clip;}
 `

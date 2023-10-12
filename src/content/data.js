@@ -35,13 +35,18 @@ export const TUICData = {
             noNumberBottomTweetButtons: false,
         },
         otherBoolSetting: {
-            smallerSidebarContent: true,
             roundIcon: true,
-            sidebarNoneScrollbar: false,
             faviconSet: false,
             placeEngagementsLink: false,
             placeEngagementsLinkShort: false,
             showLinkCardInfo: true,
+        },
+        sidebarSetting: {
+            buttonConfig: {
+                smallerSidebarContent: true,
+                sidebarNoneScrollbar: false,
+                birdGoBackHome: false,
+            },
         },
         XToTwitter: { XToTwitter: false, PostToTweet: false },
         timeline: {

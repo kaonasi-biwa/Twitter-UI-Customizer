@@ -185,6 +185,16 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        ".sidebarSettingButtonConfig": {
+            type: "click",
+            function: function (event) {
+                TUICPref.set("sidebarSetting.buttonConfig." + event.target.id, event.target.checked);
+                TUICPref.save();
+                TUICLibrary.getClasses.update();
+                TUICObserver.observerFunction();
+            },
+            single: false,
+        },
         ".timelineSetting": {
             type: "click",
             function: function (event) {
@@ -705,15 +715,16 @@ ${this.radioButtonList(
     "twitterIcon-settingTitle",
     "TUICRadio",
     "<br>" +
-        this.checkbox("faviconSet", TUICPref.get("otherBoolSetting.faviconSet") ?? true, "twitterIcon-favicon", "otherBoolSetting") +
+        this.checkbox("faviconSet", TUICPref.get("sidebarSetting.buttonConfig") ?? true, "twitterIcon-favicon", "otherBoolSetting") +
         this.checkbox("roundIcon", TUICPref.get("otherBoolSetting.roundIcon") ?? true, "twitterIcon-roundIcon", "otherBoolSetting") +
         this.uploadImageFile("twitterIcon-usedIcon", "IconImg"),
 )}
 ${this.upDownList(
     "sidebarButtons",
     "sidebarButton-settingTitle",
-    this.checkbox("smallerSidebarContent", TUICPref.get("otherBoolSetting.smallerSidebarContent") ?? true, "sidebarButton-setting-narrowBetweenButtons", "otherBoolSetting") +
-        this.checkbox("sidebarNoneScrollbar", TUICPref.get("otherBoolSetting.sidebarNoneScrollbar") ?? false, "sidebarButton-setting-sidebarNoneScrollbar", "otherBoolSetting") +
+    this.checkbox("smallerSidebarContent", TUICPref.get("sidebarSetting.buttonConfig.smallerSidebarContent"), "sidebarButton-setting-narrowBetweenButtons", "sidebarSettingButtonConfig") +
+        this.checkbox("sidebarNoneScrollbar", TUICPref.get("sidebarSetting.buttonConfig.sidebarNoneScrollbar"), "sidebarButton-setting-sidebarNoneScrollbar", "sidebarSettingButtonConfig") +
+        this.checkbox("birdGoBackHome", TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome"), "sidebarButton-setting-birdGoBackHome", "sidebarSettingButtonConfig") +
         `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("sidebarButton-accountSwitcher-settingTitle")}</h2>` +
         this.checkbox("icon", TUICPref.get("accountSwitcher.icon"), "sidebarButton-accountSwitcher-Icon", "accountSwitcher") +
         this.checkbox("nameID", TUICPref.get("accountSwitcher.nameID"), "sidebarButton-accountSwitcher-NameID", "accountSwitcher") +

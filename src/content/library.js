@@ -105,6 +105,9 @@ export const TUICLibrary = {
             changeBooleanKey("invisibleItems.profileHighlights", "profileSetting.invisible.profileHighlights");
             changeBooleanKey("invisibleItems.profileAffiliates", "profileSetting.invisible.profileAffiliates");
             changeBooleanKey("invisibleItems.verifiedFollowerTab", "profileSetting.invisible.verifiedFollowerTab");
+
+            changeBooleanKey("otherBoolSetting.smallerSidebarContent", "sidebarSetting.buttonConfig.smallerSidebarContent");
+            changeBooleanKey("otherBoolSetting.sidebarNoneScrollbar", "sidebarSetting.buttonConfig.sidebarNoneScrollbar");
             if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
             TUICPref.set("CSS");
 
