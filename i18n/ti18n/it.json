@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Ascolta in diretta negli spazi",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Solo chi fa parte della Circle di @{screenName} può vedere questo post",
     "XtoTwitter-PostToTweet-circleTweet-old": "Solo chi fa parte della Twitter Circle di {screenName} può vedere questo Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interazioni",

@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lyt med direkte i Rum",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Denne post kan kun ses af personer i @{screenName}s cirkel",
     "XtoTwitter-PostToTweet-circleTweet-old": "Dette Tweet kan kun ses af personer i @{screenName}s Twitter-cirkel",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagementer",

@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "האזנה במקומות חיים",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "הפוסט הזה גלוי רק לאנשים שנמצאים בקבוצה של ‎@{screenName}.",
     "XtoTwitter-PostToTweet-circleTweet-old": "הציוץ הזה גלוי רק לאנשים שנמצאים בקבוצת Twitter של ‎@{screenName}‎",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "ציוצים מחדש",
     "XtoTwitter-PostToTweet-engagementsTitle": "פעילויות",

@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "在音訊空間中即時聆聽",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "只有在 @{screenName} 的朋友圈中的人可以看到此貼文",
     "XtoTwitter-PostToTweet-circleTweet-old": "只有在 @{screenName} 的 Twitter 朋友圈中的人可以看到此推文",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "轉推",
     "XtoTwitter-PostToTweet-engagementsTitle": "參與次數",

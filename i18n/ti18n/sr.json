@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Слушај уживо у Просторима",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "Само људи у кругу корисника @{screenName} могу да виде ову објаву",
     "XtoTwitter-PostToTweet-circleTweet-old": "Само људи у Twitter кругу корисника @{screenName} могу да виде овај твит",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвитови",
     "XtoTwitter-PostToTweet-engagementsTitle": "Ангажовања",
