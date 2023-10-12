@@ -626,6 +626,10 @@ export const TUICObserver = {
                 // サイドバーのツイートボタン
                 for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
 
+                //右サイドバーのスペースのやつ
+                for (const elem of getNotReplacedElements(`[data-testid="sidebarColumn"] [data-testid="pill-contents-container"]`))
+                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("h2 span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-rightSidebar-spaceTitle");
+
                 // 「新しいツイートを表示」ポップアップ
                 for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted");
 

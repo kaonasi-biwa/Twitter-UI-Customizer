@@ -1,5 +1,6 @@
 {
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "進行中のスペースを聞く",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "@{screenName}さんのサークルに追加されているユーザーのみこのポストを表示できます",
     "XtoTwitter-PostToTweet-circleTweet-old": "@{screenName}さんのTwitterサークルに追加されているユーザーのみこのツイートを表示できます",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "リツイート",
     "XtoTwitter-PostToTweet-engagementsTitle": "エンゲージメント",
