@@ -439,13 +439,14 @@ export const TUICData = {
                     }, 3000);
                 }
             },
-            userBlock: function (article) {
+            userBlock: async function (article) {
                 for (let i = 0; i <= 2; i++) {
                     const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
                     if (blockButton == null) {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         blockButton.click();
+                        await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
                         if (TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons")) {
                             document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
@@ -894,18 +895,38 @@ export const TUICData = {
             bookmarks: "/i/bookmarks",
         },
         tuicButtonGoToUrl: {
+            __setURL: (id, selector, setURLWay) => {
+                const elem = document.querySelector(selector);
+                if (elem) {
+                    return setURLWay(elem);
+                } else {
+                    TUICData.sidebarButtons.tuicButtonGoToUrl.__setURLWait(id, selector, setURLWay);
+                    return "";
+                }
+            },
+            __setURLWait: async (id, selector, setURLWay) => {
+                await TUICLibrary.waitForElement(selector);
+                const elem = document.querySelector(`#TUICSidebar_${id}`);
+                if (elem) {
+                    elem.href = setURLWay(document.querySelector(selector));
+                }
+            },
             topics: () => {
-                return `https://twitter.com/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/topics`;
+                return TUICData.sidebarButtons.tuicButtonGoToUrl.__setURL("topics", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
+                    return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/topics`;
+                });
             },
             lists: () => {
-                return `https://twitter.com/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/lists`;
-            },
-            circles: () => {
-                return `https://twitter.com/i/circles/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [role="presentation"] img`).src.split("/")[4]}/members`;
+                return TUICData.sidebarButtons.tuicButtonGoToUrl.__setURL("lists", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
+                    return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/lists`;
+                });
             },
             communities: () => {
-                return `https://twitter.com/${document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/communities`;
+                return TUICData.sidebarButtons.tuicButtonGoToUrl.__setURL("communities", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
+                    return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/communities`;
+                });
             },
+            circles: "https://twitter.com/i/circles/",
             connect: "https://twitter.com/i/connect_people",
             drafts: "https://twitter.com/compose/tweet/unsent/drafts",
             display: "https://twitter.com/i/display",
