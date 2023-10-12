@@ -509,6 +509,7 @@ export const TUICOptionHTML = {
                         XToTwitter: true,
                         PostToTweet: true,
                     },
+                    sidebarSetting: { buttonConfig: { birdGoBackHome: true } },
                     twitterIcon: "twitter",
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
@@ -531,6 +532,7 @@ export const TUICOptionHTML = {
                     otherBoolSetting: {
                         faviconSet: true,
                     },
+                    sidebarSetting: { buttonConfig: { birdGoBackHome: true } },
                     twitterIcon: "twitter",
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
