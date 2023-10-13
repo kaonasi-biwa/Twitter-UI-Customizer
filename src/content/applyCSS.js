@@ -609,10 +609,11 @@ display:none !important;
 .TUICSidebarSelected > div > [dir="ltr"]{
     font-weight:700;
 }
+/*
 .TUICSidebarSelected > div > div > svg{
     stroke:currentColor;
     stroke-width:1;
-}
+}*/
 .TUICSidebarButton:hover > div{
     background-color:var(--TUIC-sidebar-hover-color);
 }

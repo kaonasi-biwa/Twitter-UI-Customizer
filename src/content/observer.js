@@ -1,6 +1,6 @@
 import { addCssElement } from "./applyCSS.js";
 import { TUICData } from "./data.js";
-import { DOG, EMPTY, TWITTER, X, HOME_ICON } from "./data/icons.js";
+import { DOG, EMPTY, TWITTER, X, HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICOptionHTML } from "./option.js";
@@ -868,9 +868,11 @@ export const TUICObserver = {
                     locationBool = location.pathname.endsWith(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
                 }
                 if (locationBool && !i.classList.value.includes("TUICSidebarSelected")) {
+                    i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].selected);
                     i.classList.add("TUICSidebarSelected");
                 } else if (!locationBool && i.classList.value.includes("TUICSidebarSelected")) {
                     i.classList.remove("TUICSidebarSelected");
+                    i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].unselected);
                 }
                 if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
             }
