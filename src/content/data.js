@@ -814,13 +814,11 @@ export const TUICData = {
         },
         buttonFunctions: {
             topics: async function (e) {
-                console.log("aaaaa");
                 e?.preventDefault?.();
                 if (!location.pathname.endsWith("/topics")) {
                     const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
-                        console.log("aiueo");
                         document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
                         document.querySelector(`[href="/settings"]`)?.click();
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`);
