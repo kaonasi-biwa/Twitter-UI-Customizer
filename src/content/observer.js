@@ -227,9 +227,17 @@ export const TUICObserver = {
             }
         },
         buttonUnderTweet: function () {
+            while (document.querySelector(`article[TUIC_ARTICLE="${"TUICDidArticle".addClass()}"] .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`)) {
+                const elem = document.querySelector(`article[TUIC_ARTICLE="${"TUICDidArticle".addClass()}"] .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`);
+                let barBase = elem;
+                while (!barBase.getAttribute("tuic_article")) {
+                    barBase = barBase.parentElement;
+                }
+                barBase.removeAttribute("tuic_article");
+            }
             const articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${"TUICDidArticle".addClass()}"])`);
             if (articles.length != 0) {
-                articles.forEach(async function (elem) {
+                for (const elem of articles) {
                     const xCIcon = elem.querySelector(`path[d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"]`)?.parentElement?.parentElement;
                     if (xCIcon != null) {
                         TUICObserver.functions.twitterIcon(xCIcon, xCIcon.parentElement);
@@ -323,6 +331,8 @@ export const TUICObserver = {
                             let div = -1;
                             if (i in bar_item) {
                                 div = bar_item[i];
+                                div.classList.add("TUIC_UnderTweetButton".addClass());
+                                div.classList.remove("TUIC_DISPNONE".addClass());
                             } else if (i in TUICData.visibleButtons.buttonElement) {
                                 div = TUICData.visibleButtons.buttonElement[i](
                                     { elements: { buttonBarBase: bar_base, article: elem, statusButton: statusButton }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle } } /*bar_base, elem, lockedAccount*/,
@@ -346,7 +356,7 @@ export const TUICObserver = {
                         }
                     }
                     elem.setAttribute("TUIC_ARTICLE", "TUICDidArticle".addClass());
-                });
+                }
             }
         },
         osusumeUser: function () {
@@ -791,7 +801,7 @@ export const TUICObserver = {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]:not([role="search"] *)`) != null &&
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null
             ) {
-                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]:not([role="search"] *)`).parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
+                document.querySelector(`[data-testid="sidebarColumn"] *:not(.${"TUIC_DISPNONE".addClass()}) [data-testid="UserCell"]:not([role="search"] *)`).parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE".addClass());
             }
 
             if (
