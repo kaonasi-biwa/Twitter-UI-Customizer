@@ -34,6 +34,7 @@ export const TUICData = {
             RTNotQuote: false,
             noModalbottomTweetButtons: false,
             noNumberBottomTweetButtons: false,
+            linkCopyURL: "linkCopyURL_twitter",
         },
         otherBoolSetting: {
             roundIcon: true,
@@ -407,7 +408,7 @@ export const TUICData = {
                 }
             },
             "url-copy-cannotCopy": function (elem) {
-                navigator.clipboard.writeText(elem.href);
+                navigator.clipboard.writeText(elem.href.replace(/(twitter\.com|x\.com)/, TUICData["tweetDisplaySetting.linkCopyURL"].url[TUICPref.get("tweetDisplaySetting.linkCopyURL")]));
 
                 const baseElem = document.querySelector(`#layers`);
                 if (baseElem != null) {
@@ -987,6 +988,19 @@ export const TUICData = {
             discoverMore_detailOpen: "timeline-discoverMore-detailOpen",
             discoverMore_detailClose: "timeline-discoverMore-detailClose",
             discoverMore_invisible: "timeline-discoverMore-invisible",
+        },
+    },
+    "tweetDisplaySetting.linkCopyURL": {
+        all: ["linkCopyURL_twitter", "linkCopyURL_X", "linkCopyURL_vxTwitter"],
+        i18n: {
+            linkCopyURL_twitter: "bottomTweetButtons-setting-linkCopyURL-twitter",
+            linkCopyURL_X: "bottomTweetButtons-setting-linkCopyURL-X",
+            linkCopyURL_vxTwitter: "bottomTweetButtons-setting-linkCopyURL-vxTwitter",
+        },
+        url: {
+            linkCopyURL_twitter: "twitter.com",
+            linkCopyURL_X: "x.com",
+            linkCopyURL_vxTwitter: "vxtwitter.com",
         },
     },
     styleColor: {

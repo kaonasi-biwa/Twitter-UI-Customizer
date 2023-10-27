@@ -46,6 +46,10 @@
     "bottomTweetButtons-setting-placeEngagementsLink-likes-short": "いいね一覧",
     "bottomTweetButtons-setting-placeEngagementsLink-retweets-short": "リツイート一覧",
     "bottomTweetButtons-setting-placeEngagementsLink-quotes-short": "引用ツイート一覧",
+    "bottomTweetButtons-setting-linkCopyURL-twitter": "twitter.com",
+    "bottomTweetButtons-setting-linkCopyURL-X": "x.com",
+    "bottomTweetButtons-setting-linkCopyURL-vxTwitter": "vxtwitter.com",
+    "bottomTweetButtons-setting-linkCopyURL": "URLをコピーするときのドメイン",
 
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
