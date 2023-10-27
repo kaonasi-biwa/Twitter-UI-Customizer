@@ -567,17 +567,17 @@ export const TUICData = {
             },
             "url-copy": function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](val.option.isBigArticle)).item(0);
-                if (val.option.isLockedAccount || val.option.cannotRT) {
-                    if (val.elements.statusButton != null) {
-                        TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                            TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
-                        });
-                    }
-                } else {
+                //if (val.option.isLockedAccount || val.option.cannotRT) {
+                if (val.elements.statusButton != null) {
+                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
+                        TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
+                    });
+                }
+                /*} else {
                     TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                         TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                     });
-                }
+                }*/
                 return elem;
             },
             userBlock: function (val) {
