@@ -7,7 +7,7 @@ import { TUICOptionHTML } from "./option.js";
 import { isSafemode } from "./safemode.js";
 
 export const TUICObserver = {
-    observerFunction: function () {
+    observerFunction: function (mutationsList) {
         TUICObserver.observer.disconnect();
 
         if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
@@ -903,7 +903,7 @@ export const TUICObserver = {
                 if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
             }
             {
-                const elem = document.querySelector("[role=banner] > div > div > div > div > div > nav " + TUICData.sidebarButtons.selectors.home);
+                const elem = document.querySelector(`.gt2-nav [data-testid="AppTabBar_Home_Link"]`) ?? document.querySelector("[role=banner] > div > div > div > div > div > nav " + TUICData.sidebarButtons.selectors.home);
                 if (elem) {
                     const isHome = location.href == "https://twitter.com/home";
                     const SVGElem = elem.querySelector("svg path");
