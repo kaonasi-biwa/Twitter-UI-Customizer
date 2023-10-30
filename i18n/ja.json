@@ -49,7 +49,8 @@
     "bottomTweetButtons-setting-linkCopyURL-twitter": "twitter.com",
     "bottomTweetButtons-setting-linkCopyURL-X": "x.com",
     "bottomTweetButtons-setting-linkCopyURL-vxTwitter": "vxtwitter.com",
-    "bottomTweetButtons-setting-linkCopyURL": "URLをコピーするときのドメイン",
+    "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
+    "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
 
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
