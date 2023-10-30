@@ -284,6 +284,11 @@ export const TUICObserver = {
                                 if (!cannotRT) {
                                     TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
                                 }
+                                if (!cannotRT && !lockedAccount && bar_item["share-button"]) {
+                                    TUICData.visibleButtons.buttonElement._handleEvent(bar_item["share-button"], () => {
+                                        TUICData.visibleButtons.buttonFunction["share-button"](statusButton);
+                                    });
+                                }
                                 const isBigArticle = !!elem.querySelector(`.r-1srniue`);
                                 for (const boxElem of Array.from(elem.querySelectorAll(`.TUICEngagementsBox`))) {
                                     boxElem.remove();
