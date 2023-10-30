@@ -229,15 +229,15 @@ export const TUICObserver = {
         buttonUnderTweet: function () {
             if (!TUICObserver.data.buttonUnderTweetRunning) {
                 TUICObserver.data.buttonUnderTweetRunning = true;
-                while (document.querySelector(`article[TUIC_ARTICLE="${"TUICDidArticle".addClass()}"] .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`)) {
-                    const elem = document.querySelector(`article[TUIC_ARTICLE="${"TUICDidArticle".addClass()}"] .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`);
+                while (document.querySelector(`article.${"TUICDidArticle".addClass()} .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`)) {
+                    const elem = document.querySelector(`article.${"TUICDidArticle".addClass()} .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`);
                     let barBase = elem;
                     while (!barBase.getAttribute("tuic_article")) {
                         barBase = barBase.parentElement;
                     }
                     barBase.removeAttribute("tuic_article");
                 }
-                const articles = document.querySelectorAll(`article:not([TUIC_ARTICLE="${"TUICDidArticle".addClass()}"])`);
+                const articles = document.querySelectorAll(`article:not(.${"TUICDidArticle".addClass()})`);
                 if (articles.length != 0) {
                     for (const elem of articles) {
                         (async () => {
@@ -363,7 +363,7 @@ export const TUICObserver = {
                                     }
                                 }
                             }
-                            elem.setAttribute("TUIC_ARTICLE", "TUICDidArticle".addClass());
+                            elem.classList.add("TUICDidArticle".addClass());
                         })();
                     }
                 }
