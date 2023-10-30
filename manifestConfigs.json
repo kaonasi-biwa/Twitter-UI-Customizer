@@ -24,7 +24,7 @@
             "128": "icon/newIcon_TUIC_C_Blue.svg"
         },
         "web_accessible_resources": ["*"],
-        "permissions": ["notifications", "storage", "https://api.github.com/*", "https://abs.twimg.com/*", "alarms", "clipboardRead", "clipboardWrite"],
+        "permissions": ["notifications", "storage", "https://api.github.com/*", "https://abs.twimg.com/*", "alarms", "clipboardRead"],
         "browser_action": {
             "default_icon": {
                 "16": "icon/newIcon_TUIC_C_Blue.svg",
@@ -61,7 +61,7 @@
                 "matches": ["*://*.twitter.com/*"]
             }
         ],
-        "permissions": ["notifications", "storage", "alarms", "clipboardRead", "clipboardWrite"],
+        "permissions": ["notifications", "storage", "alarms", "clipboardRead"],
         "action": {
             "default_icon": {
                 "16": "icon/newIcon_TUIC_C_Blue.png",
