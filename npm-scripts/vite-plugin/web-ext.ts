@@ -62,6 +62,9 @@ class WebExtRun {
                         },
                         {},
                     );
+                    this.webExtRunner.registerCleanup(() => {
+                        process.exit(0);
+                    });
                 } else if (this.args.mode === "chromium") {
                     console.error("Currently Chromium is not supported.");
                     // this.webExtRunner = await this.webExt.cmd.run(
