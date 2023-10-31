@@ -682,7 +682,7 @@ display:none !important;
 ${
     TUICPref.get("sidebarSetting.buttonConfigsmallerSidebarContent")
         ? `
-[role="navigation"] .${"NOT_" + "TUIC_DISPNONE".addClass()}{
+[role="navigation"] .${"NOT_TUIC_DISPNONE".addClass()}{
     padding-bottom:0px !important;
     padding-top:0px !important;
 }

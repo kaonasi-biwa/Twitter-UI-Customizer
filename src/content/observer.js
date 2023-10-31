@@ -10,12 +10,12 @@ export const TUICObserver = {
     observerFunction: function (mutationsList) {
         TUICObserver.observer.disconnect();
 
-        if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
+        if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
             if (!TUICObserver.iconObserver) {
                 TUICObserver.iconObserver = new MutationObserver(() => {
-                    if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
+                    if (document.querySelector(`header h1 a > div > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
                         TUICObserver.iconObserver.disconnect();
-                        TUICObserver.functions.twitterIcon(document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`header [role="heading"]`));
+                        TUICObserver.functions.twitterIcon(document.querySelector(`header h1 a > div > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`header [role="heading"]`));
                         TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
                             childList: true,
                             subtree: true,
@@ -29,24 +29,24 @@ export const TUICObserver = {
                     attributes: true,
                 });
             }
-            TUICObserver.functions.twitterIcon(document.querySelector(`header h1 a > div > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`header [role="heading"]`));
+            TUICObserver.functions.twitterIcon(document.querySelector(`header h1 a > div > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`header [role="heading"]`));
         }
         if (document.querySelector(`header h1 a > div > svg`) == null) {
             TUICObserver.iconObserver = "";
         }
-        if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
+        if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
             TUICObserver.functions.twitterIcon(
-                document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`),
+                document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`),
                 document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] [role="heading"]`),
             );
         }
-        if (document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
-            TUICObserver.functions.twitterIcon(document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`[data-testid="interstitialGraphic"]`));
+        if (document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
+            TUICObserver.functions.twitterIcon(document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`[data-testid="interstitialGraphic"]`));
         }
-        if (document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
+        if (document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`) != null) {
             TUICObserver.functions.twitterIcon(
-                document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`),
-                document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`).parentElement,
+                document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`),
+                document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`).parentElement,
             );
         }
 
@@ -144,7 +144,7 @@ export const TUICObserver = {
         sidebarButtons: function () {
             const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
             if (bannerRoot != null) {
-                if (bannerRoot.querySelector(`a:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()})`) != null) {
+                if (bannerRoot.querySelector(`a:not(.${"NOT_TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()})`) != null) {
                     this.sidebarButtonProcess(bannerRoot);
                 } else {
                     let changeElem = false;
@@ -174,10 +174,10 @@ export const TUICObserver = {
                     let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                     if (moveElem != null) {
                         bannerRoot.appendChild(moveElem);
-                        moveElem.classList.add("NOT_" + "TUIC_DISPNONE".addClass());
+                        moveElem.classList.add("NOT_TUIC_DISPNONE".addClass());
                     } else if (i in TUICData.sidebarButtons.html) {
                         moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
-                        moveElem.classList.add("NOT_" + "TUIC_DISPNONE".addClass());
+                        moveElem.classList.add("NOT_TUIC_DISPNONE".addClass());
                         moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
                         moveElem.addEventListener("keydown", (e) => {
                             if (e.keyCode === 13) {
