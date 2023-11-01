@@ -208,5 +208,9 @@
     "optionSpecialThanks_PianoCat1010": {
         "message": "\"Like and Retweet\" Icon Author",
         "description": "設定画面のSpecial thanks(PianoCat1010さん)"
+    },
+    "optionSpecialThanks_GreenDotBlue99": {
+        "message": "Fixing Function of Tab",
+        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }
