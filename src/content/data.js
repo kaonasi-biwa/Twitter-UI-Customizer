@@ -449,9 +449,9 @@ export const TUICData = {
             },
             "url-copy-inShare": async function (elem) {
                 const copyLink = elem.href.replace(/(twitter\.com|x\.com)/, TUICData["tweetDisplaySetting.linkCopyURL"].url[TUICPref.get("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]);
-                if ((await navigator.clipboard.readText()).split("?")[0] != copyLink) {
-                    navigator.clipboard.writeText(copyLink);
-                }
+                //if ((await navigator.clipboard.readText()).split("?")[0] != copyLink) {
+                navigator.clipboard.writeText(copyLink);
+                //}
             },
             userBlock: async function (article) {
                 for (let i = 0; i <= 2; i++) {
