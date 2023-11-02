@@ -27,19 +27,6 @@ import { isSafemode, runSafemode } from "./safemode.js";
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
 
-    if (document.querySelector("#twitter_ui_customizer_query") == null) {
-        const queryElem = document.createElement("meta");
-        queryElem.id = "twitter_ui_customizer_query";
-        queryElem.setAttribute("query", "");
-        document.querySelector("head").appendChild(queryElem);
-    } else {
-        const queryElem = document.querySelector("#twitter_ui_customizer_query");
-        const query = queryElem.getAttribute("query") + "A";
-
-        TUICLibrary.getClasses.query = query;
-        queryElem.setAttribute("query", query);
-    }
-
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();
     }

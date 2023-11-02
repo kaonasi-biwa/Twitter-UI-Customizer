@@ -49,15 +49,42 @@ export const TUICLibrary = {
     },
     getClasses: {
         getClass: function (id) {
-            return id + this.query;
+            //if (!this.idList.includes(id)) this.idList.push(id);
+            return id;
         },
         update: function () {
-            this.query += "_";
-            document.querySelector("#twitter_ui_customizer_query").setAttribute("query", this.query);
+            for (const id of this.idList) {
+                for (const elem of document.getElementsByClassName(id)) {
+                    elem.classList.remove(id);
+                }
+            }
+            //this.idList = [];
             applySystemCss();
             TUICObserver.observerFunction();
         },
-        query: "",
+        idList: [
+            "NOT_TUIC_DISPNONE",
+            "TUIC_DISPNONE",
+            "TUIC_DISPNONE_PARENT",
+            "TUIC_SVGDISPNONE",
+            "TUIC_NOTSVGDISPNONE",
+            "TUIC_DISCOVERMORE",
+            "TUIC_DISCOVERHEADER",
+            "TUIC_ISNOTDEFAULT",
+            "TUIC_NONE_SPACE_BOTTOM_TWEET",
+            "TUIC_TWEETREPLACE",
+            "TUIC_UnderTweetButton",
+            "TUICDidArticle",
+            "TUICDidInfoArticle",
+            "TUICItIsBigArticle",
+            "TUICItIsBigArticlePhoto",
+            "TUICTweetButtomBarBase",
+            "TUICTwitterIcon_Twitter",
+            "TUICTwitterIcon_X",
+            "TUICTwitterIcon_Dog",
+            "TUICTwitterIcon_IconImg",
+            "TUICScrollBottom",
+        ],
     },
     updatePref: {
         update: async function () {
