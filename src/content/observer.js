@@ -232,10 +232,10 @@ export const TUICObserver = {
                 while (document.querySelector(`article.${"TUICDidArticle".addClass()} .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`)) {
                     const elem = document.querySelector(`article.${"TUICDidArticle".addClass()} .${"TUICTweetButtomBarBase".addClass()} > div > div:not(.${"TUIC_UnderTweetButton".addClass()}):not(.TUICButtonUnderTweet)`);
                     let barBase = elem;
-                    while (!barBase.getAttribute("tuic_article")) {
+                    while (!barBase.classList.contains("TUICDidArticle")) {
                         barBase = barBase.parentElement;
                     }
-                    barBase.removeAttribute("tuic_article");
+                    barBase.classList.remove("TUICDidArticle".addClass());
                 }
                 const articles = document.querySelectorAll(`article:not(.${"TUICDidArticle".addClass()})`);
                 if (articles.length != 0) {
