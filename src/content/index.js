@@ -17,7 +17,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
         return TUICLibrary.escapeToUseHTML(this);
     };
     String.prototype.addClass = function () {
-        return TUICLibrary.getClasses.getClass(this);
+        return this;
     };
     TUICObserver.titleObserverFunction();
 

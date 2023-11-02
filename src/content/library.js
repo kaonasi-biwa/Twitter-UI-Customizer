@@ -48,17 +48,12 @@ export const TUICLibrary = {
         },
     },
     getClasses: {
-        getClass: function (id) {
-            //if (!this.idList.includes(id)) this.idList.push(id);
-            return id;
-        },
         update: function () {
             for (const id of this.idList) {
                 for (const elem of document.getElementsByClassName(id)) {
                     elem.classList.remove(id);
                 }
             }
-            //this.idList = [];
             applySystemCss();
             TUICObserver.observerFunction();
         },
