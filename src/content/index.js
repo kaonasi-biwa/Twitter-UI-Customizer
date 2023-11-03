@@ -16,9 +16,6 @@ import { isSafemode, runSafemode } from "./safemode.js";
     String.prototype.escapeToUseHTML = function () {
         return TUICLibrary.escapeToUseHTML(this);
     };
-    String.prototype.addClass = function () {
-        return TUICLibrary.getClasses.getClass(this);
-    };
     TUICObserver.titleObserverFunction();
 
     console.log(
@@ -27,26 +24,13 @@ import { isSafemode, runSafemode } from "./safemode.js";
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
 
-    if (document.querySelector("#twitter_ui_customizer_query") == null) {
-        const queryElem = document.createElement("meta");
-        queryElem.id = "twitter_ui_customizer_query";
-        queryElem.setAttribute("query", "");
-        document.querySelector("head").appendChild(queryElem);
-    } else {
-        const queryElem = document.querySelector("#twitter_ui_customizer_query");
-        const query = queryElem.getAttribute("query") + "A";
-
-        TUICLibrary.getClasses.query = query;
-        queryElem.setAttribute("query", query);
-    }
-
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();
     }
 
     addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`#placeholder`));
+        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
     }
 
     chrome.runtime.sendMessage({
