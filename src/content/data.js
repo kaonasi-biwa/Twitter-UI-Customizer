@@ -1,7 +1,6 @@
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { SIDEBAR_BUTTON_ICON } from "./data/icons.js";
-import { isYieldExpression } from "typescript";
 
 export const TUICData = {
     defaultPref: {
