@@ -13,6 +13,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
+    TUICLibrary.getClasses.deleteClasses();
     String.prototype.escapeToUseHTML = function () {
         return TUICLibrary.escapeToUseHTML(this);
     };

@@ -1,6 +1,7 @@
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { SIDEBAR_BUTTON_ICON } from "./data/icons.js";
+import { isYieldExpression } from "typescript";
 
 export const TUICData = {
     defaultPref: {
@@ -409,8 +410,17 @@ export const TUICData = {
                 }
             },
             "url-copy-cannotCopy": function (elem) {
-                navigator.clipboard.writeText(elem.href.replace(/(twitter\.com|x\.com)/, TUICData["tweetDisplaySetting.linkCopyURL"].url[TUICPref.get("tweetDisplaySetting.linkCopyURL")]));
+                TUICData.visibleButtons.buttonFunction["url-copy-base"](elem.href.replace(/(twitter\.com|x\.com)/, TUICData["tweetDisplaySetting.linkCopyURL"].url[TUICPref.get("tweetDisplaySetting.linkCopyURL")]));
+            },
+            "url-copy-inShare": function (elem) {
+                TUICData.visibleButtons.buttonFunction["url-copy-base"](elem.href.replace(/(twitter\.com|x\.com)/, TUICData["tweetDisplaySetting.linkCopyURL"].url[TUICPref.get("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]));
 
+                //if ((await navigator.clipboard.readText()).split("?")[0] != copyLink) {
+
+                //}
+            },
+            "url-copy-base": (url) => {
+                navigator.clipboard.writeText(url);
                 const baseElem = document.querySelector(`#layers`);
                 if (baseElem != null) {
                     /* eslint-disable indent */
@@ -446,12 +456,6 @@ export const TUICData = {
                         layerElem.remove();
                     }, 3000);
                 }
-            },
-            "url-copy-inShare": async function (elem) {
-                const copyLink = elem.href.replace(/(twitter\.com|x\.com)/, TUICData["tweetDisplaySetting.linkCopyURL"].url[TUICPref.get("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]);
-                //if ((await navigator.clipboard.readText()).split("?")[0] != copyLink) {
-                navigator.clipboard.writeText(copyLink);
-                //}
             },
             userBlock: async function (article) {
                 for (let i = 0; i <= 2; i++) {
@@ -554,8 +558,10 @@ export const TUICData = {
                         .querySelector(
                             `[role="menuitem"] path[d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]`,
                         )
-                        .parentElement.parentElement.parentElement.parentElement.addEventListener("click", () => {
+                        .parentElement.parentElement.parentElement.parentElement.addEventListener("click", (e) => {
+                            e.stopImmediatePropagation();
                             TUICData.visibleButtons.buttonFunction["url-copy-inShare"](elem);
+                            document.querySelector(`#layers > div+div > div > div > div > div+div > div > div`).click();
                         });
                 }, 100);
             },

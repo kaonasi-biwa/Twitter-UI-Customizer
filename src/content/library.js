@@ -49,13 +49,16 @@ export const TUICLibrary = {
     },
     getClasses: {
         update: function () {
-            for (const id of this.idList) {
+            TUICLibrary.getClasses.deleteClasses();
+            applySystemCss();
+            TUICObserver.observerFunction();
+        },
+        deleteClasses: () => {
+            for (const id of TUICLibrary.getClasses.idList) {
                 for (const elem of document.getElementsByClassName(id)) {
                     elem.classList.remove(id);
                 }
             }
-            applySystemCss();
-            TUICObserver.observerFunction();
         },
         idList: [
             "NOT_TUIC_DISPNONE",
