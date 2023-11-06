@@ -1,4 +1,9 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "進行中のスペースを聞く",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "@{screenName}さんのサークルに追加されているユーザーのみこのポストを表示できます",
+    "XtoTwitter-PostToTweet-circleTweet-old": "@{screenName}さんのTwitterサークルに追加されているユーザーのみこのツイートを表示できます",
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "リツイート",
+    "XtoTwitter-PostToTweet-engagementsTitle": "エンゲージメント",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "リツイート",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "リツイートしますか？",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "下書きは、引用ツイートする前に破棄されます。",
@@ -67,7 +72,7 @@
     "XtoTwitter-PostToTweet-replyRangeDetail": "このツイートに返信できるアカウントを選択します。@ツイートされたアカウントは常に返信できます。",
     "XtoTwitter-PostToTweet-tweeted": "さんがツイートしました",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "別のツイートを追加しましょう。",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "別のポストを追加してください。",
+    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "別のポストを追加",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "別のツイートを追加しましょう。",
     "XtoTwitter-PostToTweet-placeholder-reply-latest": "返信をポスト",
     "XtoTwitter-PostToTweet-placeholder-reply": "返信をツイートしましょう。",

@@ -16,6 +16,9 @@ import { isSafemode, runSafemode } from "./safemode.js";
     String.prototype.escapeToUseHTML = function () {
         return TUICLibrary.escapeToUseHTML(this);
     };
+    String.prototype.addClass = function () {
+        return TUICLibrary.getClasses.getClass(this);
+    };
     TUICObserver.titleObserverFunction();
 
     console.log(
@@ -43,7 +46,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
 
     addCssElement();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}):not(.${TUICLibrary.getClasses.getClass("TUIC_DISPNONE")}`), document.querySelector(`#placeholder`));
+        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`#placeholder`));
     }
 
     chrome.runtime.sendMessage({

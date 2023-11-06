@@ -33,9 +33,9 @@
     "XtoTwitter-PostToTweet-tweetButton-latest": "ee69d769",
     "XtoTwitter-PostToTweet-tweetAllButton-latest": "ge8e4a38",
     "XtoTwitter-PostToTweet-placeholder-reply": "ad993b0e",
-    "XtoTwitter-PostToTweet-placeholder-reply-latest": "cf5af90c",
+    "XtoTwitter-PostToTweet-placeholder-reply-latest": "ed1f39ec",
     "XtoTwitter-PostToTweet-placeholder-addTweet-old": "b1695ed6",
-    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "d29edd5a",
+    "XtoTwitter-PostToTweet-placeholder-addTweet-latest": "df45f564",
     "XtoTwitter-PostToTweet-placeholder-addTweet": "b1695ed6",
     "XtoTwitter-PostToTweet-tweeted": "g132f681",
     "XtoTwitter-PostToTweet-replyRangeDetail": "g2d04222",
@@ -105,5 +105,10 @@
     "XtoTwitter-PostToTweet-retweet-dialogBody-latest": "gad04d1a",
     "XtoTwitter-PostToTweet-retweet-dialogBody-old": "aec89ef0",
     "XtoTwitter-PostToTweet-retweet-dialogTitle": "g449dfaa",
-    "XtoTwitter-PostToTweet-retweet-dialogConfirm": "bac8f4c2"
+    "XtoTwitter-PostToTweet-retweet-dialogConfirm": "bac8f4c2",
+    "XtoTwitter-PostToTweet-engagementsTitle": "dbe9353e",
+    "XtoTwitter-PostToTweet-engagements-retweetTitle": "d497b854",
+    "XtoTwitter-PostToTweet-circleTweet-old": "e5e32275",
+    "XtoTwitter-PostToTweet-circleTweet-latest": "g766a06d",
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "f3839580"
 }

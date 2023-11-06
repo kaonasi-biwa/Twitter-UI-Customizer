@@ -1,6 +1,13 @@
 name: i18n Updater
 
-on: [workflow_dispatch]
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "i18n/_officialTwitterI18n.json"
+            - "i18n/_officialTwitterI18nConfig.json"
+    workflow_dispatch:
 
 jobs:
     eslint:

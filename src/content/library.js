@@ -65,16 +65,13 @@ export const TUICLibrary = {
                 this.parallelToSerial();
             }
 
-            if (TUICPref.get("otherBoolSetting.clientInfo") == true) {
-                TUICPref.set("clientInfo", { clientInfoVisible: true });
-            }
-            TUICPref.delete("otherBoolSetting.clientInfo");
-
             if (typeof TUICPref.get("timeline") != "object") TUICPref.set("timeline", {});
 
             if (typeof TUICPref.get("rightSidebar") != "object") TUICPref.set("rightSidebar", {});
 
             if (typeof TUICPref.get("XToTwitter") != "object") TUICPref.set("XToTwitter", {});
+
+            if (typeof TUICPref.get("clientInfo") == "object") TUICPref.delete("clientInfo");
 
             /**
              * boolean 値の設定キーを変更します。
@@ -96,7 +93,21 @@ export const TUICLibrary = {
             changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
             changeBooleanKey("otherBoolSetting.XtoTwitter", "XToTwitter.XToTwitter");
             changeBooleanKey("otherBoolSetting.PostToTweet", "XToTwitter.PostToTweet");
+            changeBooleanKey("invisibleItems.twitter-pro-promotion-btn", "tweetDisplaySetting.twitter-pro-promotion-btn");
+            changeBooleanKey("invisibleItems.subscribe-tweets", "tweetDisplaySetting.subscribe-tweets");
+            changeBooleanKey("otherBoolSetting.bottomScroll", "tweetDisplaySetting.bottomScroll");
+            changeBooleanKey("otherBoolSetting.bottomSpace", "tweetDisplaySetting.bottomSpace");
+            changeBooleanKey("otherBoolSetting.RTNotQuote", "tweetDisplaySetting.RTNotQuote");
+            changeBooleanKey("otherBoolSetting.noModalbottomTweetButtons", "tweetDisplaySetting.noModalbottomTweetButtons");
+            changeBooleanKey("otherBoolSetting.noNumberBottomTweetButtons", "tweetDisplaySetting.noNumberBottomTweetButtons");
 
+            changeBooleanKey("invisibleItems.subscribe-profile", "profileSetting.invisible.subscribe-profile");
+            changeBooleanKey("invisibleItems.profileHighlights", "profileSetting.invisible.profileHighlights");
+            changeBooleanKey("invisibleItems.profileAffiliates", "profileSetting.invisible.profileAffiliates");
+            changeBooleanKey("invisibleItems.verifiedFollowerTab", "profileSetting.invisible.verifiedFollowerTab");
+
+            changeBooleanKey("otherBoolSetting.smallerSidebarContent", "sidebarSetting.buttonConfig.smallerSidebarContent");
+            changeBooleanKey("otherBoolSetting.sidebarNoneScrollbar", "sidebarSetting.buttonConfig.sidebarNoneScrollbar");
             if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
             TUICPref.set("CSS");
 
@@ -203,6 +214,13 @@ export const TUICLibrary = {
             return target;
         },
     },
+    getPrimitiveOrFunction: (functionOrPrimitive) => {
+        if (typeof functionOrPrimitive == "function") {
+            return functionOrPrimitive();
+        } else {
+            return functionOrPrimitive;
+        }
+    },
     backgroundColorCheck: function () {
         const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {
@@ -239,39 +257,40 @@ export const TUICLibrary = {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     escapeToUseHTML: function (text) {
-        return text.replace(/[&'`"<>=;]/g, function (match) {
-            return {
-                "&": "&amp;",
-                "'": "&#x27;",
-                "`": "&#x60;",
-                '"': "&quot;",
-                "<": "&lt;",
-                ">": "&gt;",
-                "=": "&equals;",
-                ";": "&semi;",
-            }[match];
-        });
+        return text
+            .replace(/[&'`"<>=;]/g, function (match) {
+                return {
+                    "&": "&amp;",
+                    "'": "&#x27;",
+                    "`": "&#x60;",
+                    '"': "&quot;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    "=": "&equals;",
+                    ";": "&semi;",
+                }[match];
+            })
+            .replaceAll("\\r", "\r");
     },
     waitForElement: async function (selector) {
         if (document.querySelectorAll(selector).length !== 0) {
             return Array.from(document.querySelectorAll(selector));
         } else {
-            return new Promise((resolve) => {
+            const returns = await new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
-                    const addedNodes = mutations.flatMap((m) => Array.from(m.addedNodes)).filter((n) => n instanceof HTMLElement);
-                    const matchedAddedNodes = addedNodes.filter((e) => e.matches(selector));
+                    const matchedAddedNodes = document.querySelectorAll(selector);
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
                         resolve(matchedAddedNodes);
                     }
                 });
-                observer.observe(document, { subtree: true, childList: true });
+                observer.observe(document.querySelector("html"), { subtree: true, childList: true });
             });
+            return returns;
         }
     },
 };
 
-/* eslint-disable */
 export const TUICPref = {
     config: null,
     get: function (identifier) {

@@ -40,23 +40,55 @@
     },
     "popupButton1": {
         "message": "Twitter UI Customizerの設定",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton2": {
         "message": "セーフモードで設定を変更",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton3": {
         "message": "アップデート通知の設定",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton4": {
         "message": "作者(kaonasi_biwa)のTwitter",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton5": {
         "message": "最新版をGitHubからインストール",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "pSettings": {
+        "message": "設定",
+        "description": "ポップアップの設定ボタン"
+    },
+    "pSettingsInSafemode": {
+        "message": "セーフモード",
+        "description": "ポップアップのセーフモードボタン"
+    },
+    "pSettingsUpdateNotification": {
+        "message": "アップデート通知",
+        "description": "ポップアップのアップデート通知設定ボタン"
+    },
+    "pTwitterOfAuthor": {
+        "message": "作者(kaonasi_biwa)",
+        "description": "ポップアップの作者ボタン"
+    },
+    "pInstallFromGH": {
+        "message": "最新版をインストール",
+        "description": "ポップアップのGitHubから最新版をインストールするボタン"
+    },
+    "pUpdateOnBrowserLaunch": {
+        "message": "ブラウザを起動したとき",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnClickIcon": {
+        "message": "アイコンをクリックしたとき",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnOpenTwitter": {
+        "message": "Twitterを開いたとき",
+        "description": "ポップアップのアップデート通知設定"
     },
     "optionTitle": {
         "message": "設定及び操作方法(Twitter UI Customizer)",
@@ -177,5 +209,9 @@
     "optionSpecialThanks_PianoCat1010": {
         "message": "「いいねとリツイート」のアイコンの作成者",
         "description": "設定画面のSpecial thanks(PianoCat1010さん)"
+    },
+    "optionSpecialThanks_GreenDotBlue99": {
+        "message": "タブの固定機能",
+        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }

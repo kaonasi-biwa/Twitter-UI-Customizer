@@ -1,17 +1,23 @@
 {
     "devDependencies": {
-        "@microsoft/eslint-formatter-sarif": "^2.1.7",
-        "@typescript-eslint/parser": "^6.0.0",
+        "@types/node": "^20.6.0",
+        "@typescript-eslint/eslint-plugin": "^6.6.0",
+        "@typescript-eslint/parser": "^6.6.0",
+        "autoprefixer": "^10.4.15",
         "dotenv": "^16.3.1",
-        "eslint": "^8.10.0",
-        "eslint-config-prettier": "^8.8.0",
+        "eslint": "^8.49.0",
+        "eslint-config-prettier": "^9.0.0",
         "node-fetch": "^3.3.2",
-        "prettier": "^3.0.0",
+        "postcss-import": "^15.1.0",
+        "prettier": "^3.0.3",
         "sass": "^1.66.1",
+        "stylelint": "^15.10.3",
+        "stylelint-config-standard-scss": "^11.0.0",
+        "tailwindcss": "^3.3.3",
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2",
         "vite": "^4.4.9",
-        "web-ext": "^7.6.2"
+        "web-ext": "^7.7.0"
     },
     "scripts": {
         "build": "yarn build:firefox",
@@ -23,9 +29,20 @@
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
         "debug": "yarn debug:firefox",
         "debug:firefox": "yarn build:firefox --watch",
-        "debug:chromium": "yarn build:chromium --watch"
+        "debug:chromium": "yarn build:chromium --watch",
+        "lint": "yarn lint:eslint & yarn lint:prettier & yarn lint:stylelint",
+        "lint:eslint": "yarn -s eslint --ext .js,.mjs,.ts .",
+        "lint:prettier": "yarn -s prettier --check **/*.js **/*.mjs **/*.ts",
+        "lint:stylelint": "yarn -s stylelint **/*.{css,scss}",
+        "format": "yarn format:eslint & yarn format:prettier & yarn format:stylelint",
+        "format:eslint": "yarn -s eslint --fix --ext .js,.mjs,.ts .",
+        "format:prettier": "yarn -s prettier --write **/*.js **/*.mjs **/*.ts",
+        "format:stylelint": "yarn -s stylelint --fix **/*.{css,scss}"
     },
     "dependencies": {
-        "bootstrap-icons": "^1.10.5"
+        "@types/chrome": "^0.0.245",
+        "@types/webextension-polyfill": "^0.10.2",
+        "bootstrap-icons": "^1.10.5",
+        "webextension-polyfill": "^0.10.0"
     }
 }
