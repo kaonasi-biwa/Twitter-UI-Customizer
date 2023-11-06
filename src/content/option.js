@@ -697,6 +697,7 @@ ${this.upDownList(
     "bottomTweetButtons-settingTitle-v2",
     `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("bottomTweetButtons-settingTitle")}</h2>` +
         this.checkbox("bottomScroll", TUICPref.get("tweetDisplaySetting.bottomScroll"), "bottomTweetButtons-setting-visibleScrollBar", "tweetDisplaySetting") +
+        this.checkbox("bottomSpace", TUICPref.get("tweetDisplaySetting.bottomSpace"), "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", "tweetDisplaySetting") +
         this.checkbox("RTNotQuote", TUICPref.get("tweetDisplaySetting.RTNotQuote"), "bottomTweetButtons-setting-RTNotQuote", "tweetDisplaySetting") +
         this.checkbox("noModalbottomTweetButtons", TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "tweetDisplaySetting") +
         this.checkbox("noNumberBottomTweetButtons", TUICPref.get("tweetDisplaySetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "tweetDisplaySetting") +
