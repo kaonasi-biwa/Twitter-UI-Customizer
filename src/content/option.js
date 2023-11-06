@@ -6,14 +6,18 @@ import { TUICObserver } from "./observer.js";
 import { isSafemode } from "./safemode.js";
 import { ARROW_LEFT, ARROW_RIGHT, ARROW_UP, ARROW_DOWN, RESET, EMPTY } from "./data/icons.js";
 
+import { inject } from "../shared/options/injectOptions";
+
 let editingColorType = "buttonColor";
 
 export const TUICOptionHTML = {
     displaySetting: function (rootElement) {
-        const optionsElement = TUICLibrary.HTMLParse(this.TUICOptionHTML()).item(0);
-        rootElement.appendChild(optionsElement);
+        const div = document.createElement("div");
+        div.id = "TUICOptionMain";
+        rootElement.appendChild(div);
+        inject();
 
-        optionsElement.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
+        rootElement.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
         this.eventHandle();
     },
     eventHandle: function (root) {
