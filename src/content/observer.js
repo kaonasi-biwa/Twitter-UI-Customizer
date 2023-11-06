@@ -1,4 +1,3 @@
-import { addCssElement } from "./applyCSS.js";
 import { TUICData } from "./data.js";
 import { DOG, EMPTY, TWITTER, X, HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
 import { TUICI18N } from "./i18n.js";
@@ -58,8 +57,6 @@ export const TUICObserver = {
         TUICObserver.functions.updateStyles();
 
         TUICObserver.functions.fixDMBox();
-
-        addCssElement();
         if (window.location.pathname == "/tuic/safemode") {
         } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/settings/display") {
             TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);

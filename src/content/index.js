@@ -6,7 +6,7 @@
 import { TUICObserver } from "./observer.js";
 import { TUICLibrary } from "./library.js";
 import { TUICI18N } from "./i18n.js";
-import { addCssElement } from "./applyCSS.js";
+import { applySystemCss, addCssElement } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
 
 (async () => {
@@ -45,7 +45,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     TUICObserver.observerFunction();
 
-    const bodyAttributeObserver = new MutationObserver(addCssElement);
+    const bodyAttributeObserver = new MutationObserver(applySystemCss);
     bodyAttributeObserver.observe(document.querySelector("body"), {
         childList: false,
         subtree: false,
