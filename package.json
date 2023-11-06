@@ -32,11 +32,11 @@
         "debug:chromium": "yarn build:chromium --watch",
         "lint": "yarn lint:eslint & yarn lint:prettier & yarn lint:stylelint",
         "lint:eslint": "yarn -s eslint --ext .js,.mjs,.ts .",
-        "lint:prettier": "yarn -s prettier --check **/*.js **/*.mjs **/*.ts",
+        "lint:prettier": "yarn -s prettier --check **/*.js **/*.mjs **/*.ts **/*.css **/*.scss",
         "lint:stylelint": "yarn -s stylelint **/*.{css,scss}",
         "format": "yarn format:eslint & yarn format:prettier & yarn format:stylelint",
         "format:eslint": "yarn -s eslint --fix --ext .js,.mjs,.ts .",
-        "format:prettier": "yarn -s prettier --write **/*.js **/*.mjs **/*.ts",
+        "format:prettier": "yarn -s prettier --write **/*.js **/*.mjs **/*.ts **/*.css **/*.scss",
         "format:stylelint": "yarn -s stylelint --fix **/*.{css,scss}"
     },
     "dependencies": {

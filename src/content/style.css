@@ -1,30 +1,30 @@
 /* セーフモード時の設定画面スタイル */
-#TUIC_safemode>#TUIC_setting {
+#TUIC_safemode > #TUIC_setting {
     margin: 2em auto;
     max-width: 600px;
 }
 
-#TUIC_safemode>.r-135wba7 {
+#TUIC_safemode > .r-135wba7 {
     line-height: 1em;
 }
 
-/*未送信ツイートの編集*/
-.r-s8bhmr>.css-1dbjc4n>.r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4 {
+/* 未送信ツイートの編集 */
+.r-s8bhmr > .css-1dbjc4n > .r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4 {
     background-color: var(--twitter-unsent-tweet-background) !important;
     border-color: var(--twitter-unsent-tweet-border) !important;
 }
 
-.r-s8bhmr>.css-1dbjc4n>.r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4>.r-b88u0q {
+.r-s8bhmr > .css-1dbjc4n > .r-15ysp7h.r-6416eg.r-4wgw6l.css-18t94o4 > .r-b88u0q {
     color: var(--twitter-unsent-tweet-color) !important;
 }
 
-/*フォローしていない人をフォロー*/
+/* フォローしていない人をフォロー */
 [data-testid$="-follow"]:not(:hover) {
     background-color: var(--twitter-not-following-background) !important;
     border-color: var(--twitter-not-following-border) !important;
 }
 
-[data-testid$="-follow"]:not(:hover)> :is(div, span) {
+[data-testid$="-follow"]:not(:hover) > :is(div, span) {
     color: var(--twitter-not-following-color) !important;
 }
 
@@ -33,17 +33,17 @@
     border-color: var(--twitter-willFollow-border) !important;
 }
 
-[data-testid$="-follow"]:hover> :is(div, span) {
+[data-testid$="-follow"]:hover > :is(div, span) {
     color: var(--twitter-willFollow-color) !important;
 }
 
-/*フォロー中*/
+/* フォロー中 */
 [data-testid$="-unfollow"]:not(:hover) {
     background-color: var(--twitter-following-background) !important;
     border-color: var(--twitter-following-border) !important;
 }
 
-[data-testid$="-unfollow"]:not(:hover)> :is(div, span) {
+[data-testid$="-unfollow"]:not(:hover) > :is(div, span) {
     color: var(--twitter-following-color) !important;
 }
 
@@ -52,17 +52,17 @@
     border-color: var(--twitter-un-following-border) !important;
 }
 
-[data-testid$="-unfollow"]:hover> :is(div, span) {
+[data-testid$="-unfollow"]:hover > :is(div, span) {
     color: var(--twitter-un-following-color) !important;
 }
 
-/*ブロック中*/
+/* ブロック中 */
 [data-testid$="-unblock"]:not(:hover) {
     background-color: var(--twitter-blocking-background) !important;
     border-color: var(--twitter-blocking-border) !important;
 }
 
-[data-testid$="-unblock"]:not(:hover)> :is(div, span) {
+[data-testid$="-unblock"]:not(:hover) > :is(div, span) {
     color: var(--twitter-blocking-color) !important;
 }
 
@@ -72,45 +72,42 @@
     border-color: var(--twitter-blocking-unlock-border) !important;
 }
 
-[data-testid$="-unblock"]:hover> :is(div, span) {
+[data-testid$="-unblock"]:hover > :is(div, span) {
     color: var(--twitter-blocking-unlock-color) !important;
 }
 
-/*プロフィールを編集*/
+/* プロフィールを編集 */
 [data-testid="editProfileButton"] {
     background-color: var(--twitter-profile-background) !important;
     border-color: var(--twitter-profile-border) !important;
 }
 
-[data-testid="editProfileButton"]> :is(div, span) {
+[data-testid="editProfileButton"] > :is(div, span) {
     color: var(--twitter-profile-color) !important;
 }
 
-/*プロフィールを保存*/
+/* プロフィールを保存 */
 [data-testid="Profile_Save_Button"] {
     background-color: var(--twitter-profile-save-background) !important;
     border-color: var(--twitter-profile-save-border) !important;
 }
 
-[data-testid="Profile_Save_Button"]> :is(div, span) {
+[data-testid="Profile_Save_Button"] > :is(div, span) {
     color: var(--twitter-profile-save-color) !important;
 }
 
-/*誕生日を設定*/
+/* 誕生日を設定 */
 [data-testid="confirmationSheetConfirm"] {
     background-color: var(--twitter-birthday-background) !important;
     border-color: var(--twitter-birthday-border) !important;
 }
 
-[data-testid="confirmationSheetConfirm"]> :is(div, span) {
+[data-testid="confirmationSheetConfirm"] > :is(div, span) {
     color: var(--twitter-birthday-color) !important;
 }
 
 .TUICDefaultColor {
-    margin-right: 0px !important;
-    margin-left: auto !important;
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
+    margin: 2px 0 2px auto !important;
     width: fit-content;
     border-color: #71767b !important;
 }
@@ -119,18 +116,18 @@
     margin-bottom: calc(12px + 1em);
 }
 
-/*色選択*/
+/* 色選択 */
 .TUIC_setting_color_colmn {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.TUIC_setting_color_colmn>h4 {
+.TUIC_setting_color_colmn > h4 {
     margin-left: 10px !important;
 }
 
-/*無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく）*/
+/* 無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく） */
 .TUIC_col_setting_container input[type="color"] {
     -webkit-appearance: none;
     border: none;
@@ -141,7 +138,7 @@
     height: 200%;
 }
 
-/*type=colorなinputタグを無理やり丸くするためのマスク*/
+/* type=colorなinputタグを無理やり丸くするためのマスク */
 .TUIC_input_color_rounded {
     border-radius: 50%;
     width: 23px;
@@ -149,9 +146,9 @@
     overflow: hidden;
 }
 
-/*ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ*/
+/* ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ */
 .TUIC_input_color_rounded__container {
-    background-color: rgba(127, 127, 127, 0.5);
+    background-color: rgb(127 127 127 / 50%);
     padding: 4px;
     width: 23px;
     height: 23px;
@@ -159,7 +156,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    transition: .3s;
+    transition: 0.3s;
     margin-right: 5px !important;
 }
 
@@ -171,20 +168,20 @@
     transform: scale(0.8);
 }
 
-/*色設定項目の操作可能なオブジェクトのコンテナ*/
+/* 色設定項目の操作可能なオブジェクトのコンテナ */
 .TUIC_setting_input_container {
     display: flex;
     align-items: center;
 }
 
-/*設定項目のタイトル*/
+/* 設定項目のタイトル */
 .TUIC_setting_title {
     font-weight: bold;
     font-size: 1rem;
     color: #71767b !important;
 }
 
-/*設定用項目のコンテナ*/
+/* 設定用項目のコンテナ */
 .TUIC_col_setting_container {
     margin-top: 8px;
     padding: 10px 14px;
@@ -199,7 +196,7 @@
     margin-bottom: 1em;
 }
 
-/*表示非表示のセレクトボックス*/
+/* 表示非表示のセレクトボックス */
 .TUIC_selectbox {
     border: solid 1px #71767b;
     border-radius: 6px;
@@ -212,18 +209,19 @@
 }
 
 .TUIC_selectbox::-webkit-scrollbar {
-    height: 8px
+    height: 8px;
 }
 
-/*設定画面の文字色*/
+/* 設定画面の文字色 */
 .TUIC_setting_text {
     color: var(--twitter-TUIC-color);
 }
 
-.TUICDetails, .TUICEasySetting {
+.TUICDetails,
+.TUICEasySetting {
     margin-bottom: 20px;
     border: 2px solid;
-    border-color: rgba(0, 0, 0, 0) !important;
+    border-color: rgb(0 0 0 / 0%) !important;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -232,7 +230,8 @@
     font-family: sans-serif;
 }
 
-.TUICDetails:not([open]), .TUICEasySetting {
+.TUICDetails:not([open]),
+.TUICEasySetting {
     padding-bottom: 10px;
     border-color: var(--TUIC-detail-border) !important;
 }
@@ -250,12 +249,12 @@
     cursor: pointer;
 }
 
-.TUIC_icon_button_con>svg * {
+.TUIC_icon_button_con > svg * {
     stroke: var(--twitter-TUIC-color);
-    transition: .2s;
+    transition: 0.2s;
 }
 
-.TUIC_icon_button_con>svg {
+.TUIC_icon_button_con > svg {
     pointer-events: none;
 }
 
@@ -269,13 +268,13 @@
 
 .TUIC_setting_button {
     background: transparent;
-    /*border-color: var(--twitter-TUIC-color);*/
+    /* border-color: var(--twitter-TUIC-color); */
     border-color: #71767b !important;
     border-radius: 9999px;
-    transition: .3s;
+    transition: 0.3s;
     cursor: pointer;
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .3);
-    /*color: #71767b !important;*/
+    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%);
+    /* color: #71767b !important; */
 }
 
 .TUIC_setting_button:hover {
@@ -295,61 +294,63 @@
 }
 
 .TUIC_none_scroll::-webkit-scrollbar {
-    display: none
+    display: none;
 }
 
 .TUIC_DISPNONE {
     display: none !important;
 }
 
-[tabindex="0"]>.TUIC_ButtonHover2:hover>.TUIC_ButtonHover>div {
-    background-color: rgba(29, 155, 240, 0.1)
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div {
+    background-color: rgb(29 155 240 / 10%);
 }
 
-[tabindex="0"]>.TUIC_ButtonHover2:Active>.TUIC_ButtonHover>div {
-    background-color: rgba(29, 155, 240, 0.2)
+[tabindex="0"] > .TUIC_ButtonHover2:active > .TUIC_ButtonHover > div {
+    background-color: rgb(29 155 240 / 20%);
 }
 
-[tabindex="0"]>.TUIC_ButtonHover2:hover>.TUIC_ButtonHover>svg {
-    color: rgb(29, 155, 240)
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg {
+    color: rgb(29 155 240);
 }
 
-
-.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover>svg {
-    color: rgb(29, 155, 240)
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > svg {
+    color: rgb(29 155 240);
 }
 
-.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover>div {
-    box-shadow: rgba(142, 204, 258) 0px 0px 0px 2px inset;
-    background-color: rgba(29, 155, 240, 0.1)
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div {
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+    background-color: rgb(29 155 240 / 10%);
 }
 
-#TUIC_invisible, #TUIC_visible {
+#TUIC_invisible,
+#TUIC_visible {
     background: transparent;
     padding-bottom: 10px;
     overflow-y: clip;
 }
 
-#TUIC_invisible span, #TUIC_visible span, #css_textarea, .TUICTextInput {
+#TUIC_invisible span,
+#TUIC_visible span,
+#css_textarea,
+.TUICTextInput {
     background: transparent;
     color: var(--twitter-TUIC-color);
 }
 
-#TUIC_invisible>div, #TUIC_visible>div {
+#TUIC_invisible > div,
+#TUIC_visible > div {
     height: calc(1em + 5px);
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 2px 1em;
 }
 
-#TUIC_invisible>div span, #TUIC_visible>div>span {
+#TUIC_invisible > div span,
+#TUIC_visible > div > span {
     white-space: nowrap;
     line-height: calc(1em + 5px);
 }
 
 [TUICSelectedUpDownContent="true"] {
-    background-color: rgba(51, 167, 229, 0.7);
+    background-color: rgb(51 167 229 / 70%);
 }
 
 .TUICTextInput {
@@ -362,7 +363,8 @@ textarea#css_textarea {
     resize: vertical;
 }
 
-textarea#css_textarea, .TUICTextInput {
+textarea#css_textarea,
+.TUICTextInput {
     width: calc(100% - 10px);
     border: 1px solid #808080;
     border-radius: 6px;
@@ -374,7 +376,7 @@ textarea#css_textarea, .TUICTextInput {
     width: 1.7em;
     height: 1.7em;
     border-radius: 50%;
-    border: 2px solid rgb(127, 127, 127);
+    border: 2px solid rgb(127 127 127);
     background-color: #fff;
     margin-right: 0.2em;
     margin-left: 0.5em;
@@ -384,10 +386,9 @@ textarea#css_textarea, .TUICTextInput {
     /* チェックされている */
     background-position: center;
     background-size: 90%;
-    background-color: rgba(29, 161, 242, 1);
+    background-color: rgb(29 161 242 / 100%);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
 }
-
 
 .TUICSettingRadioTypeBigButton {
     flex: 1 1;
@@ -404,46 +405,51 @@ textarea#css_textarea, .TUICTextInput {
     align-items: center;
 }
 
-
-.TUICSettingRadioTypeBigButton>span>span {
+.TUICSettingRadioTypeBigButton > span > span {
     mix-blend-mode: difference;
     white-space: nowrap;
     font-size: 15px;
     font-weight: 700;
-    color: #FFFFFF;
-    font-family: "Segoe UI", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #fff;
+    font-family:
+        "Segoe UI",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
 }
 
-.TUICSettingRadioTypeBigButton>span {
+.TUICSettingRadioTypeBigButton > span {
     white-space: nowrap;
 }
 
 .TUICColorSettingRadio {
-    display: none
+    display: none;
 }
 
-.TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton {
-    border: 2px solid rgb(29, 155, 240);
+.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton {
+    border: 2px solid rgb(29 155 240);
 }
 
-.TUICColorSettingRadio:not(:checked)+.TUICSettingRadioTypeBigButton {
-    border: 2px solid rgb(127, 127, 127);
+.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton {
+    border: 2px solid rgb(127 127 127);
 }
 
-.TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton>span::before {
+.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton > span::before {
     background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
-    background-color: rgb(29, 155, 240);
+    background-color: rgb(29 155 240);
     height: 1em;
     width: 1em;
 }
 
-.TUICColorSettingRadio:not(:checked)+.TUICSettingRadioTypeBigButton>span::before {
-    border: 2px solid rgba(127, 127, 127, 0.5);
+.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton > span::before {
+    border: 2px solid rgb(127 127 127 / 50%);
     width: 16px;
     height: 16px;
 }
 
-.TUICSettingRadioTypeBigButton>span::before {
+.TUICSettingRadioTypeBigButton > span::before {
     margin-right: 10px;
     margin-bottom: -5px;
     border-radius: 9999px;
@@ -454,12 +460,12 @@ textarea#css_textarea, .TUICTextInput {
 }
 
 .TUICSettingSubTitle {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
     margin-bottom: 5px !important;
     margin-left: 10px !important;
 }
 
-.TUICTweetButtomBarBase>div>.r-13awgt0 {
+.TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;
 }
 
@@ -473,38 +479,26 @@ textarea#css_textarea, .TUICTextInput {
 }
 
 .TUICScrollBottom,
-.TUICItIsBigArticlePhoto .TUICScrollBottom>div {
+.TUICItIsBigArticlePhoto .TUICScrollBottom > div {
     overflow-x: auto;
     scrollbar-width: thin;
-
 }
 
-:is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div,
-    .TUICScrollBottom)::-webkit-scrollbar {
-    height: 8px
+:is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
+    height: 8px;
 }
 
-:is(.TUICTwitterIcon_Twitter,
-    .TUICTwitterIcon_Dog,
-    .TUICTwitterIcon_IconImg,
-    .TUICTwitterIcon_X,
-    .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
     margin: 8px;
     background-size: cover;
 }
 
-#placeholder> :is(.TUICTwitterIcon_Twitter,
-    .TUICTwitterIcon_Dog,
-    .TUICTwitterIcon_IconImg,
-    .TUICTwitterIcon_X) {
+#placeholder > :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
     position: absolute;
     margin: auto;
 }
 
-:is(.TUICTwitterIcon_Twitter,
-    .TUICTwitterIcon_Dog,
-    .TUICTwitterIcon_IconImg,
-    .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
     height: inherit !important;
 }
 
@@ -515,10 +509,7 @@ textarea#css_textarea, .TUICTextInput {
     margin-right: auto;
 }
 
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter,
-    .TUICTwitterIcon_Dog,
-    .TUICTwitterIcon_IconImg,
-    .TUICTwitterIcon_X) {
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
     mask-size: contain !important;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -547,18 +538,18 @@ textarea#css_textarea, .TUICTextInput {
     mask-image: var(--TUIC-twitter-icon) !important;
 }
 
-#layers [data-testid="TopNavBar"] div+.TUICTwitterIcon_IconImg {
+#layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center;
     width: auto !important;
 }
 
-.TUIC_SVGDISPNONE>* {
+.TUIC_SVGDISPNONE > * {
     display: none !important;
 }
 
-.TUIC_DISPNONE_PARENT>[data-testid="ScrollSnap-prevButtonWrapper"] {
+.TUIC_DISPNONE_PARENT > [data-testid="ScrollSnap-prevButtonWrapper"] {
     display: none !important;
 }
 
@@ -601,7 +592,7 @@ textarea#css_textarea, .TUICTextInput {
     border-color: var(--TUIC-detail-border) !important;
 }
 
-.TUICSidebarSelected>div>[dir="ltr"] {
+.TUICSidebarSelected > div > [dir="ltr"] {
     font-weight: 700;
 }
 
@@ -609,16 +600,18 @@ textarea#css_textarea, .TUICTextInput {
 .TUICSidebarSelected > div > div > svg{
     stroke:currentColor;
     stroke-width:1;
-}*/
-.TUICSidebarButton:hover>div {
+}
+*/
+
+.TUICSidebarButton:hover > div {
     background-color: var(--TUIC-sidebar-hover-color);
 }
 
-.TUICSidebarButton[data-focusvisible-polyfill]>div {
-    box-shadow: var(--TUIC-sidebar-focus-color) 0px 0px 0px 2px
+.TUICSidebarButton[data-focusvisible-polyfill] > div {
+    box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
 }
 
-.TUICSidebarButton:active>div {
+.TUICSidebarButton:active > div {
     background-color: var(--TUIC-sidebar-active-color);
 }
 
@@ -626,11 +619,11 @@ textarea#css_textarea, .TUICTextInput {
     margin-bottom: 8px;
 }
 
-.TUICCheckBoxParent, .TUICCheckBoxParent {
+.TUICCheckBoxParent {
     display: flex;
 }
 
-:is(.TUICCheckBoxParent, .TUICCheckBoxParent)>div {
+:is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
     display: inline-block;
     margin-left: 0.25em;
     margin-top: auto;
@@ -638,19 +631,18 @@ textarea#css_textarea, .TUICTextInput {
 }
 
 .TUIC_DeleteButton {
-    color: rgb(244, 33, 46);
+    color: rgb(244 33 46);
 }
 
 #TUIC_setting :is(label, span, button, h2) {
     white-space: pre-wrap;
 }
 
-
-.TUICEngagementsBox>div>span {
+.TUICEngagementsBox > div > span {
     transition: border-bottom 0.2s;
 }
 
-.TUICEngagementsBox>div>span:hover {
+.TUICEngagementsBox > div > span:hover {
     border-bottom: solid 0.05px;
 }
 
@@ -683,9 +675,8 @@ textarea#css_textarea, .TUICTextInput {
 }
 
 .r-115tad6 {
-    color: rgb(139, 152, 165);
+    color: rgb(139 152 165);
 }
-
 
 /* Twitter Blue以外の長文のもっと見るを非表示にするCSS */
 div[data-testid="tweetText"] {
