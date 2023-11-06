@@ -6,7 +6,7 @@
 import { TUICObserver } from "./observer.js";
 import { TUICLibrary } from "./library.js";
 import { TUICI18N } from "./i18n.js";
-import { applySystemCss, addCssElement } from "./applyCSS.js";
+import { applySystemCss, addCssElement, applyDataCss } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
 
 (async () => {
@@ -30,6 +30,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
     }
 
     addCssElement();
+    applyDataCss();
     if (document.querySelector(`#placeholder > svg`)) {
         TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
     }

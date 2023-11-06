@@ -5,7 +5,6 @@ import { isSafemode } from "./safemode.js";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
-    document.querySelector("#twitter_ui_customizer_cssData")?.remove();
     document.querySelector("#twitter_ui_customizer")?.remove();
 
     const twitterHead = document.querySelector("head");
@@ -14,11 +13,6 @@ export function addCssElement() {
     systemCssElement.id = "twitter_ui_customizer";
     twitterHead.appendChild(systemCssElement);
     applySystemCss();
-
-    const dataCssElement = document.createElement("style");
-    dataCssElement.id = "twitter_ui_customizer_cssData";
-    twitterHead.appendChild(dataCssElement);
-    applyDataCss();
 
     if (!isSafemode) {
         const customCssElement = document.createElement("style");
@@ -29,7 +23,12 @@ export function addCssElement() {
 }
 
 export function applyDataCss() {
-    document.querySelector("#twitter_ui_customizer_cssData").textContent = `
+    const twitterHead = document.querySelector("head");
+    document.querySelector("#twitter_ui_customizer_cssData")?.remove();
+    const dataCssElement = document.createElement("style");
+    dataCssElement.id = "twitter_ui_customizer_cssData";
+    twitterHead.appendChild(dataCssElement);
+    dataCssElement.textContent = `
     .TUICTwitterIcon_Dog{
         background-image:url('${DOG}');
     }
