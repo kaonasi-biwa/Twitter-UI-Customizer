@@ -14,20 +14,24 @@
             <br /><br />
             <settingColors />
 
-            <UpDownList id="visibleButtons" title="bottomTweetButtons-settingTitle">
-                <Checkbox id="bottomScroll" :value="TUICPref.get('others.bottomScroll')" name="bottomTweetButtons-setting-visibleScrollBar" type="otherBoolSetting" />
-                <Checkbox id="bottomSpace" :value="TUICPref.get('others.bottomSpace')" name="bottomTweetButtons-setting-removeSpaceBottomTweet-v2" type="otherBoolSetting" />
-                <Checkbox id="RTNotQuote" :value="TUICPref.get('others.RTNotQuote')" name="bottomTweetButtons-setting-RTNotQuote" type="otherBoolSetting" />
-                <Checkbox id="noModalbottomTweetButtons" :value="TUICPref.get('others.noModalbottomTweetButtons')" name="bottomTweetButtons-setting-noModal" type="otherBoolSetting" />
-                <Checkbox id="noNumberBottomTweetButtons" :value="TUICPref.get('others.noNumberBottomTweetButtons')" name="bottomTweetButtons-setting-noNumber" type="otherBoolSetting" />
-            </UpDownList>
-            <UpDownList id="fixEngagements" title="fixEngagements-settingTitle">
-                <Checkbox id="placeEngagementsLink" :value="TUICPref.get('others.placeEngagementsLink')" name="bottomTweetButtons-setting-placeEngagementsLink" type="otherBoolSetting" />
-                <Checkbox id="placeEngagementsLinkShort" :value="TUICPref.get('others.placeEngagementsLinkShort')" name="fixEngagements-shortName" type="otherBoolSetting" />
-            </UpDownList>
-            <UpDownList id="sidebarButtons" title="sidebarButton-settingTitle">
-                <Checkbox id="smallerSidebarContent" :value="TUICPref.get('others.smallerSidebarContent') ?? true" name="sidebarButton-setting-narrowBetweenButtons" type="otherBoolSetting" />
-                <Checkbox id="sidebarNoneScrollbar" :value="TUICPref.get('others.sidebarNoneScrollbar') ?? false" name="sidebarButton-setting-sidebarNoneScrollbar" type="otherBoolSetting" />
+            <UpDownList id="visibleButtons" title="bottomTweetButtons-settingTitle-v2">
+                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("bottomTweetButtons-settingTitle") }}</h2>
+                <Checkbox id="bottomScroll" :value="TUICPref.get('tweetDisplaySetting.bottomScroll')" name="bottomTweetButtons-setting-visibleScrollBar" type="tweetDisplaySetting" />
+                <Checkbox id="RTNotQuote" :value="TUICPref.get('tweetDisplaySetting.RTNotQuote')" name="bottomTweetButtons-setting-RTNotQuote" type="tweetDisplaySetting" />
+                <Checkbox id="noModalbottomTweetButtons" :value="TUICPref.get('tweetDisplaySetting.noModalbottomTweetButtons')" name="bottomTweetButtons-setting-noModal" type="tweetDisplaySetting" />
+                <Checkbox id="noNumberBottomTweetButtons" :value="TUICPref.get('tweetDisplaySetting.noNumberBottomTweetButtons')" name="bottomTweetButtons-setting-noNumber" type="tweetDisplaySetting" />
+
+                <RadioButtonListSub id="tweetDisplaySetting.linkCopyURL" title="bottomTweetButtons-setting-linkCopyURL" type="TUICRadio" />
+                <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" type="TUICRadio" />
+                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("fixEngagements-settingTitle") }}</h2>
+                <UpDownListSub id="fixEngagements" />
+                <br />
+                <Checkbox id="placeEngagementsLink" :value="TUICPref.get('otherBoolSetting.placeEngagementsLink')" name="bottomTweetButtons-setting-placeEngagementsLink" type="otherBoolSetting" />
+                <Checkbox id="placeEngagementsLinkShort" :value="TUICPref.get('otherBoolSetting.placeEngagementsLinkShort')" name="fixEngagements-shortName" type="otherBoolSetting" />
+                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("bottomTweetButtons-settingTitle-linkCard") }}</h2>
+                <Checkbox id="showLinkCardInfo" :value="TUICPref.get('otherBoolSetting.showLinkCardInfo')" name="bottomTweetButtons-setting-showLinkCardInfo" type="otherBoolSetting" />
+                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("invisibleItems-settingTitle") }}</h2>
+                <CheckBoxListSub id="tweetDisplaySetting" type="tweetDisplaySetting" />
             </UpDownList>
             <RadioButtonList id="twitterIcon" title="twitterIcon-settingTitle" type="TUICRadio">
                 <br />
@@ -35,6 +39,11 @@
                 <Checkbox id="roundIcon" :value="TUICPref.get('others.roundIcon') ?? true" name="twitterIcon-roundIcon" type="otherBoolSetting" />
                 <UploadImageFile title="twitterIcon-usedIcon" id="IconImg" />
             </RadioButtonList>
+            <UpDownList id="sidebarButtons" title="sidebarButton-settingTitle">
+                <Checkbox id="smallerSidebarContent" :value="TUICPref.get('others.smallerSidebarContent') ?? true" name="sidebarButton-setting-narrowBetweenButtons" type="otherBoolSetting" />
+                <Checkbox id="sidebarNoneScrollbar" :value="TUICPref.get('others.sidebarNoneScrollbar') ?? false" name="sidebarButton-setting-sidebarNoneScrollbar" type="otherBoolSetting" />
+            </UpDownList>
+
             <CheckboxList id="invisibleItems" title="invisibleItems-settingTitle" type="TUICInvisibleItems" />
             <CheckboxList id="timeline" title="timeline-settingTitle" type="timelineSetting">
                 <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" type="TUICRadio" />
@@ -71,6 +80,8 @@ import UploadImageFile from "./components/UploadImageFile.vue";
 import CheckboxList from "./components/CheckboxList.vue";
 import RadioButtonListSub from "./components/RadioButtonListSub.vue";
 import ColorsList from "./components/ColorsList.vue";
+import UpDownListSub from "./components/UpDownListSub.vue";
+import CheckBoxListSub from "./components/CheckBoxListSub.vue";
 
 import customCSS from "./modules/customCSS.vue";
 import exportSettings from "./modules/exportSettings.vue";
@@ -95,6 +106,8 @@ export default defineComponent({
         importSettings,
         settingColors,
         settingsHeader,
+        UpDownListSub,
+        CheckBoxListSub,
     },
 });
 </script>
