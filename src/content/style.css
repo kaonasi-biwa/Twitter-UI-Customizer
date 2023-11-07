@@ -387,7 +387,7 @@ textarea#css_textarea,
     background-position: center;
     background-size: 90%;
     background-color: rgb(29 161 242 / 100%);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>");
 }
 
 .TUICSettingRadioTypeBigButton {
@@ -437,7 +437,7 @@ textarea#css_textarea,
 }
 
 .TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton>span::before {
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink" viewBox=\"0 0 24 24\"><g><path fill=\"%23FFFFFF\" d=\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\"></path></g></svg>');
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g><path fill='%23FFFFFF' d='M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z'></path></g></svg>");
     background-color: rgb(29 155 240);
     height: 1em;
     width: 1em;
