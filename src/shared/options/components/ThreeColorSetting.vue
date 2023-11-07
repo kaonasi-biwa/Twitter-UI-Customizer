@@ -1,11 +1,12 @@
 <template>
-    <template v-if="isBtnColors">
+    <template v-if="background">
         <ColorSetting :id="id" type="background" :color_="TUICLibrary.color.getColorFromPref(id, 'background', editingColorType)" text="settingUI-colorPicker-background" :isDefault="TUICPref.get(editingColorType)?.[id].background === true" :color-kind="editingColorType" />
-        <ColorSetting :id="id" type="border" :color_="TUICLibrary.color.getColorFromPref(id, 'border', editingColorType)" text="settingUI-colorPicker-border" :isDefault="TUICPref.get(editingColorType)?.[id].border === true" :color-kind="editingColorType" />
-        <ColorSetting :id="id" type="color" :color_="TUICLibrary.color.getColorFromPref(id, 'color', editingColorType)" text="settingUI-colorPicker-textColor" :isDefault="TUICPref.get(editingColorType)?.[id].color === true" :color-kind="editingColorType" />
     </template>
-    <template v-else-if="isIcnColors">
-        <ColorSetting :id="id" type="color" :color_="TUICLibrary.color.getColorFromPref(id, 'color', editingColorType)" text="settingUI-colorPicker-svgColor" :isDefault="TUICPref.get(editingColorType)?.[id].color === true" :color-kind="editingColorType" />
+    <template v-if="border">
+        <ColorSetting :id="id" type="border" :color_="TUICLibrary.color.getColorFromPref(id, 'border', editingColorType)" text="settingUI-colorPicker-border" :isDefault="TUICPref.get(editingColorType)?.[id].border === true" :color-kind="editingColorType" />
+    </template>
+    <template v-if="color">
+        <ColorSetting :id="id" type="color" :color_="TUICLibrary.color.getColorFromPref(id, 'color', editingColorType)" :text="typeColor" :isDefault="TUICPref.get(editingColorType)?.[id].color === true" :color-kind="editingColorType" />
     </template>
 </template>
 
@@ -19,59 +20,35 @@ import { TUICPref } from "../../../content/library";
 import ColorSetting from "./ColorSetting.vue";
 
 //色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
-// threeColorSetting: function (id: keyof typeof TUICData.colors) {
+// threeColorSetting: function (id) {
 //     let returnItem = "";
-//     const result = zBtnColors.safeParse(TUICData.colors[id]);
-//     if (result.success) {
-//         returnItem += this.colorSetting(
-//             id,
-//             "background",
-//             TUICLibrary.color.getColorFromPref(id, "background", editingColorType),
-//             "settingUI-colorPicker-background",
-//             !!settings[editingColorType]?.[id].background,
-//             editingColorType,
-//         );
-//         returnItem += this.colorSetting(
-//             id,
-//             "border",
-//             TUICLibrary.color.getColorFromPref(id, "border", editingColorType),
-//             "settingUI-colorPicker-border",
-//             !!settings[editingColorType]?.[id].border,
-//             editingColorType,
-//         );
+//     if (TUICData.colors[id]["background"]) {
+//         returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", TUICLibrary.getEditingColorType()), "settingUI-colorPicker-background", !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.background, TUICLibrary.getEditingColorType());
+//     }
+//     if (TUICData.colors[id]["border"]) {
+//         returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", TUICLibrary.getEditingColorType()), "settingUI-colorPicker-border", !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.border, TUICLibrary.getEditingColorType());
+//     }
+//     if (TUICData.colors[id]["color"]) {
 //         returnItem += this.colorSetting(
 //             id,
 //             "color",
-//             TUICLibrary.color.getColorFromPref(id, "color", editingColorType),
-//             TUICData.colors[id]?.typeColor == "imageColor"
-//                 ? "settingUI-colorPicker-svgColor"
-//                 : "settingUI-colorPicker-textColor",
-//             !!settings[editingColorType]?.[id].color,
-//             editingColorType,
+//             TUICLibrary.color.getColorFromPref(id, "color", TUICLibrary.getEditingColorType()),
+//             TUICData.colors[id]?.typeColor == "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor",
+//             !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.color,
+//             TUICLibrary.getEditingColorType(),
 //         );
 //     }
-//     const result2 = zIcnColors.safeParse(TUICData.colors[id]);
-//     if (result2.success) {
-//         returnItem += this.colorSetting(
-//             id,
-//             "color",
-//             TUICLibrary.color.getColorFromPref(id, "color", editingColorType),
-//             TUICData.colors[id]?.typeColor == "imageColor"
-//                 ? "settingUI-colorPicker-svgColor"
-//                 : "settingUI-colorPicker-textColor",
-//             !!settings[editingColorType]?.[id].color,
-//             editingColorType,
-//         );
-//     }
-
 //     return returnItem;
 // },
 
 export default defineComponent({
     setup(props) {
-        const isBtnColors = !!TUICData.colors[props.id]["background"];
-        const isIcnColors = !TUICData.colors[props.id]["background"];
-        return { isBtnColors, isIcnColors, TUICLibrary, TUICPref };
+        let _color = TUICData.colors[props.id];
+        let background = !!_color["background"];
+        let border = !!_color["border"];
+        let color = !!_color["color"];
+        let typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
+        return { background, border, color, typeColor, TUICLibrary, TUICPref };
     },
     props: {
         id: {

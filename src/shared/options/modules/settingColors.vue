@@ -28,7 +28,7 @@
                 <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 12px">{{ TUICI18N.get("settingColors-select-explain") }} </span>
             </div>
             <br />
-            <ColorsList />
+            <ColorsList :editing-color-type="TUICLibrary.getEditingColorType()" />
         </div>
     </details>
 </template>
@@ -37,10 +37,15 @@
 import { defineComponent } from "vue";
 import { TUICI18N } from "../../../content/i18n";
 
+import ColorsList from "../components/ColorsList.vue";
+
+import { TUICLibrary } from "../../../content/library";
+
 export default defineComponent({
     setup() {
-        return { TUICI18N };
+        return { TUICI18N, TUICLibrary };
     },
+    components: { ColorsList },
 });
 </script>
 

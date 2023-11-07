@@ -8,8 +8,6 @@ import { ARROW_LEFT, ARROW_RIGHT, ARROW_UP, ARROW_DOWN, RESET, EMPTY } from "./d
 
 import { inject } from "../shared/options/injectOptions";
 
-let editingColorType = "buttonColor";
-
 export const TUICOptionHTML = {
     displaySetting: function (rootElement) {
         const div = document.createElement("div");
@@ -430,7 +428,7 @@ export const TUICOptionHTML = {
         ".TUICColorSettingRadio": {
             type: "change",
             function: function (event) {
-                editingColorType = event.currentTarget.getAttribute("value");
+                TUICLibrary.setEditingColorType(event.currentTarget.getAttribute("value"));
                 document.querySelector("#TUICColorSettingsDivBox").remove();
                 const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList()).item(0);
                 document.querySelector("#colorSettingList").appendChild(appendELement);
@@ -828,19 +826,19 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
     threeColorSetting: function (id) {
         let returnItem = "";
         if (TUICData.colors[id]["background"]) {
-            returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", editingColorType), "settingUI-colorPicker-background", !!TUICPref.get(editingColorType)?.[id]?.background, editingColorType);
+            returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", TUICLibrary.getEditingColorType()), "settingUI-colorPicker-background", !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.background, TUICLibrary.getEditingColorType());
         }
         if (TUICData.colors[id]["border"]) {
-            returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", editingColorType), "settingUI-colorPicker-border", !!TUICPref.get(editingColorType)?.[id]?.border, editingColorType);
+            returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", TUICLibrary.getEditingColorType()), "settingUI-colorPicker-border", !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.border, TUICLibrary.getEditingColorType());
         }
         if (TUICData.colors[id]["color"]) {
             returnItem += this.colorSetting(
                 id,
                 "color",
-                TUICLibrary.color.getColorFromPref(id, "color", editingColorType),
+                TUICLibrary.color.getColorFromPref(id, "color", TUICLibrary.getEditingColorType()),
                 TUICData.colors[id]?.typeColor == "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor",
-                !!TUICPref.get(editingColorType)?.[id]?.color,
-                editingColorType,
+                !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.color,
+                TUICLibrary.getEditingColorType(),
             );
         }
         return returnItem;
@@ -850,7 +848,7 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
         let TUICColors = `<div id="TUICColorSettingsDivBox">`;
         for (const i of TUICData.settings.colors.id) {
             TUICColors += `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">${TUICI18N.get(TUICData.settings.colors.i18n[i])}</h2>
-            <div class="TUIC_col_setting_container_2">${this.threeColorSetting(i, editingColorType)}
+            <div class="TUIC_col_setting_container_2">${this.threeColorSetting(i, TUICLibrary.getEditingColorType())}
             </div>`;
         }
         TUICColors += "</div>";

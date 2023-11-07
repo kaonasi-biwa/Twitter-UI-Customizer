@@ -39,15 +39,41 @@
                 <Checkbox id="roundIcon" :value="TUICPref.get('others.roundIcon') ?? true" name="twitterIcon-roundIcon" type="otherBoolSetting" />
                 <UploadImageFile title="twitterIcon-usedIcon" id="IconImg" />
             </RadioButtonList>
+            <!--
+                ${this.upDownList(
+                "sidebarButtons",
+                "sidebarButton-settingTitle",
+                this.checkbox("smallerSidebarContent", TUICPref.get("sidebarSetting.buttonConfig.smallerSidebarContent"), "sidebarButton-setting-narrowBetweenButtons", "sidebarSettingButtonConfig") +
+                    this.checkbox("sidebarNoneScrollbar", TUICPref.get("sidebarSetting.buttonConfig.sidebarNoneScrollbar"), "sidebarButton-setting-sidebarNoneScrollbar", "sidebarSettingButtonConfig") +
+                    this.checkbox("birdGoBackHome", TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome"), "sidebarButton-setting-birdGoBackHome", "sidebarSettingButtonConfig") +
+                    `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("sidebarButton-accountSwitcher-settingTitle")}</h2>` +
+                    this.checkbox("icon", TUICPref.get("accountSwitcher.icon"), "sidebarButton-accountSwitcher-Icon", "accountSwitcher") +
+                    this.checkbox("nameID", TUICPref.get("accountSwitcher.nameID"), "sidebarButton-accountSwitcher-NameID", "accountSwitcher") +
+                    this.checkbox("moreMenu", TUICPref.get("accountSwitcher.moreMenu"), "sidebarButton-accountSwitcher-MoreMenu", "accountSwitcher"),
+            )}
+            -->
             <UpDownList id="sidebarButtons" title="sidebarButton-settingTitle">
-                <Checkbox id="smallerSidebarContent" :value="TUICPref.get('others.smallerSidebarContent') ?? true" name="sidebarButton-setting-narrowBetweenButtons" type="otherBoolSetting" />
-                <Checkbox id="sidebarNoneScrollbar" :value="TUICPref.get('others.sidebarNoneScrollbar') ?? false" name="sidebarButton-setting-sidebarNoneScrollbar" type="otherBoolSetting" />
+                <Checkbox id="smallerSidebarContent" :value="TUICPref.get('sidebarSetting.buttonConfig.smallerSidebarContent') ?? true" name="sidebarButton-setting-narrowBetweenButtons" type="sidebarSettingButtonConfig" />
+                <Checkbox id="sidebarNoneScrollbar" :value="TUICPref.get('sidebarSetting.buttonConfig.sidebarNoneScrollbar') ?? false" name="sidebarButton-setting-sidebarNoneScrollbar" type="sidebarSettingButtonConfig" />
+                <Checkbox id="birdGoBackHome" :value="TUICPref.get('sidebarSetting.buttonConfig.birdGoBackHome') ?? false" name="sidebarButton-setting-birdGoBackHome" type="sidebarSettingButtonConfig" />
+                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("sidebarButton-accountSwitcher-settingTitle") }}</h2>
+                <Checkbox id="icon" :value="TUICPref.get('accountSwitcher.icon') ?? false" name="sidebarButton-accountSwitcher-Icon" type="accountSwitcher" />
+                <Checkbox id="nameID" :value="TUICPref.get('accountSwitcher.nameID') ?? false" name="sidebarButton-accountSwitcher-NameID" type="accountSwitcher" />
+                <Checkbox id="moreMenu" :value="TUICPref.get('accountSwitcher.moreMenu') ?? false" name="sidebarButton-accountSwitcher-MoreMenu" type="accountSwitcher" />
             </UpDownList>
 
+            <details class="TUICDetails">
+                <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">{{ TUICI18N.get("profileSetting-settingTitle") }}</summary>
+                <div class="TUIC_col_setting_container">
+                    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("profileSetting-tabs-settingTitle") }}</h2>
+                    <CheckBoxListSub id="profileSetting.tabs" type="profileSettingTabs" />
+                    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("invisibleItems-settingTitle") }}</h2>
+                    <CheckBoxListSub id="profileSetting.invisible" type="profileSettingInvisible" />
+                </div>
+            </details>
+
             <CheckboxList id="invisibleItems" title="invisibleItems-settingTitle" type="TUICInvisibleItems" />
-            <CheckboxList id="timeline" title="timeline-settingTitle" type="timelineSetting">
-                <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" type="TUICRadio" />
-            </CheckboxList>
+            <CheckboxList id="timeline" title="timeline-settingTitle" type="timelineSetting" />
             <CheckboxList id="XToTwitter" title="XToTwitter-settingTitle" type="TUICXToTwitter">
                 <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom: 10px" id="XToTwitterRestoreIcon">
                     {{ TUICI18N.get("XtoTwitter-twitterIcon") }}
