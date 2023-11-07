@@ -431,7 +431,7 @@ textarea#css_textarea, .TUICTextInput {
 }
 
 .TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton>span::before {
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24\\"><g><path fill="%23FFFFFF" d=\\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\\"></path></g></svg>');
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink" viewBox=\"0 0 24 24\"><g><path fill=\"%23FFFFFF\" d=\"M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z\"></path></g></svg>');
     background-color: rgb(29, 155, 240);
     height: 1em;
     width: 1em;
