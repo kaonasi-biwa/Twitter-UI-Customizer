@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = {
     extends: ["stylelint-config-standard-scss"],
     plugins: ["stylelint-scss"],
@@ -18,6 +16,8 @@ module.exports = {
                 ignoreAtRules: ["tailwind", "apply", "responsive", "screen", "variants"],
             },
         ],
+        "comment-empty-line-before": null,
+        "property-no-vendor-prefix": null,
         "rule-empty-line-before": null,
         "no-descending-specificity": null,
         "declaration-empty-line-before": null,
@@ -25,6 +25,7 @@ module.exports = {
         "scss/double-slash-comment-empty-line-before": null,
 
         // kebab-case
+        "custom-property-pattern": null,
         "selector-id-pattern": null,
         "selector-class-pattern": null,
         "keyframes-name-pattern": null,
