@@ -4,7 +4,7 @@
             {{ TUICI18N.get(title) }}
         </summary>
         <div class="TUIC_col_setting_container">
-            <RadioButton v-for="i in TUICData[id].all" :id="id" :valueName="i" :value="TUICPref.get(id) === i" :name="TUICData[id].i18n[i]" :type="type" />
+            <RadioButton v-for="i in TUICData[id].all" :key="i" :id="id" :valueName="i" :value="TUICPref.get(id) === i" :name="TUICData[id].i18n[i]" :type="type" />
             <slot></slot>
         </div>
         <br />

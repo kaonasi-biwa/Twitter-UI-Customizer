@@ -12,7 +12,7 @@
         <div class="UpDownButtons" style="text-align: center; width: 30px">
             <br />
             <br />
-            <button v-for="item in UpdownButtonFuncs" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)" v-html="item.iconSrc"></button>
+            <button v-for="item in UpdownButtonFuncs" :key="item.btnAction" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)" v-html="item.iconSrc"></button>
         </div>
         <div style="flex: 1 2; width: 50px">
             <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">

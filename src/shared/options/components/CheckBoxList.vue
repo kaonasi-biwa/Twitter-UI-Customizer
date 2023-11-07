@@ -4,7 +4,7 @@
             {{ TUICI18N.get(title) }}
         </summary>
         <div class="TUIC_col_setting_container">
-            <checkbox v-for="i in TUICData[id].all" :id="i" :value="TUICPref.get(id)[i]" :name="TUICData[id].i18n[i]" :type="type" />
+            <CheckBox v-for="i in TUICData[id].all" :key="i" :id="i" :value="TUICPref.get(id)[i]" :name="TUICData[id].i18n[i]" :type="type" />
         </div>
         <br />
         <slot></slot>

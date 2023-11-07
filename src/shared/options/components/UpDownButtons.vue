@@ -1,5 +1,5 @@
 <template>
-    <div v-for="i in settings" :value="i" :id="i" class="TUICUpDownContent">
+    <div v-for="i in settings" :key="i" :value="i" :id="i" class="TUICUpDownContent">
         <span>{{ TUICI18N.get(TUICData.settings[id].i18n[i]) }}</span>
     </div>
 </template>

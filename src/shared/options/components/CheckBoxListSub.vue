@@ -1,5 +1,5 @@
 <template>
-    <template v-for="i in TUICData[id].all">
+    <template v-for="i in TUICData[id].all" :key="i">
         <CheckBox :id="i" :value="TUICPref.get(id)[i]" :name="TUICData[id].i18n[i]" :type="type" />
     </template>
 </template>
