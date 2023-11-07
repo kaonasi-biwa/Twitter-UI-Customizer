@@ -23,6 +23,7 @@
                 <CheckBox id="noNumberBottomTweetButtons" :value="TUICPref.get('tweetDisplaySetting.noNumberBottomTweetButtons')" name="bottomTweetButtons-setting-noNumber" type="tweetDisplaySetting" />
 
                 <RadioButtonListSub id="tweetDisplaySetting.linkCopyURL" title="bottomTweetButtons-setting-linkCopyURL" type="TUICRadio" />
+                <RadioButtonListSub id="tweetDisplaySetting.linkShareCopyURL" title="bottomTweetButtons-setting-linkShareCopyURL" type="TUICRadio" />
                 <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" type="TUICRadio" />
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("fixEngagements-settingTitle") }}</h2>
                 <UpDownListSub id="fixEngagements" />
