@@ -45,8 +45,8 @@ export const TUICOptionHTML = {
 
                 TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
-                document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE".addClass());
-                event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT".addClass());
+                document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE");
+                event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT");
 
                 TUICPref.save();
 
@@ -67,8 +67,8 @@ export const TUICOptionHTML = {
 
                 TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
-                document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE".addClass());
-                event.currentTarget.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT".addClass());
+                document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE");
+                event.currentTarget.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT");
 
                 TUICPref.save();
 
@@ -93,8 +93,8 @@ export const TUICOptionHTML = {
 
                 if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
 
-                document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add("TUIC_ISNOTDEFAULT".addClass());
-                event.currentTarget.classList.add("TUIC_DISPNONE".addClass());
+                document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add("TUIC_ISNOTDEFAULT");
+                event.currentTarget.classList.add("TUIC_DISPNONE");
 
                 TUICPref.save();
 
@@ -705,6 +705,7 @@ ${this.upDownList(
         this.checkbox("noModalbottomTweetButtons", TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons"), "bottomTweetButtons-setting-noModal", "tweetDisplaySetting") +
         this.checkbox("noNumberBottomTweetButtons", TUICPref.get("tweetDisplaySetting.noNumberBottomTweetButtons"), "bottomTweetButtons-setting-noNumber", "tweetDisplaySetting") +
         this.radioButtonListSub("tweetDisplaySetting.linkCopyURL", "bottomTweetButtons-setting-linkCopyURL", "TUICRadio") +
+        this.radioButtonListSub("tweetDisplaySetting.linkShareCopyURL", "bottomTweetButtons-setting-linkShareCopyURL", "TUICRadio") +
         this.radioButtonListSub("timeline-discoverMore", "timeline-discoverMore", "TUICRadio") +
         `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("fixEngagements-settingTitle")}</h2>` +
         this.upDownListSub("fixEngagements") +
@@ -798,7 +799,7 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
         const TUIC_color = color.replace("rgba(", "").replace(")", "").split(",");
         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]); /* eslint-disable */
         return `
-        <div class="TUIC_setting_color_colmn${!isDefault ? " " + "TUIC_ISNOTDEFAULT".addClass() : ""}">
+        <div class="TUIC_setting_color_colmn${!isDefault ? " " + "TUIC_ISNOTDEFAULT" : ""}">
         <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size:18px;">${TUICI18N.get(text)}</h4>
         <div class="TUIC_setting_input_container">
         ${
@@ -819,7 +820,7 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
         }
         </div>
     </div>
-    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDefaultColor${!isDefault ? " " + "TUIC_DISPNONE".addClass() : ""}" title="${TUICI18N.get(
+    <button class="TUIC_icon_button_con TUIC_setting_button TUIC_setting_button_default TUICDefaultColor${!isDefault ? " " + "TUIC_DISPNONE" : ""}" title="${TUICI18N.get(
         "settingUI-colorPicker-restoreDefault",
     )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${RESET}</button>`; /* eslint-enable */
     },

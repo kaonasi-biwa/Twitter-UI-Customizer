@@ -16,7 +16,7 @@ const updateCheck = async () => {
         .then((res) => res.json())
         .then((json) => json.tag_name);
     const extensionVersion = browser.runtime.getManifest().version;
-    if (!browser.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, "") != extensionVersion.replace(/\r?\n/g, "")) {
+    if (!browser.notifications.onClicked.hasListener(updateNotification) && githubVersion && extensionVersion && githubVersion.replace(/\r?\n/g, "") != extensionVersion.replace(/\r?\n/g, "")) {
         browser.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`, {
             type: "basic",
             title: browser.i18n.getMessage("extensionName"),

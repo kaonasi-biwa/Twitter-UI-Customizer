@@ -104,6 +104,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                     });
                     child.on("exit", (code) => {
                         console.log("web-ext process exited with code " + code);
+                        process.exit(code);
                     });
                     child.on("error", (err) => {
                         console.error(err);

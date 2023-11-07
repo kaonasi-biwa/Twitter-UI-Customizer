@@ -6,18 +6,16 @@
 import { TUICObserver } from "./observer.js";
 import { TUICLibrary } from "./library.js";
 import { TUICI18N } from "./i18n.js";
-import { addCssElement } from "./applyCSS.js";
+import { applySystemCss, addCssElement, applyDataCss } from "./applyCSS.js";
 import { isSafemode, runSafemode } from "./safemode.js";
 
 (async () => {
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
+    TUICLibrary.getClasses.deleteClasses();
     String.prototype.escapeToUseHTML = function () {
         return TUICLibrary.escapeToUseHTML(this);
-    };
-    String.prototype.addClass = function () {
-        return TUICLibrary.getClasses.getClass(this);
     };
     TUICObserver.titleObserverFunction();
 
@@ -27,26 +25,14 @@ import { isSafemode, runSafemode } from "./safemode.js";
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
 
-    if (document.querySelector("#twitter_ui_customizer_query") == null) {
-        const queryElem = document.createElement("meta");
-        queryElem.id = "twitter_ui_customizer_query";
-        queryElem.setAttribute("query", "");
-        document.querySelector("head").appendChild(queryElem);
-    } else {
-        const queryElem = document.querySelector("#twitter_ui_customizer_query");
-        const query = queryElem.getAttribute("query") + "A";
-
-        TUICLibrary.getClasses.query = query;
-        queryElem.setAttribute("query", query);
-    }
-
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();
     }
 
     addCssElement();
+    applyDataCss();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.${"NOT_" + "TUIC_DISPNONE".addClass()}):not(.${"TUIC_DISPNONE".addClass()}`), document.querySelector(`#placeholder`));
+        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
     }
 
     chrome.runtime.sendMessage({
@@ -60,7 +46,7 @@ import { isSafemode, runSafemode } from "./safemode.js";
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     TUICObserver.observerFunction();
 
-    const bodyAttributeObserver = new MutationObserver(addCssElement);
+    const bodyAttributeObserver = new MutationObserver(applySystemCss);
     bodyAttributeObserver.observe(document.querySelector("body"), {
         childList: false,
         subtree: false,
