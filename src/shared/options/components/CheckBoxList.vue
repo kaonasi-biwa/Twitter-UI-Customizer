@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import Checkbox from "./Checkbox.vue";
+import CheckBox from "./CheckBox.vue";
 
 import { TUICI18N } from "../../../content/i18n";
 import { TUICData } from "../../../content/data";
@@ -38,7 +38,7 @@ export default defineComponent({
             required: true,
         },
     },
-    components: { Checkbox },
+    components: { CheckBox },
 });
 </script>
 
