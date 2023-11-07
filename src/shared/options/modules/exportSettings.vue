@@ -4,7 +4,7 @@
             {{ TUICI18N.get("export-settingTitle") }}
         </summary>
         <div class="TUIC_col_setting_container">
-            <input class="TUICTextInput" type="text" id="TUICExportBox" readonly />
+            <input id="TUICExportBox" class="TUICTextInput" type="text" readonly />
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport">
                 {{ TUICI18N.get("export-exportButton") }}
             </button>

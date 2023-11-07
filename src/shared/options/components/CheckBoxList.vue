@@ -20,10 +20,8 @@ import { TUICData } from "../../../content/data";
 import { TUICPref } from "../../../content/library";
 
 export default defineComponent({
-    setup() {
-        return { TUICI18N, TUICData, TUICPref };
-    },
-    // //チェックボックスリスト(id:ID title:Stringでタイトル)
+    components: { CheckBox },
+    //チェックボックスリスト(id:ID title:Stringでタイトル)
     props: {
         title: {
             type: String,
@@ -38,7 +36,9 @@ export default defineComponent({
             required: true,
         },
     },
-    components: { CheckBox },
+    setup() {
+        return { TUICI18N, TUICData, TUICPref };
+    },
 });
 </script>
 

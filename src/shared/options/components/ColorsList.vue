@@ -34,12 +34,12 @@ import ThreeColorSetting from "./ThreeColorSetting.vue";
 // },
 
 export default defineComponent({
-    setup() {
-        return { TUICData, TUICI18N };
-    },
-    props: ["editingColorType"],
     components: {
         ThreeColorSetting,
+    },
+    props: ["editingColorType"],
+    setup() {
+        return { TUICData, TUICI18N };
     },
 });
 </script>

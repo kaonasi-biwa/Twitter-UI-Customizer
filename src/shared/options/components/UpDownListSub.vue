@@ -45,6 +45,8 @@ import { TUICData } from "../../../content/data";
 import { TUICPref } from "../../../content/library";
 
 export default defineComponent({
+    components: { UpDownButtons },
+    props: ["id"],
     setup(props) {
         const UpdownButtonFuncs = [
             {
@@ -80,8 +82,6 @@ export default defineComponent({
         }
         return { UpdownButtonFuncs, TUICI18N, TUICData, TUICPref, _contentCount };
     },
-    props: ["id"],
-    components: { UpDownButtons },
 });
 </script>
 

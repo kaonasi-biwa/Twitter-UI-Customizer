@@ -16,10 +16,10 @@ import { defineComponent } from "vue";
 import { TUICI18N } from "../../../content/i18n";
 
 export default defineComponent({
+    props: ["btnAction", "tooltiptag", "src"],
     setup() {
         return { TUICI18N };
     },
-    props: ["btnAction", "tooltiptag", "src"],
 });
 </script>
 

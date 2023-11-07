@@ -29,10 +29,10 @@ import { TUICData } from "../../../content/data";
 //     }
 
 export default defineComponent({
+    props: ["id", "settings"],
     setup() {
         return { TUICI18N, TUICData };
     },
-    props: ["id", "settings"],
 });
 </script>
 

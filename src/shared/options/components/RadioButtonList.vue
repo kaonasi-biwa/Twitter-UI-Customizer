@@ -43,13 +43,13 @@ import { TUICPref } from "../../../content/library";
 // },
 
 export default defineComponent({
-    setup() {
-        return { TUICI18N, TUICData, TUICPref };
-    },
     components: {
         RadioButton,
     },
     props: ["title", "id", "type"],
+    setup() {
+        return { TUICI18N, TUICData, TUICPref };
+    },
 });
 </script>
 

@@ -10,21 +10,21 @@
             <template v-else>
                 <div class="TUIC_input_color_rounded__container">
                     <div class="TUIC_input_color_rounded">
-                        <input type="color" :id="id + '-' + type" :TUICColor="id" :TUICColorType="type" :value="TUICColor1" class="TUICButtonColor" :TUICColorKind="colorKind" />
+                        <input type="color" :id="id + '-' + type" class="TUICButtonColor" :TUICColor="id" :TUICColorType="type" :value="TUICColor1" :TUICColorKind="colorKind" />
                     </div>
                 </div>
-                <button class="TUICButtonColorCheck" :id="id + '-' + type + '-check'" :dataChecked="TUIC_color[3] == '0'" :TUICColor="'' + id" :TUICColorType="'' + type" :TUICColorKind="'' + colorKind" />
+                <button :id="id + '-' + type + '-check'" class="TUICButtonColorCheck" :dataChecked="TUIC_color[3] == '0'" :TUICColor="'' + id" :TUICColorType="'' + type" :TUICColorKind="'' + colorKind" />
                 <label :for="id + '-' + type + '-check'" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 15px">{{ TUICI18N.get("settingUI-colorPicker-transparent") }}</label
                 ><br />
             </template>
         </div>
     </div>
     <button
+        :id="id + '-' + type + '-default'"
         :class="['TUIC_icon_button_con', 'TUIC_setting_button', 'TUIC_setting_button_default', 'TUICDefaultColor' + !isDefault ? ' ' + 'TUIC_DISPNONE' : '']"
         :title="TUICI18N.get('settingUI-colorPicker-restoreDefault')"
         :TUICColor="id"
         :TUICColorType="type"
-        :id="id + '-' + type + '-default'"
         :TUICColorKind="colorKind"
         v-html="RESET"
     ></button>
@@ -89,13 +89,13 @@ import { RESET } from "../../../content/data/icons";
 // },
 
 export default defineComponent({
+    props: ["isDefault", "editingColorType", "id", "type", "text", "colorKind", "color_"],
     setup(props) {
         const color = props.color_.escapeToUseHTML();
         const TUIC_color = color.replace("rgba(", "").replace(")", "").split(",");
         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
         return { TUICI18N, TUICLibrary, TUICData, RESET, TUICColor1, TUIC_color };
     },
-    props: ["isDefault", "editingColorType", "id", "type", "text", "colorKind", "color_"],
 });
 </script>
 

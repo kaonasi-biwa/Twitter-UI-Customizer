@@ -38,7 +38,7 @@
                 <br />
                 <CheckBox id="faviconSet" :value="TUICPref.get('others.faviconSet') ?? true" name="twitterIcon-favicon" type="otherBoolSetting" />
                 <CheckBox id="roundIcon" :value="TUICPref.get('others.roundIcon') ?? true" name="twitterIcon-roundIcon" type="otherBoolSetting" />
-                <UploadImageFile title="twitterIcon-usedIcon" id="IconImg" />
+                <UploadImageFile id="IconImg" title="twitterIcon-usedIcon" />
             </RadioButtonList>
             <!--
                 ${this.upDownList(
@@ -76,7 +76,7 @@
             <CheckBoxList id="invisibleItems" title="invisibleItems-settingTitle" type="TUICInvisibleItems" />
             <CheckBoxList id="timeline" title="timeline-settingTitle" type="timelineSetting" />
             <CheckBoxList id="XToTwitter" title="XToTwitter-settingTitle" type="TUICXToTwitter">
-                <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom: 10px" id="XToTwitterRestoreIcon">
+                <button id="XToTwitterRestoreIcon" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom: 10px">
                     {{ TUICI18N.get("XtoTwitter-twitterIcon") }}
                 </button>
             </CheckBoxList>
@@ -117,9 +117,6 @@ import settingColors from "./modules/settingColors.vue";
 import settingsHeader from "./modules/settingsHeader.vue";
 
 export default defineComponent({
-    setup() {
-        return { TUICI18N, TUICPref };
-    },
     components: {
         UpDownList,
         CheckBox,
@@ -135,6 +132,9 @@ export default defineComponent({
         settingsHeader,
         UpDownListSub,
         CheckBoxListSub,
+    },
+    setup() {
+        return { TUICI18N, TUICPref };
     },
 });
 </script>

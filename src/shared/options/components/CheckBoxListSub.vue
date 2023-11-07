@@ -13,11 +13,11 @@ import { TUICPref } from "../../../content/library";
 import { TUICData } from "../../../content/data";
 
 export default defineComponent({
+    components: { CheckBox },
+    props: ["id", "type"],
     setup() {
         return { TUICData, TUICPref };
     },
-    props: ["id", "type"],
-    components: { CheckBox },
 });
 </script>
 

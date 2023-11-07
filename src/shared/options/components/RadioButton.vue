@@ -25,10 +25,10 @@ import { TUICI18N } from "../../../content/i18n";
 // },
 
 export default defineComponent({
+    props: ["id", "valueName", "type", "value", "name"],
     setup() {
         return { TUICI18N };
     },
-    props: ["id", "valueName", "type", "value", "name"],
 });
 </script>
 
