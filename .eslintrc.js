@@ -5,9 +5,13 @@ module.exports = {
         es2021: true,
         node: true,
     },
+    plugins: ["@typescript-eslint"],
     extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
     parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint"],
+    parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+    },
     overrides: [
         {
             files: ["src/**/*"],
@@ -16,10 +20,6 @@ module.exports = {
             },
         },
     ],
-    parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-    },
     rules: {
         indent: 0,
         semi: ["error", "always"],
