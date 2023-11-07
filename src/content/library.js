@@ -22,7 +22,15 @@ function getPointerFromKey(object, key) {
     }
 }
 
+let editingColorType = "buttonColor";
+
 export const TUICLibrary = {
+    setEditingColorType: (value) => {
+        editingColorType = value;
+    },
+    getEditingColorType: () => {
+        return editingColorType;
+    },
     color: {
         rgb2hex: function (rgb) {
             return `#${rgb

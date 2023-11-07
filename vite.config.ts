@@ -4,6 +4,8 @@ import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import path from "path";
 import tailwindcss from "tailwindcss";
 
+import vue from "@vitejs/plugin-vue";
+
 const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
 
@@ -49,7 +51,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         //         "@content": "/",
         //     },
         // },
-        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode)],
+        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode), vue()],
         // };
         // break;
         // case "content":
