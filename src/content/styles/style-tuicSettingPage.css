@@ -1,10 +1,10 @@
 /* セーフモード時の設定画面スタイル */
-#TUIC_safemode>#TUIC_setting {
+#TUIC_safemode > #TUIC_setting {
     margin: 2em auto;
     max-width: 600px;
 }
 
-#TUIC_safemode>.r-135wba7 {
+#TUIC_safemode > .r-135wba7 {
     line-height: 1em;
 }
 
@@ -25,7 +25,7 @@
     justify-content: space-between;
 }
 
-.TUIC_setting_color_colmn>h4 {
+.TUIC_setting_color_colmn > h4 {
     margin-left: 10px !important;
 }
 
@@ -151,12 +151,12 @@
     cursor: pointer;
 }
 
-.TUIC_icon_button_con>svg * {
+.TUIC_icon_button_con > svg * {
     stroke: var(--twitter-TUIC-color);
     transition: 0.2s;
 }
 
-.TUIC_icon_button_con>svg {
+.TUIC_icon_button_con > svg {
     pointer-events: none;
 }
 
@@ -203,23 +203,23 @@
     display: none !important;
 }
 
-[tabindex="0"]>.TUIC_ButtonHover2:hover>.TUIC_ButtonHover>div {
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div {
     background-color: rgb(29 155 240 / 10%);
 }
 
-[tabindex="0"]>.TUIC_ButtonHover2:active>.TUIC_ButtonHover>div {
+[tabindex="0"] > .TUIC_ButtonHover2:active > .TUIC_ButtonHover > div {
     background-color: rgb(29 155 240 / 20%);
 }
 
-[tabindex="0"]>.TUIC_ButtonHover2:hover>.TUIC_ButtonHover>svg {
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg {
     color: rgb(29 155 240);
 }
 
-.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover>svg {
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > svg {
     color: rgb(29 155 240);
 }
 
-.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover>div {
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div {
     box-shadow: rgba(142 204 258) 0 0 0 2px inset;
     background-color: rgb(29 155 240 / 10%);
 }
@@ -239,14 +239,14 @@
     color: var(--twitter-TUIC-color);
 }
 
-#TUIC_invisible>div,
-#TUIC_visible>div {
+#TUIC_invisible > div,
+#TUIC_visible > div {
     height: calc(1em + 5px);
     padding: 2px 1em;
 }
 
-#TUIC_invisible>div span,
-#TUIC_visible>div>span {
+#TUIC_invisible > div span,
+#TUIC_visible > div > span {
     white-space: nowrap;
     line-height: calc(1em + 5px);
 }
@@ -307,7 +307,7 @@ textarea#css_textarea,
     align-items: center;
 }
 
-.TUICSettingRadioTypeBigButton>span>span {
+.TUICSettingRadioTypeBigButton > span > span {
     mix-blend-mode: difference;
     white-space: nowrap;
     font-size: 15px;
@@ -322,7 +322,7 @@ textarea#css_textarea,
         sans-serif;
 }
 
-.TUICSettingRadioTypeBigButton>span {
+.TUICSettingRadioTypeBigButton > span {
     white-space: nowrap;
 }
 
@@ -330,28 +330,28 @@ textarea#css_textarea,
     display: none;
 }
 
-.TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton {
+.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton {
     border: 2px solid rgb(29 155 240);
 }
 
-.TUICColorSettingRadio:not(:checked)+.TUICSettingRadioTypeBigButton {
+.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton {
     border: 2px solid rgb(127 127 127);
 }
 
-.TUICColorSettingRadio:checked+.TUICSettingRadioTypeBigButton>span::before {
+.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton > span::before {
     background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g><path fill='%23FFFFFF' d='M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z'></path></g></svg>");
     background-color: rgb(29 155 240);
     height: 1em;
     width: 1em;
 }
 
-.TUICColorSettingRadio:not(:checked)+.TUICSettingRadioTypeBigButton>span::before {
+.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton > span::before {
     border: 2px solid rgb(127 127 127 / 50%);
     width: 16px;
     height: 16px;
 }
 
-.TUICSettingRadioTypeBigButton>span::before {
+.TUICSettingRadioTypeBigButton > span::before {
     margin-right: 10px;
     border-radius: 9999px;
     background-size: 16px 16px;
@@ -384,7 +384,7 @@ textarea#css_textarea,
     display: flex;
 }
 
-:is(.TUICCheckBoxParent, .TUICCheckBoxParent)>div {
+:is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
     display: inline-block;
     margin-left: 0.25em;
     margin-top: auto;

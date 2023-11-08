@@ -1,4 +1,4 @@
-.TUICTweetButtomBarBase>div>.r-13awgt0 {
+.TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .TUICScrollBottom,
-.TUICItIsBigArticlePhoto .TUICScrollBottom>div {
+.TUICItIsBigArticlePhoto .TUICScrollBottom > div {
     overflow-x: auto;
     scrollbar-width: thin;
 }
@@ -26,7 +26,7 @@
     background-size: cover;
 }
 
-#placeholder> :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
+#placeholder > :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
     position: absolute;
     margin: auto;
 }
@@ -71,18 +71,18 @@
     mask-image: var(--TUIC-twitter-icon) !important;
 }
 
-#layers [data-testid="TopNavBar"] div+.TUICTwitterIcon_IconImg {
+#layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center;
     width: auto !important;
 }
 
-.TUIC_SVGDISPNONE>* {
+.TUIC_SVGDISPNONE > * {
     display: none !important;
 }
 
-.TUIC_DISPNONE_PARENT>[data-testid="ScrollSnap-prevButtonWrapper"] {
+.TUIC_DISPNONE_PARENT > [data-testid="ScrollSnap-prevButtonWrapper"] {
     display: none !important;
 }
 
@@ -117,7 +117,7 @@
     display: var(--TUIC-DISCOVERMORE, block) !important;
 }
 
-.TUICSidebarSelected>div>[dir="ltr"] {
+.TUICSidebarSelected > div > [dir="ltr"] {
     font-weight: 700;
 }
 
@@ -128,15 +128,15 @@
 }
 */
 
-.TUICSidebarButton:hover>div {
+.TUICSidebarButton:hover > div {
     background-color: var(--TUIC-sidebar-hover-color);
 }
 
-.TUICSidebarButton[data-focusvisible-polyfill]>div {
+.TUICSidebarButton[data-focusvisible-polyfill] > div {
     box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
 }
 
-.TUICSidebarButton:active>div {
+.TUICSidebarButton:active > div {
     background-color: var(--TUIC-sidebar-active-color);
 }
 
@@ -144,10 +144,10 @@
     color: rgb(244 33 46);
 }
 
-.TUICEngagementsBox>div>span {
+.TUICEngagementsBox > div > span {
     transition: border-bottom 0.2s;
 }
 
-.TUICEngagementsBox>div>span:hover {
+.TUICEngagementsBox > div > span:hover {
     border-bottom: solid 0.05px;
 }
