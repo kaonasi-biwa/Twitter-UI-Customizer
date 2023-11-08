@@ -7,7 +7,7 @@
             <form>
                 <textarea id="css_textarea"></textarea>
             </form>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="save">
+            <button id="save" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width">
                 {{ TUICI18N.get("customCSS-save") }}
             </button>
         </div>

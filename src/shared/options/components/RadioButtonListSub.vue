@@ -3,7 +3,7 @@
         {{ TUICI18N.get(title) }}
     </h2>
     <div class="TUIC_col_setting_container">
-        <RadioButton v-for="i in TUICData[id].all" :id="id" :valueName="i" :value="TUICPref.get(id) === i" :name="TUICData[id].i18n[i]" :type="type" />
+        <RadioButton v-for="i in TUICData[id].all" :key="i" :id="id" :valueName="i" :value="TUICPref.get(id) === i" :name="TUICData[id].i18n[i]" :type="type" />
     </div>
     <br />
 </template>
@@ -40,13 +40,13 @@ import { TUICPref } from "../../../content/library";
 // },
 
 export default defineComponent({
-    setup() {
-        return { TUICI18N, TUICData, TUICPref };
-    },
     components: {
         RadioButton,
     },
     props: ["title", "id", "type"],
+    setup() {
+        return { TUICI18N, TUICData, TUICPref };
+    },
 });
 </script>
 

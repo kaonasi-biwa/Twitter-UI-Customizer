@@ -13,10 +13,10 @@ import { defineComponent } from "vue";
 import { TUICI18N } from "../../../content/i18n";
 
 export default defineComponent({
+    props: ["title", "id"],
     setup() {
         return { TUICI18N };
     },
-    props: ["title", "id"],
 });
 </script>
 

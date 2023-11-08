@@ -4,7 +4,7 @@
             {{ TUICI18N.get("import-settingTitle") }}
         </summary>
         <div class="TUIC_col_setting_container">
-            <input class="TUICTextInput" type="text" id="TUICImportBox" />
+            <input id="TUICImportBox" class="TUICTextInput" type="text" />
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">
                 {{ TUICI18N.get("import-importAppend") }}
             </button>

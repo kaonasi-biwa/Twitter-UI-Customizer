@@ -5,9 +5,14 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-    parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint"],
+    plugins: ["@typescript-eslint", "vue"],
+    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:vue/vue3-recommended", "prettier"],
+    parser: "vue-eslint-parser",
+    parserOptions: {
+        ecmaVersion: "latest",
+        parser: "@typescript-eslint/parser",
+        sourceType: "module",
+    },
     overrides: [
         {
             files: ["src/**/*"],
@@ -16,10 +21,6 @@ module.exports = {
             },
         },
     ],
-    parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-    },
     rules: {
         indent: 0,
         semi: ["error", "always"],
@@ -27,6 +28,12 @@ module.exports = {
         "linebreak-style": 0,
         "no-unused-vars": 0,
         "@typescript-eslint/no-unused-vars": 0,
+        "vue/no-unused-vars": 0,
+        "vue/no-unused-components": 0,
+        "vue/attribute-hyphenation": 0,
+        "vue/attributes-order": 0,
+        "vue/require-prop-types": 0,
+        "vue/prop-name-casing": 0,
         "no-empty": 0,
         "no-unsafe-option-chaining": 0,
     },
