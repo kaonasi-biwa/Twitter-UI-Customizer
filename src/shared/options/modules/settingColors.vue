@@ -42,10 +42,10 @@ import ColorsList from "../components/ColorsList.vue";
 import { TUICLibrary } from "../../../content/library";
 
 export default defineComponent({
+    components: { ColorsList },
     setup() {
         return { TUICI18N, TUICLibrary };
     },
-    components: { ColorsList },
 });
 </script>
 

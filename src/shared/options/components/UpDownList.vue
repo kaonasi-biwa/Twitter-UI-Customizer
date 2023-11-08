@@ -19,11 +19,11 @@ import UpDownListSub from "./UpDownListSub.vue";
 
 import { TUICI18N } from "../../../content/i18n";
 export default defineComponent({
+    components: { UpDownListSub },
+    //アップダウンリスト(id:設定のID。TUICPref直下 title:設定の名前, option:下に表示する設定)
+    props: ["title", "id"],
     setup(props) {
         return { TUICI18N };
     },
-    //アップダウンリスト(id:設定のID。TUICPref直下 title:設定の名前, option:下に表示する設定)
-    props: ["title", "id"],
-    components: { UpDownListSub },
 });
 </script>

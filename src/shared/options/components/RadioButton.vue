@@ -1,13 +1,6 @@
 <template>
     <div class="TUICCheckBoxParent">
-        <input
-            type="radio"
-            :name="id"
-            :value="valueName"
-            :id="valueName"
-            :class="type"
-            :checked="value"
-        />
+        <input type="radio" :name="id" :value="valueName" :id="valueName" :class="type" :checked="value" />
         <div>
             <label class="TUIC_setting_text" :for="valueName">{{ TUICI18N.get(name) }}</label>
         </div>
@@ -32,10 +25,10 @@ import { TUICI18N } from "../../../content/i18n";
 // },
 
 export default defineComponent({
+    props: ["id", "valueName", "type", "value", "name"],
     setup() {
         return { TUICI18N };
     },
-    props: ["id", "valueName", "type", "value", "name"],
 });
 </script>
 

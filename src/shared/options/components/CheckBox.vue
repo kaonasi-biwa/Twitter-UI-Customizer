@@ -12,9 +12,6 @@ import { defineComponent } from "vue";
 import { TUICI18N } from "../../../content/i18n";
 
 export default defineComponent({
-    setup() {
-        return { TUICI18N };
-    },
     //チェックボックスの一行。(id:設定のid value:Boolで値 name:設定の名前 type:設定の分類)
     props: {
         id: {
@@ -34,6 +31,9 @@ export default defineComponent({
             type: String,
             required: true,
         },
+    },
+    setup() {
+        return { TUICI18N };
     },
 });
 </script>

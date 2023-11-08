@@ -22,14 +22,15 @@ jobs:
 
             - name: Install ESLint & Prettier & Stylelint
               run: |
-                  yarn add eslint
-                  yarn add prettier
-                  yarn add eslint-config-prettier
-                  yarn add stylelint
-                  yarn add stylelint-config-standard-scss
-                  yarn add @typescript-eslint/eslint-plugin
-                  yarn add @typescript-eslint/parser
-            #      yarn add @microsoft/eslint-formatter-sarif
+                  yarn add --non-interactive --frozen-lockfile -D eslint
+                  yarn add --non-interactive --frozen-lockfile -D prettier
+                  yarn add --non-interactive --frozen-lockfile -D eslint-config-prettier
+                  yarn add --non-interactive --frozen-lockfile -D eslint-plugin-vue
+                  yarn add --non-interactive --frozen-lockfile -D stylelint
+                  yarn add --non-interactive --frozen-lockfile -D stylelint-config-standard-scss
+                  yarn add --non-interactive --frozen-lockfile -D @typescript-eslint/eslint-plugin
+                  yarn add --non-interactive --frozen-lockfile -D @typescript-eslint/parser
+            #      yarn add --non-interactive --frozen-lockfile -D @microsoft/eslint-formatter-sarif
             #
             #- name: Generate SARIF file
             #  run: |

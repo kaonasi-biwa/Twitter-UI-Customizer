@@ -42,13 +42,8 @@ import ColorSetting from "./ColorSetting.vue";
 // },
 
 export default defineComponent({
-    setup(props) {
-        let _color = TUICData.colors[props.id];
-        let background = !!_color["background"];
-        let border = !!_color["border"];
-        let color = !!_color["color"];
-        let typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
-        return { background, border, color, typeColor, TUICLibrary, TUICPref };
+    components: {
+        ColorSetting,
     },
     props: {
         id: {
@@ -57,10 +52,16 @@ export default defineComponent({
         },
         editingColorType: {
             type: String,
+            required: true,
         },
     },
-    components: {
-        ColorSetting,
+    setup(props) {
+        const _color = TUICData.colors[props.id];
+        const background = !!_color["background"];
+        const border = !!_color["border"];
+        const color = !!_color["color"];
+        const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
+        return { background, border, color, typeColor, TUICLibrary, TUICPref };
     },
 });
 </script>
