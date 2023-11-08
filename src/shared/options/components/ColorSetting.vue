@@ -32,10 +32,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
 import { TUICI18N } from "../../../content/i18n";
 import { TUICLibrary } from "../../../content/library";
 import { TUICData } from "../../../content/data";
-import { RESET } from "../../../content/data/icons";
+import RESET from "../../../content/icons/arrow/reset.svg";
 
 // //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
 // colorSetting: function (id, type, color_, text, isDefault, colorKind) {

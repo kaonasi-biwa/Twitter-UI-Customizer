@@ -3,6 +3,7 @@
         "include": ["@types/chrome"]
     },
     "compilerOptions": {
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "module": "ESNext"
     }
 }

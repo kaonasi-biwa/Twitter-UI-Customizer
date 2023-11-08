@@ -1,5 +1,8 @@
 import { TUICData } from "./data.js";
-import { DOG, TWITTER, X } from "./data/icons.js";
+import DOG from "./icons/logo/dog.png";
+import TWITTER from "./icons/logo/twitter.svg";
+import X from "./icons/logo/x.svg";
+//import { DOG, TWITTER, X } from "./data/icons.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { isSafemode } from "./safemode.js";
 

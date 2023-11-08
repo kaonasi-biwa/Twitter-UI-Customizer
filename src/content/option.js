@@ -4,7 +4,12 @@ import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICObserver } from "./observer.js";
 import { isSafemode } from "./safemode.js";
-import { ARROW_LEFT, ARROW_RIGHT, ARROW_UP, ARROW_DOWN, RESET, EMPTY } from "./data/icons.js";
+import ARROW_LEFT from "./icons/arrow/arrow_left.svg";
+import ARROW_RIGHT from "./icons/arrow/arrow_right.svg";
+import ARROW_UP from "./icons/arrow/arrow_up.svg";
+import ARROW_DOWN from "./icons/arrow/arrow_down.svg";
+import RESET from "./icons/arrow/reset.svg";
+import EMPTY from "./icons/logo/empty.svg";
 
 import { inject } from "../shared/options/injectOptions";
 

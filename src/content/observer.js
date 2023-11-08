@@ -1,5 +1,9 @@
 import { TUICData } from "./data.js";
-import { DOG, EMPTY, TWITTER, X, HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
+import DOG from "./icons/logo/dog.png";
+import TWITTER from "./icons/logo/twitter.svg";
+import X from "./icons/logo/x.svg";
+import EMPTY from "./icons/logo/empty.svg";
+import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICOptionHTML } from "./option.js";
