@@ -12,6 +12,7 @@
         <div class="UpDownButtons" style="text-align: center; width: 30px">
             <br />
             <br />
+            <!-- eslint-disable-next-line vue/no-v-html -->
             <button v-for="item in UpdownButtonFuncs" :key="item.btnAction" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)" v-html="item.iconSrc"></button>
         </div>
         <div style="flex: 1 2; width: 50px">

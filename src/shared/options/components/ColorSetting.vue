@@ -19,6 +19,7 @@
             </template>
         </div>
     </div>
+    <!-- eslint-disable vue/no-v-html -->
     <button
         :id="id + '-' + type + '-default'"
         :class="['TUIC_icon_button_con', 'TUIC_setting_button', 'TUIC_setting_button_default', 'TUICDefaultColor' + !isDefault ? ' ' + 'TUIC_DISPNONE' : '']"
@@ -28,6 +29,7 @@
         :TUICColorKind="colorKind"
         v-html="RESET"
     ></button>
+    <!-- eslint-enable vue/no-v-html -->
 </template>
 
 <script lang="ts">
