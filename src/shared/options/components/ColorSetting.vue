@@ -26,9 +26,8 @@
         :TUICColorType="type"
         :id="id + '-' + type + '-default'"
         :TUICColorKind="colorKind"
-    >
-        {{ RESET }}
-    </button>
+        v-html="RESET"
+    ></button>
 </template>
 
 <script lang="ts">
