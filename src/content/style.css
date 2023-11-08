@@ -451,12 +451,13 @@ textarea#css_textarea,
 
 .TUICSettingRadioTypeBigButton>span::before {
     margin-right: 10px;
-    margin-bottom: -5px;
     border-radius: 9999px;
     background-size: 16px 16px;
     background-position: center;
     display: inline-block;
-    content: "";
+    content: " ";
+    top: calc(0.5em - 8px);
+    position: relative;
 }
 
 .TUICSettingSubTitle {
