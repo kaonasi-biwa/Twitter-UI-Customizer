@@ -8,7 +8,7 @@
             {
                 "matches": ["*://*.twitter.com/*"],
                 "js": ["inject.js"],
-                "css": ["./style.css"],
+                "css": ["./styles/style-tuicSettingPage.css", "./styles/style-polyfillForTwitter.css", "./styles/style-tuicColor.css", "./styles/style-tuicFeatures.css"],
                 "run_at": "document_start"
             }
         ],
