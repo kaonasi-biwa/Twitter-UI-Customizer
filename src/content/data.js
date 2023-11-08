@@ -650,11 +650,11 @@ export const TUICData = {
         emptyElement: function () {
             return TUICLibrary.HTMLParse(
                 `<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
-                    "r-1enofrn r-1f529hi r-cxdvbh r-1qfz7tf",
-                    "r-1enofrn r-fxxt2n r-cxdvbh r-1qfz7tf",
-                    "r-n6v787 r-1cwl3u0 r-1k6nrdp r-1e081e0",
-                    "r-1b43r93 r-14yzgew r-1buqboj r-1orpq53",
-                    "r-ubezar r-hjklzo r-e157gu r-779j7e",
+                    "r-1enofrn r-1f529hi r-cxdvbh r-1pn2ns4",
+                    "r-1enofrn r-fxxt2n r-cxdvbh r-1pn2ns4",
+                    "r-n6v787 r-1cwl3u0 r-1k6nrdp r-1pn2ns4",
+                    "r-1b43r93 r-14yzgew r-1buqboj r-5f36wq",
+                    "r-ubezar r-hjklzo r-e157gu r-utggzx",
                 )}"></span></span></div>`,
                 "text/html",
             ).item(0);
