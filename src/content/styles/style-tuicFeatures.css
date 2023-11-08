@@ -1,0 +1,153 @@
+.TUICTweetButtomBarBase>div>.r-13awgt0 {
+    flex: inherit !important;
+}
+
+.TUICScrollBottom {
+    padding-right: 8px;
+    margin-right: -8px;
+    padding-left: 8px;
+    margin-left: -8px;
+    padding-bottom: 16px;
+    margin-bottom: -16px;
+}
+
+.TUICScrollBottom,
+.TUICItIsBigArticlePhoto .TUICScrollBottom>div {
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+:is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
+    height: 8px;
+}
+
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+    margin: 8px;
+    background-size: cover;
+}
+
+#placeholder> :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
+    position: absolute;
+    margin: auto;
+}
+
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+    height: inherit !important;
+}
+
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] .TUICTwitterIcon_IconImg {
+    height: 40px;
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
+    mask-size: contain !important;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+    mask-size: cover !important;
+    -webkit-mask-size: cover !important;
+}
+
+.TUICTwitterIcon_Twitter {
+    background-color: var(--twitter-twitterIcon-color);
+    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
+    mask-image: var(--TUIC-twitter-icon) !important;
+}
+
+.TUICTwitterIcon_X {
+    background-color: var(--twitter-twitterIcon-color);
+    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
+    mask-image: var(--TUIC-twitter-icon) !important;
+}
+
+#layers [data-testid="TopNavBar"] div+.TUICTwitterIcon_IconImg {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    width: auto !important;
+}
+
+.TUIC_SVGDISPNONE>* {
+    display: none !important;
+}
+
+.TUIC_DISPNONE_PARENT>[data-testid="ScrollSnap-prevButtonWrapper"] {
+    display: none !important;
+}
+
+[TUICDiscoberMore] {
+    padding-left: 20px;
+}
+
+[TUICDiscoberMore="false"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    /* 縦軸をセンタリングする */
+    left: 20px;
+    transform: translateY(-50%);
+    /* 縦軸をセンタリングする */
+    border: 5px solid transparent;
+    border-left: 8px solid #555;
+    /* 好みで色を変えてください */
+}
+
+[TUICDiscoberMore="true"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    border: 6px solid transparent;
+    border-top: 7px solid #555;
+    /* 好みで色を変えてください */
+}
+
+.TUIC_DISCOVERMORE {
+    display: var(--TUIC-DISCOVERMORE, block) !important;
+}
+
+.TUICSidebarSelected>div>[dir="ltr"] {
+    font-weight: 700;
+}
+
+/*
+.TUICSidebarSelected > div > div > svg{
+    stroke:currentColor;
+    stroke-width:1;
+}
+*/
+
+.TUICSidebarButton:hover>div {
+    background-color: var(--TUIC-sidebar-hover-color);
+}
+
+.TUICSidebarButton[data-focusvisible-polyfill]>div {
+    box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
+}
+
+.TUICSidebarButton:active>div {
+    background-color: var(--TUIC-sidebar-active-color);
+}
+
+.TUIC_DeleteButton {
+    color: rgb(244 33 46);
+}
+
+.TUICEngagementsBox>div>span {
+    transition: border-bottom 0.2s;
+}
+
+.TUICEngagementsBox>div>span:hover {
+    border-bottom: solid 0.05px;
+}
