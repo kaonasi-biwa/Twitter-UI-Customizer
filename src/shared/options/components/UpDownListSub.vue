@@ -13,7 +13,7 @@
             <br />
             <br />
             <!-- eslint-disable-next-line vue/no-v-html -->
-            <button v-for="item in UpdownButtonFuncs" :key="item.btnAction" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)" v-html="item.iconSrc"></button>
+            <button v-for="item in UpdownButtonFuncs" :key="item.btnAction" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)"><component :is="item.iconSrc" /></button>
         </div>
         <div style="flex: 1 2; width: 50px">
             <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">
@@ -40,11 +40,12 @@ import { defineComponent } from "vue";
 import UpDownButtons from "./UpDownButtons.vue";
 
 // new URL("./img.png", import.meta.url).href;
-const ARROW_LEFT = new URL("../../../content/icons/arrow/arrow_left.svg", import.meta.url).href;
-const ARROW_RIGHT = new URL("../../../content/icons/arrow/arrow_right.svg", import.meta.url).href;
-const ARROW_UP = new URL("../../../content/icons/arrow/arrow_up.svg", import.meta.url).href;
-const ARROW_DOWN = new URL("../../../content/icons/arrow/arrow_down.svg", import.meta.url).href;
-const RESET = new URL("../../../content/icons/arrow/reset.svg", import.meta.url).href;
+
+import ARROW_LEFT from "../../../content/icons/arrow/arrow_left.svg?component";
+import ARROW_RIGHT from "../../../content/icons/arrow/arrow_right.svg?component";
+import ARROW_UP from "../../../content/icons/arrow/arrow_up.svg?component";
+import ARROW_DOWN from "../../../content/icons/arrow/arrow_down.svg?component";
+import RESET from "../../../content/icons/arrow/reset.svg?component";
 
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "../../../content/data/icons";
 
@@ -53,7 +54,6 @@ import { TUICData } from "../../../content/data";
 import { TUICPref } from "../../../content/library";
 
 export default defineComponent({
-    components: { UpDownButtons },
     props: ["id"],
     setup(props) {
         const UpdownButtonFuncs = [

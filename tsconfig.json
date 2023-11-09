@@ -4,6 +4,9 @@
     },
     "compilerOptions": {
         "esModuleInterop": true,
-        "module": "ESNext"
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "isolatedModules": true,
+        "skipLibCheck": true
     }
 }

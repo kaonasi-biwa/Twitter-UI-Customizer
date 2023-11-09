@@ -3,6 +3,8 @@ import { UserConfig, defineConfig } from "vite";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import path from "path";
 import tailwindcss from "tailwindcss";
+import svgLoader from "vite-svg-loader";
+import Components from "unplugin-vue-components/vite";
 
 import vue from "@vitejs/plugin-vue";
 
@@ -36,6 +38,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     index: resolve(__dirname, "src/content/index.js"),
                     background: resolve(__dirname, "./src/background.ts"),
                     inject: resolve(__dirname, "src/inject.js"),
+                    contentOption: resolve(__dirname, "src/shared/options/index.vue"),
                 },
                 output: {
                     dynamicImportInCjs: true,
@@ -51,7 +54,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         //         "@content": "/",
         //     },
         // },
-        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode), vue()],
+        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode), vue(), svgLoader(), Components({})],
         // };
         // break;
         // case "content":
