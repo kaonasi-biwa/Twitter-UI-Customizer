@@ -28,7 +28,8 @@ window.onload = async () => {
     //     chrome.runtime.openOptionsPage();
     // };
     document.getElementById("link4").onclick = () => {
-        chrome.tabs.create({ url: "https://twitter.com/tuic/safemode" });
+        chrome.tabs.create({ url: chrome.runtime.getURL("safemode.html") });
+        //chrome.tabs.create({ url: "https://twitter.com/tuic/safemode" });
     };
 
     const $link5 = document.getElementById("link5");
