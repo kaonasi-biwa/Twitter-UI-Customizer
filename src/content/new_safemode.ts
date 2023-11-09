@@ -1,5 +1,5 @@
-import vue from "vue";
+import { createApp } from "vue";
 import safemodeVue from "../shared/options/safemode.vue";
 
-const app = vue.createApp(safemodeVue);
+const app = createApp(safemodeVue);
 app.mount("#TUICOptionSafemodeMain");

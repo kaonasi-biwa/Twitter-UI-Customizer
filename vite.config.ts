@@ -4,11 +4,16 @@ import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import path from "path";
 import tailwindcss from "tailwindcss";
 import svgLoader from "vite-svg-loader";
+import fs from "fs";
 
 import vue from "@vitejs/plugin-vue";
 
 const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
+
+const r = (str) => {
+    return resolve(__dirname, str);
+};
 
 export default defineConfig(({ command, mode, ssrBuild }) => {
     let json: UserConfig = {};
@@ -53,7 +58,28 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         //         "@content": "/",
         //     },
         // },
-        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode), vue(), svgLoader()],
+        plugins: [
+            {
+                name: "copy-inject.js",
+                enforce: "post",
+                options(options) {
+                    // this.addWatch;
+                    // console.log("watch");
+                    // console.log(options.watch);
+                    // if (options.watch) {
+                    //     options.watch.include = r("_locales/**");
+                    // }
+                    // console.log(options.watch);
+                },
+                buildStart(options) {
+                    fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
+                    fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
+                },
+            },
+            vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode),
+            vue(),
+            svgLoader(),
+        ],
         // };
         // break;
         // case "content":
