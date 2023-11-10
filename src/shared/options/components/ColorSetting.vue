@@ -1,5 +1,5 @@
 <template>
-    <div :class="'TUIC_setting_color_colmn' + (!isDefault ? ' ' + 'TUIC_ISNOTDEFAULT' : ' ')">
+    <div :class="['TUIC_setting_color_colmn', !isDefault ? 'TUIC_ISNOTDEFAULT' : '']">
         <h4 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 18px">
             {{ TUICI18N.get(text) }}
         </h4>
@@ -22,7 +22,7 @@
     <!-- eslint-disable vue/no-v-html -->
     <button
         :id="id + '-' + type + '-default'"
-        :class="['TUIC_icon_button_con', 'TUIC_setting_button', 'TUIC_setting_button_default', 'TUICDefaultColor' + !isDefault ? ' ' + 'TUIC_DISPNONE' : '']"
+        :class="['TUIC_icon_button_con', 'TUIC_setting_button', 'TUIC_setting_button_default', 'TUICDefaultColor', !isDefault ? 'TUIC_DISPNONE' : '']"
         :title="TUICI18N.get('settingUI-colorPicker-restoreDefault')"
         :TUICColor="id"
         :TUICColorType="type"
