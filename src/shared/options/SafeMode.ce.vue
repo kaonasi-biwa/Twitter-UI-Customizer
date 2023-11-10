@@ -1,55 +1,5 @@
 <template>
     <div id="TUIC_safemode">
-        <style>
-            nav,
-            nav div,
-            nav a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #1da1f2;
-                font-family:
-                    system-ui,
-                    -apple-system,
-                    sans-serif,
-                    monospace;
-                font-weight: bold;
-            }
-            nav {
-                position: sticky;
-                top: 0px;
-                justify-content: space-between;
-                padding-block: 1em;
-                margin-inline: 2em;
-                border-bottom: 1px solid currentColor;
-                background-color: var(--TUIC-container-background);
-                border-bottom-left-radius: 1em;
-                border-bottom-right-radius: 1em;
-                z-index: 1;
-            }
-            nav div {
-                width: 100%;
-            }
-            nav svg {
-                height: 2.5em;
-                fill: currentColor;
-            }
-            nav svg.icon-tabler {
-                fill: none;
-                stroke: currentColor;
-            }
-            nav span {
-                margin-left: 0.5em;
-            }
-            @media (max-width: 600px) {
-                nav a span {
-                    display: none;
-                }
-            }
-            #TUIC_setting > div:first-of-type {
-                display: none;
-            }
-        </style>
         <nav>
             <div>
                 <a href="https://twitter.com">
@@ -98,4 +48,53 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style>
+nav,
+nav div,
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1da1f2;
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif,
+        monospace;
+    font-weight: bold;
+}
+nav {
+    position: sticky;
+    top: 0px;
+    justify-content: space-between;
+    padding-block: 1em;
+    margin-inline: 2em;
+    border-bottom: 1px solid currentColor;
+    background-color: var(--TUIC-container-background);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    z-index: 1;
+}
+nav div {
+    width: 100%;
+}
+nav svg {
+    height: 2.5em;
+    fill: currentColor;
+}
+nav svg.icon-tabler {
+    fill: none;
+    stroke: currentColor;
+}
+nav span {
+    margin-left: 0.5em;
+}
+@media (max-width: 600px) {
+    nav a span {
+        display: none;
+    }
+}
+#TUIC_setting > div:first-of-type {
+    display: none;
+}
+</style>

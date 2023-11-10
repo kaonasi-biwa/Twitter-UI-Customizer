@@ -1,5 +1,10 @@
-import { createApp } from "vue";
-import safemodeVue from "../shared/options/safemode.vue";
+import { createApp, defineCustomElement } from "vue";
+import safemodeVue from "../shared/options/SafeMode.ce.vue";
 
-const app = createApp(safemodeVue);
-app.mount("#TUICOptionSafemodeMain");
+import { TUICI18N } from "./i18n";
+
+TUICI18N.fetchA().then(() => {
+    const ce = defineCustomElement(safemodeVue);
+    customElements.define("tuic-safemode", ce);
+    document.querySelector("#TUICOptionSafemodeMain").appendChild(new ce({}));
+});
