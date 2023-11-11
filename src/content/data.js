@@ -1039,25 +1039,25 @@ export const TUICData = {
     },
     styleColor: {
         light: {
-            textColor: "rgba(0,0,0,1)",
+            textColor: "rgba(0, 0, 0, 1)",
             containerBackground: "rgb(247, 249, 249)",
             containerBackground2: "rgb(237, 239, 239)",
             colorHover: "#00000040",
-            detailBorder: "rgba(0,0,0,0.08)",
+            detailBorder: "rgba(0, 0, 0, 0.08)",
         },
         blue: {
-            textColor: "rgba(255,255,255,1)",
+            textColor: "rgba(255, 255, 255, 1)",
             containerBackground: "rgb(30, 39, 50)",
             containerBackground2: "rgb(40, 49, 60)",
             colorHover: "#ffffff30",
-            detailBorder: "rgba(255,255,255,0.08)",
+            detailBorder: "rgba(255, 255, 255, 0.08)",
         },
         dark: {
-            textColor: "rgba(255,255,255,1)",
+            textColor: "rgba(255, 255, 255, 1)",
             containerBackground: "rgb(22, 24, 28)",
             containerBackground2: "rgb(28, 34, 38)",
             colorHover: "#ffffff40",
-            detailBorder: "rgba(255,255,255,0.16)",
+            detailBorder: "rgba(255, 255, 255, 0.16)",
         },
     },
     twitterIcon: {
