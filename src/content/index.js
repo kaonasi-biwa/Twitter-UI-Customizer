@@ -13,6 +13,9 @@ import { isSafemode, runSafemode } from "./safemode.js";
     await TUICI18N.fetch();
     await TUICLibrary.waitForElement("#react-root");
 
+    for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
+        elem.remove();
+    }
     TUICLibrary.getClasses.deleteClasses();
     String.prototype.escapeToUseHTML = function () {
         return TUICLibrary.escapeToUseHTML(this);
@@ -24,10 +27,6 @@ import { isSafemode, runSafemode } from "./safemode.js";
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
     );
-
-    for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
-        elem.remove();
-    }
 
     addCssElement();
     applyDataCss();
