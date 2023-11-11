@@ -85,9 +85,7 @@ export const TUICOptionHTML = {
 
                 document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
 
-                if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0)
-                    // TODO: 謎
-                    document.getElementById(`${colorAttr}-${colorType}-check`).checked = TUIC_color[3] == 0;
+                document.getElementById(`${colorAttr}-${colorType}-check`).setAttribute("data-checked", TUIC_color[3] == 0);
 
                 if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
 
