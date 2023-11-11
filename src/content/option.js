@@ -80,14 +80,12 @@ export const TUICOptionHTML = {
                 const colorAttr = event.target.getAttribute("TUICColor");
                 const colorType = event.target.getAttribute("TUICColorType");
                 const colorKind = event.target.getAttribute("TUICColorKind");
-                const TUIC_color = TUICData.colors[colorAttr][colorType].replace("rgba(", "").replace(")", "").split(",");
+                const TUIC_color = TUICData.colors[colorAttr][colorType].replace("rgba(", "").replace(")", "").split(", ");
                 const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
 
                 document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
 
-                if ((document.getElementById(`${colorAttr}-${colorType}-check`).checked != TUIC_color[3]) == 0)
-                    // TODO: 謎
-                    document.getElementById(`${colorAttr}-${colorType}-check`).checked = TUIC_color[3] == 0;
+                document.getElementById(`${colorAttr}-${colorType}-check`).setAttribute("data-checked", TUIC_color[3] == 0);
 
                 if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
 
@@ -794,7 +792,7 @@ ${this.checkboxList("rightSidebar", "rightSidebar-settingTitle", "rightSidebar")
     //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
     colorSetting: function (id, type, color_, text, isDefault, colorKind) {
         const [color] = [color_.escapeToUseHTML()];
-        const TUIC_color = color.replace("rgba(", "").replace(")", "").split(",");
+        const TUIC_color = color.replace("rgba(", "").replace(")", "").split(", ");
         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]); /* eslint-disable */
         return `
         <div class="TUIC_setting_color_colmn${!isDefault ? " " + "TUIC_ISNOTDEFAULT" : ""}">

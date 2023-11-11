@@ -77,4 +77,5 @@ export function runSafemode() {
         ${TUICOptionHTML.TUICOptionHTML()}
     `;
     document.body.appendChild(safemode);
+    TUICOptionHTML.eventHandle();
 }

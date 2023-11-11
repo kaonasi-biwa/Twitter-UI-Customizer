@@ -357,8 +357,8 @@ textarea#css_textarea,
     background-size: 16px 16px;
     background-position: center;
     display: inline-block;
-    content: " ";
-    top: calc(0.5em - 8px);
+    content: "";
+    top: calc(0.5em - 4px);
     position: relative;
 }
 
