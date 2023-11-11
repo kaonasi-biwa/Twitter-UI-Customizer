@@ -42,7 +42,7 @@ import { RESET } from "../../../content/data/icons";
 // //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
 // colorSetting: function (id, type, color_, text, isDefault, colorKind) {
 //     const [color] = [color_.escapeToUseHTML()];
-//     const TUIC_color = color.replace("rgba(", "").replace(")", "").split(",");
+//     const TUIC_color = color.replace("rgba(", "").replace(")", "").split(", ");
 
 //     const TUICColor1 = TUICLibrary.color.rgb2hex([
 //         Number(TUIC_color[0]),
@@ -94,7 +94,7 @@ export default defineComponent({
     props: ["isDefault", "editingColorType", "id", "type", "text", "colorKind", "color_"],
     setup(props) {
         const color = props.color_.escapeToUseHTML();
-        const TUIC_color = color.replace("rgba(", "").replace(")", "").split(",");
+        const TUIC_color = color.replace("rgba(", "").replace(")", "").split(", ");
         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
         return { TUICI18N, TUICLibrary, TUICData, RESET, TUICColor1, TUIC_color };
     },
