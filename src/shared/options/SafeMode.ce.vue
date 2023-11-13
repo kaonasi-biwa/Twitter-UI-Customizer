@@ -4,7 +4,7 @@
             <div>
                 <a href="https://twitter.com">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6" /></svg>
-                    <span>${TUICI18N.get("settingUI-goBackButton")}</span>
+                    <span>{{ TUICI18N.get("settingUI-goBackButton") }}</span>
                 </a>
             </div>
             <div>
@@ -31,24 +31,26 @@
                 </a>
             </div>
         </nav>
-        <index />
+        <OptionMain />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import index from "./index.vue";
+import { TUICI18N } from "../../content/i18n";
+
+import OptionMain from "./OptionMain.ce.vue";
 
 export default defineComponent({
-    components: { index },
+    components: { OptionMain },
     setup() {
-        return {};
+        return { TUICI18N };
     },
 });
 </script>
 
-<style>
+<style scoped>
 nav,
 nav div,
 nav a {
@@ -74,20 +76,21 @@ nav {
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
     z-index: 1;
-}
-nav div {
-    width: 100%;
-}
-nav svg {
-    height: 2.5em;
-    fill: currentColor;
-}
-nav svg.icon-tabler {
-    fill: none;
-    stroke: currentColor;
-}
-nav span {
-    margin-left: 0.5em;
+
+    div {
+        width: 100%;
+    }
+    svg {
+        height: 2.5em;
+        fill: currentColor;
+        &.icon-tabler {
+            fill: none;
+            stroke: currentColor;
+        }
+    }
+    span {
+        margin-left: 0.5em;
+    }
 }
 @media (max-width: 600px) {
     nav a span {

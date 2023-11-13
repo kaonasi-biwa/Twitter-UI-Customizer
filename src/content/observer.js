@@ -1,6 +1,6 @@
 import { TUICData } from "./data.js";
 import DOG from "./icons/logo/dog.png";
-import TWITTER from "./icons/logo/twitter.svg";
+import TWITTER from "./icons/logo/twitter.svg?raw";
 import X from "./icons/logo/x.svg";
 import EMPTY from "./icons/logo/empty.svg";
 import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
@@ -62,10 +62,12 @@ export const TUICObserver = {
 
         TUICObserver.functions.fixDMBox();
         if (window.location.pathname == "/tuic/safemode") {
-        } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/settings/display") {
-            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
-        } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/i/display") {
-            TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+        } else if (document.querySelector("#TUIC_setting") === undefined) {
+            if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/settings/display") {
+                TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+            } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/i/display") {
+                TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+            }
         }
 
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);

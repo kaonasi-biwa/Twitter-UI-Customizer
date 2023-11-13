@@ -5,7 +5,7 @@
         </summary>
         <div class="TUIC_col_setting_container">
             <form>
-                <textarea id="css_textarea"></textarea>
+                <textarea id="css_textarea" :value="localStorage.getItem('TUIC_CSS')"></textarea>
             </form>
             <button id="save" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width">
                 {{ TUICI18N.get("customCSS-save") }}
@@ -21,7 +21,7 @@ import { TUICI18N } from "../../../content/i18n";
 
 export default defineComponent({
     setup() {
-        return { TUICI18N };
+        return { TUICI18N, localStorage };
     },
 });
 </script>

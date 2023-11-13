@@ -1,10 +1,16 @@
 import { resolve } from "path";
-import { UserConfig, defineConfig } from "vite";
-import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
+import { UserConfig, defineConfig, PluginOption } from "vite";
+
 import path from "path";
-import tailwindcss from "tailwindcss";
-import svgLoader from "vite-svg-loader";
 import fs from "fs";
+
+import tailwindcss from "tailwindcss";
+
+// Vite Plugins
+import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
+import svgLoader from "vite-svg-loader";
+import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
+//
 
 import vue from "@vitejs/plugin-vue";
 
@@ -25,6 +31,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             emptyOutDir: false,
             sourcemap: true,
             // outDir,
+            target: "es2020",
 
             rollupOptions: {
                 // watch: {
@@ -41,8 +48,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
                     index: resolve(__dirname, "src/content/index.js"),
                     background: resolve(__dirname, "./src/background.ts"),
-                    inject: resolve(__dirname, "src/inject.js"),
-                    safemode: resolve(__dirname, "src/content/new_safemode.ts"),
+                    option_main: resolve(__dirname, "src/shared/options/injectOptionMain.ts"),
+                    safemode: resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
                 },
                 output: {
                     dynamicImportInCjs: true,
@@ -72,13 +79,16 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     // console.log(options.watch);
                 },
                 buildStart(options) {
+                    console.log("copy-injectjs");
                     fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
                     fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
                 },
             },
             vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode),
+            // Vue Plugins
             vue(),
             svgLoader(),
+            viteVueCESubStyle() as PluginOption,
         ],
         // };
         // break;

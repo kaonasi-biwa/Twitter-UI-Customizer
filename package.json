@@ -22,6 +22,7 @@
     "dependencies": {
         "@types/chrome": "^0.0.250",
         "@types/webextension-polyfill": "^0.10.6",
+        "@webcomponents/custom-elements": "^1.6.0",
         "bootstrap-icons": "^1.11.1",
         "vue": "^3.3.8",
         "webextension-polyfill": "^0.10.0"
@@ -30,12 +31,14 @@
         "@types/node": "^20.9.0",
         "@typescript-eslint/eslint-plugin": "^6.10.0",
         "@typescript-eslint/parser": "^6.10.0",
+        "@unplugin-vue-ce/sub-style": "^1.0.0-beta.17",
         "@vitejs/plugin-vue": "^4.4.0",
         "autoprefixer": "^10.4.16",
         "dotenv": "^16.3.1",
         "eslint": "^8.53.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-vue": "^9.18.1",
+        "jsonc-parser": "^3.2.0",
         "node-fetch": "^3.3.2",
         "postcss-import": "^15.1.0",
         "prettier": "^3.0.3",

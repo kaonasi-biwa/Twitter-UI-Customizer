@@ -1,9 +1,10 @@
 import fs from "fs/promises";
 import fsSync from "fs";
+import { parse } from "jsonc-parser";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
-    const config = JSON.parse(await fs.readFile("./manifestConfigs.json", "utf8"));
+    const config = parse((await fs.readFile("./manifestConfigs.jsonc", "utf8")).toString());
 
     const targets = Object.keys(config).filter((k) => k !== "common");
     const target = process.argv[2];

@@ -4,10 +4,10 @@
     },
     "compilerOptions": {
         "esModuleInterop": true,
-        "module": "ESNext",
+        "module": "ES2015",
         "moduleResolution": "Bundler",
         "isolatedModules": true,
         "skipLibCheck": true,
-        "target": "es2022"
+        "target": "ES2015"
     }
 }

@@ -11,17 +11,15 @@ import ARROW_DOWN from "./icons/arrow/arrow_down.svg";
 import RESET from "./icons/arrow/reset.svg";
 import EMPTY from "./icons/logo/empty.svg";
 
-import { inject } from "../shared/options/injectOptions";
-
 export const TUICOptionHTML = {
     displaySetting: function (rootElement) {
         const div = document.createElement("div");
         div.id = "TUICOptionMain";
         rootElement.appendChild(div);
-        inject();
-
-        rootElement.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
-        this.eventHandle();
+        (async () => {
+            await import(chrome.runtime.getURL("option_main.js"));
+            this.eventHandle();
+        })();
     },
     eventHandle: function (root) {
         if (!root) root = document;

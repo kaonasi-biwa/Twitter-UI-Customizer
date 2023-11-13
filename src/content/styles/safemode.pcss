@@ -1,0 +1,49 @@
+nav,
+nav div,
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1da1f2;
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif,
+        monospace;
+    font-weight: bold;
+}
+nav {
+    position: sticky;
+    top: 0px;
+    justify-content: space-between;
+    padding-block: 1em;
+    margin-inline: 2em;
+    border-bottom: 1px solid currentColor;
+    background-color: var(--TUIC-container-background);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    z-index: 1;
+
+    div {
+        width: 100%;
+    }
+    svg {
+        height: 2.5em;
+        fill: currentColor;
+        &.icon-tabler {
+            fill: none;
+            stroke: currentColor;
+        }
+    }
+    span {
+        margin-left: 0.5em;
+    }
+}
+@media (max-width: 600px) {
+    nav a span {
+        display: none;
+    }
+}
+#TUIC_setting > div:first-of-type {
+    display: none;
+}
