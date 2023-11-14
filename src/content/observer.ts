@@ -1,15 +1,21 @@
 import { TUICData } from "./data.js";
-import DOG from "./icons/logo/dog.png";
+// @ts-expect-error vite has png import
+import DOG from "./icons/logo/dog.png?url";
 import TWITTER from "./icons/logo/twitter.svg?raw";
-import X from "./icons/logo/x.svg";
-import EMPTY from "./icons/logo/empty.svg";
+import X from "./icons/logo/x.svg?raw";
+import EMPTY from "./icons/logo/empty.svg?url";
 import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
-import { TUICI18N } from "./i18n.ts";
+import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICOptionHTML } from "./option.js";
 import { isSafemode } from "./safemode.js";
 
 export const TUICObserver = {
+    observer: null,
+    iconObserver: null,
+    target: null,
+    headObserver: null,
+    data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null },
     observerFunction: function (mutationsList) {
         TUICObserver.observer.disconnect();
 
@@ -62,12 +68,12 @@ export const TUICObserver = {
 
         TUICObserver.functions.fixDMBox();
         if (window.location.pathname == "/tuic/safemode") {
-        } else if (document.querySelector("#TUIC_setting") === undefined) {
-            if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/settings/display") {
-                TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
-            } else if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null && window.location.pathname == "/i/display") {
-                TUICOptionHTML.displaySetting(document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
-            }
+        } else if (window.location.pathname == "/settings/display") {
+            TUICLibrary.waitForElement(`section[aria-labelledby="detail-header"] > div.r-qocrb3`).then(() => {
+                TUICOptionHTML.displaySetting(document.querySelector('section[aria-labelledby="detail-header"] > div.r-qocrb3'));
+            });
+        } else if (window.location.pathname == "/i/display") {
+            TUICOptionHTML.displaySetting(document.querySelector(`[aria-labelledby="modal-header"] > div > div > div`).children[1]);
         }
 
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
@@ -95,21 +101,22 @@ export const TUICObserver = {
             switch (TUICPref.get("twitterIcon")) {
                 case "invisible":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = EMPTY;
+                        document.querySelector(`[rel="shortcut icon"]`).href = chrome.runtime.getURL(EMPTY);
                     }
                     elem.classList.add("TUIC_SVGDISPNONE");
                     base.classList.add("TUIC_DISPNONE");
                     break;
                 case "twitter":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = TWITTER.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
+                        document.querySelector(`[rel="shortcut icon"]`).href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")));
+                        //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`)
                     }
                     elem.classList.add("TUIC_SVGDISPNONE");
                     elem.classList.add("TUICTwitterIcon_Twitter");
                     break;
                 case "dog":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = DOG;
+                        document.querySelector(`[rel="shortcut icon"]`).href = chrome.runtime.getURL(DOG);
                     }
                     elem.classList.add("TUIC_SVGDISPNONE");
                     elem.classList.add("TUICTwitterIcon_Dog");
@@ -117,14 +124,16 @@ export const TUICObserver = {
                 case "custom":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
                         const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                        document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? EMPTY;
+                        document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
                     }
                     elem.classList.add("TUIC_SVGDISPNONE");
                     elem.classList.add("TUICTwitterIcon_IconImg");
                     break;
                 case "twitterIcon-X":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        document.querySelector(`[rel="shortcut icon"]`).href = X.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
+                        console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color"))));
+                        document.querySelector(`[rel="shortcut icon"]`).href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")));
+                        //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }
                     elem.classList.add("TUIC_SVGDISPNONE");
                     elem.classList.add("TUICTwitterIcon_X");
@@ -359,7 +368,7 @@ export const TUICObserver = {
                                 lastButton.classList.add("r-1rq6c10");
                                 lastButton.classList.add("r-1b7u577");
 
-                                for (var i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
+                                for (let i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
                                     if (!TUICPref.get("visibleButtons").includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
                                         bar_item[TUICData.settings.visibleButtons.all[i]].classList.add("TUIC_DISPNONE");
                                     }
@@ -1007,6 +1016,5 @@ export const TUICObserver = {
             attributes: true,
         });
     },
-    data: { fixedDMBox: false, buttonUnderTweetRunning: false },
 };
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);

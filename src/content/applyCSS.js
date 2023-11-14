@@ -1,7 +1,7 @@
 import { TUICData } from "./data.js";
-import DOG from "./icons/logo/dog.png";
-import TWITTER from "./icons/logo/twitter.svg";
-import X from "./icons/logo/x.svg";
+import DOG from "./icons/logo/dog.png?url";
+import TWITTER from "./icons/logo/twitter.svg?url";
+import X from "./icons/logo/x.svg?url";
 //import { DOG, TWITTER, X } from "./data/icons.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { isSafemode } from "./safemode.js";
@@ -32,13 +32,13 @@ export function applyDataCss() {
     dataCssElement.id = "twitter_ui_customizer_cssData";
     twitterHead.appendChild(dataCssElement);
     dataCssElement.textContent = `
-    .TUICTwitterIcon_Dog{
+    .TUICTwitterIcon_Dog {
         background-image:url('${DOG}');
     }
-    .TUICTwitterIcon_Twitter{
+    .TUICTwitterIcon_Twitter {
         --TUIC-twitter-icon:url('${TWITTER}') !important;
     }
-    .TUICTwitterIcon_X{
+    .TUICTwitterIcon_X {
         --TUIC-twitter-icon:url('${X}') !important;
     }`;
 }
@@ -54,22 +54,23 @@ export function applySystemCss() {
             }
         }
     }
+    const r = document.querySelector(":root");
+    if (r instanceof HTMLElement) {
+        const rs = r.style;
+        rs.setProperty("--twitter-TUIC-color", TUICData.styleColor[backgroundColor].textColor);
+        rs.setProperty("--TUIC-container-background", TUICData.styleColor[backgroundColor].containerBackground);
+        rs.setProperty("--TUIC-container-background2", TUICData.styleColor[backgroundColor].containerBackground2);
+        rs.setProperty("--TUIC-color-hover-efect", TUICData.styleColor[backgroundColor].colorHover);
+        rs.setProperty("--TUIC-sidebar-hover-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)");
+        rs.setProperty("--TUIC-sidebar-active-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)");
+        rs.setProperty("--TUIC-sidebar-focus-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)");
+        rs.setProperty("--TUIC-detail-border", TUICData.styleColor[backgroundColor].detailBorder);
+    }
+
     /* eslint-disable indent */
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}
-
-    --twitter-TUIC-color: ${TUICData.styleColor[backgroundColor].textColor};
-
-    --TUIC-container-background: ${TUICData.styleColor[backgroundColor].containerBackground};
-    --TUIC-container-background2: ${TUICData.styleColor[backgroundColor].containerBackground2};
-    --TUIC-color-hover-efect: ${TUICData.styleColor[backgroundColor].colorHover};
-
-    --TUIC-sidebar-hover-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)"};
-    --TUIC-sidebar-active-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)"};
-    --TUIC-sidebar-focus-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)"};
-
-    --TUIC-detail-border:${TUICData.styleColor[backgroundColor].detailBorder};
 }
 
 .TUICTwitterIcon_IconImg,
