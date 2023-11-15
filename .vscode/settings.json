@@ -27,5 +27,9 @@
     "prettier.printWidth": 300,
     "stylelint.packageManager": "yarn",
     "stylelint.snippet": ["css", "scss"],
-    "stylelint.validate": ["css", "scss"]
+    "stylelint.validate": ["css", "scss"],
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    }
 }

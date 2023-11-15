@@ -1,6 +1,8 @@
 import { TUICI18N } from "./i18n.ts";
 import css from "./styles/safemode.pcss";
 
+import { TUICOptionHTML } from "./option.js";
+
 export const isSafemode = location.pathname === "/tuic/safemode";
 
 export function runSafemode() {
@@ -27,4 +29,5 @@ export function runSafemode() {
     // const safemode = document.createElement("tuic-option-safemode-entry");
     // //safemode.id = "TUICOptionSafemodeMain";
     //document.body.appendChild(safemode);
+    TUICOptionHTML.eventHandle();
 }

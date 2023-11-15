@@ -1,12 +1,12 @@
 <template>
     <template v-if="background">
-        <ColorSetting :id="id" type="background" :color_="TUICLibrary.color.getColorFromPref(id, 'background', editingColorType)" text="settingUI-colorPicker-background" :isDefault="TUICPref.get(editingColorType)?.[id].background === true" :color-kind="editingColorType" />
+        <ColorSetting :id="id" type="background" :color_="TUICLibrary.color.getColorFromPref(id, 'background', editingColorType)" text="settingUI-colorPicker-background" :isDefault="!!TUICPref.get(editingColorType)?.[id].background" :color-kind="editingColorType" />
     </template>
     <template v-if="border">
-        <ColorSetting :id="id" type="border" :color_="TUICLibrary.color.getColorFromPref(id, 'border', editingColorType)" text="settingUI-colorPicker-border" :isDefault="TUICPref.get(editingColorType)?.[id].border === true" :color-kind="editingColorType" />
+        <ColorSetting :id="id" type="border" :color_="TUICLibrary.color.getColorFromPref(id, 'border', editingColorType)" text="settingUI-colorPicker-border" :isDefault="!!TUICPref.get(editingColorType)?.[id].border" :color-kind="editingColorType" />
     </template>
     <template v-if="color">
-        <ColorSetting :id="id" type="color" :color_="TUICLibrary.color.getColorFromPref(id, 'color', editingColorType)" :text="typeColor" :isDefault="TUICPref.get(editingColorType)?.[id].color === true" :color-kind="editingColorType" />
+        <ColorSetting :id="id" type="color" :color_="TUICLibrary.color.getColorFromPref(id, 'color', editingColorType)" :text="typeColor" :isDefault="!!TUICPref.get(editingColorType)?.[id].color" :color-kind="editingColorType" />
     </template>
 </template>
 

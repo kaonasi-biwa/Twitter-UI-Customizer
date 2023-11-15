@@ -347,8 +347,6 @@ textarea#css_textarea,
 
 .TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton > span::before {
     border: 2px solid rgb(127 127 127 / 50%);
-    width: 16px;
-    height: 16px;
 }
 
 .TUICSettingRadioTypeBigButton > span::before {
@@ -356,10 +354,14 @@ textarea#css_textarea,
     border-radius: 9999px;
     background-size: 16px 16px;
     background-position: center;
+    width: 1em;
+    height: 1em;
+    box-sizing: border-box;
     display: inline-block;
     content: " ";
-    top: calc(0.5em - 8px);
+    transform: translateY(-50%);
     position: relative;
+    top: 50%;
 }
 
 .TUICSettingSubTitle {

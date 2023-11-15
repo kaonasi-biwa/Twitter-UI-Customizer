@@ -40,19 +40,7 @@
                 <CheckBox id="roundIcon" :value="TUICPref.get('others.roundIcon') ?? true" name="twitterIcon-roundIcon" type="otherBoolSetting" />
                 <UploadImageFile id="IconImg" title="twitterIcon-usedIcon" />
             </RadioButtonList>
-            <!--
-                ${this.upDownList(
-                "sidebarButtons",
-                "sidebarButton-settingTitle",
-                this.checkbox("smallerSidebarContent", TUICPref.get("sidebarSetting.buttonConfig.smallerSidebarContent"), "sidebarButton-setting-narrowBetweenButtons", "sidebarSettingButtonConfig") +
-                    this.checkbox("sidebarNoneScrollbar", TUICPref.get("sidebarSetting.buttonConfig.sidebarNoneScrollbar"), "sidebarButton-setting-sidebarNoneScrollbar", "sidebarSettingButtonConfig") +
-                    this.checkbox("birdGoBackHome", TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome"), "sidebarButton-setting-birdGoBackHome", "sidebarSettingButtonConfig") +
-                    `<h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">${TUICI18N.get("sidebarButton-accountSwitcher-settingTitle")}</h2>` +
-                    this.checkbox("icon", TUICPref.get("accountSwitcher.icon"), "sidebarButton-accountSwitcher-Icon", "accountSwitcher") +
-                    this.checkbox("nameID", TUICPref.get("accountSwitcher.nameID"), "sidebarButton-accountSwitcher-NameID", "accountSwitcher") +
-                    this.checkbox("moreMenu", TUICPref.get("accountSwitcher.moreMenu"), "sidebarButton-accountSwitcher-MoreMenu", "accountSwitcher"),
-            )}
-            -->
+
             <UpDownList id="sidebarButtons" title="sidebarButton-settingTitle">
                 <CheckBox id="smallerSidebarContent" :value="TUICPref.get('sidebarSetting.buttonConfig.smallerSidebarContent') ?? true" name="sidebarButton-setting-narrowBetweenButtons" type="sidebarSettingButtonConfig" />
                 <CheckBox id="sidebarNoneScrollbar" :value="TUICPref.get('sidebarSetting.buttonConfig.sidebarNoneScrollbar') ?? false" name="sidebarButton-setting-sidebarNoneScrollbar" type="sidebarSettingButtonConfig" />
