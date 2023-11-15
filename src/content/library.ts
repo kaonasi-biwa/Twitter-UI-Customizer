@@ -45,14 +45,10 @@ export const TUICLibrary = {
                 return parseInt(str, 16);
             });
         },
-        getColorFromPref: function (name, type, mode_) {
-            let mode = "";
-            if ((mode_ ?? "unknwon") == "unknwon") {
-                mode = TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            } else {
-                mode = mode_;
-            }
-            return (TUICPref.get(`${mode}.${name}.${type}`) ?? TUICData?.["colors-" + mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type]).escapeToUseHTML();
+        getColorFromPref: function (name: string, type: string, mode: "buttonColorLight" | "buttonColorDark" | null) {
+            let _mode = "";
+            _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
+            return (TUICPref.get(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type]).escapeToUseHTML();
         },
     },
     getClasses: {
@@ -114,7 +110,7 @@ export const TUICLibrary = {
              * @param {string} nextKey 変更先のキー
              * @param {any} replaceValue 置き換える値
              */
-            function changeBooleanKey(previousKey, nextKey, replaceValue = true) {
+            function changeBooleanKey(previousKey, nextKey, replaceValue: string | boolean = true) {
                 if (TUICPref.get(previousKey) === true) TUICPref.set(nextKey, replaceValue);
                 TUICPref.delete(previousKey);
             }
@@ -142,7 +138,7 @@ export const TUICLibrary = {
             changeBooleanKey("otherBoolSetting.smallerSidebarContent", "sidebarSetting.buttonConfig.smallerSidebarContent");
             changeBooleanKey("otherBoolSetting.sidebarNoneScrollbar", "sidebarSetting.buttonConfig.sidebarNoneScrollbar");
             if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
-            TUICPref.set("CSS");
+            TUICPref.set("CSS", null);
 
             if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
                 await new Promise((resolve, reject) => {
@@ -158,7 +154,7 @@ export const TUICLibrary = {
                         context.beginPath();
                         context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
                         localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
-                        resolve();
+                        resolve(null);
                     };
                     image.src = localStorage.getItem(`TUIC_IconImg`);
                 });

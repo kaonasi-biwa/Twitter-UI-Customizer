@@ -1,8 +1,8 @@
 import { applyCustomCss, applySystemCss } from "./applyCSS.js";
 import { TUICData } from "./data.js";
 import { TUICI18N } from "./i18n.ts";
-import { TUICLibrary, TUICPref } from "./library.js";
-import { TUICObserver } from "./observer.js";
+import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICObserver } from "./observer.ts";
 import { isSafemode } from "./safemode.js";
 import EMPTY from "./icons/logo/empty.svg";
 
