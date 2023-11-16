@@ -6,16 +6,19 @@ import { TUICObserver } from "./observer.ts";
 import { isSafemode } from "./safemode.js";
 import EMPTY from "./icons/logo/empty.svg";
 
+import { injectOptionMain } from "../shared/options/injectOption2Entry.ts";
+
 export const TUICOptionHTML = {
-    displaySetting: function (rootElement) {
-        if (document.querySelector("#TUICOptionMain") == null) {
-            const div = document.createElement("div");
-            div.id = "TUICOptionMain";
-            rootElement.appendChild(div);
-            (async () => {
-                await import(chrome.runtime.getURL("option_main.js"));
-                this.eventHandle();
-            })();
+    displaySetting: (rootElement) => {
+        //document.querySelector("#TUICOptionMain");
+        if (!document.querySelector("#TUIC_setting")) {
+            if (document.querySelector("#TUICOptionEntry") == null) {
+                const div = document.createElement("div");
+                div.id = "TUICOptionEntry";
+                rootElement.appendChild(div);
+            }
+            injectOptionMain();
+            TUICOptionHTML.eventHandle();
         }
     },
     eventHandle: function (root) {
