@@ -73,7 +73,9 @@ export const TUICObserver = {
                 TUICOptionHTML.displaySetting(document.querySelector('section[aria-labelledby="detail-header"] > div.r-qocrb3'));
             });
         } else if (window.location.pathname == "/i/display") {
-            TUICOptionHTML.displaySetting(document.querySelector(`[aria-labelledby="modal-header"] > div > div > div`).children[1]);
+            TUICLibrary.waitForElement(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`).then(() => {
+                TUICOptionHTML.displaySetting(document.querySelector(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`));
+            });
         }
 
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
