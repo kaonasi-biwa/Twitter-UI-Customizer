@@ -86,9 +86,6 @@ export const TUICObserver = {
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
                 TUICOptionHTML.displaySetting(_dialog ? _dialog : _fullscreen);
             });
-            // TUICLibrary.waitForElement(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`).then(() => {
-            //     TUICOptionHTML.displaySetting(document.querySelector(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`));
-            // });
         }
 
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
