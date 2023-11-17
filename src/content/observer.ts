@@ -78,7 +78,7 @@ export const TUICObserver = {
                 TUICOptionHTML.displaySetting(_large ? _large : _small);
             });
         } else if (window.location.pathname == "/i/display") {
-            //TODO: /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
+            //* /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
 
             TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
                 const _dialog = elems[0].closest(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
