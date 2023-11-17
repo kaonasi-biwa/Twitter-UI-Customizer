@@ -301,21 +301,20 @@ export const TUICLibrary = {
             })
             .replaceAll("\\r", "\r");
     },
-    waitForElement: async function (selector) {
+    waitForElement: async function (selector: string): Promise<Element[]> {
         if (document.querySelectorAll(selector).length !== 0) {
             return Array.from(document.querySelectorAll(selector));
         } else {
-            const returns = await new Promise((resolve) => {
+            return new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
                     const matchedAddedNodes = document.querySelectorAll(selector);
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
-                        resolve(matchedAddedNodes);
+                        resolve([...matchedAddedNodes]);
                     }
                 });
                 observer.observe(document.querySelector("html"), { subtree: true, childList: true });
             });
-            return returns;
         }
     },
 };

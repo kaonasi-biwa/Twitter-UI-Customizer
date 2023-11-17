@@ -1,12 +1,12 @@
 import { applyCustomCss, applySystemCss } from "./applyCSS.js";
 import { TUICData } from "./data.js";
-import { TUICI18N } from "./i18n.ts";
-import { TUICLibrary, TUICPref } from "./library.ts";
-import { TUICObserver } from "./observer.ts";
+import { TUICI18N } from "./i18n.js";
+import { TUICLibrary, TUICPref } from "./library.js";
+import { TUICObserver } from "./observer.js";
 import { isSafemode } from "./safemode.js";
 import EMPTY from "./icons/logo/empty.svg";
 
-import { injectOptionMain } from "../shared/options/injectOption2Entry.ts";
+import { injectOptionMain } from "../shared/options/injectOption2Entry.js";
 
 export const TUICOptionHTML = {
     displaySetting: (rootElement) => {
@@ -18,7 +18,7 @@ export const TUICOptionHTML = {
                 rootElement.appendChild(div);
             }
             injectOptionMain();
-            TUICOptionHTML.eventHandle();
+            TUICOptionHTML.eventHandle(null);
         }
     },
     eventHandle: function (root) {
@@ -144,7 +144,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -154,7 +154,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("accountSwitcher." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -164,7 +164,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("profileSetting.invisible." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -174,7 +174,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("profileSetting.tabs." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -184,7 +184,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("tweetDisplaySetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -194,7 +194,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("sidebarSetting.buttonConfig." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -204,7 +204,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("timeline." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -214,7 +214,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("rightSidebar." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },

@@ -6,8 +6,8 @@ import X from "./icons/logo/x.svg?raw";
 import EMPTY from "./icons/logo/empty.svg?url";
 import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
 import { TUICI18N } from "./i18n.js";
-import { TUICLibrary, TUICPref } from "./library.js";
-import { TUICOptionHTML } from "./option.js";
+import { TUICLibrary, TUICPref } from "./library";
+import { TUICOptionHTML } from "./option";
 import { isSafemode } from "./safemode.js";
 
 export const TUICObserver = {
@@ -15,6 +15,7 @@ export const TUICObserver = {
     iconObserver: null,
     target: null,
     headObserver: null,
+
     data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null },
     observerFunction: function (mutationsList) {
         TUICObserver.observer.disconnect();
@@ -67,15 +68,27 @@ export const TUICObserver = {
         TUICObserver.functions.updateStyles();
 
         TUICObserver.functions.fixDMBox();
+
         if (window.location.pathname == "/tuic/safemode") {
         } else if (window.location.pathname == "/settings/display") {
-            TUICLibrary.waitForElement(`section[aria-labelledby="detail-header"] > div.r-qocrb3`).then(() => {
-                TUICOptionHTML.displaySetting(document.querySelector('section[aria-labelledby="detail-header"] > div.r-qocrb3'));
+            TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
+                const _large = elems[0].closest(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
+                const _small = elems[0].closest(`main > div > div > div > div:nth-child(2)`);
+                //console.warn(`_large : ${_large}\n_small : ${_small}`);
+                TUICOptionHTML.displaySetting(_large ? _large : _small);
             });
         } else if (window.location.pathname == "/i/display") {
-            TUICLibrary.waitForElement(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`).then(() => {
-                TUICOptionHTML.displaySetting(document.querySelector(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`));
+            //TODO: /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
+
+            TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
+                const _dialog = elems[0].closest(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
+                const _fullscreen = elems[0].closest(`main > div > div > div:nth-child(2)`);
+                //console.warn(`_large : ${_large}\n_small : ${_small}`);
+                TUICOptionHTML.displaySetting(_dialog ? _dialog : _fullscreen);
             });
+            // TUICLibrary.waitForElement(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`).then(() => {
+            //     TUICOptionHTML.displaySetting(document.querySelector(`[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`));
+            // });
         }
 
         TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
@@ -111,7 +124,7 @@ export const TUICObserver = {
                     break;
                 case "twitter":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")));
+                        favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
                         //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`)
                     }
                     elem.classList.add("TUIC_SVGDISPNONE");
