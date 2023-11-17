@@ -4,15 +4,18 @@ import "@webcomponents/custom-elements";
 import { createApp } from "vue";
 import safemodeVue from "./SafeMode.ce.vue";
 
-// styles, not style
-if (safemodeVue.styles !== undefined) {
-    const style = document.createElement("style");
-    style.textContent = safemodeVue.styles;
-    document.head.appendChild(style);
-}
+export const injectSafeMode = () => {
+    // styles, not style
+    if (safemodeVue.styles !== undefined) {
+        const style = document.createElement("style");
+        style.textContent = safemodeVue.styles;
+        document.head.appendChild(style);
+    }
 
-const app = createApp(safemodeVue);
-app.mount("#TUICOptionSafemodeEntry");
+    const app = createApp(safemodeVue);
+    app.mount("#TUICOptionSafemodeEntry");
+    console.log("injectSafemode End");
+};
 
 // TUICI18N.fetch().then(() => {
 // in Twitter, occurs bugs abt CustomElement

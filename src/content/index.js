@@ -7,7 +7,7 @@ import { TUICObserver } from "./observer.ts";
 import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss } from "./applyCSS.js";
-import { isSafemode, runSafemode } from "./safemode.js";
+import { isSafemode, runSafemode } from "./safemode.ts";
 
 (async () => {
     await TUICI18N.fetch();

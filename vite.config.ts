@@ -48,7 +48,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
                     index: resolve(__dirname, "src/content/index.js"),
                     background: resolve(__dirname, "./src/background.ts"),
-                    safemode: resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
+                    //safemode: resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
                 },
                 output: {
                     dynamicImportInCjs: true,

@@ -22,6 +22,7 @@ export const TUICOptionHTML = {
         }
     },
     eventHandle: function (root) {
+        console.log("EventHandle");
         if (!root) root = document;
         for (const elem in this.eventList) {
             const listItem = this.eventList[elem];

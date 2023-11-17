@@ -1,12 +1,13 @@
-import { TUICI18N } from "./i18n.ts";
+import { TUICI18N } from "./i18n.js";
 import css from "./styles/safemode.pcss";
 
-import { TUICOptionHTML } from "./option";
+import { TUICOptionHTML } from "./option.js";
+
+import { injectSafeMode } from "../shared/options/injectSafeMode.js";
 
 export const isSafemode = location.pathname === "/tuic/safemode";
 
 export function runSafemode() {
-    import(chrome.runtime.getURL("safemode.js"));
     document.querySelector("#TUIC_safemode")?.remove();
     document.querySelector(".twitter_ui_customizer_css")?.remove();
     document.querySelector("#react-root").style = "display: none !important;";
@@ -29,5 +30,6 @@ export function runSafemode() {
     // const safemode = document.createElement("tuic-option-safemode-entry");
     // //safemode.id = "TUICOptionSafemodeMain";
     //document.body.appendChild(safemode);
-    TUICOptionHTML.eventHandle();
+    injectSafeMode();
+    TUICOptionHTML.eventHandle(entry);
 }

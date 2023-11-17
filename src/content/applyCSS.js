@@ -4,7 +4,7 @@ import TWITTER from "./icons/logo/twitter.svg?url";
 import X from "./icons/logo/x.svg?url";
 //import { DOG, TWITTER, X } from "./data/icons.js";
 import { TUICLibrary, TUICPref } from "./library.ts";
-import { isSafemode } from "./safemode.js";
+import { isSafemode } from "./safemode.ts";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
@@ -33,13 +33,13 @@ export function applyDataCss() {
     twitterHead.appendChild(dataCssElement);
     dataCssElement.textContent = `
     .TUICTwitterIcon_Dog {
-        background-image:url('${DOG}');
+        background-image:url('${chrome.runtime.getURL(DOG)}');
     }
     .TUICTwitterIcon_Twitter {
-        --TUIC-twitter-icon:url('${TWITTER}') !important;
+        --TUIC-twitter-icon:url('${chrome.runtime.getURL(TWITTER)}') !important;
     }
     .TUICTwitterIcon_X {
-        --TUIC-twitter-icon:url('${X}') !important;
+        --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
     }`;
 }
 
