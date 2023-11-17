@@ -160,7 +160,7 @@ export const TUICObserver = {
             }
         },
         sidebarButtonProcess: function (bannerRoot) {
-            if (!window.location.pathname.startsWith("/i/communitynotes")) {
+            if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
                 for (const i of TUICPref.get("sidebarButtons")) {
                     let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                     if (moveElem != null) {
@@ -183,7 +183,7 @@ export const TUICObserver = {
                 }
             }
             for (const i of TUICData.settings.sidebarButtons.all) {
-                if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
+                if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
                     const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                     if (moveElem != null) moveElem.classList.add("TUIC_DISPNONE");
                 }
