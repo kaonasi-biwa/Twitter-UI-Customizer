@@ -4,7 +4,7 @@ import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
 import { TUICObserver } from "./observer.js";
 import { isSafemode } from "./safemode.js";
-import EMPTY from "./icons/logo/empty.svg";
+import EMPTY from "./icons/logo/empty.svg?url";
 
 import { injectOptionMain } from "../shared/options/injectOption2Entry.js";
 
@@ -409,7 +409,7 @@ export const TUICOptionHTML = {
                 applySystemCss();
                 if (TUICPref.get("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
                     const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? EMPTY;
+                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
                 }
             },
             single: false,

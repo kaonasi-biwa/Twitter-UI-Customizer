@@ -28,7 +28,7 @@
         :TUICColorType="type"
         :TUICColorKind="colorKind"
     >
-        <RESET />
+        <component :is="RESET" />
     </button>
     <!-- eslint-enable vue/no-v-html -->
 </template>
