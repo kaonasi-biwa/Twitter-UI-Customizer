@@ -5,7 +5,7 @@
                 {{ TUICI18N.get(TUICData.settings.colors.i18n[i]) }}
             </h2>
             <div class="TUIC_col_setting_container_2">
-                <ThreeColorSetting :id="i" :editingColorType="editingColorType" />
+                <ThreeColorSetting :id="i" />
             </div>
         </template>
     </div>
@@ -16,6 +16,7 @@ import { defineComponent } from "vue";
 
 import { TUICData } from "../../../content/data";
 import { TUICI18N } from "../../../content/i18n";
+import { TUICLibrary } from "../../../content/library";
 
 import ThreeColorSetting from "./ThreeColorSetting.vue";
 
@@ -37,7 +38,6 @@ export default defineComponent({
     components: {
         ThreeColorSetting,
     },
-    props: ["editingColorType"],
     setup() {
         return { TUICData, TUICI18N };
     },
