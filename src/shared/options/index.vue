@@ -10,9 +10,7 @@
         </div>
 
         <div>
-            <br /><br />
             <settingsHeader />
-            <br /><br />
             <settingColors />
 
             <UpDownList id="visibleButtons" title="bottomTweetButtons-settingTitle-v2">

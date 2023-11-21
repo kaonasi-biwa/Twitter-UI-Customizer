@@ -1,10 +1,9 @@
 <template>
     <div style="display: flex" :TUICUDBox="id" TUICSelectedItem="">
         <div style="flex: 1 2; width: 50px">
-            <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">
+            <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text TUICUpDownTitle">
                 {{ TUICI18N.get("settingUI-upDownList-visible") }}
             </h2>
-            <br />
             <div id="TUIC_visible" class="TUIC_selectbox" :style="{ '--contentCount': _contentCount }">
                 <UpDownButtons :id="id" :settings="TUICPref.get(id)" />
             </div>
@@ -16,10 +15,9 @@
             <button v-for="item in UpdownButtonFuncs" :key="item.btnAction" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)" v-html="item.iconSrc"></button>
         </div>
         <div style="flex: 1 2; width: 50px">
-            <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">
+            <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text TUICUpDownTitle">
                 {{ TUICI18N.get("settingUI-upDownList-invisible") }}
             </h2>
-            <br />
             <div id="TUIC_invisible" class="TUIC_selectbox" :style="{ '--contentCount': _contentCount }">
                 <UpDownButtons
                     :id="id"
