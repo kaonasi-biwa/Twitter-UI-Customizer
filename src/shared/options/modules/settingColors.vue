@@ -28,7 +28,11 @@
                 <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 12px">{{ TUICI18N.get("settingColors-select-explain") }} </span>
             </div>
             <br />
-            <ColorsList />
+            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-top: 10px; margin-bottom: 10px" id="defaultTwitterColor2">
+                {{ TUICI18N.get("settingColors-newTwitterColor") }}
+            </button>
+            <br />
+            <ColorsList :editing-color-type="TUICLibrary.getEditingColorType()" />
         </div>
     </details>
 </template>
