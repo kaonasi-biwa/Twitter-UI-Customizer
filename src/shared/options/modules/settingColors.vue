@@ -32,7 +32,7 @@
                 {{ TUICI18N.get("settingColors-newTwitterColor") }}
             </button>
             <br />
-            <ColorsList :editing-color-type="TUICLibrary.getEditingColorType()" />
+            <ColorsList />
         </div>
     </details>
 </template>
