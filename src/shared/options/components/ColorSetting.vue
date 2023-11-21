@@ -93,8 +93,8 @@ import { RESET } from "../../../content/data/icons";
 export default defineComponent({
     props: ["isDefault", "editingColorType", "id", "type", "text", "colorKind", "color_"],
     setup(props) {
-        const color = props.color_.escapeToUseHTML();
-        const TUIC_color = color.replace("rgba(", "").replace(")", "").split(", ");
+        const color = props.color_.replace("rgba(", "").replace(")", "").replaceAll(" ", "").escapeToUseHTML();
+        const TUIC_color = color.split(",");
         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
         return { TUICI18N, TUICLibrary, TUICData, RESET, TUICColor1, TUIC_color };
     },
