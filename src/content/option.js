@@ -600,7 +600,7 @@ export const TUICOptionHTML = {
             },
             single: true,
         },
-        "#defaultTwitterColor": {
+        "#defaultTwitterColor,#defaultTwitterColor2": {
             type: "click",
             function: () => {
                 const importPref = {
