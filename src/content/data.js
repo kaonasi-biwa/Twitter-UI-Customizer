@@ -772,7 +772,7 @@ export const TUICData = {
                 "r-adyw6z r-135wba7 r-1joea0r r-88pszg",
                 "r-evnaw r-16dba41 r-eaezby r-uzqwk8 r-12e0a8i",
                 "r-1x35g6 r-16dba41 r-1h1c4di r-6uxfom r-le9fof",
-            )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;${document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none"}" >
+            )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
               <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
             </div>
           </div>
