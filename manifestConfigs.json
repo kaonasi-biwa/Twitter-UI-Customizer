@@ -2,7 +2,7 @@
     "common": {
         "name": "__MSG_extensionName__",
         "description": "__MSG_extensionDescription__",
-        "version": "3.8.2",
+        "version": "3.9.9",
         "default_locale": "ja",
         "content_scripts": [
             {
