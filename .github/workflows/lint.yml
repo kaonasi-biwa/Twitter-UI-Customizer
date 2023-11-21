@@ -45,5 +45,6 @@ jobs:
 
             - name: Run ESLint & Prettier & Stylelint
               run: |
-                  yarn lint
-              continue-on-error: false
+                  yarn lint:eslint
+                  yarn lint:prettier
+                  yarn lint:stylelint
