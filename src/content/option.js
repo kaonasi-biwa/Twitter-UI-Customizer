@@ -113,7 +113,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("XToTwitter." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -127,7 +126,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -141,7 +139,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -151,7 +148,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("accountSwitcher." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -161,7 +157,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("profileSetting.invisible." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -171,7 +166,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("profileSetting.tabs." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -181,7 +175,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("tweetDisplaySetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -191,7 +184,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("sidebarSetting.buttonConfig." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -201,7 +193,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("timeline." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
@@ -211,7 +202,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("rightSidebar." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
             },
             single: false,
         },
