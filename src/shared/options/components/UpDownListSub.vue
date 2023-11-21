@@ -173,6 +173,8 @@ import { TUICPref } from "../../../content/library";
 
 import { TUICLibrary } from "../../../content/library";
 import { applySystemCss } from "../../../content/applyCSS";
+import { storeToRefs } from "pinia";
+import { useStore } from "../store";
 
 export default defineComponent({
     components: { UpDownButtons },
@@ -194,7 +196,10 @@ export default defineComponent({
 
             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
             list.value.push(selectedItem);
+
             apply2Settings(parentBox);
+            const store = useStore();
+            store.selectedElem = parentBox.getAttribute("TUICSelectedItem");
         };
 
         const toRight = (event) => {
@@ -202,7 +207,10 @@ export default defineComponent({
 
             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
             list.value = list.value.filter((v) => v !== selectedItem);
+
             apply2Settings(parentBox);
+            const store = useStore();
+            store.selectedElem = parentBox.getAttribute("TUICSelectedItem");
         };
 
         const toUp = (event) => {
@@ -244,11 +252,13 @@ export default defineComponent({
 
             const settingId = parentBox.getAttribute("TUICUDBox");
             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-            if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
+            //if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
             parentBox.setAttribute("TUICSelectedItem", "");
             list.value = structuredClone(TUICData.defaultPref[settingId]);
             TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
             TUICPref.save();
+            const store = useStore();
+            store.selectedElem = "";
         };
 
         const UpdownButtonFuncs = [

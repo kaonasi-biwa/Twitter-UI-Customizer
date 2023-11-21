@@ -4,6 +4,6 @@ export const useStore = defineStore({
     id: "optionMain",
     state: () => ({
         editingColorType: "buttonColor",
-        colors: {},
+        selectedElem: "",
     }),
 });
