@@ -243,115 +243,121 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
-        ".TUIC_up_down_list_to_left": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement;
-                const leftBox = parentBox.children[0].children[2];
-                const rightBox = parentBox.children[2].children[2];
+        // --------------------------------------------------------------
+        // TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX START START START
+        // --------------------------------------------------------------
+        // ".TUIC_up_down_list_to_left": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement;
+        //         const leftBox = parentBox.children[0].children[2];
+        //         const rightBox = parentBox.children[2].children[2];
 
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if ((selectedItem ?? "") != "") {
-                    const selectedItemElem = rightBox.querySelector(`#${selectedItem}`);
-                    if (selectedItemElem != null) {
-                        leftBox.appendChild(selectedItemElem);
-                        TUICOptionHTML.upDownListSetting(parentBox);
-                    }
-                }
-            },
-            single: false,
-        },
-        ".TUIC_up_down_list_to_right": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement;
-                const leftBox = parentBox.children[0].children[2];
-                const rightBox = parentBox.children[2].children[2];
+        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+        //         if ((selectedItem ?? "") != "") {
+        //             const selectedItemElem = rightBox.querySelector(`#${selectedItem}`);
+        //             if (selectedItemElem != null) {
+        //                 leftBox.appendChild(selectedItemElem);
+        //                 TUICOptionHTML.upDownListSetting(parentBox);
+        //             }
+        //         }
+        //     },
+        //     single: false,
+        // },
+        // ".TUIC_up_down_list_to_right": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement;
+        //         const leftBox = parentBox.children[0].children[2];
+        //         const rightBox = parentBox.children[2].children[2];
 
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if (selectedItem) {
-                    const selectedItemElem = leftBox.querySelector(`#${selectedItem}`);
-                    if (selectedItemElem != null) {
-                        rightBox.appendChild(selectedItemElem);
-                        TUICOptionHTML.upDownListSetting(parentBox);
-                    }
-                }
-            },
-            single: false,
-        },
-        ".TUIC_up_down_list_to_up": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement;
-                const leftBox = parentBox.children[0].children[2];
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if (selectedItem) {
-                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+        //         if (selectedItem) {
+        //             const selectedItemElem = leftBox.querySelector(`#${selectedItem}`);
+        //             if (selectedItemElem != null) {
+        //                 rightBox.appendChild(selectedItemElem);
+        //                 TUICOptionHTML.upDownListSetting(parentBox);
+        //             }
+        //         }
+        //     },
+        //     single: false,
+        // },
+        // ".TUIC_up_down_list_to_up": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement;
+        //         const leftBox = parentBox.children[0].children[2];
+        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+        //         if (selectedItem) {
+        //             const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
-                    if (selectedItemIndex > 0) {
-                        leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
-                        TUICOptionHTML.upDownListSetting(parentBox);
-                    }
-                }
-            },
-            single: false,
-        },
-        ".TUIC_up_down_list_to_down": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement;
-                const leftBox = parentBox.children[0].children[2];
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if (selectedItem) {
-                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+        //             if (selectedItemIndex > 0) {
+        //                 leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
+        //                 TUICOptionHTML.upDownListSetting(parentBox);
+        //             }
+        //         }
+        //     },
+        //     single: false,
+        // },
+        // ".TUIC_up_down_list_to_down": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement;
+        //         const leftBox = parentBox.children[0].children[2];
+        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+        //         if (selectedItem) {
+        //             const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
-                    if (selectedItemIndex != -1) {
-                        leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
-                        TUICOptionHTML.upDownListSetting(parentBox);
-                    }
-                }
-            },
-            single: false,
-        },
-        ".TUIC_up_down_list_to_default": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement;
-                const leftBox = parentBox.children[0].children[2];
-                const rightBox = parentBox.children[2].children[2];
+        //             if (selectedItemIndex != -1) {
+        //                 leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
+        //                 TUICOptionHTML.upDownListSetting(parentBox);
+        //             }
+        //         }
+        //     },
+        //     single: false,
+        // },
+        // ".TUIC_up_down_list_to_default": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement;
+        //         const leftBox = parentBox.children[0].children[2];
+        //         const rightBox = parentBox.children[2].children[2];
 
-                const settingId = parentBox.getAttribute("TUICUDBox");
-                TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
-                TUICPref.save();
-                parentBox.setAttribute("TUICSelectedItem", "");
-                const ListItem = TUICOptionHTML.upDownListItem(settingId);
-                let listElem;
+        //         const settingId = parentBox.getAttribute("TUICUDBox");
+        //         TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
+        //         TUICPref.save();
+        //         parentBox.setAttribute("TUICSelectedItem", "");
+        //         const ListItem = TUICOptionHTML.upDownListItem(settingId);
+        //         let listElem;
 
-                listElem = leftBox.children;
-                while (listElem.length != 0) {
-                    listElem[0].remove();
-                }
+        //         listElem = leftBox.children;
+        //         while (listElem.length != 0) {
+        //             listElem[0].remove();
+        //         }
 
-                listElem = TUICLibrary.HTMLParse(ListItem[0]);
-                while (listElem.length != 0) {
-                    leftBox.appendChild(listElem[0]);
-                }
+        //         listElem = TUICLibrary.HTMLParse(ListItem[0]);
+        //         while (listElem.length != 0) {
+        //             leftBox.appendChild(listElem[0]);
+        //         }
 
-                listElem = rightBox.children;
-                while (listElem.length != 0) {
-                    listElem[0].remove();
-                }
+        //         listElem = rightBox.children;
+        //         while (listElem.length != 0) {
+        //             listElem[0].remove();
+        //         }
 
-                listElem = TUICLibrary.HTMLParse(ListItem[1]);
-                while (listElem.length != 0) {
-                    rightBox.appendChild(listElem[0]);
-                }
+        //         listElem = TUICLibrary.HTMLParse(ListItem[1]);
+        //         while (listElem.length != 0) {
+        //             rightBox.appendChild(listElem[0]);
+        //         }
 
-                TUICOptionHTML.upDownListSetting(parentBox);
-                TUICOptionHTML.eventHandle(parentBox);
-            },
-            single: false,
-        },
+        //         TUICOptionHTML.upDownListSetting(parentBox);
+        //         TUICOptionHTML.eventHandle(parentBox);
+        //     },
+        //     single: false,
+        // },
+        // --------------------------------------------------------------
+        // TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX END END END
+        // --------------------------------------------------------------
         ".TUICRadio": {
             type: "change",
             function: function (event) {
@@ -412,18 +418,18 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
-        ".TUICUpDownContent": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
-                const selectItem = event.currentTarget.id;
-                parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
-                parentBox.setAttribute("TUICSelectedItem", selectItem);
-            },
-            single: false,
-        },
+        // ".TUICUpDownContent": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
+        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+        //         if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
+        //         const selectItem = event.currentTarget.id;
+        //         parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
+        //         parentBox.setAttribute("TUICSelectedItem", selectItem);
+        //     },
+        //     single: false,
+        // },
         // ".TUICColorSettingRadio": {
         //     type: "change",
         //     function: function (event) {
@@ -641,16 +647,16 @@ export const TUICOptionHTML = {
             single: true,
         },
     },
-    upDownListSetting(parentBox) {
-        const id = parentBox.getAttribute("TUICUDBox");
-        const visible_button_list = [];
-        const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
-        for (let i = 0; i < visibleButtonsT.length; i++) {
-            visible_button_list.push(visibleButtonsT[i].id);
-        }
-        TUICPref.set(id, visible_button_list);
-        TUICPref.save();
-        TUICLibrary.getClasses.update();
-        applySystemCss();
-    },
+    // upDownListSetting(parentBox) {
+    //     const id = parentBox.getAttribute("TUICUDBox");
+    //     const visible_button_list = [];
+    //     const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
+    //     for (let i = 0; i < visibleButtonsT.length; i++) {
+    //         visible_button_list.push(visibleButtonsT[i].id);
+    //     }
+    //     TUICPref.set(id, visible_button_list);
+    //     TUICPref.save();
+    //     TUICLibrary.getClasses.update();
+    //     applySystemCss();
+    // },
 };
