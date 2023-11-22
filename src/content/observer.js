@@ -846,7 +846,7 @@ export const TUICObserver = {
                 }
             }
 
-            if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu")) {
+            if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu") && document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`)) {
                 document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE");
             }
 
