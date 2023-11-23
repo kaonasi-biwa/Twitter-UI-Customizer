@@ -286,7 +286,7 @@ export const TUICObserver = {
                                 }
                                 if (isBigArticle) {
                                     elem.classList.add("TUICItIsBigArticle");
-                                    if (location.pathname.includes("/photo/")) {
+                                    if (location.pathname.includes("/photo/") || location.pathname.includes("/video/")) {
                                         elem.classList.add("TUICItIsBigArticlePhoto");
                                     }
 
@@ -307,7 +307,7 @@ export const TUICObserver = {
                                                 engagementsFixList.push(tempArr);
                                             }
                                         };
-                                        const isPhotoPage = location.pathname.includes("/photo/");
+                                        const isPhotoPage = location.pathname.includes("/photo/") || location.pathname.includes("/video/");
                                         if (shortName && !isPhotoPage) {
                                             engageFixListFunc(3);
                                         } else if ((shortName && isPhotoPage) || (!shortName && !isPhotoPage)) {
