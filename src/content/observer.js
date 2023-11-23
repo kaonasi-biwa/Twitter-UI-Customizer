@@ -347,8 +347,8 @@ export const TUICObserver = {
                                         bar_base.appendChild(div);
                                     }
                                 }
-                                if (lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
-                                    lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove();
+                                if (lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
+                                    lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").remove();
                                 }
                                 lastButton.classList.add("r-1rq6c10");
                                 lastButton.classList.add("r-1b7u577");
