@@ -24,6 +24,12 @@ jobs:
                   yarn add --non-interactive --frozen-lockfile -D node-fetch
                   git pull
                   node ./updateI18n.mjs
+
+                  if [ -z "$(git status --porcelain)" ]; then
+                    echo "No ti18n changes"
+                    exit 0
+                  fi
+
                   git add .
                   git commit -m "Update twitter i18n"
                   git push
