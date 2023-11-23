@@ -263,9 +263,9 @@ export const TUICData = {
             </div>
         </div>`;
             },
-            boolkmark: function (isBigArticle) {
+            /*boolkmark: function (isBigArticle) {
                 return TUICData.visibleButtons.buttonHTML._base("bookmark", `<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z" class="TUIC_BOOKMARK"></path>`, isBigArticle);
-            },
+            },*/
             "url-copy": function (isBigArticle) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "urlCopy",
@@ -366,7 +366,7 @@ export const TUICData = {
             _cancelButton: function (elem) {
                 elem.click();
             },
-            boolkmark: function (e) {
+            /*boolkmark: function (e) {
                 for (let i = 0; i <= 2; i++) {
                     const urlCopyButton = document.querySelector(
                         `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
@@ -381,7 +381,7 @@ export const TUICData = {
                         break;
                     }
                 }
-            },
+            },*/
             sendDM: function (e) {
                 for (let i = 0; i <= 2; i++) {
                     const urlCopyButton = document.querySelector(
@@ -576,13 +576,13 @@ export const TUICData = {
                     eventFunc();
                 });
             },
-            boolkmark: function (val) {
+            /*boolkmark: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"](val.option.isBigArticle)).item(0);
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                     TUICData.visibleButtons.buttonFunction["boolkmark"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                 });
                 return elem;
-            },
+            },*/
             sendDM: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["sendDM"](val.option.isBigArticle, val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)).item(0);
                 if (!(val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)) {
