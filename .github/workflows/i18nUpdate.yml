@@ -19,11 +19,11 @@ jobs:
 
             - name: Update
               run: |
-                  yarn add node-fetch
-
+                  git config --global user.name  "github-actions[bot]"
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  yarn add --non-interactive --frozen-lockfile -D node-fetch
+                  git pull
                   node ./updateI18n.mjs
-                  git config user.name  "i18n Updater"
-                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git add .
-                  git commit -m "generated"
+                  git commit -m "Update twitter i18n"
                   git push
