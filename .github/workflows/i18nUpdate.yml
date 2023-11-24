@@ -15,15 +15,21 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: Update
               run: |
-                  yarn add node-fetch
-
+                  git config --global user.name  "github-actions[bot]"
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  yarn add --non-interactive --frozen-lockfile -D node-fetch
+                  git pull
                   node ./updateI18n.mjs
-                  git config user.name  "i18n Updater"
-                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+                  if [ -z "$(git status --porcelain)" ]; then
+                    echo "No ti18n changes"
+                    exit 0
+                  fi
+
                   git add .
-                  git commit -m "generated"
+                  git commit -m "Update twitter i18n"
                   git push
