@@ -40,6 +40,19 @@ export function applyDataCss() {
     }`;
 }
 
+export function applyCustomIcon() {
+    const twitterHead = document.querySelector("head");
+    document.querySelector("#twitter_ui_customizer_cssCustomIcon")?.remove();
+    const dataCssElement = document.createElement("style");
+    dataCssElement.id = "twitter_ui_customizer_cssCustomIcon";
+    twitterHead.appendChild(dataCssElement);
+    dataCssElement.textContent = `
+    .TUICTwitterIcon_IconImg,
+#TUICIcon_IconImg{
+    background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
+}`;
+}
+
 export function applySystemCss() {
     const backgroundColor = TUICLibrary.backgroundColorCheck();
 
@@ -90,11 +103,6 @@ export function applySystemCss() {
     --TUIC-detail-border:${TUICData.styleColor[backgroundColor].detailBorder};
 
     --TUIC-pinnedTab-background:rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")});
-}
-
-.TUICTwitterIcon_IconImg,
-#TUICIcon_IconImg{
-    background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
 }
 `;
     /* eslint-enable */
