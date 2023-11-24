@@ -170,3 +170,7 @@
     align-items: stretch;
     display: flex;
 }
+
+.TUIC_LinkCardInfo > a {
+    text-decoration: none;
+}

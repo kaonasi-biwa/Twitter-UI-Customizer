@@ -34,7 +34,8 @@
 div[data-testid="tweetText"] {
     -webkit-line-clamp: initial !important;
 }
-
+/*
 header nav > a > div {
     padding-right: 0 !important;
-}
+} 
+*/

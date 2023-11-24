@@ -162,23 +162,18 @@ export default defineComponent({
             return !!TUICPref.get(store.editingColorType)?.[props.id][props.type];
         });
         const color_ = computed(() => {
-            console.error(`color_ compute : ${store.editingColorType}`);
             return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType);
         });
         const color = computed(() => {
-            console.error(`color compute : ${color_.value}`);
             return color_.value.replace("rgba(", "").replace(")", "").replaceAll(" ", "").escapeToUseHTML();
         });
         const TUIC_color = computed(() => {
-            console.error("TUIC_color compute");
             return color.value.split(",");
         });
 
         const TUICColor1 = computed(() => {
-            console.error("TUICColor1 compute");
             return TUICLibrary.color.rgb2hex([Number(TUIC_color.value[0]), Number(TUIC_color.value[1]), Number(TUIC_color.value[2])]);
         });
-        console.error(`TUICColor1: ${TUICColor1.value}`);
 
         return { TUICI18N, TUICLibrary, TUICData, RESET, TUICColor1, TUIC_color, changeColor, changeColorCheck, store, defaultColor, isDefault };
     },
