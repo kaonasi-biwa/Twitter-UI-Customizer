@@ -4,8 +4,6 @@ import { UserConfig, defineConfig, PluginOption } from "vite";
 import path from "path";
 import fs from "fs";
 
-import tailwindcss from "tailwindcss";
-
 // Vite Plugins
 import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
 import svgLoader from "vite-svg-loader";
@@ -17,7 +15,7 @@ import vue from "@vitejs/plugin-vue";
 const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
 
-const r = (str) => {
+const r = (str: string): string => {
     return resolve(__dirname, str);
 };
 
@@ -32,17 +30,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             sourcemap: true,
             // outDir,
             target: "es2020",
+            assetsInlineLimit: 0,
 
             rollupOptions: {
-                // watch: {
-                //     // chokidar: {
-                //     //     cwd: __dirname,
-                //     // },
-                //     exclude: ["dist/*"],
-                //     // include: ["vite.config.ts", "package.json", "_locales", "i18n", "icon", "npm-scripts", "manifestChange.mjs", "manifestConfigs.json", "src"].map((value) => {
-                //     //     return resolve(__dirname, value);
-                //     // }),
-                // },
                 input: {
                     "ent-options_html": resolve(__dirname, "src/options/options.html"),
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
@@ -59,11 +49,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             },
             minify: false,
         },
-        // resolve: {
-        //     alias: {
-        //         "@content": "/",
-        //     },
-        // },
         plugins: [
             {
                 name: "copy-inject.js",
@@ -89,29 +74,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             svgLoader(),
             viteVueCESubStyle() as PluginOption,
         ],
-        // };
-        // break;
-        // case "content":
-        //     json = {
-        //         root,
-        //         build: {
-        //             sourcemap: true,
-        //             outDir,
-        //             lib: {
-        //                 entry: [resolve(__dirname, "src/content/index.js")],
-        //                 name: "bundle",
-        //                 fileName: (format, entryName) => {
-        //                     return "index.js";
-        //                 },
-        //                 formats: ["iife"],
-        //             },
-        //             minify: false,
-        //         },
-        //         //plugins: [myPlugin()],
-        //     };
-        //     break;
     };
-
-    // console.log(json);
     return json;
 });

@@ -116,6 +116,7 @@ export const TUICOptionHTML = {
             function: function (event) {
                 TUICPref.set("XToTwitter." + event.target.id, event.target.checked);
                 TUICPref.save();
+                TUICLibrary.getClasses.update();
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -129,7 +130,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -515,10 +515,12 @@ export const TUICOptionHTML = {
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -579,10 +581,13 @@ export const TUICOptionHTML = {
                     }),
                 );
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
+
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: true,
         },
@@ -594,7 +599,10 @@ export const TUICOptionHTML = {
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
+
                 TUICLibrary.getClasses.update();
                 applySystemCss();
                 TUICObserver.observerFunction();
@@ -628,10 +636,12 @@ export const TUICOptionHTML = {
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: true,
         },

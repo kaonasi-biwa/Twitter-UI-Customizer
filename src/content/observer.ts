@@ -17,7 +17,7 @@ export const TUICObserver = {
     headObserver: null,
 
     data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null },
-    observerFunction: function (mutationsList) {
+    observerFunction: (mutationsList) => {
         TUICObserver.observer.disconnect();
 
         if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
