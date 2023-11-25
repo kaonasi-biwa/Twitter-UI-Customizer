@@ -80,17 +80,17 @@ export function applySystemCss() {
     }
     document.documentElement.setAttribute("TUICSettings", settingsOutput);
 
-    let prefColors = "";
-    for (const elem in TUICData.colors) {
-        for (const el of ["background", "border", "color"]) {
-            if ((TUICData.colors[elem][el] ?? "unknwon") != "unknwon") {
-                prefColors += `--twitter-${elem}-${el}:${TUICLibrary.color.getColorFromPref(elem, el)};`;
-            }
-        }
-    }
     const r = document.querySelector(":root");
     if (r instanceof HTMLElement) {
         const rs = r.style;
+
+        for (const elem in TUICData.colors) {
+            for (const el of ["background", "border", "color"]) {
+                if ((TUICData.colors[elem][el] ?? "unknwon") != "unknwon") {
+                    rs.setProperty(`--twitter-${elem}-${el}`, `${TUICLibrary.color.getColorFromPref(elem, el)};`);
+                }
+            }
+        }
 
         rs.setProperty("--twitter-TUIC-color", TUICData.styleColor[backgroundColor].textColor);
         rs.setProperty("--TUIC-container-background", TUICData.styleColor[backgroundColor].containerBackground);
@@ -105,14 +105,6 @@ export function applySystemCss() {
 
         rs.setProperty("--TUIC-pinnedTab-background", `rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
     }
-
-    /* eslint-disable indent */
-    document.querySelector("#twitter_ui_customizer").textContent = `
-:root{
-    ${prefColors}
-}
-`;
-    /* eslint-enable */
 }
 
 export function applyCustomCss() {
