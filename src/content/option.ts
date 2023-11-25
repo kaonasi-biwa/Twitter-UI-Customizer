@@ -36,72 +36,72 @@ export const TUICOptionHTML = {
         }
     },
     eventList: {
-        ".TUICButtonColor": {
-            type: "change",
-            function: function (event) {
-                const colorAttr = event.target.getAttribute("TUICColor");
-                const colorType = event.target.getAttribute("TUICColorType");
-                const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
-                const colorKind = event.target.getAttribute("TUICColorKind");
-                const isChecked = document.getElementById(`${colorAttr}-${colorType}-check`).checked;
+        // ".TUICButtonColor": {
+        //     type: "change",
+        //     function: function (event) {
+        //         const colorAttr = event.target.getAttribute("TUICColor");
+        //         const colorType = event.target.getAttribute("TUICColorType");
+        //         const colorValue = TUICLibrary.color.hex2rgb(event.target.value);
+        //         const colorKind = event.target.getAttribute("TUICColorKind");
+        //         const isChecked = document.getElementById(`${colorAttr}-${colorType}-check`).checked;
 
-                TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
+        //         TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
-                document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE");
-                event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT");
+        //         document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE");
+        //         event.currentTarget.parentElement.parentElement.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT");
 
-                TUICPref.save();
+        //         TUICPref.save();
 
-                applySystemCss();
-            },
-            single: false,
-        },
-        ".TUICButtonColorCheck": {
-            type: "click",
-            function: function (event) {
-                event.target.dataset.checked = event.target.dataset.checked !== "true";
+        //         applySystemCss();
+        //     },
+        //     single: false,
+        // },
+        // ".TUICButtonColorCheck": {
+        //     type: "click",
+        //     function: function (event) {
+        //         event.target.dataset.checked = event.target.dataset.checked !== "true";
 
-                const colorAttr = event.target.getAttribute("TUICColor");
-                const colorType = event.target.getAttribute("TUICColorType");
-                const colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${colorAttr}-${colorType}`).value);
-                const colorKind = event.target.getAttribute("TUICColorKind");
-                const isChecked = event.target.dataset.checked === "true";
+        //         const colorAttr = event.target.getAttribute("TUICColor");
+        //         const colorType = event.target.getAttribute("TUICColorType");
+        //         const colorValue = TUICLibrary.color.hex2rgb(document.getElementById(`${colorAttr}-${colorType}`).value);
+        //         const colorKind = event.target.getAttribute("TUICColorKind");
+        //         const isChecked = event.target.dataset.checked === "true";
 
-                TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
+        //         TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
-                document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE");
-                event.currentTarget.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT");
+        //         document.getElementById(`${colorAttr}-${colorType}-default`).classList.remove("TUIC_DISPNONE");
+        //         event.currentTarget.parentElement.parentElement.classList.remove("TUIC_ISNOTDEFAULT");
 
-                TUICPref.save();
+        //         TUICPref.save();
 
-                applySystemCss();
-            },
-            single: false,
-        },
-        ".TUICDefaultColor": {
-            type: "click",
-            function: function (event) {
-                const colorAttr = event.target.getAttribute("TUICColor");
-                const colorType = event.target.getAttribute("TUICColorType");
-                const colorKind = event.target.getAttribute("TUICColorKind");
-                const TUIC_color = TUICData.colors[colorAttr][colorType].replace("rgba(", "").replace(")", "").split(", ");
-                const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
+        //         applySystemCss();
+        //     },
+        //     single: false,
+        // },
+        // ".TUICDefaultColor": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const colorAttr = event.target.getAttribute("TUICColor");
+        //         const colorType = event.target.getAttribute("TUICColorType");
+        //         const colorKind = event.target.getAttribute("TUICColorKind");
+        //         const TUIC_color = TUICData.colors[colorAttr][colorType].replace("rgba(", "").replace(")", "").split(", ");
+        //         const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
 
-                document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
+        //         document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
 
-                document.getElementById(`${colorAttr}-${colorType}-check`).setAttribute("data-checked", TUIC_color[3] == 0);
+        //         document.getElementById(`${colorAttr}-${colorType}-check`).setAttribute("data-checked", TUIC_color[3] == 0);
 
-                if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
+        //         if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
 
-                document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add("TUIC_ISNOTDEFAULT");
-                event.currentTarget.classList.add("TUIC_DISPNONE");
+        //         document.getElementById(`${colorAttr}-${colorType}-check`).parentElement.parentElement.classList.add("TUIC_ISNOTDEFAULT");
+        //         event.currentTarget.classList.add("TUIC_DISPNONE");
 
-                TUICPref.save();
+        //         TUICPref.save();
 
-                applySystemCss();
-            },
-            single: false,
-        },
+        //         applySystemCss();
+        //     },
+        //     single: false,
+        // },
         ".TUICInvisibleItems": {
             type: "click",
             function: function (event) {
@@ -117,7 +117,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("XToTwitter." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -264,6 +264,7 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        /*
         ".TUIC_up_down_list_to_right": {
             type: "click",
             function: function (event) {
@@ -355,13 +356,14 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        */
         ".TUICRadio": {
             type: "change",
             function: function (event) {
                 TUICPref.set(event.currentTarget.getAttribute("name"), event.currentTarget.getAttribute("value"));
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -371,7 +373,7 @@ export const TUICOptionHTML = {
                 TUICPref.set(event.currentTarget.getAttribute("name"), event.currentTarget.getAttribute("value"));
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -396,7 +398,7 @@ export const TUICOptionHTML = {
                                 context.beginPath();
                                 context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
                                 localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
-                                resolve();
+                                resolve(null);
                             };
                             image.src = reader.result;
                         });
@@ -415,29 +417,28 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
-        ".TUICUpDownContent": {
-            type: "click",
-            function: function (event) {
-                const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
-                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-                if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
-                const selectItem = event.currentTarget.id;
-                parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
-                parentBox.setAttribute("TUICSelectedItem", selectItem);
-            },
-            single: false,
-        },
-        ".TUICColorSettingRadio": {
-            type: "change",
-            function: function (event) {
-                TUICLibrary.setEditingColorType(event.currentTarget.getAttribute("value"));
-                document.querySelector("#TUICColorSettingsDivBox").remove();
-                const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList()).item(0);
-                document.querySelector("#colorSettingList").appendChild(appendELement);
-                TUICOptionHTML.eventHandle(appendELement);
-            },
-            single: false,
-        },
+        // ".TUICUpDownContent": {
+        //     type: "click",
+        //     function: function (event) {
+        //         const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
+        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+        //         if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
+        //         const selectItem = event.currentTarget.id;
+        //         parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
+        //         parentBox.setAttribute("TUICSelectedItem", selectItem);
+        //     },
+        //     single: false,
+        // },
+        // ".TUICColorSettingRadio": {
+        //     type: "change",
+        //     function: function (event) {
+        //         document.querySelector("#TUICColorSettingsDivBox").remove();
+        //         const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList()).item(0);
+        //         document.querySelector("#colorSettingList").appendChild(appendELement);
+        //         TUICOptionHTML.eventHandle(appendELement);
+        //     },
+        //     single: false,
+        // },
         "#TUICExport": {
             type: "click",
             function: function () {
@@ -639,16 +640,16 @@ export const TUICOptionHTML = {
             single: true,
         },
     },
-    upDownListSetting(parentBox) {
-        const id = parentBox.getAttribute("TUICUDBox");
-        const visible_button_list = [];
-        const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
-        for (let i = 0; i < visibleButtonsT.length; i++) {
-            visible_button_list.push(visibleButtonsT[i].id);
-        }
-        TUICPref.set(id, visible_button_list);
-        TUICPref.save();
-        TUICLibrary.getClasses.update();
-        applySystemCss();
-    },
+    // upDownListSetting(parentBox) {
+    //     const id = parentBox.getAttribute("TUICUDBox");
+    //     const visible_button_list = [];
+    //     const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
+    //     for (let i = 0; i < visibleButtonsT.length; i++) {
+    //         visible_button_list.push(visibleButtonsT[i].id);
+    //     }
+    //     TUICPref.set(id, visible_button_list);
+    //     TUICPref.save();
+    //     TUICLibrary.getClasses.update();
+    //     applySystemCss();
+    // },
 };

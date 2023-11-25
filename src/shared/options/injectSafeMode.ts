@@ -3,6 +3,7 @@ import "@webcomponents/custom-elements";
 
 import { createApp } from "vue";
 import safemodeVue from "./SafeMode.ce.vue";
+import { createPinia } from "pinia";
 
 export const injectSafeMode = () => {
     // styles, not style
@@ -13,6 +14,7 @@ export const injectSafeMode = () => {
     }
 
     const app = createApp(safemodeVue);
+    app.use(createPinia());
     app.mount("#TUICOptionSafemodeEntry");
     console.log("injectSafemode End");
 };

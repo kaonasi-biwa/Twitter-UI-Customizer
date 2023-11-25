@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import optionMain from "./OptionMain.ce.vue";
+import { createPinia } from "pinia";
 
 export const injectOptionMain = () => {
     if (optionMain.styles !== undefined) {
@@ -9,5 +10,6 @@ export const injectOptionMain = () => {
     }
 
     const app = createApp(optionMain);
+    app.use(createPinia());
     app.mount("#TUICOptionEntry");
 };
