@@ -116,8 +116,6 @@ export const TUICOptionHTML = {
             function: function (event) {
                 TUICPref.set("XToTwitter." + event.target.id, event.target.checked);
                 TUICPref.save();
-                TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -131,7 +129,7 @@ export const TUICOptionHTML = {
                 TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -145,7 +143,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -155,7 +152,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("accountSwitcher." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -165,7 +161,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("profileSetting.invisible." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -175,7 +170,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("profileSetting.tabs." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -185,7 +179,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("tweetDisplaySetting." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -195,7 +188,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("sidebarSetting.buttonConfig." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -205,7 +197,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("timeline." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -215,7 +206,6 @@ export const TUICOptionHTML = {
                 TUICPref.set("rightSidebar." + event.target.id, event.target.checked);
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -246,6 +236,10 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        /*
+        * --------------------------------------------------------------
+        * TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX START START START
+        * --------------------------------------------------------------
         ".TUIC_up_down_list_to_left": {
             type: "click",
             function: function (event) {
@@ -264,7 +258,6 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
-        /*
         ".TUIC_up_down_list_to_right": {
             type: "click",
             function: function (event) {
@@ -356,6 +349,9 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
+        * --------------------------------------------------------------
+        * TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX END END END
+        * --------------------------------------------------------------
         */
         ".TUICRadio": {
             type: "change",
@@ -605,7 +601,7 @@ export const TUICOptionHTML = {
             },
             single: true,
         },
-        "#defaultTwitterColor": {
+        "#defaultTwitterColor,#defaultTwitterColor2": {
             type: "click",
             function: () => {
                 const importPref = {
