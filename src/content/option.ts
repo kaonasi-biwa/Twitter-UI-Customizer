@@ -644,7 +644,7 @@ export const TUICOptionHTML = {
                 applySystemCss();
                 TUICObserver.observerFunction(null);
             },
-            single: true,
+            single: false,
         },
     },
     // upDownListSetting(parentBox) {
