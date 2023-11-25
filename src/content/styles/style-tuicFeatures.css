@@ -174,3 +174,40 @@
 .TUIC_LinkCardInfo > a {
     text-decoration: none;
 }
+
+:root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+:root[TUICSettings*="|otherBoolSetting.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
+    border-radius: 9999px !important;
+}
+
+:is(
+        :root[tuicsettings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
+        :root[tuicsettings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
+        :root[tuicsettings*="|tweetDisplaySetting.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
+        :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
+        :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
+
+    ) {
+    display: none !important;
+}
+
+:root[tuicsettings*="|tweetDisplaySetting.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
+    margin-top: 0 !important;
+}
+
+:root[tuicsettings*="|sidebarSetting.buttonConfig.sidebarNoneScrollbar|"] header > div > div > div > div.r-1rnoaur {
+    overflow: clip;
+}
+
+:root[tuicsettings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] nav[role="navigation"] {
+    position: sticky;
+    top: 53px;
+    z-index: 1;
+    backdrop-filter: blur(12px);
+    background-color: var(--TUIC-pinnedTab-background);
+}

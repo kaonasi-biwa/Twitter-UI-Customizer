@@ -43,8 +43,42 @@ export function applyDataCss() {
     }`;
 }
 
+export function applyCustomIcon() {
+    const twitterHead = document.querySelector("head");
+    document.querySelector("#twitter_ui_customizer_cssCustomIcon")?.remove();
+    const dataCssElement = document.createElement("style");
+    dataCssElement.id = "twitter_ui_customizer_cssCustomIcon";
+    twitterHead.appendChild(dataCssElement);
+    dataCssElement.textContent = `
+    .TUICTwitterIcon_IconImg,
+#TUICIcon_IconImg{
+    background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
+}`;
+}
+
 export function applySystemCss() {
     const backgroundColor = TUICLibrary.backgroundColorCheck();
+
+    const settingsArr = [
+        "sidebarSetting.buttonConfigsmallerSidebarContent",
+        "otherBoolSetting.roundIcon",
+        "invisibleItems.subscribe-profile",
+        "invisibleItems.hideBelowDM",
+        "tweetDisplaySetting.bottomSpace",
+        "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
+        "tweetDisplaySetting.noNumberBottomTweetButtons",
+        "accountSwitcher.icon",
+        "accountSwitcher.nameID",
+        "accountSwitcher.moreMenu",
+        "profileSetting.tabs.pinnedTab",
+    ];
+    let settingsOutput = "|";
+    for (const elem of settingsArr) {
+        if (TUICPref.get(elem)) {
+            settingsOutput += elem + "|";
+        }
+    }
+    document.documentElement.setAttribute("TUICSettings", settingsOutput);
 
     let prefColors = "";
     for (const elem in TUICData.colors) {
@@ -71,117 +105,20 @@ export function applySystemCss() {
     document.querySelector("#twitter_ui_customizer").textContent = `
 :root{
     ${prefColors}
-}
 
-.TUICTwitterIcon_IconImg,
-#TUICIcon_IconImg{
-    background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
-    ${TUICPref.get("otherBoolSetting.roundIcon") ?? TUICData.defaultPref.otherBoolSetting.roundIcon ? "border-radius:9999px !important;" : ""}
-}
+    --twitter-TUIC-color: ${TUICData.styleColor[backgroundColor].textColor};
 
+    --TUIC-container-background: ${TUICData.styleColor[backgroundColor].containerBackground};
+    --TUIC-container-background2: ${TUICData.styleColor[backgroundColor].containerBackground2};
+    --TUIC-color-hover-efect: ${TUICData.styleColor[backgroundColor].colorHover};
 
-${
-    TUICPref.get("sidebarSetting.buttonConfigsmallerSidebarContent")
-        ? `
-[role="navigation"] .NOT_TUIC_DISPNONE{
-    padding-bottom:0px !important;
-    padding-top:0px !important;
-}
-`
-        : ""
-}
-${
-    TUICPref.get("invisibleItems.subscribe-profile")
-        ? `
-[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]{
-    display:none !important;
-}
-`
-        : ""
-}
-${
-    TUICPref.get("invisibleItems.hideBelowDM")
-        ? `
-[data-testid="DMDrawer"]{
-    display:none !important;
-}
-`
-        : ""
-}
+    --TUIC-sidebar-hover-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)"};
+    --TUIC-sidebar-active-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)"};
+    --TUIC-sidebar-focus-color: ${TUICLibrary.backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)"};
 
-${
-    TUICPref.get("tweetDisplaySetting.bottomSpace")
-        ? `
-.TUIC_NONE_SPACE_BOTTOM_TWEET{
-    margin-top:0px !important;
-}
-`
-        : ""
-}
-${
-    TUICPref.get("sidebarSetting.buttonConfig.sidebarNoneScrollbar")
-        ? `
-header > div > div > div > div.r-1rnoaur{
-    overflow:clip;
-}
-`
-        : ""
-}
+    --TUIC-detail-border:${TUICData.styleColor[backgroundColor].detailBorder};
 
-${
-    TUICPref.get("tweetDisplaySetting.noNumberBottomTweetButtons")
-        ? `
-.TUICItIsBigArticle [data-testid="app-text-transition-container"]{
-    display:none !important;
-}
-`
-        : ""
-}
-
-${
-    TUICPref.get("accountSwitcher.icon")
-        ? `
-[data-testid="SideNav_AccountSwitcher_Button"] > div:first-child {
-    display: none;
-}
-`
-        : ""
-}
-
-${
-    TUICPref.get("accountSwitcher.nameID")
-        ? `
-[data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div {
-    display: none;
-}
-
-`
-        : ""
-}
-
-${
-    TUICPref.get("accountSwitcher.moreMenu")
-        ? `
-[data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div {
-    display: none;
-}
-
-`
-        : ""
-}
-
-${
-    TUICPref.get("profileSetting.tabs.pinnedTab")
-        ? `
-[data-testid="primaryColumn"] nav[role="navigation"] {
-    position: sticky;
-    top: 53px;
-    z-index: 1;
-    backdrop-filter: blur(12px);
-    background-color:rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")});
-}
-`
-        : ""
+    --TUIC-pinnedTab-background:rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")});
 }
 `;
     /* eslint-enable */

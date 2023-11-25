@@ -1,4 +1,4 @@
-import { applyCustomCss, applySystemCss } from "./applyCSS.js";
+import { applyCustomCss, applySystemCss, applyCustomIcon } from "./applyCSS.js";
 import { TUICData } from "./data.js";
 import { TUICI18N } from "./i18n.js";
 import { TUICLibrary, TUICPref } from "./library.js";
@@ -406,6 +406,7 @@ export const TUICOptionHTML = {
                 }
 
                 applySystemCss();
+                applyCustomIcon();
                 if (TUICPref.get("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
                     const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                     document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
