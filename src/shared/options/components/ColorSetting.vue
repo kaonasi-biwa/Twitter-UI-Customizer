@@ -105,7 +105,18 @@ const defaultColor = (event) => {
     const TUIC_color = TUICData.colors[colorAttr][colorType].replace("rgba(", "").replace(")", "").split(", ");
     const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
 
-    document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
+    if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) {
+        let color = TUICPref.get(`buttonColor.${colorAttr}.${colorType}`);
+        if (color != null) {
+            color = color.replace("rgba(", "").replace(")", "").split(", ");
+        } else {
+            color = TUIC_color;
+        }
+        //console.error(TUICLibrary.color.rgb2hex([Number(color[0]), Number(color[1]), Number(color[2])]));
+        document.getElementById(`${colorAttr}-${colorType}`).value = TUICLibrary.color.rgb2hex([Number(color[0]), Number(color[1]), Number(color[2])]);
+    } else {
+        document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
+    }
 
     document.getElementById(`${colorAttr}-${colorType}-check`).setAttribute("data-checked", TUIC_color[3] == 0);
 
@@ -161,7 +172,7 @@ export default defineComponent({
         const store = useStore();
 
         const isDefault = computed(() => {
-            return !!TUICPref.get(store.editingColorType)?.[props.id][props.type];
+            return !!TUICPref.get(store.editingColorType)?.[props.id]?.[props.type];
         });
         const color_ = computed(() => {
             return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType);

@@ -605,7 +605,7 @@ export const TUICOptionHTML = {
 
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: true,
         },
