@@ -561,7 +561,7 @@ export const TUICOptionHTML = {
                 TUICPref.set(
                     "sidebarButtons",
                     TUICPref.get("sidebarButtons").filter((elem) => {
-                        return elem != "twiter-blue" && elem != "verified-choose";
+                        return elem != "verified-choose";
                     }),
                 );
                 TUICPref.save();

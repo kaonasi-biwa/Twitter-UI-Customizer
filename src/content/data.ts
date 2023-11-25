@@ -8,7 +8,7 @@ export const TUICData = {
         buttonColorLight: {},
         buttonColorDark: {},
         visibleButtons: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
-        sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "twiter-blue", "profile", "moremenu"],
+        sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "profile", "moremenu"],
         fixEngagements: ["likes", "retweets", "quotes"],
         invisibleItems: {
             hideBelowDM: false,
@@ -94,7 +94,7 @@ export const TUICData = {
             },
         },
         sidebarButtons: {
-            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "twiter-blue", "profile", "moremenu", "topics", "lists", "circles", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock"],
+            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "circles", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock"],
             i18n: {
                 home: "sidebarButtons-home",
                 explore: "sidebarButtons-explore",
@@ -102,7 +102,6 @@ export const TUICData = {
                 notifications: "sidebarButtons-notifications",
                 messages: "sidebarButtons-messages",
                 bookmarks: "sidebarButtons-bookmarks",
-                "twiter-blue": "sidebarButtons-twitterBlue",
                 profile: "sidebarButtons-profile",
                 moremenu: "sidebarButtons-moremenu",
                 topics: "sidebarButtons-topics",
@@ -740,7 +739,6 @@ export const TUICData = {
             notifications: `[href*="/notifications"]`,
             messages: `[href^="/messages"]`,
             bookmarks: `[href="/i/bookmarks"],#TUICSidebar_bookmarks`,
-            "twiter-blue": `[href="/i/twitter_blue_sign_up"]`,
             profile: `[data-testid="AppTabBar_Profile_Link"]`,
             moremenu: `[data-testid="AppTabBar_More_Menu"]`,
             topics: `#TUICSidebar_topics`,
