@@ -232,21 +232,21 @@ export const TUICData = {
         buttonHTML: {
             _base: function (id, svg, isBigArticle, disable = false, redButton = false) {
                 return `
-        <div class="css-1dbjc4n TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
-            <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+        <div class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
+            <div class="css-175oi2r r-18u37iz r-1h0z5md">
               <div
                 TUICButton="${id}"
                 role="button"
                 tabindex="${disable ? -1 : 0}"
-                class="css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
+                class="css-175oi2r r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
               >
                 <div
                   dir="ltr"
                   class="css-901oao r-1awozwy r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-hjklzo", "r-rjixqe", "r-1inkyih", "r-1i10wst")} TUIC_ButtonHover2"
                 >
-                  <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
+                  <div class="css-175oi2r r-xoduu5 TUIC_ButtonHover">
                     <div
-                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                      class="css-175oi2r r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
                     ></div>
                     <svg
                       viewBox="0 0 24 24"
@@ -263,9 +263,9 @@ export const TUICData = {
             </div>
         </div>`;
             },
-            boolkmark: function (isBigArticle) {
+            /*boolkmark: function (isBigArticle) {
                 return TUICData.visibleButtons.buttonHTML._base("bookmark", `<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z" class="TUIC_BOOKMARK"></path>`, isBigArticle);
-            },
+            },*/
             "url-copy": function (isBigArticle) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "urlCopy",
@@ -299,21 +299,21 @@ export const TUICData = {
             },
             likeAndRT: function (isBigArticle, disable) {
                 return `
-        <div class="css-1dbjc4n TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
-            <div class="css-1dbjc4n r-18u37iz r-1h0z5md">
+        <div class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
+            <div class="css-175oi2r r-18u37iz r-1h0z5md">
               <div
                 TUICButton="likeAndRT"
                 role="button"
                 tabindex="${disable ? -1 : 0}"
-                class="css-1dbjc4n r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
+                class="css-175oi2r r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${disable ? "r-icoktb" : "css-18t94o4"}"
               >
                 <div
                   dir="ltr"
                   class="css-901oao r-1awozwy r-6koalj r-37j5jr r-a023e6 r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-hjklzo", "r-rjixqe", "r-1inkyih", "r-1i10wst")} TUIC_ButtonHover2"
                 >
-                  <div class="css-1dbjc4n r-xoduu5 TUIC_ButtonHover">
+                  <div class="css-175oi2r r-xoduu5 TUIC_ButtonHover">
                     <div
-                      class="css-1dbjc4n r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
+                      class="css-175oi2r r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"
                     ></div>
                     <svg
                       viewBox="0 0 24 24"
@@ -366,7 +366,7 @@ export const TUICData = {
             _cancelButton: function (elem) {
                 elem.click();
             },
-            boolkmark: function (e) {
+            /*boolkmark: function (e) {
                 for (let i = 0; i <= 2; i++) {
                     const urlCopyButton = document.querySelector(
                         `[d="M23.074 3.35H20.65V.927c0-.414-.337-.75-.75-.75s-.75.336-.75.75V3.35h-2.426c-.414 0-.75.337-.75.75s.336.75.75.75h2.425v2.426c0 .414.335.75.75.75s.75-.336.75-.75V4.85h2.424c.414 0 .75-.335.75-.75s-.336-.75-.75-.75zM19.9 10.744c-.415 0-.75.336-.75.75v9.782l-6.71-4.883c-.13-.095-.285-.143-.44-.143s-.31.048-.44.144l-6.71 4.883V5.6c0-.412.337-.75.75-.75h6.902c.414 0 .75-.335.75-.75s-.336-.75-.75-.75h-6.9c-1.242 0-2.25 1.01-2.25 2.25v17.15c0 .282.157.54.41.668.25.13.553.104.78-.062L12 17.928l7.458 5.43c.13.094.286.143.44.143.117 0 .234-.026.34-.08.252-.13.41-.387.41-.67V11.495c0-.414-.335-.75-.75-.75z"]:not(.TUIC_BOOKMARK),
@@ -381,7 +381,7 @@ export const TUICData = {
                         break;
                     }
                 }
-            },
+            },*/
             sendDM: function (e) {
                 for (let i = 0; i <= 2; i++) {
                     const urlCopyButton = document.querySelector(
@@ -424,11 +424,11 @@ export const TUICData = {
                 if (baseElem != null) {
                     /* eslint-disable indent */
                     const layerElem = TUICLibrary.HTMLParse(
-                        `<div class="css-1dbjc4n r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
-                    <div class="css-1dbjc4n r-12vffkv">
-                      <div class="css-1dbjc4n r-12vffkv">
-                        <div class="css-1dbjc4n r-1jgb5lz r-1ye8kvj r-633pao r-13qz1uu">
-                          <div role="alert" class="css-1dbjc4n r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe r-18u37iz r-1wtj0ep r-105ug2t r-dkhcqf r-axxi2z r-18jm5s1 ${TUICLibrary.fontSizeClass("r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au")}  ${TUICLibrary.fontSizeClass(
+                        `<div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
+                    <div class="css-175oi2r r-12vffkv">
+                      <div class="css-175oi2r r-12vffkv">
+                        <div class="css-175oi2r r-1jgb5lz r-1ye8kvj r-633pao r-13qz1uu">
+                          <div role="alert" class="css-175oi2r r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe r-18u37iz r-1wtj0ep r-105ug2t r-dkhcqf r-axxi2z r-18jm5s1 ${TUICLibrary.fontSizeClass("r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au")}  ${TUICLibrary.fontSizeClass(
                               "r-q81ovl",
                               "r-q81ovl",
                               "r-xyw6el",
@@ -442,7 +442,7 @@ export const TUICData = {
                                 "r-1orpq53",
                                 "r-779j7e",
                             )}"><span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span></div>
-                            <div aria-hidden="true" class="css-1dbjc4n r-18u37iz"></div>
+                            <div aria-hidden="true" class="css-175oi2r r-18u37iz"></div>
                           </div>
                         </div>
                       </div>
@@ -576,13 +576,13 @@ export const TUICData = {
                     eventFunc();
                 });
             },
-            boolkmark: function (val) {
+            /*boolkmark: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["boolkmark"](val.option.isBigArticle)).item(0);
                 TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
                     TUICData.visibleButtons.buttonFunction["boolkmark"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
                 });
                 return elem;
-            },
+            },*/
             sendDM: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["sendDM"](val.option.isBigArticle, val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)).item(0);
                 if (!(val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)) {
@@ -649,7 +649,7 @@ export const TUICData = {
         },
         emptyElement: function () {
             return TUICLibrary.HTMLParse(
-                `<div class="css-1dbjc4n r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
+                `<div class="css-175oi2r r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
                     "r-1enofrn r-1f529hi r-cxdvbh r-1pn2ns4",
                     "r-1enofrn r-fxxt2n r-cxdvbh r-1pn2ns4",
                     "r-n6v787 r-1cwl3u0 r-1k6nrdp r-1pn2ns4",
@@ -661,7 +661,7 @@ export const TUICData = {
         },
         fixEngagements: {
             engagementsBox: () => {
-                return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-1dbjc4n r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`, "text/html").item(0);
+                return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`, "text/html").item(0);
             },
             links: (id, article, isShort) => {
                 const returnELem = TUICLibrary.HTMLParse(
@@ -685,9 +685,9 @@ export const TUICData = {
     },
     showLinkCardInfo: (link, domain, title, description) => {
         return TUICLibrary.HTMLParse(
-            `<div class="css-1dbjc4n r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
-                <a href="${link}" rel="noopener noreferrer nofollow" target="_blank" role="link" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg">
-                    <div class="css-1dbjc4n r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci ${TUICLibrary.fontSizeClass(
+            `<div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
+                <a href="${link}" rel="noopener noreferrer nofollow" target="_blank" role="link" class="css-4rbku5 css-18t94o4 css-175oi2r r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg">
+                    <div class="css-175oi2r r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci ${TUICLibrary.fontSizeClass(
                         "r-1t982j2 r-1qfz7tf r-1b3ntt7",
                         "r-1t982j2 r-1qfz7tf r-1b3ntt7",
                         "r-kzbkwu r-1e081e0 r-ttdzmv",
@@ -759,9 +759,9 @@ export const TUICData = {
                 return `
         <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction(
             TUICData.sidebarButtons.tuicButtonGoToUrl[id],
-        )}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-1dbjc4n r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-oyd9sg r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
-          <div class="css-1dbjc4n r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
-            <div class="css-1dbjc4n">
+        )}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-oyd9sg r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
+          <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
+            <div class="css-175oi2r">
               <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
                 <g>${svg}</g>
               </svg>
@@ -772,8 +772,8 @@ export const TUICData = {
                 "r-adyw6z r-135wba7 r-1joea0r r-88pszg",
                 "r-evnaw r-16dba41 r-eaezby r-uzqwk8 r-12e0a8i",
                 "r-1x35g6 r-16dba41 r-1h1c4di r-6uxfom r-le9fof",
-            )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="${document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none"}" >
-              <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("sidebarButtons-" + id)}</span>
+            )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
+              <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
             </div>
           </div>
         </a>`;

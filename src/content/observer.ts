@@ -188,7 +188,7 @@ export const TUICObserver = {
             }
         },
         sidebarButtonProcess: function (bannerRoot) {
-            if (!window.location.pathname.startsWith("/i/communitynotes")) {
+            if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
                 for (const i of TUICPref.get("sidebarButtons")) {
                     let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                     if (moveElem != null) {
@@ -211,7 +211,7 @@ export const TUICObserver = {
                 }
             }
             for (const i of TUICData.settings.sidebarButtons.all) {
-                if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes")) {
+                if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
                     const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
                     if (moveElem != null) moveElem.classList.add("TUIC_DISPNONE");
                 }
@@ -314,7 +314,7 @@ export const TUICObserver = {
                                 }
                                 if (isBigArticle) {
                                     elem.classList.add("TUICItIsBigArticle");
-                                    if (location.pathname.includes("/photo/")) {
+                                    if (location.pathname.includes("/photo/") || location.pathname.includes("/video/")) {
                                         elem.classList.add("TUICItIsBigArticlePhoto");
                                     }
 
@@ -335,7 +335,7 @@ export const TUICObserver = {
                                                 engagementsFixList.push(tempArr);
                                             }
                                         };
-                                        const isPhotoPage = location.pathname.includes("/photo/");
+                                        const isPhotoPage = location.pathname.includes("/photo/") || location.pathname.includes("/video/");
                                         if (shortName && !isPhotoPage) {
                                             engageFixListFunc(3);
                                         } else if ((shortName && isPhotoPage) || (!shortName && !isPhotoPage)) {
@@ -375,8 +375,8 @@ export const TUICObserver = {
                                         bar_base.appendChild(div);
                                     }
                                 }
-                                if (lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
-                                    lastButton.querySelector(".css-1dbjc4n.r-xoduu5.r-1udh08x").remove();
+                                if (lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
+                                    lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").remove();
                                 }
                                 lastButton.classList.add("r-1rq6c10");
                                 lastButton.classList.add("r-1b7u577");
@@ -874,7 +874,7 @@ export const TUICObserver = {
                 }
             }
 
-            if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu")) {
+            if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu") && document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`)) {
                 document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE");
             }
 

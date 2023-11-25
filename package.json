@@ -24,6 +24,7 @@
         "@types/webextension-polyfill": "^0.10.6",
         "@webcomponents/custom-elements": "^1.6.0",
         "bootstrap-icons": "^1.11.1",
+        "pinia": "^2.1.7",
         "vue": "^3.3.8",
         "webextension-polyfill": "^0.10.0"
     },

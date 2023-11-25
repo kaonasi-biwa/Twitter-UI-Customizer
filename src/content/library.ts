@@ -22,14 +22,23 @@ function getPointerFromKey(object, key) {
     }
 }
 
-let editingColorType = "buttonColor";
+const callbacks = {};
 
 export const TUICLibrary = {
-    setEditingColorType: (value) => {
-        editingColorType = value;
+    // name is currently used only for "TUICColorSettingRadio"
+    registerEvCallback: (name, callback) => {
+        // console.log(name);
+        // if (callbacks[name] == null) {
+        //     Object.assign(callbacks, { [name]: [callback] });
+        // } else {
+        //     callbacks[name].push(callback);
+        // }
     },
-    getEditingColorType: () => {
-        return editingColorType;
+    callEvCallback: (name) => {
+        // for (const i of callbacks[name]) {
+        //     console.log(typeof i);
+        //     i();
+        // }
     },
     color: {
         rgb2hex: function (rgb) {
@@ -343,6 +352,7 @@ export const TUICPref = {
     save: function () {
         this.getConfig();
         localStorage.setItem("TUIC", JSON.stringify(this.config));
+        console.warn("saved!");
     },
     import: function (object) {
         if (typeof object === "string") {

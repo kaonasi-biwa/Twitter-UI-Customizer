@@ -136,6 +136,13 @@
     box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
 }
 
+.TUICSidebarButton {
+    text-decoration: none;
+}
+
+.TUICSidebarButton > div {
+    display: flex;
+}
 .TUICSidebarButton:active > div {
     background-color: var(--TUIC-sidebar-active-color);
 }
@@ -144,10 +151,26 @@
     color: rgb(244 33 46);
 }
 
+.TUICEngagementsBox {
+    display: flex;
+}
+
 .TUICEngagementsBox > div > span {
     transition: border-bottom 0.2s;
 }
 
 .TUICEngagementsBox > div > span:hover {
     border-bottom: solid 0.05px;
+}
+
+.TUICButtonUnderTweet > div {
+    display: flex;
+}
+.TUICButtonUnderTweet > div > div {
+    align-items: stretch;
+    display: flex;
+}
+
+.TUIC_LinkCardInfo > a {
+    text-decoration: none;
 }

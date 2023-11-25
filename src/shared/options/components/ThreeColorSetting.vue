@@ -1,17 +1,17 @@
 <template>
-    <template v-if="background">
-        <ColorSetting :id="id" type="background" :color_="TUICLibrary.color.getColorFromPref(id, 'background', editingColorType)" text="settingUI-colorPicker-background" :isDefault="!!TUICPref.get(editingColorType)?.[id].background" :color-kind="editingColorType" />
+    <template v-if="_color['background']">
+        <ColorSetting :id="id" type="background" text="settingUI-colorPicker-background" />
     </template>
-    <template v-if="border">
-        <ColorSetting :id="id" type="border" :color_="TUICLibrary.color.getColorFromPref(id, 'border', editingColorType)" text="settingUI-colorPicker-border" :isDefault="!!TUICPref.get(editingColorType)?.[id].border" :color-kind="editingColorType" />
+    <template v-if="_color['border']">
+        <ColorSetting :id="id" type="border" text="settingUI-colorPicker-border" />
     </template>
-    <template v-if="color">
-        <ColorSetting :id="id" type="color" :color_="TUICLibrary.color.getColorFromPref(id, 'color', editingColorType)" :text="typeColor" :isDefault="!!TUICPref.get(editingColorType)?.[id].color" :color-kind="editingColorType" />
+    <template v-if="_color['color']">
+        <ColorSetting :id="id" type="color" :text="typeColor" />
     </template>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 
 import { TUICData } from "../../../content/data";
 import { TUICLibrary } from "../../../content/library";
@@ -41,6 +41,8 @@ import ColorSetting from "./ColorSetting.vue";
 //     return returnItem;
 // },
 
+import { useStore } from "../store";
+
 export default defineComponent({
     components: {
         ColorSetting,
@@ -50,18 +52,16 @@ export default defineComponent({
             type: String,
             required: true,
         },
-        editingColorType: {
-            type: String,
-            required: true,
-        },
     },
     setup(props) {
-        const _color = TUICData.colors[props.id];
-        const background = !!_color["background"];
-        const border = !!_color["border"];
-        const color = !!_color["color"];
-        const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
-        return { background, border, color, typeColor, TUICLibrary, TUICPref };
+        const store = useStore();
+        const _color = computed(() => {
+            return TUICData.colors[props.id];
+        });
+        const typeColor = computed(() => {
+            return _color.value["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
+        });
+        return { typeColor, TUICLibrary, TUICPref, store, _color };
     },
 });
 </script>
