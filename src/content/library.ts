@@ -40,7 +40,7 @@ export const TUICLibrary = {
         getColorFromPref: (name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) => {
             let _mode = "";
             _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            return TUICPref.get(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? encodeURIComponent(TUICData.colors[name][type]);
+            return TUICPref.get(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type];
         },
     },
     getClasses: {
