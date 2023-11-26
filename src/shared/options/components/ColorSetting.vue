@@ -178,7 +178,7 @@ export default defineComponent({
             return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType);
         });
         const color = computed(() => {
-            return color_.value.replace("rgba(", "").replace(")", "").replaceAll(" ", "").escapeToUseHTML();
+            return encodeURIComponent(color_.value.replace("rgba(", "").replace(")", "").replaceAll(" ", ""));
         });
         const TUIC_color = computed(() => {
             return color.value.split(",");

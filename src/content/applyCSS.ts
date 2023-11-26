@@ -1,10 +1,12 @@
-import { TUICData } from "./data.js";
+import browser from "webextension-polyfill";
+
+import { TUICData } from "./data.ts";
+import { TUICLibrary, TUICPref } from "./library.ts";
+import { isSafemode } from "./safemode.ts";
+
 import DOG from "./icons/logo/dog.png?url";
 import TWITTER from "./icons/logo/twitter.svg?url";
 import X from "./icons/logo/x.svg?url";
-//import { DOG, TWITTER, X } from "./data/icons.js";
-import { TUICLibrary, TUICPref } from "./library.ts";
-import { isSafemode } from "./safemode.ts";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
@@ -33,13 +35,13 @@ export function applyDataCss() {
     twitterHead.appendChild(dataCssElement);
     dataCssElement.textContent = `
     .TUICTwitterIcon_Dog {
-        background-image:url('${chrome.runtime.getURL(DOG)}');
+        background-image:url('${browser.runtime.getURL(DOG)}');
     }
     .TUICTwitterIcon_Twitter {
-        --TUIC-twitter-icon:url('${chrome.runtime.getURL(TWITTER)}') !important;
+        --TUIC-twitter-icon:url('${browser.runtime.getURL(TWITTER)}') !important;
     }
     .TUICTwitterIcon_X {
-        --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
+        --TUIC-twitter-icon:url('${browser.runtime.getURL(X)}') !important;
     }`;
 }
 
@@ -87,7 +89,7 @@ export function applySystemCss() {
         for (const elem in TUICData.colors) {
             for (const el of ["background", "border", "color"]) {
                 if ((TUICData.colors[elem][el] ?? "unknwon") != "unknwon") {
-                    rs.setProperty(`--twitter-${elem}-${el}`, `${TUICLibrary.color.getColorFromPref(elem, el)};`);
+                    rs.setProperty(`--twitter-${elem}-${el}`, `${TUICLibrary.color.getColorFromPref(elem, el, null)};`);
                 }
             }
         }

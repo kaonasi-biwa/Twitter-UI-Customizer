@@ -1,12 +1,11 @@
-import { applyCustomCss, applySystemCss, applyCustomIcon } from "./applyCSS.js";
-import { TUICData } from "./data.js";
-import { TUICI18N } from "./i18n.js";
-import { TUICLibrary, TUICPref } from "./library.js";
-import { TUICObserver } from "./observer.js";
-import { isSafemode } from "./safemode.js";
+import { applyCustomCss, applySystemCss, applyCustomIcon } from "./applyCSS.ts";
+import { TUICData } from "./data.ts";
+import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICObserver } from "./observer.ts";
+import { isSafemode } from "./safemode.ts";
 import EMPTY from "./icons/logo/empty.svg?url";
 
-import { injectOptionMain } from "../shared/options/injectOption2Entry.js";
+import { injectOptionMain } from "../shared/options/injectOption2Entry.ts";
 
 export const TUICOptionHTML = {
     displaySetting: (rootElement) => {
@@ -212,7 +211,7 @@ export const TUICOptionHTML = {
         "#save": {
             type: "click",
             function: function () {
-                localStorage.setItem("TUIC_CSS", document.querySelector("#css_textarea").value);
+                localStorage.setItem("TUIC_CSS", (document.querySelector("#css_textarea") as HTMLTextAreaElement).value);
                 applyCustomCss();
             },
             single: true,
@@ -543,7 +542,7 @@ export const TUICOptionHTML = {
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
                 TUICObserver.titleObserverFunction();
                 document.querySelector(`#faviconSet`).checked = true;
                 document.querySelector(`#twitter`).checked = true;

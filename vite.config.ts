@@ -36,7 +36,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 input: {
                     "ent-options_html": resolve(__dirname, "src/options/options.html"),
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
-                    index: resolve(__dirname, "src/content/index.js"),
+                    index: resolve(__dirname, "src/content/index.ts"),
                     background: resolve(__dirname, "./src/background.ts"),
                     //safemode: resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
                 },

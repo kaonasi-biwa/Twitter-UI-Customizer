@@ -1,6 +1,6 @@
-import { applySystemCss } from "./applyCSS.js";
-import { TUICData } from "./data.js";
-import { TUICObserver } from "./observer.js";
+import { applySystemCss } from "./applyCSS.ts";
+import { TUICData } from "./data.ts";
+import { TUICObserver } from "./observer.ts";
 
 // NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
 const getPointerFromKey = (object, key) => {
@@ -40,7 +40,7 @@ export const TUICLibrary = {
         getColorFromPref: (name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) => {
             let _mode = "";
             _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            return (TUICPref.get(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type]).escapeToUseHTML();
+            return TUICPref.get(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? encodeURIComponent(TUICData.colors[name][type]);
         },
     },
     getClasses: {
@@ -277,22 +277,22 @@ export const TUICLibrary = {
     HTMLParse: (elem) => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
-    escapeToUseHTML: (text) => {
-        return text
-            .replace(/[&'`"<>=;]/g, (match) => {
-                return {
-                    "&": "&amp;",
-                    "'": "&#x27;",
-                    "`": "&#x60;",
-                    '"': "&quot;",
-                    "<": "&lt;",
-                    ">": "&gt;",
-                    "=": "&equals;",
-                    ";": "&semi;",
-                }[match];
-            })
-            .replaceAll("\\r", "\r");
-    },
+    // escapeToUseHTML: (text) => {
+    //     return text
+    //         .replace(/[&'`"<>=;]/g, (match) => {
+    //             return {
+    //                 "&": "&amp;",
+    //                 "'": "&#x27;",
+    //                 "`": "&#x60;",
+    //                 '"': "&quot;",
+    //                 "<": "&lt;",
+    //                 ">": "&gt;",
+    //                 "=": "&equals;",
+    //                 ";": "&semi;",
+    //             }[match];
+    //         })
+    //         .replaceAll("\\r", "\r");
+    // },
     waitForElement: async (selector: string): Promise<Element[]> => {
         if (document.querySelectorAll(selector).length !== 0) {
             return Array.from(document.querySelectorAll(selector));

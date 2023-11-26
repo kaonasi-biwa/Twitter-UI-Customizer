@@ -1,14 +1,14 @@
-import { TUICData } from "./data.js";
-// @ts-expect-error vite has png import
+import { TUICData } from "./data.ts";
+import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICOptionHTML } from "./option.ts";
+import { isSafemode } from "./safemode.ts";
+import { TUICI18N } from "./i18n.ts";
+
 import DOG from "./icons/logo/dog.png?url";
 import TWITTER from "./icons/logo/twitter.svg?raw";
 import X from "./icons/logo/x.svg?raw";
 import EMPTY from "./icons/logo/empty.svg?url";
-import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.js";
-import { TUICI18N } from "./i18n.js";
-import { TUICLibrary, TUICPref } from "./library";
-import { TUICOptionHTML } from "./option";
-import { isSafemode } from "./safemode.js";
+import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.ts";
 
 export const TUICObserver = {
     observer: null,
