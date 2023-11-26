@@ -4,7 +4,7 @@
     },
     "compilerOptions": {
         "esModuleInterop": true,
-        "module": "ES2015",
+        "module": "ES2020",
         "moduleResolution": "Bundler",
         "isolatedModules": true,
         "skipLibCheck": true,
