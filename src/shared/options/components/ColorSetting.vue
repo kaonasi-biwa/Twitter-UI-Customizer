@@ -13,7 +13,7 @@
                         <input type="color" :id="`${id}-${type}`" class="TUICButtonColor" @change="changeColor" :TUICColor="id" :TUICColorType="type" :value="TUICColor1" :TUICColorKind="store.editingColorType" />
                     </div>
                 </div>
-                <button :id="`${id}-${type}-check`" class="TUICButtonColorCheck" @change="changeColorCheck" :data-checked="TUIC_color[3] == '0'" :TUICColor="id" :TUICColorType="type" :TUICColorKind="store.editingColorType"></button>
+                <button :id="`${id}-${type}-check`" class="TUICButtonColorCheck" @click="changeColorCheck" :data-checked="TUIC_color[3] == '0'" :TUICColor="id" :TUICColorType="type" :TUICColorKind="store.editingColorType"></button>
                 <label :for="`${id}-${type}-check`" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 15px">{{ TUICI18N.get("settingUI-colorPicker-transparent") }}</label
                 ><br />
             </template>
