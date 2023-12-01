@@ -1,8 +1,8 @@
 <template>
     <div class="TUICCheckBoxParent">
-        <input type="radio" :name="id" :value="valueName" :id="valueName" :class="type" :checked="value" @change="changePref(id, valueName)" />
+        <input type="radio" :id="`${id.replace(/\./g, '-_-')}-_-${valueName}`" :name="id.replace(/\./g, '-_-')" :value="valueName" :checked="TUICPref.get(id) == valueName" @change="changePref(id, valueName)" />
         <div>
-            <label class="TUIC_setting_text" :for="valueName">{{ TUICI18N.get(name) }}</label>
+            <label class="TUIC_setting_text" :for="`${id.replace(/\./g, '-_-')}-_-${valueName}`">{{ TUICI18N.get(name) }}</label>
         </div>
     </div>
 </template>
@@ -27,9 +27,9 @@ import { TUICObserver } from "../../../content/observer";
 // },
 
 export default defineComponent({
-    props: ["id", "valueName", "type", "value", "name"],
+    props: ["id", "valueName", "name"],
     setup() {
-        return { TUICI18N };
+        return { TUICI18N, TUICPref };
     },
     methods: {
         changePref(path, valueName) {

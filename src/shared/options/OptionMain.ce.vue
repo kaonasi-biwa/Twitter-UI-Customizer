@@ -19,9 +19,9 @@
                 <CheckBox value="tweetDisplaySetting.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
                 <CheckBox value="tweetDisplaySetting.noNumberBottomTweetButtons" name="bottomTweetButtons-setting-noNumber" />
 
-                <RadioButtonListSub id="tweetDisplaySetting.linkCopyURL" title="bottomTweetButtons-setting-linkCopyURL" type="TUICRadio" />
-                <RadioButtonListSub id="tweetDisplaySetting.linkShareCopyURL" title="bottomTweetButtons-setting-linkShareCopyURL" type="TUICRadio" />
-                <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" type="TUICRadio" />
+                <RadioButtonListSub id="tweetDisplaySetting.linkCopyURL" title="bottomTweetButtons-setting-linkCopyURL" />
+                <RadioButtonListSub id="tweetDisplaySetting.linkShareCopyURL" title="bottomTweetButtons-setting-linkShareCopyURL" />
+                <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" />
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("fixEngagements-settingTitle") }}</h2>
                 <UpDownListSub id="fixEngagements" />
                 <br />
@@ -32,7 +32,7 @@
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("invisibleItems-settingTitle") }}</h2>
                 <CheckBoxListSub id="tweetDisplaySetting" />
             </UpDownList>
-            <RadioButtonList id="twitterIcon" title="twitterIcon-settingTitle" type="TUICRadio">
+            <RadioButtonList id="twitterIcon" title="twitterIcon-settingTitle">
                 <br />
                 <CheckBox value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
                 <CheckBox value="otherBoolSetting.roundIcon" name="twitterIcon-roundIcon" />
