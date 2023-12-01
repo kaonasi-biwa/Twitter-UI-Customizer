@@ -419,7 +419,7 @@ export const TUICOptionHTML = {
         //     },
         //     single: false,
         // },
-        "#TUICExport": {
+        /*"#TUICExport": {
             type: "click",
             function: function () {
                 document.querySelector("#TUICExportBox").value = TUICPref.export();
@@ -432,7 +432,7 @@ export const TUICOptionHTML = {
                 navigator.clipboard.writeText(document.querySelector("#TUICExportBox").value);
             },
             single: true,
-        },
+        },*/
         "#TUICImportWrite": {
             type: "click",
             function: function () {
