@@ -1,5 +1,4 @@
 import browser from "webextension-polyfill";
-/* eslint-disable no-unsafe-optional-chaining */
 
 //@ts-expect-error Vite have import.meta.glob
 const langRes = import.meta.glob(["../../i18n/*.json", "../../i18n/ti18n/*.json"], { as: "raw", eager: true });
