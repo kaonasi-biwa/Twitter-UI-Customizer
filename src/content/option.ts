@@ -336,7 +336,7 @@ export const TUICOptionHTML = {
         * TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX END END END
         * --------------------------------------------------------------
         */
-        ".TUICRadio": {
+        /*".TUICRadio": {
             type: "change",
             function: function (event) {
                 TUICPref.set(event.currentTarget.getAttribute("name"), event.currentTarget.getAttribute("value"));
@@ -355,7 +355,7 @@ export const TUICOptionHTML = {
                 TUICObserver.observerFunction(null);
             },
             single: false,
-        },
+        },*/
         ".TUICSelectImg": {
             type: "change",
             function: async function (event) {
