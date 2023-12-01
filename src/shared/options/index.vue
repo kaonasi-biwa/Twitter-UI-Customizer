@@ -15,10 +15,10 @@
 
             <UpDownList id="visibleButtons" title="bottomTweetButtons-settingTitle-v2">
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("bottomTweetButtons-settingTitle") }}</h2>
-                <CheckBox id="bottomScroll" :value="TUICPref.get('tweetDisplaySetting.bottomScroll')" name="bottomTweetButtons-setting-visibleScrollBar" type="tweetDisplaySetting" />
-                <CheckBox id="RTNotQuote" :value="TUICPref.get('tweetDisplaySetting.RTNotQuote')" name="bottomTweetButtons-setting-RTNotQuote" type="tweetDisplaySetting" />
-                <CheckBox id="noModalbottomTweetButtons" :value="TUICPref.get('tweetDisplaySetting.noModalbottomTweetButtons')" name="bottomTweetButtons-setting-noModal" type="tweetDisplaySetting" />
-                <CheckBox id="noNumberBottomTweetButtons" :value="TUICPref.get('tweetDisplaySetting.noNumberBottomTweetButtons')" name="bottomTweetButtons-setting-noNumber" type="tweetDisplaySetting" />
+                <CheckBox id="bottomScroll" value="tweetDisplaySetting.bottomScroll" name="bottomTweetButtons-setting-visibleScrollBar" type="tweetDisplaySetting" />
+                <CheckBox id="RTNotQuote" value="tweetDisplaySetting.RTNotQuote" name="bottomTweetButtons-setting-RTNotQuote" type="tweetDisplaySetting" />
+                <CheckBox id="noModalbottomTweetButtons" value="tweetDisplaySetting.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" type="tweetDisplaySetting" />
+                <CheckBox id="noNumberBottomTweetButtons" value="tweetDisplaySetting.noNumberBottomTweetButtons" name="bottomTweetButtons-setting-noNumber" type="tweetDisplaySetting" />
 
                 <RadioButtonListSub id="tweetDisplaySetting.linkCopyURL" title="bottomTweetButtons-setting-linkCopyURL" type="TUICRadio" />
                 <RadioButtonListSub id="tweetDisplaySetting.linkShareCopyURL" title="bottomTweetButtons-setting-linkShareCopyURL" type="TUICRadio" />
@@ -26,28 +26,28 @@
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("fixEngagements-settingTitle") }}</h2>
                 <UpDownListSub id="fixEngagements" />
                 <br />
-                <CheckBox id="placeEngagementsLink" :value="TUICPref.get('otherBoolSetting.placeEngagementsLink')" name="bottomTweetButtons-setting-placeEngagementsLink" type="otherBoolSetting" />
-                <CheckBox id="placeEngagementsLinkShort" :value="TUICPref.get('otherBoolSetting.placeEngagementsLinkShort')" name="fixEngagements-shortName" type="otherBoolSetting" />
+                <CheckBox id="placeEngagementsLink" value="otherBoolSetting.placeEngagementsLink" name="bottomTweetButtons-setting-placeEngagementsLink" type="otherBoolSetting" />
+                <CheckBox id="placeEngagementsLinkShort" value="otherBoolSetting.placeEngagementsLinkShort" name="fixEngagements-shortName" type="otherBoolSetting" />
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("bottomTweetButtons-settingTitle-linkCard") }}</h2>
-                <CheckBox id="showLinkCardInfo" :value="TUICPref.get('otherBoolSetting.showLinkCardInfo')" name="bottomTweetButtons-setting-showLinkCardInfo" type="otherBoolSetting" />
+                <CheckBox id="showLinkCardInfo" value="otherBoolSetting.showLinkCardInfo" name="bottomTweetButtons-setting-showLinkCardInfo" type="otherBoolSetting" />
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("invisibleItems-settingTitle") }}</h2>
                 <CheckBoxListSub id="tweetDisplaySetting" type="tweetDisplaySetting" />
             </UpDownList>
             <RadioButtonList id="twitterIcon" title="twitterIcon-settingTitle" type="TUICRadio">
                 <br />
-                <CheckBox id="faviconSet" :value="TUICPref.get('others.faviconSet') ?? true" name="twitterIcon-favicon" type="otherBoolSetting" />
-                <CheckBox id="roundIcon" :value="TUICPref.get('others.roundIcon') ?? true" name="twitterIcon-roundIcon" type="otherBoolSetting" />
+                <CheckBox id="faviconSet" value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" type="otherBoolSetting" />
+                <CheckBox id="roundIcon" value="otherBoolSetting.roundIcon" name="twitterIcon-roundIcon" type="otherBoolSetting" />
                 <UploadImageFile id="IconImg" title="twitterIcon-usedIcon" />
             </RadioButtonList>
 
             <UpDownList id="sidebarButtons" title="sidebarButton-settingTitle">
-                <CheckBox id="smallerSidebarContent" :value="TUICPref.get('sidebarSetting.buttonConfig.smallerSidebarContent') ?? true" name="sidebarButton-setting-narrowBetweenButtons" type="sidebarSettingButtonConfig" />
-                <CheckBox id="sidebarNoneScrollbar" :value="TUICPref.get('sidebarSetting.buttonConfig.sidebarNoneScrollbar') ?? false" name="sidebarButton-setting-sidebarNoneScrollbar" type="sidebarSettingButtonConfig" />
-                <CheckBox id="birdGoBackHome" :value="TUICPref.get('sidebarSetting.buttonConfig.birdGoBackHome') ?? false" name="sidebarButton-setting-birdGoBackHome" type="sidebarSettingButtonConfig" />
+                <CheckBox id="smallerSidebarContent" value="sidebarSetting.buttonConfig.smallerSidebarContent" name="sidebarButton-setting-narrowBetweenButtons" type="sidebarSettingButtonConfig" />
+                <CheckBox id="sidebarNoneScrollbar" value="sidebarSetting.buttonConfig.sidebarNoneScrollbar" name="sidebarButton-setting-sidebarNoneScrollbar" type="sidebarSettingButtonConfig" />
+                <CheckBox id="birdGoBackHome" value="sidebarSetting.buttonConfig.birdGoBackHome" name="sidebarButton-setting-birdGoBackHome" type="sidebarSettingButtonConfig" />
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("sidebarButton-accountSwitcher-settingTitle") }}</h2>
-                <CheckBox id="icon" :value="TUICPref.get('accountSwitcher.icon') ?? false" name="sidebarButton-accountSwitcher-Icon" type="accountSwitcher" />
-                <CheckBox id="nameID" :value="TUICPref.get('accountSwitcher.nameID') ?? false" name="sidebarButton-accountSwitcher-NameID" type="accountSwitcher" />
-                <CheckBox id="moreMenu" :value="TUICPref.get('accountSwitcher.moreMenu') ?? false" name="sidebarButton-accountSwitcher-MoreMenu" type="accountSwitcher" />
+                <CheckBox id="icon" value="accountSwitcher.icon" name="sidebarButton-accountSwitcher-Icon" type="accountSwitcher" />
+                <CheckBox id="nameID" value="accountSwitcher.nameID" name="sidebarButton-accountSwitcher-NameID" type="accountSwitcher" />
+                <CheckBox id="moreMenu" value="accountSwitcher.moreMenu" name="sidebarButton-accountSwitcher-MoreMenu" type="accountSwitcher" />
             </UpDownList>
 
             <details class="TUICDetails">

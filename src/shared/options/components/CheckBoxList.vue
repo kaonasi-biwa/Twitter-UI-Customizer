@@ -4,7 +4,7 @@
             {{ TUICI18N.get(title) }}
         </summary>
         <div class="TUIC_col_setting_container">
-            <CheckBox v-for="i in TUICData[id].all" :key="i" :id="i" :value="TUICPref.get(id)[i]" :name="TUICData[id].i18n[i]" :type="type" />
+            <CheckBoxListSub :id="id" :type="type" />
         </div>
         <br />
         <slot></slot>
@@ -12,15 +12,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import CheckBox from "./CheckBox.vue";
+import { defineComponent } from "vue";
+import CheckBoxListSub from "./CheckBoxListSub.vue";
 
 import { TUICI18N } from "../../../content/i18n";
-import { TUICData } from "../../../content/data";
-import { TUICPref } from "../../../content/library";
 
 export default defineComponent({
-    components: { CheckBox },
+    components: { CheckBoxListSub },
     //チェックボックスリスト(id:ID title:Stringでタイトル)
     props: {
         title: {
@@ -28,7 +26,7 @@ export default defineComponent({
             required: true,
         },
         id: {
-            type: String as PropType<keyof typeof TUICData>,
+            type: String,
             required: true,
         },
         type: {
@@ -37,7 +35,7 @@ export default defineComponent({
         },
     },
     setup() {
-        return { TUICI18N, TUICData, TUICPref };
+        return { TUICI18N };
     },
 });
 </script>
