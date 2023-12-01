@@ -446,7 +446,7 @@ export const TUICOptionHTML = {
                         document.querySelector("#TUIC_setting").remove();
                         TUICLibrary.getClasses.update();
                         applySystemCss();
-                        TUICObserver.observerFunction();
+                        TUICObserver.observerFunction(null);
                         TUICObserver.titleObserverFunction();
                         if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                             document.title = document.title.replace(" / Twitter", " / X");
@@ -471,7 +471,7 @@ export const TUICOptionHTML = {
                         document.querySelector("#TUIC_setting").remove();
                         TUICLibrary.getClasses.update();
                         applySystemCss();
-                        TUICObserver.observerFunction();
+                        TUICObserver.observerFunction(null);
                         TUICObserver.titleObserverFunction();
                         if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                             document.title = document.title.replace(" / Twitter", " / X");

@@ -583,9 +583,13 @@ export const TUICData = {
             sendDM: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["sendDM"](val.option.isBigArticle, val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)).item(0);
                 if (!(val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)) {
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["sendDM"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
-                    });
+                    TUICData.visibleButtons.buttonElement._handleEvent(
+                        elem,
+                        () => {
+                            TUICData.visibleButtons.buttonFunction["sendDM"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
+                        },
+                        null,
+                    );
                 }
                 return elem;
             },
@@ -593,54 +597,82 @@ export const TUICData = {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["url-copy"](val.option.isBigArticle)).item(0);
                 //if (val.option.isLockedAccount || val.option.cannotRT) {
                 if (val.elements.statusButton != null) {
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
-                    });
+                    TUICData.visibleButtons.buttonElement._handleEvent(
+                        elem,
+                        () => {
+                            TUICData.visibleButtons.buttonFunction["url-copy-cannotCopy"](val.elements.statusButton);
+                        },
+                        null,
+                    );
                 }
                 /*} else {
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
-                    });
+                    TUICData.visibleButtons.buttonElement._handleEvent(
+                        elem,
+                        () => {
+                            TUICData.visibleButtons.buttonFunction["url-copy"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["share-button"]));
+                        },
+                        null,
+                    );
                 }*/
                 return elem;
             },
             userBlock: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userBlock"](val.option.isBigArticle, val.option.isMe)).item(0);
-                TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["userBlock"](val.elements.article);
-                });
+                TUICData.visibleButtons.buttonElement._handleEvent(
+                    elem,
+                    () => {
+                        TUICData.visibleButtons.buttonFunction["userBlock"](val.elements.article);
+                    },
+                    null,
+                );
                 return elem;
             },
             userMute: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["userMute"](val.option.isBigArticle, val.option.isMe)).item(0);
-                TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                    TUICData.visibleButtons.buttonFunction["userMute"](val.elements.article);
-                });
+                TUICData.visibleButtons.buttonElement._handleEvent(
+                    elem,
+                    () => {
+                        TUICData.visibleButtons.buttonFunction["userMute"](val.elements.article);
+                    },
+                    null,
+                );
                 return elem;
             },
             deleteButton: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["deleteButton"](val.option.isBigArticle, val.option.isMe)).item(0);
                 if (val.option.isMe) {
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["deleteButton"](val.elements.article);
-                    });
+                    TUICData.visibleButtons.buttonElement._handleEvent(
+                        elem,
+                        () => {
+                            TUICData.visibleButtons.buttonFunction["deleteButton"](val.elements.article);
+                        },
+                        null,
+                    );
                 }
                 return elem;
             },
             quoteTweet: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["quoteTweet"](val.option.isBigArticle, val.option.cannotRT)).item(0);
                 if (!val.option.cannotRT)
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["quoteTweet"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
-                    });
+                    TUICData.visibleButtons.buttonElement._handleEvent(
+                        elem,
+                        () => {
+                            TUICData.visibleButtons.buttonFunction["quoteTweet"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]));
+                        },
+                        null,
+                    );
                 return elem;
             },
             likeAndRT: function (val) {
                 const elem = TUICLibrary.HTMLParse(TUICData.visibleButtons.buttonHTML["likeAndRT"](val.option.isBigArticle, val.option.cannotRT)).item(0);
                 if (!val.option.cannotRT)
-                    TUICData.visibleButtons.buttonElement._handleEvent(elem, () => {
-                        TUICData.visibleButtons.buttonFunction["likeAndRT"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]), val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["like-button"]));
-                    });
+                    TUICData.visibleButtons.buttonElement._handleEvent(
+                        elem,
+                        () => {
+                            TUICData.visibleButtons.buttonFunction["likeAndRT"](val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["retweet-button"]), val.elements.buttonBarBase.querySelector(TUICData.visibleButtons.selectors["like-button"]));
+                        },
+                        null,
+                    );
                 return elem;
             },
         },
@@ -653,7 +685,6 @@ export const TUICData = {
                     "r-1b43r93 r-14yzgew r-1buqboj r-5f36wq",
                     "r-ubezar r-hjklzo r-e157gu r-utggzx",
                 )}"></span></span></div>`,
-                "text/html",
             ).item(0);
         },
         fixEngagements: {
@@ -667,7 +698,6 @@ export const TUICData = {
                              <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
                            </span>
                          </div>`.replace(/( |\n|\r)( |\n|\r)+/g, ""),
-                    "text/html",
                 ).item(0);
                 returnELem.addEventListener("click", async () => {
                     article.querySelector(`[data-testid="caret"]`).click();

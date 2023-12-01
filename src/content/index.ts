@@ -44,7 +44,7 @@ import { isSafemode, runSafemode } from "./safemode.ts";
     });
 
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-    TUICObserver.observerFunction();
+    TUICObserver.observerFunction(null);
 
     const bodyAttributeObserver = new MutationObserver(applySystemCss);
     bodyAttributeObserver.observe(document.querySelector("body"), {
