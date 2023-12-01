@@ -10,72 +10,111 @@
 
         <div>
             <settingsHeader />
-            <settingColors />
+            <detailsBox i18n="settingColors-settingTitle">
+                <settingColors />
+            </detailsBox>
 
-            <UpDownList id="visibleButtons" title="bottomTweetButtons-settingTitle-v2">
-                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("bottomTweetButtons-settingTitle") }}</h2>
+            <detailsBox i18n="bottomTweetButtons-settingTitle-v2">
+                <UpDownList id="visibleButtons" /><br />
+
+                <SettingSubTitle i18n="bottomTweetButtons-settingTitle" />
                 <CheckBox value="tweetDisplaySetting.bottomScroll" name="bottomTweetButtons-setting-visibleScrollBar" />
                 <CheckBox value="tweetDisplaySetting.RTNotQuote" name="bottomTweetButtons-setting-RTNotQuote" />
                 <CheckBox value="tweetDisplaySetting.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
                 <CheckBox value="tweetDisplaySetting.noNumberBottomTweetButtons" name="bottomTweetButtons-setting-noNumber" />
 
-                <RadioButtonListSub id="tweetDisplaySetting.linkCopyURL" title="bottomTweetButtons-setting-linkCopyURL" type="TUICRadio" />
-                <RadioButtonListSub id="tweetDisplaySetting.linkShareCopyURL" title="bottomTweetButtons-setting-linkShareCopyURL" type="TUICRadio" />
-                <RadioButtonListSub id="timeline-discoverMore" title="timeline-discoverMore" type="TUICRadio" />
-                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("fixEngagements-settingTitle") }}</h2>
-                <UpDownListSub id="fixEngagements" />
+                <br />
+                <SettingSubTitle i18n="bottomTweetButtons-setting-linkCopyURL" />
+                <RadioButtonList id="tweetDisplaySetting.linkCopyURL" />
+
+                <SettingSubTitle i18n="bottomTweetButtons-setting-linkShareCopyURL" />
+                <RadioButtonList id="tweetDisplaySetting.linkShareCopyURL" />
+
+                <SettingSubTitle i18n="timeline-discoverMore" />
+                <RadioButtonList id="timeline-discoverMore" />
+
+                <SettingSubTitle i18n="fixEngagements-settingTitle" />
+                <UpDownList id="fixEngagements" />
                 <br />
                 <CheckBox value="otherBoolSetting.placeEngagementsLink" name="bottomTweetButtons-setting-placeEngagementsLink" />
                 <CheckBox value="otherBoolSetting.placeEngagementsLinkShort" name="fixEngagements-shortName" />
-                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("bottomTweetButtons-settingTitle-linkCard") }}</h2>
+
+                <SettingSubTitle i18n="bottomTweetButtons-settingTitle-linkCard" />
                 <CheckBox value="otherBoolSetting.showLinkCardInfo" name="bottomTweetButtons-setting-showLinkCardInfo" />
-                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("invisibleItems-settingTitle") }}</h2>
-                <CheckBoxListSub id="tweetDisplaySetting" />
-            </UpDownList>
-            <RadioButtonList id="twitterIcon" title="twitterIcon-settingTitle" type="TUICRadio">
+
+                <SettingSubTitle i18n="invisibleItems-settingTitle" />
+                <CheckBoxList id="tweetDisplaySetting" />
+            </detailsBox>
+
+            <detailsBox i18n="twitterIcon-settingTitle">
+                <RadioButtonList id="twitterIcon"></RadioButtonList><br />
+
                 <br />
                 <CheckBox value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
                 <CheckBox value="otherBoolSetting.roundIcon" name="twitterIcon-roundIcon" />
-                <UploadImageFile id="IconImg" title="twitterIcon-usedIcon" />
-            </RadioButtonList>
 
-            <UpDownList id="sidebarButtons" title="sidebarButton-settingTitle">
+                <br />
+                <SettingSubTitle i18n="twitterIcon-usedIcon" />
+                <UploadImageFile id="IconImg" />
+            </detailsBox>
+
+            <detailsBox i18n="sidebarButton-settingTitle">
+                <UpDownList id="sidebarButtons" /><br />
+
                 <CheckBox value="sidebarSetting.buttonConfig.smallerSidebarContent" name="sidebarButton-setting-narrowBetweenButtons" />
                 <CheckBox value="sidebarSetting.buttonConfig.sidebarNoneScrollbar" name="sidebarButton-setting-sidebarNoneScrollbar" />
                 <CheckBox value="sidebarSetting.buttonConfig.birdGoBackHome" name="sidebarButton-setting-birdGoBackHome" />
-                <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("sidebarButton-accountSwitcher-settingTitle") }}</h2>
+
+                <SettingSubTitle i18n="sidebarButton-accountSwitcher-settingTitle" />
                 <CheckBox value="accountSwitcher.icon" name="sidebarButton-accountSwitcher-Icon" />
                 <CheckBox value="accountSwitcher.nameID" name="sidebarButton-accountSwitcher-NameID" />
                 <CheckBox value="accountSwitcher.moreMenu" name="sidebarButton-accountSwitcher-MoreMenu" />
-            </UpDownList>
+            </detailsBox>
 
-            <details class="TUICDetails">
-                <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">{{ TUICI18N.get("profileSetting-settingTitle") }}</summary>
-                <div class="TUIC_col_setting_container">
-                    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("profileSetting-tabs-settingTitle") }}</h2>
-                    <CheckBoxListSub id="profileSetting.tabs" />
-                    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">{{ TUICI18N.get("invisibleItems-settingTitle") }}</h2>
-                    <CheckBoxListSub id="profileSetting.invisible" />
-                </div>
-            </details>
+            <detailsBox i18n="profileSetting-settingTitle">
+                <SettingSubTitle i18n="profileSetting-tabs-settingTitle" />
+                <CheckBoxList id="profileSetting.tabs" />
 
-            <CheckBoxList id="invisibleItems" title="invisibleItems-settingTitle" />
-            <CheckBoxList id="timeline" title="timeline-settingTitle" />
-            <CheckBoxList id="XToTwitter" title="XToTwitter-settingTitle">
+                <SettingSubTitle i18n="invisibleItems-settingTitle" />
+                <CheckBoxList id="profileSetting.invisible" />
+            </detailsBox>
+
+            <detailsBox i18n="invisibleItems-settingTitle">
+                <CheckBoxList id="invisibleItems" />
+            </detailsBox>
+
+            <detailsBox i18n="timeline-settingTitle">
+                <CheckBoxList id="timeline" />
+            </detailsBox>
+
+            <detailsBox i18n="XToTwitter-settingTitle">
+                <CheckBoxList id="XToTwitter" /><br />
                 <button id="XToTwitterRestoreIcon" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom: 10px">
                     {{ TUICI18N.get("XtoTwitter-twitterIcon") }}
                 </button>
-            </CheckBoxList>
-            <CheckBoxList id="rightSidebar" title="rightSidebar-settingTitle" />
+            </detailsBox>
+
+            <detailsBox i18n="rightSidebar-settingTitle">
+                <CheckBoxList id="rightSidebar" />
+            </detailsBox>
+
             <br />
             <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">
                 {{ TUICI18N.get("settingUI-restoreDefaultAll") }}
             </button>
             <br /><br />
 
-            <customCSS />
-            <exportSettings />
-            <importSettings />
+            <detailsBox i18n="customCSS-settingTitle">
+                <customCSS />
+            </detailsBox>
+
+            <detailsBox i18n="export-settingTitle">
+                <exportSettings />
+            </detailsBox>
+
+            <detailsBox i18n="import-settingTitle">
+                <importSettings />
+            </detailsBox>
         </div>
     </div>
 </template>
@@ -86,38 +125,36 @@ import { defineComponent } from "vue";
 import { TUICI18N } from "../../content/i18n";
 import { TUICPref } from "../../content/library";
 
-import UpDownList from "./components/UpDownList.vue";
 import CheckBox from "./components/CheckBox.vue";
-import RadioButtonList from "./components/RadioButtonList.vue";
 import UploadImageFile from "./components/UploadImageFile.vue";
-import CheckBoxList from "./components/CheckBoxList.vue";
-import RadioButtonListSub from "./components/RadioButtonListSub.vue";
+import RadioButtonList from "./components/RadioButtonList.vue";
 import ColorsList from "./components/ColorsList.vue";
-import UpDownListSub from "./components/UpDownListSub.vue";
-import CheckBoxListSub from "./components/CheckBoxListSub.vue";
+import UpDownList from "./components/UpDownList.vue";
+import CheckBoxList from "./components/CheckBoxList.vue";
 
 import customCSS from "./modules/customCSS.vue";
 import exportSettings from "./modules/exportSettings.vue";
 import importSettings from "./modules/importSettings.vue";
 import settingColors from "./modules/settingColors.vue";
 import settingsHeader from "./modules/settingsHeader.vue";
+import SettingSubTitle from "./components/textParts/settingSubTitle.vue";
+import detailsBox from "./components/textParts/detailsBox.vue";
 
 export default defineComponent({
     components: {
-        UpDownList,
         CheckBox,
-        RadioButtonList,
         UploadImageFile,
-        CheckBoxList,
-        RadioButtonListSub,
+        RadioButtonList,
         ColorsList,
         customCSS,
         exportSettings,
         importSettings,
         settingColors,
         settingsHeader,
-        UpDownListSub,
-        CheckBoxListSub,
+        UpDownList,
+        CheckBoxList,
+        SettingSubTitle,
+        detailsBox,
     },
     setup() {
         return { TUICI18N, TUICPref };

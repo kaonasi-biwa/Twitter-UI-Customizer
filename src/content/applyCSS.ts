@@ -88,8 +88,8 @@ export function applySystemCss() {
 
         for (const elem in TUICData.colors) {
             for (const el of ["background", "border", "color"]) {
-                if ((TUICData.colors[elem][el] ?? "unknwon") != "unknwon") {
-                    rs.setProperty(`--twitter-${elem}-${el}`, `${encodeURIComponent(TUICLibrary.color.getColorFromPref(elem, el, null))};`);
+                if (TUICData.colors[elem][el]) {
+                    rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
                 }
             }
         }
