@@ -1,18 +1,11 @@
 <template>
-    <details class="TUICDetails">
-        <summary class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title">
-            {{ TUICI18N.get("export-settingTitle") }}
-        </summary>
-        <div class="TUIC_col_setting_container">
-            <input id="TUICExportBox" class="TUICTextInput" type="text" v-model="exportText" readonly />
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport" @click="exportPref()">
-                {{ TUICI18N.get("export-exportButton") }}
-            </button>
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExportCopy" @click="exportPrefCopy()">
-                {{ TUICI18N.get("export-exportButtonCopy") }}
-            </button>
-        </div>
-    </details>
+    <input id="TUICExportBox" class="TUICTextInput" type="text" v-model="exportText" readonly />
+    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport" @click="exportPref()">
+        {{ TUICI18N.get("export-exportButton") }}
+    </button>
+    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExportCopy" @click="exportPrefCopy()">
+        {{ TUICI18N.get("export-exportButtonCopy") }}
+    </button>
 </template>
 
 <script lang="ts">
