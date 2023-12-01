@@ -4,7 +4,7 @@
             {{ TUICI18N.get(title) }}
         </summary>
         <div class="TUIC_col_setting_container">
-            <CheckBoxListSub :id="id" :type="type" />
+            <CheckBoxListSub :id="id" />
         </div>
         <br />
         <slot></slot>
@@ -26,10 +26,6 @@ export default defineComponent({
             required: true,
         },
         id: {
-            type: String,
-            required: true,
-        },
-        type: {
             type: String,
             required: true,
         },

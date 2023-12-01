@@ -99,7 +99,7 @@ export const TUICOptionHTML = {
         //     },
         //     single: false,
         // },
-        ".TUICInvisibleItems": {
+        /*".TUICInvisibleItems": {
             type: "click",
             function: function (event) {
                 TUICPref.set("invisibleItems." + event.target.id, event.target.checked);
@@ -115,22 +115,6 @@ export const TUICOptionHTML = {
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
                 TUICObserver.titleObserverFunction();
-                if (!TUICPref.get("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
-                    document.title = document.title.replace(" / Twitter", " / X");
-                }
-            },
-            single: false,
-        },
-        ".twitterTitle": {
-            type: "click",
-            function: function (event) {
-                TUICPref.set("otherBoolSetting." + event.target.id, event.target.checked);
-                TUICPref.save();
-                TUICLibrary.getClasses.update();
-                TUICObserver.titleObserverFunction();
-                if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
-                    document.title = document.title.replace(" / Twitter", " / X");
-                }
             },
             single: false,
         },
@@ -205,7 +189,7 @@ export const TUICOptionHTML = {
                 TUICLibrary.getClasses.update();
             },
             single: false,
-        },
+        },*/
         "#save": {
             type: "click",
             function: function () {

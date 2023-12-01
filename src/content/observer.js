@@ -992,6 +992,8 @@ export const TUICObserver = {
             } else if (document.title.endsWith(" / X")) {
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
             }
+        } else if (document.title.endsWith(" / Twitter")) {
+            document.title = document.title.replace(" / Twitter", " / X");
         }
 
         TUICObserver.headObserver.observe(titleElement, {

@@ -1,6 +1,6 @@
 <template>
     <template v-for="i in TUICData[id].all" :key="i">
-        <CheckBox :id="i" :value="`${id}.${i}`" :name="TUICData[id].i18n[i]" :type="type" />
+        <CheckBox :value="`${id}.${i}`" :name="TUICData[id].i18n[i]" />
     </template>
 </template>
 
@@ -11,7 +11,7 @@ import { TUICData } from "../../../content/data";
 
 export default defineComponent({
     components: { CheckBox },
-    props: ["id", "type"],
+    props: ["id"],
     setup() {
         return { TUICData };
     },
