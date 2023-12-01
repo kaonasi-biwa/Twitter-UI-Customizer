@@ -21,7 +21,7 @@ export const TUICObserver = {
         TUICObserver.observer.disconnect();
 
         if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-            if (TUICObserver.iconObserver == null) {
+            if (!TUICObserver.iconObserver) {
                 TUICObserver.iconObserver = new MutationObserver(() => {
                     if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
                         TUICObserver.iconObserver.disconnect();
@@ -41,10 +41,10 @@ export const TUICObserver = {
             }
             TUICObserver.functions.twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
         }
-        if (document.querySelector(`header h1 a > div > svg`) == null) {
+        if (!document.querySelector(`header h1 a > div > svg`)) {
             TUICObserver.iconObserver = "";
         }
-        if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
+        if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`)) {
             TUICObserver.functions.twitterIcon(document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] [role="heading"]`));
         }
         if (document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
