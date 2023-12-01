@@ -16,7 +16,7 @@ export const TUICOptionHTML = {
         rootElement.appendChild(div);
         inject();
 
-        rootElement.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
+        //rootElement.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
         this.eventHandle();
     },
     eventHandle: function (root) {
@@ -190,14 +190,14 @@ export const TUICOptionHTML = {
             },
             single: false,
         },*/
-        "#save": {
+        /*"#save": {
             type: "click",
             function: function () {
                 localStorage.setItem("TUIC_CSS", document.querySelector("#css_textarea").value);
                 applyCustomCss();
             },
             single: true,
-        },
+        },*/
         ".default_set": {
             type: "click",
             function: function () {
