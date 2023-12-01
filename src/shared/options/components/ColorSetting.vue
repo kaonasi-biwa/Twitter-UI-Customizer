@@ -19,7 +19,6 @@
             </template>
         </div>
     </div>
-    <!-- eslint-disable vue/no-v-html -->
     <button
         :id="id + '-' + type + '-default'"
         :class="['TUIC_icon_button_con', 'TUIC_setting_button', 'TUIC_setting_button_default', 'TUICDefaultColor', !isDefault ? 'TUIC_DISPNONE' : '']"
@@ -31,7 +30,6 @@
     >
         <component :is="RESET" />
     </button>
-    <!-- eslint-enable vue/no-v-html -->
 </template>
 
 <script lang="ts">
@@ -51,7 +49,7 @@ import RESET from "../../../content/icons/arrow/reset.svg?component";
 //         Number(TUIC_color[0]),
 //         Number(TUIC_color[1]),
 //         Number(TUIC_color[2]),
-//     ]); /* eslint-disable */
+//     ]);
 //     return `
 //     <div class="TUIC_setting_color_colmn${
 //         !isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_ISNOTDEFAULT") : ""
@@ -90,7 +88,7 @@ import RESET from "../../../content/icons/arrow/reset.svg?component";
 //     !isDefault ? " " + TUICLibrary.getClasses.getClass("TUIC_DISPNONE") : ""
 //     }" title="${TUICI18N.get(
 //     "settingUI-colorPicker-restoreDefault",
-//     )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${RESET}</button>`; /* eslint-enable */
+//     )}" TUICColor="${id}" TUICColorType="${type}" id="${`${id}-${type}-default`}" TUICColorKind="${colorKind}">${RESET}</button>`;
 // },
 
 import { TUICPref } from "../../../content/library";

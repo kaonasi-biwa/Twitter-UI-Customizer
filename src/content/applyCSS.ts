@@ -35,10 +35,10 @@ export function applyDataCss() {
     twitterHead.appendChild(dataCssElement);
     dataCssElement.textContent = `
     .TUICTwitterIcon_Dog {
-        background-image:url('${browser.runtime.getURL(DOG)}');
+        background-image: url('${browser.runtime.getURL(DOG)}');
     }
     .TUICTwitterIcon_Twitter {
-        --TUIC-twitter-icon:url('${browser.runtime.getURL(TWITTER)}') !important;
+        --TUIC-twitter-icon: url('${browser.runtime.getURL(TWITTER)}') !important;
     }
     .TUICTwitterIcon_X {
         --TUIC-twitter-icon:url('${browser.runtime.getURL(X)}') !important;
@@ -53,9 +53,9 @@ export function applyCustomIcon() {
     twitterHead.appendChild(dataCssElement);
     dataCssElement.textContent = `
     .TUICTwitterIcon_IconImg,
-#TUICIcon_IconImg{
-    background-image:url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
-}`;
+    #TUICIcon_IconImg {
+        background-image: url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
+    }`;
 }
 
 export function applySystemCss() {

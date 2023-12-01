@@ -301,12 +301,16 @@ export const TUICObserver = {
                                 const cannotRT = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                                 const cannotShare = bar_item["retweet-button"].querySelector(`.r-icoktb,.r-12c3ph5`) != null;
                                 if (!cannotRT) {
-                                    TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"]);
+                                    TUICData.visibleButtons.buttonElement._handleEvent(bar_item["retweet-button"], TUICData.visibleButtons.buttonFunction["retweet-button"], null);
                                 }
                                 if (!cannotRT && !lockedAccount && bar_item["share-button"]) {
-                                    TUICData.visibleButtons.buttonElement._handleEvent(bar_item["share-button"], () => {
-                                        TUICData.visibleButtons.buttonFunction["share-button"](statusButton);
-                                    });
+                                    TUICData.visibleButtons.buttonElement._handleEvent(
+                                        bar_item["share-button"],
+                                        () => {
+                                            TUICData.visibleButtons.buttonFunction["share-button"](statusButton);
+                                        },
+                                        null,
+                                    );
                                 }
                                 const isBigArticle = !!elem.querySelector(`.r-1srniue`);
                                 for (const boxElem of Array.from(elem.querySelectorAll(`.TUICEngagementsBox`))) {
@@ -792,8 +796,7 @@ export const TUICObserver = {
                     const personRetweetedText = Array.from(container.childNodes)
                         .filter((e) => e.nodeType === Node.TEXT_NODE)
                         .at(-1);
-                    // eslint-disable-next-line no-extra-boolean-cast
-                    if (!!personRetweetedText) {
+                    if (personRetweetedText) {
                         // 「{user}さんがリツイートしました」のユーザー名の後の部分
                         personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-isRetweeted");
                     } else {
