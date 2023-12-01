@@ -3,11 +3,11 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "./observer.js";
-import { TUICLibrary } from "./library.js";
-import { TUICI18N } from "./i18n.js";
-import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.js";
-import { isSafemode, runSafemode } from "./safemode.js";
+import { TUICObserver } from "./observer.ts";
+import { TUICLibrary } from "./library.ts";
+import { TUICI18N } from "./i18n.ts";
+import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
+import { isSafemode, runSafemode } from "./safemode.ts";
 
 (async () => {
     await TUICI18N.fetch();
@@ -17,9 +17,9 @@ import { isSafemode, runSafemode } from "./safemode.js";
         elem.remove();
     }
     TUICLibrary.getClasses.deleteClasses();
-    String.prototype.escapeToUseHTML = function () {
-        return TUICLibrary.escapeToUseHTML(this);
-    };
+    // String.prototype.escapeToUseHTML = function () {
+    //     return TUICLibrary.escapeToUseHTML(this);
+    // };
     TUICObserver.titleObserverFunction();
 
     console.log(

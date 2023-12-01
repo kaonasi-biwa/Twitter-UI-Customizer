@@ -1,8 +1,10 @@
+import { TUICI18N } from "../content/i18n.ts";
+
 let setting = {};
 
 function i18nApply() {
     for (const elem of document.querySelectorAll(".i18n")) {
-        elem.textContent = chrome.i18n.getMessage(elem.getAttribute("i18n-id") ?? "");
+        elem.textContent = TUICI18N.get(elem.getAttribute("i18n-id") ?? "");
     }
 }
 
@@ -14,6 +16,7 @@ const checkbox = (event) => {
 
 window.onload = () => {
     chrome.storage.sync.get("TUIC", async (settingT) => {
+        await TUICI18N.fetch();
         const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
         setting = settingT.TUIC ?? {
             iconClick: isWebstore,

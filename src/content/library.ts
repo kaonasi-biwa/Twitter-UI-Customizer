@@ -1,9 +1,9 @@
-import { applySystemCss } from "./applyCSS.js";
-import { TUICData } from "./data.js";
-import { TUICObserver } from "./observer.js";
+import { applySystemCss } from "./applyCSS.ts";
+import { TUICData } from "./data.ts";
+import { TUICObserver } from "./observer.ts";
 
 // NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
-function getPointerFromKey(object, key) {
+const getPointerFromKey = (object, key) => {
     const keys = ["o", ...key.split(".").filter((k) => k !== "")];
     let pointer = { o: object };
     for (let i = 0; i < keys.length; i++) {
@@ -20,55 +20,34 @@ function getPointerFromKey(object, key) {
             pointer = pointer[k];
         }
     }
-}
-
-const callbacks = {};
+};
 
 export const TUICLibrary = {
-    // name is currently used only for "TUICColorSettingRadio"
-    registerEvCallback: (name, callback) => {
-        // console.log(name);
-        // if (callbacks[name] == null) {
-        //     Object.assign(callbacks, { [name]: [callback] });
-        // } else {
-        //     callbacks[name].push(callback);
-        // }
-    },
-    callEvCallback: (name) => {
-        // for (const i of callbacks[name]) {
-        //     console.log(typeof i);
-        //     i();
-        // }
-    },
     color: {
-        rgb2hex: function (rgb) {
+        rgb2hex: (rgb) => {
             return `#${rgb
-                .map(function (value) {
+                .map((value) => {
                     return ("0" + value.toString(16)).slice(-2);
                 })
                 .join("")}`;
         },
-        hex2rgb: function (hex) {
+        hex2rgb: (hex) => {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-            return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function (str) {
+            return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
                 return parseInt(str, 16);
             });
         },
-        getColorFromPref: function (name, type, mode_) {
-            let mode = "";
-            if ((mode_ ?? "unknwon") == "unknwon") {
-                mode = TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            } else {
-                mode = mode_;
-            }
-            return (TUICPref.get(`${mode}.${name}.${type}`) ?? TUICData?.["colors-" + mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type]).escapeToUseHTML();
+        getColorFromPref: (name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) => {
+            let _mode = "";
+            _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
+            return TUICPref.get(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.get(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type];
         },
     },
     getClasses: {
-        update: function () {
+        update: () => {
             TUICLibrary.getClasses.deleteClasses();
             applySystemCss();
-            TUICObserver.observerFunction();
+            TUICObserver.observerFunction(null);
         },
         deleteClasses: () => {
             for (const id of TUICLibrary.getClasses.idList) {
@@ -102,9 +81,9 @@ export const TUICLibrary = {
         ],
     },
     updatePref: {
-        update: async function () {
+        update: async () => {
             if (localStorage.getItem("unsent-tweet-background")) {
-                this.parallelToSerial();
+                TUICLibrary.updatePref.parallelToSerial();
             }
 
             if (typeof TUICPref.get("timeline") != "object") TUICPref.set("timeline", {});
@@ -123,10 +102,10 @@ export const TUICLibrary = {
              * @param {string} nextKey 変更先のキー
              * @param {any} replaceValue 置き換える値
              */
-            function changeBooleanKey(previousKey, nextKey, replaceValue = true) {
+            const changeBooleanKey = (previousKey: string, nextKey: string, replaceValue: string | boolean = true) => {
                 if (TUICPref.get(previousKey) === true) TUICPref.set(nextKey, replaceValue);
                 TUICPref.delete(previousKey);
-            }
+            };
 
             changeBooleanKey("invisibleItems.osusume-user-timeline", "timeline.osusume-user-timeline");
             changeBooleanKey("invisibleItems.hideOhterRTTL", "timeline.hideOhterRTTL");
@@ -151,7 +130,7 @@ export const TUICLibrary = {
             changeBooleanKey("otherBoolSetting.smallerSidebarContent", "sidebarSetting.buttonConfig.smallerSidebarContent");
             changeBooleanKey("otherBoolSetting.sidebarNoneScrollbar", "sidebarSetting.buttonConfig.sidebarNoneScrollbar");
             if (TUICPref.get("CSS")) localStorage.setItem("TUIC_CSS", TUICPref.get("CSS"));
-            TUICPref.set("CSS");
+            TUICPref.set("CSS", null);
 
             if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
                 await new Promise((resolve, reject) => {
@@ -167,7 +146,7 @@ export const TUICLibrary = {
                         context.beginPath();
                         context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
                         localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
-                        resolve();
+                        resolve(null);
                     };
                     image.src = localStorage.getItem(`TUIC_IconImg`);
                 });
@@ -186,9 +165,9 @@ export const TUICLibrary = {
                 );
             }
 
-            TUICPref.set("", this.merge(structuredClone(TUICData.defaultPref), structuredClone(TUICPref.get(""))));
+            TUICPref.set("", TUICLibrary.updatePref.merge(structuredClone(TUICData.defaultPref), structuredClone(TUICPref.get(""))));
         },
-        parallelToSerial: function () {
+        parallelToSerial: () => {
             TUICPref.set("CSS", localStorage.getItem("CSS"));
             TUICPref.set("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
             TUICPref.set("visibleButtons", JSON.parse(localStorage.getItem("visible-button")));
@@ -245,12 +224,12 @@ export const TUICLibrary = {
          * @param {object} source マージ元
          * @param {object} target マージ先
          */
-        merge: function (source, target) {
+        merge: (source, target) => {
             for (const i in source) {
                 if (!(i in target)) {
                     target[i] = source[i];
                 } else if (typeof source[i] == "object" && !Array.isArray(source[i])) {
-                    this.merge(source[i], target[i]);
+                    TUICLibrary.updatePref.merge(source[i], target[i]);
                 }
             }
             return target;
@@ -263,7 +242,7 @@ export const TUICLibrary = {
             return functionOrPrimitive;
         }
     },
-    backgroundColorCheck: function () {
+    backgroundColorCheck: () => {
         const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {
             return "dark";
@@ -273,8 +252,8 @@ export const TUICLibrary = {
             return "light";
         }
     },
-    backgroundColorClass: function (dark, blue, white) {
-        const backgroundType = this.backgroundColorCheck();
+    backgroundColorClass: (dark, blue, white) => {
+        const backgroundType = TUICLibrary.backgroundColorCheck();
         if (backgroundType == "dark") {
             return dark;
         } else if (backgroundType == "blue") {
@@ -283,7 +262,7 @@ export const TUICLibrary = {
             return white;
         }
     },
-    fontSizeClass: function (x1, x2, x3, x4, x5) {
+    fontSizeClass: (x1, x2, x3, x4, x5) => {
         const fontSize = document.querySelector("html").style.fontSize.toString();
         if (fontSize == "17px") {
             return x4;
@@ -295,84 +274,83 @@ export const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
         }
     },
-    HTMLParse: function (elem) {
+    HTMLParse: (elem) => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
-    escapeToUseHTML: function (text) {
-        return text
-            .replace(/[&'`"<>=;]/g, function (match) {
-                return {
-                    "&": "&amp;",
-                    "'": "&#x27;",
-                    "`": "&#x60;",
-                    '"': "&quot;",
-                    "<": "&lt;",
-                    ">": "&gt;",
-                    "=": "&equals;",
-                    ";": "&semi;",
-                }[match];
-            })
-            .replaceAll("\\r", "\r");
-    },
-    waitForElement: async function (selector) {
+    // escapeToUseHTML: (text) => {
+    //     return text
+    //         .replace(/[&'`"<>=;]/g, (match) => {
+    //             return {
+    //                 "&": "&amp;",
+    //                 "'": "&#x27;",
+    //                 "`": "&#x60;",
+    //                 '"': "&quot;",
+    //                 "<": "&lt;",
+    //                 ">": "&gt;",
+    //                 "=": "&equals;",
+    //                 ";": "&semi;",
+    //             }[match];
+    //         })
+    //         .replaceAll("\\r", "\r");
+    // },
+    waitForElement: async (selector: string): Promise<Element[]> => {
         if (document.querySelectorAll(selector).length !== 0) {
             return Array.from(document.querySelectorAll(selector));
         } else {
-            const returns = await new Promise((resolve) => {
+            return new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
                     const matchedAddedNodes = document.querySelectorAll(selector);
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
-                        resolve(matchedAddedNodes);
+                        resolve([...matchedAddedNodes]);
                     }
                 });
                 observer.observe(document.querySelector("html"), { subtree: true, childList: true });
             });
-            return returns;
         }
     },
 };
 
 export const TUICPref = {
     config: null,
-    get: function (identifier) {
-        this.getConfig();
-        const { object, key } = getPointerFromKey(this.config, identifier);
+    get: (identifier) => {
+        TUICPref.getConfig();
+        const { object, key } = getPointerFromKey(TUICPref.config, identifier);
         return object[key];
     },
-    set: function (identifier, value) {
-        this.getConfig();
+    set: (identifier, value) => {
+        TUICPref.getConfig();
         if (identifier == "") {
-            this.config = value;
+            TUICPref.config = value;
         } else {
-            const { object, key } = getPointerFromKey(this.config, identifier);
+            const { object, key } = getPointerFromKey(TUICPref.config, identifier);
             object[key] = value;
         }
     },
-    delete: function (identifier) {
-        this.getConfig();
-        const { object, key } = getPointerFromKey(this.config, identifier);
+    delete: (identifier) => {
+        TUICPref.getConfig();
+        const { object, key } = getPointerFromKey(TUICPref.config, identifier);
         delete object[key];
     },
-    save: function () {
-        this.getConfig();
-        localStorage.setItem("TUIC", JSON.stringify(this.config));
+    save: () => {
+        TUICPref.getConfig();
+        localStorage.setItem("TUIC", JSON.stringify(TUICPref.config));
         console.warn("saved!");
     },
-    import: function (object) {
+    import: (object) => {
         if (typeof object === "string") {
-            this.config = JSON.parse(object);
+            TUICPref.config = JSON.parse(object);
         } else {
-            this.config = object;
+            TUICPref.config = object;
         }
     },
-    export: function () {
-        this.getConfig();
-        return JSON.stringify(this.config);
+    export: () => {
+        TUICPref.getConfig();
+        return JSON.stringify(TUICPref.config);
     },
-    getConfig: function () {
-        if (this.config == null) {
-            this.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
+    getConfig: () => {
+        if (TUICPref.config == null) {
+            TUICPref.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
         }
     },
 };

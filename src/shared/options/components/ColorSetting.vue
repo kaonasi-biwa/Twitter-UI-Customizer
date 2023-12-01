@@ -13,7 +13,7 @@
                         <input type="color" :id="`${id}-${type}`" class="TUICButtonColor" @change="changeColor" :TUICColor="id" :TUICColorType="type" :value="TUICColor1" :TUICColorKind="store.editingColorType" />
                     </div>
                 </div>
-                <button :id="`${id}-${type}-check`" class="TUICButtonColorCheck" @change="changeColorCheck" :data-checked="TUIC_color[3] == '0'" :TUICColor="id" :TUICColorType="type" :TUICColorKind="store.editingColorType"></button>
+                <button :id="`${id}-${type}-check`" class="TUICButtonColorCheck" @click="changeColorCheck" :data-checked="TUIC_color[3] == '0'" :TUICColor="id" :TUICColorType="type" :TUICColorKind="store.editingColorType"></button>
                 <label :for="`${id}-${type}-check`" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 15px">{{ TUICI18N.get("settingUI-colorPicker-transparent") }}</label
                 ><br />
             </template>
@@ -28,8 +28,9 @@
         :TUICColorType="type"
         :TUICColorKind="store.editingColorType"
         @click="defaultColor"
-        v-html="RESET"
-    ></button>
+    >
+        <component :is="RESET" />
+    </button>
     <!-- eslint-enable vue/no-v-html -->
 </template>
 
@@ -38,7 +39,8 @@ import { defineComponent, computed } from "vue";
 import { TUICI18N } from "../../../content/i18n";
 import { TUICLibrary } from "../../../content/library";
 import { TUICData } from "../../../content/data";
-import { RESET } from "../../../content/data/icons";
+
+import RESET from "../../../content/icons/arrow/reset.svg?component";
 
 // //色の設定の一行(id,type:色のIDと種類。これで判別 color:rgba形式の色,text:色の名前)
 // colorSetting: function (id, type, color_, text, isDefault, colorKind) {
@@ -103,7 +105,18 @@ const defaultColor = (event) => {
     const TUIC_color = TUICData.colors[colorAttr][colorType].replace("rgba(", "").replace(")", "").split(", ");
     const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
 
-    document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
+    if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) {
+        let color = TUICPref.get(`buttonColor.${colorAttr}.${colorType}`);
+        if (color != null) {
+            color = color.replace("rgba(", "").replace(")", "").split(", ");
+        } else {
+            color = TUIC_color;
+        }
+        //console.error(TUICLibrary.color.rgb2hex([Number(color[0]), Number(color[1]), Number(color[2])]));
+        document.getElementById(`${colorAttr}-${colorType}`).value = TUICLibrary.color.rgb2hex([Number(color[0]), Number(color[1]), Number(color[2])]);
+    } else {
+        document.getElementById(`${colorAttr}-${colorType}`).value = TUICColor1;
+    }
 
     document.getElementById(`${colorAttr}-${colorType}-check`).setAttribute("data-checked", TUIC_color[3] == 0);
 
@@ -159,13 +172,13 @@ export default defineComponent({
         const store = useStore();
 
         const isDefault = computed(() => {
-            return !!TUICPref.get(store.editingColorType)?.[props.id][props.type];
+            return !!TUICPref.get(store.editingColorType)?.[props.id]?.[props.type];
         });
         const color_ = computed(() => {
             return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType);
         });
         const color = computed(() => {
-            return color_.value.replace("rgba(", "").replace(")", "").replaceAll(" ", "").escapeToUseHTML();
+            return color_.value.replace("rgba(", "").replace(")", "").replaceAll(" ", "");
         });
         const TUIC_color = computed(() => {
             return color.value.split(",");

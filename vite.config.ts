@@ -1,13 +1,23 @@
 import { resolve } from "path";
-import { UserConfig, defineConfig } from "vite";
-import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
+import { UserConfig, defineConfig, PluginOption } from "vite";
+
 import path from "path";
-import tailwindcss from "tailwindcss";
+import fs from "fs";
+
+// Vite Plugins
+import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
+import svgLoader from "vite-svg-loader";
+import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
+//
 
 import vue from "@vitejs/plugin-vue";
 
 const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
+
+const r = (str: string): string => {
+    return resolve(__dirname, str);
+};
 
 export default defineConfig(({ command, mode, ssrBuild }) => {
     let json: UserConfig = {};
@@ -19,23 +29,16 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             emptyOutDir: false,
             sourcemap: true,
             // outDir,
+            target: "es2020",
+            assetsInlineLimit: 0,
 
             rollupOptions: {
-                // watch: {
-                //     // chokidar: {
-                //     //     cwd: __dirname,
-                //     // },
-                //     exclude: ["dist/*"],
-                //     // include: ["vite.config.ts", "package.json", "_locales", "i18n", "icon", "npm-scripts", "manifestChange.mjs", "manifestConfigs.json", "src"].map((value) => {
-                //     //     return resolve(__dirname, value);
-                //     // }),
-                // },
                 input: {
                     "ent-options_html": resolve(__dirname, "src/options/options.html"),
                     "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
-                    index: resolve(__dirname, "src/content/index.js"),
+                    index: resolve(__dirname, "src/content/index.ts"),
                     background: resolve(__dirname, "./src/background.ts"),
-                    inject: resolve(__dirname, "src/inject.js"),
+                    //safemode: resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
                 },
                 output: {
                     dynamicImportInCjs: true,
@@ -46,35 +49,31 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             },
             minify: false,
         },
-        // resolve: {
-        //     alias: {
-        //         "@content": "/",
-        //     },
-        // },
-        plugins: [vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode), vue()],
-        // };
-        // break;
-        // case "content":
-        //     json = {
-        //         root,
-        //         build: {
-        //             sourcemap: true,
-        //             outDir,
-        //             lib: {
-        //                 entry: [resolve(__dirname, "src/content/index.js")],
-        //                 name: "bundle",
-        //                 fileName: (format, entryName) => {
-        //                     return "index.js";
-        //                 },
-        //                 formats: ["iife"],
-        //             },
-        //             minify: false,
-        //         },
-        //         //plugins: [myPlugin()],
-        //     };
-        //     break;
+        plugins: [
+            {
+                name: "copy-inject.js",
+                enforce: "post",
+                options(options) {
+                    // this.addWatch;
+                    // console.log("watch");
+                    // console.log(options.watch);
+                    // if (options.watch) {
+                    //     options.watch.include = r("_locales/**");
+                    // }
+                    // console.log(options.watch);
+                },
+                buildStart(options) {
+                    console.log("copy-injectjs");
+                    fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
+                    fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
+                },
+            },
+            vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode),
+            // Vue Plugins
+            vue(),
+            svgLoader(),
+            viteVueCESubStyle() as PluginOption,
+        ],
     };
-
-    // console.log(json);
     return json;
 });

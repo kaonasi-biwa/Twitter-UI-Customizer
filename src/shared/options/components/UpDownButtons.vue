@@ -32,10 +32,10 @@ import { useStore } from "../store";
 
 const clickEv = (event) => {
     const parentBox = event.currentTarget.parentElement.parentElement.parentElement;
-    const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-    //if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
+    // const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+    // if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
     const selectItem = event.currentTarget.id;
-    //parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
+    // parentBox.querySelector(`#${selectItem}`).setAttribute("TUICSelectedUpDownContent", "true");
     parentBox.setAttribute("TUICSelectedItem", selectItem);
     const store = useStore();
     store.selectedElem = selectItem;

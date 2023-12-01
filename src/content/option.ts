@@ -1,25 +1,27 @@
-import { applyCustomCss, applySystemCss, applyCustomIcon } from "./applyCSS.js";
-import { TUICData } from "./data.js";
-import { TUICI18N } from "./i18n.js";
-import { TUICLibrary, TUICPref } from "./library.js";
-import { TUICObserver } from "./observer.js";
-import { isSafemode } from "./safemode.js";
-import { ARROW_LEFT, ARROW_RIGHT, ARROW_UP, ARROW_DOWN, RESET, EMPTY } from "./data/icons.js";
+import { applyCustomCss, applySystemCss, applyCustomIcon } from "./applyCSS.ts";
+import { TUICData } from "./data.ts";
+import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICObserver } from "./observer.ts";
+import { isSafemode } from "./safemode.ts";
+import EMPTY from "./icons/logo/empty.svg?url";
 
-import { inject } from "../shared/options/injectOptions";
-import { useStore } from "../shared/options/store.ts";
+import { injectOptionMain } from "../shared/options/injectOption2Entry.ts";
 
 export const TUICOptionHTML = {
-    displaySetting: function (rootElement) {
-        const div = document.createElement("div");
-        div.id = "TUICOptionMain";
-        rootElement.appendChild(div);
-        inject();
-
-        //rootElement.querySelector("#css_textarea").value = localStorage.getItem("TUIC_CSS");
-        this.eventHandle();
+    displaySetting: (rootElement) => {
+        //document.querySelector("#TUICOptionMain");
+        if (!document.querySelector("#TUIC_setting")) {
+            if (document.querySelector("#TUICOptionEntry") == null) {
+                const div = document.createElement("div");
+                div.id = "TUICOptionEntry";
+                rootElement.appendChild(div);
+            }
+            injectOptionMain();
+            TUICOptionHTML.eventHandle(null);
+        }
     },
     eventHandle: function (root) {
+        console.log("EventHandle");
         if (!root) root = document;
         for (const elem in this.eventList) {
             const listItem = this.eventList[elem];
@@ -193,7 +195,7 @@ export const TUICOptionHTML = {
         /*"#save": {
             type: "click",
             function: function () {
-                localStorage.setItem("TUIC_CSS", document.querySelector("#css_textarea").value);
+                localStorage.setItem("TUIC_CSS", (document.querySelector("#css_textarea") as HTMLTextAreaElement).value);
                 applyCustomCss();
             },
             single: true,
@@ -217,128 +219,130 @@ export const TUICOptionHTML = {
             },
             single: false,
         },
-        // --------------------------------------------------------------
-        // TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX START START START
-        // --------------------------------------------------------------
-        // ".TUIC_up_down_list_to_left": {
-        //     type: "click",
-        //     function: function (event) {
-        //         const parentBox = event.currentTarget.parentElement.parentElement;
-        //         const leftBox = parentBox.children[0].children[2];
-        //         const rightBox = parentBox.children[2].children[2];
+        /*
+        * --------------------------------------------------------------
+        * TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX START START START
+        * --------------------------------------------------------------
+        ".TUIC_up_down_list_to_left": {
+            type: "click",
+            function: function (event) {
+                const parentBox = event.currentTarget.parentElement.parentElement;
+                const leftBox = parentBox.children[0].children[2];
+                const rightBox = parentBox.children[2].children[2];
 
-        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-        //         if ((selectedItem ?? "") != "") {
-        //             const selectedItemElem = rightBox.querySelector(`#${selectedItem}`);
-        //             if (selectedItemElem != null) {
-        //                 leftBox.appendChild(selectedItemElem);
-        //                 TUICOptionHTML.upDownListSetting(parentBox);
-        //             }
-        //         }
-        //     },
-        //     single: false,
-        // },
-        // ".TUIC_up_down_list_to_right": {
-        //     type: "click",
-        //     function: function (event) {
-        //         const parentBox = event.currentTarget.parentElement.parentElement;
-        //         const leftBox = parentBox.children[0].children[2];
-        //         const rightBox = parentBox.children[2].children[2];
+                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+                if ((selectedItem ?? "") != "") {
+                    const selectedItemElem = rightBox.querySelector(`#${selectedItem}`);
+                    if (selectedItemElem != null) {
+                        leftBox.appendChild(selectedItemElem);
+                        TUICOptionHTML.upDownListSetting(parentBox);
+                    }
+                }
+            },
+            single: false,
+        },
+        ".TUIC_up_down_list_to_right": {
+            type: "click",
+            function: function (event) {
+                const parentBox = event.currentTarget.parentElement.parentElement;
+                const leftBox = parentBox.children[0].children[2];
+                const rightBox = parentBox.children[2].children[2];
 
-        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-        //         if (selectedItem) {
-        //             const selectedItemElem = leftBox.querySelector(`#${selectedItem}`);
-        //             if (selectedItemElem != null) {
-        //                 rightBox.appendChild(selectedItemElem);
-        //                 TUICOptionHTML.upDownListSetting(parentBox);
-        //             }
-        //         }
-        //     },
-        //     single: false,
-        // },
-        // ".TUIC_up_down_list_to_up": {
-        //     type: "click",
-        //     function: function (event) {
-        //         const parentBox = event.currentTarget.parentElement.parentElement;
-        //         const leftBox = parentBox.children[0].children[2];
-        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-        //         if (selectedItem) {
-        //             const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+                if (selectedItem) {
+                    const selectedItemElem = leftBox.querySelector(`#${selectedItem}`);
+                    if (selectedItemElem != null) {
+                        rightBox.appendChild(selectedItemElem);
+                        TUICOptionHTML.upDownListSetting(parentBox);
+                    }
+                }
+            },
+            single: false,
+        },
+        ".TUIC_up_down_list_to_up": {
+            type: "click",
+            function: function (event) {
+                const parentBox = event.currentTarget.parentElement.parentElement;
+                const leftBox = parentBox.children[0].children[2];
+                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+                if (selectedItem) {
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
-        //             if (selectedItemIndex > 0) {
-        //                 leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
-        //                 TUICOptionHTML.upDownListSetting(parentBox);
-        //             }
-        //         }
-        //     },
-        //     single: false,
-        // },
-        // ".TUIC_up_down_list_to_down": {
-        //     type: "click",
-        //     function: function (event) {
-        //         const parentBox = event.currentTarget.parentElement.parentElement;
-        //         const leftBox = parentBox.children[0].children[2];
-        //         const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-        //         if (selectedItem) {
-        //             const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
+                    if (selectedItemIndex > 0) {
+                        leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
+                        TUICOptionHTML.upDownListSetting(parentBox);
+                    }
+                }
+            },
+            single: false,
+        },
+        ".TUIC_up_down_list_to_down": {
+            type: "click",
+            function: function (event) {
+                const parentBox = event.currentTarget.parentElement.parentElement;
+                const leftBox = parentBox.children[0].children[2];
+                const selectedItem = parentBox.getAttribute("TUICSelectedItem");
+                if (selectedItem) {
+                    const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
 
-        //             if (selectedItemIndex != -1) {
-        //                 leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
-        //                 TUICOptionHTML.upDownListSetting(parentBox);
-        //             }
-        //         }
-        //     },
-        //     single: false,
-        // },
-        // ".TUIC_up_down_list_to_default": {
-        //     type: "click",
-        //     function: function (event) {
-        //         const parentBox = event.currentTarget.parentElement.parentElement;
-        //         const leftBox = parentBox.children[0].children[2];
-        //         const rightBox = parentBox.children[2].children[2];
+                    if (selectedItemIndex != -1) {
+                        leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
+                        TUICOptionHTML.upDownListSetting(parentBox);
+                    }
+                }
+            },
+            single: false,
+        },
+        ".TUIC_up_down_list_to_default": {
+            type: "click",
+            function: function (event) {
+                const parentBox = event.currentTarget.parentElement.parentElement;
+                const leftBox = parentBox.children[0].children[2];
+                const rightBox = parentBox.children[2].children[2];
 
-        //         const settingId = parentBox.getAttribute("TUICUDBox");
-        //         TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
-        //         TUICPref.save();
-        //         parentBox.setAttribute("TUICSelectedItem", "");
-        //         const ListItem = TUICOptionHTML.upDownListItem(settingId);
-        //         let listElem;
+                const settingId = parentBox.getAttribute("TUICUDBox");
+                TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
+                TUICPref.save();
+                parentBox.setAttribute("TUICSelectedItem", "");
+                const ListItem = TUICOptionHTML.upDownListItem(settingId);
+                let listElem;
 
-        //         listElem = leftBox.children;
-        //         while (listElem.length != 0) {
-        //             listElem[0].remove();
-        //         }
+                listElem = leftBox.children;
+                while (listElem.length != 0) {
+                    listElem[0].remove();
+                }
 
-        //         listElem = TUICLibrary.HTMLParse(ListItem[0]);
-        //         while (listElem.length != 0) {
-        //             leftBox.appendChild(listElem[0]);
-        //         }
+                listElem = TUICLibrary.HTMLParse(ListItem[0]);
+                while (listElem.length != 0) {
+                    leftBox.appendChild(listElem[0]);
+                }
 
-        //         listElem = rightBox.children;
-        //         while (listElem.length != 0) {
-        //             listElem[0].remove();
-        //         }
+                listElem = rightBox.children;
+                while (listElem.length != 0) {
+                    listElem[0].remove();
+                }
 
-        //         listElem = TUICLibrary.HTMLParse(ListItem[1]);
-        //         while (listElem.length != 0) {
-        //             rightBox.appendChild(listElem[0]);
-        //         }
+                listElem = TUICLibrary.HTMLParse(ListItem[1]);
+                while (listElem.length != 0) {
+                    rightBox.appendChild(listElem[0]);
+                }
 
-        //         TUICOptionHTML.upDownListSetting(parentBox);
-        //         TUICOptionHTML.eventHandle(parentBox);
-        //     },
-        //     single: false,
-        // },
-        // --------------------------------------------------------------
-        // TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX END END END
-        // --------------------------------------------------------------
+                TUICOptionHTML.upDownListSetting(parentBox);
+                TUICOptionHTML.eventHandle(parentBox);
+            },
+            single: false,
+        },
+        * --------------------------------------------------------------
+        * TUIC SELECTBOX TUIC SELECTBOX TUIC SELECTBOX END END END
+        * --------------------------------------------------------------
+        */
         ".TUICRadio": {
             type: "change",
             function: function (event) {
                 TUICPref.set(event.currentTarget.getAttribute("name"), event.currentTarget.getAttribute("value"));
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -348,7 +352,7 @@ export const TUICOptionHTML = {
                 TUICPref.set(event.currentTarget.getAttribute("name"), event.currentTarget.getAttribute("value"));
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: false,
         },
@@ -373,7 +377,7 @@ export const TUICOptionHTML = {
                                 context.beginPath();
                                 context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
                                 localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
-                                resolve();
+                                resolve(null);
                             };
                             image.src = reader.result;
                         });
@@ -388,7 +392,7 @@ export const TUICOptionHTML = {
                 applyCustomIcon();
                 if (TUICPref.get("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
                     const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? EMPTY;
+                    document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
                 }
             },
             single: false,
@@ -408,16 +412,10 @@ export const TUICOptionHTML = {
         // ".TUICColorSettingRadio": {
         //     type: "change",
         //     function: function (event) {
-        //         //TUICLibrary.setEditingColorType(event.currentTarget.getAttribute("value"));
-
-        //         const store = useStore();
-        //         store.editingColorType = event.currentTarget.getAttribute("value");
-
-        //         //document.querySelector("#TUICColorSettingsDivBox").remove();
-        //         //TODO: Vueで更新処理
-        //         // const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList()).item(0);
-        //         // document.querySelector("#colorSettingList").appendChild(appendELement);
-        //         // TUICOptionHTML.eventHandle(appendELement);
+        //         document.querySelector("#TUICColorSettingsDivBox").remove();
+        //         const appendELement = TUICLibrary.HTMLParse(TUICOptionHTML.colorsList()).item(0);
+        //         document.querySelector("#colorSettingList").appendChild(appendELement);
+        //         TUICOptionHTML.eventHandle(appendELement);
         //     },
         //     single: false,
         // },
@@ -501,10 +499,12 @@ export const TUICOptionHTML = {
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
                 TUICObserver.titleObserverFunction();
                 if (!TUICPref.get("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
                     document.title = document.title.replace(" / Twitter", " / X");
@@ -526,7 +526,7 @@ export const TUICOptionHTML = {
                 TUICPref.save();
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
                 TUICObserver.titleObserverFunction();
                 document.querySelector(`#faviconSet`).checked = true;
                 document.querySelector(`#twitter`).checked = true;
@@ -565,10 +565,13 @@ export const TUICOptionHTML = {
                     }),
                 );
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
+
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: true,
         },
@@ -580,10 +583,13 @@ export const TUICOptionHTML = {
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
+
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
             single: true,
         },
@@ -614,12 +620,14 @@ export const TUICOptionHTML = {
                 };
                 TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
                 TUICPref.save();
-                document.querySelector("#TUIC_setting").remove();
+                if (!isSafemode) {
+                    document.querySelector("#TUIC_setting").remove();
+                }
                 TUICLibrary.getClasses.update();
                 applySystemCss();
-                TUICObserver.observerFunction();
+                TUICObserver.observerFunction(null);
             },
-            single: true,
+            single: false,
         },
     },
     // upDownListSetting(parentBox) {
