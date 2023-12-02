@@ -47,7 +47,7 @@
             </detailsBox>
 
             <detailsBox i18n="twitterIcon-settingTitle">
-                <RadioButtonList id="twitterIcon"></RadioButtonList><br />
+                <RadioButtonList id="twitterIcon"></RadioButtonList>
 
                 <br />
                 <CheckBox value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
@@ -55,7 +55,7 @@
 
                 <br />
                 <SettingSubTitle i18n="twitterIcon-usedIcon" />
-                <UploadImageFile id="IconImg" />
+                <UploadImageFile />
             </detailsBox>
 
             <detailsBox i18n="sidebarButton-settingTitle">

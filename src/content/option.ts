@@ -355,7 +355,7 @@ export const TUICOptionHTML = {
                 TUICObserver.observerFunction(null);
             },
             single: false,
-        },*/
+        },*/ /*
         ".TUICSelectImg": {
             type: "change",
             function: async function (event) {
@@ -396,7 +396,7 @@ export const TUICOptionHTML = {
                 }
             },
             single: false,
-        },
+        },*/
         // ".TUICUpDownContent": {
         //     type: "click",
         //     function: function (event) {
