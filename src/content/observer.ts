@@ -144,7 +144,7 @@ export const TUICObserver = {
                     break;
                 case "twitterIcon-X":
                     if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                        console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null))));
+                        //console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null))));
                         favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
                         //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
                     }

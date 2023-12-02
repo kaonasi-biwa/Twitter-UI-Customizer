@@ -3,7 +3,7 @@ import { TUICData } from "./data.ts";
 import { TUICObserver } from "./observer.ts";
 
 // NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
-const getPointerFromKey = (object, key) => {
+export const getPointerFromKey = (object, key) => {
     const keys = ["o", ...key.split(".").filter((k) => k !== "")];
     let pointer = { o: object };
     for (let i = 0; i < keys.length; i++) {

@@ -1,6 +1,6 @@
 <template>
     <div class="TUICCheckBoxParent">
-        <input type="checkbox" :id="value.replace(/\./g, '-_-')" :checked="TUICPref.get(value)" @change="changePref(value, $event)" />
+        <input type="checkbox" :id="value.replace(/\./g, '-_-')" ref="checkboxElem" :checked="TUICPrefStore.get(value)" @change="changePref(value, $event)" />
         <div>
             <label class="TUIC_setting_text" :for="value.replace(/\./g, '-_-')">{{ TUICI18N.get(name) }}</label>
         </div>
@@ -8,10 +8,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { TUICI18N } from "../../../content/i18n";
-import { TUICPref, TUICLibrary } from "../../../content/library";
-import { TUICObserver } from "../../../content/observer";
+import { TUICPrefStore } from "../prefStoreLib";
 
 export default defineComponent({
     props: {
@@ -24,15 +23,20 @@ export default defineComponent({
             required: true,
         },
     },
-    setup() {
-        return { TUICI18N, TUICPref };
+    setup(props) {
+        const checkboxElem = ref();
+        TUICPrefStore.watch(props.value, (checked) => {
+            console.log(props.value);
+            console.log(checkboxElem.value);
+            if (checkboxElem.value.checked != checked) {
+                checkboxElem.value.checked = checked;
+            }
+        });
+        return { TUICI18N, TUICPrefStore, checkboxElem };
     },
     methods: {
         changePref(path, event) {
-            TUICPref.set(path, event.target.checked);
-            TUICPref.save();
-            TUICLibrary.getClasses.update();
-            TUICObserver.titleObserverFunction();
+            TUICPrefStore.set(path, event.target.checked, ["classUpdate"]);
         },
     },
 });

@@ -44,6 +44,7 @@ import { useStore } from "../store";
 const ColorSettingRadio = (event) => {
     const store = useStore();
     store.editingColorType = event.currentTarget.getAttribute("value");
+    console.log(store.editingColorType);
 };
 
 export default defineComponent({
