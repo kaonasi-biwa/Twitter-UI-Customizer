@@ -40,9 +40,6 @@ import ColorSetting from "./ColorSetting.vue";
 //     }
 //     return returnItem;
 // },
-
-import { useStore } from "../store";
-
 export default defineComponent({
     components: {
         ColorSetting,
@@ -54,14 +51,13 @@ export default defineComponent({
         },
     },
     setup(props) {
-        const store = useStore();
         const _color = computed(() => {
             return TUICData.colors[props.id];
         });
         const typeColor = computed(() => {
             return _color.value["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
         });
-        return { typeColor, TUICLibrary, TUICPref, store, _color };
+        return { typeColor, TUICLibrary, TUICPref, _color };
     },
 });
 </script>

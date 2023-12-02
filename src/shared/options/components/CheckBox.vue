@@ -14,7 +14,6 @@ import { TUICPref, TUICLibrary } from "../../../content/library";
 import { TUICObserver } from "../../../content/observer";
 
 export default defineComponent({
-    //チェックボックスの一行。(id:設定のid value:Boolで値 name:設定の名前 type:設定の分類)
     props: {
         name: {
             type: String,
