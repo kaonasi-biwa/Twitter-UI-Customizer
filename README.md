@@ -36,16 +36,16 @@ GitHub:
 -   @GrapeApple0 (クライアント名表示)
 -   @Taka005 (ソースコードの整理)
 -   @Hibi-10000 (アメリカ英語の翻訳・CRXリリース)
--   @KotoneFami (機能追加・リファクタリング)
+-   @KotoneFami (機能追加やソースコードの整理など)
 -   @nakasyou (デザインの改良・機能追加)
 -   @surapunoyousei (デバッグしやすく)
 -   @typeling1578 (リファクタリング)
 -   @regularenthropy (リファクタリング・パフォーマンス向上)
 -   @GreenDotBlue99 (タブの固定機能)
+-   @nyanrus (韓国語の翻訳者や設定画面の改良)
 
 Crowdin:
 
--   @nyanrus (韓国語と英語の翻訳)
 -   @loading_yt (中国語の翻訳)
 -   @hibi_10000 (英語の翻訳)
 -   @enthropyreg (ロシア語とウクライナ語の翻訳)
