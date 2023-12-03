@@ -17,6 +17,9 @@
 .TUIC_ISNOTDEFAULT:not(:last-of-type) {
     margin-bottom: calc(12px + 1em);
 }
+.TUIC_ISNOTDEFAULT + .TUICDefaultColor {
+    display: none;
+}
 
 /* 色選択 */
 .TUIC_setting_color_colmn {

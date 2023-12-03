@@ -19,27 +19,6 @@ import { TUICPref } from "../../../content/library";
 
 import ColorSetting from "./ColorSetting.vue";
 
-//色の設定のひとまとまり(id:色のID。種類・色はTUICPrefから自動補完される)
-// threeColorSetting: function (id) {
-//     let returnItem = "";
-//     if (TUICData.colors[id]["background"]) {
-//         returnItem += this.colorSetting(id, "background", TUICLibrary.color.getColorFromPref(id, "background", TUICLibrary.getEditingColorType()), "settingUI-colorPicker-background", !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.background, TUICLibrary.getEditingColorType());
-//     }
-//     if (TUICData.colors[id]["border"]) {
-//         returnItem += this.colorSetting(id, "border", TUICLibrary.color.getColorFromPref(id, "border", TUICLibrary.getEditingColorType()), "settingUI-colorPicker-border", !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.border, TUICLibrary.getEditingColorType());
-//     }
-//     if (TUICData.colors[id]["color"]) {
-//         returnItem += this.colorSetting(
-//             id,
-//             "color",
-//             TUICLibrary.color.getColorFromPref(id, "color", TUICLibrary.getEditingColorType()),
-//             TUICData.colors[id]?.typeColor == "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor",
-//             !!TUICPref.get(TUICLibrary.getEditingColorType())?.[id]?.color,
-//             TUICLibrary.getEditingColorType(),
-//         );
-//     }
-//     return returnItem;
-// },
 export default defineComponent({
     components: {
         ColorSetting,
@@ -51,12 +30,8 @@ export default defineComponent({
         },
     },
     setup(props) {
-        const _color = computed(() => {
-            return TUICData.colors[props.id];
-        });
-        const typeColor = computed(() => {
-            return _color.value["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
-        });
+        const _color = TUICData.colors[props.id];
+        const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
         return { typeColor, TUICLibrary, TUICPref, _color };
     },
 });
