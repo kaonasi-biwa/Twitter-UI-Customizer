@@ -19,7 +19,7 @@ const r = (str: string): string => {
     return resolve(__dirname, str);
 };
 
-export default defineConfig(({ command, mode, ssrBuild }) => {
+export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
     json = {
         root,
