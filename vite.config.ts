@@ -29,7 +29,7 @@ export default defineConfig(({ command, mode }) => {
             emptyOutDir: false,
             sourcemap: true,
             // outDir,
-            target: "es2020",
+            target: "es2022",
             assetsInlineLimit: 0,
 
             rollupOptions: {
