@@ -1,10 +1,10 @@
 import fs from "fs/promises";
 import fsSync from "fs";
-import { parse } from "jsonc-parser";
+import manifest from "./manifest.config.js";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
-    const config = parse((await fs.readFile("./manifestConfigs.jsonc", "utf8")).toString());
+    const config = manifest;
 
     const targets = Object.keys(config).filter((k) => k !== "common");
     const target = process.argv[2];
