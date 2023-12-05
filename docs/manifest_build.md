@@ -7,7 +7,7 @@
 
 ## manifest.json生成スクリプト
 
-`node ./manifestChange.mjs <引数>`  
+`node ./npm-scripts/manifestChange.mjs <引数>`  
 で使います  
 引数によってどのmanifest.jsonを使うかが変わります  
 以下のとおりです  

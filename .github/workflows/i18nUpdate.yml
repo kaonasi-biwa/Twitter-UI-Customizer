@@ -21,7 +21,7 @@ jobs:
               run: |
                   git config --global user.name  "github-actions[bot]"
                   git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  pnpm --package node-fetch -c dlx "git pull && node ./updateI18n.mjs"
+                  pnpm --package node-fetch -c dlx "git pull && node ./npm-scripts/updateI18n.mjs"
 
                   if [ -z "$(git status --porcelain)" ]; then
                     echo "No ti18n changes"

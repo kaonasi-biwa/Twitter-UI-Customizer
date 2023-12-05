@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import fsSync from "fs";
-import manifest from "./manifest.config.js";
+import manifest from "../manifest.config.js";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
