@@ -120,7 +120,7 @@ Crowdinで試験的にやってみています！
 
 **Chromium、またはFirefoxでのデバッグの詳細は [`docs/vite_build`](./docs/vite_build.md)を御覧ください。**
 
-manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/wiki/manifest.json%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を見てください！
+manifest.jsonなどのデバッグ・ソースコードの情報は[`docs/manifest_build`](./docs/manifest_build.md)を見てください！
 
 **重要**: Firefox ブラウザーが事前にインストールされている必要があります。  
 また、新しいプロファイルを "about:profiles" で "development" という名前で作成する必要があります。  
