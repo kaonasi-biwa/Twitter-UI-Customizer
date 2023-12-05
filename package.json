@@ -1,23 +1,23 @@
 {
     "scripts": {
-        "build": "yarn build:firefox",
-        "build:pre:firefox": "yarn build:gen_manifest firefox && yarn build:copy_assets",
-        "build:pre:chromium": "yarn build:gen_manifest chrome && yarn build:copy_assets",
-        "build:firefox": "yarn build:pre:firefox & vite build --mode firefox",
-        "build:chromium": "yarn build:pre:chromium & vite build --mode chromium",
+        "build": "pnpm build:firefox",
+        "build:pre:firefox": "pnpm build:gen_manifest firefox && pnpm build:copy_assets",
+        "build:pre:chromium": "pnpm build:gen_manifest chrome && pnpm build:copy_assets",
+        "build:firefox": "pnpm build:pre:firefox & vite build --mode firefox",
+        "build:chromium": "pnpm build:pre:chromium & vite build --mode chromium",
         "build:gen_manifest": "node ./manifestChange.mjs",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
-        "debug": "yarn debug:firefox",
-        "debug:firefox": "yarn build:firefox --watch",
-        "debug:chromium": "yarn build:chromium --watch",
-        "lint": "yarn lint:eslint & yarn lint:prettier & yarn lint:stylelint",
-        "lint:eslint": "yarn -s eslint --ext .js,.mjs,.ts,.vue .",
-        "lint:prettier": "yarn -s prettier --check **/*.js **/*.mjs **/*.ts **/*.vue **/*.css **/*.scss",
-        "lint:stylelint": "yarn -s stylelint **/*.{css,scss}",
-        "format": "yarn format:eslint & yarn format:prettier & yarn format:stylelint",
-        "format:eslint": "yarn -s eslint --fix --ext .js,.mjs,.ts,.vue .",
-        "format:prettier": "yarn -s prettier --write **/*.js **/*.mjs **/*.ts **/*.vue **/*.css **/*.scss",
-        "format:stylelint": "yarn -s stylelint --fix **/*.{css,scss}"
+        "debug": "pnpm debug:firefox",
+        "debug:firefox": "pnpm build:firefox --watch",
+        "debug:chromium": "pnpm build:chromium --watch",
+        "lint": "pnpm lint:eslint & pnpm lint:prettier & pnpm lint:stylelint",
+        "lint:eslint": "eslint --ext .js,.mjs,.ts,.vue .",
+        "lint:prettier": "prettier --check **/*.js **/*.mjs **/*.ts **/*.vue **/*.css **/*.scss",
+        "lint:stylelint": "stylelint **/*.{css,scss}",
+        "format": "pnpm format:eslint & pnpm format:prettier & pnpm format:stylelint",
+        "format:eslint": "eslint --fix --ext .js,.mjs,.ts,.vue .",
+        "format:prettier": "prettier --write **/*.js **/*.mjs **/*.ts **/*.vue **/*.css **/*.scss",
+        "format:stylelint": "stylelint --fix **/*.{css,scss}"
     },
     "dependencies": {
         "@types/chrome": "^0.0.253",
@@ -52,5 +52,9 @@
         "vite-svg-loader": "^5.1.0",
         "vue-tsc": "^1.8.24",
         "web-ext": "^7.9.0"
+    },
+    "engines": {
+        "node": ">=20.9.0",
+        "pnpm": ">=8.11.0"
     }
 }

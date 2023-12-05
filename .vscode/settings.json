@@ -25,7 +25,7 @@
     "prettier.singleQuote": false,
     "prettier.endOfLine": "auto",
     "prettier.printWidth": 300,
-    "stylelint.packageManager": "yarn",
+    "stylelint.packageManager": "pnpm",
     "stylelint.snippet": ["css", "scss"],
     "stylelint.validate": ["css", "scss"],
     "[css]": {

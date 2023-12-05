@@ -24,6 +24,10 @@ Chromiumの場合は、
 
 ## 貢献者様へ
 
+**パッケージマネージャーをpnpmに変更しました！**  
+yarnを使用していた方は、pnpmをインストールして`node_modules`を削除した上で  
+`pnpm i --frozen-lockfile`を実行してください。
+
 **ビルドツール Vite導入により、デバッグ方法が変わりました！**  
 ビルド及びデバッグ方法については、このREADME下部及び[docs/vite_build](./docs/vite_build.md)を御覧ください。  
 この変更は2023年9月2日からの適用です。
@@ -124,27 +128,27 @@ manifest.jsonなどのデバッグ・ソースコードの情報は[Wiki](https:
 
 ```bash
 
-yarn
+pnpm i
 
 ## Firefox でデバッグする場合（引数なしの場合はデフォルトで Firefox でデバッグします）
-yarn debug
+pnpm debug
 
 # or
-yarn debug:firefox
+pnpm debug:firefox
 
 ## Chrome でデバッグする場合
-yarn debug:chromium
+pnpm debug:chromium
 
 ## Firefox または Firefox 系ブラウザーでデバッグする場合
 
 # .env.local で `TUIC_WEBEXT_FIREFOX_EXECUTABLE`を使いたいFirefoxの経路に設定した後に
-yarn debug:firefox
+pnpm debug:firefox
 
 # 例
 # TUIC_WEBEXT_FIREFOX_EXECUTABLE="C:\Program Files\Firefox Developer Edition\firefox.exe"
 # プロファイルでエラーが出る場合や直接指定したい場合
 # TUIC_WEBEXT_FIREFOX_PROFILE="C:\Users\user\AppData\Roaming\Mozilla\Firefox\Profiles\h6jvvuqd.dev_tuic"
-yarn debug:firefox
+pnpm debug:firefox
 
 ```
 
