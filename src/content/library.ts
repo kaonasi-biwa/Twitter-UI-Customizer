@@ -45,15 +45,21 @@ export const TUICLibrary = {
     },
     getClasses: {
         update: () => {
+            TUICObserver.observer.disconnect();
             TUICLibrary.getClasses.deleteClasses();
             applySystemCss();
             TUICObserver.observerFunction(null);
         },
         deleteClasses: () => {
             for (const id of TUICLibrary.getClasses.idList) {
+                let elem = document.querySelector("." + id);
+                while (elem) {
+                    elem.classList.remove(id);
+                    elem = document.querySelector("." + id);
+                } /*
                 for (const elem of document.getElementsByClassName(id)) {
                     elem.classList.remove(id);
-                }
+                }*/
             }
         },
         idList: [

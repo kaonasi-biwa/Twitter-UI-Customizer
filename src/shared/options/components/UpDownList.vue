@@ -1,11 +1,13 @@
 <template>
-    <div style="display: flex" :TUICUDBox="id" TUICSelectedItem="">
+    <div style="display: flex" :TUICUDBox="id">
         <div style="flex: 1 2; width: 50px">
             <h2 style="font-size: 15px" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text TUICUpDownTitle">
                 {{ TUICI18N.get("settingUI-upDownList-visible") }}
             </h2>
             <div id="TUIC_visible" class="TUIC_selectbox TUICSelectBox-left" :style="{ '--contentCount': _contentCount }">
-                <UpDownButtons :id="id" :settings="list" />
+                <div v-for="i in list" :key="i" :value="i" :id="i" class="TUICUpDownContent" @click="clickEv(i)" :TUICSelectedUpDownContent="i === selectedElem">
+                    <span>{{ TUICI18N.get(TUICData.settings[id].i18n[i]) }}</span>
+                </div>
             </div>
         </div>
         <div class="UpDownButtons" style="text-align: center; width: 30px">
@@ -20,14 +22,19 @@
                 {{ TUICI18N.get("settingUI-upDownList-invisible") }}
             </h2>
             <div id="TUIC_invisible" class="TUIC_selectbox TUICSelectBox-right" :style="{ '--contentCount': _contentCount }">
-                <UpDownButtons
-                    :id="id"
-                    :settings="
-                        TUICData.settings[id].all.filter((value) => {
-                            return !list.includes(value);
-                        })
-                    "
-                />
+                <div
+                    v-for="i in TUICData.settings[id].all.filter((value) => {
+                        return !list.includes(value);
+                    })"
+                    :key="i"
+                    :value="i"
+                    :id="i"
+                    class="TUICUpDownContent"
+                    @click="clickEv(i)"
+                    :TUICSelectedUpDownContent="i === selectedElem"
+                >
+                    <span>{{ TUICI18N.get(TUICData.settings[id].i18n[i]) }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -35,8 +42,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-
-import UpDownButtons from "./UpDownButtons.vue";
 
 // new URL("./img.png", import.meta.url).href;
 
@@ -52,181 +57,43 @@ import { TUICI18N } from "../../../content/i18n.js";
 import { TUICData } from "../../../content/data.js";
 import { TUICPref } from "../../../content/library.js";
 
-// const funcs = {
-//     ToLeft: {},
-//     ToRight: {},
-//     ToUp: {},
-//     ToDown: {},
-//     upDownListSetting(parentBox) {
-//         const id = parentBox.getAttribute("TUICUDBox");
-//         const visible_button_list = [];
-//         const visibleButtonsT = parentBox.children[0].children[2].querySelectorAll(".TUICUpDownContent");
-//         for (let i = 0; i < visibleButtonsT.length; i++) {
-//             visible_button_list.push(visibleButtonsT[i].id);
-//         }
-//         TUICPref.set(id, visible_button_list);
-//         TUICPref.save();
-//         TUICLibrary.getClasses.update();
-//         applySystemCss();
-//     },
-//     ".TUIC_up_down_list_to_left": {
-//         type: "click",
-//         function: function (event) {
-//             const parentBox = event.currentTarget.parentElement.parentElement;
-//             const leftBox = parentBox.children[0].children[2];
-//             const rightBox = parentBox.children[2].children[2];
-
-//             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-//             if ((selectedItem ?? "") != "") {
-//                 const selectedItemElem = rightBox.querySelector(`#${selectedItem}`);
-//                 if (selectedItemElem != null) {
-//                     leftBox.appendChild(selectedItemElem);
-//                     TUICOptionHTML.upDownListSetting(parentBox);
-//                 }
-//             }
-//         },
-//         single: false,
-//     },
-//     ".TUIC_up_down_list_to_right": {
-//         type: "click",
-//         function: function (event) {
-//             const parentBox = event.currentTarget.parentElement.parentElement;
-//             const leftBox = parentBox.children[0].children[2];
-//             const rightBox = parentBox.children[2].children[2];
-
-//             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-//             if (selectedItem) {
-//                 const selectedItemElem = leftBox.querySelector(`#${selectedItem}`);
-//                 if (selectedItemElem != null) {
-//                     rightBox.appendChild(selectedItemElem);
-//                     TUICOptionHTML.upDownListSetting(parentBox);
-//                 }
-//             }
-//         },
-//         single: false,
-//     },
-//     ".TUIC_up_down_list_to_up": {
-//         type: "click",
-//         function: function (event) {
-//             const parentBox = event.currentTarget.parentElement.parentElement;
-//             const leftBox = parentBox.children[0].children[2];
-//             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-//             if (selectedItem) {
-//                 const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
-
-//                 if (selectedItemIndex > 0) {
-//                     leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex - 1]);
-//                     TUICOptionHTML.upDownListSetting(parentBox);
-//                 }
-//             }
-//         },
-//         single: false,
-//     },
-//     ".TUIC_up_down_list_to_down": {
-//         type: "click",
-//         function: function (event) {
-//             const parentBox = event.currentTarget.parentElement.parentElement;
-//             const leftBox = parentBox.children[0].children[2];
-//             const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-//             if (selectedItem) {
-//                 const selectedItemIndex = Array.from(parentBox.querySelectorAll(".TUICUpDownContent")).findIndex((list) => list === leftBox.querySelector(`#${selectedItem}`));
-
-//                 if (selectedItemIndex != -1) {
-//                     leftBox.insertBefore(leftBox.children[selectedItemIndex], leftBox.children[selectedItemIndex].nextSibling.nextSibling);
-//                     TUICOptionHTML.upDownListSetting(parentBox);
-//                 }
-//             }
-//         },
-//         single: false,
-//     },
-//     ".TUIC_up_down_list_to_default": {
-//         type: "click",
-//         function: function (event) {
-//             const parentBox = event.currentTarget.parentElement.parentElement;
-//             const leftBox = parentBox.children[0].children[2];
-//             const rightBox = parentBox.children[2].children[2];
-
-//             const settingId = parentBox.getAttribute("TUICUDBox");
-//             TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
-//             TUICPref.save();
-//             parentBox.setAttribute("TUICSelectedItem", "");
-//             const ListItem = TUICOptionHTML.upDownListItem(settingId);
-//             let listElem;
-
-//             listElem = leftBox.children;
-//             while (listElem.length != 0) {
-//                 listElem[0].remove();
-//             }
-
-//             listElem = TUICLibrary.HTMLParse(ListItem[0]);
-//             while (listElem.length != 0) {
-//                 leftBox.appendChild(listElem[0]);
-//             }
-
-//             listElem = rightBox.children;
-//             while (listElem.length != 0) {
-//                 listElem[0].remove();
-//             }
-
-//             listElem = TUICLibrary.HTMLParse(ListItem[1]);
-//             while (listElem.length != 0) {
-//                 rightBox.appendChild(listElem[0]);
-//             }
-
-//             TUICOptionHTML.upDownListSetting(parentBox);
-//             TUICOptionHTML.eventHandle(parentBox);
-//         },
-//         single: false,
-//     },
-// };
-
 import { TUICLibrary } from "../../../content/library.js";
-import { applySystemCss } from "../../../content/applyCSS.js";
-import { useStore } from "../store.js";
 
 export default defineComponent({
-    components: { UpDownButtons },
     props: ["id"],
     setup(props) {
         const list = ref([]);
         list.value = TUICPref.get(props.id);
+        const selectedElem = ref("");
 
-        const apply2Settings = (parentElem) => {
-            const id = parentElem.getAttribute("TUICUDBox");
+        const clickEv = (selectItem) => {
+            selectedElem.value = selectItem;
+        };
+
+        const apply2Settings = () => {
+            const id = props.id;
             TUICPref.set(id, list.value);
             TUICPref.save();
             TUICLibrary.getClasses.update();
-            applySystemCss();
         };
 
-        const toLeft = (event) => {
-            const parentBox = event.currentTarget.parentElement.parentElement;
-
-            const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-            list.value.push(selectedItem);
-
-            apply2Settings(parentBox);
-            const store = useStore();
-            store.selectedElem = parentBox.getAttribute("TUICSelectedItem");
+        const toLeft = () => {
+            if (selectedElem.value && !list.value.includes(selectedElem.value)) {
+                list.value.push(selectedElem.value);
+                apply2Settings();
+            }
         };
 
-        const toRight = (event) => {
-            const parentBox = event.currentTarget.parentElement.parentElement;
-
-            const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-            list.value = list.value.filter((v) => v !== selectedItem);
-
-            apply2Settings(parentBox);
-            const store = useStore();
-            store.selectedElem = parentBox.getAttribute("TUICSelectedItem");
+        const toRight = () => {
+            if (selectedElem.value && list.value.includes(selectedElem.value)) {
+                list.value = list.value.filter((v) => v !== selectedElem.value);
+                apply2Settings();
+            }
         };
 
-        const toUp = (event) => {
-            const parentBox = event.currentTarget.parentElement.parentElement;
-
-            const leftBox = parentBox.querySelector(".TUICSelectBox-left");
-            const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-            if (leftBox.querySelector(`#${selectedItem}`)) {
+        const toUp = () => {
+            const selectedItem = selectedElem.value;
+            if (selectedItem && list.value.includes(selectedItem)) {
                 const idx = list.value.findIndex((v) => v === selectedItem);
                 if (idx > 0) {
                     const upper = list.value[idx - 1];
@@ -234,16 +101,13 @@ export default defineComponent({
                     list.value.splice(idx - 1, 1, under);
                     list.value.splice(idx, 1, upper);
                 }
-                apply2Settings(parentBox);
+                apply2Settings();
             }
         };
 
-        const toDown = (event) => {
-            const parentBox = event.currentTarget.parentElement.parentElement;
-
-            const leftBox = parentBox.querySelector(".TUICSelectBox-left");
-            const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-            if (leftBox.querySelector(`#${selectedItem}`)) {
+        const toDown = () => {
+            const selectedItem = selectedElem.value;
+            if (selectedItem && list.value.includes(selectedItem)) {
                 const idx = list.value.findIndex((v) => v === selectedItem);
                 if (idx < list.value.length - 1) {
                     const upper = list.value[idx];
@@ -251,22 +115,15 @@ export default defineComponent({
                     list.value.splice(idx, 1, under);
                     list.value.splice(idx + 1, 1, upper);
                 }
-                apply2Settings(parentBox);
+                apply2Settings();
             }
         };
 
-        const toDefault = (event) => {
-            const parentBox = event.currentTarget.parentElement.parentElement;
-
-            const settingId = parentBox.getAttribute("TUICUDBox");
-            const selectedItem = parentBox.getAttribute("TUICSelectedItem");
-            //if (selectedItem) parentBox.querySelector(`#${selectedItem}`).removeAttribute("TUICSelectedUpDownContent");
-            parentBox.setAttribute("TUICSelectedItem", "");
+        const toDefault = () => {
+            const settingId = props.id;
             list.value = structuredClone(TUICData.defaultPref[settingId]);
-            TUICPref.set(settingId, structuredClone(TUICData.defaultPref[settingId]));
-            TUICPref.save();
-            const store = useStore();
-            store.selectedElem = "";
+            selectedElem.value = "";
+            apply2Settings();
         };
 
         const UpdownButtonFuncs = [
@@ -306,7 +163,7 @@ export default defineComponent({
         if (UDALL.length > 5) {
             _contentCount = UDALL.length;
         }
-        return { UpdownButtonFuncs, TUICI18N, TUICData, TUICPref, _contentCount, list };
+        return { UpdownButtonFuncs, TUICI18N, TUICData, TUICPref, _contentCount, list, selectedElem, clickEv };
     },
 });
 </script>
