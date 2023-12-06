@@ -94,7 +94,7 @@ export const TUICData = {
             },
         },
         sidebarButtons: {
-            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "circles", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock"],
+            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock"],
             i18n: {
                 home: "sidebarButtons-home",
                 explore: "sidebarButtons-explore",
@@ -106,7 +106,6 @@ export const TUICData = {
                 moremenu: "sidebarButtons-moremenu",
                 topics: "sidebarButtons-topics",
                 lists: "sidebarButtons-lists",
-                circles: "sidebarButtons-circles",
                 drafts: "sidebarButtons-drafts",
                 connect: "sidebarButtons-connect",
                 communitynotes: "sidebarButtons-communitynotes",
@@ -771,7 +770,6 @@ export const TUICData = {
             moremenu: `[data-testid="AppTabBar_More_Menu"]`,
             topics: `#TUICSidebar_topics`,
             lists: `#TUICSidebar_lists,[href$="/lists"]`,
-            circles: `#TUICSidebar_circles`,
             drafts: "#TUICSidebar_drafts",
             connect: "#TUICSidebar_connect",
             communitynotes: `[href="/i/communitynotes"]`,
@@ -809,9 +807,6 @@ export const TUICData = {
             /*"lists": function () {
               return TUICData.sidebarButtons.html.__base("lists",`<path d="M3 4.5C3 3.12 4.12 2 5.5 2h13C19.88 2 21 3.12 21 4.5v15c0 1.38-1.12 2.5-2.5 2.5h-13C4.12 22 3 20.88 3 19.5v-15zM5.5 4c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5v-15c0-.28-.22-.5-.5-.5h-13zM16 10H8V8h8v2zm-8 2h8v2H8v-2z"></path>`)
             },*/
-            circles: function () {
-                return TUICData.sidebarButtons.html.__base("circles", `<path d="${SIDEBAR_BUTTON_ICON.circles.unselected}"></path>`);
-            },
             /*"communities": function () {
               return TUICData.sidebarButtons.html.__base("communities",`<path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"></path>`)
             },*/
@@ -878,12 +873,6 @@ export const TUICData = {
                 e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/lists"]`);
             },
-            circles: async function (e) {
-                e?.preventDefault?.();
-                document.querySelector(`[href="/compose/tweet"]`).click();
-                await TUICData.sidebarButtons.waitSetElement(`[data-viewportview="true"] [role="button"][aria-haspopup="menu"]`);
-                await TUICData.sidebarButtons.waitSetElement(`span+[role="button"]`);
-            },
             /*"communities": function (e) {
               TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/communities"]`)
             },*/
@@ -924,7 +913,6 @@ export const TUICData = {
         tuicButtonUrl: {
             topics: `/topics`,
             lists: `/lists`,
-            circles: `/i/circles/`,
             communities: "/communities",
             connect: "/i/connect_people",
             drafts: "/compose/tweet/unsent/",
@@ -964,7 +952,6 @@ export const TUICData = {
                     return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/communities`;
                 });
             },
-            circles: "https://twitter.com/i/circles/",
             connect: "https://twitter.com/i/connect_people",
             drafts: "https://twitter.com/compose/tweet/unsent/drafts",
             display: "https://twitter.com/i/display",
