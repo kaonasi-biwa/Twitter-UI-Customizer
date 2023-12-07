@@ -5,9 +5,9 @@
 [![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
 [![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)
 [![License](https://img.shields.io/github/license/kaonasi-biwa/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE)  
-[![Firefox Browser ADD-ONS](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/)
-[![Chrome WebStore](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja)
-[![Crowdin](https://badges.crowdin.net/badge/light/crowdin-on-dark.png)](https://crowdin.com/project/twiter-ui-customizer)
+<a href="https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser ADD-ONS" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png"></a>
+<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja"><img alt="Chrome WebStore" width="191.8" height="58" src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png"></a>
+<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png"></a>
 
 [crxファイルでのインストール方法はこちら](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)  
 [情報・設定・CSS集(TwitterのUIの色を公式Twitterに近くすることも出来ます！)](https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md)
@@ -80,7 +80,8 @@ GitHub:
 
 Crowdin:
 
--   @loading_yt (中国語の翻訳)
+-   @nyanrus (韓国語と英語の翻訳)
+-   @loading_yt (簡体中国語と繁体中国語の翻訳)
 -   @hibi_10000 (英語の翻訳)
 -   @enthropyreg (ロシア語とウクライナ語の翻訳)
 -   @teamolhuang (繁体中国語の翻訳)
@@ -88,6 +89,7 @@ Crowdin:
 -   @truselya (ロシア語の翻訳)
 -   @gok7ug (トルコ語の翻訳)
 -   @saturnsoot (ドイツ語の翻訳)
+-   @yanniekwok314 (繁体中国語の翻訳)
 
 その他:
 

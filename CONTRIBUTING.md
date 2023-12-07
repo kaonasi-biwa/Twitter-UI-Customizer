@@ -3,7 +3,7 @@
 ## いるかもわからぬ翻訳者の方へ
 
 Crowdinで試験的にやってみています！  
-[![Crowdin](https://badges.crowdin.net/badge/light/crowdin-on-dark.png)](https://crowdin.com/project/twiter-ui-customizer)
+<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png"></a>
 
 ### Twitter上でのTUICの翻訳
 
