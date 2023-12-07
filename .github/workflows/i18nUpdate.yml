@@ -20,6 +20,12 @@ jobs:
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
 
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
+
             - name: Update
               run: |
                   git config --global user.name  "github-actions[bot]"

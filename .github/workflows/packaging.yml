@@ -10,6 +10,10 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
                   pnpm install --frozen-lockfile
@@ -26,6 +30,10 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
                   pnpm install --frozen-lockfile
@@ -42,6 +50,10 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
                   pnpm install --frozen-lockfile
