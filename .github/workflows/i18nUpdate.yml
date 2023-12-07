@@ -17,6 +17,9 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+
             - name: Update
               run: |
                   git config --global user.name  "github-actions[bot]"
