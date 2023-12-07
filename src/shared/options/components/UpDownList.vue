@@ -121,7 +121,7 @@ export default defineComponent({
 
         const toDefault = () => {
             const settingId = props.id;
-            list.value = structuredClone(TUICData.defaultPref[settingId]);
+            list.value = structuredClone(TUICPref.defaultPref[settingId]);
             selectedElem.value = "";
             apply2Settings();
         };

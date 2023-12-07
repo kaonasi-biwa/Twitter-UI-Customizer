@@ -195,6 +195,13 @@
     padding-bottom: 5px !important;
     margin-bottom: 5px;
 }
+.TUICEasySettingButtons {
+    width: 100%;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .TUIC_none_scroll {
     scrollbar-width: none;
