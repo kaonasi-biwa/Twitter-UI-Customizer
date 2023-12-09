@@ -45,15 +45,21 @@ export const TUICLibrary = {
     },
     getClasses: {
         update: () => {
+            TUICObserver.observer.disconnect();
             TUICLibrary.getClasses.deleteClasses();
             applySystemCss();
             TUICObserver.observerFunction(null);
         },
         deleteClasses: () => {
             for (const id of TUICLibrary.getClasses.idList) {
+                let elem = document.querySelector("." + id);
+                while (elem) {
+                    elem.classList.remove(id);
+                    elem = document.querySelector("." + id);
+                } /*
                 for (const elem of document.getElementsByClassName(id)) {
                     elem.classList.remove(id);
-                }
+                }*/
             }
         },
         idList: [
@@ -165,7 +171,7 @@ export const TUICLibrary = {
                 );
             }
 
-            TUICPref.set("", TUICLibrary.updatePref.merge(structuredClone(TUICData.defaultPref), structuredClone(TUICPref.get(""))));
+            TUICPref.set("", TUICLibrary.updatePref.merge(structuredClone(TUICPref.defaultPref), structuredClone(TUICPref.get(""))));
         },
         parallelToSerial: () => {
             TUICPref.set("CSS", localStorage.getItem("CSS"));
@@ -312,45 +318,106 @@ export const TUICLibrary = {
 };
 
 export const TUICPref = {
-    config: null,
-    get: (identifier) => {
-        TUICPref.getConfig();
-        const { object, key } = getPointerFromKey(TUICPref.config, identifier);
+    get: function (identifier) {
+        const { object, key } = getPointerFromKey(this.config, identifier);
         return object[key];
     },
-    set: (identifier, value) => {
-        TUICPref.getConfig();
+    set: function (identifier, value) {
         if (identifier == "") {
-            TUICPref.config = value;
+            this.config = value;
         } else {
-            const { object, key } = getPointerFromKey(TUICPref.config, identifier);
+            const { object, key } = getPointerFromKey(this.config, identifier);
             object[key] = value;
         }
     },
-    delete: (identifier) => {
-        TUICPref.getConfig();
-        const { object, key } = getPointerFromKey(TUICPref.config, identifier);
+    delete: function (identifier) {
+        const { object, key } = getPointerFromKey(this.config, identifier);
         delete object[key];
     },
-    save: () => {
-        TUICPref.getConfig();
-        localStorage.setItem("TUIC", JSON.stringify(TUICPref.config));
-        console.warn("saved!");
+    save: function () {
+        localStorage.setItem("TUIC", JSON.stringify(this.config));
     },
-    import: (object) => {
+    import: function (object) {
         if (typeof object === "string") {
-            TUICPref.config = JSON.parse(object);
+            this.config = JSON.parse(object);
         } else {
-            TUICPref.config = object;
+            this.config = object;
         }
     },
-    export: () => {
-        TUICPref.getConfig();
-        return JSON.stringify(TUICPref.config);
+    export: function () {
+        return JSON.stringify(this.config);
     },
-    getConfig: () => {
-        if (TUICPref.config == null) {
-            TUICPref.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICData.defaultPref));
-        }
+    defaultPref: {
+        buttonColor: {},
+        buttonColorLight: {},
+        buttonColorDark: {},
+        visibleButtons: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
+        sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "profile", "moremenu"],
+        fixEngagements: ["likes", "retweets", "quotes"],
+        invisibleItems: {
+            hideBelowDM: false,
+
+            verifiedNotifications: false,
+        },
+        profileSetting: {
+            tabs: {
+                pinnedTab: false,
+            },
+            invisible: {
+                "subscribe-profile": false,
+                profileHighlights: false,
+                profileAffiliates: false,
+                verifiedFollowerTab: false,
+            },
+        },
+        tweetDisplaySetting: {
+            "twitter-pro-promotion-btn": false,
+            "subscribe-tweets": false,
+            bottomScroll: false,
+            bottomSpace: false,
+            RTNotQuote: false,
+            noModalbottomTweetButtons: false,
+            noNumberBottomTweetButtons: false,
+            linkCopyURL: "linkCopyURL_twitter",
+            linkShareCopyURL: "linkShareCopyURL_twitter",
+        },
+        otherBoolSetting: {
+            roundIcon: true,
+            faviconSet: false,
+            placeEngagementsLink: false,
+            placeEngagementsLinkShort: false,
+            showLinkCardInfo: true,
+        },
+        sidebarSetting: {
+            buttonConfig: {
+                smallerSidebarContent: true,
+                sidebarNoneScrollbar: false,
+                birdGoBackHome: false,
+            },
+        },
+        XToTwitter: { XToTwitter: false, PostToTweet: false },
+        timeline: {
+            "osusume-user-timeline": false,
+            hideOhterRTTL: false,
+            accountStart: false,
+        },
+        twitterIcon: "nomal",
+        rightSidebar: {
+            searchBox: false,
+            verified: false,
+            trend: false,
+            osusumeUser: false,
+            links: false,
+            space: false,
+            relevantPeople: false,
+        },
+        accountSwitcher: {
+            icon: false,
+            nameID: false,
+            moreMenu: false,
+        },
+        "timeline-discoverMore": "discoverMore_nomal",
     },
+    config: null,
 };
+TUICPref.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICPref.defaultPref));

@@ -1,9 +1,9 @@
 <template>
-    <input id="TUICImportBox" class="TUICTextInput" type="text" />
-    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportWrite">
+    <input id="TUICImportBox" class="TUICTextInput" type="text" ref="importBox" />
+    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" @click="importFunc(1)">
         {{ TUICI18N.get("import-importAppend") }}
     </button>
-    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICImportReplace">
+    <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" @click="importFunc(2)">
         {{ TUICI18N.get("import-importReplace") }}
     </button>
     <div style="margin-left: 10px; margin-right: 10px">
@@ -14,13 +14,45 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 import { TUICI18N } from "../../../content/i18n";
+import { TUICPref, TUICLibrary } from "../../../content/library";
+import { TUICObserver } from "../../../content/observer";
+import { applySystemCss } from "../../../content/applyCSS";
+import { isSafemode } from "../../../content/safemode";
 
 export default defineComponent({
     setup() {
-        return { TUICI18N };
+        const importBox = ref(null);
+        const importFunc = (type) => {
+            try {
+                const importPref = JSON.parse(importBox.value.value);
+                if (type == 1) {
+                    TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                } else if (type == 2) {
+                    TUICPref.set("", TUICLibrary.updatePref.merge(structuredClone(TUICPref.defaultPref), importPref));
+                }
+
+                TUICPref.save();
+                if (isSafemode) {
+                    location.href = `${location.protocol}//${location.hostname}`;
+                } else {
+                    document.querySelector("#TUIC_setting").remove();
+                    TUICLibrary.getClasses.update();
+                    applySystemCss();
+                    TUICObserver.observerFunction(null);
+                    TUICObserver.titleObserverFunction();
+                    if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
+                        document.title = document.title.replace(" / Twitter", " / X");
+                    }
+                }
+            } catch (x) {
+                console.error(x);
+                alert("構文解析に失敗しました");
+            }
+        };
+        return { TUICI18N, importFunc, importBox };
     },
 });
 </script>

@@ -5,9 +5,7 @@ export const useStore = defineStore({
     state: () =>
         ({
             editingColorType: "buttonColor",
-            selectedElem: "",
         }) as {
             editingColorType: "buttonColor" | "buttonColorLight" | "buttonColorDark";
-            selectedElem: string;
         },
 });

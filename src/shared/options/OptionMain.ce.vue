@@ -89,7 +89,7 @@
 
             <detailsBox i18n="XToTwitter-settingTitle">
                 <CheckBoxList id="XToTwitter" /><br />
-                <button id="XToTwitterRestoreIcon" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom: 10px">
+                <button @click="XToTwitterRestoreIcon" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" style="margin-bottom: 10px">
                     {{ TUICI18N.get("XtoTwitter-twitterIcon") }}
                 </button>
             </detailsBox>
@@ -99,9 +99,7 @@
             </detailsBox>
 
             <br />
-            <button class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width default_set">
-                {{ TUICI18N.get("settingUI-restoreDefaultAll") }}
-            </button>
+            <DefaultPrefButton :class-list="['TUIC_setting_button_width']" />
             <br /><br />
 
             <detailsBox i18n="customCSS-settingTitle">
@@ -139,6 +137,8 @@ import settingColors from "./modules/settingColors.vue";
 import settingsHeader from "./modules/settingsHeader.vue";
 import SettingSubTitle from "./components/textParts/settingSubTitle.vue";
 import detailsBox from "./components/textParts/detailsBox.vue";
+import DefaultPrefButton from "./components/defaultPrefButton.vue";
+import { XToTwitterRestoreIcon } from "./scripts/changePrefScript";
 
 export default defineComponent({
     components: {
@@ -155,9 +155,10 @@ export default defineComponent({
         CheckBoxList,
         SettingSubTitle,
         detailsBox,
+        DefaultPrefButton,
     },
     setup() {
-        return { TUICI18N, TUICPref };
+        return { TUICI18N, TUICPref, XToTwitterRestoreIcon };
     },
 });
 </script>
