@@ -33,7 +33,7 @@ jobs:
 
                   pnpm install --frozen-lockfile
                   git pull
-                  node ./npm-scripts/updateI18n.mjs
+                  node ./npm-scripts/updateI18n.js
 
                   if [ -z "$(git status --porcelain)" ]; then
                     echo "No ti18n changes"

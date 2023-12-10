@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     // 共通設定
     common: {
         name: "__MSG_extensionName__",
