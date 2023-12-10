@@ -608,13 +608,6 @@ export const TUICObserver = {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-placeholder-addTweet-old");
                     }
                 }
-                // ツイート入力ダイアログの、送信先ポップアップの「Twitterサークル」の文字
-                for (const elem of getNotReplacedElements(
-                    '[role="menuitem"] > div > div > svg > g > [d="M14 6c0 2.21-1.791 4-4 4S6 8.21 6 6s1.791-4 4-4 4 1.79 4 4zm-4 5c-2.352 0-4.373.85-5.863 2.44-1.477 1.58-2.366 3.8-2.632 6.46l-.11 1.1h17.21l-.11-1.1c-.266-2.66-1.155-4.88-2.632-6.46C14.373 11.85 12.352 11 10 11zm13.759-3.83c-.355-.69-1.059-1.13-1.84-1.17-.66-.03-1.347.22-1.918.79-.573-.57-1.259-.82-1.92-.79-.781.04-1.485.48-1.84 1.17-.358.71-.339 1.62.206 2.59.541.97 1.601 1.99 3.352 2.98l.202.12.201-.12c1.751-.99 2.811-2.01 3.352-2.98.544-.97.563-1.88.205-2.59z"]',
-                ))
-                    elem.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("div + div > div > span").textContent = TUICI18N.get("sidebarButtons-circles");
-                // ツイート入力ダイアログの、送信先としてサークルが設定されているときに表示される、「Twitterサークル」の文字
-                for (const elem of getNotReplacedElements(`[aria-haspopup="menu"][role="button"][style*="border-color: rgb(0, 186, 124);"] > div > span > span`)) elem.textContent = TUICI18N.get("sidebarButtons-circles");
                 // ツイート下書き保存確認ダイアログのヘッダー
                 if (isDialog) {
                     for (const elem of getNotReplacedElements(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > h1 > span`)) {
@@ -640,17 +633,6 @@ export const TUICObserver = {
                                 elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogTitle");
                                 elem.parentElement.parentElement.querySelector(`[data-testid="confirmationSheetConfirm"] > div > span > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogConfirm");
                             }
-                        }
-                    }
-                }
-
-                // サークルツイートの下のやつ
-                const circleThumbnail = new RegExp(TUICI18N.get("XtoTwitter-PostToTweet-circleTweet-latest").replaceAll("&quot;", '"').replaceAll("(", "\\(").replaceAll(")", "\\)").replace("{screenName}", "(.*)"));
-                for (const elem of getNotReplacedElements(`[role="status"][aria-live="polite"] > [data-testid="thumbnail"] > div+div > [id] > span`)) {
-                    if (elem.textContent != " ") {
-                        const blockTextMatch = elem.textContent.match(circleThumbnail);
-                        if (blockTextMatch && blockTextMatch.length > 1) {
-                            elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-circleTweet-old").replaceAll("{screenName}", blockTextMatch[1]);
                         }
                     }
                 }

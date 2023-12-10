@@ -19,7 +19,7 @@ const r = (str: string): string => {
     return resolve(__dirname, str);
 };
 
-export default defineConfig(({ command, mode, ssrBuild }) => {
+export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
     json = {
         root,
@@ -29,7 +29,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
             emptyOutDir: false,
             sourcemap: true,
             // outDir,
-            target: "es2020",
+            target: "es2022",
             assetsInlineLimit: 0,
 
             rollupOptions: {

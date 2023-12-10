@@ -20,21 +20,22 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
+
             - name: Install ESLint & Prettier & Stylelint
               run: |
-                  yarn add --non-interactive --frozen-lockfile -D eslint
-                  yarn add --non-interactive --frozen-lockfile -D prettier
-                  yarn add --non-interactive --frozen-lockfile -D eslint-config-prettier
-                  yarn add --non-interactive --frozen-lockfile -D eslint-plugin-vue
-                  yarn add --non-interactive --frozen-lockfile -D stylelint
-                  yarn add --non-interactive --frozen-lockfile -D stylelint-config-standard-scss
-                  yarn add --non-interactive --frozen-lockfile -D @typescript-eslint/eslint-plugin
-                  yarn add --non-interactive --frozen-lockfile -D @typescript-eslint/parser
-            #      yarn add --non-interactive --frozen-lockfile -D @microsoft/eslint-formatter-sarif
-            #
+                  pnpm install --frozen-lockfile
+
             #- name: Generate SARIF file
             #  run: |
-            #      yarn lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
+            #      pnpm lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
             #  continue-on-error: true
             #
             #- name: Upload SARIF file
@@ -45,6 +46,6 @@ jobs:
 
             - name: Run ESLint & Prettier & Stylelint
               run: |
-                  yarn lint:eslint
-                  yarn lint:prettier
-                  yarn lint:stylelint
+                  pnpm lint:eslint
+                  pnpm lint:prettier
+                  pnpm lint:stylelint

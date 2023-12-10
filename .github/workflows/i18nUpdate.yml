@@ -17,13 +17,20 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
+
             - name: Update
               run: |
                   git config --global user.name  "github-actions[bot]"
                   git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  yarn add --non-interactive --frozen-lockfile -D node-fetch
-                  git pull
-                  node ./updateI18n.mjs
+                  pnpm --package node-fetch -c dlx "git pull && node ./npm-scripts/updateI18n.mjs"
 
                   if [ -z "$(git status --porcelain)" ]; then
                     echo "No ti18n changes"

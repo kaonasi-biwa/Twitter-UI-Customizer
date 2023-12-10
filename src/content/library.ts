@@ -165,10 +165,10 @@ export const TUICLibrary = {
                     TUICPref.get("visibleButtons").filter((elem) => elem != "downvote-button"),
                 );
             }
-            if (typeof TUICPref.get("sidebarButtons") == "object" && (~TUICPref.get("sidebarButtons").indexOf("verified-orgs-signup") || ~TUICPref.get("sidebarButtons").indexOf("twiter-blue"))) {
+            if (typeof TUICPref.get("sidebarButtons") == "object" && (~TUICPref.get("sidebarButtons").indexOf("verified-orgs-signup") || ~TUICPref.get("sidebarButtons").indexOf("twiter-blue") || ~TUICPref.get("sidebarButtons").indexOf("sidebarButtons-circles"))) {
                 TUICPref.set(
                     "sidebarButtons",
-                    TUICPref.get("sidebarButtons").filter((elem) => elem != "twiter-blue" && elem != "verified-orgs-signup"),
+                    TUICPref.get("sidebarButtons").filter((elem) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
                 );
             }
 
