@@ -246,7 +246,7 @@
 
 :root[tuicsettings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] nav[role="navigation"] {
     position: sticky;
-    top: 53px;
+    top: var(--TUIC-pinnedTab-top);
     z-index: 1;
     backdrop-filter: blur(12px);
     background-color: var(--TUIC-pinnedTab-background);

@@ -9,6 +9,7 @@ import TWITTER from "./icons/logo/twitter.svg?raw";
 import X from "./icons/logo/x.svg?raw";
 import EMPTY from "./icons/logo/empty.svg?url";
 import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.ts";
+import { applySystemCss } from "./applyCSS.ts";
 
 export const TUICObserver = {
     observer: null,
@@ -16,9 +17,15 @@ export const TUICObserver = {
     target: null,
     headObserver: null,
 
-    data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null },
+    data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null, fontSize1: "-1", fontSize2: null },
     observerFunction: (mutationsList) => {
         TUICObserver.observer.disconnect();
+
+        if (document.querySelector("html").style.fontSize.toString() != TUICObserver.data.fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") != TUICObserver.data.fontSize2) {
+            applySystemCss();
+            TUICObserver.data.fontSize1 = document.querySelector("html").style.fontSize.toString();
+            TUICObserver.data.fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
+        }
 
         if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
             if (!TUICObserver.iconObserver) {
