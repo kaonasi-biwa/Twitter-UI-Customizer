@@ -52,6 +52,8 @@
     "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
     "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
 
+    "tweetTopButton-settingTitle": "ツイート上ボタンの設定",
+
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
