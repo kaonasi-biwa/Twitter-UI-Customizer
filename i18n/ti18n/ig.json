@@ -1,6 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Gee ntị n'Ohere nke na-aga ugbu a",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Twiit Nzipụgharị",
     "XtoTwitter-PostToTweet-engagementsTitle": "Ntinye-uche ",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Twiit Nzipụgharị",
@@ -76,7 +75,6 @@
     "sidebarButtons-communitynotes": "Ihe Ndetu Ọgbakọ",
     "sidebarButtons-drafts": "Draftụ",
     "sidebarButtons-connect": "Jikọọ",
-    "sidebarButtons-circles": "Twitter Circle",
     "sidebarButtons-lists": "Ndepụta",
     "sidebarButtons-topics": "Isiokwu",
     "sidebarButtons-moremenu": "Ọzọ",

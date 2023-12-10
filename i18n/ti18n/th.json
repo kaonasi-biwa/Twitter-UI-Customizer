@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "ฟังการถ่ายทอดสดในพื้นที่สนทนา",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "เฉพาะผู้คนในวงในของ @{screenName} เท่านั้นที่สามารถเห็นโพสต์นี้",
-    "XtoTwitter-PostToTweet-circleTweet-old": "เฉพาะคนในวงใน Twitter ของ @{screenName} เท่านั้นที่เห็นทวีตนี้",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "รีทวีต",
     "XtoTwitter-PostToTweet-engagementsTitle": "การมีส่วนร่วม",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "รีทวีต",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "หมายเหตุจากชุมชน",
     "sidebarButtons-drafts": "แบบร่าง",
     "sidebarButtons-connect": "เชื่อมต่อ",
-    "sidebarButtons-circles": "วงใน Twitter",
     "sidebarButtons-lists": "รายชื่อ",
     "sidebarButtons-topics": "หัวข้อ",
     "sidebarButtons-moremenu": "เพิ่มเติม",

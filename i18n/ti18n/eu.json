@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Listen live in Spaces",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Bakarrik @{screenName} erabiltzailearen Twitter Circle-a ikusi dezake txio hau",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Bertxioak",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagements",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Bertxiotu",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Community Notes",
     "sidebarButtons-drafts": "Zirriborroak",
     "sidebarButtons-connect": "Konektatu",
-    "sidebarButtons-circles": "Twitter Circle",
     "sidebarButtons-lists": "Zerrendak",
     "sidebarButtons-topics": "Gaiak",
     "sidebarButtons-moremenu": "Gehiago",

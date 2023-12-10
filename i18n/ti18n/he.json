@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "האזנה במקומות חיים",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "הפוסט הזה גלוי רק לאנשים שנמצאים בקבוצה של ‎@{screenName}.",
-    "XtoTwitter-PostToTweet-circleTweet-old": "הציוץ הזה גלוי רק לאנשים שנמצאים בקבוצת Twitter של ‎@{screenName}‎",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "ציוצים מחדש",
     "XtoTwitter-PostToTweet-engagementsTitle": "פעילויות",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "צייץ מחדש",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "'הערות מהקהילה'",
     "sidebarButtons-drafts": "טיוטות",
     "sidebarButtons-connect": "התחבר",
-    "sidebarButtons-circles": "חוג המכרים בטוויטר",
     "sidebarButtons-lists": "רשימות",
     "sidebarButtons-topics": "נושאים",
     "sidebarButtons-moremenu": "עוד",

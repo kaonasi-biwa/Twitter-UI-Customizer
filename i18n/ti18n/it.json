@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Ascolta in diretta negli spazi",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Solo chi fa parte della Circle di @{screenName} può vedere questo post",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Solo chi fa parte della Twitter Circle di {screenName} può vedere questo Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interazioni",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Ritwitta",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Note della collettività",
     "sidebarButtons-drafts": "Bozze",
     "sidebarButtons-connect": "Visualizza",
-    "sidebarButtons-circles": "Twitter Circle",
     "sidebarButtons-lists": "Liste",
     "sidebarButtons-topics": "Argomenti",
     "sidebarButtons-moremenu": "Altro",

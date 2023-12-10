@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Spacesમાં લાઈવ સાંભળો",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "માત્ર @{screenName}ના સર્કલમાં રહેલા લોકો જ આ પોસ્ટને જોઈ શકે છે",
-    "XtoTwitter-PostToTweet-circleTweet-old": "માત્ર @{screenName}ના Twitter સર્કલમાં રહેલા લોકો જ આ ટ્વીટને જોઈ શકે છે",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "પુનટ્વીટ્સ",
     "XtoTwitter-PostToTweet-engagementsTitle": "જોડાણો",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "પુનટ્વીટ",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "કોમ્યુનિટી નોટ્સ",
     "sidebarButtons-drafts": "રૂપરેખાઓ",
     "sidebarButtons-connect": "જોડાણ કરો",
-    "sidebarButtons-circles": "Twitter સર્કલ",
     "sidebarButtons-lists": "યાદી",
     "sidebarButtons-topics": "વિષયો",
     "sidebarButtons-moremenu": "વધુ",

@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Ακούστε ζωντανά στους Χώρους",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Μόνο τα άτομα στον Κύκλο του @{screenName} μπορούν να δουν αυτήν την ανάρτηση",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Μόνο τα άτομα στον Κύκλο Twitter του χρήστη @{screenName} μπορούν να δουν αυτό το Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
     "XtoTwitter-PostToTweet-engagementsTitle": "Αλληλεπιδράσεις",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
@@ -85,7 +83,6 @@
     "sidebarButtons-communitynotes": "Σημειώματα κοινότητας",
     "sidebarButtons-drafts": "Πρόχειρα",
     "sidebarButtons-connect": "Σύνδεση",
-    "sidebarButtons-circles": "Κύκλος του Twitter",
     "sidebarButtons-lists": "Λίστες",
     "sidebarButtons-topics": "Θέματα",
     "sidebarButtons-moremenu": "Περισσότερα",

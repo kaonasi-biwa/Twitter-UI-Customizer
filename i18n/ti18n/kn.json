@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "ಸ್ಪೇಸಸ್‌ನಲ್ಲಿ ಲೈವ್ ಕೇಳಿ",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "ಕೇವಲ @{screenName} ಅವರ ಸರ್ಕಲ್‌ನಲ್ಲಿನ ಜನರನ್ನು ಈ ಪೋಸ್ಟ್‌ನಲ್ಲಿ ನೋಡಬಹುದು",
-    "XtoTwitter-PostToTweet-circleTweet-old": "ಕೇವಲ @{screenName} ಅವರ Twitter ಸರ್ಕಲ್‌ನಲ್ಲಿನ ಜನರರನ್ನು ಈ ಟ್ವೀಟ್‌ನಲ್ಲಿ ನೋಡಬಹುದು",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "ಮರುಟ್ವೀಟ್‌ಗಳು",
     "XtoTwitter-PostToTweet-engagementsTitle": "ತೊಡಗಿಸಿಕೊಳ್ಳುವಿಕೆಗಳು",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "ಮರುಟ್ವೀಟಿಸಿ",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "ಕಮ್ಯೂನಿಟಿ ನೋಟ್ಸ್",
     "sidebarButtons-drafts": "ಕರಡುಗಳು",
     "sidebarButtons-connect": "ಸಂಪರ್ಕಿಸು",
-    "sidebarButtons-circles": "Twitter ಸರ್ಕಲ್‌",
     "sidebarButtons-lists": "ಪಟ್ಟಿಗಳು",
     "sidebarButtons-topics": "ವಿಷಯಗಳು",
     "sidebarButtons-moremenu": "ಮತ್ತಷ್ಟು",

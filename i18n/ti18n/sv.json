@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lyssna live i områden",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Bara personer i kretsen kring @{screenName} kan se detta inlägg",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Bara personer i Twitter-kretsen kring @{screenName} kan se denna Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagemang",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweeta",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Gruppanmärkningar",
     "sidebarButtons-drafts": "Utkast",
     "sidebarButtons-connect": "Ta kontakt",
-    "sidebarButtons-circles": "Twitter-krets",
     "sidebarButtons-lists": "Listor",
     "sidebarButtons-topics": "Ämnen",
     "sidebarButtons-moremenu": "Mer",

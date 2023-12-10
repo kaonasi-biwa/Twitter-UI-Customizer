@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Dołącz do Pokoju na żywo",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Tylko osoby z kręgu użytkownika @{screenName} mogą zobaczyć ten wpis",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Tylko osoby z kręgu użytkownika @{screenName} widzą tego Tweeta",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Tweety podane dalej",
     "XtoTwitter-PostToTweet-engagementsTitle": "Zaangażowanie",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Podaj dalej",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Uwagi Społeczności",
     "sidebarButtons-drafts": "Robocze",
     "sidebarButtons-connect": "Połącz",
-    "sidebarButtons-circles": "Krąg na Twitterze",
     "sidebarButtons-lists": "Listy",
     "sidebarButtons-topics": "Tematy",
     "sidebarButtons-moremenu": "Więcej",
