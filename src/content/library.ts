@@ -84,6 +84,7 @@ export const TUICLibrary = {
             "TUICTwitterIcon_Dog",
             "TUICTwitterIcon_IconImg",
             "TUICScrollBottom",
+            "TUICDMIcon",
         ],
     },
     updatePref: {
@@ -415,6 +416,9 @@ export const TUICPref = {
             icon: false,
             nameID: false,
             moreMenu: false,
+        },
+        dmPage: {
+            showIcon: false,
         },
         "timeline-discoverMore": "discoverMore_nomal",
     },

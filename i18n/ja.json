@@ -138,6 +138,9 @@
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
 
+    "dmPage-settingTitle": "ダイレクトメッセージの設定",
+    "dmPage-showIcon": "対個人のダイレクトメッセージでも相手のアイコンを表示する",
+
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",
     "export-exportButtonCopy": "エクスポートした設定をコピー",

@@ -62,6 +62,7 @@ export const TUICObserver = {
         TUICObserver.functions.showLinkCardInfo();
 
         TUICObserver.functions.osusumeUser();
+        TUICObserver.functions.dmPage();
         TUICObserver.functions.replacePost();
         TUICObserver.functions.invisibleItems();
 
@@ -925,6 +926,35 @@ export const TUICObserver = {
                             SVGElem.setAttribute("d", HOME_ICON.latest);
                         }
                     }
+                }
+            }
+        },
+        dmPage: function () {
+            if (TUICPref.get("dmPage.showIcon")) {
+                if (
+                    document.querySelector(
+                        `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
+                    )
+                ) {
+                    for (const elem of document.querySelectorAll(`[data-testid="messageEntry"]:not([role="button"]):not(.TUICDMIcon)`)) {
+                        elem.classList.add("TUICDMIcon");
+                        if (elem.parentElement.querySelector(`[data-testid="messageEntry"] > div > div+div+div:not(.TUICDMIconBox)`)) {
+                            continue;
+                        }
+                        const oldElem = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div > div+div+div.TUICDMIconBox`);
+                        if (oldElem) {
+                            oldElem.remove();
+                        }
+
+                        const elemParent = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div`);
+                        elemParent.appendChild(TUICData.dmPage.element.make(elem.parentElement.parentElement.nextElementSibling && elem.parentElement.parentElement.nextElementSibling.querySelector(`[data-testid="messageEntry"]:not([role="button"])`)));
+                    }
+                }
+            } else {
+                let elem = document.querySelector(`.TUICDMIconBox`);
+                while (elem) {
+                    elem.remove();
+                    elem = document.querySelector(`.TUICDMIconBox`);
                 }
             }
         },
