@@ -355,6 +355,10 @@ export const TUICPref = {
         visibleButtons: ["reply-button", "retweet-button", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy"],
         sidebarButtons: ["home", "explore", "communities", "notifications", "messages", "lists", "bookmarks", "profile", "moremenu"],
         fixEngagements: ["likes", "retweets", "quotes"],
+        tweetTopButton: ["moreMenu"],
+        tweetTopButtonBool: {
+            noModalbottomTweetButtons: false,
+        },
         invisibleItems: {
             hideBelowDM: false,
 

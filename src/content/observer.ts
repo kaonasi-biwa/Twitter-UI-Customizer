@@ -386,9 +386,45 @@ export const TUICObserver = {
                                 lastButton.classList.add("r-1rq6c10");
                                 lastButton.classList.add("r-1b7u577");
 
-                                for (let i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
-                                    if (!TUICPref.get("visibleButtons").includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
-                                        bar_item[TUICData.settings.visibleButtons.all[i]].classList.add("TUIC_DISPNONE");
+                                for (const i of TUICData.settings.visibleButtons.all) {
+                                    if (!TUICPref.get("visibleButtons").includes(i) && i in bar_item) {
+                                        bar_item[i].classList.add("TUIC_DISPNONE");
+                                    }
+                                }
+
+                                if (elem.querySelector(TUICData.tweetTopButton.selector.moreMenu)) {
+                                    let isFirst = true;
+                                    const tweetTopButtons = {};
+                                    const tweetTopParent = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu).parentElement;
+                                    const marginSize = TUICLibrary.fontSizeClass("20px", "20px", "20px", "20px", "20px");
+                                    for (const i of TUICData.settings.tweetTopButton.all) {
+                                        const div = elem.querySelector(TUICData.tweetTopButton.selector[i]);
+                                        if (div) {
+                                            tweetTopButtons[i] = div;
+                                        }
+                                    }
+                                    for (const i of TUICPref.get("tweetTopButton")) {
+                                        let div = null;
+                                        if (i in tweetTopButtons) {
+                                            div = tweetTopButtons[i];
+                                            div.classList.remove("TUIC_DISPNONE");
+                                        } else if (i in TUICData.tweetTopButton.buttonElement) {
+                                            div = TUICData.tweetTopButton.buttonElement[i](elem.querySelector(TUICData.tweetTopButton.selector.moreMenu), { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle });
+                                            tweetTopButtons[i] = div;
+                                        }
+                                        if (!isFirst) {
+                                            div.style.marginLeft = marginSize;
+                                        } else {
+                                            div.style.marginLeft = "";
+                                        }
+                                        isFirst = false;
+                                        tweetTopParent.appendChild(div);
+                                    }
+
+                                    for (const i of TUICData.settings.tweetTopButton.all) {
+                                        if (!TUICPref.get("tweetTopButton").includes(i) && i in tweetTopButtons) {
+                                            tweetTopButtons[i].classList.add("TUIC_DISPNONE");
+                                        }
                                     }
                                 }
                             }

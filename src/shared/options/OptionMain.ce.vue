@@ -42,6 +42,11 @@
                 <SettingSubTitle i18n="bottomTweetButtons-settingTitle-linkCard" />
                 <CheckBox value="otherBoolSetting.showLinkCardInfo" name="bottomTweetButtons-setting-showLinkCardInfo" />
 
+                <SettingSubTitle i18n="tweetTopButton-settingTitle" />
+                <UpDownList id="tweetTopButton" />
+                <br />
+                <CheckBox value="tweetTopButtonBool.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
+
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
                 <CheckBoxList id="tweetDisplaySetting" />
             </detailsBox>
