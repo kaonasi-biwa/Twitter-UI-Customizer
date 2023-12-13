@@ -13,11 +13,11 @@
         "debug:chromium": "pnpm build:chromium --watch",
         "lint": "pnpm lint:eslint & pnpm lint:prettier & pnpm lint:stylelint",
         "lint:eslint": "eslint .",
-        "lint:prettier": "prettier --check **/*.js **/*.cjs **/*.ts **/*.vue **/*.css **/*.scss",
+        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.vue **/*.css **/*.scss",
         "lint:stylelint": "stylelint **/*.{css,scss}",
         "format": "pnpm format:eslint & pnpm format:prettier & pnpm format:stylelint",
         "format:eslint": "eslint --fix .",
-        "format:prettier": "prettier --write **/*.js **/*.cjs **/*.ts **/*.vue **/*.css **/*.scss",
+        "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.scss",
         "format:stylelint": "stylelint --fix **/*.{css,scss}"
     },
     "dependencies": {
