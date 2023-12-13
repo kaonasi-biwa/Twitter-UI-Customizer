@@ -12,11 +12,11 @@
         "debug:firefox": "pnpm build:firefox --watch",
         "debug:chromium": "pnpm build:chromium --watch",
         "lint": "pnpm lint:eslint & pnpm lint:prettier & pnpm lint:stylelint",
-        "lint:eslint": "eslint --ext .js,.cjs,.ts,.vue .",
+        "lint:eslint": "eslint .",
         "lint:prettier": "prettier --check **/*.js **/*.cjs **/*.ts **/*.vue **/*.css **/*.scss",
         "lint:stylelint": "stylelint **/*.{css,scss}",
         "format": "pnpm format:eslint & pnpm format:prettier & pnpm format:stylelint",
-        "format:eslint": "eslint --fix --ext .js,.cjs,.ts,.vue .",
+        "format:eslint": "eslint --fix .",
         "format:prettier": "prettier --write **/*.js **/*.cjs **/*.ts **/*.vue **/*.css **/*.scss",
         "format:stylelint": "stylelint --fix **/*.{css,scss}"
     },
@@ -30,6 +30,7 @@
         "webextension-polyfill": "^0.10.0"
     },
     "devDependencies": {
+        "@eslint/js": "^8.55.0",
         "@types/node": "^20.10.4",
         "@typescript-eslint/eslint-plugin": "^6.14.0",
         "@typescript-eslint/parser": "^6.14.0",
@@ -40,6 +41,7 @@
         "eslint": "^8.55.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-plugin-vue": "^9.19.2",
+        "globals": "^13.24.0",
         "node-fetch": "^3.3.2",
         "prettier": "^3.1.1",
         "sass": "^1.69.5",
