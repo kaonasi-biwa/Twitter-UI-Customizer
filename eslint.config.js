@@ -11,6 +11,14 @@ import prettier from "eslint-config-prettier";
 
 export default [
     {
+        files: ["src/**"],
+        languageOptions: {
+            globals: {
+                chrome: true,
+            },
+        },
+    },
+    {
         files: ["vite.config.ts"],
         languageOptions: {
             globals: {
@@ -24,13 +32,12 @@ export default [
         languageOptions: {
             globals: {
                 ...globals.browser,
-                chrome: true,
                 i18nApply: true,
                 process: true,
             },
             parser: vue_parser,
             parserOptions: {
-                ecmaVersion: "latest",
+                ecmaVersion: 2022,
                 sourceType: "module",
                 parser: typescript_parser,
             },
