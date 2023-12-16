@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Saurara kai tsaye a cikin Sarari",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Sake tweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Haɗin gwiwa",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Sake yin tweet",
@@ -64,7 +65,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweet",
     "sidebarButtons-muteAndBlock": "Tsit da toshe",
     "sidebarButtons-display": "Allo",
-    "sidebarButtons-verified-choose": "Tabbatacce",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Rubutun Al'umma",
     "sidebarButtons-drafts": "Shiryayyu",
     "sidebarButtons-connect": "Haɗa",
@@ -73,7 +74,6 @@
     "sidebarButtons-topics": "Batutuwa",
     "sidebarButtons-moremenu": "Ƙari",
     "sidebarButtons-profile": "Furofayil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Alamomi",
     "sidebarButtons-messages": "Saƙonni",
     "sidebarButtons-notifications": "Sanarwa",

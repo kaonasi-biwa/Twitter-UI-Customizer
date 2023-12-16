@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Escolta en directe als Espais",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Només els membres del Cercle de l'usuari @{screenName} poden veure la publicació",
     "XtoTwitter-PostToTweet-circleTweet-old": "Només els membres del cercle del Twitter de l'usuari @{screenName} poden veure el tuit.",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retuits",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tuita",
     "sidebarButtons-muteAndBlock": "Silenciament i blocatge",
     "sidebarButtons-display": "Pantalla",
-    "sidebarButtons-verified-choose": "Verificat",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Notes de la Comunitat",
     "sidebarButtons-drafts": "Esborranys",
     "sidebarButtons-connect": "Connecta",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Temes",
     "sidebarButtons-moremenu": "Més",
     "sidebarButtons-profile": "Perfil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Preferits",
     "sidebarButtons-messages": "Missatges",
     "sidebarButtons-notifications": "Notificacions",

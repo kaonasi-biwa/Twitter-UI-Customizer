@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Luister live in Spaces",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Alleen de mensen in de Circle van @{screenName} kunnen deze post bekijken",
     "XtoTwitter-PostToTweet-circleTweet-old": "Alleen de mensen in de Twitter Circle van @{screenName} kunnen deze Tweet bekijken",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweeten",
     "sidebarButtons-muteAndBlock": "Negeren en blokkeren",
     "sidebarButtons-display": "Weergave",
-    "sidebarButtons-verified-choose": "Geverifieerd",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Waarden Community-opmerkingen",
     "sidebarButtons-drafts": "Concepten",
     "sidebarButtons-connect": "Verbinden",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Onderwerpen",
     "sidebarButtons-moremenu": "Meer",
     "sidebarButtons-profile": "Profiel",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Bladwijzers",
     "sidebarButtons-messages": "Berichten",
     "sidebarButtons-notifications": "Meldingen",

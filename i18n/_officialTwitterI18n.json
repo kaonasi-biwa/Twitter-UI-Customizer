@@ -16,16 +16,14 @@
     "sidebarButtons-notifications": "eb75875e",
     "sidebarButtons-messages": "a2f81050",
     "sidebarButtons-bookmarks": "i3145aa0",
-    "sidebarButtons-twitterBlue": "ed21f886",
     "sidebarButtons-profile": "fa98627a",
     "sidebarButtons-moremenu": "gaeb997e",
     "sidebarButtons-topics": "b8533bac",
     "sidebarButtons-lists": "b0041756",
-    "sidebarButtons-circles": "d0748dae",
     "sidebarButtons-connect": "b5298d92",
     "sidebarButtons-drafts": "d4ebc798",
     "sidebarButtons-communitynotes": "a15648a4",
-    "sidebarButtons-verified-choose": "h3290872",
+    "sidebarButtons-verified-choose": "f75d1806",
     "sidebarButtons-display": "c4881c66",
     "sidebarButtons-muteAndBlock": "cbd449a0",
     "XtoTwitter-PostToTweet-tweetButton": "bea869b4",
@@ -108,6 +106,5 @@
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "bac8f4c2",
     "XtoTwitter-PostToTweet-engagementsTitle": "dbe9353e",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "d497b854",
-    "XtoTwitter-PostToTweet-circleTweet-old": "e5e32275",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "g766a06d"
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "f3839580"
 }

@@ -1,0 +1,253 @@
+.TUICTweetButtomBarBase > div > .r-13awgt0 {
+    flex: inherit !important;
+}
+
+.TUICScrollBottom {
+    padding-right: 8px;
+    margin-right: -8px;
+    padding-left: 8px;
+    margin-left: -8px;
+    padding-bottom: 16px;
+    margin-bottom: -16px;
+}
+
+.TUICScrollBottom,
+.TUICItIsBigArticlePhoto .TUICScrollBottom > div {
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+:is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
+    height: 8px;
+}
+
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+    margin: 8px;
+    background-size: cover;
+}
+
+#placeholder > :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
+    position: absolute;
+    margin: auto;
+}
+
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+    height: inherit !important;
+}
+
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] .TUICTwitterIcon_IconImg {
+    height: 40px;
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
+    mask-size: contain !important;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain !important;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+    mask-size: cover !important;
+    -webkit-mask-size: cover !important;
+}
+
+.TUICTwitterIcon_Twitter {
+    background-color: var(--twitter-twitterIcon-color);
+    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
+    mask-image: var(--TUIC-twitter-icon) !important;
+}
+
+.TUICTwitterIcon_X {
+    background-color: var(--twitter-twitterIcon-color);
+    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
+    mask-image: var(--TUIC-twitter-icon) !important;
+}
+
+#layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    width: auto !important;
+}
+
+.TUIC_SVGDISPNONE > * {
+    display: none !important;
+}
+
+.TUIC_DISPNONE_PARENT > [data-testid="ScrollSnap-prevButtonWrapper"] {
+    display: none !important;
+}
+
+[TUICDiscoberMore] {
+    padding-left: 20px;
+}
+
+[TUICDiscoberMore="false"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    /* 縦軸をセンタリングする */
+    left: 20px;
+    transform: translateY(-50%);
+    /* 縦軸をセンタリングする */
+    border: 5px solid transparent;
+    border-left: 8px solid #555;
+    /* 好みで色を変えてください */
+}
+
+[TUICDiscoberMore="true"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    border: 6px solid transparent;
+    border-top: 7px solid #555;
+    /* 好みで色を変えてください */
+}
+
+.TUIC_DISCOVERMORE {
+    display: var(--TUIC-DISCOVERMORE, block) !important;
+}
+
+.TUICSidebarSelected > div > [dir="ltr"] {
+    font-weight: 700;
+}
+
+/*
+.TUICSidebarSelected > div > div > svg{
+    stroke:currentColor;
+    stroke-width:1;
+}
+*/
+
+.TUICSidebarButton:hover > div {
+    background-color: var(--TUIC-sidebar-hover-color);
+}
+
+.TUICSidebarButton[data-focusvisible-polyfill] > div {
+    box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
+}
+
+.TUICSidebarButton {
+    text-decoration: none;
+}
+
+.TUICSidebarButton > div {
+    display: flex;
+}
+.TUICSidebarButton:active > div {
+    background-color: var(--TUIC-sidebar-active-color);
+}
+
+.TUIC_DeleteButton {
+    color: rgb(244 33 46);
+}
+
+.TUICEngagementsBox {
+    display: flex;
+}
+
+.TUICEngagementsBox > div > span {
+    transition: border-bottom 0.2s;
+}
+
+.TUICEngagementsBox > div > span:hover {
+    border-bottom: solid 0.05px;
+}
+
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div {
+    background-color: rgb(29 155 240 / 10%);
+}
+
+[tabindex="0"] > .TUIC_ButtonHover2:active > .TUIC_ButtonHover > div {
+    background-color: rgb(29 155 240 / 20%);
+}
+
+[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg {
+    color: rgb(29 155 240);
+}
+
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > svg {
+    color: rgb(29 155 240);
+}
+
+.TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div {
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+    background-color: rgb(29 155 240 / 10%);
+}
+
+.TUICButtonUnderTweet > div {
+    display: flex;
+}
+.TUICButtonUnderTweet > div > div {
+    align-items: stretch;
+    display: flex;
+}
+
+.TUIC_LinkCardInfo > a {
+    text-decoration: none;
+}
+
+.TUICTweetTopButton.css-18t94o4:hover .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 10%);
+}
+.TUICTweetTopButton.css-18t94o4:hover svg {
+    color: rgb(29 155 240);
+}
+
+.TUICTweetTopButton.css-18t94o4:focus-visible .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 10%);
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+}
+.TUICTweetTopButton.css-18t94o4:focus-visible svg {
+    color: rgb(29 155 240);
+}
+
+.TUICTweetTopButton.css-18t94o4:active .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 20%);
+}
+
+.TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+:root[TUICSettings*="|otherBoolSetting.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
+    border-radius: 9999px !important;
+}
+
+:is(
+        :root[tuicsettings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
+        :root[tuicsettings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
+        :root[tuicsettings*="|tweetDisplaySetting.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
+        :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
+        :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
+
+    ) {
+    display: none !important;
+}
+
+:root[tuicsettings*="|tweetDisplaySetting.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
+    margin-top: 0 !important;
+}
+
+:root[tuicsettings*="|sidebarSetting.buttonConfig.sidebarNoneScrollbar|"] header > div > div > div > div.r-1rnoaur {
+    overflow: clip;
+}
+
+:root[tuicsettings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] nav[role="navigation"] {
+    position: sticky;
+    top: var(--TUIC-pinnedTab-top);
+    z-index: 1;
+    backdrop-filter: blur(12px);
+    background-color: var(--TUIC-pinnedTab-background);
+}

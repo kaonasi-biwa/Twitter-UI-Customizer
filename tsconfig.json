@@ -1,8 +1,16 @@
 {
     "typeAcquisition": {
-        "include": ["@types/chrome"]
+        "include": ["@types/chrome", "vite/client"]
     },
     "compilerOptions": {
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "module": "ES2022",
+        "moduleResolution": "Bundler",
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "target": "ES2022",
+        "allowImportingTsExtensions": true,
+        "emitDeclarationOnly": true,
+        "declaration": true
     }
 }

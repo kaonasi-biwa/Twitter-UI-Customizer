@@ -18,22 +18,24 @@ jobs:
         #    actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
         steps:
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
 
             - name: Install ESLint & Prettier & Stylelint
               run: |
-                  yarn add eslint
-                  yarn add prettier
-                  yarn add eslint-config-prettier
-                  yarn add stylelint
-                  yarn add stylelint-config-standard-scss
-                  yarn add @typescript-eslint/eslint-plugin
-                  yarn add @typescript-eslint/parser
-            #      yarn add @microsoft/eslint-formatter-sarif
-            #
+                  pnpm install --frozen-lockfile
+
             #- name: Generate SARIF file
             #  run: |
-            #      yarn lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
+            #      pnpm lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
             #  continue-on-error: true
             #
             #- name: Upload SARIF file
@@ -44,5 +46,6 @@ jobs:
 
             - name: Run ESLint & Prettier & Stylelint
               run: |
-                  yarn lint
-              continue-on-error: false
+                  pnpm lint:eslint
+                  pnpm lint:prettier
+                  pnpm lint:stylelint

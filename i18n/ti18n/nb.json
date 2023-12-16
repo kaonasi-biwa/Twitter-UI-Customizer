@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lytt på direkten i områder",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Bare folk i sirkelen til @{screenName} kan se dette innlegget",
     "XtoTwitter-PostToTweet-circleTweet-old": "Denne tweeten kan bare ses av folk i Twitter-sirkelen til @{screenName}",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweet",
     "sidebarButtons-muteAndBlock": "Skjul og blokker",
     "sidebarButtons-display": "Skjerm",
-    "sidebarButtons-verified-choose": "Verifisert",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Fellesskapsmerknader",
     "sidebarButtons-drafts": "Utkast",
     "sidebarButtons-connect": "Koble til",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Emner",
     "sidebarButtons-moremenu": "Mer",
     "sidebarButtons-profile": "Profil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Bokmerker",
     "sidebarButtons-messages": "Meldinger",
     "sidebarButtons-notifications": "Varsler",

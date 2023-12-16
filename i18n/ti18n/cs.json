@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Poslouchejte živě v Prostorech",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Tento post je viditelný jen pro lidi v Kruhu uživatele @{screenName}",
     "XtoTwitter-PostToTweet-circleTweet-old": "Tento Tweet je viditelný jen pro lidi v Kruhu Twitter uživatele @{screenName}",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweety",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweetovat",
     "sidebarButtons-muteAndBlock": "Skrytí a blokování",
     "sidebarButtons-display": "Zobrazení",
-    "sidebarButtons-verified-choose": "Ověřeno",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Komunitní poznámky",
     "sidebarButtons-drafts": "Koncepty",
     "sidebarButtons-connect": "Spojit se",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Témata",
     "sidebarButtons-moremenu": "Víc",
     "sidebarButtons-profile": "Profil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Záložky",
     "sidebarButtons-messages": "Zprávy",
     "sidebarButtons-notifications": "Oznámení",

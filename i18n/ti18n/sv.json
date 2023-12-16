@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lyssna live i områden",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Bara personer i kretsen kring @{screenName} kan se detta inlägg",
     "XtoTwitter-PostToTweet-circleTweet-old": "Bara personer i Twitter-kretsen kring @{screenName} kan se denna Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweeta",
     "sidebarButtons-muteAndBlock": "Ignorera och blockera",
     "sidebarButtons-display": "Visning",
-    "sidebarButtons-verified-choose": "Verifierad",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Gruppanmärkningar",
     "sidebarButtons-drafts": "Utkast",
     "sidebarButtons-connect": "Ta kontakt",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Ämnen",
     "sidebarButtons-moremenu": "Mer",
     "sidebarButtons-profile": "Profil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Bokmärken",
     "sidebarButtons-messages": "Meddelanden",
     "sidebarButtons-notifications": "Notiser",

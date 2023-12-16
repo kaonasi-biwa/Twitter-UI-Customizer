@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Gee ntị n'Ohere nke na-aga ugbu a",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Twiit Nzipụgharị",
     "XtoTwitter-PostToTweet-engagementsTitle": "Ntinye-uche ",
@@ -71,7 +72,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Twiit",
     "sidebarButtons-muteAndBlock": "Mee ogbi ma gbochie",
     "sidebarButtons-display": "Ngosipụta",
-    "sidebarButtons-verified-choose": "Akwadoro",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Ihe Ndetu Ọgbakọ",
     "sidebarButtons-drafts": "Draftụ",
     "sidebarButtons-connect": "Jikọọ",
@@ -80,7 +81,6 @@
     "sidebarButtons-topics": "Isiokwu",
     "sidebarButtons-moremenu": "Ọzọ",
     "sidebarButtons-profile": "Profaịlụ",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Ebenrụtụakā gasị",
     "sidebarButtons-messages": "Ozi",
     "sidebarButtons-notifications": "Nziọkwa",

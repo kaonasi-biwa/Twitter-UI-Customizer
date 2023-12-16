@@ -208,5 +208,9 @@
     "optionSpecialThanks_PianoCat1010": {
         "message": "\"좋아요와 리트윗\"의 아이콘 제작자",
         "description": "設定画面のSpecial thanks(PianoCat1010さん)"
+    },
+    "optionSpecialThanks_GreenDotBlue99": {
+        "message": "탭 고정 기능",
+        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }

@@ -11,7 +11,6 @@ import { Args, WebExtRun } from "./web-ext";
 dotenv.config({ path: ".env.local" });
 
 export default async (root: string, sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
-    const webExt = await import("web-ext");
     let watch = false;
     const firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
     let firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"];
@@ -104,6 +103,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                     });
                     child.on("exit", (code) => {
                         console.log("web-ext process exited with code " + code);
+                        process.exit(code);
                     });
                     child.on("error", (err) => {
                         console.error(err);

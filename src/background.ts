@@ -16,7 +16,7 @@ const updateCheck = async () => {
         .then((res) => res.json())
         .then((json) => json.tag_name);
     const extensionVersion = browser.runtime.getManifest().version;
-    if (!browser.notifications.onClicked.hasListener(updateNotification) && githubVersion.replace(/\r?\n/g, "") != extensionVersion.replace(/\r?\n/g, "")) {
+    if (!browser.notifications.onClicked.hasListener(updateNotification) && githubVersion && extensionVersion && githubVersion.replace(/\r?\n/g, "") != extensionVersion.replace(/\r?\n/g, "")) {
         browser.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`, {
             type: "basic",
             title: browser.i18n.getMessage("extensionName"),
@@ -29,9 +29,7 @@ const updateCheck = async () => {
 };
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type == "clientInfo") {
-        deviceMessage(message.endpoint, sendResponse);
-    } else if (message.type == "update") {
+    if (message.type == "update") {
         if (message.updateType == "iconClick") browser.notifications.onClicked.removeListener(updateNotification);
         update1(message.updateType);
     } else if (message.type == "getI18n") {
@@ -55,24 +53,6 @@ const update1 = async (updateType) => {
     if (setting[updateID]) {
         updateCheck();
     }
-};
-
-const deviceMessage = async (url, res) => {
-    fetch(url, {
-        method: "GET",
-    })
-        .then((response) => {
-            if (response && response.ok) {
-                response.json().then((json) => {
-                    res(json);
-                });
-            } else {
-                res({});
-            }
-        })
-        .catch((error) => {
-            res({});
-        });
 };
 
 const returnI18n = async (res) => {

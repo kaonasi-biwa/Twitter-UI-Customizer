@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Live in Spaces anhören",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Nur Leute im Circle von @{screenName} können diesen Post sehen",
     "XtoTwitter-PostToTweet-circleTweet-old": "Nur Leute im Twitter Circle von @{screenName} können diesen Tweet sehen",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Twittern",
     "sidebarButtons-muteAndBlock": "Stummschalten und blockieren",
     "sidebarButtons-display": "Anzeige",
-    "sidebarButtons-verified-choose": "Verifiziert",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Kollektive Anmerkungen",
     "sidebarButtons-drafts": "Entwürfe",
     "sidebarButtons-connect": "Verbinden",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Themen",
     "sidebarButtons-moremenu": "Mehr",
     "sidebarButtons-profile": "Profil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Lesezeichen",
     "sidebarButtons-messages": "Nachrichten",
     "sidebarButtons-notifications": "Mitteilungen",

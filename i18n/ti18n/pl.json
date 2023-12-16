@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Dołącz do Pokoju na żywo",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Tylko osoby z kręgu użytkownika @{screenName} mogą zobaczyć ten wpis",
     "XtoTwitter-PostToTweet-circleTweet-old": "Tylko osoby z kręgu użytkownika @{screenName} widzą tego Tweeta",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Tweety podane dalej",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweet",
     "sidebarButtons-muteAndBlock": "Wyciszanie i blokowanie",
     "sidebarButtons-display": "Wygląd",
-    "sidebarButtons-verified-choose": "Zweryfikowano",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Uwagi Społeczności",
     "sidebarButtons-drafts": "Robocze",
     "sidebarButtons-connect": "Połącz",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "Tematy",
     "sidebarButtons-moremenu": "Więcej",
     "sidebarButtons-profile": "Profil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Zakładki",
     "sidebarButtons-messages": "Wiadomości",
     "sidebarButtons-notifications": "Powiadomienia",

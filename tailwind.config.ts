@@ -1,8 +1,8 @@
 import { Config } from "tailwindcss";
-module.exports = {
+export default {
     content: ["./src/**/*.{html,js,css,scss}"],
     theme: {
         extend: {},
     },
     plugins: [],
-};
+} satisfies Config;

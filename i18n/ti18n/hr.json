@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Slušanje uživo u Prostorima",
     "XtoTwitter-PostToTweet-circleTweet-old": "Taj Tweet mogu vidjeti samo osobe u krugu Twitter korisnika/ce @{screenName}",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Proslijeđeni tweetovi",
     "XtoTwitter-PostToTweet-engagementsTitle": "Angažmani",
@@ -74,7 +75,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweet",
     "sidebarButtons-muteAndBlock": "Onemogućivanje i blokiranje",
     "sidebarButtons-display": "Prikaz",
-    "sidebarButtons-verified-choose": "Provjereno",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Bilješke zajednice",
     "sidebarButtons-drafts": "Skice",
     "sidebarButtons-connect": "Povezivanje",
@@ -83,7 +84,6 @@
     "sidebarButtons-topics": "Teme",
     "sidebarButtons-moremenu": "Više",
     "sidebarButtons-profile": "Profil",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Knjižne oznake",
     "sidebarButtons-messages": "Poruke",
     "sidebarButtons-notifications": "Obavijesti",

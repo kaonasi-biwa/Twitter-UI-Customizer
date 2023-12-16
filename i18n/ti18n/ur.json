@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Spaces میں لائیو سنیں",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-circleTweet-old": "صرف @{screenName} کے Twitter Circle کے لوگ اس ٹویٹ کو دیکھ سکتے ہیں",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "ریٹویٹس",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "ٹویٹ",
     "sidebarButtons-muteAndBlock": "میوٹ اور بلاک",
     "sidebarButtons-display": "ڈسپلے",
-    "sidebarButtons-verified-choose": "تصدیق شدہ",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "کمیونٹی نوٹس",
     "sidebarButtons-drafts": "مسودہ",
     "sidebarButtons-connect": "رابطہ قائم کریں",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "موضوعات",
     "sidebarButtons-moremenu": "مزید",
     "sidebarButtons-profile": "پروفائل",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "بُک مارکس",
     "sidebarButtons-messages": "پیغامات",
     "sidebarButtons-notifications": "اطلاعات",

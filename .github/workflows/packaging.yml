@@ -8,11 +8,16 @@ jobs:
     build-firefox:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  yarn
-                  yarn build:firefox
+                  pnpm install --frozen-lockfile
+                  pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -23,11 +28,16 @@ jobs:
     build-chromium:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  yarn
-                  yarn build:chromium
+                  pnpm install --frozen-lockfile
+                  pnpm build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: Publish
               uses: actions/upload-artifact@v3
@@ -38,14 +48,19 @@ jobs:
     build-chromium-crx:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
+            - uses: actions/setup-node@v4
+              with:
+                  node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  yarn
-                  yarn build:gen_manifest chromeCRX
+                  pnpm install --frozen-lockfile
+                  pnpm build:gen_manifest chromeCRX
                   sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' ./dist/manifest.json
-                  yarn build:copy_assets
-                  yarn vite build --mode chromium
+                  pnpm build:copy_assets
+                  pnpm vite build --mode chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2

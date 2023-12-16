@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "ฟังการถ่ายทอดสดในพื้นที่สนทนา",
     "XtoTwitter-PostToTweet-circleTweet-latest": "เฉพาะผู้คนในวงในของ @{screenName} เท่านั้นที่สามารถเห็นโพสต์นี้",
     "XtoTwitter-PostToTweet-circleTweet-old": "เฉพาะคนในวงใน Twitter ของ @{screenName} เท่านั้นที่เห็นทวีตนี้",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "รีทวีต",
@@ -81,7 +82,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "ทวีต",
     "sidebarButtons-muteAndBlock": "ซ่อนและบล็อค",
     "sidebarButtons-display": "การแสดงผล",
-    "sidebarButtons-verified-choose": "ยืนยันแล้ว",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "หมายเหตุจากชุมชน",
     "sidebarButtons-drafts": "แบบร่าง",
     "sidebarButtons-connect": "เชื่อมต่อ",
@@ -90,7 +91,6 @@
     "sidebarButtons-topics": "หัวข้อ",
     "sidebarButtons-moremenu": "เพิ่มเติม",
     "sidebarButtons-profile": "ข้อมูลส่วนตัว",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "บุ๊คมาร์ก",
     "sidebarButtons-messages": "ข้อความ",
     "sidebarButtons-notifications": "การแจ้งเตือน",

@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Tẹ́tí sílẹ̀ lójú ayé nínú àwọn Ààyè",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Àwọn Rìtíwìtì",
     "XtoTwitter-PostToTweet-engagementsTitle": "Àwọn ìdásí",
@@ -71,7 +72,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Twíìtì",
     "sidebarButtons-muteAndBlock": "Múdákẹ́ kí o sì dínà",
     "sidebarButtons-display": "Ṣàfihàn",
-    "sidebarButtons-verified-choose": "Ti  jẹ́rìísí",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Àwọn Àkọsílẹ̀ Àwùjọ",
     "sidebarButtons-drafts": "Awọn atọ́kùnwò",
     "sidebarButtons-connect": "Sopọ̀",
@@ -80,7 +81,6 @@
     "sidebarButtons-topics": "Àwọn àkọ́lé",
     "sidebarButtons-moremenu": "Síwájú síi",
     "sidebarButtons-profile": "Prófáìlì",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Àwọn Búkúmáàkì",
     "sidebarButtons-messages": "Àwọn ìfiránṣẹ́",
     "sidebarButtons-notifications": "Àwọn ìfitónilétí",

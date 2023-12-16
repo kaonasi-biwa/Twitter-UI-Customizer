@@ -1,4 +1,5 @@
 {
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Ακούστε ζωντανά στους Χώρους",
     "XtoTwitter-PostToTweet-circleTweet-latest": "Μόνο τα άτομα στον Κύκλο του @{screenName} μπορούν να δουν αυτήν την ανάρτηση",
     "XtoTwitter-PostToTweet-circleTweet-old": "Μόνο τα άτομα στον Κύκλο Twitter του χρήστη @{screenName} μπορούν να δουν αυτό το Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
@@ -80,7 +81,7 @@
     "XtoTwitter-PostToTweet-tweetButton": "Tweet",
     "sidebarButtons-muteAndBlock": "Σίγαση και αποκλεισμός",
     "sidebarButtons-display": "Εμφάνιση",
-    "sidebarButtons-verified-choose": "Επαληθευμένος",
+    "sidebarButtons-verified-choose": "Premium",
     "sidebarButtons-communitynotes": "Σημειώματα κοινότητας",
     "sidebarButtons-drafts": "Πρόχειρα",
     "sidebarButtons-connect": "Σύνδεση",
@@ -89,7 +90,6 @@
     "sidebarButtons-topics": "Θέματα",
     "sidebarButtons-moremenu": "Περισσότερα",
     "sidebarButtons-profile": "Προφίλ",
-    "sidebarButtons-twitterBlue": "Twitter Blue",
     "sidebarButtons-bookmarks": "Σελιδοδείκτες",
     "sidebarButtons-messages": "Μηνύματα",
     "sidebarButtons-notifications": "Ειδοποιήσεις",
