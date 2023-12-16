@@ -11,6 +11,7 @@ export interface ButtonComponentInit {
     invertColor?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type OnclickListener = (this: GlobalEventHandlers, ev: MouseEvent) => any;
 
 /**
