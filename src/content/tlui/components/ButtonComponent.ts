@@ -46,10 +46,10 @@ export class ButtonComponent implements Component {
     /**
      * ボタンの幅を最大にするかどうか（初期値: `true`）
      */
-    get fullWidth(): boolean {
+    public get fullWidth(): boolean {
         return this.element.classList.contains("full-width");
     }
-    set fullWidth(value: boolean) {
+    public set fullWidth(value: boolean) {
         if (value) {
             this.element.classList.add("full-width");
         } else {
@@ -60,10 +60,10 @@ export class ButtonComponent implements Component {
     /**
      * ボタンの色を反転させるかどうか（初期値: `false`）
      */
-    get invertColor(): boolean {
+    public get invertColor(): boolean {
         return this.element.classList.contains("invert-color");
     }
-    set invertColor(value: boolean) {
+    public set invertColor(value: boolean) {
         if (value) {
             this.element.classList.add("invert-color");
         } else {

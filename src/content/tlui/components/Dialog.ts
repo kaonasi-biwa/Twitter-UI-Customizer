@@ -21,7 +21,7 @@ export class Dialog {
     public element: Element;
 
     /**
-     * 
+     * 要素を追加するためのコンテナ
      */
     public container: Element;
 
@@ -55,10 +55,10 @@ export class Dialog {
     /**
      * ダイアログの幅をコンテンツの幅に合わせるかどうか（初期値: `false`）
      */
-    get fitContentWidth(): boolean {
+    public get fitContentWidth(): boolean {
         return this.element.classList.contains("fit-content-width");
     }
-    set fitContentWidth(value: boolean) {
+    public set fitContentWidth(value: boolean) {
         if (value) {
             this.element.classList.add("fit-content-width");
         } else {
@@ -69,10 +69,10 @@ export class Dialog {
     /**
      * パディングをつけるかどうか（初期値: `true`）
      */
-    get hasPadding(): boolean {
+    public get hasPadding(): boolean {
         return this.element.classList.contains("has-padding");
     }
-    set hasPadding(value: boolean) {
+    public set hasPadding(value: boolean) {
         if (value) {
             this.element.classList.add("has-padding");
         } else {
@@ -84,7 +84,7 @@ export class Dialog {
      * コンポーネントを追加します。
      * @param components コンポーネント
      */
-    addComponents(components: (string | Component)[]): Dialog {
+    public addComponents(components: (string | Component)[]): Dialog {
         for (const component of components) {
             if (typeof component === "string") {
                 const p = document.createElement("p");
@@ -100,7 +100,7 @@ export class Dialog {
     /**
      * ダイアログを開きます。
      */
-    open(): Dialog {
+    public open(): Dialog {
         document.querySelector("#layers").appendChild(this.element);
         this.#refresh();
         return this;
@@ -109,7 +109,7 @@ export class Dialog {
     /**
      * ダイアログを閉じます。
      */
-    close(): Dialog {
+    public close(): Dialog {
         this.element.remove();
         this.#refresh();
         return this;
