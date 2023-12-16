@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { applyCustomCss } from "../../../content/applyCSS";
-import { TUICI18N } from "../../../content/i18n";
+import { applyCustomCss } from "@content/applyCSS";
+import { TUICI18N } from "@content/i18n";
 
 export default defineComponent({
     setup() {

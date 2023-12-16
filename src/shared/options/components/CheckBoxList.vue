@@ -6,8 +6,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
 import CheckBox from "./CheckBox.vue";
-import { TUICData } from "../../../content/data.js";
+
+import { TUICData } from "@content/data.js";
 
 export default defineComponent({
     components: { CheckBox },

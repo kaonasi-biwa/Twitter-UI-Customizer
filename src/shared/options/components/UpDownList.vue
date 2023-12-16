@@ -45,19 +45,19 @@ import { defineComponent, ref } from "vue";
 
 // new URL("./img.png", import.meta.url).href;
 
-import ARROW_LEFT from "../../../content/icons/arrow/arrow_left.svg?component";
-import ARROW_RIGHT from "../../../content/icons/arrow/arrow_right.svg?component";
-import ARROW_UP from "../../../content/icons/arrow/arrow_up.svg?component";
-import ARROW_DOWN from "../../../content/icons/arrow/arrow_down.svg?component";
-import RESET from "../../../content/icons/arrow/reset.svg?component";
+import ARROW_LEFT from "@content/icons/arrow/arrow_left.svg?component";
+import ARROW_RIGHT from "@content/icons/arrow/arrow_right.svg?component";
+import ARROW_UP from "@content/icons/arrow/arrow_up.svg?component";
+import ARROW_DOWN from "@content/icons/arrow/arrow_down.svg?component";
+import RESET from "@content/icons/arrow/reset.svg?component";
 
-// import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "../../../content/data/icons";
+// import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
-import { TUICI18N } from "../../../content/i18n.js";
-import { TUICData } from "../../../content/data.js";
-import { TUICPref } from "../../../content/library.js";
+import { TUICI18N } from "@content/i18n.js";
+import { TUICData } from "@content/data.js";
+import { TUICPref } from "@content/library.js";
 
-import { TUICLibrary } from "../../../content/library.js";
+import { TUICLibrary } from "@content/library.js";
 
 export default defineComponent({
     props: ["id"],

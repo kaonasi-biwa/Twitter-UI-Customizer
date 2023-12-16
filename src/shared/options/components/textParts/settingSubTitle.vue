@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { TUICI18N } from "../../../../content/i18n";
+import { TUICI18N } from "@content/i18n";
 export default defineComponent({
     props: ["i18n"],
     setup() {

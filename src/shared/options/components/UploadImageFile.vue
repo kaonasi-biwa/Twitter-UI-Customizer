@@ -6,11 +6,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { applyCustomIcon, applySystemCss } from "../../../content/applyCSS";
-import { TUICI18N } from "../../../content/i18n";
-import EMPTY from "../../../content/icons/logo/empty.svg?url";
+import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
+import { TUICI18N } from "@content/i18n";
+import EMPTY from "@content/icons/logo/empty.svg?url";
 
-import { TUICPref } from "../../../content/library";
+import { TUICPref } from "@content/library";
 
 export default defineComponent({
     setup() {

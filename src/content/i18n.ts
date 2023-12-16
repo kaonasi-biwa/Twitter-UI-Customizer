@@ -1,5 +1,3 @@
-import browser from "webextension-polyfill";
-
 //@ts-expect-error Vite have import.meta.glob
 const langRes = import.meta.glob(["../../i18n/*.json", "../../i18n/ti18n/*.json"], { as: "raw", eager: true });
 const i18nData = { en: {}, ja: {} };

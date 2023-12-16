@@ -129,8 +129,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { TUICI18N } from "../../content/i18n";
-import { TUICPref } from "../../content/library";
+import { TUICI18N } from "@content/i18n";
+import { TUICPref } from "@content/library";
 
 import CheckBox from "./components/CheckBox.vue";
 import UploadImageFile from "./components/UploadImageFile.vue";
@@ -147,6 +147,7 @@ import settingsHeader from "./modules/settingsHeader.vue";
 import SettingSubTitle from "./components/textParts/settingSubTitle.vue";
 import detailsBox from "./components/textParts/detailsBox.vue";
 import DefaultPrefButton from "./components/defaultPrefButton.vue";
+
 import { XToTwitterRestoreIcon } from "./scripts/changePrefScript";
 
 export default defineComponent({
