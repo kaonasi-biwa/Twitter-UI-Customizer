@@ -29,9 +29,9 @@ export default defineComponent({
             try {
                 const importPref = JSON.parse(importBox.value.value);
                 if (type == 1) {
-                    TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                    TUICPref.set("", TUICPref.merge(TUICPref.get(""), importPref));
                 } else if (type == 2) {
-                    TUICPref.set("", TUICLibrary.updatePref.merge(structuredClone(TUICPref.defaultPref), importPref));
+                    TUICPref.set("", TUICPref.merge(structuredClone(TUICPref.defaultPref), importPref));
                 }
 
                 TUICPref.save();
