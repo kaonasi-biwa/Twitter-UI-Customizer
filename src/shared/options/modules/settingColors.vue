@@ -53,14 +53,14 @@ export default defineComponent({
     setup() {
         const defaultTwitterColor = () => {
             const importPref = structuredClone(TUICData.defaultTwitterColor);
-            TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+            TUICPref.set("", TUICPref.merge(TUICPref.get(""), importPref));
             TUICPref.save();
             if (!isSafemode) {
                 document.querySelector("#TUIC_setting").remove();
             }
             TUICLibrary.getClasses.update();
         };
-        return { TUICI18N, TUICLibrary, ColorSettingRadio, defaultTwitterColor };
+        return { TUICI18N, ColorSettingRadio, defaultTwitterColor };
     },
 });
 </script>
