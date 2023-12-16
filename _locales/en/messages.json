@@ -39,23 +39,55 @@
     },
     "popupButton1": {
         "message": "Configure Twitter UI Customizer",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton2": {
         "message": "Change settings in safe mode",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton3": {
         "message": "Update Notification Settings",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton4": {
         "message": "Author (kaonasi_biwa) on Twitter",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton5": {
         "message": "Install latest version from GitHub",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "pSettings": {
+        "message": "Settings",
+        "description": "ポップアップの設定ボタン"
+    },
+    "pSettingsInSafemode": {
+        "message": "Safe mode",
+        "description": "ポップアップのセーフモードボタン"
+    },
+    "pSettingsUpdateNotification": {
+        "message": "Update Notification",
+        "description": "ポップアップのアップデート通知設定ボタン"
+    },
+    "pTwitterOfAuthor": {
+        "message": "Author (kaonasi_biwa)",
+        "description": "ポップアップの作者ボタン"
+    },
+    "pInstallFromGH": {
+        "message": "Install the latest version",
+        "description": "ポップアップのGitHubから最新版をインストールするボタン"
+    },
+    "pUpdateOnBrowserLaunch": {
+        "message": "When the browser is launched",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnClickIcon": {
+        "message": "When you click on the extension icon",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnOpenTwitter": {
+        "message": "When you open Twitter",
+        "description": "ポップアップのアップデート通知設定"
     },
     "optionTitle": {
         "message": "Settings and Operation Method(Twitter UI Customizer)",
@@ -176,5 +208,9 @@
     "optionSpecialThanks_PianoCat1010": {
         "message": "\"Like and Retweet\" Icon Author",
         "description": "設定画面のSpecial thanks(PianoCat1010さん)"
+    },
+    "optionSpecialThanks_GreenDotBlue99": {
+        "message": "Fixing Function of Tab",
+        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }

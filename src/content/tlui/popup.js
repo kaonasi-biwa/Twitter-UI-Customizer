@@ -8,16 +8,24 @@
 export class Dialog {
     /**
      * @param {string} title ダイアログのタイトル
+     * @param {{
+     *     hasPadding: boolean?;
+     *     fitContentWidth: boolean?;
+     * }} options オプション
      */
-    constructor(title) {
+    constructor(title, options = {}) {
         this.element = new DOMParser().parseFromString(`
-            <div class="tlui-dialog">
-                <div>
+            <div class="tlui tlui-dialog has-padding">
+                <div class="tlui-container">
                     <h1>${title}</h1>
                 </div>
             </div>
             `, "text/html").body.children[0];
         this.container = this.element.querySelector("div");
+
+        for (const [key, value] of Object.entries(Object.assign({}, options))) {
+            this[key] = value;
+        }
     }
 
     #refresh() {
@@ -29,7 +37,7 @@ export class Dialog {
     }
 
     /**
-     * ダイアログの幅をコンテンツの幅に合わせるかどうか（初期値: `true`）
+     * ダイアログの幅をコンテンツの幅に合わせるかどうか（初期値: `false`）
      * @type boolean
      */
     get fitContentWidth() {
@@ -44,8 +52,23 @@ export class Dialog {
     }
 
     /**
+     * パディングをつけるかどうか（初期値: `true`）
+     * @type boolean
+     */
+    get hasPadding() {
+        return this.element.classList.contains("has-padding");
+    }
+    set hasPadding(value) {
+        if (value) {
+            this.element.classList.add("has-padding");
+        } else {
+            this.element.classList.remove("has-padding");
+        }
+    }
+
+    /**
      * コンポーネントを追加します。
-     * @param components コンポーネントの配列
+     * @param {(string | Component)[]} components コンポーネント
      * @returns {Dialog}
      */
     addComponents(components) {
@@ -83,18 +106,51 @@ export class Dialog {
 }
 
 /**
+ * コンポーネント
+ */
+export class Component {
+    constructor() {
+        this.element = null;
+        // TypeScript 採用してくれたらここは interface に置き換えします…。いちいち継承クラスの constructor で super をやっていたらめんどくさいな…っていう……。
+    }
+}
+
+/**
+ * コンテナ
+ */
+export class ContainerComponent extends Component {
+    /**
+     * @param {(Node | Component)[]} elements 内包する要素
+     */
+    constructor(elements) {
+        super();
+        this.element = document.createElement("div");
+        this.element.classList.add("tlui-container");
+
+        for (const element of elements) {
+            if (element instanceof Component) {
+                this.element.appendChild(element.element);
+            } else {
+                this.element.appendChild(element);
+            }
+        }
+    }
+}
+
+/**
  * Twitterのボタン風要素
  */
-export class ButtonComponent {
+export class ButtonComponent extends Component {
     /**
      * @param {string} text ボタンテキスト
      * @param {Function} onclick クリックイベント
      * @param {{
-     *     fullWidth: boolean?
-     *     invertColor: boolean?
+     *     fullWidth: boolean?;
+     *     invertColor: boolean?;
      * }} options オプション
      */
     constructor(text, onclick, options = {}) {
+        super();
         this.element = new DOMParser().parseFromString(`
             <button type="button" class="full-width">${text}</button>
             `, "text/html").body.children[0];

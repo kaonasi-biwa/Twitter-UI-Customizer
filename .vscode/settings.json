@@ -10,11 +10,26 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
     },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "explicit"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "css.validate": false,
+    "scss.validate": false,
     "files.autoSave": "onFocusChange",
     "json.schemaDownload.enable": true,
     "prettier.tabWidth": 4,
     "prettier.semi": true,
     "prettier.singleQuote": false,
     "prettier.endOfLine": "auto",
-    "prettier.printWidth": 300
+    "prettier.printWidth": 300,
+    "stylelint.packageManager": "pnpm",
+    "stylelint.snippet": ["css", "scss"],
+    "stylelint.validate": ["css", "scss"],
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    }
 }

@@ -27,6 +27,8 @@
     "easySetting-defaultTwitterColor": "Twitterの新しい色はにもう慣れた？それなら、今の色に合わせよう！",
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
+    "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
+    "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
     "bottomTweetButtons-setting-removeSpaceBottomTweet-v2": "ツイートの内容の下に存在することがある空白を削除",
     "bottomTweetButtons-userBlock": "ユーザーをブロック",
@@ -35,10 +37,34 @@
     "bottomTweetButtons-deleteButton": "ツイートを削除",
     "bottomTweetButtons-setting-RTNotQuote": "リツイート時にメニューを表示しない",
     "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
+    "bottomTweetButtons-setting-noNumber": "ツイート拡大表示時のボタン横の数字を非表示にする",
+    "bottomTweetButtons-setting-showLinkCardInfo": "リンクカードにリンク先の情報を表示する",
+    "bottomTweetButtons-setting-placeEngagementsLink": "エンゲージメントへのリンクを置く",
+    "bottomTweetButtons-setting-placeEngagementsLink-likes": "いいねしたユーザー一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-retweets": "リツイートしたユーザー一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-quotes": "引用ツイート一覧を開く",
+    "bottomTweetButtons-setting-placeEngagementsLink-likes-short": "いいね一覧",
+    "bottomTweetButtons-setting-placeEngagementsLink-retweets-short": "リツイート一覧",
+    "bottomTweetButtons-setting-placeEngagementsLink-quotes-short": "引用ツイート一覧",
+    "bottomTweetButtons-setting-linkCopyURL-twitter": "twitter.com",
+    "bottomTweetButtons-setting-linkCopyURL-X": "x.com",
+    "bottomTweetButtons-setting-linkCopyURL-vxTwitter": "vxtwitter.com",
+    "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
+    "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
+
+    "tweetTopButton-settingTitle": "ツイート上ボタンの設定",
+
+    "fixEngagements-settingTitle": "エンゲージメントに関する設定",
+    "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
+    "sidebarButton-setting-birdGoBackHome": "ホームのアイコンを巣箱に戻す",
+    "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニューの設定",
+    "sidebarButton-accountSwitcher-Icon": "アイコンを非表示にする",
+    "sidebarButton-accountSwitcher-NameID": "ユーザー名とIDを非表示にする",
+    "sidebarButton-accountSwitcher-MoreMenu": "右端の三点を非表示にする",
 
     "rightSidebar-settingTitle": "右サイドバーの設定",
     "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
@@ -56,7 +82,14 @@
     "invisibleItems-subscribeTweets": "ツイート右上にたまにある「購入する」",
     "invisibleItems-subscribeProfile": "プロフィールのサブスクリプションボタン",
     "invisibleItems-profileHighlights": "プロフィールの「ハイライト」タブ",
+    "invisibleItems-profileAffiliates": "プロフィールの「関連アカウント」タブ",
     "invisibleItems-hideBelowDM": "画面右下に存在するDMの欄",
+    "invisibleItems-verifiedFollowerTab": "フォロワー一覧の「認証済みのフォロワー」タブ",
+    "invisibleItems-verifiedNotifications": "通知の「認証済み」タブ",
+
+    "profileSetting-settingTitle": "プロフィール周辺の設定",
+    "profileSetting-tabs-settingTitle": "タブの設定",
+    "profileSetting-tabs-pinnedTab": "タブを上部に固定する",
 
     "timeline-settingTitle": "タイムラインの設定",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
@@ -67,11 +100,6 @@
     "timeline-discoverMore-detailOpen": "折りたたみ可能にし、デフォルトは開く",
     "timeline-discoverMore-detailClose": "折りたたみ可能にし、デフォルトは閉じる",
     "timeline-discoverMore-invisible": "非表示にする",
-
-    "clientInfo-settingTitle": "クライアント情報 (廃止される可能性があります)",
-    "clientInfo-clientInfoVisible": "クライアント情報を表示",
-    "clientInfo-cannotGetInfo": "情報を取得できませんでした",
-
     "customCSS-settingTitle": "カスタムCSS",
     "customCSS-save": "カスタムCSSを保存",
 
@@ -79,6 +107,7 @@
     "settingColors-select-base": "ベース",
     "settingColors-select-light": "ライト",
     "settingColors-select-dark": "ダーク",
+    "settingColors-newTwitterColor": "色の設定を現在のTwitterの色に変更する",
     "settingColors-select-explain": "「ライト」を選択した場合はライトモードのみ、「ダーク」を選択した場合はダークモードのみで適用されます。設定されていない場合は、「ベース」の色が適用されます。",
     "settingColors-pleaseLD": "上から「ライト」「ダーク」のどちらかを選んでください",
     "settingColors-editUnsetTweet": "未送信ツイートの編集ボタン",
@@ -110,6 +139,9 @@
     "XtoTwitter-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
+
+    "dmPage-settingTitle": "ダイレクトメッセージの設定",
+    "dmPage-showIcon": "対個人のダイレクトメッセージでも相手のアイコンを表示する",
 
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",

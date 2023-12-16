@@ -13,8 +13,13 @@ TLUI_CSS.textContent = `
     --tlui-button-background-invert-hover: rgba(239, 243, 244, 0.1);
 }
 
+/* コンテナ */
+.tlui .tlui-container {
+    padding: 32px;
+}
+
 /* ダイアログ > マスク */
-#layers .tlui-dialog {
+.tlui-dialog {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -28,12 +33,11 @@ TLUI_CSS.textContent = `
     background-color: var(--tlui-dialog-mask);
 }
 
-/* ダイアログ > 外枠 */
-#layers .tlui-dialog > div {
+/* ダイアログ > コンテナ */
+.tlui-dialog > .tlui-container {
     background-color: var(--tlui-dialog-background);
     color: var(--tlui-dialog-text);
 
-    padding: 32px;
     border-radius: 16px;
 
     width: fit-content;
@@ -46,11 +50,14 @@ TLUI_CSS.textContent = `
 
     overflow-y: auto;
 }
-#layers .tlui-dialog:not(.fit-content-width) > div {
+.tlui-dialog:not(.has-padding) > .tlui-container {
+    padding: 0px;
+}
+.tlui-dialog:not(.fit-content-width) > .tlui-container {
     width: 380px;
 }
 /* ダイアログ > 外枠 > コンテナ > ヘッダー */
-#layers .tlui-dialog h1 {
+.tlui-dialog h1 {
     margin: 0px;
     margin-bottom: 8px;
     line-height: 24px;
@@ -59,14 +66,14 @@ TLUI_CSS.textContent = `
     word-wrap: break-word;
 }
 /* ダイアログ > 外枠 > コンテナ > 本文 */
-#layers .tlui-dialog p {
+.tlui-dialog p {
     font-size: 15px;
     margin: 0px;
     color: rgb(113, 118, 123);
     line-height: 22px;
 }
 /* ダイアログ > 外枠 > コンテナ > ボタン */
-#layers .tlui-dialog button {
+.tlui-dialog button {
     cursor: pointer;
     background: var(--tlui-button-background);
     color: var(--tlui-button-text);
@@ -82,17 +89,17 @@ TLUI_CSS.textContent = `
     height: 45px;
     transition-duration: 0.2s;
 }
-#layers .tlui-dialog button.full-width {
+.tlui-dialog button.full-width {
     width: 100%;
 }
-#layers .tlui-dialog button.invert-color {
+.tlui-dialog button.invert-color {
     background-color: var(--tlui-button-text);
     color: var(--tlui-button-background);
 }
-#layers .tlui-dialog button:hover {
+.tlui-dialog button:hover {
     background-color: var(--tlui-button-background-hover);
 }
-#layers .tlui-dialog button.invert-color:hover {
+.tlui-dialog button.invert-color:hover {
     background-color: var(--tlui-button-background-invert-hover);
 }
 

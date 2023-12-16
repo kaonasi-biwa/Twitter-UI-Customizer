@@ -4,6 +4,7 @@ import fs from "fs";
 // const __filename = fileURLToPath(import.meta.url);
 // process.chdir(__dirname);
 
-fs.cpSync("./i18n", "./dist/i18n", { recursive: true });
+//fs.cpSync("./i18n", "./dist/i18n", { recursive: true });
+fs.cpSync("./src/content/styles", "./dist/styles", { recursive: true });
 fs.cpSync("./_locales", "./dist/_locales", { recursive: true });
 fs.cpSync("./icon", "./dist/icon", { recursive: true });

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $white: #eee;
 $black: #111;
 $black_sub: #333;
@@ -22,7 +26,7 @@ body {
 .message_container {
     display: flex;
     flex-direction: column;
-    margin: 0px 30px 15px 30px;
+    margin: 0 15px 15px;
     * {
         margin: 0;
     }
@@ -32,11 +36,11 @@ body {
     }
     .thankyou {
         border-bottom: 2px solid #2e7eb4;
-        border-image: linear-gradient(90deg, rgba(46, 126, 180, 0) 0%, $tuic 50%, rgba(0, 212, 255, 0) 100%);
+        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, $tuic 50%, rgb(0 212 255 / 0%) 100%);
         border-image-slice: 1;
         padding-bottom: 0.3rem;
         margin-bottom: 1rem;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -78,4 +82,25 @@ body {
     display: inline-block;
     width: 150px;
     margin: 15px;
+}
+
+details {
+    margin-bottom: 5px;
+    div {
+        label {
+            input {
+                @apply appearance-none relative  w-4 h-4 bg-gray-700 border-gray-600 rounded;
+                &:hover,
+                &:focus {
+                    @apply ring-2 ring-offset-2 ring-blue-500 ring-offset-slate-900;
+                }
+            }
+            i {
+                @apply absolute left-0 -top-0.5 opacity-0;
+            }
+        }
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 }

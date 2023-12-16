@@ -39,23 +39,55 @@
     },
     "popupButton1": {
         "message": "Twitter UI Customizer 설정",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton2": {
         "message": "세이프 모드에서 설정 변경",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton3": {
         "message": "업데이트 알림 설정",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton4": {
         "message": "제작자(kaonasi_biwa)의 트위터",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton5": {
         "message": "최신 버전을 GitHub에서 설치",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "pSettings": {
+        "message": "설정",
+        "description": "ポップアップの設定ボタン"
+    },
+    "pSettingsInSafemode": {
+        "message": "세이프모드",
+        "description": "ポップアップのセーフモードボタン"
+    },
+    "pSettingsUpdateNotification": {
+        "message": "업데이트 알림",
+        "description": "ポップアップのアップデート通知設定ボタン"
+    },
+    "pTwitterOfAuthor": {
+        "message": "제작자(kaonasi_biwa)",
+        "description": "ポップアップの作者ボタン"
+    },
+    "pInstallFromGH": {
+        "message": "최신 버전을 설치",
+        "description": "ポップアップのGitHubから最新版をインストールするボタン"
+    },
+    "pUpdateOnBrowserLaunch": {
+        "message": "브라우저를 켰을때",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnClickIcon": {
+        "message": "아이콘을 클릭 했을때",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnOpenTwitter": {
+        "message": "트위터를 열었을 때",
+        "description": "ポップアップのアップデート通知設定"
     },
     "optionTitle": {
         "message": "설정 및 조작 방법 (Twitter UI Customizer)",
@@ -125,8 +157,8 @@
         "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksTwitter": {
-        "message": "(트위터)",
+    "optionSpecialThanksOtherTwitter": {
+        "message": "트위터",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
@@ -172,5 +204,13 @@
     "optionSpecialThanks_typeling1578": {
         "message": "소스코드 정리",
         "description": "設定画面のSpecial thanks(typeling1578さん)"
+    },
+    "optionSpecialThanks_PianoCat1010": {
+        "message": "\"좋아요와 리트윗\"의 아이콘 제작자",
+        "description": "設定画面のSpecial thanks(PianoCat1010さん)"
+    },
+    "optionSpecialThanks_GreenDotBlue99": {
+        "message": "탭 고정 기능",
+        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }
