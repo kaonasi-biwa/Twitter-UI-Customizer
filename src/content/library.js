@@ -264,9 +264,9 @@ export const TUICLibrary = {
         if (parentElement.querySelectorAll(selector).length !== 0) {
             return Array.from(parentElement.querySelectorAll(selector));
         } else {
-            const returns = await new Promise((resolve) => {
+            return await new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {
-                    const matchedAddedNodes = document.querySelectorAll(selector);
+                    const matchedAddedNodes = parentElement.querySelectorAll(selector);
                     if (matchedAddedNodes.length !== 0) {
                         observer.disconnect();
                         resolve(matchedAddedNodes);
@@ -274,7 +274,6 @@ export const TUICLibrary = {
                 });
                 observer.observe(parentElement, { subtree: true, childList: true });
             });
-            return returns;
         }
     },
 };
