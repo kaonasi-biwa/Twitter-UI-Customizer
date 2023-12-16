@@ -7,10 +7,13 @@ import { isSafemode } from "./safemode.ts";
 import DOG from "./icons/logo/dog.png?url";
 import TWITTER from "./icons/logo/twitter.svg?url";
 import X from "./icons/logo/x.svg?url";
+import { TLUI_CSS } from "./tlui/css.ts";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
     document.querySelector("#twitter_ui_customizer")?.remove();
+
+    document.querySelector("head").appendChild(TLUI_CSS);
 
     const twitterHead = document.querySelector("head");
 

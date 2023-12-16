@@ -1,5 +1,8 @@
 import { TUICLibrary } from "../library";
 
+/**
+ * TLUI のオブザーバーを開始します。
+ */
 export function startTluiObserver() {
     async function changedTheme() {
         document.documentElement.style.setProperty("--tlui-dialog-background", document.body.style.backgroundColor);
