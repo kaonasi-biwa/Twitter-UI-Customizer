@@ -305,8 +305,8 @@ export const TUICLibrary = {
     //         .replaceAll("\\r", "\r");
     // },
     waitForElement: async (selector: string, parentElement: ParentNode = document): Promise<Element[]> => {
-        if (document.querySelectorAll(selector).length !== 0) {
-            return Array.from(document.querySelectorAll(selector));
+        if (parentElement.querySelectorAll(selector).length !== 0) {
+            return Array.from(parentElement.querySelectorAll(selector));
         } else {
             return new Promise((resolve) => {
                 const observer = new MutationObserver((mutations) => {

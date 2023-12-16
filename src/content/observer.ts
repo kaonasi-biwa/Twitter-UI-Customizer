@@ -86,19 +86,19 @@ export const TUICObserver = {
                 TUICOptionHTML.displaySetting(displayRootElement);
 
                 (async () => {
-                    const tweetElement = displayRootElement.querySelector("article");
+                    const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
                     const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
                     const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
 
                     const tweet = (a => a[Math.floor(Math.random() * a.length)])([
                         {
                             user: {
-                                id: "YuriLilyGL",
-                                name: "LilyGL",
-                                icon: "https://pbs.twimg.com/profile_images/1620439167552421889/Er4oHBcv_400x400.jpg"
+                                id: "tuic_official",
+                                name: "【公式】UI Customizer by Ablaze",
+                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg"
                             },
-                            text: "ぬぬぬ{mention}ぬぬぬ",
-                            mentionTo: "tuic_official"
+                            text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
+                            mentionTo: "kaonasi_biwa"
                         }
                     ]);
 

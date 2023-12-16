@@ -8,10 +8,6 @@ import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
 import { isSafemode, runSafemode } from "./safemode.ts";
-
-import { ButtonComponent } from "./tlui/components/ButtonComponent.ts";
-import { ContainerComponent } from "./tlui/components/ContainerComponent.ts";
-import { Dialog } from "./tlui/components/Dialog.ts";
 import { startTluiObserver } from "./tlui/observer.ts";
 
 (async () => {
@@ -21,22 +17,6 @@ import { startTluiObserver } from "./tlui/observer.ts";
     await TUICLibrary.updatePref.update();
 
     await TUICLibrary.waitForElement("#react-root");
-
-    await TUICLibrary.waitForElement("#layers");
-    const dialog = new Dialog("Hello!");
-    dialog.addComponents([
-        "こんな感じで簡単にダイアログを出せるようになりました。",
-        "いい感じのAPIにしたつもりなのですが、もしここが使いにくいとかあれば言ってくださいね。",
-        new ButtonComponent("ふぁみちゃんだいすき", () => dialog.close()),
-        new ButtonComponent("閉じる", () => dialog.close(), {
-            invertColor: true
-        }),
-        new ContainerComponent([
-            new ButtonComponent("第三の選択肢！", () => dialog.close(), {
-                invertColor: true
-            })
-        ])
-    ]).open();
 
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();

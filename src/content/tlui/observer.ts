@@ -12,3 +12,23 @@ export function startTluiObserver() {
     new MutationObserver(changedTheme).observe(document.body, { attributes: true, attributeFilter: ["style"] });
     changedTheme();
 }
+
+/*
+
+await TUICLibrary.waitForElement("#layers");
+const dialog = new Dialog("Hello!");
+dialog.addComponents([
+    "こんな感じで簡単にダイアログを出せるようになりました。",
+    "いい感じのAPIにしたつもりなのですが、もしここが使いにくいとかあれば言ってくださいね。",
+    new ButtonComponent("ふぁみちゃんだいすき", () => dialog.close()),
+    new ButtonComponent("閉じる", () => dialog.close(), {
+        invertColor: true
+    }),
+    new ContainerComponent([
+        new ButtonComponent("第三の選択肢！", () => dialog.close(), {
+            invertColor: true
+        })
+    ])
+]).open();
+
+*/
