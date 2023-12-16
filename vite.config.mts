@@ -72,8 +72,14 @@ export default defineConfig(({ command, mode }) => {
             // Vue Plugins
             vue(),
             svgLoader(),
-            viteVueCESubStyle() as PluginOption,
+            viteVueCESubStyle({}) as PluginOption,
         ],
+        resolve: {
+            alias: [
+                { find: "@content", replacement: r("src/content") },
+                { find: "@shared", replacement: r("src/shared") },
+            ],
+        },
     };
     return json;
 });
