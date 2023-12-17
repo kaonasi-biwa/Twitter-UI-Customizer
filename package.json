@@ -11,14 +11,14 @@
         "debug": "pnpm debug:firefox",
         "debug:firefox": "pnpm build:firefox --watch",
         "debug:chromium": "pnpm build:chromium --watch",
-        "lint": "pnpm lint:eslint & pnpm lint:prettier & pnpm lint:stylelint",
+        "lint": "pnpm lint:eslint & pnpm lint:stylelint & pnpm lint:prettier",
         "lint:eslint": "eslint .",
-        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.vue **/*.css **/*.scss",
         "lint:stylelint": "stylelint **/*.{css,scss}",
-        "format": "pnpm format:eslint & pnpm format:prettier & pnpm format:stylelint",
+        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.vue **/*.css **/*.scss",
+        "format": "pnpm format:eslint & pnpm format:stylelint & pnpm format:prettier",
         "format:eslint": "eslint --fix .",
-        "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.scss",
-        "format:stylelint": "stylelint --fix **/*.{css,scss}"
+        "format:stylelint": "stylelint --fix **/*.{css,scss}",
+        "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.scss"
     },
     "dependencies": {
         "@types/chrome": "^0.0.254",
