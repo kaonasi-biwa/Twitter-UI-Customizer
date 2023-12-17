@@ -106,6 +106,8 @@ export function applySystemCss() {
         rs.setProperty("--TUIC-detail-border", TUICData.styleColor[backgroundColor].detailBorder);
 
         rs.setProperty("--TUIC-pinnedTab-background", `rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
+
+        rs.setProperty("--TUIC-pinnedTab-top", `${TUICLibrary.fontSizeClass("47", "49", "52", "57", "63")}px`);
     }
 }
 

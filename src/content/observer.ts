@@ -9,6 +9,7 @@ import TWITTER from "./icons/logo/twitter.svg?raw";
 import X from "./icons/logo/x.svg?raw";
 import EMPTY from "./icons/logo/empty.svg?url";
 import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "./data/icons.ts";
+import { applySystemCss } from "./applyCSS.ts";
 
 export const TUICObserver = {
     observer: null,
@@ -16,9 +17,15 @@ export const TUICObserver = {
     target: null,
     headObserver: null,
 
-    data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null },
+    data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null, fontSize1: "-1", fontSize2: null },
     observerFunction: (mutationsList) => {
         TUICObserver.observer.disconnect();
+
+        if (document.querySelector("html").style.fontSize.toString() != TUICObserver.data.fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") != TUICObserver.data.fontSize2) {
+            applySystemCss();
+            TUICObserver.data.fontSize1 = document.querySelector("html").style.fontSize.toString();
+            TUICObserver.data.fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
+        }
 
         if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
             if (!TUICObserver.iconObserver) {
@@ -70,6 +77,59 @@ export const TUICObserver = {
 
         TUICObserver.functions.fixDMBox();
 
+        if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
+            if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
+                let displayRootElement = document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+                if (location.pathname === "/i/display") displayRootElement = displayRootElement.parentElement;
+
+                TUICOptionHTML.displaySetting(displayRootElement);
+
+                (async () => {
+                    const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
+                    const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
+                    const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
+
+                    const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
+                        {
+                            user: {
+                                id: "tuic_official",
+                                name: "【公式】UI Customizer by Ablaze",
+                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg",
+                            },
+                            text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
+                            mentionTo: "kaonasi_biwa",
+                        },
+                    ]);
+
+                    const tweetUserId = tweet.user.id;
+                    const tweetUserName = tweet.user.name;
+                    const tweetUserIcon = tweet.user.icon;
+                    const tweetText = tweet.text;
+                    const tweetMentionUserId = tweet.mentionTo;
+
+                    // ツイートのテキストとして使用する、最初のspan要素以外を削除
+                    tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
+                    // メンションを任意の場所に持っていけるよう削除
+                    tweetLinkElement.remove();
+
+                    // img要素がそもそも存在しない場合があるので、待機
+                    await TUICLibrary.waitForElement("img", tweetElement);
+
+                    // ユーザーアイコン
+                    tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;
+                    tweetElement.querySelector("img").src = tweetUserIcon;
+                    // ユーザー名・ユーザーID
+                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
+                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
+                    // メンションのユーザー
+                    tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
+                    tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
+
+                    // テキストに設定
+                    tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
+                })();
+            }
+        }
         if (window.location.pathname == "/tuic/safemode") {
         } else if (window.location.pathname == "/settings/display") {
             TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
@@ -386,9 +446,45 @@ export const TUICObserver = {
                                 lastButton.classList.add("r-1rq6c10");
                                 lastButton.classList.add("r-1b7u577");
 
-                                for (let i = 0; i < TUICData.settings.visibleButtons.all.length; i++) {
-                                    if (!TUICPref.get("visibleButtons").includes(TUICData.settings.visibleButtons.all[i]) && TUICData.settings.visibleButtons.all[i] in bar_item) {
-                                        bar_item[TUICData.settings.visibleButtons.all[i]].classList.add("TUIC_DISPNONE");
+                                for (const i of TUICData.settings.visibleButtons.all) {
+                                    if (!TUICPref.get("visibleButtons").includes(i) && i in bar_item) {
+                                        bar_item[i].classList.add("TUIC_DISPNONE");
+                                    }
+                                }
+
+                                if (elem.querySelector(TUICData.tweetTopButton.selector.moreMenu)) {
+                                    let isFirst = true;
+                                    const tweetTopButtons = {};
+                                    const tweetTopParent = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu).parentElement;
+                                    const marginSize = TUICLibrary.fontSizeClass("20px", "20px", "20px", "20px", "20px");
+                                    for (const i of TUICData.settings.tweetTopButton.all) {
+                                        const div = elem.querySelector(TUICData.tweetTopButton.selector[i]);
+                                        if (div) {
+                                            tweetTopButtons[i] = div;
+                                        }
+                                    }
+                                    for (const i of TUICPref.get("tweetTopButton")) {
+                                        let div = null;
+                                        if (i in tweetTopButtons) {
+                                            div = tweetTopButtons[i];
+                                            div.classList.remove("TUIC_DISPNONE");
+                                        } else if (i in TUICData.tweetTopButton.buttonElement) {
+                                            div = TUICData.tweetTopButton.buttonElement[i](elem.querySelector(TUICData.tweetTopButton.selector.moreMenu), { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle });
+                                            tweetTopButtons[i] = div;
+                                        }
+                                        if (!isFirst) {
+                                            div.style.marginLeft = marginSize;
+                                        } else {
+                                            div.style.marginLeft = "";
+                                        }
+                                        isFirst = false;
+                                        tweetTopParent.appendChild(div);
+                                    }
+
+                                    for (const i of TUICData.settings.tweetTopButton.all) {
+                                        if (!TUICPref.get("tweetTopButton").includes(i) && i in tweetTopButtons) {
+                                            tweetTopButtons[i].classList.add("TUIC_DISPNONE");
+                                        }
                                     }
                                 }
                             }
@@ -561,13 +657,13 @@ export const TUICObserver = {
                 for (const elem of getNotReplacedElements(
                     '[role="menu"] [data-testid="Dropdown"] [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyURL");
+                    elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyURL");
 
                 // 共有 > その他の方法
                 for (const elem of getNotReplacedElements(
                     '[role="menu"] [data-testid="Dropdown"] [d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
+                    elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
 
                 // ツイート入力ダイアログ
                 const isDialog = !!document.querySelector('[role="alertdialog"],[role="dialog"],[data-testid="twc-cc-mask"]+div');
