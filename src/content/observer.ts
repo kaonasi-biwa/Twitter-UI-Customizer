@@ -995,7 +995,7 @@ export const TUICObserver = {
                 document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.classList.add("TUIC_DISPNONE");
             }
 
-            for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
+            /*for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
                 elem.classList.add("TUICHandledEvent");
                 const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
                 elem.addEventListener("click", (e) => {
@@ -1020,7 +1020,7 @@ export const TUICObserver = {
                         }
                     }, 100);
                 });
-            }
+            }*/
         },
         moreMenuContent: async function () {
             await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
