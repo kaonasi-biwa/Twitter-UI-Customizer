@@ -1,7 +1,7 @@
 import type { MultiExtensionRunner } from "web-ext/lib/extension-runners";
 import type WebExt from "web-ext";
 
-type Args = {
+export type WebExtRunArgs = {
     mode: string;
     watch: boolean;
     sourceDir: string;
@@ -18,15 +18,15 @@ type Args = {
     };
 };
 
-class WebExtRun {
+export class WebExtRun {
     webExtRunner: MultiExtensionRunner;
     webExt: typeof WebExt;
 
     // workerThreads: typeof import("node:worker_threads");
 
-    args: Args;
+    args: WebExtRunArgs;
 
-    constructor(args: Args) {
+    constructor(args: WebExtRunArgs) {
         this.args = args;
     }
 
@@ -40,7 +40,6 @@ class WebExtRun {
             // this.workerThreads = await import("node:worker_threads");
         }
 
-        console.log("Run web-ext");
         // console.log(this.workerThreads.isMainThread);
         if (this.args.mode === "disable-web-ext") {
             return;
@@ -81,7 +80,6 @@ class WebExtRun {
                     // );
                 }
             } else {
-                console.log(this.args.sourceDir);
                 await this.webExt.cmd.build(
                     {
                         sourceDir: this.args.sourceDir,
@@ -94,4 +92,3 @@ class WebExtRun {
         }
     }
 }
-export { Args, WebExtRun };
