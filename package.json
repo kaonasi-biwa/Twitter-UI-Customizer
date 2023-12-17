@@ -5,7 +5,7 @@
         "build:pre:chromium": "pnpm build:gen_manifest chrome && pnpm build:copy_assets",
         "build:firefox": "pnpm build:pre:firefox & vite build --mode firefox & node ./npm-scripts/whatTimeIsIt.mjs",
         "build:chromium": "pnpm build:pre:chromium & vite build --mode chromium & node ./npm-scripts/whatTimeIsIt.mjs",
-        "build:gen_manifest": "node ./npm-scripts/manifestChange.mjs",
+        "build:gen_manifest": "node ./npm-scripts/change-manifest.mjs",
         "build:copy_assets": "node ./npm-scripts/copy-assets2dist.mjs",
         "debug": "pnpm debug:firefox",
         "debug:firefox": "pnpm build:firefox --watch",
