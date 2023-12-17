@@ -230,9 +230,7 @@
         :root[tuicsettings*="|tweetDisplaySetting.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
         :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
         :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
-        :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
-
-    ) {
+        :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,) {
     display: none !important;
 }
 
