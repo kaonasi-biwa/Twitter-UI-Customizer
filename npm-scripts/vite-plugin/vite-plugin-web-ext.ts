@@ -1,13 +1,9 @@
 import { Plugin } from "vite";
-import { MultiExtensionRunner } from "web-ext/lib/extension-runners";
-import type webExt from "web-ext";
-import { ChildProcessWithoutNullStreams, spawn } from "child_process";
-import { Worker, workerData, isMainThread, parentPort } from "node:worker_threads";
-
-// import { Args, WebExtRun } from "./wip/worker-web-ext";
-
+import { ChildProcessWithoutNullStreams, spawn } from "node:child_process";
+import { isMainThread } from "node:worker_threads";
 import dotenv from "dotenv";
-import { Args, WebExtRun } from "./web-ext";
+import { WebExtRunArgs, WebExtRun } from "./web-ext";
+
 dotenv.config({ path: ".env.local" });
 
 export default async (root: string, sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
@@ -57,7 +53,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
             }
             console.log("Running web-ext in " + (isMainThread ? "main thread" : "worker") + " at " + sourceDir);
 
-            const args: Args = {
+            const args: WebExtRunArgs = {
                 mode,
                 watch,
                 sourceDir,
@@ -114,7 +110,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
             }
 
             // if (!worker) {
-            // const args: Args = {
+            // const args: WebExtRunArgs = {
             //     mode,
             //     watch,
             //     sourceDir,
