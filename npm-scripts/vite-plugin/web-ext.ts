@@ -40,7 +40,6 @@ class WebExtRun {
             // this.workerThreads = await import("node:worker_threads");
         }
 
-        console.log("Run web-ext");
         // console.log(this.workerThreads.isMainThread);
         if (this.args.mode === "disable-web-ext") {
             return;
@@ -81,7 +80,6 @@ class WebExtRun {
                     // );
                 }
             } else {
-                console.log(this.args.sourceDir);
                 await this.webExt.cmd.build(
                     {
                         sourceDir: this.args.sourceDir,

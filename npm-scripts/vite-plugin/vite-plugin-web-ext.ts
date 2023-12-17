@@ -52,11 +52,11 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
             watch = options.watch !== undefined && options.watch !== false;
         },
         async closeBundle() {
-            console.log("Run web-ext");
-            console.log(isMainThread);
             if (mode === "disable-web-ext") {
                 return;
             }
+            console.log("Running web-ext in " + (isMainThread ? "main thread" : "worker") + " at " + sourceDir);
+
             const args: Args = {
                 mode,
                 watch,
@@ -124,7 +124,6 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
             // };
             //     worker = new Worker(root + "/npm-scripts/vite-plugin/worker-web-ext.js", { workerData: args });
             // }
-            console.log("init");
 
             //worker.postMessage("run");
         },
