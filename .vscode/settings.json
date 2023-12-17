@@ -20,6 +20,7 @@
     "scss.validate": false,
     "files.autoSave": "onFocusChange",
     "json.schemaDownload.enable": true,
+    "eslint.experimental.useFlatConfig": true,
     "prettier.tabWidth": 4,
     "prettier.semi": true,
     "prettier.singleQuote": false,

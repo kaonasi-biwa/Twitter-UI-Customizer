@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "在音訊空間中即時聆聽",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "只有在 @{screenName} 的朋友圈中的人可以看到此貼文",
-    "XtoTwitter-PostToTweet-circleTweet-old": "只有在 @{screenName} 的 Twitter 朋友圈中的人可以看到此推文",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "轉推",
     "XtoTwitter-PostToTweet-engagementsTitle": "參與次數",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "轉推",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "社群備註",
     "sidebarButtons-drafts": "草稿",
     "sidebarButtons-connect": "連接",
-    "sidebarButtons-circles": "Twitter 朋友圈",
     "sidebarButtons-lists": "列表",
     "sidebarButtons-topics": "主題",
     "sidebarButtons-moremenu": "更多",

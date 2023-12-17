@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "در «اتاق‌های گفت‌وگو» به‌طور زنده گوش دهید",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "فقط افرادی که در «محفل» @{screenName} باشند می‌توانند این پست را ببینند",
-    "XtoTwitter-PostToTweet-circleTweet-old": "فقط افرادی که در «محفل Twitter» @{screenName} باشند می‌توانند این توییت را ببینند",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "بازتوییت‌ها",
     "XtoTwitter-PostToTweet-engagementsTitle": "تعامل‌ها",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "بازتوییت",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "یادداشت‌های کاربران",
     "sidebarButtons-drafts": "پیش‌نویس‌ها",
     "sidebarButtons-connect": "ارتباط",
-    "sidebarButtons-circles": "محفل Twitter",
     "sidebarButtons-lists": "فهرست‌ها",
     "sidebarButtons-topics": "سرفصل‌ها",
     "sidebarButtons-moremenu": "بیشتر",

@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Ascultă în direct în Spații",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Numai persoanele din Cercul utilizatorului @{screenName} pot vedea această postare",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Doar persoanele din Cercul Twitter al utilizatorului @{screenName} pot vedea acest Tweet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweeturi",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interacțiuni",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Redistribuie",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Notele Comunității",
     "sidebarButtons-drafts": "Schițe",
     "sidebarButtons-connect": "Conectează-te",
-    "sidebarButtons-circles": "Cerc Twitter",
     "sidebarButtons-lists": "Liste",
     "sidebarButtons-topics": "Subiecte",
     "sidebarButtons-moremenu": "Mai multe",

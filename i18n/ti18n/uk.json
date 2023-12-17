@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Слухайте наживо в Просторах",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Цей пост можуть бачити лише люди з кола @{screenName}.",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Цей твіт можуть бачити лише люди з Кола @{screenName} у Twitter",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвіти",
     "XtoTwitter-PostToTweet-engagementsTitle": "Взаємодія",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Ретвітнути",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Замітки від спільноти",
     "sidebarButtons-drafts": "Чернетки",
     "sidebarButtons-connect": "Зв’язки",
-    "sidebarButtons-circles": "Коло у Twitter",
     "sidebarButtons-lists": "Списки",
     "sidebarButtons-topics": "Теми",
     "sidebarButtons-moremenu": "Інші дії",

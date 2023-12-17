@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "स्पेसेसमध्ये लाइव्ह ऐका",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "केवळ@ {screenName} च्या सर्कलमधील लोक हे पोस्ट पाहू शकतात",
-    "XtoTwitter-PostToTweet-circleTweet-old": "केवळ @{screenName} यांच्या सर्कलमधील लोक हे ट्विट पाहू शकतात.",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "पुनर्ट्विट्स",
     "XtoTwitter-PostToTweet-engagementsTitle": "सहभाग",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "पुन्हा ट्विट",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "कम्युनिटी नोट्स",
     "sidebarButtons-drafts": "मसुदे",
     "sidebarButtons-connect": "कनेक्ट करा",
-    "sidebarButtons-circles": "Twitter सर्कल",
     "sidebarButtons-lists": "याद्या",
     "sidebarButtons-topics": "विषय",
     "sidebarButtons-moremenu": "अधिक",
