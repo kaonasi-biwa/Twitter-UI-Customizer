@@ -13,9 +13,6 @@ import { startTluiObserver } from "./tlui/observer.ts";
 (async () => {
     await TUICI18N.fetch();
 
-    // 旧バージョンからのアップデート
-    await TUICLibrary.updatePref.update();
-
     await TUICLibrary.waitForElement("#react-root");
 
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {

@@ -9,7 +9,7 @@ module.exports = {
             {
                 matches: ["*://*.twitter.com/*"],
                 js: ["inject.js"],
-                css: ["./styles/style-tuicSettingPage.css", "./styles/style-polyfillForTwitter.css", "./styles/style-tuicColor.css", "./styles/style-tuicFeatures.css"],
+                css: ["./styles/style-tuicSettingPage.css", "./styles/style-polyfillForTwitter.css", "./styles/style-tuicColor.css", "./styles/style-tuicFeatures.css", "./styles/style-tlui.css"],
                 run_at: "document_start",
             },
         ],
