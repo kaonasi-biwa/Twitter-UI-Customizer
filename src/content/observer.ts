@@ -77,6 +77,59 @@ export const TUICObserver = {
 
         TUICObserver.functions.fixDMBox();
 
+        if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
+            if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
+                let displayRootElement = document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+                if (location.pathname === "/i/display") displayRootElement = displayRootElement.parentElement;
+
+                TUICOptionHTML.displaySetting(displayRootElement);
+
+                (async () => {
+                    const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
+                    const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
+                    const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
+
+                    const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
+                        {
+                            user: {
+                                id: "tuic_official",
+                                name: "【公式】UI Customizer by Ablaze",
+                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg",
+                            },
+                            text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
+                            mentionTo: "kaonasi_biwa",
+                        },
+                    ]);
+
+                    const tweetUserId = tweet.user.id;
+                    const tweetUserName = tweet.user.name;
+                    const tweetUserIcon = tweet.user.icon;
+                    const tweetText = tweet.text;
+                    const tweetMentionUserId = tweet.mentionTo;
+
+                    // ツイートのテキストとして使用する、最初のspan要素以外を削除
+                    tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
+                    // メンションを任意の場所に持っていけるよう削除
+                    tweetLinkElement.remove();
+
+                    // img要素がそもそも存在しない場合があるので、待機
+                    await TUICLibrary.waitForElement("img", tweetElement);
+
+                    // ユーザーアイコン
+                    tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;
+                    tweetElement.querySelector("img").src = tweetUserIcon;
+                    // ユーザー名・ユーザーID
+                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
+                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
+                    // メンションのユーザー
+                    tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
+                    tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
+
+                    // テキストに設定
+                    tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
+                })();
+            }
+        }
         if (window.location.pathname == "/tuic/safemode") {
         } else if (window.location.pathname == "/settings/display") {
             TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
