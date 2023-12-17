@@ -66,6 +66,9 @@
     "sidebarButton-accountSwitcher-NameID": "ユーザー名とIDを非表示にする",
     "sidebarButton-accountSwitcher-MoreMenu": "右端の三点を非表示にする",
 
+    "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニューの非表示設定",
+    "sidebarButton-moreMenuItems-separator": "分離線",
+
     "rightSidebar-settingTitle": "右サイドバーの設定",
     "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
     "rightSidebar-trend": "「いまどうしてる？」を非表示にする",
