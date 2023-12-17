@@ -1,6 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Listen live in Spaces",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Atweetanna",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagements",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Atweetáil",
@@ -74,7 +73,6 @@
     "sidebarButtons-communitynotes": "Community Notes",
     "sidebarButtons-drafts": "Dréachtaí",
     "sidebarButtons-connect": "Nasc",
-    "sidebarButtons-circles": "Twitter Circle",
     "sidebarButtons-lists": "Liostaí",
     "sidebarButtons-topics": "Ábhair",
     "sidebarButtons-moremenu": "Tuilleadh",

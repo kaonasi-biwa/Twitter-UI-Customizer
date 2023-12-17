@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Spaces میں لائیو سنیں",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
-    "XtoTwitter-PostToTweet-circleTweet-old": "صرف @{screenName} کے Twitter Circle کے لوگ اس ٹویٹ کو دیکھ سکتے ہیں",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "ریٹویٹس",
     "XtoTwitter-PostToTweet-engagementsTitle": "شمولیتیں",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "ریٹویٹ",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "کمیونٹی نوٹس",
     "sidebarButtons-drafts": "مسودہ",
     "sidebarButtons-connect": "رابطہ قائم کریں",
-    "sidebarButtons-circles": "Twitter سرکل",
     "sidebarButtons-lists": "فہرستیں",
     "sidebarButtons-topics": "موضوعات",
     "sidebarButtons-moremenu": "مزید",

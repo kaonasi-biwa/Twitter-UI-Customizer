@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Sohbet Odaları'nda canlı dinle",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Bu gönderiyi yalnızca @{screenName} adlı kullanıcının Çevresindeki kişiler görebilir",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Yalnızca @{screenName} adlı kullanıcıya ait Twitter Çevresindeki kişiler bu Tweeti görebilir",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweetler",
     "XtoTwitter-PostToTweet-engagementsTitle": "Etkileşimler",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Topluluk Notları",
     "sidebarButtons-drafts": "Taslaklar",
     "sidebarButtons-connect": "Bağlan",
-    "sidebarButtons-circles": "Twitter Çevresi",
     "sidebarButtons-lists": "Listeler",
     "sidebarButtons-topics": "Konular",
     "sidebarButtons-moremenu": "Daha fazla",

@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "進行中のスペースを聞く",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "@{screenName}さんのサークルに追加されているユーザーのみ、このポストを表示できます",
-    "XtoTwitter-PostToTweet-circleTweet-old": "@{screenName}さんのTwitterサークルに追加されているユーザーのみこのツイートを表示できます",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "リツイート",
     "XtoTwitter-PostToTweet-engagementsTitle": "エンゲージメント",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "リツイート",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "コミュニティノート",
     "sidebarButtons-drafts": "下書き",
     "sidebarButtons-connect": "移動する",
-    "sidebarButtons-circles": "Twitterサークル",
     "sidebarButtons-lists": "リスト",
     "sidebarButtons-topics": "トピック",
     "sidebarButtons-moremenu": "もっと見る",

@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Spaces में लाइव सुनें",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "इस पोस्ट को केवल @{screenName} के Circle में मौजूद लोग देख सकते हैं",
-    "XtoTwitter-PostToTweet-circleTweet-old": "इस ट्वीट को केवल @{screenName} के Twitter Circle में मौजूद लोग देख सकते हैं",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "रीट्वीट्स",
     "XtoTwitter-PostToTweet-engagementsTitle": "सहभागिता",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "रीट्वीट करें",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "कम्यूनिटी नोट्स",
     "sidebarButtons-drafts": "प्रारूप",
     "sidebarButtons-connect": "कनेक्ट करें",
-    "sidebarButtons-circles": "Twitter Circle",
     "sidebarButtons-lists": "सूचियाँ",
     "sidebarButtons-topics": "विषय",
     "sidebarButtons-moremenu": "और अधिक",

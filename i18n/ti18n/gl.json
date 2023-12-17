@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Listen live in Spaces",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Only people in @{screenName}’s Circle can see this post",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Este chío só o poden ver as persoas do círculo de Twitter de @{screenName}",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Rechouchíos",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagements",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Rechouchiar",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Community Notes",
     "sidebarButtons-drafts": "Previsualizacións",
     "sidebarButtons-connect": "Conectar",
-    "sidebarButtons-circles": "Círculo de Twitter",
     "sidebarButtons-lists": "Listaxes",
     "sidebarButtons-topics": "Temas",
     "sidebarButtons-moremenu": "Máis",

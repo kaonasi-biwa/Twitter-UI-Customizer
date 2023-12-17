@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Слушај уживо у Просторима",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Само људи у кругу корисника @{screenName} могу да виде ову објаву",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Само људи у Twitter кругу корисника @{screenName} могу да виде овај твит",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Ретвитови",
     "XtoTwitter-PostToTweet-engagementsTitle": "Ангажовања",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Ретвитуј",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Белешке заједнице",
     "sidebarButtons-drafts": "Нацрти",
     "sidebarButtons-connect": "Повезивање",
-    "sidebarButtons-circles": "Twitter круг",
     "sidebarButtons-lists": "Листе",
     "sidebarButtons-topics": "Теме",
     "sidebarButtons-moremenu": "Још",

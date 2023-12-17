@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lyt med direkte i Rum",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Denne post kan kun ses af personer i @{screenName}s cirkel",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Dette Tweet kan kun ses af personer i @{screenName}s Twitter-cirkel",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagementer",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Fællesskabsnoter",
     "sidebarButtons-drafts": "Udkast",
     "sidebarButtons-connect": "Forbind",
-    "sidebarButtons-circles": "Twitter-cirkel",
     "sidebarButtons-lists": "Lister",
     "sidebarButtons-topics": "Emner",
     "sidebarButtons-moremenu": "Mere",

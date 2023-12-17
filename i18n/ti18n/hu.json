@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Hallgass Tereket élőben!",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Csak @{screenName} körének tagjai láthatják ezt a bejegyzést",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Csak @{screenName} Twitter-körének tagjai láthatják ezt a Tweetet",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweetek",
     "XtoTwitter-PostToTweet-engagementsTitle": "Kapcsolatok",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Közösségi Megjegyzések",
     "sidebarButtons-drafts": "Piszkozatok",
     "sidebarButtons-connect": "Kapcsolatfelvétel",
-    "sidebarButtons-circles": "Twitter-kör",
     "sidebarButtons-lists": "Listák",
     "sidebarButtons-topics": "Témakörök",
     "sidebarButtons-moremenu": "Továbbiak",

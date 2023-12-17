@@ -67,6 +67,9 @@ export default defineConfig(({ command, mode }) => {
                     fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
                     fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
                 },
+                closeBundle() {
+                    console.log(new Date().toLocaleString());
+                },
             },
             vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode),
             // Vue Plugins

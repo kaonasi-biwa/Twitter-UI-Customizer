@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lytt på direkten i områder",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "Bare folk i sirkelen til @{screenName} kan se dette innlegget",
-    "XtoTwitter-PostToTweet-circleTweet-old": "Denne tweeten kan bare ses av folk i Twitter-sirkelen til @{screenName}",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engasjement",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "Retweet",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "Fellesskapsmerknader",
     "sidebarButtons-drafts": "Utkast",
     "sidebarButtons-connect": "Koble til",
-    "sidebarButtons-circles": "Twitter-sirkel",
     "sidebarButtons-lists": "Lister",
     "sidebarButtons-topics": "Emner",
     "sidebarButtons-moremenu": "Mer",

@@ -1,7 +1,5 @@
 {
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "ஸ்பேசஸில் நேரலையில் கேளுங்கள்",
-    "XtoTwitter-PostToTweet-circleTweet-latest": "@{screenName} -இன் சர்கிளில் உள்ளவர்கள் மட்டுமே இந்த இடுகையைப் பார்க்கலாம்",
-    "XtoTwitter-PostToTweet-circleTweet-old": "@{screenName} -இன் Twitter சர்கிளில் உள்ளவர்கள் மட்டுமே இந்தக் கீச்சைக் காணலாம்",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "மறுகீச்சுகள்",
     "XtoTwitter-PostToTweet-engagementsTitle": "ஈடுபாடுகள்",
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "மறுட்விட் செய்",
@@ -86,7 +84,6 @@
     "sidebarButtons-communitynotes": "கம்யூனிட்டி நோட்ஸ்",
     "sidebarButtons-drafts": "வரைவுகள்",
     "sidebarButtons-connect": "இணை",
-    "sidebarButtons-circles": "Twitter சர்கிள்",
     "sidebarButtons-lists": "பட்டியல்கள்",
     "sidebarButtons-topics": "தலைப்புகள்",
     "sidebarButtons-moremenu": "மேலும்",
