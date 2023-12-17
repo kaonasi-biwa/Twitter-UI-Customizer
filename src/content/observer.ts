@@ -979,7 +979,7 @@ export const TUICObserver = {
 
             if (TUICPref.get("profileSetting.invisible.verifiedFollowerTab")) {
                 const nowURL = location.pathname;
-                if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/verified_followers")) {
+                if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
                     const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/verified_followers"]`);
                     if (tab) {
                         tab.parentElement.classList.add("TUIC_DISPNONE");
@@ -993,6 +993,33 @@ export const TUICObserver = {
 
             if (TUICPref.get("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
                 document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.classList.add("TUIC_DISPNONE");
+            }
+
+            for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
+                elem.classList.add("TUICHandledEvent");
+                const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
+                elem.addEventListener("click", (e) => {
+                    window.setTimeout(async () => {
+                        await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
+                        await TUICLibrary.waitForElement(`nav [role="presentation"]`);
+
+                        for (let i = 0; i <= 25; i++) {
+                            const re = await new Promise((resolve2) => {
+                                if (window.scrollY == 0) {
+                                    document.querySelector(`nav [role="presentation"] a[href$="/with_replies"]`).click();
+                                    resolve2("ok");
+                                }
+                                resolve2("bb");
+                            });
+                            if (re == "ok") return true;
+                            await new Promise((resolve2) => {
+                                window.setTimeout(() => {
+                                    resolve2("");
+                                }, 100);
+                            });
+                        }
+                    }, 100);
+                });
             }
         },
         moreMenuContent: async function () {

@@ -89,6 +89,7 @@ export const TUICLibrary = {
             "TUICTwitterIcon_IconImg",
             "TUICScrollBottom",
             "TUICDMIcon",
+            "TUICHandledEvent",
         ],
     },
     getPrimitiveOrFunction: (functionOrPrimitive) => {

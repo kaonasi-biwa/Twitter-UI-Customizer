@@ -7,6 +7,7 @@
     "settingUI-easySetting-detail": "おすすめの設定を用意しました！",
     "settingUI-everythingSetting": "あなた好みにカスタマイズしましょう！",
     "settingUI-restoreDefaultAll": "全てデフォルトに戻す",
+    "settingUI-restoreDefaultAll-confirm": "本当に設定をデフォルトに戻しますか？",
     "settingUI-upDownList-toLeft": "表示する",
     "settingUI-upDownList-toRight": "非表示にする",
     "settingUI-upDownList-toUp": "上へ",
@@ -153,5 +154,12 @@
     "import-settingTitle": "インポート",
     "import-importAppend": "インポートして追記する",
     "import-importReplace": "インポートして置き換える",
-    "import-select-explain": "「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートされます。この場合、インポート元に含まれない設定はデフォルト値になります。"
+    "import-select-explain": "「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートされます。この場合、インポート元に含まれない設定はデフォルト値になります。",
+    "import-error": "構文解析に失敗しました。インポート元のデータが破損している可能性があります。",
+
+    "common-yes": "はい",
+    "common-no": "いいえ",
+    "common-close": "閉じる",
+    "common-error": "エラー",
+    "common-confirm": "確認"
 }
