@@ -30,13 +30,16 @@ export class Dialog {
      * @param options オプション
      */
     constructor(title: string, options: DialogInit = {}) {
-        this.element = new DOMParser().parseFromString(`
+        this.element = new DOMParser().parseFromString(
+            `
             <div class="tlui tlui-dialog has-padding">
                 <div class="tlui-container">
                     <h1>${title}</h1>
                 </div>
             </div>
-            `, "text/html").body.children[0];
+            `,
+            "text/html",
+        ).body.children[0];
         this.container = this.element.querySelector("div");
 
         for (const [key, value] of Object.entries(Object.assign({}, options))) {

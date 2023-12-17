@@ -80,8 +80,7 @@ export const TUICObserver = {
         if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
             if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
                 let displayRootElement = document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-                if (location.pathname === "/i/display")
-                    displayRootElement = displayRootElement.parentElement;
+                if (location.pathname === "/i/display") displayRootElement = displayRootElement.parentElement;
 
                 TUICOptionHTML.displaySetting(displayRootElement);
 
@@ -90,16 +89,16 @@ export const TUICObserver = {
                     const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
                     const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
 
-                    const tweet = (a => a[Math.floor(Math.random() * a.length)])([
+                    const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
                         {
                             user: {
                                 id: "tuic_official",
                                 name: "【公式】UI Customizer by Ablaze",
-                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg"
+                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg",
                             },
                             text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
-                            mentionTo: "kaonasi_biwa"
-                        }
+                            mentionTo: "kaonasi_biwa",
+                        },
                     ]);
 
                     const tweetUserId = tweet.user.id;
@@ -109,7 +108,7 @@ export const TUICObserver = {
                     const tweetMentionUserId = tweet.mentionTo;
 
                     // ツイートのテキストとして使用する、最初のspan要素以外を削除
-                    tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach(e => e.remove());
+                    tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
                     // メンションを任意の場所に持っていけるよう削除
                     tweetLinkElement.remove();
 
@@ -333,7 +332,7 @@ export const TUICObserver = {
                                     userNameElem == null
                                         ? false
                                         : elem.querySelector(`[data-testid="User-Name"] > .r-1awozwy+div span`).textContent ==
-                                        "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
+                                          "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
 
                                 let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
                                 while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {

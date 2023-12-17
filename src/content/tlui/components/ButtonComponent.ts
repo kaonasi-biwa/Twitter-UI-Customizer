@@ -31,9 +31,12 @@ export class ButtonComponent implements Component {
      * @param options オプション
      */
     constructor(text: string, onclick: OnclickListener, options: ButtonComponentInit = {}) {
-        this.element = new DOMParser().parseFromString(`
+        this.element = new DOMParser().parseFromString(
+            `
             <button type="button" class="full-width">${text}</button>
-            `, "text/html").body.children[0] as HTMLButtonElement;
+            `,
+            "text/html",
+        ).body.children[0] as HTMLButtonElement;
         this.onclick = onclick;
 
         this.element.onclick = onclick;

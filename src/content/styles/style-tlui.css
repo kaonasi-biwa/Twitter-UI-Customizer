@@ -42,7 +42,13 @@
     max-height: 80vh;
     margin: auto;
 
-    font-family: "Segoe UI",Meiryo,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family:
+        "Segoe UI",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
 
     overflow-y: auto;
 }
