@@ -66,14 +66,13 @@
             <detailsBox i18n="sidebarButton-settingTitle">
                 <UpDownList id="sidebarButtons" /><br />
 
-                <CheckBox value="sidebarSetting.buttonConfig.smallerSidebarContent" name="sidebarButton-setting-narrowBetweenButtons" />
-                <CheckBox value="sidebarSetting.buttonConfig.sidebarNoneScrollbar" name="sidebarButton-setting-sidebarNoneScrollbar" />
-                <CheckBox value="sidebarSetting.buttonConfig.birdGoBackHome" name="sidebarButton-setting-birdGoBackHome" />
+                <CheckBoxList id="sidebarSetting.buttonConfig" />
 
                 <SettingSubTitle i18n="sidebarButton-accountSwitcher-settingTitle" />
-                <CheckBox value="accountSwitcher.icon" name="sidebarButton-accountSwitcher-Icon" />
-                <CheckBox value="accountSwitcher.nameID" name="sidebarButton-accountSwitcher-NameID" />
-                <CheckBox value="accountSwitcher.moreMenu" name="sidebarButton-accountSwitcher-MoreMenu" />
+                <CheckBoxList id="accountSwitcher" />
+
+                <SettingSubTitle i18n="sidebarButton-moreMenuItems-settingTitle" />
+                <CheckBoxList id="sidebarSetting.moreMenuItems" />
             </detailsBox>
 
             <detailsBox i18n="profileSetting-settingTitle">

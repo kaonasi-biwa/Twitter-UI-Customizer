@@ -1151,6 +1151,29 @@ export const TUICData = {
             linkShareCopyURL_vxTwitter: "bottomTweetButtons-setting-linkCopyURL-vxTwitter",
         },
     },
+    "sidebarSetting.buttonConfig": {
+        all: ["smallerSidebarContent", "sidebarNoneScrollbar", "birdGoBackHome"],
+        i18n: {
+            smallerSidebarContent: "sidebarButton-setting-narrowBetweenButtons",
+            sidebarNoneScrollbar: "sidebarButton-setting-sidebarNoneScrollbar",
+            birdGoBackHome: "sidebarButton-setting-birdGoBackHome",
+        },
+    },
+    "sidebarSetting.moreMenuItems": {
+        all: ["bookmarks", "monetization", "separator", "creatorStudio", "professionalTool", "settingsAndSupport"],
+        i18n: {
+            bookmarks: "sidebarButtons-bookmarks",
+            monetization: "sidebarButton-moreMenuItems-monetization",
+            separator: "sidebarButton-moreMenuItems-separator",
+            creatorStudio: "sidebarButton-moreMenuItems-creatorStudio",
+            professionalTool: "sidebarButton-moreMenuItems-professionalTool",
+            settingsAndSupport: "sidebarButton-moreMenuItems-settingsAndSupport",
+        },
+    },
+    accountSwitcher: {
+        all: ["icon", "nameID", "moreMenu"],
+        i18n: { icon: "sidebarButton-accountSwitcher-Icon", nameID: "sidebarButton-accountSwitcher-NameID", moreMenu: "sidebarButton-accountSwitcher-MoreMenu" },
+    },
     dmPage: {
         all: ["showIcon"],
         i18n: {

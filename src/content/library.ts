@@ -404,6 +404,9 @@ export const TUICPref = {
                 sidebarNoneScrollbar: false,
                 birdGoBackHome: false,
             },
+            moreMenuItems: {
+                boolmarks: false,
+            },
         },
         XToTwitter: { XToTwitter: false, PostToTweet: false },
         timeline: {
