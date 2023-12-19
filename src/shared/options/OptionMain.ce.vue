@@ -109,6 +109,10 @@
                 <CheckBoxList id="dmPage" />
             </detailsBox>
 
+            <detailsBox i18n="uncategorizedSettings-settingTitle">
+                <CheckBoxList id="uncategorizedSettings" />
+            </detailsBox>
+
             <br />
             <DefaultPrefButton :class-list="['TUIC_setting_button_width']" />
             <br /><br />

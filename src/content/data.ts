@@ -1280,4 +1280,10 @@ export const TUICData = {
             likes: `[href$="/likes"]`,
         },
     },
+    uncategorizedSettings: {
+        all: ["disableBackdropFilter"],
+        i18n: {
+            disableBackdropFilter: "uncategorizedSettings-disableBackdropFilter",
+        },
+    },
 };

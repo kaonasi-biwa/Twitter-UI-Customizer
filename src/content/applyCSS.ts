@@ -73,6 +73,7 @@ export function applySystemCss() {
         "accountSwitcher.nameID",
         "accountSwitcher.moreMenu",
         "profileSetting.tabs.pinnedTab",
+        "uncategorizedSettings.disableBackdropFilter",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {

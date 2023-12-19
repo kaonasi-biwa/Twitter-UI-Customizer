@@ -251,3 +251,7 @@
     backdrop-filter: blur(12px);
     background-color: var(--TUIC-pinnedTab-background);
 }
+
+:root[tuicsettings*="|uncategorizedSettings.disableBackdropFilter|"] * {
+    backdrop-filter: none !important;
+}

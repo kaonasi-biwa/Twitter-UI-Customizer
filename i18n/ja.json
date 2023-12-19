@@ -145,6 +145,9 @@
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
 
+    "uncategorizedSettings-settingTitle": "その他の設定",
+    "uncategorizedSettings-disableBackdropFilter": "ぼかし効果などの背景効果を無効にする",
+
     "dmPage-settingTitle": "ダイレクトメッセージの設定",
     "dmPage-showIcon": "対個人のダイレクトメッセージでも相手のアイコンを表示する",
 
