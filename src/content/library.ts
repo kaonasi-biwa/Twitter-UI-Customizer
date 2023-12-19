@@ -384,6 +384,7 @@ export const TUICPref = {
                 profileAffiliates: false,
                 verifiedFollowerTab: false,
             },
+            profileInitialTab: "tweets",
         },
         tweetDisplaySetting: {
             "twitter-pro-promotion-btn": false,

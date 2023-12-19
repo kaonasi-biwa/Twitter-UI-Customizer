@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "ツイート",
+    "profileSetting-profileInitialTab-reply": "返信",
+    "profileSetting-profileInitialTab-media": "メディア",
+    "profileSetting-profileInitialTab-likes": "いいね",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "進行中のスペースを聞く",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "リツイート",
     "XtoTwitter-PostToTweet-engagementsTitle": "エンゲージメント",

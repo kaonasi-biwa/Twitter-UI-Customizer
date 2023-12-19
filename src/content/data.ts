@@ -1266,4 +1266,18 @@ export const TUICData = {
             custom: "twitterIcon-custom",
         },
     },
+    "profileSetting.profileInitialTab": {
+        all: ["tweets", "replies", "media", "likes"],
+        i18n: {
+            tweets: "profileSetting-profileInitialTab-tweet",
+            replies: "profileSetting-profileInitialTab-reply",
+            media: "profileSetting-profileInitialTab-media",
+            likes: "profileSetting-profileInitialTab-likes",
+        },
+        selectors: {
+            replies: `[href$="/with_replies"]`,
+            media: `[href$="/media"]`,
+            likes: `[href$="/likes"]`,
+        },
+    },
 };

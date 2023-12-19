@@ -25,13 +25,13 @@
 
                 <br />
                 <SettingSubTitle i18n="bottomTweetButtons-setting-linkCopyURL" />
-                <RadioButtonList id="tweetDisplaySetting.linkCopyURL" />
+                <RadioButtonList id="tweetDisplaySetting.linkCopyURL" /><br />
 
                 <SettingSubTitle i18n="bottomTweetButtons-setting-linkShareCopyURL" />
-                <RadioButtonList id="tweetDisplaySetting.linkShareCopyURL" />
+                <RadioButtonList id="tweetDisplaySetting.linkShareCopyURL" /><br />
 
                 <SettingSubTitle i18n="timeline-discoverMore" />
-                <RadioButtonList id="timeline-discoverMore" />
+                <RadioButtonList id="timeline-discoverMore" /><br />
 
                 <SettingSubTitle i18n="fixEngagements-settingTitle" />
                 <UpDownList id="fixEngagements" />
@@ -52,7 +52,7 @@
             </detailsBox>
 
             <detailsBox i18n="twitterIcon-settingTitle">
-                <RadioButtonList id="twitterIcon"></RadioButtonList>
+                <RadioButtonList id="twitterIcon" />
 
                 <br />
                 <CheckBox value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
@@ -78,6 +78,9 @@
             <detailsBox i18n="profileSetting-settingTitle">
                 <SettingSubTitle i18n="profileSetting-tabs-settingTitle" />
                 <CheckBoxList id="profileSetting.tabs" />
+
+                <SettingSubTitle i18n="profileSetting-profileInitialTab-settingTitle" />
+                <RadioButtonList id="profileSetting.profileInitialTab" />
 
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
                 <CheckBoxList id="profileSetting.invisible" />

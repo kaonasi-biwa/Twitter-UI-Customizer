@@ -76,6 +76,7 @@ export const TUICObserver = {
         TUICObserver.functions.updateStyles();
 
         TUICObserver.functions.fixDMBox();
+        TUICObserver.functions.profileInitialTab();
 
         if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
             if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
@@ -994,11 +995,29 @@ export const TUICObserver = {
             if (TUICPref.get("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
                 document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.classList.add("TUIC_DISPNONE");
             }
-
-            /*for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
+        },
+        profileInitialTab: function () {
+            for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
                 elem.classList.add("TUICHandledEvent");
+
                 const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
-                elem.addEventListener("click", (e) => {
+                elem.addEventListener("click", TUICObserver.functions.profileInitialTabRedirect(userName));
+            }
+            for (const elem of document.querySelectorAll(`[data-testid="tweet"] a[style*="color"]:not(.TUICHandledEvent)`)) {
+                elem.classList.add("TUICHandledEvent");
+                if (elem.textContent.startsWith("@")) {
+                    elem.addEventListener("click", TUICObserver.functions.profileInitialTabRedirect(elem.textContent.slice(1)));
+                }
+            }
+            const profileButtonInSidebar = document.querySelector(`[data-testid="AppTabBar_Profile_Link"]:not(.TUICHandledEvent)`);
+            if (profileButtonInSidebar) {
+                profileButtonInSidebar.classList.add("TUICHandledEvent");
+                profileButtonInSidebar.addEventListener("click", TUICObserver.functions.profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
+            }
+        },
+        profileInitialTabRedirect: function (userName) {
+            if (TUICPref.get("profileSetting.profileInitialTab") != "tweets") {
+                return () => {
                     window.setTimeout(async () => {
                         await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
                         await TUICLibrary.waitForElement(`nav [role="presentation"]`);
@@ -1006,7 +1025,7 @@ export const TUICObserver = {
                         for (let i = 0; i <= 25; i++) {
                             const re = await new Promise((resolve2) => {
                                 if (window.scrollY == 0) {
-                                    document.querySelector(`nav [role="presentation"] a[href$="/with_replies"]`).click();
+                                    document.querySelector(`nav [role="presentation"] a${TUICData["profileSetting.profileInitialTab"].selectors[TUICPref.get("profileSetting.profileInitialTab")]}`).click();
                                     resolve2("ok");
                                 }
                                 resolve2("bb");
@@ -1019,8 +1038,8 @@ export const TUICObserver = {
                             });
                         }
                     }, 100);
-                });
-            }*/
+                };
+            }
         },
         moreMenuContent: async function () {
             await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
