@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "推文",
+    "profileSetting-profileInitialTab-reply": "回覆",
+    "profileSetting-profileInitialTab-media": "媒體",
+    "profileSetting-profileInitialTab-likes": "喜歡的內容",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "在音訊空間中即時聆聽",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "轉推",
     "XtoTwitter-PostToTweet-engagementsTitle": "參與次數",

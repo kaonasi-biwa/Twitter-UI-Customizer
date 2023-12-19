@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "Tweets",
+    "profileSetting-profileInitialTab-reply": "Respuestas",
+    "profileSetting-profileInitialTab-media": "Fotos y videos",
+    "profileSetting-profileInitialTab-likes": "Me gusta",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Escuchar en directo en Espacios",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Interacciones",

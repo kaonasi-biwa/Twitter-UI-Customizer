@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "Tweets",
+    "profileSetting-profileInitialTab-reply": "Svar",
+    "profileSetting-profileInitialTab-media": "Medier",
+    "profileSetting-profileInitialTab-likes": "Likes",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lyt med direkte i Rum",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagementer",

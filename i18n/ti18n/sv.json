@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "Tweets",
+    "profileSetting-profileInitialTab-reply": "Svar",
+    "profileSetting-profileInitialTab-media": "Medier",
+    "profileSetting-profileInitialTab-likes": "Gilla-markeringar",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Lyssna live i områden",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagemang",

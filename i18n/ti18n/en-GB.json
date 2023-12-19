@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "Tweets",
+    "profileSetting-profileInitialTab-reply": "Replies",
+    "profileSetting-profileInitialTab-media": "Media",
+    "profileSetting-profileInitialTab-likes": "Likes",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Listen live in Spaces",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweets",
     "XtoTwitter-PostToTweet-engagementsTitle": "Engagements",

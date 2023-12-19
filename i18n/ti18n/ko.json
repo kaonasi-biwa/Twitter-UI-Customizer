@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "트윗",
+    "profileSetting-profileInitialTab-reply": "답글",
+    "profileSetting-profileInitialTab-media": "미디어",
+    "profileSetting-profileInitialTab-likes": "마음에 들어요",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "스페이스 실시간 청취하기",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "리트윗",
     "XtoTwitter-PostToTweet-engagementsTitle": "참여수",

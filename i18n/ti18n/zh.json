@@ -1,4 +1,8 @@
 {
+    "profileSetting-profileInitialTab-tweet": "推文",
+    "profileSetting-profileInitialTab-reply": "回复",
+    "profileSetting-profileInitialTab-media": "媒体",
+    "profileSetting-profileInitialTab-likes": "喜欢",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "收听空间直播",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "转推",
     "XtoTwitter-PostToTweet-engagementsTitle": "参与",
