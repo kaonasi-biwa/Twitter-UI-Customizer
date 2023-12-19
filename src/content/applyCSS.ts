@@ -74,6 +74,7 @@ export function applySystemCss() {
         "accountSwitcher.moreMenu",
         "profileSetting.tabs.pinnedTab",
         "uncategorizedSettings.disableBackdropFilter",
+        "composetweet.hideDraft",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {

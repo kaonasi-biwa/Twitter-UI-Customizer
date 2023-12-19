@@ -1286,4 +1286,10 @@ export const TUICData = {
             disableBackdropFilter: "uncategorizedSettings-disableBackdropFilter",
         },
     },
+    composetweet: {
+        all: ["hideDraft"],
+        i18n: {
+            hideDraft: "composetweet-hideDraft",
+        },
+    },
 };

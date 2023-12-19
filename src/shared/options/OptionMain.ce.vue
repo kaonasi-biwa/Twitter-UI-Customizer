@@ -105,6 +105,10 @@
                 <CheckBoxList id="rightSidebar" />
             </detailsBox>
 
+            <detailsBox i18n="composetweet-settingTitle">
+                <CheckBoxList id="composetweet" />
+            </detailsBox>
+
             <detailsBox i18n="dmPage-settingTitle">
                 <CheckBoxList id="dmPage" />
             </detailsBox>
