@@ -4,13 +4,15 @@
  */
 
 import { TUICObserver } from "./observer.ts";
-import { TUICLibrary } from "./library.ts";
+import { TUICLibrary, TUICPref } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
 import { isSafemode, runSafemode } from "./safemode.ts";
+import { startTluiObserver } from "./tlui/observer.ts";
 
 (async () => {
     await TUICI18N.fetch();
+
     await TUICLibrary.waitForElement("#react-root");
 
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
@@ -29,7 +31,7 @@ import { isSafemode, runSafemode } from "./safemode.ts";
     );
 
     // 旧バージョンからのアップデート
-    await TUICLibrary.updatePref.update();
+    await TUICPref.update();
 
     addCssElement();
     applyDataCss();
@@ -42,6 +44,8 @@ import { isSafemode, runSafemode } from "./safemode.ts";
         type: "update",
         updateType: "openTwitter",
     });
+
+    startTluiObserver();
 
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     TUICObserver.observerFunction(null);

@@ -63,9 +63,12 @@ export default defineConfig(({ command, mode }) => {
                     // console.log(options.watch);
                 },
                 buildStart(options) {
-                    console.log("copy-injectjs");
                     fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
                     fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
+                    console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
+                },
+                closeBundle() {
+                    console.log(new Date().toLocaleString());
                 },
             },
             vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode),

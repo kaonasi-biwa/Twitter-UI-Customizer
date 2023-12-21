@@ -25,13 +25,13 @@
 
                 <br />
                 <SettingSubTitle i18n="bottomTweetButtons-setting-linkCopyURL" />
-                <RadioButtonList id="tweetDisplaySetting.linkCopyURL" />
+                <RadioButtonList id="tweetDisplaySetting.linkCopyURL" /><br />
 
                 <SettingSubTitle i18n="bottomTweetButtons-setting-linkShareCopyURL" />
-                <RadioButtonList id="tweetDisplaySetting.linkShareCopyURL" />
+                <RadioButtonList id="tweetDisplaySetting.linkShareCopyURL" /><br />
 
                 <SettingSubTitle i18n="timeline-discoverMore" />
-                <RadioButtonList id="timeline-discoverMore" />
+                <RadioButtonList id="timeline-discoverMore" /><br />
 
                 <SettingSubTitle i18n="fixEngagements-settingTitle" />
                 <UpDownList id="fixEngagements" />
@@ -47,12 +47,15 @@
                 <br />
                 <CheckBox value="tweetTopButtonBool.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
 
+                <SettingSubTitle i18n="tweetMoreMenuItems-settingTitle" />
+                <CheckBoxList id="tweetDisplaySetting.tweetMoreMenuItems" />
+
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
                 <CheckBoxList id="tweetDisplaySetting" />
             </detailsBox>
 
             <detailsBox i18n="twitterIcon-settingTitle">
-                <RadioButtonList id="twitterIcon"></RadioButtonList>
+                <RadioButtonList id="twitterIcon" />
 
                 <br />
                 <CheckBox value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
@@ -66,19 +69,21 @@
             <detailsBox i18n="sidebarButton-settingTitle">
                 <UpDownList id="sidebarButtons" /><br />
 
-                <CheckBox value="sidebarSetting.buttonConfig.smallerSidebarContent" name="sidebarButton-setting-narrowBetweenButtons" />
-                <CheckBox value="sidebarSetting.buttonConfig.sidebarNoneScrollbar" name="sidebarButton-setting-sidebarNoneScrollbar" />
-                <CheckBox value="sidebarSetting.buttonConfig.birdGoBackHome" name="sidebarButton-setting-birdGoBackHome" />
+                <CheckBoxList id="sidebarSetting.buttonConfig" />
 
                 <SettingSubTitle i18n="sidebarButton-accountSwitcher-settingTitle" />
-                <CheckBox value="accountSwitcher.icon" name="sidebarButton-accountSwitcher-Icon" />
-                <CheckBox value="accountSwitcher.nameID" name="sidebarButton-accountSwitcher-NameID" />
-                <CheckBox value="accountSwitcher.moreMenu" name="sidebarButton-accountSwitcher-MoreMenu" />
+                <CheckBoxList id="accountSwitcher" />
+
+                <SettingSubTitle i18n="sidebarButton-moreMenuItems-settingTitle" />
+                <CheckBoxList id="sidebarSetting.moreMenuItems" />
             </detailsBox>
 
             <detailsBox i18n="profileSetting-settingTitle">
                 <SettingSubTitle i18n="profileSetting-tabs-settingTitle" />
                 <CheckBoxList id="profileSetting.tabs" />
+
+                <SettingSubTitle i18n="profileSetting-profileInitialTab-settingTitle" />
+                <RadioButtonList id="profileSetting.profileInitialTab" />
 
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
                 <CheckBoxList id="profileSetting.invisible" />
@@ -103,8 +108,16 @@
                 <CheckBoxList id="rightSidebar" />
             </detailsBox>
 
+            <detailsBox i18n="composetweet-settingTitle">
+                <CheckBoxList id="composetweet" />
+            </detailsBox>
+
             <detailsBox i18n="dmPage-settingTitle">
                 <CheckBoxList id="dmPage" />
+            </detailsBox>
+
+            <detailsBox i18n="uncategorizedSettings-settingTitle">
+                <CheckBoxList id="uncategorizedSettings" />
             </detailsBox>
 
             <br />

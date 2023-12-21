@@ -231,6 +231,7 @@
         :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
         :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
         :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
+        :root[tuicsettings*="|composetweet.hideDraft|"] [data-testid="unsentButton"],
 
     ) {
     display: none !important;
@@ -250,4 +251,8 @@
     z-index: 1;
     backdrop-filter: blur(12px);
     background-color: var(--TUIC-pinnedTab-background);
+}
+
+:root[tuicsettings*="|uncategorizedSettings.disableBackdropFilter|"] * {
+    backdrop-filter: none !important;
 }

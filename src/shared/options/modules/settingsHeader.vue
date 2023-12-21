@@ -88,7 +88,7 @@ export default defineComponent({
             },
         ];
         const clickEv = (index) => {
-            TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), buttonList[index].changePref ?? {}));
+            TUICPref.set("", TUICPref.merge(TUICPref.get(""), buttonList[index].changePref ?? {}));
             buttonList[index]?.changeFunc?.();
             TUICPref.save();
             if (!isSafemode) {

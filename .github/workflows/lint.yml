@@ -47,5 +47,5 @@ jobs:
             - name: Run ESLint & Prettier & Stylelint
               run: |
                   pnpm lint:eslint
-                  pnpm lint:prettier
                   pnpm lint:stylelint
+                  pnpm lint:prettier

@@ -26,6 +26,10 @@
     "sidebarButtons-verified-choose": "f75d1806",
     "sidebarButtons-display": "c4881c66",
     "sidebarButtons-muteAndBlock": "cbd449a0",
+    "sidebarButton-moreMenuItems-monetization": "d299431c",
+    "sidebarButton-moreMenuItems-creatorStudio": "bb07870e",
+    "sidebarButton-moreMenuItems-professionalTool": "ec1ed0cc",
+    "sidebarButton-moreMenuItems-settingsAndSupport": "f1e3a258",
     "XtoTwitter-PostToTweet-tweetButton": "bea869b4",
     "XtoTwitter-PostToTweet-tweetAllButton": "f70a36d0",
     "XtoTwitter-PostToTweet-tweetButton-latest": "ee69d769",
@@ -106,5 +110,12 @@
     "XtoTwitter-PostToTweet-retweet-dialogConfirm": "bac8f4c2",
     "XtoTwitter-PostToTweet-engagementsTitle": "dbe9353e",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "d497b854",
-    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "f3839580"
+    "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "f3839580",
+    "profileSetting-profileInitialTab-likes": "d7b8ebaa",
+    "profileSetting-profileInitialTab-media": "i5450bec",
+    "profileSetting-profileInitialTab-reply": "jdceda60",
+    "profileSetting-profileInitialTab-tweet": "bab1f8b0",
+    "tweetTopButton-leaveTalk": "bb16cc76",
+    "tweetTopButton-muteTalk": "e2d6c17e",
+    "tweetTopButton-hiddenReply": "f9478972"
 }

@@ -59,7 +59,6 @@ export function applyCustomIcon() {
 }
 
 export function applySystemCss() {
-    console.log("aaaaaa");
     const backgroundColor = TUICLibrary.backgroundColorCheck();
 
     const settingsArr = [
@@ -74,6 +73,8 @@ export function applySystemCss() {
         "accountSwitcher.nameID",
         "accountSwitcher.moreMenu",
         "profileSetting.tabs.pinnedTab",
+        "uncategorizedSettings.disableBackdropFilter",
+        "composetweet.hideDraft",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
@@ -109,7 +110,6 @@ export function applySystemCss() {
         rs.setProperty("--TUIC-pinnedTab-background", `rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
 
         rs.setProperty("--TUIC-pinnedTab-top", `${TUICLibrary.fontSizeClass("47", "49", "52", "57", "63")}px`);
-        console.log("aiueo");
     }
 }
 

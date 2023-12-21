@@ -21,17 +21,19 @@ import { TUICPref, TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
 import { applySystemCss } from "@content/applyCSS";
 import { isSafemode } from "@content/safemode";
+import { Dialog } from "../../../content//tlui/components/Dialog.ts";
+import { ButtonComponent } from "../../../content//tlui/components/ButtonComponent.ts";
 
 export default defineComponent({
     setup() {
         const importBox = ref(null);
-        const importFunc = (type) => {
+        const importFunc = async (type) => {
             try {
                 const importPref = JSON.parse(importBox.value.value);
                 if (type == 1) {
-                    TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+                    TUICPref.set("", TUICPref.merge(TUICPref.get(""), importPref));
                 } else if (type == 2) {
-                    TUICPref.set("", TUICLibrary.updatePref.merge(structuredClone(TUICPref.defaultPref), importPref));
+                    TUICPref.set("", TUICPref.merge(structuredClone(TUICPref.defaultPref), importPref));
                 }
 
                 TUICPref.save();
@@ -49,7 +51,9 @@ export default defineComponent({
                 }
             } catch (x) {
                 console.error(x);
-                alert("構文解析に失敗しました");
+                await TUICLibrary.waitForElement("#layers");
+                const dialog = new Dialog(TUICI18N.get("common-error"));
+                dialog.addComponents([TUICI18N.get("import-error"), new ButtonComponent(TUICI18N.get("common-close"), () => dialog.close())]).open();
             }
         };
         return { TUICI18N, importFunc, importBox };

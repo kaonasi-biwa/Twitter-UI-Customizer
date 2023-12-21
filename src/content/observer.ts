@@ -76,7 +76,61 @@ export const TUICObserver = {
         TUICObserver.functions.updateStyles();
 
         TUICObserver.functions.fixDMBox();
+        TUICObserver.functions.profileInitialTab();
 
+        if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
+            if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
+                let displayRootElement = document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+                if (location.pathname === "/i/display") displayRootElement = displayRootElement.parentElement;
+
+                TUICOptionHTML.displaySetting(displayRootElement);
+
+                (async () => {
+                    const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
+                    const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
+                    const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
+
+                    const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
+                        {
+                            user: {
+                                id: "tuic_official",
+                                name: "【公式】UI Customizer by Ablaze",
+                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg",
+                            },
+                            text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
+                            mentionTo: "kaonasi_biwa",
+                        },
+                    ]);
+
+                    const tweetUserId = tweet.user.id;
+                    const tweetUserName = tweet.user.name;
+                    const tweetUserIcon = tweet.user.icon;
+                    const tweetText = tweet.text;
+                    const tweetMentionUserId = tweet.mentionTo;
+
+                    // ツイートのテキストとして使用する、最初のspan要素以外を削除
+                    tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
+                    // メンションを任意の場所に持っていけるよう削除
+                    tweetLinkElement.remove();
+
+                    // img要素がそもそも存在しない場合があるので、待機
+                    await TUICLibrary.waitForElement("img", tweetElement);
+
+                    // ユーザーアイコン
+                    tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;
+                    tweetElement.querySelector("img").src = tweetUserIcon;
+                    // ユーザー名・ユーザーID
+                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
+                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
+                    // メンションのユーザー
+                    tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
+                    tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
+
+                    // テキストに設定
+                    tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
+                })();
+            }
+        }
         if (window.location.pathname == "/tuic/safemode") {
         } else if (window.location.pathname == "/settings/display") {
             TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
@@ -202,6 +256,15 @@ export const TUICObserver = {
                     if (moveElem != null) {
                         bannerRoot.appendChild(moveElem);
                         moveElem.classList.add("NOT_TUIC_DISPNONE");
+                        if (i == "moremenu") {
+                            moveElem.onclick = TUICObserver.functions.moreMenuContent;
+                            moveElem.addEventListener("keydown", (e) => {
+                                if (e.keyCode === 13) {
+                                    e.preventDefault();
+                                    TUICObserver.functions.moreMenuContent();
+                                }
+                            });
+                        }
                     } else if (i in TUICData.sidebarButtons.html) {
                         moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
                         moveElem.classList.add("NOT_TUIC_DISPNONE");
@@ -400,6 +463,16 @@ export const TUICObserver = {
                                 }
 
                                 if (elem.querySelector(TUICData.tweetTopButton.selector.moreMenu)) {
+                                    const moreMenuButton = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu);
+                                    moreMenuButton.addEventListener("keydown", (e) => {
+                                        if (e.keyCode === 13) {
+                                            TUICObserver.functions.tweetMoreMenuContent();
+                                        }
+                                    });
+                                    moreMenuButton.children[0].addEventListener("click", (e) => {
+                                        TUICObserver.functions.tweetMoreMenuContent();
+                                    });
+
                                     let isFirst = true;
                                     const tweetTopButtons = {};
                                     const tweetTopParent = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu).parentElement;
@@ -604,13 +677,13 @@ export const TUICObserver = {
                 for (const elem of getNotReplacedElements(
                     '[role="menu"] [data-testid="Dropdown"] [d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyURL");
+                    elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyURL");
 
                 // 共有 > その他の方法
                 for (const elem of getNotReplacedElements(
                     '[role="menu"] [data-testid="Dropdown"] [d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"]',
                 ))
-                    elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
+                    elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
 
                 // ツイート入力ダイアログ
                 const isDialog = !!document.querySelector('[role="alertdialog"],[role="dialog"],[data-testid="twc-cc-mask"]+div');
@@ -917,7 +990,7 @@ export const TUICObserver = {
 
             if (TUICPref.get("profileSetting.invisible.verifiedFollowerTab")) {
                 const nowURL = location.pathname;
-                if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/verified_followers")) {
+                if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
                     const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/verified_followers"]`);
                     if (tab) {
                         tab.parentElement.classList.add("TUIC_DISPNONE");
@@ -931,6 +1004,128 @@ export const TUICObserver = {
 
             if (TUICPref.get("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
                 document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.classList.add("TUIC_DISPNONE");
+            }
+        },
+        profileInitialTab: function () {
+            for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
+                elem.classList.add("TUICHandledEvent");
+
+                const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
+                elem.addEventListener("click", TUICObserver.functions.profileInitialTabRedirect(userName));
+            }
+            for (const elem of document.querySelectorAll(`[data-testid="tweet"] a[style*="color"]:not(.TUICHandledEvent)`)) {
+                elem.classList.add("TUICHandledEvent");
+                if (elem.textContent.startsWith("@")) {
+                    elem.addEventListener("click", TUICObserver.functions.profileInitialTabRedirect(elem.textContent.slice(1)));
+                }
+            }
+            const profileButtonInSidebar = document.querySelector(`[data-testid="AppTabBar_Profile_Link"]:not(.TUICHandledEvent)`);
+            if (profileButtonInSidebar) {
+                profileButtonInSidebar.classList.add("TUICHandledEvent");
+                profileButtonInSidebar.addEventListener("click", TUICObserver.functions.profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
+            }
+        },
+        profileInitialTabRedirect: function (userName) {
+            if (TUICPref.get("profileSetting.profileInitialTab") != "tweets") {
+                return () => {
+                    window.setTimeout(async () => {
+                        await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
+                        await TUICLibrary.waitForElement(`nav [role="presentation"]`);
+
+                        for (let i = 0; i <= 25; i++) {
+                            const re = await new Promise((resolve2) => {
+                                if (window.scrollY == 0) {
+                                    document.querySelector(`nav [role="presentation"] a${TUICData["profileSetting.profileInitialTab"].selectors[TUICPref.get("profileSetting.profileInitialTab")]}`).click();
+                                    resolve2("ok");
+                                }
+                                resolve2("bb");
+                            });
+                            if (re == "ok") return true;
+                            await new Promise((resolve2) => {
+                                window.setTimeout(() => {
+                                    resolve2("");
+                                }, 100);
+                            });
+                        }
+                    }, 100);
+                };
+            }
+        },
+        moreMenuContent: async function () {
+            await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+            let menuTopPx = parseFloat(document.querySelector(`[role="menu"]`).style.top);
+            const menuItemPx = TUICLibrary.fontSizeClass(50, 53, 56, 62, 67);
+            const menuInMenuPx = TUICLibrary.fontSizeClass(46, 49, 52, 58, 62);
+            if (TUICPref.get("sidebarSetting.moreMenuItems.bookmarks")) {
+                const elem = document.querySelector(`[data-testid="Dropdown"] [href="/i/bookmarks"]`);
+                if (elem) {
+                    elem.parentElement.classList.add("TUIC_DISPNONE");
+                    menuTopPx += menuItemPx;
+                }
+            }
+            if (TUICPref.get("sidebarSetting.moreMenuItems.monetization")) {
+                const elem = document.querySelector(`[data-testid="Dropdown"] [href="/settings/monetization"]`);
+                if (elem) {
+                    elem.parentElement.classList.add("TUIC_DISPNONE");
+                    menuTopPx += menuItemPx;
+                }
+            }
+
+            if (TUICPref.get("sidebarSetting.moreMenuItems.separator")) {
+                const elem = document.querySelector(`[data-testid="Dropdown"] [role="separator"]`);
+                if (elem) {
+                    elem.parentElement.classList.add("TUIC_DISPNONE");
+                    menuTopPx += 5;
+                }
+            }
+            if (TUICPref.get("sidebarSetting.moreMenuItems.creatorStudio")) {
+                const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_0_content"]`);
+                if (elem) {
+                    elem.classList.add("TUIC_DISPNONE");
+                    menuTopPx += menuInMenuPx;
+                }
+            }
+            if (TUICPref.get("sidebarSetting.moreMenuItems.professionalTool")) {
+                const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_1_content"]`);
+                if (elem) {
+                    elem.classList.add("TUIC_DISPNONE");
+                    menuTopPx += menuInMenuPx;
+                }
+            }
+            if (TUICPref.get("sidebarSetting.moreMenuItems.settingsAndSupport")) {
+                const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_2_content"][data-testid="settingsAndSupport"]`);
+                if (elem) {
+                    elem.classList.add("TUIC_DISPNONE");
+                    menuTopPx += menuInMenuPx;
+                }
+            }
+            document.querySelector(`[role="menu"]`).style.top = menuTopPx + "px";
+        },
+        tweetMoreMenuContent: async function () {
+            await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+
+            let menuTopPx = 0;
+            const menuItemPx = TUICLibrary.fontSizeClass(40, 41, 44, 48, 52);
+            for (const id of TUICData["tweetDisplaySetting.tweetMoreMenuItems"].all) {
+                if (TUICPref.get(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
+                    const getFunc = TUICData["tweetDisplaySetting.tweetMoreMenuItems"].selectors[id];
+                    let elem = null;
+                    if (typeof getFunc == "function") {
+                        elem = getFunc();
+                    } else {
+                        elem = document.querySelector(`[data-testid="Dropdown"] ${TUICData["tweetDisplaySetting.tweetMoreMenuItems"].selectors[id]}`);
+                    }
+
+                    if (elem) {
+                        elem.closest(`[role="menuitem"]`).classList.add("TUIC_DISPNONE");
+                        menuTopPx += menuItemPx;
+                    }
+                }
+            }
+
+            const needChangeTopPx = !document.querySelector(`[role="menu"] > div`).hasAttribute("style");
+            if (needChangeTopPx) {
+                document.querySelector(`[role="menu"]`).style.transform = `translateY(${menuTopPx}px)`;
             }
         },
         updateStyles: function () {

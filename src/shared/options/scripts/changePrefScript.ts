@@ -10,7 +10,7 @@ export const XToTwitterRestoreIcon = () => {
         sidebarSetting: { buttonConfig: { birdGoBackHome: true } },
         twitterIcon: "twitter",
     };
-    TUICPref.set("", TUICLibrary.updatePref.merge(TUICPref.get(""), importPref));
+    TUICPref.set("", TUICPref.merge(TUICPref.get(""), importPref));
     TUICPref.save();
     TUICLibrary.getClasses.update();
     TUICObserver.titleObserverFunction();
