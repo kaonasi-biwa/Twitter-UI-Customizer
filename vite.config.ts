@@ -8,9 +8,10 @@ import fs from "fs";
 import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
+import vue from "@vitejs/plugin-vue";
 //
 
-import vue from "@vitejs/plugin-vue";
+import { changeManifest } from "./npm-scripts/change-manifest";
 
 const root = resolve(__dirname, "src");
 const outDir = resolve(__dirname, "dist");
@@ -51,7 +52,7 @@ export default defineConfig(({ command, mode }) => {
         },
         plugins: [
             {
-                name: "copy-inject.js",
+                name: "copyResources",
                 enforce: "post",
                 options(options) {
                     // this.addWatch;
@@ -63,8 +64,18 @@ export default defineConfig(({ command, mode }) => {
                     // console.log(options.watch);
                 },
                 buildStart(options) {
+                    if (mode === "firefox") {
+                        changeManifest("firefox");
+                    } else if (mode === "chromium") {
+                        //* in changeManifest, chrome instead of chromium
+                        changeManifest("chrome");
+                    }
                     fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
                     fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
+                    fs.cpSync(r("src/content/styles"), "./dist/styles", { recursive: true });
+                    fs.cpSync(r("_locales"), r("dist/_locales"), { recursive: true });
+                    fs.cpSync(r("icon"), r("dist/icon"), { recursive: true });
+
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },
                 closeBundle() {

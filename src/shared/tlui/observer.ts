@@ -1,4 +1,4 @@
-import { TUICLibrary } from "../library";
+import { TUICLibrary } from "@content/library";
 
 /**
  * TLUI のオブザーバーを開始します。
