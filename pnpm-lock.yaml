@@ -21,7 +21,7 @@ dependencies:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.3.3)(vue@3.3.13)
   vue:
-    specifier: ^3.3.12
+    specifier: ^3.3.13
     version: 3.3.13(typescript@5.3.3)
   webextension-polyfill:
     specifier: ^0.10.0
@@ -32,13 +32,13 @@ devDependencies:
     specifier: ^8.56.0
     version: 8.56.0
   '@types/node':
-    specifier: ^20.10.4
+    specifier: ^20.10.5
     version: 20.10.5
   '@typescript-eslint/eslint-plugin':
-    specifier: ^6.14.0
+    specifier: ^6.15.0
     version: 6.15.0(@typescript-eslint/parser@6.15.0)(eslint@8.56.0)(typescript@5.3.3)
   '@typescript-eslint/parser':
-    specifier: ^6.14.0
+    specifier: ^6.15.0
     version: 6.15.0(eslint@8.56.0)(typescript@5.3.3)
   '@unplugin-vue-ce/sub-style':
     specifier: 1.0.0-beta.19
@@ -80,7 +80,7 @@ devDependencies:
     specifier: ^12.0.0
     version: 12.0.0(postcss@8.4.32)(stylelint@16.0.2)
   tailwindcss:
-    specifier: ^3.3.6
+    specifier: ^3.4.0
     version: 3.4.0(ts-node@10.9.2)
   ts-node:
     specifier: ^10.9.2

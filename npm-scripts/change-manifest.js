@@ -27,6 +27,6 @@ export async function changeManifest(target) {
     await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
 }
 
-if (typeof module !== "undefined" && !module.parent) {
+if (typeof module !== "undefined" && require.main === module) {
     changeManifest(process.argv[2]);
 }
