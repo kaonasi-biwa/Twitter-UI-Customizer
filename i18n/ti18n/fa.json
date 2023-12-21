@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "مشاهده پاسخ‌های پنهان‌شده",
+    "tweetTopButton-muteTalk": "خموش‌سازی این گفتگو",
+    "tweetTopButton-leaveTalk": "ترک این گفت‌وگو",
     "profileSetting-profileInitialTab-tweet": "توييت‌ها",
     "profileSetting-profileInitialTab-reply": "پاسخ‌ها",
     "profileSetting-profileInitialTab-media": "رسانه تصویری",

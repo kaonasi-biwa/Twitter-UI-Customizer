@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "লুকিয়ে রাখা উত্তরগুলো দেখুন",
+    "tweetTopButton-muteTalk": "এই কথা-বার্তা নীরব করুন",
+    "tweetTopButton-leaveTalk": "এই কথা-বার্তা ছেড়ে যান",
     "profileSetting-profileInitialTab-tweet": "টুইটগুলি",
     "profileSetting-profileInitialTab-reply": "উত্তরগুলি",
     "profileSetting-profileInitialTab-media": "মিডিয়া",

@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Näytä piilotetut vastaukset",
+    "tweetTopButton-muteTalk": "Hiljennä tämä keskustelu",
+    "tweetTopButton-leaveTalk": "Poistu keskustelusta",
     "profileSetting-profileInitialTab-tweet": "Twiitit",
     "profileSetting-profileInitialTab-reply": "Vastaukset",
     "profileSetting-profileInitialTab-media": "Media",

@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Ausgeblendete Antworten anzeigen",
+    "tweetTopButton-muteTalk": "Diese Konversation stummschalten",
+    "tweetTopButton-leaveTalk": "Diese Konversation verlassen",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Antworten",
     "profileSetting-profileInitialTab-media": "Medien",

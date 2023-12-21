@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Vis skjulte svar",
+    "tweetTopButton-muteTalk": "Skjul denne samtalen",
+    "tweetTopButton-leaveTalk": "Forlat denne samtalen",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Svar",
     "profileSetting-profileInitialTab-media": "Medier",

@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Rejtett válaszok megjelenítése",
+    "tweetTopButton-muteTalk": "Beszélgetés némítása",
+    "tweetTopButton-leaveTalk": "Kilépés a beszélgetésből",
     "profileSetting-profileInitialTab-tweet": "Tweetek",
     "profileSetting-profileInitialTab-reply": "Válaszok",
     "profileSetting-profileInitialTab-media": "Média",

@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Prikaži skrivene odgovore",
+    "tweetTopButton-muteTalk": "Isključi zvuk ovog razgovora",
+    "tweetTopButton-leaveTalk": "Zatvori taj razgovor",
     "profileSetting-profileInitialTab-tweet": "Tweetovi",
     "profileSetting-profileInitialTab-reply": "Odgovori",
     "profileSetting-profileInitialTab-media": "Medijski sadržaj",

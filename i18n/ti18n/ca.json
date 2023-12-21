@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Mostra les respostes amagades",
+    "tweetTopButton-muteTalk": "Silencia la conversa",
+    "tweetTopButton-leaveTalk": "Surt de la conversa",
     "profileSetting-profileInitialTab-tweet": "Tuits",
     "profileSetting-profileInitialTab-reply": "Respostes",
     "profileSetting-profileInitialTab-media": "Continguts",

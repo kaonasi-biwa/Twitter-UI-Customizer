@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Προβολή κρυφών απαντήσεων",
+    "tweetTopButton-muteTalk": "Σίγαση αυτής της συζήτησης",
+    "tweetTopButton-leaveTalk": "Αποχώρηση από αυτή τη συζήτηση",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Απαντήσεις",
     "profileSetting-profileInitialTab-media": "Πολυμέσα",

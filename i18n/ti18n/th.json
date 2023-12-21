@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "ดูการตอบกลับที่ซ่อนอยู่",
+    "tweetTopButton-muteTalk": "ซ่อนบทสนทนานี้",
+    "tweetTopButton-leaveTalk": "ออกจากบทสนทนานี้",
     "profileSetting-profileInitialTab-tweet": "ทวีต",
     "profileSetting-profileInitialTab-reply": "การตอบกลับ",
     "profileSetting-profileInitialTab-media": "สื่อ",

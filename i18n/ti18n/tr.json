@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Gizli yanıtları görüntüle",
+    "tweetTopButton-muteTalk": "Bu sohbeti sessize al",
+    "tweetTopButton-leaveTalk": "Sohbetten ayrıl",
     "profileSetting-profileInitialTab-tweet": "Tweetler",
     "profileSetting-profileInitialTab-reply": "Yanıtlar",
     "profileSetting-profileInitialTab-media": "Medya",

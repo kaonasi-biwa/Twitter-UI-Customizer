@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Visa dolda svar",
+    "tweetTopButton-muteTalk": "Ignorera den här konversationen",
+    "tweetTopButton-leaveTalk": "Lämna detta samtal",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Svar",
     "profileSetting-profileInitialTab-media": "Medier",

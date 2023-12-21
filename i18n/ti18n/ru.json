@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Посмотреть скрытые ответы",
+    "tweetTopButton-muteTalk": "Игнорировать эту переписку",
+    "tweetTopButton-leaveTalk": "Покинуть переписку",
     "profileSetting-profileInitialTab-tweet": "Твиты",
     "profileSetting-profileInitialTab-reply": "Ответы",
     "profileSetting-profileInitialTab-media": "Медиа",

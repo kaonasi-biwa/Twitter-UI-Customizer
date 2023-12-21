@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Vezi răspunsurile ascunse",
+    "tweetTopButton-muteTalk": "Ignoră această conversație",
+    "tweetTopButton-leaveTalk": "Părăsește această conversație",
     "profileSetting-profileInitialTab-tweet": "Tweeturi",
     "profileSetting-profileInitialTab-reply": "Răspunsuri",
     "profileSetting-profileInitialTab-media": "Conținut media",

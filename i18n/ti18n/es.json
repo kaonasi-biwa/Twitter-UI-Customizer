@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Ver respuestas ocultas",
+    "tweetTopButton-muteTalk": "Silenciar esta conversación",
+    "tweetTopButton-leaveTalk": "Salir de esta conversación",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Respuestas",
     "profileSetting-profileInitialTab-media": "Fotos y videos",
