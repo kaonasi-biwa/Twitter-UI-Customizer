@@ -145,6 +145,12 @@
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
 
+    "uncategorizedSettings-settingTitle": "その他の設定",
+    "uncategorizedSettings-disableBackdropFilter": "ぼかし効果などの背景効果を無効にする",
+
+    "composetweet-settingTitle": "ツイート投稿画面の表示",
+    "composetweet-hideDraft": "下書きボタンを非表示にする",
+
     "dmPage-settingTitle": "ダイレクトメッセージの設定",
     "dmPage-showIcon": "対個人のダイレクトメッセージでも相手のアイコンを表示する",
 
