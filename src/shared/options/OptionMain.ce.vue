@@ -47,6 +47,9 @@
                 <br />
                 <CheckBox value="tweetTopButtonBool.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
 
+                <SettingSubTitle i18n="tweetMoreMenuItems-settingTitle" />
+                <CheckBoxList id="tweetDisplaySetting.tweetMoreMenuItems" />
+
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
                 <CheckBoxList id="tweetDisplaySetting" />
             </detailsBox>

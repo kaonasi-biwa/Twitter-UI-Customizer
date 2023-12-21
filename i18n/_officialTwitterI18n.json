@@ -114,5 +114,8 @@
     "profileSetting-profileInitialTab-likes": "d7b8ebaa",
     "profileSetting-profileInitialTab-media": "i5450bec",
     "profileSetting-profileInitialTab-reply": "jdceda60",
-    "profileSetting-profileInitialTab-tweet": "bab1f8b0"
+    "profileSetting-profileInitialTab-tweet": "bab1f8b0",
+    "tweetTopButton-leaveTalk": "bb16cc76",
+    "tweetTopButton-muteTalk": "e2d6c17e",
+    "tweetTopButton-hiddenReply": "f9478972"
 }

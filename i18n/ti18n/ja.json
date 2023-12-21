@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "非表示の返信を表示",
+    "tweetTopButton-muteTalk": "この会話をミュート",
+    "tweetTopButton-leaveTalk": "この会話から退出",
     "profileSetting-profileInitialTab-tweet": "ツイート",
     "profileSetting-profileInitialTab-reply": "返信",
     "profileSetting-profileInitialTab-media": "メディア",

@@ -463,6 +463,16 @@ export const TUICObserver = {
                                 }
 
                                 if (elem.querySelector(TUICData.tweetTopButton.selector.moreMenu)) {
+                                    const moreMenuButton = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu);
+                                    moreMenuButton.addEventListener("keydown", (e) => {
+                                        if (e.keyCode === 13) {
+                                            TUICObserver.functions.tweetMoreMenuContent();
+                                        }
+                                    });
+                                    moreMenuButton.children[0].addEventListener("click", (e) => {
+                                        TUICObserver.functions.tweetMoreMenuContent();
+                                    });
+
                                     let isFirst = true;
                                     const tweetTopButtons = {};
                                     const tweetTopParent = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu).parentElement;
@@ -1090,6 +1100,33 @@ export const TUICObserver = {
                 }
             }
             document.querySelector(`[role="menu"]`).style.top = menuTopPx + "px";
+        },
+        tweetMoreMenuContent: async function () {
+            await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+
+            let menuTopPx = 0;
+            const menuItemPx = TUICLibrary.fontSizeClass(40, 41, 44, 48, 52);
+            for (const id of TUICData["tweetDisplaySetting.tweetMoreMenuItems"].all) {
+                if (TUICPref.get(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
+                    const getFunc = TUICData["tweetDisplaySetting.tweetMoreMenuItems"].selectors[id];
+                    let elem = null;
+                    if (typeof getFunc == "function") {
+                        elem = getFunc();
+                    } else {
+                        elem = document.querySelector(`[data-testid="Dropdown"] ${TUICData["tweetDisplaySetting.tweetMoreMenuItems"].selectors[id]}`);
+                    }
+
+                    if (elem) {
+                        elem.closest(`[role="menuitem"]`).classList.add("TUIC_DISPNONE");
+                        menuTopPx += menuItemPx;
+                    }
+                }
+            }
+
+            const needChangeTopPx = !document.querySelector(`[role="menu"] > div`).hasAttribute("style");
+            if (needChangeTopPx) {
+                document.querySelector(`[role="menu"]`).style.transform = `translateY(${menuTopPx}px)`;
+            }
         },
         updateStyles: function () {
             for (const i of document.querySelectorAll(".TUICSidebarButton")) {
