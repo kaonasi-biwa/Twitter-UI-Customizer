@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import RadioButton from "./RadioButton.vue";
-import { TUICData } from "../../../content/data.js";
+import { TUICData } from "@content/data";
 
 export default defineComponent({
     components: {

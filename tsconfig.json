@@ -11,6 +11,10 @@
         "target": "ES2022",
         "allowImportingTsExtensions": true,
         "emitDeclarationOnly": true,
-        "declaration": true
+        "declaration": true,
+        "paths": {
+            "@content/*": ["./src/content/*"],
+            "@shared/*": ["./src/shared/*"]
+        }
     }
 }

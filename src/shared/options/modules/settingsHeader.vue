@@ -20,11 +20,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { TUICI18N } from "../../../content/i18n";
-import { TUICPref, TUICLibrary } from "../../../content/library";
-import { TUICObserver } from "../../../content/observer";
-import { isSafemode } from "../../../content/safemode";
-import { TUICData } from "../../../content/data";
+import { TUICI18N } from "@content/i18n";
+import { TUICPref, TUICLibrary } from "@content/library";
+import { TUICObserver } from "@content/observer";
+import { isSafemode } from "@content/safemode";
+import { TUICData } from "@content/data";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 
 export default defineComponent({

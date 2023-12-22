@@ -16,13 +16,13 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
-import { TUICI18N } from "../../../content/i18n";
-import { TUICPref, TUICLibrary } from "../../../content/library";
-import { TUICObserver } from "../../../content/observer";
-import { applySystemCss } from "../../../content/applyCSS";
-import { isSafemode } from "../../../content/safemode";
-import { Dialog } from "../../../content//tlui/components/Dialog.ts";
-import { ButtonComponent } from "../../../content//tlui/components/ButtonComponent.ts";
+import { TUICI18N } from "@content/i18n";
+import { TUICPref, TUICLibrary } from "@content/library";
+import { TUICObserver } from "@content/observer";
+import { applySystemCss } from "@content/applyCSS";
+import { isSafemode } from "@content/safemode";
+import { Dialog } from "@shared/tlui/components/Dialog.ts";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 
 export default defineComponent({
     setup() {

@@ -11,8 +11,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { TUICPref } from "../../../content/library";
-import { TUICI18N } from "../../../content/i18n";
+import { TUICPref } from "@content/library";
+import { TUICI18N } from "@content/i18n";
 
 export default defineComponent({
     setup() {

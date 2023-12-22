@@ -31,15 +31,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { TUICI18N } from "../../../content/i18n";
-import { TUICOptionHTML } from "../../../content/option";
-import { isSafemode } from "../../../content/safemode";
-import { TUICData } from "../../../content/data";
+import { defineComponent } from "vue";
+import { TUICI18N } from "@content/i18n";
+import { isSafemode } from "@content/safemode";
+import { TUICData } from "@content/data";
 
 import ColorsList from "../components/ColorsList.vue";
 
-import { TUICLibrary, TUICPref } from "../../../content/library";
+import { TUICLibrary, TUICPref } from "@content/library";
 
 import { useStore } from "../store";
 

@@ -14,7 +14,7 @@ export default [
         ignores: ["dist/**", "node_modules/**"],
     },
     {
-        files: ["**/*.{js,ts,vue}"],
+        files: ["src/**/*.{js,ts,vue}"],
         languageOptions: {
             globals: {
                 ...globals.browser,
@@ -73,6 +73,14 @@ export default [
     },
     {
         files: ["vite.config.ts"],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+    },
+    {
+        files: ["npm-scripts/**/*.{js,ts}"],
         languageOptions: {
             globals: {
                 ...globals.node,

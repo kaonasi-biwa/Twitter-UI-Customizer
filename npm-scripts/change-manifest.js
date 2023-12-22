@@ -2,12 +2,11 @@ import fs from "fs/promises";
 import fsSync from "fs";
 import manifest from "../manifest.config.js";
 
-(async () => {
+export async function changeManifest(target) {
     // CLI引数または_langList.jsonファイルからロケールを取得
     const config = manifest;
 
     const targets = Object.keys(config).filter((k) => k !== "common");
-    const target = process.argv[2];
 
     if (!targets.includes(target)) {
         console.error(`Error: Invalid platform "${target ?? ""}". (${targets.join(", ")})`);
@@ -26,4 +25,8 @@ import manifest from "../manifest.config.js";
     }
 
     await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
-})();
+}
+
+if (typeof module !== "undefined" && require.main === module) {
+    changeManifest(process.argv[2]);
+}
