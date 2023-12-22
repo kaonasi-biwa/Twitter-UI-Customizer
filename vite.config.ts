@@ -1,6 +1,6 @@
-import { resolve } from "path";
 import { UserConfig, defineConfig, PluginOption } from "vite";
 
+import url from "url";
 import path from "path";
 import fs from "fs";
 
@@ -13,11 +13,14 @@ import vue from "@vitejs/plugin-vue";
 
 import { changeManifest } from "./npm-scripts/change-manifest";
 
-const root = resolve(__dirname, "src");
-const outDir = resolve(__dirname, "dist");
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const root = path.resolve(__dirname, "src");
+const outDir = path.resolve(__dirname, "dist");
 
 const r = (str: string): string => {
-    return resolve(__dirname, str);
+    return path.resolve(__dirname, str);
 };
 
 export default defineConfig(({ command, mode }) => {
@@ -35,11 +38,11 @@ export default defineConfig(({ command, mode }) => {
 
             rollupOptions: {
                 input: {
-                    "ent-options_html": resolve(__dirname, "src/options/options.html"),
-                    "ent-popup_html": resolve(__dirname, "src/popup/popup.html"),
-                    index: resolve(__dirname, "src/content/index.ts"),
-                    background: resolve(__dirname, "./src/background.ts"),
-                    //safemode: resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
+                    "ent-options_html": path.resolve(__dirname, "src/options/options.html"),
+                    "ent-popup_html": path.resolve(__dirname, "src/popup/popup.html"),
+                    index: path.resolve(__dirname, "src/content/index.ts"),
+                    background: path.resolve(__dirname, "./src/background.ts"),
+                    //safemode: path.resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
                 },
                 output: {
                     dynamicImportInCjs: true,

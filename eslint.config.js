@@ -71,12 +71,4 @@ export default [
             },
         },
     },
-    {
-        files: ["vite.config.ts", "npm-scripts/**"],
-        languageOptions: {
-            globals: {
-                ...globals.node,
-            },
-        },
-    },
 ];
