@@ -82,7 +82,7 @@ export default defineConfig(({ command, mode }) => {
                     console.log(new Date().toLocaleString());
                 },
             },
-            vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode),
+            vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode === "chromiumCRX" ? "chromium" : mode),
             // Vue Plugins
             vue(),
             svgLoader(),
