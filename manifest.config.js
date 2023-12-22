@@ -51,8 +51,8 @@ export default {
             url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer",
         },
     },
-    // Chrome設定
-    chrome: {
+    // Chromium設定
+    chromium: {
         manifest_version: 3,
         icons: {
             16: "icon/newIcon_TUIC_C_Blue.png",
@@ -81,8 +81,8 @@ export default {
         },
         host_permissions: ["https://api.github.com/*", "https://abs.twimg.com/*"],
     },
-    // chromeCRX設定
-    chromeCRX: {
+    // chromiumCRX設定
+    chromiumCRX: {
         update_url: "https://github.com/${github.repository}/releases/latest/download/crxupdate.xml",
     },
 };

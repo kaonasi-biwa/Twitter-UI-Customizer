@@ -67,11 +67,8 @@ export default defineConfig(({ command, mode }) => {
                     // console.log(options.watch);
                 },
                 buildStart(options) {
-                    if (mode === "firefox") {
-                        changeManifest("firefox");
-                    } else if (mode === "chromium") {
-                        //* in changeManifest, chrome instead of chromium
-                        changeManifest("chrome");
+                    if (mode === "firefox" || mode === "chromium") {
+                        changeManifest(mode);
                     }
                     fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
                     fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));

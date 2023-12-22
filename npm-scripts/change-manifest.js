@@ -15,8 +15,8 @@ export async function changeManifest(target) {
     }
 
     let output = {};
-    if (target == "chromeCRX") {
-        output = Object.assign(config.common, config.chrome, config.chromeCRX);
+    if (target == "chromiumCRX") {
+        output = Object.assign(config.common, config.chromium, config.chromiumCRX);
     } else {
         output = Object.assign(config.common, config[target]);
     }

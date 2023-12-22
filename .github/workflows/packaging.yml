@@ -57,7 +57,7 @@ jobs:
             - name: Archive
               run: |
                   pnpm install --frozen-lockfile
-                  pnpm build:gen_manifest chromeCRX
+                  pnpm build:gen_manifest chromiumCRX
                   sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' ./dist/manifest.json
                   pnpm build:copy_assets
                   pnpm vite build --mode chromium
