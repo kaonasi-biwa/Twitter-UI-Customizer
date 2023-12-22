@@ -11,15 +11,15 @@
 で使います  
 引数によってどのmanifest.jsonを使うかが変わります  
 以下のとおりです  
-`chrome`:Chromium系ブラウザ向けのmanifest.jsonです
-`chromeCRX`:GitHubのReleaseで公開しているCRX用のmanifest.jsonです
+`chromium`:Chromium系ブラウザ向けのmanifest.jsonです
+`chromiumCRX`:GitHubのReleaseで公開しているCRX用のmanifest.jsonです
 `firefox`:firefox系ブラウザ向けのmanifest.jsonです
 
 ### しくみ
 
-`/manifest.config.js`の中には、`common` `firefox` `chrome` `chromeCRX`というkeyが存在しています  
+`/manifest.config.js`の中には、`common` `firefox` `chromium` `chromiumCRX`というkeyが存在しています  
 `common`には必ず使うmanifest.jsonの要素、それ以外には、何向けかによって内容が変わるmanifest.jsonの要素になっています  
-第一引数によって、どのObjectを取得統合するかを変えています(`chromeCRX`だけは特殊で`chrome`も取得統合している)
+第一引数によって、どのObjectを取得統合するかを変えています(`chromiumCRX`だけは特殊で`chromium`も取得統合している)
 
 ## manifest.jsonの加え方
 

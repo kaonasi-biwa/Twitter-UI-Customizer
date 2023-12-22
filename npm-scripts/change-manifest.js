@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import fsSync from "fs";
+import url from "url";
 import manifest from "../manifest.config.js";
 
 export async function changeManifest(target) {
@@ -14,8 +15,8 @@ export async function changeManifest(target) {
     }
 
     let output = {};
-    if (target == "chromeCRX") {
-        output = Object.assign(config.common, config.chrome, config.chromeCRX);
+    if (target == "chromiumCRX") {
+        output = Object.assign(config.common, config.chromium, config.chromiumCRX);
     } else {
         output = Object.assign(config.common, config[target]);
     }
@@ -27,6 +28,6 @@ export async function changeManifest(target) {
     await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
 }
 
-if (typeof module !== "undefined" && require.main === module) {
+if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
     changeManifest(process.argv[2]);
 }
