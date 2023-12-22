@@ -1131,24 +1131,27 @@ export const TUICData = {
         },
     },
     "tweetDisplaySetting.linkCopyURL": {
-        all: ["linkCopyURL_twitter", "linkCopyURL_X", "linkCopyURL_vxTwitter"],
+        all: ["linkCopyURL_twitter", "linkCopyURL_X", "linkCopyURL_vxTwitter", "linkCopyURL_fxTwitter"],
         i18n: {
             linkCopyURL_twitter: "bottomTweetButtons-setting-linkCopyURL-twitter",
             linkCopyURL_X: "bottomTweetButtons-setting-linkCopyURL-X",
             linkCopyURL_vxTwitter: "bottomTweetButtons-setting-linkCopyURL-vxTwitter",
+            linkCopyURL_fxTwitter: "bottomTweetButtons-setting-linkCopyURL-fxTwitter",
         },
         url: {
             linkCopyURL_twitter: "twitter.com",
             linkCopyURL_X: "x.com",
             linkCopyURL_vxTwitter: "vxtwitter.com",
+            linkCopyURL_fxTwitter: "fxtwitter.com",
         },
     },
     "tweetDisplaySetting.linkShareCopyURL": {
-        all: ["linkShareCopyURL_twitter", "linkShareCopyURL_X", "linkShareCopyURL_vxTwitter"],
+        all: ["linkShareCopyURL_twitter", "linkShareCopyURL_X", "linkShareCopyURL_vxTwitter", "linkShareCopyURL_fxTwitter"],
         i18n: {
             linkShareCopyURL_twitter: "bottomTweetButtons-setting-linkCopyURL-twitter",
             linkShareCopyURL_X: "bottomTweetButtons-setting-linkCopyURL-X",
             linkShareCopyURL_vxTwitter: "bottomTweetButtons-setting-linkCopyURL-vxTwitter",
+            linkShareCopyURL_fxTwitter: "bottomTweetButtons-setting-linkCopyURL-fxTwitter",
         },
     },
     "sidebarSetting.buttonConfig": {
