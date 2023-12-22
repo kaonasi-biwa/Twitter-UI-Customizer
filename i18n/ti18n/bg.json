@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Преглед на скритите отговори",
+    "tweetTopButton-muteTalk": "Заглушаване на разговора",
+    "tweetTopButton-leaveTalk": "Напускане на този разговор",
     "profileSetting-profileInitialTab-tweet": "Туитове",
     "profileSetting-profileInitialTab-reply": "Отговори",
     "profileSetting-profileInitialTab-media": "Мултимедийно съдържание",

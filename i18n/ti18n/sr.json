@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Прикажи сакривене одговоре",
+    "tweetTopButton-muteTalk": "Игнориши овај разговор",
+    "tweetTopButton-leaveTalk": "Напусти овај разговор",
     "profileSetting-profileInitialTab-tweet": "Твитови",
     "profileSetting-profileInitialTab-reply": "Одговори",
     "profileSetting-profileInitialTab-media": "Медији",

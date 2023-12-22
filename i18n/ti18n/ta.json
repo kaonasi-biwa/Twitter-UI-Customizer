@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "மறைக்கப்பட்டுள்ள பதில்களைக் காட்டு",
+    "tweetTopButton-muteTalk": "இந்த உரையாடலை செயல்மறை",
+    "tweetTopButton-leaveTalk": "இந்த உரையாடலை விட்டு வெளியேறு",
     "profileSetting-profileInitialTab-tweet": "கீச்சுகள்",
     "profileSetting-profileInitialTab-reply": "பதில்கள்",
     "profileSetting-profileInitialTab-media": "ஊடகம்",

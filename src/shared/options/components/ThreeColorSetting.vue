@@ -13,9 +13,9 @@
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 
-import { TUICData } from "../../../content/data";
-import { TUICLibrary } from "../../../content/library";
-import { TUICPref } from "../../../content/library";
+import { TUICData } from "@content/data";
+import { TUICLibrary } from "@content/library";
+import { TUICPref } from "@content/library";
 
 import ColorSetting from "./ColorSetting.vue";
 

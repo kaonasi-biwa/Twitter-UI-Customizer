@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "查看隱藏的回覆",
+    "tweetTopButton-muteTalk": "將此對話靜音",
+    "tweetTopButton-leaveTalk": "離開此對話",
     "profileSetting-profileInitialTab-tweet": "推文",
     "profileSetting-profileInitialTab-reply": "回覆",
     "profileSetting-profileInitialTab-media": "媒體",

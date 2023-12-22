@@ -26,14 +26,14 @@
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
-import { TUICI18N } from "../../../content/i18n";
-import { TUICLibrary } from "../../../content/library";
-import { TUICData } from "../../../content/data";
+import { TUICI18N } from "@content/i18n";
+import { TUICLibrary } from "@content/library";
+import { TUICData } from "@content/data";
 
-import RESET from "../../../content/icons/arrow/reset.svg?component";
+import RESET from "@content/icons/arrow/reset.svg?component";
 
-import { TUICPref } from "../../../content/library";
-import { applySystemCss } from "../../../content/applyCSS";
+import { TUICPref } from "@content/library";
+import { applySystemCss } from "@content/applyCSS";
 
 import { useStore } from "../store";
 

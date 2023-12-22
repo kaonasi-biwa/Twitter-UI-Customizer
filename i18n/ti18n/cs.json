@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Zobrazit skryté odpovědi",
+    "tweetTopButton-muteTalk": "Skrýt tuto konverzaci",
+    "tweetTopButton-leaveTalk": "Opustit tuto konverzaci",
     "profileSetting-profileInitialTab-tweet": "Tweety",
     "profileSetting-profileInitialTab-reply": "Odpovědi",
     "profileSetting-profileInitialTab-media": "Média",

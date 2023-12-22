@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Ikusi erantzun ezkutuak",
+    "tweetTopButton-muteTalk": "Isilarazi elkarrizketa hau",
+    "tweetTopButton-leaveTalk": "Utzi elkarrizketa hau",
     "profileSetting-profileInitialTab-tweet": "Txioak",
     "profileSetting-profileInitialTab-reply": "Erantzunak",
     "profileSetting-profileInitialTab-media": "Media",

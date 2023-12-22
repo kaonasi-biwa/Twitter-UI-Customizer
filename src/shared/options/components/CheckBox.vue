@@ -9,9 +9,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { TUICI18N } from "../../../content/i18n";
-import { TUICPref, TUICLibrary } from "../../../content/library";
-import { TUICObserver } from "../../../content/observer";
+import { TUICI18N } from "@content/i18n";
+import { TUICPref, TUICLibrary } from "@content/library";
+import { TUICObserver } from "@content/observer";
 
 export default defineComponent({
     props: {
@@ -25,15 +25,13 @@ export default defineComponent({
         },
     },
     setup() {
-        return { TUICI18N, TUICPref };
-    },
-    methods: {
-        changePref(path, event) {
+        const changePref = (path, event) => {
             TUICPref.set(path, event.target.checked);
             TUICPref.save();
             TUICLibrary.getClasses.update();
             TUICObserver.titleObserverFunction();
-        },
+        };
+        return { TUICI18N, TUICPref, changePref };
     },
 });
 </script>

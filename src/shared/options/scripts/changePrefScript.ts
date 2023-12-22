@@ -1,6 +1,6 @@
-import { TUICPref, TUICLibrary } from "../../../content/library";
-import { isSafemode } from "../../../content/safemode";
-import { TUICObserver } from "../../../content/observer";
+import { TUICPref, TUICLibrary } from "@content/library";
+import { isSafemode } from "@content/safemode";
+import { TUICObserver } from "@content/observer";
 
 export const XToTwitterRestoreIcon = () => {
     const importPref = {

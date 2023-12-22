@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "छिपे हुए जवाब देखें",
+    "tweetTopButton-muteTalk": "इस बातचीत को म्यूट करें",
+    "tweetTopButton-leaveTalk": "इस बातचीत को छोड़ें",
     "profileSetting-profileInitialTab-tweet": "ट्वीट",
     "profileSetting-profileInitialTab-reply": "जवाब",
     "profileSetting-profileInitialTab-media": "मीडिया",

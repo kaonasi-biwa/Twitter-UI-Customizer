@@ -335,7 +335,7 @@ export const TUICData = {
             likeAndRT: `[TUICButton="likeAndRT"]`,
         },
         buttonHTML: {
-            _base: function (id, svg, isBigArticle, disable = false, redButton = false) {
+            _base: function (id: string, svg, isBigArticle: boolean, disable = false, redButton = false) {
                 return `
                 <div class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid;justify-content: inherit;transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px);-moz-box-pack: inherit;">
                     <div class="css-175oi2r r-18u37iz r-1h0z5md">
@@ -371,7 +371,7 @@ export const TUICData = {
             /*boolkmark: function (isBigArticle) {
                 return TUICData.visibleButtons.buttonHTML._base("bookmark", `<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z" class="TUIC_BOOKMARK"></path>`, isBigArticle);
             },*/
-            "url-copy": function (isBigArticle) {
+            "url-copy": function (isBigArticle: boolean) {
                 return TUICData.visibleButtons.buttonHTML._base(
                     "urlCopy",
                     `<path d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z" class="TUIC_URL"></path>`,
@@ -644,7 +644,7 @@ export const TUICData = {
                     }
                 }
             },
-            "retweet-button": function () {
+            "retweet-button": () => {
                 if (TUICPref.get("tweetDisplaySetting.RTNotQuote")) {
                     window.setTimeout(() => {
                         TUICData.sidebarButtons.waitSetElement(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`);
@@ -782,7 +782,7 @@ export const TUICData = {
                 return elem;
             },
         },
-        emptyElement: function () {
+        emptyElement: () => {
             return TUICLibrary.HTMLParse(
                 `<div class="css-175oi2r r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
                     "r-1enofrn r-1f529hi r-cxdvbh r-1pn2ns4",
@@ -908,28 +908,28 @@ export const TUICData = {
                     </div>
                 </a>`;
             },
-            topics: function () {
+            topics: () => {
                 return TUICData.sidebarButtons.html.__base("topics", `<path d="${SIDEBAR_BUTTON_ICON.topics.unselected}"></path>`);
             },
-            /*"lists": function () {
+            /*"lists": () => {
               return TUICData.sidebarButtons.html.__base("lists",`<path d="M3 4.5C3 3.12 4.12 2 5.5 2h13C19.88 2 21 3.12 21 4.5v15c0 1.38-1.12 2.5-2.5 2.5h-13C4.12 22 3 20.88 3 19.5v-15zM5.5 4c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5v-15c0-.28-.22-.5-.5-.5h-13zM16 10H8V8h8v2zm-8 2h8v2H8v-2z"></path>`)
             },*/
-            /*"communities": function () {
+            /*"communities": () => {
               return TUICData.sidebarButtons.html.__base("communities",`<path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"></path>`)
             },*/
-            drafts: function () {
+            drafts: () => {
                 return TUICData.sidebarButtons.html.__base("drafts", `<path d="${SIDEBAR_BUTTON_ICON.drafts.unselected}">`);
             },
-            connect: function () {
+            connect: () => {
                 return TUICData.sidebarButtons.html.__base("connect", `<path d="${SIDEBAR_BUTTON_ICON.connect.unselected}"></path>`);
             },
-            display: function () {
+            display: () => {
                 return TUICData.sidebarButtons.html.__base("display", `<path d="${SIDEBAR_BUTTON_ICON.display.unselected}"></path><path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>`);
             },
-            muteAndBlock: function () {
+            muteAndBlock: () => {
                 return TUICData.sidebarButtons.html.__base("muteAndBlock", `<path d="${SIDEBAR_BUTTON_ICON.muteAndBlock.unselected}"></path>`);
             },
-            bookmarks: function () {
+            bookmarks: () => {
                 return TUICData.sidebarButtons.html.__base("bookmarks", `<path d="${SIDEBAR_BUTTON_ICON.bookmarks.unselected}"></path>`);
             },
         },
@@ -962,7 +962,7 @@ export const TUICData = {
             return false;
         },
         buttonFunctions: {
-            topics: async function (e) {
+            topics: async (e) => {
                 e?.preventDefault?.();
                 if (!location.pathname.endsWith("/topics")) {
                     const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
@@ -976,30 +976,30 @@ export const TUICData = {
                     }, 150);
                 }
             },
-            lists: function (e) {
+            lists: (e) => {
                 e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/lists"]`);
             },
             /*"communities": function (e) {
               TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href$="/communities"]`)
             },*/
-            drafts: async function (e) {
+            drafts: async (e) => {
                 e?.preventDefault?.();
                 //TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/compose/tweet/unsent/drafts"]`);
                 document.querySelector(`[href="/compose/tweet"]`).click();
                 await TUICData.sidebarButtons.waitSetElement(`[data-testid="unsentButton"]`);
             },
-            connect: function (e) {
+            connect: (e) => {
                 e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/connect_people"]`);
             },
-            display: async function (e) {
+            display: async (e) => {
                 e?.preventDefault?.();
                 if (TUICData.sidebarButtons.buttonClickInMoreMenu(e, `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
                     await TUICData.sidebarButtons.waitSetElement(`[href="/i/display"]`);
                 }
             },
-            muteAndBlock: async function (e) {
+            muteAndBlock: async (e) => {
                 e?.preventDefault?.();
                 if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
                     const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
@@ -1012,7 +1012,7 @@ export const TUICData = {
                     }, 150);
                 }
             },
-            bookmarks: function (e) {
+            bookmarks: (e) => {
                 e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/bookmarks"]`);
             },
@@ -1183,7 +1183,7 @@ export const TUICData = {
             showIcon: "dmPage-showIcon",
         },
         element: {
-            html: function () {
+            html: () => {
                 return `
 <div class="css-175oi2r r-obd0qt r-18u37iz TUICOriginalContent TUICDMIconBox">
     <div class="css-175oi2r r-1kz6sp"></div>
@@ -1215,7 +1215,7 @@ export const TUICData = {
 </div>
                 `;
             },
-            make: function (NoIcon) {
+            make: (NoIcon) => {
                 const elem = TUICLibrary.HTMLParse(TUICData.dmPage.element.html()).item(0);
                 if (!NoIcon) {
                     elem.querySelector(".TUICDMIconDisplay").style.backgroundImage = document.querySelector(

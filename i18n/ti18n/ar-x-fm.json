@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "عرض الردود المخفية",
+    "tweetTopButton-muteTalk": "كتم هذه المحادثه",
+    "tweetTopButton-leaveTalk": "مغادرة هذه المحادثة",
     "profileSetting-profileInitialTab-tweet": "التغريدات",
     "profileSetting-profileInitialTab-reply": "الردود",
     "profileSetting-profileInitialTab-media": "الوسائط",

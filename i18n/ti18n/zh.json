@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "查看隐藏回复",
+    "tweetTopButton-muteTalk": "隐藏此对话",
+    "tweetTopButton-leaveTalk": "离开这个对话",
     "profileSetting-profileInitialTab-tweet": "推文",
     "profileSetting-profileInitialTab-reply": "回复",
     "profileSetting-profileInitialTab-media": "媒体",

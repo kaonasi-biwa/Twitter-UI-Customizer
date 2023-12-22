@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "숨겨진 답글 보기",
+    "tweetTopButton-muteTalk": "이 대화 뮤트하기",
+    "tweetTopButton-leaveTalk": "이 대화에서 나가기",
     "profileSetting-profileInitialTab-tweet": "트윗",
     "profileSetting-profileInitialTab-reply": "답글",
     "profileSetting-profileInitialTab-media": "미디어",

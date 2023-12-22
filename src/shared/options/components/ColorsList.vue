@@ -14,8 +14,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { TUICData } from "../../../content/data";
-import { TUICI18N } from "../../../content/i18n";
+import { TUICData } from "@content/data";
+import { TUICI18N } from "@content/i18n";
 
 import ThreeColorSetting from "./ThreeColorSetting.vue";
 

@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Lihat balasan yang disembunyikan",
+    "tweetTopButton-muteTalk": "Senyapkan perbualan ini",
+    "tweetTopButton-leaveTalk": "Tinggalkan perbualan ini",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Balasan",
     "profileSetting-profileInitialTab-media": "Media",

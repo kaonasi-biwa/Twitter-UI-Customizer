@@ -1,4 +1,7 @@
 {
+    "tweetTopButton-hiddenReply": "Verborgen antwoorden bekijken",
+    "tweetTopButton-muteTalk": "Dit gesprek negeren",
+    "tweetTopButton-leaveTalk": "Dit gesprek verlaten",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Antwoorden",
     "profileSetting-profileInitialTab-media": "Media",
