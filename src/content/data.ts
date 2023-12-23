@@ -248,7 +248,7 @@ export const TUICData = {
                     ),
                 ).item(0);
 
-                if (info.isMe) {
+                if (!info.isMe) {
                     const eventFunc = async () => {
                         for (let i = 0; i <= 2; i++) {
                             const blockButton = document.querySelector(
