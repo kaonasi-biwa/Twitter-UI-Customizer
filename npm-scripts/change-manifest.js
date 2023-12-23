@@ -3,10 +3,6 @@ import fsSync from "fs";
 import url from "url";
 import manifest from "../manifest.config.js";
 
-import dotenv from "dotenv";
-
-dotenv.config({ path: ".env.local" });
-
 export async function changeManifest(target) {
     // CLI引数または_langList.jsonファイルからロケールを取得
     const config = manifest;
