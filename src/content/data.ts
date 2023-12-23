@@ -203,7 +203,7 @@ export const TUICData = {
                         info.isMe,
                     ),
                 ).item(0);
-                if(!info.isMe){
+                if (!info.isMe) {
                     const eventFunc = async () => {
                         for (let i = 0; i <= 2; i++) {
                             const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
@@ -226,7 +226,7 @@ export const TUICData = {
                             }
                         }
                     };
-    
+
                     elem.addEventListener("keydown", (e) => {
                         if (e.keyCode === 13) {
                             eventFunc();
@@ -248,7 +248,7 @@ export const TUICData = {
                     ),
                 ).item(0);
 
-                if (info.isMe){
+                if (info.isMe) {
                     const eventFunc = async () => {
                         for (let i = 0; i <= 2; i++) {
                             const blockButton = document.querySelector(
@@ -263,16 +263,16 @@ export const TUICData = {
                         }
                     };
 
-                elem.addEventListener("keydown", (e) => {
-                    if (e.keyCode === 13) {
+                    elem.addEventListener("keydown", (e) => {
+                        if (e.keyCode === 13) {
+                            eventFunc();
+                        }
+                    });
+                    elem.children[0].addEventListener("click", (e) => {
                         eventFunc();
-                    }
-                });
-                elem.children[0].addEventListener("click", (e) => {
-                    eventFunc();
-                });
+                    });
                 }
-                    
+
                 return elem;
             },
             delete: function (moremenu, info) {
@@ -285,7 +285,7 @@ export const TUICData = {
                     ),
                 ).item(0);
 
-                if(info.isMe){
+                if (info.isMe) {
                     const eventFunc = async () => {
                         for (let i = 0; i <= 2; i++) {
                             const blockButton = document.querySelector(
@@ -310,7 +310,7 @@ export const TUICData = {
                             }
                         }
                     };
-    
+
                     elem.addEventListener("keydown", (e) => {
                         if (e.keyCode === 13) {
                             eventFunc();
@@ -1193,7 +1193,7 @@ export const TUICData = {
             html: () => {
                 return `
 <div class="css-175oi2r r-obd0qt r-18u37iz TUICOriginalContent TUICDMIconBox">
-    <div class="css-175oi2r r-1kz6sp"></div>
+    <div class="css-175oi2r" style="width: ${TUICLibrary.fontSizeClass("47", "49", "52", "57", "62")}px;"></div>
     <div class="css-175oi2r r-u8s1d r-1d2f490">
         <div class="css-175oi2r r-1adg3ll r-bztko3" style="width: ${TUICLibrary.fontSizeClass("36", "38", "40", "44", "48")}px; height: ${TUICLibrary.fontSizeClass("36", "38", "40", "44", "48")}px;" data-testid="UserAvatar-Container-unknown">
             <div class="r-1adg3ll r-13qz1uu" style="padding-bottom: 100%;"></div>
