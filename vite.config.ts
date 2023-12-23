@@ -26,7 +26,7 @@ const r = (str: string): string => {
 export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
     json = {
-        //root,
+        root,
         // base: "/",
         build: {
             outDir,
