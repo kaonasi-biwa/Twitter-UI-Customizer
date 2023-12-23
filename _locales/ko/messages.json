@@ -177,16 +177,16 @@
         "message": "미국 영어 번역",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
-    "optionSpecialThanks_KotoneFami": {
-        "message": "기능추가",
+    "optionSpecialThanks_KotoneFami_v2": {
+        "message": "기능 추가나 소스 코드의 정리 등",
         "description": "設定画面のSpecial thanks(KotoneFamiさん)"
     },
     "optionSpecialThanks_loading_yt": {
         "message": "중국어 번역",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
-    "optionSpecialThanks_nyanrus": {
-        "message": "한국어 번역",
+    "optionSpecialThanks_nyanrus_v2": {
+        "message": "한국어의 번역이나 설정 화면의 개량",
         "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
