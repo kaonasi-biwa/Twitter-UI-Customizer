@@ -3,20 +3,23 @@ on:
     push:
         tags:
             - "[0-9]+\\.[0-9]+\\.[0-9]+"
+    workflow_dispatch:
 
 jobs:
     build-firefox:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
-                  cache: "pnpm"
             - name: Archive
               run: |
-                  pnpm install --frozen-lockfile
+                  corepack enable
+                  sudo apt install tree
+
+                  pnpm install
+                  tree
                   pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
             - name: Publish
@@ -29,14 +32,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
-                  cache: "pnpm"
             - name: Archive
               run: |
-                  pnpm install --frozen-lockfile
+                  corepack enable
+                  pnpm install
                   pnpm build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: Publish
@@ -49,16 +51,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
-                  cache: "pnpm"
             - name: Archive
               run: |
-                  pnpm install --frozen-lockfile
-                  node ./npm-scripts/change-manifest.js chromiumCRX
-                  sed -i 's/${github.repository}/${{ github.repository_owner }}\/${{ github.event.repository.name }}/' ./dist/manifest.json
+                  corepack enable
+                  pnpm install
+                  echo "GITHUB_REPO = \"${{ github.repository_owner }}/${{ github.event.repository.name }}\"" >> .env.local
+                  #sed -i 's/${github.repository}//' ./dist/manifest.json
                   pnpm vite build --mode chromiumCRX
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: CRX
