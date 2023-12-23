@@ -16,10 +16,7 @@ jobs:
             - name: Archive
               run: |
                   corepack enable
-                  sudo apt install tree
-
                   pnpm install
-                  tree
                   pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
             - name: Publish
