@@ -10,7 +10,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    eslint:
+    update-i18n:
         name: Update
         runs-on: ubuntu-latest
         steps:
