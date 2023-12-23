@@ -2,7 +2,7 @@ import { UserConfig, defineConfig, PluginOption } from "vite";
 
 import url from "url";
 import path from "path";
-import fs from "fs";
+import * as fs from "fs/promises";
 
 // Vite Plugins
 import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
@@ -26,7 +26,7 @@ const r = (str: string): string => {
 export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
     json = {
-        root,
+        //root,
         // base: "/",
         build: {
             outDir,
@@ -66,15 +66,18 @@ export default defineConfig(({ command, mode }) => {
                     // }
                     // console.log(options.watch);
                 },
-                buildStart(options) {
-                    if (mode === "firefox" || mode === "chromium") {
-                        changeManifest(mode);
+                async buildStart(options) {
+                    if (mode === "firefox" || mode === "chromium" || mode === "chromiumCRX") {
+                        await changeManifest(mode);
                     }
-                    fs.copyFileSync(r("src/inject.js"), r("dist/inject.js"));
-                    fs.copyFileSync(r("src/safemode.html"), r("dist/safemode.html"));
-                    fs.cpSync(r("src/content/styles"), "./dist/styles", { recursive: true });
-                    fs.cpSync(r("_locales"), r("dist/_locales"), { recursive: true });
-                    fs.cpSync(r("icon"), r("dist/icon"), { recursive: true });
+
+                    await Promise.all([
+                        fs.copyFile(r("src/inject.js"), r("dist/inject.js")),
+                        fs.copyFile(r("src/safemode.html"), r("dist/safemode.html")),
+                        fs.cp(r("src/content/styles"), "./dist/styles", { recursive: true }),
+                        fs.cp(r("_locales"), r("dist/_locales"), { recursive: true }),
+                        fs.cp(r("icon"), r("dist/icon"), { recursive: true }),
+                    ]);
 
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },

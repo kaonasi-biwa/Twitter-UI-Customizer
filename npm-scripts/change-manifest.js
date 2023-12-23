@@ -3,6 +3,10 @@ import fsSync from "fs";
 import url from "url";
 import manifest from "../manifest.config.js";
 
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.local" });
+
 export async function changeManifest(target) {
     // CLI引数または_langList.jsonファイルからロケールを取得
     const config = manifest;
@@ -17,6 +21,8 @@ export async function changeManifest(target) {
     let output = {};
     if (target == "chromiumCRX") {
         output = Object.assign(config.common, config.chromium, config.chromiumCRX);
+        const repo = process.env["GITHUB_REPO"];
+        output.update_url = output.update_url.replace("${github.repository}", repo);
     } else {
         output = Object.assign(config.common, config[target]);
     }
