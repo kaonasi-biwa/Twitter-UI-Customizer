@@ -181,7 +181,7 @@ export const TUICData = {
         buttonElement: {
             _base: function (type, svg, disable = false, redButton = false) {
                 return `
-<div role="button" tabindex="${disable ? -1 : 0}" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}" TUICTweetTopButton="${type}">
+<div role="button" tabindex="${disable ? -1 : 0}" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr${disable ? "" : " r-1loqt21"} r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}" TUICTweetTopButton="${type}">
     <div dir="ltr" class="css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q" style="text-overflow: unset; color: rgb(139, 152, 165);">
         <div class="css-175oi2r r-xoduu5">
             <div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
@@ -203,38 +203,39 @@ export const TUICData = {
                         info.isMe,
                     ),
                 ).item(0);
-
-                const eventFunc = async () => {
-                    for (let i = 0; i <= 2; i++) {
-                        const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
-                        if (blockButton == null) {
-                            moremenu.click();
-                        } else {
-                            blockButton.click();
-                            await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-                            if (TUICPref.get("tweetTopButtonBool.noModalbottomTweetButtons")) {
-                                document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                if(!info.isMe){
+                    const eventFunc = async () => {
+                        for (let i = 0; i <= 2; i++) {
+                            const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
+                            if (blockButton == null) {
+                                moremenu.click();
                             } else {
-                                document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
-                                    moremenu.click();
-                                });
-                                document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
-                                    moremenu.click();
-                                });
+                                blockButton.click();
+                                await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
+                                if (TUICPref.get("tweetTopButtonBool.noModalbottomTweetButtons")) {
+                                    document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                                } else {
+                                    document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                                        moremenu.click();
+                                    });
+                                    document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                                        moremenu.click();
+                                    });
+                                }
+                                break;
                             }
-                            break;
                         }
-                    }
-                };
-
-                elem.addEventListener("keydown", (e) => {
-                    if (e.keyCode === 13) {
+                    };
+    
+                    elem.addEventListener("keydown", (e) => {
+                        if (e.keyCode === 13) {
+                            eventFunc();
+                        }
+                    });
+                    elem.children[0].addEventListener("click", (e) => {
                         eventFunc();
-                    }
-                });
-                elem.children[0].addEventListener("click", (e) => {
-                    eventFunc();
-                });
+                    });
+                }
 
                 return elem;
             },
@@ -247,19 +248,20 @@ export const TUICData = {
                     ),
                 ).item(0);
 
-                const eventFunc = async () => {
-                    for (let i = 0; i <= 2; i++) {
-                        const blockButton = document.querySelector(
-                            `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
-                        );
-                        if (blockButton == null) {
-                            moremenu.click();
-                        } else {
-                            blockButton.parentElement.parentElement.parentElement.parentElement.click();
-                            break;
+                if (info.isMe){
+                    const eventFunc = async () => {
+                        for (let i = 0; i <= 2; i++) {
+                            const blockButton = document.querySelector(
+                                `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
+                            );
+                            if (blockButton == null) {
+                                moremenu.click();
+                            } else {
+                                blockButton.parentElement.parentElement.parentElement.parentElement.click();
+                                break;
+                            }
                         }
-                    }
-                };
+                    };
 
                 elem.addEventListener("keydown", (e) => {
                     if (e.keyCode === 13) {
@@ -269,6 +271,8 @@ export const TUICData = {
                 elem.children[0].addEventListener("click", (e) => {
                     eventFunc();
                 });
+                }
+                    
                 return elem;
             },
             delete: function (moremenu, info) {
@@ -281,39 +285,42 @@ export const TUICData = {
                     ),
                 ).item(0);
 
-                const eventFunc = async () => {
-                    for (let i = 0; i <= 2; i++) {
-                        const blockButton = document.querySelector(
-                            `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
-                        );
-                        if (blockButton == null) {
-                            moremenu.click();
-                        } else {
-                            blockButton.parentElement.parentElement.parentElement.parentElement.click();
-                            await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-                            if (TUICPref.get("tweetTopButtonBool.noModalbottomTweetButtons")) {
-                                document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                if(info.isMe){
+                    const eventFunc = async () => {
+                        for (let i = 0; i <= 2; i++) {
+                            const blockButton = document.querySelector(
+                                `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
+                            );
+                            if (blockButton == null) {
+                                moremenu.click();
                             } else {
-                                document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
-                                    moremenu.click();
-                                });
-                                document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
-                                    moremenu.click();
-                                });
+                                blockButton.parentElement.parentElement.parentElement.parentElement.click();
+                                await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
+                                if (TUICPref.get("tweetTopButtonBool.noModalbottomTweetButtons")) {
+                                    document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                                } else {
+                                    document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                                        moremenu.click();
+                                    });
+                                    document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                                        moremenu.click();
+                                    });
+                                }
+                                break;
                             }
-                            break;
                         }
-                    }
-                };
-
-                elem.addEventListener("keydown", (e) => {
-                    if (e.keyCode === 13) {
+                    };
+    
+                    elem.addEventListener("keydown", (e) => {
+                        if (e.keyCode === 13) {
+                            eventFunc();
+                        }
+                    });
+                    elem.children[0].addEventListener("click", (e) => {
                         eventFunc();
-                    }
-                });
-                elem.children[0].addEventListener("click", (e) => {
-                    eventFunc();
-                });
+                    });
+                }
+
                 return elem;
             },
         },
