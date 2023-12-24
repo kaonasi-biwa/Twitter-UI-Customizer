@@ -10,12 +10,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  corepack enable
                   pnpm install
                   pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
@@ -29,12 +30,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  corepack enable
                   pnpm install
                   pnpm build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
@@ -48,12 +50,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  corepack enable
                   pnpm install
                   pnpm vite build --mode chromiumCRX
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
