@@ -342,7 +342,7 @@ export const TUICObserver = {
                                     userNameElem == null
                                         ? false
                                         : elem.querySelector(`[data-testid="User-Name"] > .r-1awozwy+div span`).textContent ==
-                                        "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
+                                          "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
 
                                 let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
                                 while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
