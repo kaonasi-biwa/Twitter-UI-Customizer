@@ -202,18 +202,18 @@ export const TUICData = {
                         `<path d="M12 3.75c-4.55 0-8.25 3.69-8.25 8.25 0 1.92.66 3.68 1.75 5.08L17.09 5.5C15.68 4.4 13.92 3.75 12 3.75zm6.5 3.17L6.92 18.5c1.4 1.1 3.16 1.75 5.08 1.75 4.56 0 8.25-3.69 8.25-8.25 0-1.92-.65-3.68-1.75-5.08zM1.75 12C1.75 6.34 6.34 1.75 12 1.75S22.25 6.34 22.25 12 17.66 22.25 12 22.25 1.75 17.66 1.75 12z" class="TUIC_USERBLOCK"></path>`,
                         info.isMe,
                     ),
-                ).item(0);
+                ).item(0) as HTMLDivElement;
                 if (!info.isMe) {
                     const eventFunc = async () => {
                         for (let i = 0; i <= 2; i++) {
-                            const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
+                            const blockButton = document.querySelector<HTMLDivElement>(`[data-testid="block"][role="menuitem"]`);
                             if (blockButton == null) {
                                 moremenu.click();
                             } else {
                                 blockButton.click();
                                 await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
                                 if (TUICPref.get("tweetTopButtonBool.noModalbottomTweetButtons")) {
-                                    document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                                    document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                                 } else {
                                     document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
                                         moremenu.click();
@@ -228,7 +228,7 @@ export const TUICData = {
                     };
 
                     elem.addEventListener("keydown", (e) => {
-                        if (e.keyCode === 13) {
+                        if (e.key === "Enter") {
                             eventFunc();
                         }
                     });
@@ -246,7 +246,7 @@ export const TUICData = {
                         `<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z" class="TUIC_USERMUTE"></path>`,
                         info.isMe,
                     ),
-                ).item(0);
+                ).item(0) as HTMLDivElement;
 
                 if (!info.isMe) {
                     const eventFunc = async () => {
@@ -264,7 +264,7 @@ export const TUICData = {
                     };
 
                     elem.addEventListener("keydown", (e) => {
-                        if (e.keyCode === 13) {
+                        if (e.key === "Enter") {
                             eventFunc();
                         }
                     });
@@ -283,7 +283,7 @@ export const TUICData = {
                         !info.isMe,
                         true,
                     ),
-                ).item(0);
+                ).item(0) as HTMLDivElement;
 
                 if (info.isMe) {
                     const eventFunc = async () => {
@@ -297,7 +297,7 @@ export const TUICData = {
                                 blockButton.parentElement.parentElement.parentElement.parentElement.click();
                                 await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
                                 if (TUICPref.get("tweetTopButtonBool.noModalbottomTweetButtons")) {
-                                    document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                                    document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                                 } else {
                                     document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
                                         moremenu.click();
@@ -312,7 +312,7 @@ export const TUICData = {
                     };
 
                     elem.addEventListener("keydown", (e) => {
-                        if (e.keyCode === 13) {
+                        if (e.key === "Enter") {
                             eventFunc();
                         }
                     });
@@ -489,7 +489,7 @@ export const TUICData = {
                     if (urlCopyButton == null) {
                         e.click();
                     } else {
-                        urlCopyButton.parentNode.parentNode.parentNode.parentNode.click();
+                        urlCopyButton.parentElement.parentElement.parentElement.parentElement.click();
                         break;
                     }
                 }
@@ -502,7 +502,7 @@ export const TUICData = {
                     if (urlCopyButton == null) {
                         e.click();
                     } else {
-                        urlCopyButton.parentNode.parentNode.parentNode.parentNode.click();
+                        urlCopyButton.parentElement.parentElement.parentElement.parentElement.click();
                         break;
                     }
                 }
@@ -515,7 +515,7 @@ export const TUICData = {
                     if (urlCopyButton == null) {
                         e.click();
                     } else {
-                        urlCopyButton.parentNode.parentNode.parentNode.parentNode.click();
+                        urlCopyButton.parentElement.parentElement.parentElement.parentElement.click();
                         break;
                     }
                 }
@@ -540,19 +540,19 @@ export const TUICData = {
                                 <div class="css-175oi2r r-12vffkv">
                                     <div class="css-175oi2r r-1jgb5lz r-1ye8kvj r-633pao r-13qz1uu">
                                         <div role="alert" class="css-175oi2r r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe r-18u37iz r-1wtj0ep r-105ug2t r-dkhcqf r-axxi2z r-18jm5s1 ${TUICLibrary.fontSizeClass("r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au")}  ${TUICLibrary.fontSizeClass(
-                                            "r-q81ovl",
-                                            "r-q81ovl",
-                                            "r-xyw6el",
-                                            "r-kq9wsh",
-                                            "r-1slz7xr",
-                                        )}" data-testid="toast" style="transform: translate3d(0px, 0px, 0px) translateY(0px);">
+                            "r-q81ovl",
+                            "r-q81ovl",
+                            "r-xyw6el",
+                            "r-kq9wsh",
+                            "r-1slz7xr",
+                        )}" data-testid="toast" style="transform: translate3d(0px, 0px, 0px) translateY(0px);">
                                             <div dir="ltr" class="css-901oao r-jwli3a r-1wbh5a2 r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-1e081e0 r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.fontSizeClass(
-                                                "r-1qfz7tf",
-                                                "r-1qfz7tf",
-                                                "r-1e081e0",
-                                                "r-1orpq53",
-                                                "r-779j7e",
-                                            )}"><span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span></div>
+                            "r-1qfz7tf",
+                            "r-1qfz7tf",
+                            "r-1e081e0",
+                            "r-1orpq53",
+                            "r-779j7e",
+                        )}"><span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span></div>
                                             <div aria-hidden="true" class="css-175oi2r r-18u37iz"></div>
                                         </div>
                                     </div>
@@ -568,14 +568,14 @@ export const TUICData = {
             },
             userBlock: async function (article) {
                 for (let i = 0; i <= 2; i++) {
-                    const blockButton = document.querySelector(`[data-testid="block"][role="menuitem"]`);
+                    const blockButton = document.querySelector<HTMLDivElement>(`[data-testid="block"][role="menuitem"]`);
                     if (blockButton == null) {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
                         blockButton.click();
                         await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
                         if (TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons")) {
-                            document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                            document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
                             document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
                                 this._cancelButton(article.querySelector(`[data-testid="caret"]`));
@@ -598,7 +598,7 @@ export const TUICData = {
                     } else {
                         deleteButtonButton.parentElement.parentElement.parentElement.parentElement.click();
                         if (TUICPref.get("tweetDisplaySetting.noModalbottomTweetButtons")) {
-                            document.querySelector(`[data-testid="confirmationSheetConfirm"]`).click();
+                            document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
                             document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
                                 this._cancelButton(article.querySelector(`[data-testid="caret"]`));
@@ -626,7 +626,7 @@ export const TUICData = {
             },
             quoteTweet: function (retButton) {
                 for (let i = 0; i <= 2; i++) {
-                    const quoteButton = document.querySelector(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`);
+                    const quoteButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`);
                     if (quoteButton == null) {
                         retButton.click();
                     } else {
@@ -641,7 +641,7 @@ export const TUICData = {
                     retButton.click();
                 } else {
                     for (let i = 0; i <= 2; i++) {
-                        const quoteButton = document.querySelector(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])`);
+                        const quoteButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])`);
                         if (quoteButton == null) {
                             retButton.click();
                         } else {
@@ -670,7 +670,7 @@ export const TUICData = {
                         .parentElement.parentElement.parentElement.parentElement.addEventListener("click", (e) => {
                             e.stopImmediatePropagation();
                             TUICData.visibleButtons.buttonFunction["url-copy-inShare"](elem);
-                            document.querySelector(`#layers > div+div > div > div > div > div+div > div > div`).click();
+                            document.querySelector<HTMLDivElement>(`#layers > div+div > div > div > div > div+div > div > div`).click();
                         });
                 }, 100);
             },
@@ -802,24 +802,24 @@ export const TUICData = {
         },
         fixEngagements: {
             engagementsBox: () => {
-                return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`, "text/html").item(0);
+                return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
             },
             links: (id, article, isShort) => {
-                const returnELem = TUICLibrary.HTMLParse(
+                const returnElem = TUICLibrary.HTMLParse(
                     `<div dir="ltr" class="css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-23eiwj", "r-9qu9m4", "r-1yzf0co", "r-w0qc3r", "r-18scu15")}" style="cursor: pointer;margin-right:1em;">
                            <span class="css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}">
                              <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
                            </span>
                          </div>`.replace(/( |\n|\r)( |\n|\r)+/g, ""),
                 ).item(0);
-                returnELem.addEventListener("click", async () => {
+                returnElem.addEventListener("click", async () => {
                     article.querySelector(`[data-testid="caret"]`).click();
                     await TUICLibrary.waitForElement(`[data-testid="tweetEngagements"]`);
-                    document.querySelector(`[data-testid="tweetEngagements"]`).click();
+                    document.querySelector<HTMLButtonElement>(`[data-testid="tweetEngagements"]`).click();
                     await TUICLibrary.waitForElement(`[role="tab"][href$="/${id}"]`);
-                    document.querySelector(`[role="tab"][href$="/${id}"]`).click();
+                    document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
                 });
-                return returnELem;
+                return returnElem;
             },
         },
     },
@@ -828,41 +828,41 @@ export const TUICData = {
             `<div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
                 <a href="${link}" rel="noopener noreferrer nofollow" target="_blank" role="link" class="css-4rbku5 css-18t94o4 css-175oi2r r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg">
                     <div class="css-175oi2r r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci ${TUICLibrary.fontSizeClass(
-                        "r-1t982j2 r-1qfz7tf r-1b3ntt7",
-                        "r-1t982j2 r-1qfz7tf r-1b3ntt7",
-                        "r-kzbkwu r-1e081e0 r-ttdzmv",
-                        "r-ig955 r-1orpq53 r-19urhcx",
-                        "r-i03k3n r-779j7e r-5t7p9m",
-                    )}" id="id__7fpkgwkoke8" data-testid="card.layoutSmall.detail">
+                "r-1t982j2 r-1qfz7tf r-1b3ntt7",
+                "r-1t982j2 r-1qfz7tf r-1b3ntt7",
+                "r-kzbkwu r-1e081e0 r-ttdzmv",
+                "r-ig955 r-1orpq53 r-19urhcx",
+                "r-i03k3n r-779j7e r-5t7p9m",
+            )}" id="id__7fpkgwkoke8" data-testid="card.layoutSmall.detail">
                         <div dir="auto" class="css-901oao css-1hf3ou5 ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
-                            "r-1b43r93 r-14yzgew",
-                            "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
-                            "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
-                        )} r-16dba41 r-bcqeeo r-qvutc0">
+                "r-1b43r93 r-14yzgew",
+                "r-1b43r93 r-hjklzo",
+                "r-a023e6 r-rjixqe",
+                "r-1inkyih r-hbpseb",
+                "r-1i10wst r-135wba7",
+            )} r-16dba41 r-bcqeeo r-qvutc0">
                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
                                 <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${domain}</span>
                             </span>
                         </div>
                         <div dir="auto" class="css-901oao css-1hf3ou5 ${TUICLibrary.backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${TUICLibrary.fontSizeClass(
-                            "r-1b43r93 r-14yzgew",
-                            "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
-                            "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
-                        )} r-16dba41 r-bcqeeo r-qvutc0">
+                "r-1b43r93 r-14yzgew",
+                "r-1b43r93 r-hjklzo",
+                "r-a023e6 r-rjixqe",
+                "r-1inkyih r-hbpseb",
+                "r-1i10wst r-135wba7",
+            )} r-16dba41 r-bcqeeo r-qvutc0">
                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
                                 <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${title}</span>
                             </span>
                         </div>
                         <div dir="auto" class="css-901oao css-cens5h ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
-                            "r-1b43r93 r-14yzgew",
-                            "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
-                            "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
-                        )} r-16dba41 r-bcqeeo r-qvutc0" style="-webkit-line-clamp: 2; white-space: normal;">
+                "r-1b43r93 r-14yzgew",
+                "r-1b43r93 r-hjklzo",
+                "r-a023e6 r-rjixqe",
+                "r-1inkyih r-hbpseb",
+                "r-1i10wst r-135wba7",
+            )} r-16dba41 r-bcqeeo r-qvutc0" style="-webkit-line-clamp: 2; white-space: normal;">
                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
                                 <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${description}</span>
                             </span>
@@ -904,12 +904,12 @@ export const TUICData = {
                             </svg>
                         </div>
                         <div dir="ltr" class="css-901oao css-1hf3ou5 r-1tl8opc ${TUICLibrary.fontSizeClass(
-                            "r-1i10wst r-16dba41 r-hbpseb r-1uvorsx r-1oa8saw",
-                            "r-1b6yd1w r-16dba41 r-7ptqe7 r-j240cv r-y3t9qe",
-                            "r-adyw6z r-135wba7 r-1joea0r r-88pszg",
-                            "r-evnaw r-16dba41 r-eaezby r-uzqwk8 r-12e0a8i",
-                            "r-1x35g6 r-16dba41 r-1h1c4di r-6uxfom r-le9fof",
-                        )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
+                    "r-1i10wst r-16dba41 r-hbpseb r-1uvorsx r-1oa8saw",
+                    "r-1b6yd1w r-16dba41 r-7ptqe7 r-j240cv r-y3t9qe",
+                    "r-adyw6z r-135wba7 r-1joea0r r-88pszg",
+                    "r-evnaw r-16dba41 r-eaezby r-uzqwk8 r-12e0a8i",
+                    "r-1x35g6 r-16dba41 r-1h1c4di r-6uxfom r-le9fof",
+                )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
                         </div>
                     </div>
@@ -972,11 +972,11 @@ export const TUICData = {
             topics: async (e) => {
                 e?.preventDefault?.();
                 if (!location.pathname.endsWith("/topics")) {
-                    const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
                         document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                        document.querySelector(`[href="/settings"]`)?.click();
+                        document.querySelector<HTMLAnchorElement>(`[href="/settings"]`)?.click();
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/content_you_see"]`);
                         await TUICData.sidebarButtons.waitSetElement(`main [href$="/topics"]`);
@@ -1323,15 +1323,15 @@ export const TUICData = {
             notHelpful: () => {
                 return location.href.includes("/search?q=")
                     ? document.querySelector(
-                          `path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]`,
-                      )
+                        `path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]`,
+                    )
                     : ``;
             },
             notInterested: () => {
                 return !location.href.includes("/search?q=")
                     ? document.querySelector(
-                          `path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]`,
-                      )
+                        `path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]`,
+                    )
                     : ``;
             },
             follow: `:is(path[d="M10 4c-1.105 0-2 .9-2 2s.895 2 2 2 2-.9 2-2-.895-2-2-2zM6 6c0-2.21 1.791-4 4-4s4 1.79 4 4-1.791 4-4 4-4-1.79-4-4zm13 4v3h2v-3h3V8h-3V5h-2v3h-3v2h3zM3.651 19h12.698c-.337-1.8-1.023-3.21-1.945-4.19C13.318 13.65 11.838 13 10 13s-3.317.65-4.404 1.81c-.922.98-1.608 2.39-1.945 4.19zm.486-5.56C5.627 11.85 7.648 11 10 11s4.373.85 5.863 2.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H1.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46z"],path[d="M10 4c-1.105 0-2 .9-2 2s.895 2 2 2 2-.9 2-2-.895-2-2-2zM6 6c0-2.21 1.791-4 4-4s4 1.79 4 4-1.791 4-4 4-4-1.79-4-4zm12.586 3l-2.043-2.04 1.414-1.42L20 7.59l2.043-2.05 1.414 1.42L21.414 9l2.043 2.04-1.414 1.42L20 10.41l-2.043 2.05-1.414-1.42L18.586 9zM3.651 19h12.698c-.337-1.8-1.023-3.21-1.945-4.19C13.318 13.65 11.838 13 10 13s-3.317.65-4.404 1.81c-.922.98-1.608 2.39-1.945 4.19zm.486-5.56C5.627 11.85 7.648 11 10 11s4.373.85 5.863 2.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H1.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46z"])`,

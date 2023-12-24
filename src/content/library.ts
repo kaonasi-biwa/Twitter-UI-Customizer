@@ -277,7 +277,7 @@ export const TUICPref = {
                 const image = new Image();
                 image.onload = function () {
                     context.beginPath();
-                    context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
+                    context.drawImage(image, 0, 0, image.naturalHeight, image.naturalWidth, 0, 0, 200, 200);
                     localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                     resolve(null);
                 };

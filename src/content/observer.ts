@@ -162,9 +162,9 @@ export const TUICObserver = {
                 const dmBox = document.querySelector(`[data-testid="DMDrawerHeader"]`);
                 if (dmBox) {
                     if (dmBox.querySelector(`[d="M12 11.59L3.96 3.54 2.54 4.96 12 14.41l9.46-9.45-1.42-1.42L12 11.59zm0 7l-8.04-8.05-1.42 1.42L12 21.41l9.46-9.45-1.42-1.42L12 18.59z"]`)) {
-                        dmBox.querySelector(`div[role="button"]+div[role="button"]`).click();
+                        dmBox.querySelector<HTMLDivElement>(`div[role="button"]+div[role="button"]`).click();
                         window.setTimeout(() => {
-                            document.querySelector(`[data-testid="DMDrawerHeader"] div[role="button"]+div[role="button"]`).click();
+                            document.querySelector<HTMLDivElement>(`[data-testid="DMDrawerHeader"] div[role="button"]+div[role="button"]`).click();
                         }, 100);
                     }
                     TUICObserver.data.fixedDMBox = true;
@@ -293,15 +293,15 @@ export const TUICObserver = {
                 for (const infoCardElem of document.querySelectorAll(`article:not(.TUICDidInfoArticle) [data-testid="card.layoutLarge.media"]  a[aria-label] > div+div`)) {
                     let elem = infoCardElem;
                     while (elem.tagName != "ARTICLE") {
-                        elem = elem.parentNode;
+                        elem = elem.parentElement;
                     }
                     const card = elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 
                     if (card.querySelector(".TUIC_LinkCardInfo") == null) {
-                        card.childNodes[1].classList.add("TUIC_DISPNONE");
-                        card.querySelector('[data-testid="card.layoutLarge.media"]  a > div+div').classList.add("TUIC_DISPNONE");
+                        card.children[1].classList.add("TUIC_DISPNONE");
+                        card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div').classList.add("TUIC_DISPNONE");
 
-                        const link = card.querySelector('[data-testid="card.layoutLarge.media"] a').href;
+                        const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;
                         const domain = card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div span').textContent;
                         const title = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/^.*? /, "");
                         const description = "";
@@ -342,7 +342,7 @@ export const TUICObserver = {
                                     userNameElem == null
                                         ? false
                                         : elem.querySelector(`[data-testid="User-Name"] > .r-1awozwy+div span`).textContent ==
-                                          "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
+                                        "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
 
                                 let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
                                 while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
@@ -463,9 +463,9 @@ export const TUICObserver = {
                                 }
 
                                 if (elem.querySelector(TUICData.tweetTopButton.selector.moreMenu)) {
-                                    const moreMenuButton = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu);
+                                    const moreMenuButton = elem.querySelector<HTMLElement>(TUICData.tweetTopButton.selector.moreMenu);
                                     moreMenuButton.addEventListener("keydown", (e) => {
-                                        if (e.keyCode === 13) {
+                                        if (e.key === "Enter") {
                                             TUICObserver.functions.tweetMoreMenuContent();
                                         }
                                     });
@@ -535,8 +535,8 @@ export const TUICObserver = {
                     }
                 }
             }
-            if (window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null) {
-                let cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.TUIC_DISCOVERHEADER)`);
+            if (window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null) {
+                let cells = document.querySelectorAll<HTMLDivElement>(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.TUIC_DISCOVERHEADER)`);
                 for (const elem of cells) {
                     if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                         elem.classList.add("TUIC_DISCOVERHEADER");
@@ -588,7 +588,7 @@ export const TUICObserver = {
         },
         replacePost: function () {
             // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
-            function getNotReplacedElements(selector) {
+            function getNotReplacedElements(selector: string) {
                 const replaceMarkClass = "TUIC_TWEETREPLACE";
 
                 // NOTE: セレクタで選択された要素の中から、すでに置き換え済みの要素を除外
@@ -885,13 +885,17 @@ export const TUICObserver = {
                 // 固定ツイートの「固定」表示
                 for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
                     elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-pinnedTweet");
+
                 // 「{user}さんがリツイートしました」もしくは「リツイート済み」
                 for (const elem of getNotReplacedElements(
                     '[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]',
                 )) {
                     const container = elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"]`);
+
                     // NOTE: リツイートのSVGで取得しているが、これだとリツイートボタンも引っかかってしまうため、コンテナが検出できない場合スキップ
                     if (!container) continue;
+
+                    // NOTE: テキストノードを取得
                     const personRetweetedText = Array.from(container.childNodes)
                         .filter((e) => e.nodeType === Node.TEXT_NODE)
                         .at(-1);
@@ -955,7 +959,7 @@ export const TUICObserver = {
             if (TUICPref.get("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`) != null) {
                 document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
             }
-            if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && !isNaN(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`) != null) {
+            if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`) != null) {
                 document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE");
             }
             if (TUICPref.get("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`) != null) {
@@ -995,7 +999,7 @@ export const TUICObserver = {
                     if (tab) {
                         tab.parentElement.classList.add("TUIC_DISPNONE");
                         if (nowURL.endsWith("/verified_followers")) {
-                            document.querySelector(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
+                            document.querySelector<HTMLAnchorElement>(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
                         }
                     }
                     document.querySelector(`nav [data-testid="ScrollSnap-prevButtonWrapper"]:not(.TUIC_DISPNONE_PARENT > *)`)?.parentElement.classList.add("TUIC_DISPNONE_PARENT");
@@ -1035,7 +1039,7 @@ export const TUICObserver = {
                         for (let i = 0; i <= 25; i++) {
                             const re = await new Promise((resolve2) => {
                                 if (window.scrollY == 0) {
-                                    document.querySelector(`nav [role="presentation"] a${TUICData["profileSetting.profileInitialTab"].selectors[TUICPref.get("profileSetting.profileInitialTab")]}`).click();
+                                    document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${TUICData["profileSetting.profileInitialTab"].selectors[TUICPref.get("profileSetting.profileInitialTab")]}`).click();
                                     resolve2("ok");
                                 }
                                 resolve2("bb");
@@ -1053,7 +1057,7 @@ export const TUICObserver = {
         },
         moreMenuContent: async function () {
             await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
-            let menuTopPx = parseFloat(document.querySelector(`[role="menu"]`).style.top);
+            let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
             const menuItemPx = TUICLibrary.fontSizeClass(50, 53, 56, 62, 67);
             const menuInMenuPx = TUICLibrary.fontSizeClass(46, 49, 52, 58, 62);
             if (TUICPref.get("sidebarSetting.moreMenuItems.bookmarks")) {
@@ -1099,7 +1103,7 @@ export const TUICObserver = {
                     menuTopPx += menuInMenuPx;
                 }
             }
-            document.querySelector(`[role="menu"]`).style.top = menuTopPx + "px";
+            document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top = menuTopPx + "px";
         },
         tweetMoreMenuContent: async function () {
             await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
@@ -1123,9 +1127,9 @@ export const TUICObserver = {
                 }
             }
 
-            const needChangeTopPx = !document.querySelector(`[role="menu"] > div`).hasAttribute("style");
-            if (needChangeTopPx) {
-                document.querySelector(`[role="menu"]`).style.transform = `translateY(${menuTopPx}px)`;
+            const needsChangeTopPx = !document.querySelector(`[role="menu"] > div`).hasAttribute("style");
+            if (needsChangeTopPx) {
+                document.querySelector<HTMLDivElement>(`[role="menu"]`).style.transform = `translateY(${menuTopPx}px)`;
             }
         },
         updateStyles: function () {
@@ -1144,7 +1148,7 @@ export const TUICObserver = {
                     i.classList.remove("TUICSidebarSelected");
                     i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].unselected);
                 }
-                if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
+                if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector<HTMLElement>("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
             }
             {
                 const elem = document.querySelector(`.gt2-nav [data-testid="AppTabBar_Home_Link"]`) ?? document.querySelector("[role=banner] > div > div > div > div > div > nav " + TUICData.sidebarButtons.selectors.home);
