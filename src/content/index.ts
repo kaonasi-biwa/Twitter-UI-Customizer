@@ -19,9 +19,6 @@ import { startTluiObserver } from "@shared/tlui/observer.ts";
         elem.remove();
     }
     TUICLibrary.getClasses.deleteClasses();
-    // String.prototype.escapeToUseHTML = function () {
-    //     return TUICLibrary.escapeToUseHTML(this);
-    // };
     TUICObserver.titleObserverFunction();
 
     console.log(

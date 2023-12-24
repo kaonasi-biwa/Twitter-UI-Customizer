@@ -22,10 +22,6 @@ const getPointerFromKey = (object, key) => {
     }
 };
 
-String.prototype.escapeToUseHTML = function () {
-    return TUICLibrary.escapeToUseHTML(this);
-};
-
 export const TUICLibrary = {
     color: {
         rgb2hex: (rgb) => {
