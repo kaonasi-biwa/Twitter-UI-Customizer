@@ -2,10 +2,11 @@ name: Lint
 
 on:
     push:
-        branches: ["main"]
+        branches:
+            - main
     pull_request:
-        # The branches below must be a subset of the branches above
-        branches: ["main"]
+        branches:
+            - main
     workflow_dispatch:
 
 jobs:
@@ -31,7 +32,7 @@ jobs:
 
             - name: Install ESLint & Prettier & Stylelint
               run: |
-                  pnpm install --frozen-lockfile
+                  pnpm install
 
             #- name: Generate SARIF file
             #  run: |

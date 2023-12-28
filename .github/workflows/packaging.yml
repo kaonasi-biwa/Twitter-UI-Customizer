@@ -10,16 +10,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  corepack enable
-                  sudo apt install tree
-
                   pnpm install
-                  tree
                   pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
             - name: Publish
@@ -32,12 +30,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  corepack enable
                   pnpm install
                   pnpm build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
@@ -51,17 +50,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v2
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
+                  cache: "pnpm"
             - name: Archive
               run: |
-                  corepack enable
                   pnpm install
-                  echo "GITHUB_REPO = \"${{ github.repository_owner }}/${{ github.event.repository.name }}\"" >> .env.local
-                  #sed -i 's/${github.repository}//' ./dist/manifest.json
                   pnpm vite build --mode chromiumCRX
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
+              env:
+                  GITHUB_REPO: ${{ github.repository }}
             - name: CRX
               uses: cardinalby/webext-buildtools-chrome-crx-action@v2
               with:
@@ -84,6 +84,7 @@ jobs:
     make-release:
         runs-on: ubuntu-latest
         needs: [build-firefox, build-chromium, build-chromium-crx]
+        if: ${{ github.ref_type == 'tag' }}
         steps:
             - name: Create Release
               id: create_release

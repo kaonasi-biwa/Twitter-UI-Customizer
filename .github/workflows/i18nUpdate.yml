@@ -10,7 +10,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    eslint:
+    update-i18n:
         name: Update
         runs-on: ubuntu-latest
         steps:
@@ -31,7 +31,7 @@ jobs:
                   git config --global user.name  "github-actions[bot]"
                   git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-                  pnpm install --frozen-lockfile
+                  pnpm install
                   git pull
                   node ./npm-scripts/update-i18n.js
 
