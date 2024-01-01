@@ -25,7 +25,7 @@ export function fixDMBox() {
 }
 
 export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
-    const favicon = document.querySelector(`[rel="shortcut icon"]`) as HTMLLinkElement | null;
+    const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
     switch (TUICPref.get("twitterIcon")) {
         case "invisible":
             if (TUICPref.get("otherBoolSetting.faviconSet")) {
@@ -73,7 +73,7 @@ export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
 }
 
 export function sidebarButtons() {
-    const bannerRoot = document.querySelector(`[role=banner] > div > div > div > div > div > nav`);
+    const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot != null) {
         if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`) != null) {
             this.sidebarButtonProcess(bannerRoot);
@@ -84,7 +84,7 @@ export function sidebarButtons() {
                 if (elems.length == 1) {
                     continue;
                 } else if (elems.length > 1) {
-                    const elems = Array.from(bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]));
+                    const elems = [...bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector])];
                     for (const elem of elems) {
                         if (elem.id.includes("TUIC")) {
                             elem.remove();
@@ -95,7 +95,7 @@ export function sidebarButtons() {
                     changeElem = true;
                 }
             }
-            if (changeElem) this.sidebarButtonProcess(bannerRoot);
+            if (changeElem) sidebarButtonProcess(bannerRoot);
         }
     }
 }
@@ -142,7 +142,7 @@ export function sidebarButtonProcess(bannerRoot: HTMLElement) {
 
 export function showLinkCardInfo() {
     if (TUICPref.get("otherBoolSetting.showLinkCardInfo")) {
-        for (const infoCardElem of document.querySelectorAll(`article:not(.TUICDidInfoArticle) [data-testid="card.layoutLarge.media"]  a[aria-label] > div+div`)) {
+        for (const infoCardElem of document.querySelectorAll(`article:not(.TUICDidInfoArticle) [data-testid="card.layoutLarge.media"] a[aria-label] > div+div`)) {
             let elem = infoCardElem;
             while (elem.tagName != "ARTICLE") {
                 elem = elem.parentElement;
@@ -163,9 +163,7 @@ export function showLinkCardInfo() {
             elem.classList.add("TUICDidInfoArticle");
         }
     } else {
-        while (document.querySelector(".TUIC_LinkCardInfo")) {
-            document.querySelector(".TUIC_LinkCardInfo").remove();
-        }
+        document.querySelectorAll(".TUIC_LinkCardInfo").forEach((elem) => elem.remove());
     }
 }
 
@@ -447,7 +445,7 @@ export function replacePost() {
         const replaceMarkClass = "TUIC_TWEETREPLACE";
 
         // NOTE: セレクタで選択された要素の中から、すでに置き換え済みの要素を除外
-        const elements = Array.from(document.querySelectorAll(selector)).filter((e) => !e.classList.contains(replaceMarkClass));
+        const elements = document.querySelectorAll(`${selector}:not(.TUIC_TWEETREPLACE)`);
 
         // NOTE: 要素に置き換え済みクラスを追加
         for (const e of elements) {
@@ -776,7 +774,7 @@ export function invisibleItems() {
         }
     });
 
-    if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
+    if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
             elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
@@ -1004,28 +1002,20 @@ export function updateStyles() {
             i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].selected);
             i.classList.add("TUICSidebarSelected");
         } else if (!locationBool && i.classList.value.includes("TUICSidebarSelected")) {
-            i.classList.remove("TUICSidebarSelected");
             i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].unselected);
+            i.classList.remove("TUICSidebarSelected");
         }
         if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector<HTMLElement>("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
     }
     {
         const elem = document.querySelector(`.gt2-nav [data-testid="AppTabBar_Home_Link"]`) ?? document.querySelector("[role=banner] > div > div > div > div > div > nav " + TUICData.sidebarButtons.selectors.home);
         if (elem) {
-            const isHome = location.href == "https://twitter.com/home";
+            const isHome = location.href === "https://twitter.com/home";
             const SVGElem = elem.querySelector("svg path");
             if (TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome")) {
-                if (isHome) {
-                    SVGElem.setAttribute("d", HOME_ICON.oldSelected);
-                } else {
-                    SVGElem.setAttribute("d", HOME_ICON.old);
-                }
+                SVGElem.setAttribute("d", isHome ? HOME_ICON.oldSelected : HOME_ICON.old);
             } else {
-                if (isHome) {
-                    SVGElem.setAttribute("d", HOME_ICON.latestSelected);
-                } else {
-                    SVGElem.setAttribute("d", HOME_ICON.latest);
-                }
+                SVGElem.setAttribute("d", isHome ? HOME_ICON.latestSelected : HOME_ICON.latest);
             }
         }
     }
@@ -1043,20 +1033,16 @@ export function dmPage() {
                 if (elem.parentElement.querySelector(`[data-testid="messageEntry"] > div > div+div+div:not(.TUICDMIconBox)`)) {
                     continue;
                 }
-                const oldElem = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div > div+div+div.TUICDMIconBox`);
-                if (oldElem) {
-                    oldElem.remove();
-                }
+                //old Element
+                elem.querySelector("div > div+div+div.TUICDMIconBox")?.remove();
 
                 const elemParent = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div`);
                 elemParent.appendChild(TUICData.dmPage.element.make(elem.parentElement.parentElement.nextElementSibling && elem.parentElement.parentElement.nextElementSibling.querySelector(`[data-testid="messageEntry"]:not([role="button"])`)));
             }
         }
     } else {
-        let elem = document.querySelector(`.TUICDMIconBox`);
-        while (elem) {
+        document.querySelectorAll(".TUICDMIconBox").forEach((elem) => {
             elem.remove();
-            elem = document.querySelector(`.TUICDMIconBox`);
-        }
+        });
     }
 }
