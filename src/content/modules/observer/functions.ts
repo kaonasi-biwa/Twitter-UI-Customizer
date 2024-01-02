@@ -7,7 +7,7 @@ import EMPTY from "@content/icons/logo/empty.svg?url";
 import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
-import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/data/icons.ts";
+import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
 
 export function fixDMBox() {
     if (!TUICObserver.data.fixedDMBox) {

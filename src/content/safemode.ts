@@ -1,5 +1,3 @@
-import { TUICOptionHTML } from "./option.ts";
-
 import { injectSafeMode } from "../shared/options/injectSafeMode.ts";
 
 export const isSafemode = location.pathname === "/tuic/safemode";
@@ -14,5 +12,5 @@ export function runSafemode() {
     document.body.appendChild(entry);
 
     injectSafeMode();
-    TUICOptionHTML.eventHandle(entry);
+    //TUICOptionHTML.eventHandle(entry);
 }

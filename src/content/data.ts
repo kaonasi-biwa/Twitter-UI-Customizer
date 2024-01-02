@@ -1,6 +1,6 @@
 import { TUICI18N } from "./i18n.ts";
 import { TUICLibrary, TUICPref } from "./library.ts";
-import { SIDEBAR_BUTTON_ICON } from "./data/icons.ts";
+import { SIDEBAR_BUTTON_ICON } from "./icons";
 
 export const TUICData = {
     defaultTwitterColor: {

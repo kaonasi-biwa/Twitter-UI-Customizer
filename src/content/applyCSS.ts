@@ -4,9 +4,7 @@ import { TUICData } from "./data.ts";
 import { TUICLibrary, TUICPref } from "./library.ts";
 import { isSafemode } from "./safemode.ts";
 
-import DOG from "./icons/logo/dog.png?url";
-import TWITTER from "./icons/logo/twitter.svg?url";
-import X from "./icons/logo/x.svg?url";
+import { DOG, TWITTER, X } from "./icons/index.ts";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();

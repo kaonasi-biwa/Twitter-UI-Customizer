@@ -1,11 +1,11 @@
 import { TUICLibrary, TUICPref } from "./library.ts";
-import { TUICOptionHTML } from "./option.ts";
 import { isSafemode } from "./safemode.ts";
 import { TUICI18N } from "./i18n.ts";
 
 import { applySystemCss } from "./applyCSS.ts";
 
 import { twitterIcon, sidebarButtons, buttonUnderTweet, showLinkCardInfo, osusumeUser, dmPage, replacePost, invisibleItems, updateStyles, fixDMBox, profileInitialTab } from "./modules/observer/functions.ts";
+import { displaySetting } from "./modules/settings/display.ts";
 
 export const TUICObserver = {
     observer: null,
@@ -83,7 +83,7 @@ export const TUICObserver = {
                 let displayRootElement = document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
                 if (location.pathname === "/i/display") displayRootElement = displayRootElement.parentElement;
 
-                TUICOptionHTML.displaySetting(displayRootElement);
+                displaySetting(displayRootElement);
 
                 (async () => {
                     const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
@@ -134,19 +134,19 @@ export const TUICObserver = {
         if (window.location.pathname == "/tuic/safemode") {
         } else if (window.location.pathname == "/settings/display") {
             TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
-                const _large = elems[0].closest(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
-                const _small = elems[0].closest(`main > div > div > div > div:nth-child(2)`);
+                const _large = elems[0].closest<HTMLElement>(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
+                const _small = elems[0].closest<HTMLElement>(`main > div > div > div > div:nth-child(2)`);
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
-                TUICOptionHTML.displaySetting(_large ? _large : _small);
+                displaySetting(_large ? _large : _small);
             });
         } else if (window.location.pathname == "/i/display") {
             //* /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
 
             TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
-                const _dialog = elems[0].closest(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
-                const _fullscreen = elems[0].closest(`main > div > div > div:nth-child(2)`);
+                const _dialog = elems[0].closest<HTMLElement>(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
+                const _fullscreen = elems[0].closest<HTMLElement>(`main > div > div > div:nth-child(2)`);
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
-                TUICOptionHTML.displaySetting(_dialog ? _dialog : _fullscreen);
+                displaySetting(_dialog ? _dialog : _fullscreen);
             });
         }
 
