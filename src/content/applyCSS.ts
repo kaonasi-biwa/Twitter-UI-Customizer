@@ -1,10 +1,11 @@
 import browser from "webextension-polyfill";
 
 import { TUICData } from "./data.ts";
-import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICLibrary } from "./library.ts";
 import { isSafemode } from "./safemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
+import { TUICPref } from "./modules/index.ts";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
@@ -12,9 +13,9 @@ export function addCssElement() {
 
     const twitterHead = document.querySelector("head");
 
-    const systemCssElement = document.createElement("style");
-    systemCssElement.id = "twitter_ui_customizer";
-    twitterHead.appendChild(systemCssElement);
+    const elemSYSCSS = document.createElement("style");
+    elemSYSCSS.id = "twitter_ui_customizer";
+    twitterHead.appendChild(elemSYSCSS);
     applySystemCss();
 
     if (!isSafemode) {
@@ -28,10 +29,10 @@ export function addCssElement() {
 export function applyDataCss() {
     const twitterHead = document.querySelector("head");
     document.querySelector("#twitter_ui_customizer_cssData")?.remove();
-    const dataCssElement = document.createElement("style");
-    dataCssElement.id = "twitter_ui_customizer_cssData";
-    twitterHead.appendChild(dataCssElement);
-    dataCssElement.textContent = `
+    const elemDataCSS = document.createElement("style");
+    elemDataCSS.id = "twitter_ui_customizer_cssData";
+    twitterHead.appendChild(elemDataCSS);
+    elemDataCSS.textContent = `
     .TUICTwitterIcon_Dog {
         background-image: url('${browser.runtime.getURL(DOG)}');
     }
@@ -76,7 +77,7 @@ export function applySystemCss() {
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
-        if (TUICPref.get(elem)) {
+        if (TUICPref.getPref(elem)) {
             settingsOutput += elem + "|";
         }
     }

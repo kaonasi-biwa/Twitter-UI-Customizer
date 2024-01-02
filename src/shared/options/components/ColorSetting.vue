@@ -31,8 +31,7 @@ import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
 
 import RESET from "@content/icons/arrow/reset.svg?component";
-
-import { TUICPref } from "@content/library";
+import { TUICPref } from "@content/modules";
 import { applySystemCss } from "@content/applyCSS";
 
 import { useStore } from "../store";
@@ -43,7 +42,7 @@ export default defineComponent({
         const store = useStore();
 
         const isDefault = computed(() => {
-            return !!TUICPref.get(store.editingColorType)?.[props.id]?.[props.type];
+            return !!TUICPref.getPref(store.editingColorType)?.[props.id]?.[props.type];
         });
         const TUIC_color = computed(() => {
             return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
@@ -61,7 +60,7 @@ export default defineComponent({
             const transparentButton = this.$refs.transparentButton;
             const colorRoot = this.$refs.colorRoot;
 
-            if (TUICPref.get(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.delete(`${colorKind}.${colorAttr}.${colorType}`);
+            if (TUICPref.getPref(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.deletePref(`${colorKind}.${colorAttr}.${colorType}`);
 
             const TUIC_color = TUICLibrary.color.getColorFromPref(colorAttr, colorType, colorKind).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
             const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
@@ -84,7 +83,7 @@ export default defineComponent({
             const colorValue = TUICLibrary.color.hex2rgb(colorPicker.value);
             const isChecked = transparentButton.checked;
 
-            TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
+            TUICPref.setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
             // CHECKの出現？
             colorRoot.classList.remove("TUIC_ISNOTDEFAULT");
@@ -103,7 +102,7 @@ export default defineComponent({
             const colorValue = TUICLibrary.color.hex2rgb(colorPicker.value);
             const isChecked = transparentButton.dataset.checked === "true";
 
-            TUICPref.set(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
+            TUICPref.setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
             colorRoot.classList.remove("TUIC_ISNOTDEFAULT");
 

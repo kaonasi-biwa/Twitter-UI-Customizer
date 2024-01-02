@@ -10,7 +10,7 @@ import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
 import { TUICI18N } from "@content/i18n";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 
-import { TUICPref } from "@content/library";
+import { TUICPref } from "@content/modules";
 
 export default defineComponent({
     setup() {
@@ -48,7 +48,7 @@ export default defineComponent({
 
             applySystemCss();
             applyCustomIcon();
-            if (TUICPref.get("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
+            if (TUICPref.getPref("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
                 const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                 document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }

@@ -1,11 +1,14 @@
-import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICLibrary } from "./library.ts";
 import { isSafemode } from "./safemode.ts";
 import { TUICI18N } from "./i18n.ts";
 
 import { applySystemCss } from "./applyCSS.ts";
 
-import { twitterIcon, sidebarButtons, buttonUnderTweet, showLinkCardInfo, osusumeUser, dmPage, replacePost, invisibleItems, updateStyles, fixDMBox, profileInitialTab } from "./modules/observer/functions.ts";
+import { sidebarButtons } from "./modules/observer/sidebarBtn.ts";
+import { dmPage, fixDMBox } from "./modules/observer/fixDM.ts";
+import { twitterIcon, buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePost, invisibleItems, updateStyles, profileInitialTab } from "./modules/observer/functions.ts";
 import { displaySetting } from "./modules/settings/display.ts";
+import { TUICPref } from "./modules/index.ts";
 
 export const TUICObserver = {
     observer: null,
@@ -164,7 +167,7 @@ export const TUICObserver = {
 
         if (isSafemode) {
             document.title = TUICI18N.get("safemode-title");
-        } else if (TUICPref.get("XToTwitter.XToTwitter")) {
+        } else if (TUICPref.getPref("XToTwitter.XToTwitter")) {
             if (document.title == "X") {
                 document.title = "Twitter";
             } else if (window.location.pathname.includes("/i/timeline") || window.location.pathname.includes("/compose/tweet")) {

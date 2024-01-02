@@ -1,5 +1,4 @@
 import { TUICObserver } from "@content/observer";
-import { TUICPref } from "@content/library";
 import DOG from "@content/icons/logo/dog.png?url";
 import TWITTER from "@content/icons/logo/twitter.svg?raw";
 import X from "@content/icons/logo/x.svg?raw";
@@ -8,54 +7,40 @@ import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
 import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
-
-export function fixDMBox() {
-    if (!TUICObserver.data.fixedDMBox) {
-        const dmBox = document.querySelector(`[data-testid="DMDrawerHeader"]`);
-        if (dmBox) {
-            if (dmBox.querySelector(`[d="M12 11.59L3.96 3.54 2.54 4.96 12 14.41l9.46-9.45-1.42-1.42L12 11.59zm0 7l-8.04-8.05-1.42 1.42L12 21.41l9.46-9.45-1.42-1.42L12 18.59z"]`)) {
-                dmBox.querySelector<HTMLDivElement>(`div[role="button"]+div[role="button"]`).click();
-                window.setTimeout(() => {
-                    document.querySelector<HTMLDivElement>(`[data-testid="DMDrawerHeader"] div[role="button"]+div[role="button"]`).click();
-                }, 100);
-            }
-            TUICObserver.data.fixedDMBox = true;
-        }
-    }
-}
+import { TUICPref } from "..";
 
 export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
     const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
-    switch (TUICPref.get("twitterIcon")) {
+    switch (TUICPref.getPref("twitterIcon")) {
         case "invisible":
-            if (TUICPref.get("otherBoolSetting.faviconSet")) {
+            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE");
             base.classList.add("TUIC_DISPNONE");
             break;
         case "twitter":
-            if (TUICPref.get("otherBoolSetting.faviconSet")) {
+            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`)
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
             break;
         case "dog":
-            if (TUICPref.get("otherBoolSetting.faviconSet")) {
+            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
                 favicon.href = chrome.runtime.getURL(DOG);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Dog");
             break;
         case "custom":
-            if (TUICPref.get("otherBoolSetting.faviconSet")) {
-                const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
+                const imageURL = localStorage.getItem(TUICPref.getPref("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                 favicon.href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");
             break;
         case "twitterIcon-X":
-            if (TUICPref.get("otherBoolSetting.faviconSet")) {
+            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
                 console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null))));
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
@@ -67,81 +52,13 @@ export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
             elem.classList.add("TUIC_NOTSVGDISPNONE");
             break;
     }
-    if (!TUICPref.get("otherBoolSetting.faviconSet")) {
+    if (!TUICPref.getPref("otherBoolSetting.faviconSet")) {
         favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
     }
 }
 
-export function sidebarButtons() {
-    const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
-    if (bannerRoot != null) {
-        if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`) != null) {
-            this.sidebarButtonProcess(bannerRoot);
-        } else {
-            let changeElem = false;
-            for (const selector of TUICPref.get("sidebarButtons")) {
-                const elems = bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]);
-                if (elems.length == 1) {
-                    continue;
-                } else if (elems.length > 1) {
-                    const elems = [...bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector])];
-                    for (const elem of elems) {
-                        if (elem.id.includes("TUIC")) {
-                            elem.remove();
-                        }
-                    }
-                    changeElem = true;
-                } else if (elems.length == 0 && selector in TUICData.sidebarButtons.html) {
-                    changeElem = true;
-                }
-            }
-            if (changeElem) sidebarButtonProcess(bannerRoot);
-        }
-    }
-}
-
-export function sidebarButtonProcess(bannerRoot: HTMLElement) {
-    if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
-        for (const i of TUICPref.get("sidebarButtons")) {
-            let moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-            if (moveElem != null) {
-                bannerRoot.appendChild(moveElem);
-                moveElem.classList.add("NOT_TUIC_DISPNONE");
-                if (i == "moremenu") {
-                    moveElem.onclick = moreMenuContent;
-                    moveElem.addEventListener("keydown", (e) => {
-                        if (e.keyCode === 13) {
-                            e.preventDefault();
-                            moreMenuContent();
-                        }
-                    });
-                }
-            } else if (i in TUICData.sidebarButtons.html) {
-                moveElem = TUICLibrary.HTMLParse(TUICData.sidebarButtons.html[i]()).item(0);
-                moveElem.classList.add("NOT_TUIC_DISPNONE");
-                moveElem.onclick = TUICData.sidebarButtons.buttonFunctions[i];
-                moveElem.addEventListener("keydown", (e) => {
-                    if (e.keyCode === 13) {
-                        e.preventDefault();
-                        TUICData.sidebarButtons.buttonFunctions[i]({
-                            currentTarget: e.target.parentElement,
-                        });
-                    }
-                });
-                bannerRoot.appendChild(moveElem);
-            }
-        }
-    }
-    for (const i of TUICData.settings.sidebarButtons.all) {
-        if (!TUICPref.get("sidebarButtons").includes(i) && !window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
-            const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-            if (moveElem != null) moveElem.classList.add("TUIC_DISPNONE");
-        }
-    }
-}
-
 export function showLinkCardInfo() {
-    if (TUICPref.get("otherBoolSetting.showLinkCardInfo")) {
+    if (TUICPref.getPref("otherBoolSetting.showLinkCardInfo")) {
         for (const infoCardElem of document.querySelectorAll(`article:not(.TUICDidInfoArticle) [data-testid="card.layoutLarge.media"] a[aria-label] > div+div`)) {
             let elem = infoCardElem;
             while (elem.tagName != "ARTICLE") {
@@ -199,15 +116,15 @@ export function buttonUnderTweet() {
                         while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
                             bar_base = bar_base.parentElement;
                         }
-                        if (TUICPref.get("tweetDisplaySetting.bottomScroll")) bar_base.parentElement.classList.add("TUICScrollBottom");
+                        if (TUICPref.getPref("tweetDisplaySetting.bottomScroll")) bar_base.parentElement.classList.add("TUICScrollBottom");
                         bar_base.parentElement.classList.add("TUICTweetButtomBarBase");
-                        if (TUICPref.get("tweetDisplaySetting.bottomSpace")) {
+                        if (TUICPref.getPref("tweetDisplaySetting.bottomSpace")) {
                             const space = elem.querySelector(`[aria-labelledby]`);
                             if (space && space.children?.[0]?.childElementCount === 0) {
                                 space.classList.add("TUIC_NONE_SPACE_BOTTOM_TWEET");
                             }
                         }
-                        if (TUICPref.get("timeline.hideOhterRTTL") && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
+                        if (TUICPref.getPref("timeline.hideOhterRTTL") && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
                             elem.classList.add("TUIC_DISPNONE");
                         }
                         const bar_item = {};
@@ -244,9 +161,9 @@ export function buttonUnderTweet() {
                                 elem.classList.add("TUICItIsBigArticlePhoto");
                             }
 
-                            if (TUICPref.get("otherBoolSetting.placeEngagementsLink")) {
-                                const engageentsTypeList = TUICPref.get("fixEngagements");
-                                const shortName = TUICPref.get("otherBoolSetting.placeEngagementsLinkShort");
+                            if (TUICPref.getPref("otherBoolSetting.placeEngagementsLink")) {
+                                const engageentsTypeList = TUICPref.getPref("fixEngagements");
+                                const shortName = TUICPref.getPref("otherBoolSetting.placeEngagementsLinkShort");
                                 const engagementsFixList = [];
                                 const engageFixListFunc = (count) => {
                                     let tempArr = [];
@@ -280,7 +197,7 @@ export function buttonUnderTweet() {
                         }
 
                         let lastButton;
-                        for (const i of TUICPref.get("visibleButtons")) {
+                        for (const i of TUICPref.getPref("visibleButtons")) {
                             let div = null;
                             if (i in bar_item) {
                                 div = bar_item[i];
@@ -308,7 +225,7 @@ export function buttonUnderTweet() {
                         lastButton.classList.add("r-1b7u577");
 
                         for (const i of TUICData.settings.visibleButtons.all) {
-                            if (!TUICPref.get("visibleButtons").includes(i) && i in bar_item) {
+                            if (!TUICPref.getPref("visibleButtons").includes(i) && i in bar_item) {
                                 bar_item[i].classList.add("TUIC_DISPNONE");
                             }
                         }
@@ -334,7 +251,7 @@ export function buttonUnderTweet() {
                                     tweetTopButtons[i] = div;
                                 }
                             }
-                            for (const i of TUICPref.get("tweetTopButton")) {
+                            for (const i of TUICPref.getPref("tweetTopButton")) {
                                 let div = null;
                                 if (i in tweetTopButtons) {
                                     div = tweetTopButtons[i];
@@ -353,7 +270,7 @@ export function buttonUnderTweet() {
                             }
 
                             for (const i of TUICData.settings.tweetTopButton.all) {
-                                if (!TUICPref.get("tweetTopButton").includes(i) && i in tweetTopButtons) {
+                                if (!TUICPref.getPref("tweetTopButton").includes(i) && i in tweetTopButtons) {
                                     tweetTopButtons[i].classList.add("TUIC_DISPNONE");
                                 }
                             }
@@ -368,7 +285,7 @@ export function buttonUnderTweet() {
 }
 
 export function osusumeUser() {
-    if (TUICPref.get("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
+    if (TUICPref.getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
         for (const elem of cells) {
             if (
@@ -392,13 +309,13 @@ export function osusumeUser() {
         for (const elem of cells) {
             if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                 elem.classList.add("TUIC_DISCOVERHEADER");
-                if (TUICPref.get("timeline-discoverMore") === "discoverMore_invisible") {
+                if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_invisible") {
                     elem.classList.add("TUIC_DISPNONE");
                     elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                     if (elem.getAttribute("TUICDiscoberMore") != null) {
                         elem.removeAttribute("TUICDiscoberMore");
                     }
-                } else if (TUICPref.get("timeline-discoverMore") === "discoverMore_detailOpen") {
+                } else if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_detailOpen") {
                     elem.setAttribute("TUICDiscoberMore", "true");
                     elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
                     elem.onclick = (event) => {
@@ -408,7 +325,7 @@ export function osusumeUser() {
                         event.stopPropagation();
                         event.stopImmediatePropagation();
                     };
-                } else if (TUICPref.get("timeline-discoverMore") === "discoverMore_detailClose") {
+                } else if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_detailClose") {
                     elem.setAttribute("TUICDiscoberMore", "false");
                     elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                     elem.onclick = (event) => {
@@ -455,7 +372,7 @@ export function replacePost() {
         return elements;
     }
 
-    if (TUICPref.get("XToTwitter.PostToTweet")) {
+    if (TUICPref.getPref("XToTwitter.PostToTweet")) {
         const isTweetPage = location.pathname.includes("/status/");
         const isEngagementsPage = document.querySelector(`[role="tab"]`) && location.pathname.includes("/status/") && (location.pathname.endsWith("/quotes") || location.pathname.endsWith("/retweets") || location.pathname.endsWith("/likes"));
         const isRetweetPage = location.pathname.endsWith("/retweets");
@@ -767,28 +684,28 @@ export function replacePost() {
 
 export function invisibleItems() {
     document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-        if (TUICPref.get("tweetDisplaySetting.twitter-pro-promotion-btn")) {
+        if (TUICPref.getPref("tweetDisplaySetting.twitter-pro-promotion-btn")) {
             e.classList.add("TUIC_DISPNONE");
         } else {
             e.classList.remove("TUIC_DISPNONE");
         }
     });
 
-    if (TUICPref.get("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
+    if (TUICPref.getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
             elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
             elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add("TUIC_DISPNONE");
         }
     }
-    if (TUICPref.get("rightSidebar.verified") && document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
+    if (TUICPref.getPref("rightSidebar.verified") && document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
         document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] [href="/i/verified-choose"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
-    if (TUICPref.get("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`) != null) {
+    if (TUICPref.getPref("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`) != null) {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
     if (
-        TUICPref.get("rightSidebar.osusumeUser") &&
+        TUICPref.getPref("rightSidebar.osusumeUser") &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`) != null &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null
     ) {
@@ -796,55 +713,55 @@ export function invisibleItems() {
     }
 
     if (
-        TUICPref.get("rightSidebar.relevantPeople") &&
+        TUICPref.getPref("rightSidebar.relevantPeople") &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`) != null &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span`) != null
     ) {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`).parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
-    if (TUICPref.get("rightSidebar.links") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`) != null) {
+    if (TUICPref.getPref("rightSidebar.links") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`) != null) {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`).parentElement.classList.add("TUIC_DISPNONE");
     }
-    if (TUICPref.get("rightSidebar.searchBox") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`) != null) {
+    if (TUICPref.getPref("rightSidebar.searchBox") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`) != null) {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`).parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
-    if (TUICPref.get("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`) != null) {
+    if (TUICPref.getPref("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`) != null) {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
-    if (TUICPref.get("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`) != null) {
+    if (TUICPref.getPref("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`) != null) {
         document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE");
     }
-    if (TUICPref.get("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`) != null) {
+    if (TUICPref.getPref("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`) != null) {
         document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`).classList.add("TUIC_DISPNONE");
     }
 
-    if (TUICPref.get("profileSetting.invisible.profileHighlights")) {
+    if (TUICPref.getPref("profileSetting.invisible.profileHighlights")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/highlights"]`);
         for (const elem of tabs) {
             elem.parentElement.classList.add("TUIC_DISPNONE");
         }
     }
 
-    if (TUICPref.get("profileSetting.invisible.profileAffiliates")) {
+    if (TUICPref.getPref("profileSetting.invisible.profileAffiliates")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/affiliates"]`);
         for (const elem of tabs) {
             elem.parentElement.classList.add("TUIC_DISPNONE");
         }
     }
 
-    if (TUICPref.get("accountSwitcher.icon") && TUICPref.get("accountSwitcher.nameID") && TUICPref.get("accountSwitcher.moreMenu") && document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`)) {
+    if (TUICPref.getPref("accountSwitcher.icon") && TUICPref.getPref("accountSwitcher.nameID") && TUICPref.getPref("accountSwitcher.moreMenu") && document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`)) {
         document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
 
     document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
-        if (TUICPref.get("invisibleItems.config-premium")) {
+        if (TUICPref.getPref("invisibleItems.config-premium")) {
             e.classList.add("TUIC_DISPNONE");
         } else {
             e.classList.remove("TUIC_DISPNONE");
         }
     });
 
-    if (TUICPref.get("profileSetting.invisible.verifiedFollowerTab")) {
+    if (TUICPref.getPref("profileSetting.invisible.verifiedFollowerTab")) {
         const nowURL = location.pathname;
         if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
             const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/verified_followers"]`);
@@ -858,7 +775,7 @@ export function invisibleItems() {
         }
     }
 
-    if (TUICPref.get("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
+    if (TUICPref.getPref("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
         document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.classList.add("TUIC_DISPNONE");
     }
 }
@@ -877,14 +794,13 @@ export function profileInitialTab() {
         }
     }
     const profileButtonInSidebar = document.querySelector(`[data-testid="AppTabBar_Profile_Link"]:not(.TUICHandledEvent)`);
-    if (profileButtonInSidebar) {
-        profileButtonInSidebar.classList.add("TUICHandledEvent");
-        profileButtonInSidebar.addEventListener("click", profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
-    }
+
+    profileButtonInSidebar?.classList.add("TUICHandledEvent");
+    profileButtonInSidebar?.addEventListener("click", profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
 }
 
-export function profileInitialTabRedirect(userName) {
-    if (TUICPref.get("profileSetting.profileInitialTab") != "tweets") {
+export function profileInitialTabRedirect(userName: string) {
+    if (TUICPref.getPref("profileSetting.profileInitialTab") != "tweets") {
         return () => {
             window.setTimeout(async () => {
                 await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
@@ -893,7 +809,7 @@ export function profileInitialTabRedirect(userName) {
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve2) => {
                         if (window.scrollY == 0) {
-                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${TUICData["profileSetting.profileInitialTab"].selectors[TUICPref.get("profileSetting.profileInitialTab")]}`).click();
+                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${TUICData["profileSetting.profileInitialTab"].selectors[TUICPref.getPref("profileSetting.profileInitialTab")]}`).click();
                             resolve2("ok");
                         }
                         resolve2("bb");
@@ -915,14 +831,14 @@ export async function moreMenuContent() {
     let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
     const menuItemPx = TUICLibrary.fontSizeClass(50, 53, 56, 62, 67);
     const menuInMenuPx = TUICLibrary.fontSizeClass(46, 49, 52, 58, 62);
-    if (TUICPref.get("sidebarSetting.moreMenuItems.bookmarks")) {
+    if (TUICPref.getPref("sidebarSetting.moreMenuItems.bookmarks")) {
         const elem = document.querySelector(`[data-testid="Dropdown"] [href="/i/bookmarks"]`);
         if (elem) {
             elem.parentElement.classList.add("TUIC_DISPNONE");
             menuTopPx += menuItemPx;
         }
     }
-    if (TUICPref.get("sidebarSetting.moreMenuItems.monetization")) {
+    if (TUICPref.getPref("sidebarSetting.moreMenuItems.monetization")) {
         const elem = document.querySelector(`[data-testid="Dropdown"] [href="/settings/monetization"]`);
         if (elem) {
             elem.parentElement.classList.add("TUIC_DISPNONE");
@@ -930,28 +846,28 @@ export async function moreMenuContent() {
         }
     }
 
-    if (TUICPref.get("sidebarSetting.moreMenuItems.separator")) {
+    if (TUICPref.getPref("sidebarSetting.moreMenuItems.separator")) {
         const elem = document.querySelector(`[data-testid="Dropdown"] [role="separator"]`);
         if (elem) {
             elem.parentElement.classList.add("TUIC_DISPNONE");
             menuTopPx += 5;
         }
     }
-    if (TUICPref.get("sidebarSetting.moreMenuItems.creatorStudio")) {
+    if (TUICPref.getPref("sidebarSetting.moreMenuItems.creatorStudio")) {
         const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_0_content"]`);
         if (elem) {
             elem.classList.add("TUIC_DISPNONE");
             menuTopPx += menuInMenuPx;
         }
     }
-    if (TUICPref.get("sidebarSetting.moreMenuItems.professionalTool")) {
+    if (TUICPref.getPref("sidebarSetting.moreMenuItems.professionalTool")) {
         const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_1_content"]`);
         if (elem) {
             elem.classList.add("TUIC_DISPNONE");
             menuTopPx += menuInMenuPx;
         }
     }
-    if (TUICPref.get("sidebarSetting.moreMenuItems.settingsAndSupport")) {
+    if (TUICPref.getPref("sidebarSetting.moreMenuItems.settingsAndSupport")) {
         const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_2_content"][data-testid="settingsAndSupport"]`);
         if (elem) {
             elem.classList.add("TUIC_DISPNONE");
@@ -967,7 +883,7 @@ export async function tweetMoreMenuContent() {
     let menuTopPx = 0;
     const menuItemPx = TUICLibrary.fontSizeClass(40, 41, 44, 48, 52);
     for (const id of TUICData["tweetDisplaySetting.tweetMoreMenuItems"].all) {
-        if (TUICPref.get(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
+        if (TUICPref.getPref(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
             const getFunc = TUICData["tweetDisplaySetting.tweetMoreMenuItems"].selectors[id];
             let elem = null;
             if (typeof getFunc == "function") {
@@ -1012,37 +928,11 @@ export function updateStyles() {
         if (elem) {
             const isHome = location.href === "https://twitter.com/home";
             const SVGElem = elem.querySelector("svg path");
-            if (TUICPref.get("sidebarSetting.buttonConfig.birdGoBackHome")) {
+            if (TUICPref.getPref("sidebarSetting.buttonConfig.birdGoBackHome")) {
                 SVGElem.setAttribute("d", isHome ? HOME_ICON.oldSelected : HOME_ICON.old);
             } else {
                 SVGElem.setAttribute("d", isHome ? HOME_ICON.latestSelected : HOME_ICON.latest);
             }
         }
-    }
-}
-
-export function dmPage() {
-    if (TUICPref.get("dmPage.showIcon")) {
-        if (
-            document.querySelector(
-                `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
-            )
-        ) {
-            for (const elem of document.querySelectorAll(`[data-testid="messageEntry"]:not([role="button"]):not(.TUICDMIcon)`)) {
-                elem.classList.add("TUICDMIcon");
-                if (elem.parentElement.querySelector(`[data-testid="messageEntry"] > div > div+div+div:not(.TUICDMIconBox)`)) {
-                    continue;
-                }
-                //old Element
-                elem.querySelector("div > div+div+div.TUICDMIconBox")?.remove();
-
-                const elemParent = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div`);
-                elemParent.appendChild(TUICData.dmPage.element.make(elem.parentElement.parentElement.nextElementSibling && elem.parentElement.parentElement.nextElementSibling.querySelector(`[data-testid="messageEntry"]:not([role="button"])`)));
-            }
-        }
-    } else {
-        document.querySelectorAll(".TUICDMIconBox").forEach((elem) => {
-            elem.remove();
-        });
     }
 }

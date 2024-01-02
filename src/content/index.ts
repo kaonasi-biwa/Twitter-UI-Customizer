@@ -4,12 +4,13 @@
  */
 
 import { TUICObserver } from "./observer.ts";
-import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
 import { isSafemode, runSafemode } from "./safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
 import { twitterIcon } from "./modules/observer/functions.ts";
+import { TUICPref } from "./modules/index.ts";
 
 (async () => {
     await TUICI18N.fetch();
@@ -29,7 +30,7 @@ import { twitterIcon } from "./modules/observer/functions.ts";
     );
 
     // 旧バージョンからのアップデート
-    await TUICPref.update();
+    await TUICPref.updatePref();
 
     addCssElement();
     applyDataCss();
