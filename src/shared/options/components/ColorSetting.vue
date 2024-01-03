@@ -60,7 +60,7 @@ export default defineComponent({
             const transparentButton = this.$refs.transparentButton;
             const colorRoot = this.$refs.colorRoot;
 
-            if (TUICPref.getPref(`${colorKind}.${colorAttr}`) && TUICPref.get(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.deletePref(`${colorKind}.${colorAttr}.${colorType}`);
+            if (TUICPref.getPref(`${colorKind}.${colorAttr}`) && TUICPref.getPref(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.deletePref(`${colorKind}.${colorAttr}.${colorType}`);
 
             const TUIC_color = TUICLibrary.color.getColorFromPref(colorAttr, colorType, colorKind).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
             const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);

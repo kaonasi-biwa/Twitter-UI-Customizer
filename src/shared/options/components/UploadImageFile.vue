@@ -48,9 +48,9 @@ export default defineComponent({
 
             applySystemCss();
             applyCustomIcon();
-            if (TUICPref.getPref("twitterIcon") == "custom" && TUICPref.get("otherBoolSetting.faviconSet")) {
-                const imageURL = localStorage.getItem(TUICPref.get("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                document.querySelector(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
+            if (TUICPref.getPref("twitterIcon") == "custom" && TUICPref.getPref("otherBoolSetting.faviconSet")) {
+                const imageURL = localStorage.getItem(TUICPref.getPref("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }
         },
     },

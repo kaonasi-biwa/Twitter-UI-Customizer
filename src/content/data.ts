@@ -952,7 +952,7 @@ export const TUICData = {
                     const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
-                        document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
                         document.querySelector<HTMLAnchorElement>(`[href="/settings"]`)?.click();
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/content_you_see"]`);
@@ -970,7 +970,7 @@ export const TUICData = {
             drafts: async (e) => {
                 e?.preventDefault?.();
                 //TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/compose/tweet/unsent/drafts"]`);
-                document.querySelector(`[href="/compose/tweet"]`).click();
+                document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
                 await TUICData.sidebarButtons.waitSetElement(`[data-testid="unsentButton"]`);
             },
             connect: (e) => {
@@ -986,11 +986,11 @@ export const TUICData = {
             muteAndBlock: async (e) => {
                 e?.preventDefault?.();
                 if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
-                    const moreMenu = document.querySelector(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
-                        document.querySelector(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                        document.querySelector(`[href="/settings"]`)?.click();
+                        document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        document.querySelector<HTMLElement>(`[href="/settings"]`)?.click();
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/mute_and_block"]`);
                     }, 150);
@@ -1012,7 +1012,7 @@ export const TUICData = {
             bookmarks: "/i/bookmarks",
         },
         tuicButtonGoToUrl: {
-            __setURL: (id, selector, setURLWay) => {
+            __setURL: (id, selector, setURLWay: (arg0: HTMLElement) => string) => {
                 const elem = document.querySelector(selector);
                 if (elem) {
                     return setURLWay(elem);
@@ -1021,9 +1021,9 @@ export const TUICData = {
                     return "";
                 }
             },
-            __setURLWait: async (id, selector, setURLWay) => {
+            __setURLWait: async (id: string, selector: string, setURLWay: (arg0: HTMLElement) => string) => {
                 await TUICLibrary.waitForElement(selector);
-                const elem = document.querySelector(`#TUICSidebar_${id}`);
+                const elem = document.querySelector<HTMLLinkElement>(`#TUICSidebar_${id}`);
                 if (elem) {
                     elem.href = setURLWay(document.querySelector(selector));
                 }
@@ -1202,7 +1202,7 @@ export const TUICData = {
             make: (NoIcon) => {
                 const elem = TUICLibrary.HTMLParse(TUICData.dmPage.element.html()).item(0);
                 if (!NoIcon) {
-                    elem.querySelector(".TUICDMIconDisplay").style.backgroundImage = document.querySelector(
+                    elem.querySelector<HTMLElement>(".TUICDMIconDisplay").style.backgroundImage = document.querySelector<HTMLElement>(
                         `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
                     ).style.backgroundImage;
                 }
@@ -1210,7 +1210,7 @@ export const TUICData = {
                 elem.querySelector("a").addEventListener("click", (e) => {
                     e.preventDefault();
                     document
-                        .querySelector(
+                        .querySelector<HTMLElement>(
                             `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
                         )
                         .click();

@@ -3,12 +3,12 @@ import { TUICI18N } from "../content/i18n.ts";
 let setting = {};
 
 const i18nApply = async () => {
-    for (const elem of Array.from(document.querySelectorAll(".i18n-t"))) {
+    for (const elem of [...document.querySelectorAll(".i18n-t")]) {
         if (elem instanceof HTMLElement) {
             elem.title = chrome.i18n.getMessage(elem.getAttribute("i18n-t-id") ?? "");
         }
     }
-    for (const elem of Array.from(document.querySelectorAll(".i18n"))) {
+    for (const elem of [...document.querySelectorAll(".i18n")]) {
         elem.textContent = chrome.i18n.getMessage(elem.getAttribute("i18n-id") ?? "");
     }
 };
@@ -31,10 +31,11 @@ window.onload = () => {
         };
         const settingList = ["iconClick", "openTwitter", "runBrowser"];
         for (const i of settingList) {
+            const elem = document.querySelector<HTMLInputElement>(`#${i}`);
             if (setting[i]) {
-                document.getElementById(i).checked = true;
+                elem.checked = true;
             }
-            document.getElementById(i).addEventListener("change", checkbox);
+            elem.addEventListener("change", checkbox);
         }
     });
     i18nApply();

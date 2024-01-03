@@ -21,11 +21,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { TUICI18N } from "@content/i18n";
-import { TUICPref, TUICLibrary } from "@content/library";
+import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
 import { isSafemode } from "@content/safemode";
 import { TUICData } from "@content/data";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
+import { TUICPref } from "@content/modules";
 
 export default defineComponent({
     components: {
@@ -68,9 +69,9 @@ export default defineComponent({
                     },
                 },
                 changeFunc: () => {
-                    TUICPref.set(
+                    TUICPref.setPref(
                         "sidebarButtons",
-                        TUICPref.get("sidebarButtons").filter((elem) => {
+                        TUICPref.getPref("sidebarButtons").filter((elem) => {
                             return elem != "verified-choose";
                         }),
                     );
@@ -88,7 +89,7 @@ export default defineComponent({
             },
         ];
         const clickEv = (index) => {
-            TUICPref.set("", TUICPref.merge(TUICPref.get(""), buttonList[index].changePref ?? {}));
+            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), buttonList[index].changePref ?? {}));
             buttonList[index]?.changeFunc?.();
             TUICPref.save();
             if (!isSafemode) {
@@ -96,7 +97,7 @@ export default defineComponent({
             }
             TUICLibrary.getClasses.update();
             TUICObserver.titleObserverFunction();
-            if (!TUICPref.get("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
+            if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
                 document.title = document.title.replace(" / Twitter", " / X");
             }
         };

@@ -27,8 +27,9 @@ export function addCssElement() {
 }
 
 export function applyDataCss() {
-    const twitterHead = document.querySelector("head");
     document.querySelector("#twitter_ui_customizer_cssData")?.remove();
+    const twitterHead = document.querySelector("head");
+
     const elemDataCSS = document.createElement("style");
     elemDataCSS.id = "twitter_ui_customizer_cssData";
     twitterHead.appendChild(elemDataCSS);
@@ -45,8 +46,9 @@ export function applyDataCss() {
 }
 
 export function applyCustomIcon() {
-    const twitterHead = document.querySelector("head");
     document.querySelector("#twitter_ui_customizer_cssCustomIcon")?.remove();
+    const twitterHead = document.querySelector("head");
+
     const dataCssElement = document.createElement("style");
     dataCssElement.id = "twitter_ui_customizer_cssCustomIcon";
     twitterHead.appendChild(dataCssElement);

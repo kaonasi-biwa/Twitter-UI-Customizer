@@ -21,7 +21,7 @@ export const TUICObserver = {
         TUICObserver.observer.disconnect();
 
         //* apply CSS
-        if (document.querySelector("html").style.fontSize.toString() != TUICObserver.data.fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") != TUICObserver.data.fontSize2) {
+        if (document.querySelector("html").style.fontSize.toString() != TUICObserver.data.fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") !== TUICObserver.data.fontSize2) {
             applySystemCss();
             TUICObserver.data.fontSize1 = document.querySelector("html").style.fontSize.toString();
             TUICObserver.data.fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");

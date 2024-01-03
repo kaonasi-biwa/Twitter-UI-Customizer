@@ -390,37 +390,41 @@ export function replacePost() {
         const isHoveringRetweetButton = !!document.querySelector('[role="button"][data-testid="retweet"] > div > div > div.r-15azkrj');
         const isHoveringUnretweetButton = !!document.querySelector('[role="button"][data-testid="unretweet"] > div > div > div.r-15azkrj');
 
+        const localizeElemText = (selector: string, i18nRes: string) => {
+            for (const elem of getNotReplacedElements(selector)) elem.textContent = i18nRes;
+        };
+
         if (isTweetPage) {
             // ツイート画面の「n件のリツイート」のテキスト
-            for (const elem of getNotReplacedElements('a[href$="/retweets"] > div+span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweetCount");
+            localizeElemText('a[href$="/retweets"] > div+span > span', TUICI18N.get("XtoTwitter-PostToTweet-retweetCount"));
             // ツイート画面の「n件の引用ツイート」のテキスト
-            for (const elem of getNotReplacedElements('a[href$="/retweets/with_comments"] > div+span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quoteCount");
+            localizeElemText('a[href$="/retweets/with_comments"] > div+span > span', TUICI18N.get("XtoTwitter-PostToTweet-quoteCount"));
 
             // ツイート画面のツイートアナリティクスの表示ボタン
-            for (const elem of getNotReplacedElements('[data-testid="analyticsButton"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics");
+            localizeElemText('[data-testid="analyticsButton"] span', TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics"));
 
             // ツイート画面の翻訳の表示ボタン
-            for (const elem of getNotReplacedElements('[data-testid="tweetText"] + [role="button"]')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-translateTweet");
+            localizeElemText('[data-testid="tweetText"] + [role="button"]', TUICI18N.get("XtoTwitter-PostToTweet-translateTweet"));
 
             // ツイートを追加
-            for (const elem of getNotReplacedElements('[data-testid="cellInnerDiv"] a[href="/compose/tweet"] [role="presentation"] > div > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-addTweet");
+            localizeElemText('[data-testid="cellInnerDiv"] a[href="/compose/tweet"] [role="presentation"] > div > span > span', TUICI18N.get("XtoTwitter-PostToTweet-addTweet"));
 
             if (isAnalyticsPage) {
                 // ツイートアナリティクスのダイアログヘッダー
-                for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                localizeElemText('[role="dialog"] [data-viewportview="true"] h2#modal-header > span', TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader"));
             }
 
             if (isHistoryPage) {
                 // ツイートのバージョンの「最新のポスト」
                 // i18nが存在するんで一旦保留
-                //for (const elem of getNotReplacedElements('[role="dialog"] [data-viewportview="true"] h2#modal-header > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
+                //localizeElemText('[role="dialog"] [data-viewportview="true"] h2#modal-header > span'), TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalyticsHeader");
             }
         } else if (isUserPage) {
             // ユーザーの「n件のツイート」
-            for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
+            for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
 
             // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
-            for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweet");
+            localizeElemText('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span', TUICI18N.get("XtoTwitter-PostToTweet-tweet"));
         } else if (isNotifications) {
             // 通知の「ポスト」を修正 「リツイート」以外は適したi18nが見つからないので無理だった
             /**/
@@ -431,16 +435,16 @@ export function replacePost() {
             } /**/
         }
 
-        for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent = elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
+        for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
 
         // 予約ツイート関連
         if (isUnsentPage) {
             // タブの未送信ポスト
             // 作成したツイートを～
-            for (const elem of getNotReplacedElements(`[role="dialog"] [data-testid="empty_state_body_text"]`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTitle");
+            localizeElemText(`[role="dialog"] [data-testid="empty_state_body_text"]`, TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTitle"));
 
             //未送信ツイートのタブ
-            for (const elem of getNotReplacedElements(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`)) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTab1");
+            localizeElemText(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`, TUICI18N.get("XtoTwitter-PostToTweet-unsentPageTab1"));
         }
 
         // 共有 > リンクをコピー
@@ -914,11 +918,12 @@ export function updateStyles() {
         } else {
             locationBool = location.pathname.endsWith(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
         }
+        const svg_path = i.querySelector("svg path");
         if (locationBool && !i.classList.value.includes("TUICSidebarSelected")) {
-            i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].selected);
+            svg_path.setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].selected);
             i.classList.add("TUICSidebarSelected");
         } else if (!locationBool && i.classList.value.includes("TUICSidebarSelected")) {
-            i.querySelector("svg path").setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].unselected);
+            svg_path.setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].unselected);
             i.classList.remove("TUICSidebarSelected");
         }
         if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector<HTMLElement>("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";

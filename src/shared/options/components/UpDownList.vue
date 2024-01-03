@@ -55,7 +55,7 @@ import RESET from "@content/icons/arrow/reset.svg?component";
 
 import { TUICI18N } from "@content/i18n.js";
 import { TUICData } from "@content/data.js";
-import { TUICPref } from "@content/library.js";
+import { TUICPref } from "@content/modules";
 
 import { TUICLibrary } from "@content/library.js";
 
@@ -63,7 +63,7 @@ export default defineComponent({
     props: ["id"],
     setup(props) {
         const list = ref([]);
-        list.value = TUICPref.get(props.id);
+        list.value = TUICPref.getPref(props.id);
         const selectedElem = ref("");
 
         const clickEv = (selectItem) => {
@@ -72,7 +72,7 @@ export default defineComponent({
 
         const apply2Settings = () => {
             const id = props.id;
-            TUICPref.set(id, list.value);
+            TUICPref.setPref(id, list.value);
             TUICPref.save();
             TUICLibrary.getClasses.update();
         };

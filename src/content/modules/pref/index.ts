@@ -3,7 +3,7 @@ import { TUICData } from "@content/data";
 export let config = null;
 
 // NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
-const getPointerFromKey = (object, key) => {
+const getPointerFromKey = (object: object, key: string) => {
     const keys = ["o", ...key.split(".").filter((k) => k !== "")];
     let pointer = { o: object };
     for (let i = 0; i < keys.length; i++) {
@@ -23,23 +23,23 @@ const getPointerFromKey = (object, key) => {
 };
 
 export function getPref(identifier) {
-    const { object, key } = getPointerFromKey(this.config, identifier);
+    const { object, key } = getPointerFromKey(config, identifier);
     return object[key];
 }
 export function setPref(identifier, value) {
     if (identifier == "") {
-        this.config = value;
+        config = value;
     } else {
-        const { object, key } = getPointerFromKey(this.config, identifier);
+        const { object, key } = getPointerFromKey(config, identifier);
         object[key] = value;
     }
 }
 export function deletePref(identifier) {
-    const { object, key } = getPointerFromKey(this.config, identifier);
+    const { object, key } = getPointerFromKey(config, identifier);
     delete object[key];
 }
 export function save() {
-    localStorage.setItem("TUIC", JSON.stringify(this.config));
+    localStorage.setItem("TUIC", JSON.stringify(config));
 }
 export function importPref(object) {
     if (typeof object === "string") {
@@ -61,23 +61,23 @@ export function mergePref(source, target) {
         if (!(i in target)) {
             target[i] = source[i];
         } else if (typeof source[i] == "object" && !Array.isArray(source[i])) {
-            this.merge(source[i], target[i]);
+            mergePref(source[i], target[i]);
         }
     }
     return target;
 }
 export async function updatePref() {
     if (localStorage.getItem("unsent-tweet-background")) {
-        this.parallelToSerial();
+        parallelToSerialPref();
     }
 
-    if (typeof this.get("timeline") != "object") this.set("timeline", {});
+    if (typeof getPref("timeline") != "object") setPref("timeline", {});
 
-    if (typeof this.get("rightSidebar") != "object") this.set("rightSidebar", {});
+    if (typeof getPref("rightSidebar") != "object") setPref("rightSidebar", {});
 
-    if (typeof this.get("XToTwitter") != "object") this.set("XToTwitter", {});
+    if (typeof getPref("XToTwitter") != "object") setPref("XToTwitter", {});
 
-    if (typeof this.get("clientInfo") == "object") this.delete("clientInfo");
+    if (typeof getPref("clientInfo") == "object") deletePref("clientInfo");
 
     /**
      * boolean 値の設定キーを変更します。
@@ -88,8 +88,8 @@ export async function updatePref() {
      * @param {any} replaceValue 置き換える値
      */
     const changeBooleanKey = (previousKey: string, nextKey: string, replaceValue: string | boolean = true) => {
-        if (this.get(previousKey) === true) this.set(nextKey, replaceValue);
-        this.delete(previousKey);
+        if (getPref(previousKey) === true) setPref(nextKey, replaceValue);
+        deletePref(previousKey);
     };
 
     const boolKeys = {
@@ -119,8 +119,8 @@ export async function updatePref() {
     changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", "discoverMore_invisible");
     changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
 
-    if (this.get("CSS")) localStorage.setItem("TUIC_CSS", this.get("CSS"));
-    this.set("CSS", null);
+    if (getPref("CSS")) localStorage.setItem("TUIC_CSS", getPref("CSS"));
+    setPref("CSS", null);
 
     if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
         await new Promise((resolve, reject) => {
@@ -142,29 +142,29 @@ export async function updatePref() {
         });
     }
 
-    if (typeof this.get("visibleButtons") == "object" && ~this.get("visibleButtons").indexOf("downvote-button")) {
-        this.set(
+    if (typeof getPref("visibleButtons") == "object" && ~getPref("visibleButtons").indexOf("downvote-button")) {
+        setPref(
             "visibleButtons",
-            this.get("visibleButtons").filter((elem) => elem != "downvote-button"),
+            getPref("visibleButtons").filter((elem) => elem != "downvote-button"),
         );
     }
-    if (typeof this.get("sidebarButtons") == "object" && (~this.get("sidebarButtons").indexOf("verified-orgs-signup") || ~this.get("sidebarButtons").indexOf("twiter-blue") || ~this.get("sidebarButtons").indexOf("sidebarButtons-circles"))) {
-        this.set(
+    if (typeof getPref("sidebarButtons") == "object" && (~getPref("sidebarButtons").indexOf("verified-orgs-signup") || ~getPref("sidebarButtons").indexOf("twiter-blue") || ~getPref("sidebarButtons").indexOf("sidebarButtons-circles"))) {
+        setPref(
             "sidebarButtons",
-            this.get("sidebarButtons").filter((elem) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
+            getPref("sidebarButtons").filter((elem) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
         );
     }
 
-    this.set("", this.merge(structuredClone(this.defaultPref), structuredClone(this.get(""))));
+    setPref("", mergePref(structuredClone(defaultPref), structuredClone(getPref(""))));
 }
 export function parallelToSerialPref() {
-    this.set("CSS", localStorage.getItem("CSS"));
-    this.set("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
-    this.set("visibleButtons", JSON.parse(localStorage.getItem("visible-button")));
+    setPref("CSS", localStorage.getItem("CSS"));
+    setPref("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
+    setPref("visibleButtons", JSON.parse(localStorage.getItem("visible-button")));
     for (const i of TUICData.settings.colors.id) {
         const a = localStorage.getItem(`${i}-background`) ?? "unknown";
         if (a != "unknown") {
-            this.set("buttonColor." + i, {
+            setPref("buttonColor." + i, {
                 background: a,
                 border: localStorage.getItem(`${i}-border`),
                 color: localStorage.getItem(`${i}-color`),
@@ -209,7 +209,7 @@ export function parallelToSerialPref() {
     ]) {
         localStorage.removeItem(pref);
     }
-    this.save();
+    save();
 }
 export const defaultPref = {
     buttonColor: {},

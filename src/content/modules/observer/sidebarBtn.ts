@@ -7,7 +7,7 @@ export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot != null) {
         if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`) != null) {
-            this.sidebarButtonProcess(bannerRoot);
+            sidebarButtonProcess(bannerRoot);
         } else {
             let changeElem = false;
             for (const selector of getPref("sidebarButtons")) {

@@ -17,12 +17,13 @@
 import { defineComponent, ref } from "vue";
 
 import { TUICI18N } from "@content/i18n";
-import { TUICPref, TUICLibrary } from "@content/library";
+import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
 import { applySystemCss } from "@content/applyCSS";
 import { isSafemode } from "@content/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
+import { TUICPref } from "@content/modules";
 
 export default defineComponent({
     setup() {
@@ -31,9 +32,9 @@ export default defineComponent({
             try {
                 const importPref = JSON.parse(importBox.value.value);
                 if (type == 1) {
-                    TUICPref.set("", TUICPref.merge(TUICPref.get(""), importPref));
+                    TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
                 } else if (type == 2) {
-                    TUICPref.set("", TUICPref.merge(structuredClone(TUICPref.defaultPref), importPref));
+                    TUICPref.setPref("", TUICPref.mergePref(structuredClone(TUICPref.defaultPref), importPref));
                 }
 
                 TUICPref.save();
@@ -45,7 +46,7 @@ export default defineComponent({
                     applySystemCss();
                     TUICObserver.observerFunction(null);
                     TUICObserver.titleObserverFunction();
-                    if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
+                    if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                         document.title = document.title.replace(" / Twitter", " / X");
                     }
                 }
