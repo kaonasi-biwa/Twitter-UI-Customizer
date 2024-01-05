@@ -4,11 +4,13 @@
  */
 
 import { TUICObserver } from "./observer.ts";
-import { TUICLibrary, TUICPref } from "./library.ts";
+import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
 import { isSafemode, runSafemode } from "./safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
+import { twitterIcon } from "./modules/observer/functions.ts";
+import { TUICPref } from "./modules/index.ts";
 
 (async () => {
     await TUICI18N.fetch();
@@ -28,13 +30,13 @@ import { startTluiObserver } from "@shared/tlui/observer.ts";
     );
 
     // 旧バージョンからのアップデート
-    await TUICPref.update();
+    await TUICPref.updatePref();
 
     addCssElement();
     applyDataCss();
     applyCustomIcon();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.functions.twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
+        twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
     }
 
     chrome.runtime.sendMessage({

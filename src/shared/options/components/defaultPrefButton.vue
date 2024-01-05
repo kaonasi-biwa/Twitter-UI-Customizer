@@ -6,7 +6,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { TUICI18N } from "@content/i18n";
-import { TUICPref, TUICLibrary } from "@content/library";
+import { TUICLibrary } from "@content/library";
+import { TUICPref } from "@content/modules";
 import { TUICObserver } from "@content/observer";
 import { isSafemode } from "@content/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
@@ -25,7 +26,7 @@ export default defineComponent({
                         console.log("aiueo");
                         dialog.close();
                         localStorage.setItem("TUIC", JSON.stringify(TUICPref.defaultPref));
-                        TUICPref.set("", structuredClone(TUICPref.defaultPref));
+                        TUICPref.setPref("", structuredClone(TUICPref.defaultPref));
 
                         if (isSafemode) {
                             location.href = `${location.protocol}//${location.hostname}`;
@@ -33,7 +34,7 @@ export default defineComponent({
                             document.querySelector("#TUIC_setting").remove();
                             TUICLibrary.getClasses.update();
                             TUICObserver.titleObserverFunction();
-                            if (!TUICPref.get("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
+                            if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                                 document.title = document.title.replace(" / Twitter", " / X");
                             }
                         }

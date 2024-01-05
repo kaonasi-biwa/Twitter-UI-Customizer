@@ -18,14 +18,13 @@ export const TUICI18N = {
     get: (key: string) => {
         const lang = document.querySelector("html").getAttribute("lang");
 
-        if (lang in i18nData && key in i18nData[lang]) {
-            return i18nData[lang][key];
-        } else if (key in i18nData.en) {
-            return i18nData.en[key];
-        } else if (key in i18nData.ja) {
-            return i18nData.ja[key];
-        } else {
-            return "404";
+        for (const _lang of [lang, "en", "ja"]) {
+            //console.log(i18nData[_lang][key]);
+            if (_lang in i18nData && key in i18nData[_lang]) {
+                return i18nData[_lang][key];
+            }
         }
+
+        return "404";
     },
 };

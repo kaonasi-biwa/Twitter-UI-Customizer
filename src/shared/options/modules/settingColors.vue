@@ -38,7 +38,8 @@ import { TUICData } from "@content/data";
 
 import ColorsList from "../components/ColorsList.vue";
 
-import { TUICLibrary, TUICPref } from "@content/library";
+import { TUICLibrary } from "@content/library";
+import { TUICPref } from "@content/modules";
 
 import { useStore } from "../store";
 
@@ -52,7 +53,7 @@ export default defineComponent({
     setup() {
         const defaultTwitterColor = () => {
             const importPref = structuredClone(TUICData.defaultTwitterColor);
-            TUICPref.set("", TUICPref.merge(TUICPref.get(""), importPref));
+            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
             TUICPref.save();
             if (!isSafemode) {
                 document.querySelector("#TUIC_setting").remove();

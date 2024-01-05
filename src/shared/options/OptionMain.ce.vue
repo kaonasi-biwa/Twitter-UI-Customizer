@@ -143,7 +143,7 @@
 import { defineComponent } from "vue";
 
 import { TUICI18N } from "@content/i18n";
-import { TUICPref } from "@content/library";
+import { TUICPref } from "@content/modules";
 
 import CheckBox from "./components/CheckBox.vue";
 import UploadImageFile from "./components/UploadImageFile.vue";
