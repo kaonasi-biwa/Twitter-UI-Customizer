@@ -26,6 +26,7 @@ export function getPref(identifier) {
     const { object, key } = getPointerFromKey(config, identifier);
     return object[key];
 }
+
 export function setPref(identifier, value) {
     if (identifier == "") {
         config = value;
@@ -34,13 +35,16 @@ export function setPref(identifier, value) {
         object[key] = value;
     }
 }
+
 export function deletePref(identifier) {
     const { object, key } = getPointerFromKey(config, identifier);
     delete object[key];
 }
+
 export function save() {
     localStorage.setItem("TUIC", JSON.stringify(config));
 }
+
 export function importPref(object) {
     if (typeof object === "string") {
         config = JSON.parse(object);
@@ -48,9 +52,11 @@ export function importPref(object) {
         config = object;
     }
 }
+
 export function exportPref() {
     return JSON.stringify(config);
 }
+
 /**
  * `target` に `source` をマージします。 `target` オブジェクトは上書きされます。
  * @param {object} source マージ元
@@ -66,6 +72,7 @@ export function mergePref(source, target) {
     }
     return target;
 }
+
 export async function updatePref() {
     if (localStorage.getItem("unsent-tweet-background")) {
         parallelToSerialPref();
@@ -157,6 +164,7 @@ export async function updatePref() {
 
     setPref("", mergePref(structuredClone(defaultPref), structuredClone(getPref(""))));
 }
+
 export function parallelToSerialPref() {
     setPref("CSS", localStorage.getItem("CSS"));
     setPref("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
@@ -211,6 +219,7 @@ export function parallelToSerialPref() {
     }
     save();
 }
+
 export const defaultPref = {
     buttonColor: {},
     buttonColorLight: {},
