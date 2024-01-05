@@ -159,7 +159,7 @@ export const TUICObserver = {
         childList: true,
         subtree: true,
     },
-    titleObserverFunction: async () => {
+    titleObserverFunction: () => {
         if (TUICObserver.headObserver) TUICObserver.headObserver.disconnect();
         else TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
 
