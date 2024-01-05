@@ -2,7 +2,6 @@ import { TUICData } from "@content/data";
 
 export let config = null;
 
-// NOTE: mjsへの置き換えがさらに進んだとき、ここはTUICPrefと同じファイルに移行します
 const getPointerFromKey = (object: object, key: string) => {
     const keys = ["o", ...key.split(".").filter((k) => k !== "")];
     let pointer = { o: object };
