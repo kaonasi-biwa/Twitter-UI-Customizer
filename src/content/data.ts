@@ -48,7 +48,7 @@ export const TUICData = {
             },
         },
         sidebarButtons: {
-            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock"],
+            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch"],
             i18n: {
                 home: "sidebarButtons-home",
                 explore: "sidebarButtons-explore",
@@ -66,6 +66,7 @@ export const TUICData = {
                 "verified-choose": "sidebarButtons-verified-choose",
                 display: "sidebarButtons-display",
                 muteAndBlock: "sidebarButtons-muteAndBlock",
+                premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
             },
         },
         fixEngagements: {
@@ -864,9 +865,10 @@ export const TUICData = {
             drafts: "#TUICSidebar_drafts",
             connect: "#TUICSidebar_connect",
             communitynotes: `[href="/i/communitynotes"]`,
-            "verified-choose": `[href="/i/verified-choose"]`,
+            "verified-choose": `[href="/i/verified-choose"],[href="/i/verified-orgs-signup"]`,
             display: "#TUICSidebar_display",
             muteAndBlock: "#TUICSidebar_muteAndBlock",
+            premiumTierSwitch: `[href="/i/premium_tier_switch"]`,
         },
         html: {
             __base: (id, svg) => {
