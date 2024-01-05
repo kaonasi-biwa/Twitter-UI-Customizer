@@ -71,7 +71,7 @@ export default defineConfig(({ command, mode }) => {
                         changeManifest(mode),
                         fs.copyFile(r("src/inject.js"), r("dist/inject.js")),
                         fs.copyFile(r("src/safemode.html"), r("dist/safemode.html")),
-                        fs.cp(r("src/content/styles"), "./dist/styles", { recursive: true }),
+                        fs.cp(r("src/content/styles"), r("dist/styles"), { recursive: true }),
                         fs.cp(r("_locales"), r("dist/_locales"), { recursive: true }),
                         fs.cp(r("icon"), r("dist/icon"), { recursive: true }),
                     ]);

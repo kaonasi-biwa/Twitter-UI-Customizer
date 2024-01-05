@@ -12,5 +12,4 @@ export function runSafemode() {
     document.body.appendChild(entry);
 
     injectSafeMode();
-    //TUICOptionHTML.eventHandle(entry);
 }
