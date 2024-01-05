@@ -366,9 +366,11 @@ export function replacePost() {
         const elements = document.querySelectorAll(`${selector}:not(.TUIC_TWEETREPLACE)`);
 
         // NOTE: 要素に置き換え済みクラスを追加
-        for (const e of elements) {
-            e.classList.add(replaceMarkClass);
-        }
+        (async () => {
+            for (const e of elements) {
+                e.classList.add(replaceMarkClass);
+            }
+        })();
 
         return elements;
     }
@@ -391,7 +393,7 @@ export function replacePost() {
         const isHoveringRetweetButton = !!document.querySelector('[role="button"][data-testid="retweet"] > div > div > div.r-15azkrj');
         const isHoveringUnretweetButton = !!document.querySelector('[role="button"][data-testid="unretweet"] > div > div > div.r-15azkrj');
 
-        const localizeElemText = (selector: string, i18nRes: string) => {
+        const localizeElemText = async (selector: string, i18nRes: string) => {
             for (const elem of getNotReplacedElements(selector)) elem.textContent = i18nRes;
         };
 
@@ -527,11 +529,11 @@ export function replacePost() {
         }
 
         // リツイート確認ポップアップの「リツイート」ボタン
-        for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="retweetConfirm"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet");
+        localizeElemText('[role="menuitem"][data-testid="retweetConfirm"] span', TUICI18N.get("XtoTwitter-PostToTweet-retweet"));
         // リツイート確認ポップアップの「リツイート」ボタン
-        for (const elem of getNotReplacedElements('[role="menuitem"][data-testid="unretweetConfirm"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unretweet");
+        localizeElemText('[role="menuitem"][data-testid="unretweetConfirm"] span', TUICI18N.get("XtoTwitter-PostToTweet-unretweet"));
         // リツイート確認ポップアップの「引用ツイート」ボタン
-        for (const elem of getNotReplacedElements('[role="menuitem"][href="/compose/tweet"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
+        localizeElemText('[role="menuitem"][href="/compose/tweet"] span', TUICI18N.get("XtoTwitter-PostToTweet-quote"));
 
         // ツイートその他ポップアップの「このツイートに興味がない」ボタン
         // for (const elem of getNotReplacedElements('path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]'))
@@ -547,20 +549,20 @@ export function replacePost() {
             }
         }
         // ツイートその他ポップアップの「ツイートアナリティクスの表示」ボタン
-        for (const elem of getNotReplacedElements('[role="menu"] a[role="menuitem"][href$="/analytics"] span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics");
+        localizeElemText('[role="menu"] a[role="menuitem"][href$="/analytics"] span', TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics"));
 
         // サイドバーのツイートボタン
-        for (const elem of getNotReplacedElements('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweetButton");
+        localizeElemText('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span', TUICI18N.get("XtoTwitter-PostToTweet-tweetButton"));
 
         //右サイドバーのスペースのやつ
         for (const elem of getNotReplacedElements(`[data-testid="sidebarColumn"] [data-testid="pill-contents-container"]`))
             elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("h2 span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-rightSidebar-spaceTitle");
 
         // 「新しいツイートを表示」ポップアップ
-        for (const elem of getNotReplacedElements('[data-testid="pillLabel"] > span > span > span')) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted");
+        localizeElemText('[data-testid="pillLabel"] > span > span > span', TUICI18N.get("XtoTwitter-PostToTweet-tweeted"));
 
         // 「変身できるユーザーを変更」ダイアログの説明文
-        for (const elem of getNotReplacedElements("#conversation-controls-details > span")) elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-replyRangeDetail");
+        localizeElemText("#conversation-controls-details > span", TUICI18N.get("XtoTwitter-PostToTweet-replyRangeDetail"));
 
         // TLの「n件のツイートを表示」
         for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] > div > [role="button"] > div > div > span`)) {
