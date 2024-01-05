@@ -312,3 +312,5 @@ export const defaultPref = {
     },
     "timeline-discoverMore": "discoverMore_nomal",
 };
+
+config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(defaultPref));

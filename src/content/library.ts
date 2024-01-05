@@ -142,5 +142,3 @@ export const TUICLibrary = {
         }
     },
 };
-
-TUICPref.config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(TUICPref.defaultPref));
