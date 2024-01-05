@@ -68,10 +68,11 @@ export function showLinkCardInfo() {
 
             if (card.querySelector(".TUIC_LinkCardInfo") == null) {
                 card.children[1].classList.add("TUIC_DISPNONE");
+                card.parentElement.children[1].classList.add("TUIC_DISPNONE");
                 card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div').classList.add("TUIC_DISPNONE");
 
                 const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;
-                const domain = card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div span').textContent;
+                const domain = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/ .*$/, "");
                 const title = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/^.*? /, "");
                 const description = "";
                 const oldDisplay = TUICData.showLinkCardInfo(link, domain, title, description);
