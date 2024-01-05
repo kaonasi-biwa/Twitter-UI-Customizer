@@ -163,7 +163,7 @@ export const TUICObserver = {
         if (TUICObserver.headObserver) TUICObserver.headObserver.disconnect();
         else TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
 
-        const titleElement = (await TUICLibrary.waitForElement("title"))[0];
+        const titleElement = document.querySelector("title");
 
         if (isSafemode) {
             document.title = TUICI18N.get("safemode-title");
@@ -241,9 +241,6 @@ export const TUICObserver = {
 
         TUICObserver.headObserver.observe(titleElement, {
             characterData: true,
-            childList: true,
-            subtree: true,
-            attributes: true,
         });
     },
 };

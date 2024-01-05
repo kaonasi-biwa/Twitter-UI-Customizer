@@ -21,6 +21,7 @@ import { TUICPref } from "./modules/index.ts";
         elem.remove();
     }
     TUICLibrary.getClasses.deleteClasses();
+    await TUICLibrary.waitForElement("title");
     TUICObserver.titleObserverFunction();
 
     console.log(
