@@ -245,7 +245,7 @@
     overflow: clip;
 }
 
-:root[tuicsettings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] nav[role="navigation"] {
+:root[tuicsettings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] > div > div > div > div > nav[role="navigation"] {
     position: sticky;
     top: var(--TUIC-pinnedTab-top);
     z-index: 1;
