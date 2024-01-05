@@ -163,8 +163,6 @@ export const TUICObserver = {
         if (TUICObserver.headObserver) TUICObserver.headObserver.disconnect();
         else TUICObserver.headObserver = new MutationObserver(TUICObserver.titleObserverFunction);
 
-        const titleElement = document.querySelector("title");
-
         if (isSafemode) {
             document.title = TUICI18N.get("safemode-title");
         } else if (TUICPref.getPref("XToTwitter.XToTwitter")) {
@@ -239,8 +237,9 @@ export const TUICObserver = {
             document.title = document.title.replace(" / Twitter", " / X");
         }
 
-        TUICObserver.headObserver.observe(titleElement, {
+        TUICObserver.headObserver.observe(document.querySelector("title"), {
             characterData: true,
+            childList: true,
         });
     },
 };
