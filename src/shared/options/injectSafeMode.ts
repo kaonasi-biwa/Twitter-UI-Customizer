@@ -1,5 +1,5 @@
 // https://stackoverflow.com/questions/42800035/why-cant-you-create-custom-elements-in-content-scripts
-import "@webcomponents/custom-elements";
+// import "@webcomponents/custom-elements";
 
 import { createApp } from "vue";
 import safemodeVue from "./SafeMode.ce.vue";
