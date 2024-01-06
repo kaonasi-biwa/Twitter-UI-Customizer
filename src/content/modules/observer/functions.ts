@@ -160,6 +160,19 @@ export function buttonUnderTweet() {
                             elem.classList.add("TUICItIsBigArticle");
                             if (location.pathname.includes("/photo/") || location.pathname.includes("/video/")) {
                                 elem.classList.add("TUICItIsBigArticlePhoto");
+
+                                if (!cannotRT && !lockedAccount) {
+                                    const shareButtom = document.querySelector<HTMLElement>(`[aria-labelledby="modal-header"] > div > div:not([aria-expanded="true"]) [aria-haspopup="menu"]:not([data-testid="retweet"]):not([data-testid="unretweet"])`);
+                                    if (shareButtom) {
+                                        TUICData.visibleButtons.buttonElement._handleEvent(
+                                            shareButtom,
+                                            () => {
+                                                TUICData.visibleButtons.buttonFunction["share-button"](statusButton);
+                                            },
+                                            null,
+                                        );
+                                    }
+                                }
                             }
 
                             if (TUICPref.getPref("otherBoolSetting.placeEngagementsLink")) {
