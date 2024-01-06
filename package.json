@@ -17,9 +17,6 @@
         "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.scss"
     },
     "dependencies": {
-        "@types/chrome": "^0.0.254",
-        "@types/webextension-polyfill": "^0.10.7",
-        "@webcomponents/custom-elements": "^1.6.0",
         "bootstrap-icons": "^1.11.2",
         "pinia": "^2.1.7",
         "vue": "^3.3.13",
@@ -27,12 +24,12 @@
     },
     "devDependencies": {
         "@eslint/js": "^8.56.0",
-        "@types/node": "^20.10.5",
+        "@types/chrome": "^0.0.254",
+        "@types/webextension-polyfill": "^0.10.7",
         "@typescript-eslint/eslint-plugin": "^6.15.0",
         "@typescript-eslint/parser": "^6.15.0",
         "@unplugin-vue-ce/sub-style": "1.0.0-beta.19",
         "@vitejs/plugin-vue": "^4.5.2",
-        "autoprefixer": "^10.4.16",
         "dotenv": "^16.3.1",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
