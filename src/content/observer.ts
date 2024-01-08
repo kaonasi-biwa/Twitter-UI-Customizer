@@ -83,8 +83,7 @@ export const TUICObserver = {
 
         if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
             if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
-                let displayRootElement = document.querySelector('[role="slider"]:not(article *)').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-                if (location.pathname === "/i/display") displayRootElement = displayRootElement.parentElement;
+                const displayRootElement = document.querySelector('[role="slider"]:not(article *)').closest<HTMLElement>(`:is([data-viewportview="true"],[aria-labelledby="detail-header"],main>div>div>div) > div+div`);
 
                 displaySetting(displayRootElement);
 

@@ -261,7 +261,7 @@ export const TUICData = {
                             if (blockButton == null) {
                                 moremenu.click();
                             } else {
-                                blockButton.parentElement.parentElement.parentElement.parentElement.click();
+                                blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                                 break;
                             }
                         }
@@ -298,7 +298,7 @@ export const TUICData = {
                             if (blockButton == null) {
                                 moremenu.click();
                             } else {
-                                blockButton.parentElement.parentElement.parentElement.parentElement.click();
+                                blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                                 const elems = await TUICLibrary.waitForElement<HTMLButtonElement>(`button[data-testid="confirmationSheetConfirm"]`);
                                 if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
                                     elems[0].click();
@@ -467,7 +467,7 @@ export const TUICData = {
                     if (urlCopyButton == null) {
                         e.click();
                     } else {
-                        urlCopyButton.parentElement.parentElement.parentElement.parentElement.click();
+                        urlCopyButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                         break;
                     }
                 }
@@ -480,7 +480,7 @@ export const TUICData = {
                     if (urlCopyButton == null) {
                         e.click();
                     } else {
-                        urlCopyButton.parentElement.parentElement.parentElement.parentElement.click();
+                        urlCopyButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                         break;
                     }
                 }
@@ -493,7 +493,7 @@ export const TUICData = {
                     if (urlCopyButton == null) {
                         e.click();
                     } else {
-                        urlCopyButton.parentElement.parentElement.parentElement.parentElement.click();
+                        urlCopyButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                         break;
                     }
                 }
@@ -574,7 +574,7 @@ export const TUICData = {
                     if (deleteButtonButton == null) {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
-                        deleteButtonButton.parentElement.parentElement.parentElement.parentElement.click();
+                        deleteButtonButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                         if (TUICPref.getPref("tweetDisplaySetting.noModalbottomTweetButtons")) {
                             document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                         } else {
@@ -597,7 +597,7 @@ export const TUICData = {
                     if (blockButton == null) {
                         article.querySelector(`[data-testid="caret"]`).click();
                     } else {
-                        blockButton.parentElement.parentElement.parentElement.parentElement.click();
+                        blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                         break;
                     }
                 }
@@ -647,7 +647,7 @@ export const TUICData = {
                         .querySelector(
                             `[role="menuitem"] path[d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]`,
                         )
-                        .parentElement.parentElement.parentElement.parentElement.addEventListener("click", (e) => {
+                        .closest<HTMLElement>(`[role="menuitem"]`).addEventListener("click", (e) => {
                             e.stopImmediatePropagation();
                             console.log("ccc");
                             TUICData.visibleButtons.buttonFunction["url-copy-inShare"](elem);

@@ -141,4 +141,34 @@ export const TUICLibrary = {
             });
         }
     },
+    hasClosest: (elem: Element, selector: string): Element => {
+        let elem2 = elem;
+        while (elem2 && !elem2.querySelector(selector)) {
+            elem2 = elem2.parentElement;
+        }
+        return elem2;
+    },
+    hasClosestSelector: (elem: Element, selector: string): Element => {
+        let elem2 = elem;
+        let returnElem = null;
+        while (elem2 && !(returnElem = elem2.querySelector(selector))) {
+            elem2 = elem2.parentElement;
+        }
+        return returnElem;
+    },
+};
+
+declare global {
+    interface Element {
+        hasClosest(selector: string): Element;
+        hasClosestSelector(selector: string): Element;
+    }
+}
+
+Element.prototype.hasClosest = function (selector: string): Element {
+    return TUICLibrary.hasClosest(this, selector);
+};
+
+Element.prototype.hasClosestSelector = function (selector: string): Element {
+    return TUICLibrary.hasClosestSelector(this, selector);
 };
