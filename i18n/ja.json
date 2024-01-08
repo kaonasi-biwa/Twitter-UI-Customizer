@@ -53,14 +53,16 @@
     "bottomTweetButtons-setting-linkCopyURL-fxTwitter": "fxtwitter.com",
     "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
     "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
+
     "tweetMoreMenuItems-settingTitle": "ツイート右上の「もっと見る」のメニューの非表示設定",
     "tweetMoreMenuItems-engagements": "エンゲージメントを表示",
+    "tweetMoreMenuItems-highlighOnPin": "プロフィールに固定/固定を解除",
+    "tweetMoreMenuItems-addMemberOfList": "ユーザーをリストに追加/削除",
+    "tweetMoreMenuItems-follow": "ユーザーをフォロー/フォロー解除",
+    "tweetMoreMenuItems-notInterested": "このツイートに興味がない",
+    "tweetMoreMenuItems-notHelpful": "このツイートは役に立ちませんでした",
 
     "tweetTopButton-settingTitle": "ツイート上ボタンの設定",
-    "tweetTopButton-addMemberOfList": "ユーザーをリストに追加/削除",
-    "tweetTopButton-follow": "ユーザーをフォロー/フォロー解除",
-    "tweetTopButton-notInterested": "このツイートに興味がない",
-    "tweetTopButton-notHelpful": "このツイートは役に立ちませんでした",
 
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",

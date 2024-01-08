@@ -9,6 +9,9 @@
     "bottomTweetButtons-quoteTweet": "c9d7235e",
     "bottomTweetButtons-urlCopy-layer": "f88553c8",
     "bottomTweetButtons-sendDM": "f61c4bb0",
+    "tweetMoreMenuItems-highlightUpsell": "h8a3525e",
+    "tweetMoreMenuItems-whoCanReply": "bae0cbc0",
+    "tweetMoreMenuItems-editWithTwitterBlue": "j11cb650",
 
     "sidebarButtons-home": "ha8209bc",
     "sidebarButtons-explore": "fcf3e54c",
@@ -116,7 +119,7 @@
     "profileSetting-profileInitialTab-media": "i5450bec",
     "profileSetting-profileInitialTab-reply": "jdceda60",
     "profileSetting-profileInitialTab-tweet": "bab1f8b0",
-    "tweetTopButton-leaveTalk": "bb16cc76",
-    "tweetTopButton-muteTalk": "e2d6c17e",
-    "tweetTopButton-hiddenReply": "f9478972"
+    "tweetMoreMenuItems-leaveTalk": "bb16cc76",
+    "tweetMoreMenuItems-muteTalk": "e2d6c17e",
+    "tweetMoreMenuItems-hiddenReply": "f9478972"
 }
