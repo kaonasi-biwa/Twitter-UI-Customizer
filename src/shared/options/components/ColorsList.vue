@@ -11,22 +11,11 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
 import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
 
 import ThreeColorSetting from "./ThreeColorSetting.vue";
-
-export default defineComponent({
-    components: {
-        ThreeColorSetting,
-    },
-    setup() {
-        return { TUICData, TUICI18N };
-    },
-});
 </script>
 
 <style scoped></style>

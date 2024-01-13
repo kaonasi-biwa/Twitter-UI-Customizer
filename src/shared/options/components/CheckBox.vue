@@ -7,34 +7,24 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
 import { TUICPref } from "@content/modules";
 
-export default defineComponent({
-    props: {
-        name: {
-            type: String,
-            required: true,
-        },
-        value: {
-            type: String,
-            required: true,
-        },
-    },
-    setup() {
-        const changePref = (path, event) => {
-            TUICPref.setPref(path, event.target.checked);
-            TUICPref.save();
-            TUICLibrary.getClasses.update();
-            TUICObserver.titleObserverFunction();
-        };
-        return { TUICI18N, TUICPref, changePref };
-    },
-});
+const props = defineProps<{
+    name: string;
+    value: string;
+}>();
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const changePref = (path: string, event: any) => {
+    TUICPref.setPref(path, event.target.checked);
+    TUICPref.save();
+    TUICLibrary.getClasses.update();
+    TUICObserver.titleObserverFunction();
+};
 </script>
 
 <style scoped></style>

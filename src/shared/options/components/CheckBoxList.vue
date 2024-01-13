@@ -4,20 +4,12 @@
     </template>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
 import CheckBox from "./CheckBox.vue";
 
 import { TUICData } from "@content/data.js";
 
-export default defineComponent({
-    components: { CheckBox },
-    props: ["id"],
-    setup() {
-        return { TUICData };
-    },
-});
+const props = defineProps<{ id: string }>();
 </script>
 
 <style scoped></style>

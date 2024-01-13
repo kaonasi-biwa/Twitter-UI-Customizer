@@ -26,7 +26,7 @@ export function getPref(identifier) {
     return object[key];
 }
 
-export function setPref(identifier, value) {
+export function setPref(identifier: string, value: unknown) {
     if (identifier == "") {
         config = value;
     } else {

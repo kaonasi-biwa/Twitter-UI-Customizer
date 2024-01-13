@@ -7,21 +7,14 @@
     </button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { applyCustomCss } from "@content/applyCSS";
 import { TUICI18N } from "@content/i18n";
 
-export default defineComponent({
-    setup() {
-        const customCSS = localStorage.getItem("TUIC_CSS");
-        return { TUICI18N, customCSS };
-    },
-    methods: {
-        changeCustomCSS() {
-            localStorage.setItem("TUIC_CSS", this.$refs.CustomCSSBox.value);
-            applyCustomCss();
-        },
-    },
-});
+function changeCustomCSS() {
+    localStorage.setItem("TUIC_CSS", this.$refs.CustomCSSBox.value);
+    applyCustomCss();
+}
+
+const customCSS = localStorage.getItem("TUIC_CSS");
 </script>
