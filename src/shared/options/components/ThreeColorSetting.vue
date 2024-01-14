@@ -10,31 +10,15 @@
     </template>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from "vue";
-
+<script setup lang="ts">
 import { TUICData } from "@content/data";
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
 
 import ColorSetting from "./ColorSetting.vue";
 
-export default defineComponent({
-    components: {
-        ColorSetting,
-    },
-    props: {
-        id: {
-            type: String,
-            required: true,
-        },
-    },
-    setup(props) {
-        const _color = TUICData.colors[props.id];
-        const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
-        return { typeColor, TUICLibrary, TUICPref, _color };
-    },
-});
+const props = defineProps<{ id: string }>();
+
+const _color = TUICData.colors[props.id];
+const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
 </script>
 
 <style scoped></style>

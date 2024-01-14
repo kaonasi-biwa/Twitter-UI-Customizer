@@ -40,7 +40,7 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, ref } from "vue";
 
 // new URL("./img.png", import.meta.url).href;
@@ -59,113 +59,109 @@ import { TUICPref } from "@content/modules";
 
 import { TUICLibrary } from "@content/library.js";
 
-export default defineComponent({
-    props: ["id"],
-    setup(props) {
-        const list = ref([]);
-        list.value = TUICPref.getPref(props.id);
-        const selectedElem = ref("");
+const props = defineProps<{ id: string }>();
 
-        const clickEv = (selectItem) => {
-            selectedElem.value = selectItem;
-        };
+const list = ref([]);
+list.value = TUICPref.getPref(props.id);
+const selectedElem = ref("");
 
-        const apply2Settings = () => {
-            const id = props.id;
-            TUICPref.setPref(id, list.value);
-            TUICPref.save();
-            TUICLibrary.getClasses.update();
-        };
+const clickEv = (selectItem) => {
+    selectedElem.value = selectItem;
+};
 
-        const toLeft = () => {
-            if (selectedElem.value && !list.value.includes(selectedElem.value)) {
-                list.value.push(selectedElem.value);
-                apply2Settings();
-            }
-        };
+const apply2Settings = () => {
+    const id = props.id;
+    TUICPref.setPref(id, JSON.stringify(list.value));
+    TUICPref.save();
+    TUICLibrary.getClasses.update();
+};
 
-        const toRight = () => {
-            if (selectedElem.value && list.value.includes(selectedElem.value)) {
-                list.value = list.value.filter((v) => v !== selectedElem.value);
-                apply2Settings();
-            }
-        };
+const toLeft = () => {
+    if (selectedElem.value && !list.value.includes(selectedElem.value)) {
+        list.value.push(selectedElem.value);
+        apply2Settings();
+    }
+};
 
-        const toUp = () => {
-            const selectedItem = selectedElem.value;
-            if (selectedItem && list.value.includes(selectedItem)) {
-                const idx = list.value.findIndex((v) => v === selectedItem);
-                if (idx > 0) {
-                    const upper = list.value[idx - 1];
-                    const under = list.value[idx];
-                    list.value.splice(idx - 1, 1, under);
-                    list.value.splice(idx, 1, upper);
-                }
-                apply2Settings();
-            }
-        };
+const toRight = () => {
+    if (selectedElem.value && list.value.includes(selectedElem.value)) {
+        list.value = list.value.filter((v) => v !== selectedElem.value);
+        apply2Settings();
+    }
+};
 
-        const toDown = () => {
-            const selectedItem = selectedElem.value;
-            if (selectedItem && list.value.includes(selectedItem)) {
-                const idx = list.value.findIndex((v) => v === selectedItem);
-                if (idx < list.value.length - 1) {
-                    const upper = list.value[idx];
-                    const under = list.value[idx + 1];
-                    list.value.splice(idx, 1, under);
-                    list.value.splice(idx + 1, 1, upper);
-                }
-                apply2Settings();
-            }
-        };
-
-        const toDefault = () => {
-            const settingId = props.id;
-            list.value = structuredClone(TUICPref.defaultPref[settingId]);
-            selectedElem.value = "";
-            apply2Settings();
-        };
-
-        const UpdownButtonFuncs = [
-            {
-                iconSrc: ARROW_LEFT,
-                btnAction: "TUIC_up_down_list_to_left",
-                func: toLeft,
-                tooltiptag: "settingUI-upDownList-toLeft",
-            },
-            {
-                iconSrc: ARROW_UP,
-                btnAction: "TUIC_up_down_list_to_up",
-                func: toUp,
-                tooltiptag: "settingUI-upDownList-toUp",
-            },
-            {
-                iconSrc: ARROW_DOWN,
-                btnAction: "TUIC_up_down_list_to_down",
-                func: toDown,
-                tooltiptag: "settingUI-upDownList-toDown",
-            },
-            {
-                iconSrc: ARROW_RIGHT,
-                btnAction: "TUIC_up_down_list_to_right",
-                func: toRight,
-                tooltiptag: "settingUI-upDownList-toRight",
-            },
-            {
-                iconSrc: RESET,
-                btnAction: "TUIC_up_down_list_to_default",
-                func: toDefault,
-                tooltiptag: "settingUI-upDownList-restoreDefault",
-            },
-        ];
-        const UDALL = TUICData.settings[props.id].all;
-        let _contentCount = 5;
-        if (UDALL.length > 5) {
-            _contentCount = UDALL.length;
+const toUp = () => {
+    const selectedItem = selectedElem.value;
+    if (selectedItem && list.value.includes(selectedItem)) {
+        const idx = list.value.findIndex((v) => v === selectedItem);
+        if (idx > 0) {
+            const upper = list.value[idx - 1];
+            const under = list.value[idx];
+            list.value.splice(idx - 1, 1, under);
+            list.value.splice(idx, 1, upper);
         }
-        return { UpdownButtonFuncs, TUICI18N, TUICData, TUICPref, _contentCount, list, selectedElem, clickEv };
+        apply2Settings();
+    }
+};
+
+const toDown = () => {
+    const selectedItem = selectedElem.value;
+    if (selectedItem && list.value.includes(selectedItem)) {
+        const idx = list.value.findIndex((v) => v === selectedItem);
+        if (idx < list.value.length - 1) {
+            const upper = list.value[idx];
+            const under = list.value[idx + 1];
+            list.value.splice(idx, 1, under);
+            list.value.splice(idx + 1, 1, upper);
+        }
+        apply2Settings();
+    }
+};
+
+const toDefault = () => {
+    const settingId = props.id;
+    list.value = structuredClone(TUICPref.defaultPref[settingId]);
+    selectedElem.value = "";
+    apply2Settings();
+};
+
+const UpdownButtonFuncs = [
+    {
+        iconSrc: ARROW_LEFT,
+        btnAction: "TUIC_up_down_list_to_left",
+        func: toLeft,
+        tooltiptag: "settingUI-upDownList-toLeft",
     },
-});
+    {
+        iconSrc: ARROW_UP,
+        btnAction: "TUIC_up_down_list_to_up",
+        func: toUp,
+        tooltiptag: "settingUI-upDownList-toUp",
+    },
+    {
+        iconSrc: ARROW_DOWN,
+        btnAction: "TUIC_up_down_list_to_down",
+        func: toDown,
+        tooltiptag: "settingUI-upDownList-toDown",
+    },
+    {
+        iconSrc: ARROW_RIGHT,
+        btnAction: "TUIC_up_down_list_to_right",
+        func: toRight,
+        tooltiptag: "settingUI-upDownList-toRight",
+    },
+    {
+        iconSrc: RESET,
+        btnAction: "TUIC_up_down_list_to_default",
+        func: toDefault,
+        tooltiptag: "settingUI-upDownList-restoreDefault",
+    },
+];
+const UDALL = TUICData.settings[props.id].all;
+let _contentCount = 5;
+if (UDALL.length > 5) {
+    _contentCount = UDALL.length;
+}
 </script>
 
 <style scoped></style>

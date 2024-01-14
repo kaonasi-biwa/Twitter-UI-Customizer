@@ -8,28 +8,18 @@
     </button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
 import { TUICPref } from "@content/modules";
 import { TUICI18N } from "@content/i18n";
 
-export default defineComponent({
-    setup() {
-        return { TUICI18N };
-    },
-    data: function () {
-        return {
-            exportText: "",
-        };
-    },
-    methods: {
-        exportPref() {
-            this.exportText = TUICPref.exportPref();
-        },
-        exportPrefCopy() {
-            navigator.clipboard.writeText(this.exportText);
-        },
-    },
-});
+const exportText = ref("");
+
+function exportPref() {
+    this.exportText = TUICPref.exportPref();
+}
+function exportPrefCopy() {
+    navigator.clipboard.writeText(this.exportText);
+}
 </script>

@@ -30,8 +30,7 @@
     <ColorsList />
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { isSafemode } from "@content/safemode";
 import { TUICData } from "@content/data";
@@ -48,21 +47,15 @@ const ColorSettingRadio = (event) => {
     store.editingColorType = event.currentTarget.getAttribute("value");
 };
 
-export default defineComponent({
-    components: { ColorsList },
-    setup() {
-        const defaultTwitterColor = () => {
-            const importPref = structuredClone(TUICData.defaultTwitterColor);
-            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
-            TUICPref.save();
-            if (!isSafemode) {
-                document.querySelector("#TUIC_setting").remove();
-            }
-            TUICLibrary.getClasses.update();
-        };
-        return { TUICI18N, ColorSettingRadio, defaultTwitterColor };
-    },
-});
+const defaultTwitterColor = () => {
+    const importPref = structuredClone(TUICData.defaultTwitterColor);
+    TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
+    TUICPref.save();
+    if (!isSafemode) {
+        document.querySelector("#TUIC_setting").remove();
+    }
+    TUICLibrary.getClasses.update();
+};
 </script>
 
 <style scoped></style>

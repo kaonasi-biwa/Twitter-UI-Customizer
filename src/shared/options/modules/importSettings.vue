@@ -13,8 +13,8 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
@@ -25,41 +25,36 @@ import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { TUICPref } from "@content/modules";
 
-export default defineComponent({
-    setup() {
-        const importBox = ref(null);
-        const importFunc = async (type) => {
-            try {
-                const importPref = JSON.parse(importBox.value.value);
-                if (type == 1) {
-                    TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
-                } else if (type == 2) {
-                    TUICPref.setPref("", TUICPref.mergePref(structuredClone(TUICPref.defaultPref), importPref));
-                }
+const importBox = ref(null);
+const importFunc = async (type: number) => {
+    try {
+        const importPref = JSON.parse(importBox.value.value);
+        if (type == 1) {
+            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
+        } else if (type == 2) {
+            TUICPref.setPref("", TUICPref.mergePref(structuredClone(TUICPref.defaultPref), importPref));
+        }
 
-                TUICPref.save();
-                if (isSafemode) {
-                    location.href = `${location.protocol}//${location.hostname}`;
-                } else {
-                    document.querySelector("#TUIC_setting").remove();
-                    TUICLibrary.getClasses.update();
-                    applySystemCss();
-                    TUICObserver.observerFunction(null);
-                    TUICObserver.titleObserverFunction();
-                    if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
-                        document.title = document.title.replace(" / Twitter", " / X");
-                    }
-                }
-            } catch (x) {
-                console.error(x);
-                await TUICLibrary.waitForElement("#layers");
-                const dialog = new Dialog(TUICI18N.get("common-error"));
-                dialog.addComponents([TUICI18N.get("import-error"), new ButtonComponent(TUICI18N.get("common-close"), () => dialog.close())]).open();
+        TUICPref.save();
+        if (isSafemode) {
+            location.href = `${location.protocol}//${location.hostname}`;
+        } else {
+            document.querySelector("#TUIC_setting").remove();
+            TUICLibrary.getClasses.update();
+            applySystemCss();
+            TUICObserver.observerFunction(null);
+            TUICObserver.titleObserverFunction();
+            if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
+                document.title = document.title.replace(" / Twitter", " / X");
             }
-        };
-        return { TUICI18N, importFunc, importBox };
-    },
-});
+        }
+    } catch (x) {
+        console.error(x);
+        await TUICLibrary.waitForElement("#layers");
+        const dialog = new Dialog(TUICI18N.get("common-error"));
+        dialog.addComponents([TUICI18N.get("import-error"), new ButtonComponent(TUICI18N.get("common-close"), () => dialog.close())]).open();
+    }
+};
 </script>
 
 <style scoped></style>

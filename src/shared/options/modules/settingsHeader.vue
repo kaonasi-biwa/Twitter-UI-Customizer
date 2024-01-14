@@ -18,8 +18,7 @@
     </h2>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
@@ -28,82 +27,74 @@ import { TUICData } from "@content/data";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 import { TUICPref } from "@content/modules";
 
-export default defineComponent({
-    components: {
-        defaultPrefButton,
+const buttonList = [
+    {
+        i18n: "easySetting-restoreIcon",
+        changePref: {
+            otherBoolSetting: {
+                faviconSet: true,
+            },
+            XToTwitter: {
+                XToTwitter: true,
+                PostToTweet: true,
+            },
+            sidebarSetting: { buttonConfig: { birdGoBackHome: true } },
+            twitterIcon: "twitter",
+        },
     },
-    setup() {
-        const buttonList = [
-            {
-                i18n: "easySetting-restoreIcon",
-                changePref: {
-                    otherBoolSetting: {
-                        faviconSet: true,
-                    },
-                    XToTwitter: {
-                        XToTwitter: true,
-                        PostToTweet: true,
-                    },
-                    sidebarSetting: { buttonConfig: { birdGoBackHome: true } },
-                    twitterIcon: "twitter",
+    {
+        i18n: "easySetting-deleteVerified",
+        changePref: {
+            invisibleItems: {
+                verifiedNotifications: true,
+            },
+            profileSetting: {
+                invisible: {
+                    "subscribe-profile": true,
+                    verifiedFollowerTab: true,
                 },
             },
-            {
-                i18n: "easySetting-deleteVerified",
-                changePref: {
-                    invisibleItems: {
-                        verifiedNotifications: true,
-                    },
-                    profileSetting: {
-                        invisible: {
-                            "subscribe-profile": true,
-                            verifiedFollowerTab: true,
-                        },
-                    },
-                    rightSidebar: {
-                        verified: true,
-                    },
-                    tweetDisplaySetting: {
-                        "twitter-pro-promotion-btn": true,
-                        "subscribe-tweets": true,
-                    },
-                },
-                changeFunc: () => {
-                    TUICPref.setPref(
-                        "sidebarButtons",
-                        TUICPref.getPref("sidebarButtons").filter((elem) => {
-                            return elem != "verified-choose";
-                        }),
-                    );
-                },
+            rightSidebar: {
+                verified: true,
             },
-            {
-                i18n: "easySetting-discoverMoreDelete",
-                changePref: {
-                    "timeline-discoverMore": "discoverMore_invisible",
-                },
+            tweetDisplaySetting: {
+                "twitter-pro-promotion-btn": true,
+                "subscribe-tweets": true,
             },
-            {
-                i18n: "easySetting-defaultTwitterColor",
-                changePref: structuredClone(TUICData.defaultTwitterColor),
-            },
-        ];
-        const clickEv = (index) => {
-            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), buttonList[index].changePref ?? {}));
-            buttonList[index]?.changeFunc?.();
-            TUICPref.save();
-            if (!isSafemode) {
-                document.querySelector("#TUIC_setting").remove();
-            }
-            TUICLibrary.getClasses.update();
-            TUICObserver.titleObserverFunction();
-            if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
-                document.title = document.title.replace(" / Twitter", " / X");
-            }
-        };
-        return { TUICI18N, buttonList, clickEv };
+        },
+        changeFunc: () => {
+            TUICPref.setPref(
+                "sidebarButtons",
+                TUICPref.getPref("sidebarButtons").filter((elem) => {
+                    return elem != "verified-choose";
+                }),
+            );
+        },
     },
-});
+    {
+        i18n: "easySetting-discoverMoreDelete",
+        changePref: {
+            "timeline-discoverMore": "discoverMore_invisible",
+        },
+    },
+    {
+        i18n: "easySetting-defaultTwitterColor",
+        changePref: structuredClone(TUICData.defaultTwitterColor),
+    },
+];
+const clickEv = (index) => {
+    TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), buttonList[index].changePref ?? {}));
+    buttonList[index]?.changeFunc?.();
+    TUICPref.save();
+    if (!isSafemode) {
+        document.querySelector("#TUIC_setting").remove();
+    }
+    TUICLibrary.getClasses.update();
+    TUICObserver.titleObserverFunction();
+    if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
+        document.title = document.title.replace(" / Twitter", " / X");
+    }
+};
 </script>
 
 <style scoped></style>

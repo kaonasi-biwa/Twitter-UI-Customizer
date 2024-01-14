@@ -7,23 +7,18 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
 import { TUICPref } from "@content/modules";
 
-export default defineComponent({
-    props: ["id", "valueName", "name"],
-    setup() {
-        const changePref = (path, valueName) => {
-            TUICPref.setPref(path, valueName);
-            TUICPref.save();
-            TUICLibrary.getClasses.update();
-            TUICObserver.observerFunction(null);
-        };
-        return { TUICI18N, TUICPref, changePref };
-    },
-});
+const props = defineProps<{ id: string; valueName: string; name: string }>();
+
+const changePref = (path, valueName) => {
+    TUICPref.setPref(path, valueName);
+    TUICPref.save();
+    TUICLibrary.getClasses.update();
+    TUICObserver.observerFunction(null);
+};
 </script>

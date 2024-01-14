@@ -4,17 +4,14 @@
     </button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 
-export default defineComponent({
-    props: ["btnAction", "tooltiptag", "src"],
-    setup() {
-        return { TUICI18N };
-    },
-});
+const props = defineProps<{
+    btnAction: string;
+    tooltiptag: string;
+    src: string;
+}>();
 </script>
 
 <style scoped></style>
