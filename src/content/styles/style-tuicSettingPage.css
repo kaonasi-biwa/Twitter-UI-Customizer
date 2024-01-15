@@ -393,3 +393,12 @@ textarea#css_textarea,
     margin-top: 0 !important;
     margin-bottom: 0 !important;
 }
+
+#TUICSelectedColorType {
+    display: flex;
+    position: sticky;
+    top: 0px;
+    z-index: 9999;
+    background-color: var(--TUIC-container-background);
+    padding-top: 20px;
+}

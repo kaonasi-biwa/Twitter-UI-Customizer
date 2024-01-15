@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex">
+    <div id="TUICSelectedColorType">
         <input type="radio" name="TUICColorType" value="buttonColor" id="TUICColorType-Base" class="TUICColorSettingRadio" @change="ColorSettingRadio" checked />
         <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Base" style="background: linear-gradient(125deg, #ffffff 0%, #ffffff 42.5%, #000000 42.5%, #000000 100%)">
             <span>
