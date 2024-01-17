@@ -715,7 +715,7 @@ export function invisibleItems() {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
             elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
-            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.classList.add("TUIC_DISPNONE");
+            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling?.classList.add("TUIC_DISPNONE");
         }
     }
     if (TUICPref.getPref("rightSidebar.verified") && document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
