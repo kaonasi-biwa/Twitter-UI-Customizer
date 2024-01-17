@@ -849,49 +849,18 @@ export function profileInitialTabRedirect(userName: string) {
 export async function moreMenuContent() {
     await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
     let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
-    const menuItemPx = TUICLibrary.fontSizeClass(50, 53, 56, 62, 67);
-    const menuInMenuPx = TUICLibrary.fontSizeClass(46, 49, 52, 58, 62);
-    if (TUICPref.getPref("sidebarSetting.moreMenuItems.bookmarks")) {
-        const elem = document.querySelector(`[data-testid="Dropdown"] [href="/i/bookmarks"]`);
-        if (elem) {
-            elem.parentElement.classList.add("TUIC_DISPNONE");
-            menuTopPx += menuItemPx;
-        }
-    }
-    if (TUICPref.getPref("sidebarSetting.moreMenuItems.monetization")) {
-        const elem = document.querySelector(`[data-testid="Dropdown"] [href="/settings/monetization"]`);
-        if (elem) {
-            elem.parentElement.classList.add("TUIC_DISPNONE");
-            menuTopPx += menuItemPx;
-        }
-    }
-
-    if (TUICPref.getPref("sidebarSetting.moreMenuItems.separator")) {
-        const elem = document.querySelector(`[data-testid="Dropdown"] [role="separator"]`);
-        if (elem) {
-            elem.parentElement.classList.add("TUIC_DISPNONE");
-            menuTopPx += 5;
-        }
-    }
-    if (TUICPref.getPref("sidebarSetting.moreMenuItems.creatorStudio")) {
-        const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_0_content"]`);
-        if (elem) {
-            elem.classList.add("TUIC_DISPNONE");
-            menuTopPx += menuInMenuPx;
-        }
-    }
-    if (TUICPref.getPref("sidebarSetting.moreMenuItems.professionalTool")) {
-        const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_1_content"]`);
-        if (elem) {
-            elem.classList.add("TUIC_DISPNONE");
-            menuTopPx += menuInMenuPx;
-        }
-    }
-    if (TUICPref.getPref("sidebarSetting.moreMenuItems.settingsAndSupport")) {
-        const elem = document.querySelector(`[data-testid="Dropdown"] [aria-controls$="_2_content"][data-testid="settingsAndSupport"]`);
-        if (elem) {
-            elem.classList.add("TUIC_DISPNONE");
-            menuTopPx += menuInMenuPx;
+    const upPx = {
+        menu: TUICLibrary.fontSizeClass(46, 49, 52, 58, 62),
+        menuitem: TUICLibrary.fontSizeClass(50, 53, 56, 62, 67),
+        separator: 5,
+    };
+    for (const pref of TUICData["sidebarSetting.moreMenuItems"].all) {
+        if (TUICPref.getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
+            const elem = document.querySelector(TUICData["sidebarSetting.moreMenuItems"].selectors[pref]);
+            if (elem) {
+                elem.parentElement.classList.add("TUIC_DISPNONE");
+                menuTopPx += upPx[TUICData["sidebarSetting.moreMenuItems"].type[pref]];
+            }
         }
     }
     document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top = menuTopPx + "px";

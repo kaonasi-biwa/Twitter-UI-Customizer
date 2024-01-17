@@ -958,8 +958,8 @@ export const TUICData = {
                     const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
-                        document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                        document.querySelector<HTMLAnchorElement>(`[href="/settings"]`)?.click();
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICData.sidebarButtons.waitSetElement(`[href="/settings"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/content_you_see"]`);
                         await TUICData.sidebarButtons.waitSetElement(`main [href$="/topics"]`);
@@ -985,8 +985,18 @@ export const TUICData = {
             },
             display: async (e) => {
                 e?.preventDefault?.();
-                if (TUICData.sidebarButtons.buttonClickInMoreMenu(e, `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
+                /*if (TUICData.sidebarButtons.buttonClickInMoreMenu(e, `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
                     await TUICData.sidebarButtons.waitSetElement(`[href="/i/display"]`);
+                }*/
+                if (!location.pathname.endsWith("/settings/display")) {
+                    const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+                    setTimeout(async () => {
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICData.sidebarButtons.waitSetElement(`[href="/settings"]`);
+                        await TUICData.sidebarButtons.waitSetElement(`[href="/settings/accessibility_display_and_languages"]`);
+                        await TUICData.sidebarButtons.waitSetElement(`[href="/settings/display"]`);
+                    }, 150);
                 }
             },
             muteAndBlock: async (e) => {
@@ -995,8 +1005,8 @@ export const TUICData = {
                     const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
-                        document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                        document.querySelector<HTMLElement>(`[href="/settings"]`)?.click();
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICData.sidebarButtons.waitSetElement(`[href="/settings"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/privacy_and_safety"]`);
                         await TUICData.sidebarButtons.waitSetElement(`[href="/settings/mute_and_block"]`);
                     }, 150);
@@ -1153,7 +1163,7 @@ export const TUICData = {
         },
     },
     "sidebarSetting.moreMenuItems": {
-        all: ["bookmarks", "monetization", "separator", "creatorStudio", "professionalTool", "settingsAndSupport"],
+        all: ["bookmarks", "communities", "monetization", "pro", "settings", "separator"],
         i18n: {
             bookmarks: "sidebarButtons-bookmarks",
             monetization: "sidebarButton-moreMenuItems-monetization",
@@ -1161,6 +1171,31 @@ export const TUICData = {
             creatorStudio: "sidebarButton-moreMenuItems-creatorStudio",
             professionalTool: "sidebarButton-moreMenuItems-professionalTool",
             settingsAndSupport: "sidebarButton-moreMenuItems-settingsAndSupport",
+            communities: "sidebarButtons-communities",
+            settings: "sidebarButton-moreMenuItems-settings",
+            pro: "sidebarButton-moreMenuItems-pro",
+        },
+        selectors: {
+            bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
+            monetization: `[data-testid="Dropdown"] [href="/settings/monetization"]`,
+            separator: `[data-testid="Dropdown"] [role="separator"]`,
+            creatorStudio: `[data-testid="Dropdown"] [aria-controls$="_0_content"]`,
+            professionalTool: `[data-testid="Dropdown"] [aria-controls$="_1_content"]`,
+            settingsAndSupport: `[data-testid="Dropdown"] [aria-controls$="_2_content"][data-testid="settingsAndSupport"]`,
+            communities: `[data-testid="Dropdown"] [href$="/communities"]`,
+            settings: `[data-testid="Dropdown"] [href="/settings"]`,
+            pro: `[data-testid="Dropdown"] [href="https://tweetdeck.twitter.com"]`,
+        },
+        type: {
+            bookmarks: "menuitem",
+            monetization: "menuitem",
+            separator: "separator",
+            creatorStudio: "menu",
+            professionalTool: "menu",
+            settingsAndSupport: "menu",
+            communities: "menuitem",
+            settings: "menuitem",
+            pro: "menuitem",
         },
     },
     accountSwitcher: {
