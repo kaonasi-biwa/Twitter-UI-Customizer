@@ -6,7 +6,7 @@ import EMPTY from "@content/icons/logo/empty.svg?url";
 import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
-import { HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
+import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { TUICPref } from "..";
 
 export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
@@ -922,6 +922,20 @@ export function updateStyles() {
             const isHome = location.href === "https://twitter.com/home";
             const SVGElem = elem.querySelector("svg path");
             SVGElem.setAttribute("d", HOME_ICON[TUICPref.getPref("sidebarSetting.homeIcon")][isHome ? "selected" : "unselected"]);
+        }
+    }
+    {
+        if (TUICPref.getPref("tweetDisplaySetting.likeToFavo")) {
+            for (const elem of document.querySelectorAll(TUICData.visibleButtons.selectors["like-button"] + " svg:not(.TUICUpdateFavo)")) {
+                const selected = elem.closest(TUICData.visibleButtons.selectors["like-button"]).getAttribute("data-testid") == "unlike" ? "selected" : "unselected";
+                elem.querySelector("path").setAttribute("d", FAVORITE_ICON.favorite[selected]);
+                elem
+                    .closest(".TUICTweetButtomBarBase")
+                    .querySelector(TUICData.visibleButtons.selectors.likeAndRT + " path:not(path+path)")
+                    ?.setAttribute("d", FAVORITE_ICON.favoriteRT.unselected);
+
+                elem.classList.add("TUICUpdateFavo");
+            }
         }
     }
 }

@@ -19,6 +19,7 @@
 
                 <SettingSubTitle i18n="bottomTweetButtons-settingTitle" />
                 <CheckBox value="tweetDisplaySetting.bottomScroll" name="bottomTweetButtons-setting-visibleScrollBar" />
+                <CheckBox value="tweetDisplaySetting.likeToFavo" name="bottomTweetButtons-setting-likeToFavo" />
                 <CheckBox value="tweetDisplaySetting.RTNotQuote" name="bottomTweetButtons-setting-RTNotQuote" />
                 <CheckBox value="tweetDisplaySetting.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
                 <CheckBox value="tweetDisplaySetting.noNumberBottomTweetButtons" name="bottomTweetButtons-setting-noNumber" />

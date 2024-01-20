@@ -65,6 +65,7 @@ export const TUICLibrary = {
             "TUICScrollBottom",
             "TUICDMIcon",
             "TUICHandledEvent",
+            "TUICUpdateFavo",
         ],
     },
     getPrimitiveOrFunction: (functionOrPrimitive) => {

@@ -76,6 +76,7 @@ export function applySystemCss() {
         "profileSetting.tabs.pinnedTab",
         "uncategorizedSettings.disableBackdropFilter",
         "composetweet.hideDraft",
+        "tweetDisplaySetting.likeToFavo",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {

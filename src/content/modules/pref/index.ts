@@ -276,6 +276,7 @@ export const defaultPref = {
         noNumberBottomTweetButtons: false,
         linkCopyURL: "linkCopyURL_twitter",
         linkShareCopyURL: "linkShareCopyURL_twitter",
+        likeToFavo:false,
         tweetMoreMenuItems: {
             notHelpful: false,
             hiddenReply: false,
