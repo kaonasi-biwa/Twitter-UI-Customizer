@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/observer";
@@ -25,7 +23,7 @@ import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { TUICPref } from "@content/modules";
 
-const importBox = ref(null);
+const importBox = defineModel<HTMLInputElement>();
 const importFunc = async (type: number) => {
     try {
         const importPref = JSON.parse(importBox.value.value);

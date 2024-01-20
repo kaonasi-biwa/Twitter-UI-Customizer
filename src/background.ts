@@ -1,8 +1,6 @@
 import browser from "webextension-polyfill";
 
 let updateID = "";
-let loadedI18n = false;
-let i18nObject = {};
 
 const updateNotification = () => {
     browser.tabs.create({

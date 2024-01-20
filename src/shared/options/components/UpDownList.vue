@@ -71,7 +71,7 @@ const clickEv = (selectItem) => {
 
 const apply2Settings = () => {
     const id = props.id;
-    TUICPref.setPref(id, JSON.stringify(list.value));
+    TUICPref.setPref(id, list.value);
     TUICPref.save();
     TUICLibrary.getClasses.update();
 };
@@ -95,10 +95,7 @@ const toUp = () => {
     if (selectedItem && list.value.includes(selectedItem)) {
         const idx = list.value.findIndex((v) => v === selectedItem);
         if (idx > 0) {
-            const upper = list.value[idx - 1];
-            const under = list.value[idx];
-            list.value.splice(idx - 1, 1, under);
-            list.value.splice(idx, 1, upper);
+            [list.value[idx - 1], list.value[idx]] = [list.value[idx], list.value[idx - 1]];
         }
         apply2Settings();
     }
@@ -109,10 +106,7 @@ const toDown = () => {
     if (selectedItem && list.value.includes(selectedItem)) {
         const idx = list.value.findIndex((v) => v === selectedItem);
         if (idx < list.value.length - 1) {
-            const upper = list.value[idx];
-            const under = list.value[idx + 1];
-            list.value.splice(idx, 1, under);
-            list.value.splice(idx + 1, 1, upper);
+            [list.value[idx + 1], list.value[idx]] = [list.value[idx], list.value[idx + 1]];
         }
         apply2Settings();
     }

@@ -898,10 +898,17 @@ export function updateStyles() {
     for (const i of document.querySelectorAll(".TUICSidebarButton")) {
         const itemId = i.id.replace("TUICSidebar_", "");
         let locationBool = false;
-        if (TUICData.sidebarButtons.tuicButtonUrl[itemId].endsWith("/")) {
-            locationBool = location.pathname.includes(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
+        const includesCheck = (buttonUrl: string) => {
+            if (buttonUrl.endsWith("/")) {
+                locationBool = location.pathname.includes(buttonUrl) ? true : locationBool;
+            } else {
+                locationBool = location.pathname.endsWith(buttonUrl) ? true : locationBool;
+            }
+        };
+        if (typeof TUICData.sidebarButtons.tuicButtonUrl[itemId] == "object") {
+            for (const elem of TUICData.sidebarButtons.tuicButtonUrl[itemId]) includesCheck(elem);
         } else {
-            locationBool = location.pathname.endsWith(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
+            includesCheck(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
         }
         const svg_path = i.querySelector("svg path");
         if (locationBool && !i.classList.value.includes("TUICSidebarSelected")) {

@@ -48,7 +48,7 @@ export const TUICData = {
             },
         },
         sidebarButtons: {
-            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch"],
+            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch", "settings"],
             i18n: {
                 home: "sidebarButtons-home",
                 explore: "sidebarButtons-explore",
@@ -67,6 +67,7 @@ export const TUICData = {
                 display: "sidebarButtons-display",
                 muteAndBlock: "sidebarButtons-muteAndBlock",
                 premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
+                settings: "sidebarButtons-settings",
             },
         },
         fixEngagements: {
@@ -872,6 +873,7 @@ export const TUICData = {
             "verified-choose": `[href="/i/verified-choose"],[href="/i/verified-orgs-signup"]`,
             display: "#TUICSidebar_display",
             muteAndBlock: "#TUICSidebar_muteAndBlock",
+            settings: "#TUICSidebar_settings",
             premiumTierSwitch: `[href="/i/premium_tier_switch"]`,
         },
         html: {
@@ -921,6 +923,9 @@ export const TUICData = {
             },
             bookmarks: () => {
                 return TUICData.sidebarButtons.html.__base("bookmarks", `<path d="${SIDEBAR_BUTTON_ICON.bookmarks.unselected}"></path>`);
+            },
+            settings: () => {
+                return TUICData.sidebarButtons.html.__base("settings", `<path d="${SIDEBAR_BUTTON_ICON.settings.unselected}"></path>`);
             },
         },
         buttonClickInMoreMenu: async (e, selector) => {
@@ -1016,6 +1021,17 @@ export const TUICData = {
                 e?.preventDefault?.();
                 TUICData.sidebarButtons.buttonClickInMoreMenu(e, `[href="/i/bookmarks"]`);
             },
+            settings: (e) => {
+                e?.preventDefault?.();
+                if (!location.pathname.includes("/settings/")) {
+                    const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+                    setTimeout(async () => {
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICData.sidebarButtons.waitSetElement(`[href="/settings"]`);
+                    }, 150);
+                }
+            },
         },
         tuicButtonUrl: {
             topics: `/topics`,
@@ -1023,9 +1039,10 @@ export const TUICData = {
             communities: "/communities",
             connect: "/i/connect_people",
             drafts: "/compose/tweet/unsent/",
-            display: "/i/display",
+            display: ["/i/display", "/settings/display"],
             muteAndBlock: "/settings/mute_and_block",
             bookmarks: "/i/bookmarks",
+            settings: "/settings/",
         },
         tuicButtonGoToUrl: {
             __setURL: (id, selector, setURLWay: (arg0: HTMLElement) => string) => {
@@ -1064,6 +1081,7 @@ export const TUICData = {
             display: "https://twitter.com/i/display",
             muteAndBlock: "https://twitter.com/settings/mute_and_block",
             bookmarks: "https://twitter.com/i/bookmarks",
+            settings: "https://twitter.com/settings/",
         },
     },
     invisibleItems: {

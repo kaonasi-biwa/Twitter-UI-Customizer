@@ -26,7 +26,7 @@ const setDefault = async () => {
                 console.log("aiueo");
                 dialog.close();
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref.defaultPref));
-                TUICPref.setPref("", JSON.stringify(TUICPref.defaultPref));
+                TUICPref.setPref("", TUICPref.defaultPref);
 
                 if (isSafemode) {
                     location.href = `${location.protocol}//${location.hostname}`;
