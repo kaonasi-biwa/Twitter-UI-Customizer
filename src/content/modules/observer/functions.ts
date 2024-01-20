@@ -710,8 +710,8 @@ export function invisibleItems() {
     if (TUICPref.getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
-            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.hide();
-            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling?.hide();
+            elem.closest(`div[data-testid="cellInnerDiv"]`).hide();
+            elem.closest(`div[data-testid="cellInnerDiv"]`).previousElementSibling?.hide();
         }
     }
     if (TUICPref.getPref("rightSidebar.verified") && document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
