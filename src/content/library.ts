@@ -156,12 +156,18 @@ export const TUICLibrary = {
         }
         return returnElem;
     },
+    hideElement: (elem: Element) => {
+        elem.classList.add("TUIC_DISPNONE");
+    },
+    showElement: (elem: Element) => {
+        elem.classList.remove("TUIC_DISPNONE");
+    },
 };
 
 declare global {
     interface Element {
         /**
-         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索するElementのメソッドです
+         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索するElementのメソッドです。
          *
          * セレクターの判断にはquerySelectorを使うので、子結合子の1つ目のセレクターなどが返り値よりも親にある場合があります。
          * それを防ぐためには擬似クラスの:scopeをお使いください
@@ -170,7 +176,7 @@ declare global {
          */
         hasClosest(selector: string): Element;
         /**
-         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです
+         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです。
          *
          * セレクターの判断にはquerySelectorを使うので、子結合子の1つ目のセレクターなどが折り返し地点よりも親にある場合があります。
          * それを防ぐためには擬似クラスの:scopeをお使いください
@@ -178,6 +184,14 @@ declare global {
          * @return {Element} 指定されたElement
          */
         hasClosestSelector(selector: string): Element;
+        /**
+         * 要素を非表示にするElementのメソッドです。
+         */
+        hide(): void;
+        /**
+         * Element.hide()で非表示にした要素を再び表示するElementのメソッドです。
+         */
+        show(): void;
     }
 }
 
@@ -187,4 +201,12 @@ Element.prototype.hasClosest = function (selector: string): Element {
 
 Element.prototype.hasClosestSelector = function (selector: string): Element {
     return TUICLibrary.hasClosestSelector(this, selector);
+};
+
+Element.prototype.hide = function (): void {
+    TUICLibrary.hideElement(this);
+};
+
+Element.prototype.show = function (): void {
+    TUICLibrary.showElement(this);
 };

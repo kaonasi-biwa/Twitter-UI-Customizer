@@ -68,7 +68,7 @@ export function sidebarButtonProcess(bannerRoot: HTMLElement) {
     for (const i of TUICData.settings.sidebarButtons.all) {
         if (!getPref("sidebarButtons").includes(i) && notCommunityWatchNORBirdWatch) {
             const moveElem = bannerRoot.querySelector(TUICData.sidebarButtons.selectors[i]);
-            moveElem?.classList.add("TUIC_DISPNONE");
+            moveElem?.hide();
         }
     }
 }

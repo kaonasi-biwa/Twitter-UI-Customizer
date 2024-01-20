@@ -17,7 +17,7 @@ export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE");
-            base.classList.add("TUIC_DISPNONE");
+            base.hide();
             break;
         case "twitter":
             if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
@@ -67,9 +67,9 @@ export function showLinkCardInfo() {
             const card = elem.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 
             if (card.querySelector(".TUIC_LinkCardInfo") == null) {
-                card.children[1].classList.add("TUIC_DISPNONE");
-                card.parentElement.children[1].classList.add("TUIC_DISPNONE");
-                card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div').classList.add("TUIC_DISPNONE");
+                card.children[1].hide();
+                card.parentElement.children[1].hide();
+                card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div').hide();
 
                 const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;
                 const domain = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/ .*$/, "");
@@ -123,9 +123,9 @@ export function buttonUnderTweet() {
                             }
                         }
                         if (TUICPref.getPref("timeline.hideOhterRTTL") && elem.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
-                            elem.classList.add("TUIC_DISPNONE");
+                            elem.hide();
                         }
-                        const bar_item = {};
+                        const bar_item: { [key: string]: Element } = {};
                         for (const elem_item of bar_base.children) {
                             for (const sel in TUICData.visibleButtons.selectors) {
                                 if (elem_item.querySelector(TUICData.visibleButtons.selectors[sel]) != null) {
@@ -209,11 +209,11 @@ export function buttonUnderTweet() {
 
                         let lastButton;
                         for (const i of TUICPref.getPref("visibleButtons")) {
-                            let div = null;
+                            let div: Element = null;
                             if (i in bar_item) {
                                 div = bar_item[i];
                                 div.classList.add("TUIC_UnderTweetButton");
-                                div.classList.remove("TUIC_DISPNONE");
+                                div.show();
                             } else if (i in TUICData.visibleButtons.buttonElement) {
                                 div = TUICData.visibleButtons.buttonElement[i](
                                     { elements: { buttonBarBase: bar_base, article: elem, statusButton: statusButton }, option: { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle } } /*bar_base, elem, lockedAccount*/,
@@ -237,7 +237,7 @@ export function buttonUnderTweet() {
 
                         for (const i of TUICData.settings.visibleButtons.all) {
                             if (!TUICPref.getPref("visibleButtons").includes(i) && i in bar_item) {
-                                bar_item[i].classList.add("TUIC_DISPNONE");
+                                bar_item[i].hide();
                             }
                         }
 
@@ -253,7 +253,7 @@ export function buttonUnderTweet() {
                             });
 
                             let isFirst = true;
-                            const tweetTopButtons = {};
+                            const tweetTopButtons: { [key: string]: HTMLDivElement } = {};
                             const tweetTopParent = elem.querySelector(TUICData.tweetTopButton.selector.moreMenu).parentElement;
                             const marginSize = TUICLibrary.fontSizeClass("20px", "20px", "20px", "20px", "20px");
                             for (const i of TUICData.settings.tweetTopButton.all) {
@@ -263,10 +263,10 @@ export function buttonUnderTweet() {
                                 }
                             }
                             for (const i of TUICPref.getPref("tweetTopButton")) {
-                                let div = null;
+                                let div: HTMLDivElement = null;
                                 if (i in tweetTopButtons) {
                                     div = tweetTopButtons[i];
-                                    div.classList.remove("TUIC_DISPNONE");
+                                    div.show();
                                 } else if (i in TUICData.tweetTopButton.buttonElement) {
                                     div = TUICData.tweetTopButton.buttonElement[i](elem.querySelector(TUICData.tweetTopButton.selector.moreMenu), { isLockedAccount: lockedAccount, cannotRT: cannotRT, cannotShare: cannotShare, isMe: isMe, isBigArticle: isBigArticle });
                                     tweetTopButtons[i] = div;
@@ -282,7 +282,7 @@ export function buttonUnderTweet() {
 
                             for (const i of TUICData.settings.tweetTopButton.all) {
                                 if (!TUICPref.getPref("tweetTopButton").includes(i) && i in tweetTopButtons) {
-                                    tweetTopButtons[i].classList.add("TUIC_DISPNONE");
+                                    tweetTopButtons[i].hide();
                                 }
                             }
                         }
@@ -305,13 +305,13 @@ export function osusumeUser() {
                 elem.querySelector(`[aria-live="polite"]`) == null &&
                 (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)
             ) {
-                elem.classList.add("TUIC_DISPNONE");
+                elem.hide();
                 if (elem.previousElementSibling.querySelector(`h2`) != null) {
-                    elem.previousElementSibling.classList.add("TUIC_DISPNONE");
+                    elem.previousElementSibling.hide();
                 }
             }
             if (elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`) && elem.querySelector(`[aria-live="polite"]`) == null) {
-                elem.classList.add("TUIC_DISPNONE");
+                elem.hide();
             }
         }
     }
@@ -321,7 +321,7 @@ export function osusumeUser() {
             if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                 elem.classList.add("TUIC_DISCOVERHEADER");
                 if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_invisible") {
-                    elem.classList.add("TUIC_DISPNONE");
+                    elem.hide();
                     elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                     if (elem.getAttribute("TUICDiscoberMore") != null) {
                         elem.removeAttribute("TUICDiscoberMore");
@@ -701,31 +701,31 @@ export function replacePost() {
 export function invisibleItems() {
     document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
         if (TUICPref.getPref("tweetDisplaySetting.twitter-pro-promotion-btn")) {
-            e.classList.add("TUIC_DISPNONE");
+            e.hide();
         } else {
-            e.classList.remove("TUIC_DISPNONE");
+            e.show();
         }
     });
 
     if (TUICPref.getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
-            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
-            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling?.classList.add("TUIC_DISPNONE");
+            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.hide();
+            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling?.hide();
         }
     }
     if (TUICPref.getPref("rightSidebar.verified") && document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] [href="/i/verified-choose"]`) != null) {
-        document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"])`).hasClosest(`[role="complementary"]`).classList.add("TUIC_DISPNONE");
+        document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"])`).hasClosest(`[role="complementary"]`).hide();
     }
     if (TUICPref.getPref("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`) != null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`).hasClosest(":scope > * >  section").classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`).hasClosest(":scope > * >  section").hide();
     }
     if (
         TUICPref.getPref("rightSidebar.osusumeUser") &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`) != null &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null
     ) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`).hasClosest(":scope > * > aside").classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`).hasClosest(":scope > * > aside").hide();
     }
 
     if (
@@ -733,47 +733,47 @@ export function invisibleItems() {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`) != null &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span`) != null
     ) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`).hasClosest(`:scope > * > * > [data-testid="UserCell"]`).classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`).hasClosest(`:scope > * > * > [data-testid="UserCell"]`).hide();
     }
     if (TUICPref.getPref("rightSidebar.links") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`) != null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`).parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`).parentElement.hide();
     }
     if (TUICPref.getPref("rightSidebar.searchBox") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`) != null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`).hasClosest(`:scope > * > * > * > [role="search"]`).classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`).hasClosest(`:scope > * > * > * > [role="search"]`).hide();
     }
     if (TUICPref.getPref("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`) != null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`).closest(`[data-testid="placementTracking"]`).parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`).closest(`[data-testid="placementTracking"]`).parentElement.hide();
     }
     if (TUICPref.getPref("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`) != null) {
-        document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid$="-subscribe"]`).parentElement.hide();
     }
     if (TUICPref.getPref("profileSetting.invisible.subscribe-profile") && document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`) != null) {
-        document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`).classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`).hide();
     }
 
     if (TUICPref.getPref("profileSetting.invisible.profileHighlights")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/highlights"]`);
         for (const elem of tabs) {
-            elem.parentElement.classList.add("TUIC_DISPNONE");
+            elem.parentElement.hide();
         }
     }
 
     if (TUICPref.getPref("profileSetting.invisible.profileAffiliates")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/affiliates"]`);
         for (const elem of tabs) {
-            elem.parentElement.classList.add("TUIC_DISPNONE");
+            elem.parentElement.hide();
         }
     }
 
     if (TUICPref.getPref("accountSwitcher.icon") && TUICPref.getPref("accountSwitcher.nameID") && TUICPref.getPref("accountSwitcher.moreMenu") && document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`)) {
-        document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).hasClosest(`:scope > * > [data-testid="SideNav_AccountSwitcher_Button"]`).classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"]`).hasClosest(`:scope > * > [data-testid="SideNav_AccountSwitcher_Button"]`).hide();
     }
 
     document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
         if (TUICPref.getPref("invisibleItems.config-premium")) {
-            e.classList.add("TUIC_DISPNONE");
+            e.hide();
         } else {
-            e.classList.remove("TUIC_DISPNONE");
+            e.show();
         }
     });
 
@@ -782,7 +782,7 @@ export function invisibleItems() {
         if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
             const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/verified_followers"]`);
             if (tab) {
-                tab.parentElement.classList.add("TUIC_DISPNONE");
+                tab.parentElement.hide();
                 if (nowURL.endsWith("/verified_followers")) {
                     document.querySelector<HTMLAnchorElement>(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
                 }
@@ -792,7 +792,7 @@ export function invisibleItems() {
     }
 
     if (TUICPref.getPref("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
-        document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.hide();
     }
 }
 
@@ -854,7 +854,7 @@ export async function moreMenuContent() {
         if (TUICPref.getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
             const elem = document.querySelector(TUICData["sidebarSetting.moreMenuItems"].selectors[pref]);
             if (elem) {
-                elem.parentElement.classList.add("TUIC_DISPNONE");
+                elem.parentElement.hide();
                 menuTopPx += upPx[TUICData["sidebarSetting.moreMenuItems"].type[pref]];
             }
         }
@@ -878,7 +878,7 @@ export async function tweetMoreMenuContent() {
             }
 
             if (elem) {
-                elem.closest(`[role="menuitem"]`).classList.add("TUIC_DISPNONE");
+                elem.closest(`[role="menuitem"]`).hide();
                 menuTopPx += menuItemPx;
             }
         }
