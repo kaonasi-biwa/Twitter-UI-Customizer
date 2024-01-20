@@ -124,6 +124,7 @@ export async function updatePref() {
 
     changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", "discoverMore_invisible");
     changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
+    changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", "birdGoBack");
 
     if (getPref("CSS")) localStorage.setItem("TUIC_CSS", getPref("CSS"));
     setPref("CSS", null);
@@ -283,7 +284,6 @@ export const defaultPref = {
         buttonConfig: {
             smallerSidebarContent: true,
             sidebarNoneScrollbar: false,
-            birdGoBackHome: false,
         },
         moreMenuItems: {
             bookmarks: false,
@@ -293,6 +293,7 @@ export const defaultPref = {
             professionalTool: false,
             settingsAndSupport: false,
         },
+        homeIcon: "normal",
     },
     XToTwitter: { XToTwitter: false, PostToTweet: false },
     timeline: {

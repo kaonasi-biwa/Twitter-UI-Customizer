@@ -38,7 +38,7 @@ const buttonList = [
                 XToTwitter: true,
                 PostToTweet: true,
             },
-            sidebarSetting: { buttonConfig: { birdGoBackHome: true } },
+            sidebarSetting: { homeIcon:"birdGoBack" },
             twitterIcon: "twitter",
         },
     },

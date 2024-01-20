@@ -71,6 +71,9 @@
 
                 <CheckBoxList id="sidebarSetting.buttonConfig" />
 
+                <SettingSubTitle i18n="sidebarButton-homeIcon-settingTitle" />
+                <RadioButtonList id="sidebarSetting.homeIcon" /><br />
+
                 <SettingSubTitle i18n="sidebarButton-accountSwitcher-settingTitle" />
                 <CheckBoxList id="accountSwitcher" />
 

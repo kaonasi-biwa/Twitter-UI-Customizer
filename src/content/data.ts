@@ -1173,11 +1173,10 @@ export const TUICData = {
         },
     },
     "sidebarSetting.buttonConfig": {
-        all: ["smallerSidebarContent", "sidebarNoneScrollbar", "birdGoBackHome"],
+        all: ["smallerSidebarContent", "sidebarNoneScrollbar"],
         i18n: {
             smallerSidebarContent: "sidebarButton-setting-narrowBetweenButtons",
             sidebarNoneScrollbar: "sidebarButton-setting-sidebarNoneScrollbar",
-            birdGoBackHome: "sidebarButton-setting-birdGoBackHome",
         },
     },
     "sidebarSetting.moreMenuItems": {
@@ -1326,6 +1325,14 @@ export const TUICData = {
             replies: `[href$="/with_replies"]`,
             media: `[href$="/media"]`,
             likes: `[href$="/likes"]`,
+        },
+    },
+    "sidebarSetting.homeIcon": {
+        all: ["normal", "birdGoBack", "TUIC"],
+        i18n: {
+            normal: "sidebarButton-homeIcon-normal",
+            birdGoBack: "sidebarButton-homeIcon-birdGoBack",
+            TUIC: "sidebarButton-homeIcon-TUIC",
         },
     },
     uncategorizedSettings: {

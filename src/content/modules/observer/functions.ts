@@ -925,11 +925,7 @@ export function updateStyles() {
         if (elem) {
             const isHome = location.href === "https://twitter.com/home";
             const SVGElem = elem.querySelector("svg path");
-            if (TUICPref.getPref("sidebarSetting.buttonConfig.birdGoBackHome")) {
-                SVGElem.setAttribute("d", isHome ? HOME_ICON.oldSelected : HOME_ICON.old);
-            } else {
-                SVGElem.setAttribute("d", isHome ? HOME_ICON.latestSelected : HOME_ICON.latest);
-            }
+            SVGElem.setAttribute("d", HOME_ICON[TUICPref.getPref("sidebarSetting.homeIcon")][isHome ? "selected" : "unselected"]);
         }
     }
 }
