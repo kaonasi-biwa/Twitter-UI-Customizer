@@ -21,11 +21,24 @@ const getPointerFromKey = (object: object, key: string) => {
     }
 };
 
+/**
+ * TUICのPrefの値を取得します。
+ *
+ * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
+ * @return {unknown} 取得した値(identifierが空文字ならTUICのPref全体)
+ */
 export function getPref(identifier) {
     const { object, key } = getPointerFromKey(config, identifier);
     return object[key];
 }
 
+/**
+ * TUICのPrefの値を設定します。
+ *
+ * identifierが空文字ならTUICのPref全体が変更されます。
+ * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
+ * @param {string} value 設定する値
+ */
 export function setPref(identifier: string, value: unknown) {
     if (identifier == "") {
         config = value;
@@ -35,23 +48,28 @@ export function setPref(identifier: string, value: unknown) {
     }
 }
 
+/**
+ * TUICのPrefの値を削除します。
+ *
+ * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
+ */
 export function deletePref(identifier) {
     const { object, key } = getPointerFromKey(config, identifier);
     delete object[key];
 }
 
+/**
+ * 変更が加えられたTUICのPrefをlocalStorageへ保存します。
+ */
 export function save() {
     localStorage.setItem("TUIC", JSON.stringify(config));
 }
 
-export function importPref(object) {
-    if (typeof object === "string") {
-        config = JSON.parse(object);
-    } else {
-        config = object;
-    }
-}
-
+/**
+ * TUICのPrefのすべての値を文字列として出力します。
+ *
+ * @return {string} TUICのPrefをJSON.stringify()で文字列にしたもの
+ */
 export function exportPref() {
     return JSON.stringify(config);
 }
