@@ -32,7 +32,7 @@ If you've been using yarn, you'll need to install pnpm, remove the `node_modules
 `pnpm i --frozen-lockfile`.
 
 **With the adoption of Vite as our build tool, the debugging process has been updated!**  
-For information on our build and debugging procedures, please refer to the end of this README and [docs/vite_build](./docs/vite_build.md).
+For information on our build and debugging procedures, please refer to [docs/vite_build](./docs/vite_build.md).
 
 These changes have been in effect since September 2, 2023.
 

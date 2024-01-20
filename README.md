@@ -33,7 +33,7 @@ yarnを使用していた方は、pnpmをインストールして`node_modules`�
 `pnpm i --frozen-lockfile`を実行してください。
 
 **ビルドツール Vite導入により、デバッグ方法が変わりました！**  
-ビルド及びデバッグ方法については、このREADME下部及び[docs/vite_build](./docs/vite_build.md)を御覧ください。  
+ビルド及びデバッグ方法については、[docs/vite_build](./docs/vite_build.md)を御覧ください。  
 この変更は2023年9月2日からの適用です。
 
 ## 実装されている機能
