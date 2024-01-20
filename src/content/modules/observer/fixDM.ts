@@ -33,7 +33,7 @@ export function dmPage() {
                 elem.querySelector("div > div+div+div.TUICDMIconBox")?.remove();
 
                 const elemParent = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div`);
-                elemParent.appendChild(TUICData.dmPage.element.make(/*elem.parentElement.parentElement.nextElementSibling && elem.parentElement.parentElement.nextElementSibling.querySelector(`[data-testid="messageEntry"]:not([role="button"])`)*/ false));
+                elemParent.appendChild(TUICData.dmPage.element.make(false));
             }
         }
     } else {
