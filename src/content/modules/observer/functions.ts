@@ -225,12 +225,14 @@ export function buttonUnderTweet() {
                                 }
                                 div.classList.remove("r-1rq6c10");
                                 div.classList.remove("r-1b7u577");
+                                div.classList.add(TUICLibrary.fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
                                 lastButton = div;
                                 bar_base.appendChild(div);
                             }
                         }
                         if (lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
                             lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").remove();
+                            lastButton.classList.add(TUICLibrary.fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
                         }
                         lastButton.classList.add("r-1rq6c10");
                         lastButton.classList.add("r-1b7u577");

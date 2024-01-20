@@ -349,9 +349,10 @@ export const TUICData = {
         buttonHTML: {
             _base: function (id: string, svg, isBigArticle: boolean, disable = false, redButton = false) {
                 const tabindex = disable ? "-1" : "0";
-                const clazzDir = TUICLibrary.fontSizeClass("r-1b43r93", "r-hjklzo", "r-rjixqe", "r-1inkyih", "r-1i10wst") + " " + (disable ? "r-icoktb" : "css-18t94o4");
+                const clazzDir = disable ? "r-icoktb" : "css-18t94o4";
+                const clazzLtr = TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-rjixqe", "r-1inkyih", "r-1i10wst");
                 const clazzSVG = `${isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"}${redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`;
-                return buttonHTMLBase.replaceAll("${id}", id).replaceAll("${tabindex}", tabindex).replaceAll("${clazzDir}", clazzDir).replaceAll("${clazzSVG}", clazzSVG).replaceAll("${svg}", svg);
+                return buttonHTMLBase.replaceAll("${id}", id).replaceAll("${tabindex}", tabindex).replaceAll("${clazzDir}", clazzDir).replaceAll("${clazzSVG}", clazzSVG).replaceAll("${clazzLtr}", clazzLtr).replaceAll("${svg}", svg);
             },
             _svg: function (svg: string) {
                 return `
@@ -639,12 +640,10 @@ export const TUICData = {
                 }
             },
             "share-button": function (elem) {
-                console.log("aaa");
                 window.setTimeout(async () => {
                     await TUICLibrary.waitForElement(
                         `[role="menuitem"] path[d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]`,
                     );
-                    console.log("bbb");
                     document
                         .querySelector(
                             `[role="menuitem"] path[d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]`,
@@ -775,11 +774,11 @@ export const TUICData = {
         emptyElement: () => {
             return TUICLibrary.HTMLParse(
                 `<div class="css-175oi2r r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
-                    "r-1enofrn r-1f529hi r-cxdvbh r-1pn2ns4",
-                    "r-1enofrn r-fxxt2n r-cxdvbh r-1pn2ns4",
-                    "r-n6v787 r-1cwl3u0 r-1k6nrdp r-1pn2ns4",
-                    "r-1b43r93 r-14yzgew r-1buqboj r-5f36wq",
-                    "r-ubezar r-hjklzo r-e157gu r-utggzx",
+                    "r-1enofrn r-1f529hi r-cxdvbh r-s1qlax",
+                    "r-1enofrn r-fxxt2n r-cxdvbh r-s1qlax",
+                    "r-n6v787 r-1cwl3u0 r-1k6nrdp r-s1qlax",
+                    "r-1b43r93 r-14yzgew r-1buqboj r-s1qlax",
+                    "r-ubezar r-hjklzo r-e157gu r-ou255f",
                 )}"></span></span></div>`,
             ).item(0);
         },
