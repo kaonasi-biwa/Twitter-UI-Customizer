@@ -160,7 +160,23 @@ export const TUICLibrary = {
 
 declare global {
     interface Element {
+        /**
+         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索するElementのメソッドです
+         *
+         * セレクターの判断にはquerySelectorを使うので、子結合子の1つ目のセレクターなどが返り値よりも親にある場合があります。
+         * それを防ぐためには擬似クラスの:scopeをお使いください
+         * @param {string} selector 探索するElementのセレクター
+         * @return {Element} 指定されたElementを子孫ノードに持つセレクター
+         */
         hasClosest(selector: string): Element;
+        /**
+         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです
+         *
+         * セレクターの判断にはquerySelectorを使うので、子結合子の1つ目のセレクターなどが折り返し地点よりも親にある場合があります。
+         * それを防ぐためには擬似クラスの:scopeをお使いください
+         * @param {string} selector 探索するElementのセレクター
+         * @return {Element} 指定されたElement
+         */
         hasClosestSelector(selector: string): Element;
     }
 }
