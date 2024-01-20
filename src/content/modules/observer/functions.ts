@@ -113,10 +113,7 @@ export function buttonUnderTweet() {
                                 : elem.querySelector(`[data-testid="User-Name"] > .r-1awozwy+div span`).textContent ==
                                   "@" + document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`).getAttribute("data-testid").replace(`UserAvatar-Container-`, "");
 
-                        let bar_base = elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]);
-                        while (bar_base.querySelector(TUICData.visibleButtons.selectors["like-button"]) == null) {
-                            bar_base = bar_base.parentElement;
-                        }
+                        const bar_base = elem.querySelector<Element>(TUICData.visibleButtons.selectors["reply-button"]).hasClosest(TUICData.visibleButtons.selectors["like-button"]);
                         if (TUICPref.getPref("tweetDisplaySetting.bottomScroll")) bar_base.parentElement.classList.add("TUICScrollBottom");
                         bar_base.parentElement.classList.add("TUICTweetButtomBarBase");
                         if (TUICPref.getPref("tweetDisplaySetting.bottomSpace")) {
@@ -224,7 +221,7 @@ export function buttonUnderTweet() {
                             }
                             if (div) {
                                 if (bar_item["reply-button"].querySelector(`[data-testid="app-text-transition-container"]`) && div.querySelector(`[data-testid="app-text-transition-container"]`) == null) {
-                                    div.querySelector("svg").parentElement.parentElement.appendChild(TUICData.visibleButtons.emptyElement());
+                                    div.querySelector("svg").closest(`[role="button"] > div`).appendChild(TUICData.visibleButtons.emptyElement());
                                 }
                                 div.classList.remove("r-1rq6c10");
                                 div.classList.remove("r-1b7u577");
@@ -528,14 +525,14 @@ export function replacePost() {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-block-dialogBody-old").replaceAll("{screenName}", blockTextMatch[1]);
                     } else if (isUnsentPage) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmSpan");
-                        elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle");
+                        elem.closest(`[data-testid="confirmationSheetDialog"]`).querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-unsentTweetDeleteConfirmTitle");
                     } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest")) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogBody-old");
-                        elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogTitle");
+                        elem.closest(`[data-testid="confirmationSheetDialog"]`).querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteTweet-dialogTitle");
                     } else if (elem.textContent == TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogBody-latest")) {
                         elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogBody-old");
-                        elem.parentElement.parentElement.querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogTitle");
-                        elem.parentElement.parentElement.querySelector(`[data-testid="confirmationSheetConfirm"] > div > span > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogConfirm");
+                        elem.closest(`[data-testid="confirmationSheetDialog"]`).querySelector("h1 > span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogTitle");
+                        elem.closest(`[data-testid="confirmationSheetDialog"]`).querySelector(`[data-testid="confirmationSheetConfirm"] > div > span > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweet-dialogConfirm");
                     }
                 }
             }
@@ -550,10 +547,10 @@ export function replacePost() {
 
         // ツイートその他ポップアップの「このツイートに興味がない」ボタン
         // for (const elem of getNotReplacedElements('path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]'))
-        //     elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
+        //     elem.closest(`[role="menuitem"]`)querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
         // ツイートその他ポップアップの「ツイートを埋め込み」ボタン
         for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]'))
-            elem.parentElement.parentElement.parentElement.parentElement.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-menu-embed");
+            elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-menu-embed");
         // ツイートその他ポップアップの「ツイートを報告」ボタン
         for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) {
             const changeElem = elem?.parentElement?.parentElement?.parentElement?.parentElement?.querySelector("span");
@@ -568,8 +565,7 @@ export function replacePost() {
         localizeElemText('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span', TUICI18N.get("XtoTwitter-PostToTweet-tweetButton"));
 
         //右サイドバーのスペースのやつ
-        for (const elem of getNotReplacedElements(`[data-testid="sidebarColumn"] [data-testid="pill-contents-container"]`))
-            elem.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector("h2 span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-rightSidebar-spaceTitle");
+        for (const elem of getNotReplacedElements(`[data-testid="sidebarColumn"] [data-testid="pill-contents-container"]`)) elem.hasClosestSelector("h2 span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-rightSidebar-spaceTitle");
 
         // 「新しいツイートを表示」ポップアップ
         localizeElemText('[data-testid="pillLabel"] > span > span > span', TUICI18N.get("XtoTwitter-PostToTweet-tweeted"));
@@ -672,13 +668,13 @@ export function replacePost() {
 
         // 固定ツイートの「固定」表示
         for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
-            elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"] > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-pinnedTweet");
+            elem.hasClosestSelector(`[data-testid="socialContext"] > span`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-pinnedTweet");
 
         // 「{user}さんがリツイートしました」もしくは「リツイート済み」
         for (const elem of getNotReplacedElements(
             '[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]',
         )) {
-            const container = elem.parentElement.parentElement.parentElement.parentElement.querySelector(`[data-testid="socialContext"]`);
+            const container = elem.hasClosestSelector(`[data-testid="socialContext"]`);
 
             // NOTE: リツイートのSVGで取得しているが、これだとリツイートボタンも引っかかってしまうため、コンテナが検出できない場合スキップ
             if (!container) continue;
@@ -722,14 +718,14 @@ export function invisibleItems() {
         document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"])`).parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
     if (TUICPref.getPref("rightSidebar.trend") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`) != null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`).closest("section").parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
     if (
         TUICPref.getPref("rightSidebar.osusumeUser") &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`) != null &&
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null
     ) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`).parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`).closest("aside").parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
 
     if (
@@ -746,7 +742,7 @@ export function invisibleItems() {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`).parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
     }
     if (TUICPref.getPref("rightSidebar.space") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`) != null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`).parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add("TUIC_DISPNONE");
+        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`).closest(`[data-testid="placementTracking"]`).parentElement.classList.add("TUIC_DISPNONE");
     }
     if (TUICPref.getPref("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`) != null) {
         document.querySelector(`[data-testid$="-subscribe"]`).parentElement.classList.add("TUIC_DISPNONE");

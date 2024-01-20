@@ -141,4 +141,50 @@ export const TUICLibrary = {
             });
         }
     },
+    hasClosest: (elem: Element, selector: string): Element => {
+        let elem2 = elem;
+        while (elem2 && !elem2.querySelector(selector)) {
+            elem2 = elem2.parentElement;
+        }
+        return elem2;
+    },
+    hasClosestSelector: (elem: Element, selector: string): Element => {
+        let elem2 = elem;
+        let returnElem = null;
+        while (elem2 && !(returnElem = elem2.querySelector(selector))) {
+            elem2 = elem2.parentElement;
+        }
+        return returnElem;
+    },
+};
+
+declare global {
+    interface Element {
+        /**
+         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索するElementのメソッドです
+         *
+         * セレクターの判断にはquerySelectorを使うので、子結合子の1つ目のセレクターなどが返り値よりも親にある場合があります。
+         * それを防ぐためには擬似クラスの:scopeをお使いください
+         * @param {string} selector 探索するElementのセレクター
+         * @return {Element} 指定されたElementを子孫ノードに持つセレクター
+         */
+        hasClosest(selector: string): Element;
+        /**
+         * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです
+         *
+         * セレクターの判断にはquerySelectorを使うので、子結合子の1つ目のセレクターなどが折り返し地点よりも親にある場合があります。
+         * それを防ぐためには擬似クラスの:scopeをお使いください
+         * @param {string} selector 探索するElementのセレクター
+         * @return {Element} 指定されたElement
+         */
+        hasClosestSelector(selector: string): Element;
+    }
+}
+
+Element.prototype.hasClosest = function (selector: string): Element {
+    return TUICLibrary.hasClosest(this, selector);
+};
+
+Element.prototype.hasClosestSelector = function (selector: string): Element {
+    return TUICLibrary.hasClosestSelector(this, selector);
 };
