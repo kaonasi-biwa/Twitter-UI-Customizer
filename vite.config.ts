@@ -16,12 +16,12 @@ import { changeManifest } from "./npm-scripts/change-manifest";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const root = path.resolve(__dirname, "src");
-const outDir = path.resolve(__dirname, "dist");
-
 const r = (str: string): string => {
     return path.resolve(__dirname, str);
 };
+
+const root = r("src");
+const outDir = r("dist");
 
 export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
@@ -38,11 +38,11 @@ export default defineConfig(({ command, mode }) => {
 
             rollupOptions: {
                 input: {
-                    "ent-options_html": path.resolve(__dirname, "src/options/options.html"),
-                    "ent-popup_html": path.resolve(__dirname, "src/popup/popup.html"),
-                    index: path.resolve(__dirname, "src/content/index.ts"),
-                    background: path.resolve(__dirname, "./src/background.ts"),
-                    //safemode: path.resolve(__dirname, "src/shared/options/injectSafeMode.ts"),
+                    "ent-options_html": r("src/options/options.html"),
+                    "ent-popup_html": r("src/popup/popup.html"),
+                    index: r("src/content/index.ts"),
+                    background: r("src/background.ts"),
+                    //safemode: r("src/shared/options/injectSafeMode.ts"),
                 },
                 output: {
                     dynamicImportInCjs: true,
@@ -85,7 +85,7 @@ export default defineConfig(({ command, mode }) => {
                     console.log(new Date().toLocaleString());
                 },
             },
-            vitePluginWebExt(__dirname, path.resolve(__dirname, "dist"), path.resolve(__dirname, "dist"), mode === "chromiumCRX" ? "chromium" : mode),
+            vitePluginWebExt(__dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "chromium" : mode),
             // Vue Plugins
             vue(),
             svgLoader(),
