@@ -258,30 +258,30 @@
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
-    color: rgb(255, 212, 0) !important;
+    color: rgb(255 212 0) !important;
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover > div {
-    color: rgb(255, 212, 0) !important;
+    color: rgb(255 212 0) !important;
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
-    background-color: rgb(255, 212, 0, 10%) !important;
+    background-color: rgb(255 212 0 / 10%) !important;
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
-    background-color: rgb(255, 212, 0, 10%) !important;
+    background-color: rgb(255 212 0 / 10%) !important;
     box-shadow: rgba(142 204 258) 0 0 0 2px inset !important;
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:active > div > div {
-    background-color: rgb(255, 212, 0, 20%) !important;
+    background-color: rgb(255 212 0 / 20%) !important;
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
-    fill: rgb(255, 212, 0) !important;
+    fill: rgb(255 212 0) !important;
 }
 
 :root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover path {
-    fill: rgb(255, 212, 0) !important;
+    fill: rgb(255 212 0) !important;
 }
