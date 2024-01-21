@@ -39,6 +39,7 @@
     "bottomTweetButtons-setting-RTNotQuote": "リツイート時にメニューを表示しない",
     "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
     "bottomTweetButtons-setting-noNumber": "ツイート拡大表示時のボタン横の数字を非表示にする",
+    "bottomTweetButtons-setting-likeToFavo": "「いいね」ボタンのアイコンと色を黄色の星に変更する",
     "bottomTweetButtons-setting-showLinkCardInfo": "リンクカードにリンク先の情報を表示する",
     "bottomTweetButtons-setting-placeEngagementsLink": "エンゲージメントへのリンクを置く",
     "bottomTweetButtons-setting-placeEngagementsLink-likes": "いいねしたユーザー一覧を開く",
