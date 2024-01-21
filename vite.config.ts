@@ -77,6 +77,10 @@ export default defineConfig(({ command, mode }) => {
                     ]);
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },
+            },
+            {
+                name: "buildDate",
+                enforce: "post",
                 closeBundle() {
                     console.log(new Date().toLocaleString());
                 },
