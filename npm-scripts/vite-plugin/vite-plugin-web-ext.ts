@@ -123,9 +123,5 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
 
             //worker.postMessage("run");
         },
-        buildEnd(error) {
-            child?.kill();
-            webExtRunner?.exit();
-        },
     };
 };
