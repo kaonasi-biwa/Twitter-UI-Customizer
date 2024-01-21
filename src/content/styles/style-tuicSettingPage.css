@@ -397,7 +397,7 @@ textarea#css_textarea,
 #TUICSelectedColorType {
     display: flex;
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 9999;
     background-color: var(--TUIC-container-background);
     padding-top: 20px;
