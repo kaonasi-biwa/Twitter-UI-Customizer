@@ -932,8 +932,8 @@ export function updateStyles() {
                 const selected = elem.closest(TUICData.visibleButtons.selectors["like-button"]).getAttribute("data-testid") == "unlike" ? "selected" : "unselected";
                 elem.querySelector("path").setAttribute("d", FAVORITE_ICON.favorite[selected]);
                 elem
-                    .closest(".TUICTweetButtomBarBase")
-                    .querySelector(TUICData.visibleButtons.selectors.likeAndRT + " path:not(path+path)")
+                    .hasClosest(TUICData.visibleButtons.selectors["retweet-button"])
+                    .querySelector(TUICData.visibleButtons.selectors.likeAndRT + " path")
                     ?.setAttribute("d", FAVORITE_ICON.favoriteRT.unselected);
 
                 elem.classList.add("TUICUpdateFavo");

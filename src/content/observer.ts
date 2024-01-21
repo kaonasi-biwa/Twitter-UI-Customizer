@@ -15,6 +15,7 @@ export const TUICObserver = {
     iconObserver: null,
     target: null,
     headObserver: null,
+    initIconObserver: null,
 
     data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null, fontSize1: "-1", fontSize2: null },
     observerFunction: (mutationsList) => {
@@ -239,6 +240,17 @@ export const TUICObserver = {
         TUICObserver.headObserver.observe(document.querySelector("title"), {
             characterData: true,
             childList: true,
+        });
+    },
+    initIconObserverFunction: () => {
+        if (TUICObserver.initIconObserver) TUICObserver.initIconObserver.disconnect();
+        else TUICObserver.initIconObserver = new MutationObserver(TUICObserver.initIconObserverFunction);
+
+        twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
+
+        TUICObserver.initIconObserver.observe(document.querySelector(`#placeholder > svg`), {
+            attributes: true,
+            attributeFilter: ["class"],
         });
     },
 };

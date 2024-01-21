@@ -20,10 +20,6 @@ import { TUICPref } from "./modules/index.ts";
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();
     }
-    TUICLibrary.getClasses.deleteClasses();
-    await TUICLibrary.waitForElement("title");
-    TUICObserver.titleObserverFunction();
-
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
         `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
@@ -37,8 +33,11 @@ import { TUICPref } from "./modules/index.ts";
     applyDataCss();
     applyCustomIcon();
     if (document.querySelector(`#placeholder > svg`)) {
-        twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
+        TUICObserver.initIconObserverFunction();
     }
+    TUICLibrary.getClasses.deleteClasses();
+    await TUICLibrary.waitForElement("title");
+    TUICObserver.titleObserverFunction();
 
     chrome.runtime.sendMessage({
         type: "update",
