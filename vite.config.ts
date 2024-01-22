@@ -20,6 +20,10 @@ const r = (str: string): string => {
     return path.resolve(__dirname, str);
 };
 
+const rl = (str: string): URL => {
+    return new URL(str, import.meta.url);
+};
+
 const root = r("src");
 const outDir = r("dist");
 
@@ -69,11 +73,11 @@ export default defineConfig(({ command, mode }) => {
                 async buildStart(options) {
                     await Promise.all([
                         changeManifest(mode),
-                        fs.copyFile(r("src/inject.js"), r("dist/inject.js")),
-                        fs.copyFile(r("src/safemode.html"), r("dist/safemode.html")),
-                        fs.cp(r("src/content/styles"), r("dist/styles"), { recursive: true }),
-                        fs.cp(r("_locales"), r("dist/_locales"), { recursive: true }),
-                        fs.cp(r("icon"), r("dist/icon"), { recursive: true }),
+                        fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
+                        fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
+                        fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
+                        fs.cp(rl("_locales"), rl("dist/_locales"), { recursive: true }),
+                        fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
                     ]);
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },
