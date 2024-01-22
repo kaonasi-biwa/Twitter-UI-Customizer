@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得

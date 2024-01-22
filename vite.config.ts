@@ -1,8 +1,8 @@
 import { UserConfig, defineConfig, PluginOption } from "vite";
 
-import url from "url";
-import path from "path";
-import * as fs from "fs/promises";
+import url from "node:url";
+import path from "node:path";
+import * as fs from "node:fs/promises";
 
 // Vite Plugins
 import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";

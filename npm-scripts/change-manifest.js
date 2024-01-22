@@ -1,6 +1,6 @@
-import fs from "fs/promises";
-import fsSync from "fs";
-import url from "url";
+import fs from "node:fs/promises";
+import fsSync from "node:fs";
+import url from "node:url";
 import manifest from "../manifest.config.js";
 
 export async function changeManifest(target) {
