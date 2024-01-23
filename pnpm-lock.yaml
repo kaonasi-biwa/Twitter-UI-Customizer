@@ -70,6 +70,9 @@ devDependencies:
   stylelint-config-standard-scss:
     specifier: ^13.0.0
     version: 13.0.0(postcss@8.4.33)(stylelint@16.2.0)
+  stylelint-scss:
+    specifier: ^6.1.0
+    version: 6.1.0(stylelint@16.2.0)
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1(ts-node@10.9.2)
