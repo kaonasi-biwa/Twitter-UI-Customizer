@@ -87,7 +87,7 @@
     height: 45px;
     transition-duration: 0.2s;
 }
-.tlui-dialog button.full-width {
+.tlui-dialog .full-width:is(button, textarea) {
     width: 100%;
 }
 .tlui-dialog button.invert-color {

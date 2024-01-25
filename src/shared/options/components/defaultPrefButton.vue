@@ -23,7 +23,6 @@ const setDefault = async () => {
         .addComponents([
             TUICI18N.get("settingUI-restoreDefaultAll-confirm"),
             new ButtonComponent(TUICI18N.get("common-yes"), () => {
-                console.log("aiueo");
                 dialog.close();
                 localStorage.setItem("TUIC", JSON.stringify(TUICPref.defaultPref));
                 TUICPref.setPref("", TUICPref.defaultPref);

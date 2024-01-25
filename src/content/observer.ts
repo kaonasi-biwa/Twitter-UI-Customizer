@@ -10,150 +10,183 @@ import { twitterIcon, buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePo
 import { displaySetting } from "./modules/settings/display.ts";
 import { TUICPref } from "./modules/index.ts";
 
+import { Dialog } from "@shared/tlui/components/Dialog.ts";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
+import { TextboxComponent } from "@shared/tlui/components/TextboxComponent.ts";
+
 export const TUICObserver = {
     observer: null,
     iconObserver: null,
     target: null,
     headObserver: null,
     initIconObserver: null,
+    errors: [],
 
     data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null, fontSize1: "-1", fontSize2: null },
     observerFunction: (mutationsList) => {
         TUICObserver.observer.disconnect();
+        try {
+            //* apply CSS
+            if (document.querySelector("html").style.fontSize.toString() != TUICObserver.data.fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") !== TUICObserver.data.fontSize2) {
+                applySystemCss();
+                TUICObserver.data.fontSize1 = document.querySelector("html").style.fontSize.toString();
+                TUICObserver.data.fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
+            }
 
-        //* apply CSS
-        if (document.querySelector("html").style.fontSize.toString() != TUICObserver.data.fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") !== TUICObserver.data.fontSize2) {
-            applySystemCss();
-            TUICObserver.data.fontSize1 = document.querySelector("html").style.fontSize.toString();
-            TUICObserver.data.fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
-        }
-
-        //* setup icon observer
-        {
-            if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                if (!TUICObserver.iconObserver) {
-                    TUICObserver.iconObserver = new MutationObserver(() => {
-                        if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                            TUICObserver.iconObserver.disconnect();
-                            twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
-                            TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
-                                childList: true,
-                                subtree: true,
-                                attributes: true,
-                            });
-                        }
-                    });
-                    TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
-                        childList: true,
-                        subtree: true,
-                        attributes: true,
-                    });
+            //* setup icon observer
+            {
+                if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
+                    if (!TUICObserver.iconObserver) {
+                        TUICObserver.iconObserver = new MutationObserver(() => {
+                            if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
+                                TUICObserver.iconObserver.disconnect();
+                                twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
+                                TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
+                                    childList: true,
+                                    subtree: true,
+                                    attributes: true,
+                                });
+                            }
+                        });
+                        TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
+                            childList: true,
+                            subtree: true,
+                            attributes: true,
+                        });
+                    }
+                    twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
                 }
-                twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
+                if (!document.querySelector(`header h1 a > div > svg`)) {
+                    TUICObserver.iconObserver = "";
+                }
+                if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`)) {
+                    twitterIcon(document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] [role="heading"]`));
+                }
+                if (document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
+                    twitterIcon(document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[data-testid="interstitialGraphic"]`));
+                }
+                if (document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
+                    twitterIcon(document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`).parentElement);
+                }
             }
-            if (!document.querySelector(`header h1 a > div > svg`)) {
-                TUICObserver.iconObserver = "";
-            }
-            if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`)) {
-                twitterIcon(document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] [role="heading"]`));
-            }
-            if (document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                twitterIcon(document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[data-testid="interstitialGraphic"]`));
-            }
-            if (document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                twitterIcon(document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`).parentElement);
-            }
-        }
 
-        if (document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd");
+            if (document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd");
 
-        sidebarButtons();
+            sidebarButtons();
 
-        buttonUnderTweet();
-        showLinkCardInfo();
+            buttonUnderTweet();
+            showLinkCardInfo();
 
-        osusumeUser();
-        dmPage();
-        replacePost();
-        invisibleItems();
+            osusumeUser();
+            dmPage();
+            replacePost();
+            invisibleItems();
 
-        updateStyles();
+            updateStyles();
 
-        fixDMBox();
-        profileInitialTab();
+            fixDMBox();
+            profileInitialTab();
 
-        if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
-            if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
-                const displayRootElement = document.querySelector('[role="slider"]:not(article *)').closest<HTMLElement>(`:is([data-viewportview="true"],[aria-labelledby="detail-header"],main>div>div>div) > div+div`);
+            if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
+                if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
+                    const displayRootElement = document.querySelector('[role="slider"]:not(article *)').closest<HTMLElement>(`:is([data-viewportview="true"],[aria-labelledby="detail-header"],main>div>div>div) > div+div`);
 
-                displaySetting(displayRootElement);
+                    displaySetting(displayRootElement);
 
-                (async () => {
-                    const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
-                    const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
-                    const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
+                    (async () => {
+                        const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
+                        const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
+                        const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
 
-                    const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
-                        {
-                            user: {
-                                id: "tuic_official",
-                                name: "【公式】UI Customizer by Ablaze",
-                                icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg",
+                        const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
+                            {
+                                user: {
+                                    id: "tuic_official",
+                                    name: "【公式】UI Customizer by Ablaze",
+                                    icon: "https://pbs.twimg.com/profile_images/1711757756464828416/sAXJyO-y_400x400.jpg",
+                                },
+                                text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
+                                mentionTo: "kaonasi_biwa",
                             },
-                            text: "Twitter UI Customizer は、 {mention} を筆頭に、多数の開発者によってオープンソースソフトウェアとして開発されています。",
-                            mentionTo: "kaonasi_biwa",
-                        },
-                    ]);
+                        ]);
 
-                    const tweetUserId = tweet.user.id;
-                    const tweetUserName = tweet.user.name;
-                    const tweetUserIcon = tweet.user.icon;
-                    const tweetText = tweet.text;
-                    const tweetMentionUserId = tweet.mentionTo;
+                        const tweetUserId = tweet.user.id;
+                        const tweetUserName = tweet.user.name;
+                        const tweetUserIcon = tweet.user.icon;
+                        const tweetText = tweet.text;
+                        const tweetMentionUserId = tweet.mentionTo;
 
-                    // ツイートのテキストとして使用する、最初のspan要素以外を削除
-                    tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
-                    // メンションを任意の場所に持っていけるよう削除
-                    tweetLinkElement.remove();
+                        // ツイートのテキストとして使用する、最初のspan要素以外を削除
+                        tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
+                        // メンションを任意の場所に持っていけるよう削除
+                        tweetLinkElement.remove();
 
-                    // img要素がそもそも存在しない場合があるので、待機
-                    await TUICLibrary.waitForElement("img", tweetElement);
+                        // img要素がそもそも存在しない場合があるので、待機
+                        await TUICLibrary.waitForElement("img", tweetElement);
 
-                    // ユーザーアイコン
-                    tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;
-                    tweetElement.querySelector("img").src = tweetUserIcon;
-                    // ユーザー名・ユーザーID
-                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
-                    tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
-                    // メンションのユーザー
-                    tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
-                    tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
+                        // ユーザーアイコン
+                        tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;
+                        tweetElement.querySelector("img").src = tweetUserIcon;
+                        // ユーザー名・ユーザーID
+                        tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
+                        tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
+                        // メンションのユーザー
+                        tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
+                        tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
 
-                    // テキストに設定
-                    tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
-                })();
+                        // テキストに設定
+                        tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
+                    })();
+                }
+            }
+            if (window.location.pathname == "/tuic/safemode") {
+            } else if (window.location.pathname == "/settings/display") {
+                TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
+                    const _large = elems[0].closest<HTMLElement>(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
+                    const _small = elems[0].closest<HTMLElement>(`main > div > div > div > div:nth-child(2)`);
+                    //console.warn(`_large : ${_large}\n_small : ${_small}`);
+                    displaySetting(_large ? _large : _small);
+                });
+            } else if (window.location.pathname == "/i/display") {
+                //* /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
+
+                TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
+                    const _dialog = elems[0].closest<HTMLElement>(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
+                    const _fullscreen = elems[0].closest<HTMLElement>(`main > div > div > div:nth-child(2)`);
+                    //console.warn(`_large : ${_large}\n_small : ${_small}`);
+                    displaySetting(_dialog ? _dialog : _fullscreen);
+                });
+            }
+
+            TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
+        } catch (e) {
+            console.error(e);
+            TUICObserver.errors.push(`${e.toString()}${"\r"}${e.stack}`);
+            if (TUICObserver.errors.length > 2) {
+                const dialog = new Dialog(TUICI18N.get("common-error"));
+                dialog
+                    .addComponents([
+                        ...TUICI18N.get("observerError-message").split("\r"),
+                        "",
+                        new TextboxComponent(TUICObserver.errors.join("\r\r"), { readonly: true, rows: 5 }),
+                        new ButtonComponent(TUICI18N.get("observerError-copy"), () => {
+                            dialog.close();
+                            navigator.clipboard.writeText(TUICObserver.errors.join("\r\r"));
+                        }),
+                        new ButtonComponent(
+                            TUICI18N.get("common-close"),
+                            () => dialog.close(),
+
+                            {
+                                invertColor: true,
+                            },
+                        ),
+                    ])
+                    .open();
+            } else {
+                window.setTimeout(TUICObserver.observerFunction, 5000);
             }
         }
-        if (window.location.pathname == "/tuic/safemode") {
-        } else if (window.location.pathname == "/settings/display") {
-            TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
-                const _large = elems[0].closest<HTMLElement>(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
-                const _small = elems[0].closest<HTMLElement>(`main > div > div > div > div:nth-child(2)`);
-                //console.warn(`_large : ${_large}\n_small : ${_small}`);
-                displaySetting(_large ? _large : _small);
-            });
-        } else if (window.location.pathname == "/i/display") {
-            //* /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
-
-            TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
-                const _dialog = elems[0].closest<HTMLElement>(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
-                const _fullscreen = elems[0].closest<HTMLElement>(`main > div > div > div:nth-child(2)`);
-                //console.warn(`_large : ${_large}\n_small : ${_small}`);
-                displaySetting(_dialog ? _dialog : _fullscreen);
-            });
-        }
-
-        TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
     },
     config: {
         childList: true,
