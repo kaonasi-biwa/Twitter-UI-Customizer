@@ -20,11 +20,17 @@ jobs:
                   pnpm install
                   pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
+                  cp ./dist/index.js ./codeToDebug.js
             - name: Publish
               uses: actions/upload-artifact@v3
               with:
                   name: Twitter_UI_Customizer_Firefox
                   path: Twitter_UI_Customizer_Firefox.xpi
+            - name: Publish
+              uses: actions/upload-artifact@v3
+              with:
+                  name: codeToDebug
+                  path: codeToDebug.js
 
     build-chromium:
         runs-on: ubuntu-latest
@@ -111,6 +117,10 @@ jobs:
               uses: actions/download-artifact@v3
               with:
                   name: crxupdate
+            - name: loadFile
+              uses: actions/download-artifact@v3
+              with:
+                  name: codeToDebug
             - name: Upload Release Asset
               id: upload-release-asset
               uses: softprops/action-gh-release@v1
@@ -121,3 +131,4 @@ jobs:
                       Twitter_UI_Customizer_Chromium.zip
                       Twitter_UI_Customizer_Chromium.crx
                       crxupdate.xml
+                      codeToDebug.js
