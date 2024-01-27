@@ -27,6 +27,11 @@
     "easySetting-discoverMoreDelete": "「もっと見つける」が邪魔？消しちゃえ！",
     "easySetting-defaultTwitterColor": "Twitterの新しい色はにもう慣れた？それなら、今の色に合わせよう！",
 
+    "settingSection-general": "全般",
+    "settingSection-page": "ページ",
+    "settingSection-other": "その他",
+    "settingSection-extentionInfo": "アドオン情報",
+
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
     "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",

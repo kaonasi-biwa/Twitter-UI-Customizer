@@ -14,6 +14,19 @@
         <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
         <div>
             <settingsHeader titleI18N="settingUI-everythingSetting" level="2" />
+            <SectionTitle titleI18N="settingSection-general" style="margin-top: 25px" />
+        </div>
+        <hr class="TUIC_setting_divider" />
+        <div>
+            <SectionTitle titleI18N="settingSection-page" />
+        </div>
+        <hr class="TUIC_setting_dividern" />
+        <div>
+            <SectionTitle titleI18N="settingSection-other" />
+        </div>
+        <hr class="TUIC_setting_dividern" />
+        <div>
+            <SectionTitle titleI18N="settingSection-extentionInfo" />
         </div>
     </div>
 </template>
@@ -21,8 +34,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import TUICLOGO_GRAY from "@content/icons/branding/tuic_logo_gray.svg?component";
-import settingsHeader from "@shared/settings/modules/settingsHeader.vue";
+import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
+import SectionTitle from "./components/SectionTitle.vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
 export default defineComponent({
@@ -30,6 +44,7 @@ export default defineComponent({
         TUICLOGO_GRAY,
         settingsHeader,
         EasySettings,
+        SectionTitle,
     },
     setup() {
         return { TUICI18N, TUICPref };

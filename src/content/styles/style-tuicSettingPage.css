@@ -433,7 +433,7 @@ textarea#css_textarea,
 }
 
 .TUIC_settings_header_container {
-    padding: 0 30px;
+    padding: 0 35px;
     padding-top: 35px;
     display: flex;
     flex-direction: column;
@@ -495,4 +495,12 @@ textarea#css_textarea,
     color: rgb(244 34 45);
 
     --twitter-TUIC-color: rgb(244 34 45);
+}
+
+.TUIC_setting_section_title {
+    padding: 0 35px 10px;
+    color: rgb(113 118 124);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
 }
