@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
-import defineProps from "vue";
 
 type Props = {
     titleI18N: string;
