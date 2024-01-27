@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import optionMain from "./OptionMain.ce.vue";
+import optionMain from "../settings/SettingMain.ce.vue";
 import { createPinia } from "pinia";
 
 export const injectOptionMain = () => {

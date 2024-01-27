@@ -402,3 +402,97 @@ textarea#css_textarea,
     background-color: var(--TUIC-container-background);
     padding-top: 20px;
 }
+
+.TUIC_setting_divider {
+    border: none;
+    border-top: solid 1px var(--TUIC-detail-border);
+    margin: 20px 0;
+}
+
+.TUIC_setting_divider_nomargin {
+    margin: 0;
+}
+
+.TUIC_setting_divider_m35 {
+    margin: 35px 0;
+}
+
+.TUIC_setting_toplogo {
+    width: 150px;
+}
+
+.TUIC_setting_toplogo_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#TUIC_setting {
+    padding: 0;
+    font-family: Inter, Helvetica, Roboto, Arial, "Noto Sans", "Noto Sans JP", sans-serif;
+}
+
+.TUIC_settings_header_container {
+    padding: 0 30px;
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
+.TUIC_settings_header_title {
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+.TUIC_settings_header_desc {
+    margin: 0;
+    padding: 0;
+    color: #71767c;
+    font-size: 15px;
+}
+
+.TUIC_settings_header_title.TUIC_settings_header_lv2 {
+    font-size: 20px;
+}
+
+.TUIC_setting_easysetting_container {
+    margin-bottom: 35px;
+}
+
+.TUIC_setting_iconbutton_icon {
+    width: 24px;
+    margin: auto;
+}
+
+.TUIC_setting_iconbutton {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    font-size: 15px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    font-feature-settings: "palt";
+}
+
+.TUIC_setting_iconbutton:hover {
+    transition: none;
+    background: var(--TUIC-container-background);
+}
+
+.TUIC_setting_iconbutton:active {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
+}
+
+.TUIC_setting_easysetting_buttons_container {
+    margin-top: 15px;
+}
+
+.TUIC_setting_defaultprefbutton {
+    color: rgb(244 34 45);
+
+    --twitter-TUIC-color: rgb(244 34 45);
+}

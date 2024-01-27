@@ -85,6 +85,13 @@ export const TUICObserver = {
         if (location.pathname === "/settings/display" || location.pathname === "/i/display") {
             if (document.querySelector("#unsent-tweet-background") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
                 const displayRootElement = document.querySelector('[role="slider"]:not(article *)').closest<HTMLElement>(`:is([data-viewportview="true"],[aria-labelledby="detail-header"],main>div>div>div) > div+div`);
+                // displayRootElementについてるモーダル全体に適用された余白を削除
+                // すべてに余白がついていると端まで線を伸ばしたいときに不都合
+                displayRootElement.style.padding = "0";
+                displayRootElement.querySelectorAll(":scope > div:not(#TUICOptionEntry)").forEach((e) => {
+                    (e as HTMLElement).style.marginLeft = "32px";
+                    (e as HTMLElement).style.marginRight = "32px";
+                });
 
                 displaySetting(displayRootElement);
 
