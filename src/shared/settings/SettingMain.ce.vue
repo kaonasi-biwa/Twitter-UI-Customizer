@@ -15,41 +15,45 @@
         <div>
             <settingsHeader titleI18N="settingUI-everythingSetting" level="2" />
             <SectionTitle titleI18N="settingSection-general" style="margin-top: 25px" />
+            <detailsBox summaryI18N="settingDetailsBox-color" :icon="ICON_BRUSH" :icon-opened="ICON_BRUSH_ENABLED">
+                <span>色の設定をここに出したい</span>
+            </detailsBox>
+            <detailsBox summaryI18N="settingDetailsBox-sidebar" :icon="ICON_SIDEBAR" :icon-opened="ICON_SIDEBAR_ENABLED">
+                <span>サイドバーの設定をここに出したい</span>
+            </detailsBox>
+            <detailsBox summaryI18N="settingDetailsBox-effect_and_text" :icon="ICON_PENCIL" :icon-opened="ICON_PENCIL_ENABLED">
+                <span>画面効果とテキストの設定をここに出したい</span>
+            </detailsBox>
         </div>
         <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-page" />
         </div>
-        <hr class="TUIC_setting_dividern" />
+        <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-other" />
         </div>
-        <hr class="TUIC_setting_dividern" />
+        <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-extentionInfo" />
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import TUICLOGO_GRAY from "@content/icons/branding/tuic_logo_gray.svg?component";
+import ICON_BRUSH from "@content/icons/common/brush.svg?component";
+import ICON_BRUSH_ENABLED from "@content/icons/common/brush_enabled.svg?component";
+import ICON_SIDEBAR from "@content/icons/common/sidebar.svg?component";
+import ICON_SIDEBAR_ENABLED from "@content/icons/common/sidebar_enabled.svg?component";
+import ICON_PENCIL from "@content/icons/common/pencil.svg?component";
+import ICON_PENCIL_ENABLED from "@content/icons/common/pencil_enabled.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
+import detailsBox from "./components/detailsBox.vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
-export default defineComponent({
-    components: {
-        TUICLOGO_GRAY,
-        settingsHeader,
-        EasySettings,
-        SectionTitle,
-    },
-    setup() {
-        return { TUICI18N, TUICPref };
-    },
-});
 </script>
 <!-- 
 <style scoped>

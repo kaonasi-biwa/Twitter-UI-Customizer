@@ -32,6 +32,10 @@
     "settingSection-other": "その他",
     "settingSection-extentionInfo": "アドオン情報",
 
+    "settingDetailsBox-color": "色",
+    "settingDetailsBox-sidebar": "サイドバー",
+    "settingDetailsBox-effect_and_text": "画面効果とテキスト",
+
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
     "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",

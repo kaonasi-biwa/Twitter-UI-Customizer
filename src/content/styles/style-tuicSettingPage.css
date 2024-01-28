@@ -504,3 +504,42 @@ textarea#css_textarea,
     font-weight: 700;
     margin: 0;
 }
+
+.TUIC_setting_detailsbox_icon {
+    width: 24px;
+    margin: auto;
+}
+
+.TUIC_setting_detailsbox summary > div {
+    display: grid;
+    grid-template-columns: 90px 1fr 90px;
+    align-items: center;
+    font-size: 15px;
+    font-feature-settings: "palt";
+    height: 100%;
+}
+
+.TUIC_setting_detailsbox summary {
+    height: 50px;
+    list-style-type: none;
+}
+
+.TUIC_setting_detailsbox {
+    height: fit-content;
+    cursor: pointer;
+    transition: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.TUIC_setting_detailsbox summary:hover {
+    transition: none;
+    background: var(--TUIC-container-background);
+}
+
+.TUIC_setting_detailsbox summary:active {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
+}
+
+.TUIC_setting_detailsbox_content_container {
+    background-color: var(--TUIC-container-background);
+    padding: 20px 35px;
+}
