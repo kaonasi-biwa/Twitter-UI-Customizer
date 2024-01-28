@@ -68,7 +68,7 @@ export function showLinkCardInfo() {
 
             if (card.querySelector(".TUIC_LinkCardInfo") == null) {
                 card.children[1].hide();
-                card.parentElement.children[1].hide();
+                card.parentElement.children[1]?.hide();
                 card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div').hide();
 
                 const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;
