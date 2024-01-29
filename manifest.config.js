@@ -27,7 +27,7 @@ export default {
             128: "icon/newIcon_TUIC_C_Blue.svg",
         },
         web_accessible_resources: ["*"],
-        permissions: ["notifications", "storage", "https://api.github.com/*", "https://abs.twimg.com/*", "alarms"],
+        permissions: ["notifications", "storage", "https://api.github.com/*", "https://abs.twimg.com/*"],
         browser_action: {
             default_icon: {
                 16: "icon/newIcon_TUIC_C_Blue.svg",
@@ -65,7 +65,7 @@ export default {
                 matches: ["*://*.twitter.com/*"],
             },
         ],
-        permissions: ["notifications", "storage", "alarms"],
+        permissions: ["notifications", "storage"],
         action: {
             default_icon: {
                 16: "icon/newIcon_TUIC_C_Blue.png",
