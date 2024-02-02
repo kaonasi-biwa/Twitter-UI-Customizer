@@ -1,6 +1,6 @@
 <template>
     <div :class="['TUIC_setting_color_colmn', !isDefault ? 'TUIC_ISNOTDEFAULT' : '', `TUICColorBoxRoot`]" ref="colorRoot">
-        <h4 class="r-jwli3a r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 18px">
+        <h4 class="r-jwli3a r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text">
             {{ TUICI18N.get(text) }}
         </h4>
         <div class="TUIC_setting_input_container">

@@ -24,6 +24,7 @@
 .TUICButtonRest_innersvg__container {
     width: 30px;
     height: 30px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -43,10 +44,10 @@
 }
 
 .TUIC_setting_color_colmn > h4 {
-    margin-left: 10px !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    font-weight: normal !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+    font-size: 15px;
+    color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
 }
 
 .TUIC_setting_color_colmn > .TUIC_setting_input_container {
@@ -102,9 +103,13 @@
 
 /* 設定項目のタイトル */
 .TUIC_setting_title {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #71767b !important;
+    font-weight: 700;
+    font-size: 15px;
+    color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%) !important;
+    font-feature-settings: "palt";
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
 }
 
 /* 設定用項目のコンテナ */
@@ -115,11 +120,15 @@
 }
 
 .TUIC_col_setting_container_2 {
-    background: var(--TUIC-container-background2);
-    margin-top: 8px;
-    padding: 10px 14px;
-    border-radius: 14px;
-    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#TUICColorSettingsDivBox {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 /* 表示非表示のセレクトボックス */
@@ -188,7 +197,7 @@
 }
 
 .TUIC_icon_button_con:active {
-    transform: scale(0.9);
+    border-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
 }
 
 .TUIC_setting_button {
@@ -309,17 +318,14 @@ textarea#css_textarea,
 
 .TUICSettingRadioTypeBigButton {
     flex: 1 1;
-    padding-right: 5px;
-    padding-left: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
     height: 50px;
-    border-radius: 5px !important;
+    border-radius: 10px !important;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 3px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
 }
 
 .TUICSettingRadioTypeBigButton > span > span {
@@ -350,37 +356,25 @@ textarea#css_textarea,
 }
 
 .TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton {
-    border: 2px solid rgb(29 155 240);
+    border: 3px solid #1da1f2 !important;
 }
 
 .TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton {
-    border: 2px solid rgb(127 127 127);
+    border: 3px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%) !important;
+    font-weight: 400;
 }
 
-.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton > span::before {
-    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g><path fill='%23FFFFFF' d='M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z'></path></g></svg>");
-    background-color: rgb(29 155 240);
-    height: 1em;
-    width: 1em;
-}
-
-.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton > span::before {
-    border: 2px solid rgb(127 127 127 / 50%);
-}
-
-.TUICSettingRadioTypeBigButton > span::before {
-    margin-right: 10px;
+.TUIC_resetOnly_colorSettings {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
+    color: var(--TUIC-container-background);
+    width: 100%;
+    height: 40px;
+    border: none;
     border-radius: 9999px;
-    background-size: 16px 16px;
-    background-position: center;
-    width: 1em;
-    height: 1em;
-    box-sizing: border-box;
-    display: inline-block;
-    content: " ";
-    transform: translateY(-50%);
-    position: relative;
-    top: 50%;
+}
+
+.TUIC_resetOnly_colorSettings:active {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 30%);
 }
 
 .TUICSettingSubTitle {
@@ -424,6 +418,7 @@ textarea#css_textarea,
 #TUICSelectedColorType {
     display: flex;
     position: sticky;
+    gap: 10px;
     top: 0;
     z-index: 9999;
     background-color: var(--TUIC-container-background);
@@ -466,7 +461,8 @@ textarea#css_textarea,
         Helvetica,
         Roboto,
         "Segoe UI",
-        "Noto Sans" "Noto Sans JP",
+        "Noto Sans",
+        "Noto Sans JP",
         Meiryo,
         system-ui,
         sans-serif !important;
@@ -591,5 +587,7 @@ textarea#css_textarea,
 
 .TUIC_setting_detailsbox_content_container {
     background-color: var(--TUIC-container-background);
+}
+.TUIC_setting_detailsbox_content_container > :not(hr) {
     padding: 20px 35px;
 }
