@@ -7,14 +7,22 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+const colorPicker = ref(null);
+
 defineProps<{
     inputId: string;
     inputColorValue: string;
 }>();
 const emit = defineEmits<{ (e: "valueChanged", value: unknown): void }>();
+defineExpose({ setInputValue });
 
 const onValueChanged = ($event: Event) => {
     console.log("called onValueChanged");
     emit("valueChanged", ($event.currentTarget as HTMLInputElement).value);
 };
+
+function setInputValue(value: string) {
+    colorPicker.value.value = value;
+}
 </script>

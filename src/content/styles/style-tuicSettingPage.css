@@ -9,16 +9,30 @@
 }
 
 .TUICDefaultColor {
-    margin: 2px 0 2px auto !important;
-    width: fit-content;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-color: #71767b !important;
+}
+.TUICButtonRest_innersvg__container svg {
+    width: 22px;
+    height: 22px;
+    opacity: 1;
+}
+.TUICButtonRest_innersvg__container {
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 .TUIC_ISNOTDEFAULT:not(:last-of-type) {
-    margin-bottom: calc(12px + 1em);
+    /* margin-bottom: calc(12px + 1em); */
 }
-.TUIC_ISNOTDEFAULT + .TUICDefaultColor {
-    display: none;
+.TUIC_ISNOTDEFAULT .TUICDefaultColor .TUICButtonRest_innersvg__container svg {
+    opacity: 0.6;
 }
 
 /* 色選択 */
@@ -33,6 +47,11 @@
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     font-weight: normal !important;
+}
+
+.TUIC_setting_color_colmn > .TUIC_setting_input_container {
+    display: flex;
+    gap: 10px;
 }
 
 /* 無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく） */
@@ -65,7 +84,6 @@
     align-items: center;
     border-radius: 50%;
     transition: none;
-    margin-right: 5px !important;
 }
 
 .TUIC_input_color_rounded__container:hover {
@@ -178,14 +196,13 @@
     /* border-color: var(--twitter-TUIC-color); */
     border-color: #71767b !important;
     border-radius: 9999px;
-    transition: 0.3s;
+    transition: none;
     cursor: pointer;
-    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%);
     /* color: #71767b !important; */
 }
 
 .TUIC_setting_button:hover {
-    background: var(--TUIC-container-background);
+    /* background: var(--TUIC-container-background); */
 }
 
 .TUIC_setting_button_width {
@@ -268,12 +285,11 @@ textarea#css_textarea,
 .TUICButtonColorCheck {
     border-radius: 50%;
     border: solid 3px color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
-    margin-right: 0.2em;
-    margin-left: 0.5em;
     padding: 0;
     overflow: hidden;
     object-fit: cover;
     display: flex;
+    cursor: pointer;
 }
 
 .TUICButtonColorCheck_innersvg__container {
@@ -440,6 +456,9 @@ textarea#css_textarea,
 }
 #TUIC_setting {
     padding: 0;
+}
+
+#TUIC_setting * {
     font-family:
         Inter,
         -apple-system,

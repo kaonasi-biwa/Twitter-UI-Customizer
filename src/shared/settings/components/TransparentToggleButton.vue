@@ -8,13 +8,16 @@
 
 <script setup lang="ts">
 import ICON_TRANSPARENT from "@content/icons/common/transparent.svg?component";
+import { ref } from "vue";
 
+const transparentButton = ref(null);
 defineProps<{
     btnId: string;
     isChecked: boolean;
     titleString: string;
 }>();
 const emit = defineEmits<{ (e: "btnClicked", value: boolean): void }>();
+defineExpose({ setCheckedValue });
 
 const btnClicked = ($event: Event) => {
     // チェックを反転させて
@@ -22,4 +25,8 @@ const btnClicked = ($event: Event) => {
     // 親コンポーネントに処理を移す
     emit("btnClicked", ($event.currentTarget as HTMLButtonElement).dataset.checked === "true");
 };
+
+function setCheckedValue(value: boolean) {
+    transparentButton.value.dataset.checked = value;
+}
 </script>
