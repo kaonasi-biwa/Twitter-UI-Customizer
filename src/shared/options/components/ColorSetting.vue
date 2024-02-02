@@ -8,15 +8,9 @@
                 <label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
             </template>
             <template v-else>
-                <!-- <div class="TUIC_input_color_rounded__container">
-                    <div class="TUIC_input_color_rounded">
-                        <input type="color" :id="`${id}-${type}`" class="TUICButtonColor" @change="changeColor(id, type, store.editingColorType)" :value="TUICColor1" ref="colorPicker" />
-                    </div>
-                </div> -->
                 <RoundedColorPicker :input-id="`${id}-${type}`" :input-color-value="TUICColor1" @valueChanged="colorChanged" />
-                <button :id="`${id}-${type}-check`" class="TUICButtonColorCheck" @click="changeColorCheck(id, type, store.editingColorType)" :data-checked="TUIC_color[3] == '0'" ref="transparentButton"></button>
-                <label :for="`${id}-${type}-check`" class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 15px">{{ TUICI18N.get("settingUI-colorPicker-transparent") }}</label
-                ><br />
+                <TransparentToggleButton :btn-id="`${id}-${type}`" :is-checked="TUIC_color[3] == '0'" @btn-clicked="TransparentToggleButtonClicked" :title-string="TUICI18N.get(`settingUI-colorPicker-transparent`)" />
+                <br />
             </template>
         </div>
     </div>
@@ -32,6 +26,7 @@ import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
 
 import RoundedColorPicker from "@shared/settings/components/RoundedColorPicker.vue";
+import TransparentToggleButton from "@shared/settings/components/TransparentToggleButton.vue";
 import RESET from "@content/icons/arrow/reset.svg?component";
 import { TUICPref } from "@content/modules";
 import { applySystemCss } from "@content/applyCSS";
@@ -50,8 +45,10 @@ const props = defineProps<{
 const store = useStore();
 
 function colorChanged(value) {
-    console.log("called colorChanged! parent comp");
     changeColor(props.id, props.type, store.editingColorType, value);
+}
+function TransparentToggleButtonClicked(value) {
+    changeColorCheck(props.id, props.type, store.editingColorType, value);
 }
 
 // Prefにデータが保持されているか確認して、あるならデフォルトじゃない
@@ -102,19 +99,11 @@ function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
 
     applySystemCss();
 }
-function changeColorCheck(colorAttr, colorType, colorKind) {
-    const colorPicker = this.$refs.colorPicker;
-    const transparentButton = this.$refs.transparentButton;
-    const colorRoot = this.$refs.colorRoot;
-
-    transparentButton.dataset.checked = transparentButton.dataset.checked !== "true";
-
-    const colorValue = TUICLibrary.color.hex2rgb(colorPicker.value);
-    const isChecked = transparentButton.dataset.checked === "true";
+function changeColorCheck(colorAttr, colorType, colorKind, isChecked) {
+    const colorValue = TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
 
     TUICPref.setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
-
-    colorRoot.classList.remove("TUIC_ISNOTDEFAULT");
+    colorRoot.value.classList.remove("TUIC_ISNOTDEFAULT");
 
     TUICPref.save();
 
