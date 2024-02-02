@@ -16,7 +16,7 @@
             <settingsHeader titleI18N="settingUI-everythingSetting" level="2" />
             <SectionTitle titleI18N="settingSection-general" style="margin-top: 25px" />
             <detailsBox summaryI18N="settingDetailsBox-color" :icon="ICON_BRUSH" :icon-opened="ICON_BRUSH_ENABLED">
-                <span>色の設定をここに出したい</span>
+                <settingColors />
             </detailsBox>
             <detailsBox summaryI18N="settingDetailsBox-sidebar" :icon="ICON_SIDEBAR" :icon-opened="ICON_SIDEBAR_ENABLED">
                 <span>サイドバーの設定をここに出したい</span>
@@ -52,6 +52,7 @@ import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
 import detailsBox from "./components/detailsBox.vue";
+import settingColors from "@shared/options/modules/settingColors.vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
 </script>

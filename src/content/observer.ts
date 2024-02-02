@@ -88,10 +88,13 @@ export const TUICObserver = {
                 // displayRootElementについてるモーダル全体に適用された余白を削除
                 // すべてに余白がついていると端まで線を伸ばしたいときに不都合
                 displayRootElement.style.padding = "0";
-                displayRootElement.querySelectorAll(":scope > div:not(#TUICOptionEntry)").forEach((e) => {
-                    (e as HTMLElement).style.marginLeft = "32px";
-                    (e as HTMLElement).style.marginRight = "32px";
-                });
+
+                if (window.location.pathname != "/settings/display") {
+                    displayRootElement.querySelectorAll(":scope > div:not(#TUICOptionEntry)").forEach((e) => {
+                        (e as HTMLElement).style.marginLeft = "32px";
+                        (e as HTMLElement).style.marginRight = "32px";
+                    });
+                }
 
                 displaySetting(displayRootElement);
 

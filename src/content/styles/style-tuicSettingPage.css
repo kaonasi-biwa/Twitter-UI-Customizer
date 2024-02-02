@@ -49,17 +49,17 @@
 /* type=colorなinputタグを無理やり丸くするためのマスク */
 .TUIC_input_color_rounded {
     border-radius: 50%;
-    width: 23px;
-    height: 23px;
+    width: 30px;
+    height: 30px;
     overflow: hidden;
 }
 
 /* ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ */
 .TUIC_input_color_rounded__container {
     background-color: rgb(127 127 127 / 50%);
-    padding: 4px;
-    width: 23px;
-    height: 23px;
+    border: solid 3px #303438;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -521,12 +521,21 @@ textarea#css_textarea,
 
 .TUIC_setting_detailsbox summary {
     height: 50px;
+    cursor: pointer;
     list-style-type: none;
+}
+.TUIC_RoundedColorPicker_input {
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transform: translate(-25%, -25%);
+    width: 200%;
+    height: 200%;
 }
 
 .TUIC_setting_detailsbox {
     height: fit-content;
-    cursor: pointer;
     transition: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
