@@ -1,11 +1,24 @@
+import { applySystemCss } from "@content/applyCSS";
 import { TUICData } from "@content/data";
 import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { TUICPref } from "@content/modules";
 import { ProcessedClass } from "@shared/sharedData";
 
+let fontSize1: string = "";
+let fontSize2: boolean | null = null;
+
 export function updateStyles() {
     sidebarButtons();
     likeToFavo();
+
+    //* apply CSS
+    if (document.querySelector("html").style.fontSize.toString() != fontSize1 || document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") !== fontSize2) {
+        applySystemCss();
+        fontSize1 = document.querySelector("html").style.fontSize.toString();
+        fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
+    }
+
+    if (document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd");
 }
 
 function sidebarButtons() {

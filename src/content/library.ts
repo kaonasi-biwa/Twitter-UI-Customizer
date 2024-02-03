@@ -30,7 +30,7 @@ export const TUICLibrary = {
             TUICObserver.observer.disconnect();
             TUICLibrary.getClasses.deleteClasses();
             applySystemCss();
-            TUICObserver.observerFunction(null);
+            TUICObserver.observerFunction();
         },
         deleteClasses: () => {
             for (const id of TUICLibrary.getClasses.idList) {

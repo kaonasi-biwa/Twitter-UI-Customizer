@@ -11,6 +11,7 @@ import { isSafemode, runSafemode } from "./safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
 import { TUICPref } from "./modules/index.ts";
 import { initIconObserverFunction } from "./modules/observer/functions/changeIcon.ts";
+import { titleObserverFunction } from "./modules/observer/titleOBserver.ts";
 
 (async () => {
     await TUICI18N.fetch();
@@ -37,8 +38,7 @@ import { initIconObserverFunction } from "./modules/observer/functions/changeIco
     }
     TUICLibrary.getClasses.deleteClasses();
     await TUICLibrary.waitForElement("title");
-    TUICObserver.titleObserverFunction();
-
+    titleObserverFunction();
     chrome.runtime.sendMessage({
         type: "update",
         updateType: "openTwitter",
@@ -47,7 +47,7 @@ import { initIconObserverFunction } from "./modules/observer/functions/changeIco
     startTluiObserver();
 
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-    TUICObserver.observerFunction(null);
+    TUICObserver.observerFunction();
 
     const bodyAttributeObserver = new MutationObserver(applySystemCss);
     bodyAttributeObserver.observe(document.querySelector("body"), {

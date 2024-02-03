@@ -11,6 +11,7 @@ import { profileInitialTab } from "./functions/initProfileTab";
 import { hideElements } from "./functions/hideElements";
 import { updateStyles } from "./functions/updateStyles";
 import { hideOsusumeTweets } from "./functions/hideOsusumeTweets";
+import { changeIcon } from "./functions/changeIcon";
 
 function showLinkCardInfo() {
     if (TUICPref.getPref("otherBoolSetting.showLinkCardInfo")) {
@@ -275,4 +276,4 @@ async function tweetMoreMenuContent() {
         document.querySelector<HTMLDivElement>(`[role="menu"]`).style.transform = `translateY(${menuTopPx}px)`;
     }
 }
-export { showLinkCardInfo, buttonUnderTweet, hideOsusumeTweets, replacePost, hideElements, profileInitialTab, tweetMoreMenuContent, updateStyles, sidebarButtons, dmPage, fixTwittersBugs };
+export { showLinkCardInfo, buttonUnderTweet, hideOsusumeTweets, replacePost, hideElements, profileInitialTab, tweetMoreMenuContent, updateStyles, sidebarButtons, dmPage, fixTwittersBugs, changeIcon };
