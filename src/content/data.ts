@@ -1001,7 +1001,7 @@ export const TUICData = {
             },
             settings: (e) => {
                 e?.preventDefault?.();
-                if (!location.pathname.includes("/settings/")) {
+                if (!location.pathname.includes("/settings") || location.pathname.includes("/settings/display")) {
                     const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                     if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                     setTimeout(async () => {
@@ -1020,7 +1020,7 @@ export const TUICData = {
             display: ["/i/display", "/settings/display"],
             muteAndBlock: "/settings/mute_and_block",
             bookmarks: "/i/bookmarks",
-            settings: "/settings",
+            settings: ["/settings", "/settings/"],
         },
         tuicButtonGoToUrl: {
             __setURL: (id, selector, setURLWay: (arg0: HTMLElement) => string) => {

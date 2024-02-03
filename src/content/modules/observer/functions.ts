@@ -221,7 +221,7 @@ export function buttonUnderTweet() {
                             }
                             if (div) {
                                 if (bar_item["reply-button"].querySelector(`[data-testid="app-text-transition-container"]`) && div.querySelector(`[data-testid="app-text-transition-container"]`) == null) {
-                                    div.querySelector("svg").closest(`[role="button"] > div`).appendChild(TUICData.visibleButtons.emptyElement());
+                                    div.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`).appendChild(TUICData.visibleButtons.emptyElement());
                                 }
                                 div.classList.remove("r-1rq6c10");
                                 div.classList.remove("r-1b7u577");
