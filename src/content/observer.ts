@@ -3,7 +3,7 @@ import { TUICI18N } from "./i18n.ts";
 
 import { applySystemCss } from "./applyCSS.ts";
 
-import { buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePost, invisibleItems, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs } from "./modules/observer/functions.ts";
+import { buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs } from "./modules/observer/functions.ts";
 import { TUICPref } from "./modules/index.ts";
 
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
@@ -49,7 +49,8 @@ export const TUICObserver = {
             // ポストをツイートに修正
             replacePost();
 
-            invisibleItems();
+            // 要素を非表示に
+            hideElements();
 
             updateStyles();
 
