@@ -3,7 +3,7 @@ import { TUICI18N } from "./i18n.ts";
 
 import { applySystemCss } from "./applyCSS.ts";
 
-import { buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs } from "./modules/observer/functions.ts";
+import { buttonUnderTweet, showLinkCardInfo, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs } from "./modules/observer/functions.ts";
 import { TUICPref } from "./modules/index.ts";
 
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
@@ -41,7 +41,8 @@ export const TUICObserver = {
 
             showLinkCardInfo();
 
-            osusumeUser();
+            // おすすめユーザーを非表示 (かなり処理が特殊なので他の非表示から分離)
+            hideOsusumeTweets();
 
             // DMに関する設定
             dmPage();
@@ -52,6 +53,7 @@ export const TUICObserver = {
             // 要素を非表示に
             hideElements();
 
+            // 様々な要素のCSSを適切なものに変更
             updateStyles();
 
             // プロフィールページの初期タブの設定

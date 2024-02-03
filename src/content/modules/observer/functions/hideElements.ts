@@ -12,6 +12,7 @@ export function hideElements() {
 
     rightSidebar();
     profile();
+    osusumeUser();
 
     if (TUICPref.getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
@@ -97,6 +98,28 @@ function profile() {
                 }
             }
             document.querySelector(`nav [data-testid="ScrollSnap-prevButtonWrapper"]:not(.TUIC_DISPNONE_PARENT > *)`)?.parentElement.classList.add("TUIC_DISPNONE_PARENT");
+        }
+    }
+}
+
+function osusumeUser() {
+    if (TUICPref.getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
+        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
+        for (const elem of cells) {
+            if (
+                elem.querySelector(`[data-testid="UserCell"]`) != null &&
+                elem.previousElementSibling != null &&
+                elem.querySelector(`[aria-live="polite"]`) == null &&
+                (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)
+            ) {
+                elem.hide();
+                if (elem.previousElementSibling.querySelector(`h2`) != null) {
+                    elem.previousElementSibling.hide();
+                }
+            }
+            if (elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`) && elem.querySelector(`[aria-live="polite"]`) == null) {
+                elem.hide();
+            }
         }
     }
 }

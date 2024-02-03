@@ -90,11 +90,11 @@
     display: none !important;
 }
 
-[TUICDiscoberMore] {
+[TUICDiscoverMore] {
     padding-left: 20px;
 }
 
-[TUICDiscoberMore="false"]::before {
+[TUICDiscoverMore="false"]::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -107,7 +107,7 @@
     /* 好みで色を変えてください */
 }
 
-[TUICDiscoberMore="true"]::before {
+[TUICDiscoverMore="true"]::before {
     content: "";
     position: absolute;
     top: 50%;

@@ -1,7 +1,6 @@
 import { TUICObserver } from "@content/observer";
 import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
-import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { TUICPref } from "..";
 
 import { sidebarButtons } from "./functions/sidebarBtn";
@@ -10,6 +9,8 @@ import { replacePost } from "./functions/replacePostWithTweet";
 import { fixTwittersBugs } from "./functions/fixTwittersBugs";
 import { profileInitialTab } from "./functions/initProfileTab";
 import { hideElements } from "./functions/hideElements";
+import { updateStyles } from "./functions/updateStyles";
+import { hideOsusumeTweets } from "./functions/hideOsusumeTweets";
 
 function showLinkCardInfo() {
     if (TUICPref.getPref("otherBoolSetting.showLinkCardInfo")) {
@@ -247,98 +248,6 @@ function buttonUnderTweet() {
     }
 }
 
-function osusumeUser() {
-    if (TUICPref.getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
-        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
-        for (const elem of cells) {
-            if (
-                elem.querySelector(`[data-testid="UserCell"]`) != null &&
-                elem.previousElementSibling != null &&
-                elem.querySelector(`[aria-live="polite"]`) == null &&
-                (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)
-            ) {
-                elem.hide();
-                if (elem.previousElementSibling.querySelector(`h2`) != null) {
-                    elem.previousElementSibling.hide();
-                }
-            }
-            if (elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`) && elem.querySelector(`[aria-live="polite"]`) == null) {
-                elem.hide();
-            }
-        }
-    }
-    if (window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`[data-testid="primaryColumn"]`) != null) {
-        let cells = document.querySelectorAll<HTMLDivElement>(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.TUIC_DISCOVERHEADER)`);
-        for (const elem of cells) {
-            if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
-                elem.classList.add("TUIC_DISCOVERHEADER");
-                if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_invisible") {
-                    elem.hide();
-                    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
-                    if (elem.getAttribute("TUICDiscoberMore") != null) {
-                        elem.removeAttribute("TUICDiscoberMore");
-                    }
-                } else if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_detailOpen") {
-                    elem.setAttribute("TUICDiscoberMore", "true");
-                    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
-                    elem.onclick = (event) => {
-                        const nowType = elem.getAttribute("TUICDiscoberMore");
-                        elem.setAttribute("TUICDiscoberMore", nowType == "true" ? "false" : "true");
-                        elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", nowType == "true" ? "none" : "");
-                        event.stopPropagation();
-                        event.stopImmediatePropagation();
-                    };
-                } else if (TUICPref.getPref("timeline-discoverMore") === "discoverMore_detailClose") {
-                    elem.setAttribute("TUICDiscoberMore", "false");
-                    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
-                    elem.onclick = (event) => {
-                        const nowType = elem.getAttribute("TUICDiscoberMore");
-                        elem.setAttribute("TUICDiscoberMore", nowType == "true" ? "false" : "true");
-                        elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", nowType == "true" ? "none" : "");
-                        event.stopPropagation();
-                        event.stopImmediatePropagation();
-                    };
-                } else {
-                    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
-                    if (elem.getAttribute("TUICDiscoberMore") != null) {
-                        elem.removeAttribute("TUICDiscoberMore");
-                    }
-                }
-            }
-        }
-        cells = document.querySelectorAll(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"])`);
-        for (const elem of cells) {
-            if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
-                let elem2 = elem.nextElementSibling;
-                while (elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0) {
-                    elem2.classList.add("TUIC_DISCOVERMORE");
-                    elem2 = elem2.nextElementSibling;
-                }
-            }
-        }
-    }
-}
-
-async function moreMenuContent() {
-    await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
-    let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
-    const upPx = {
-        menu: TUICLibrary.fontSizeClass(46, 49, 52, 58, 62),
-        menuitem: TUICLibrary.fontSizeClass(50, 53, 56, 62, 67),
-        separator: 5,
-    };
-    for (const pref of TUICData["sidebarSetting.moreMenuItems"].all) {
-        if (TUICPref.getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
-            const elem = document.querySelector(TUICData["sidebarSetting.moreMenuItems"].selectors[pref]);
-            if (elem) {
-                elem.parentElement.hide();
-                menuTopPx += upPx[TUICData["sidebarSetting.moreMenuItems"].type[pref]];
-            }
-        }
-    }
-    document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top = menuTopPx + "px";
-}
-
 async function tweetMoreMenuContent() {
     await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
 
@@ -366,55 +275,4 @@ async function tweetMoreMenuContent() {
         document.querySelector<HTMLDivElement>(`[role="menu"]`).style.transform = `translateY(${menuTopPx}px)`;
     }
 }
-
-function updateStyles() {
-    for (const i of document.querySelectorAll(".TUICSidebarButton")) {
-        const itemId = i.id.replace("TUICSidebar_", "");
-        let locationBool = false;
-        const includesCheck = (buttonUrl: string) => {
-            if (buttonUrl.endsWith("/")) {
-                locationBool = location.pathname.includes(buttonUrl) ? true : locationBool;
-            } else {
-                locationBool = location.pathname.endsWith(buttonUrl) ? true : locationBool;
-            }
-        };
-        if (typeof TUICData.sidebarButtons.tuicButtonUrl[itemId] == "object") {
-            for (const elem of TUICData.sidebarButtons.tuicButtonUrl[itemId]) includesCheck(elem);
-        } else {
-            includesCheck(TUICData.sidebarButtons.tuicButtonUrl[itemId]);
-        }
-        const svg_path = i.querySelector("svg path");
-        if (locationBool && !i.classList.value.includes("TUICSidebarSelected")) {
-            svg_path.setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].selected);
-            i.classList.add("TUICSidebarSelected");
-        } else if (!locationBool && i.classList.value.includes("TUICSidebarSelected")) {
-            svg_path.setAttribute("d", SIDEBAR_BUTTON_ICON[itemId].unselected);
-            i.classList.remove("TUICSidebarSelected");
-        }
-        if (document.querySelector(TUICData.sidebarButtons.selectors.moremenu) != null) i.querySelector<HTMLElement>("[dir]").style.display = document.querySelector(TUICData.sidebarButtons.selectors.moremenu).children[0].childNodes.length == 2 ? "" : "none";
-    }
-    {
-        const elem = document.querySelector(`.gt2-nav [data-testid="AppTabBar_Home_Link"]`) ?? document.querySelector("[role=banner] > div > div > div > div > div > nav " + TUICData.sidebarButtons.selectors.home);
-        if (elem) {
-            const isHome = location.href === "https://twitter.com/home";
-            const SVGElem = elem.querySelector("svg path");
-            SVGElem.setAttribute("d", HOME_ICON[TUICPref.getPref("sidebarSetting.homeIcon")][isHome ? "selected" : "unselected"]);
-        }
-    }
-    {
-        if (TUICPref.getPref("tweetDisplaySetting.likeToFavo")) {
-            for (const elem of document.querySelectorAll(TUICData.visibleButtons.selectors["like-button"] + " svg:not(.TUICUpdateFavo)")) {
-                const selected = elem.closest(TUICData.visibleButtons.selectors["like-button"]).getAttribute("data-testid") == "unlike" ? "selected" : "unselected";
-                elem.querySelector("path").setAttribute("d", FAVORITE_ICON.favorite[selected]);
-                elem
-                    .hasClosest(TUICData.visibleButtons.selectors["retweet-button"])
-                    .querySelector(TUICData.visibleButtons.selectors.likeAndRT + " path")
-                    ?.setAttribute("d", FAVORITE_ICON.favoriteRT.unselected);
-
-                elem.classList.add("TUICUpdateFavo");
-            }
-        }
-    }
-}
-
-export { showLinkCardInfo, buttonUnderTweet, osusumeUser, replacePost, hideElements, profileInitialTab, moreMenuContent, tweetMoreMenuContent, updateStyles, sidebarButtons, dmPage, fixTwittersBugs };
+export { showLinkCardInfo, buttonUnderTweet, hideOsusumeTweets, replacePost, hideElements, profileInitialTab, tweetMoreMenuContent, updateStyles, sidebarButtons, dmPage, fixTwittersBugs };
