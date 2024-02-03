@@ -3,14 +3,15 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "./observer.ts";
+import { TUICObserver } from "@content/modules/observer/index.ts";
 import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
 import { isSafemode, runSafemode } from "./safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
-import { twitterIcon } from "./modules/observer/functions.ts";
 import { TUICPref } from "./modules/index.ts";
+import { initIconObserverFunction } from "./modules/observer/functions/changeIcon.ts";
+import { titleObserverFunction } from "./modules/observer/titleObserver.ts";
 
 (async () => {
     await TUICI18N.fetch();
@@ -33,12 +34,11 @@ import { TUICPref } from "./modules/index.ts";
     applyDataCss();
     applyCustomIcon();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.initIconObserverFunction();
+        initIconObserverFunction();
     }
     TUICLibrary.getClasses.deleteClasses();
     await TUICLibrary.waitForElement("title");
-    TUICObserver.titleObserverFunction();
-
+    titleObserverFunction();
     chrome.runtime.sendMessage({
         type: "update",
         updateType: "openTwitter",
@@ -47,7 +47,7 @@ import { TUICPref } from "./modules/index.ts";
     startTluiObserver();
 
     (TUICObserver.target = document.querySelector("body")), TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
-    TUICObserver.observerFunction(null);
+    TUICObserver.observerFunction();
 
     const bodyAttributeObserver = new MutationObserver(applySystemCss);
     bodyAttributeObserver.observe(document.querySelector("body"), {

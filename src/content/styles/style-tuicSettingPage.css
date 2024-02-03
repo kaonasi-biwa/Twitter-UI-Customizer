@@ -212,10 +212,6 @@
     display: none;
 }
 
-.TUIC_DISPNONE {
-    display: none !important;
-}
-
 #TUIC_invisible,
 #TUIC_visible {
     background: transparent;

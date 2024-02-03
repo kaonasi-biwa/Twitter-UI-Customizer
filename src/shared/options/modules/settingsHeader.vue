@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
+import { TUICObserver } from "@content/modules/observer/index.ts";
 import { isSafemode } from "@content/safemode";
 import { TUICData } from "@content/data";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
@@ -98,3 +98,4 @@ const clickEv = (index) => {
 </script>
 
 <style scoped></style>
+@content/modules/observer/observer

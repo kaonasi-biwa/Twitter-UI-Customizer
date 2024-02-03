@@ -7,7 +7,7 @@
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-import { TUICObserver } from "@content/observer";
+import { TUICObserver } from "@content/modules/observer/index.ts";
 import { isSafemode } from "@content/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
@@ -50,3 +50,4 @@ const setDefault = async () => {
         .open();
 };
 </script>
+@content/modules/observer/observer

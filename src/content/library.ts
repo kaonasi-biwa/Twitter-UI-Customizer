@@ -1,7 +1,8 @@
+import { ProcessedClass } from "@shared/sharedData.ts";
 import { applySystemCss } from "./applyCSS.ts";
 import { TUICData } from "./data.ts";
 import { TUICPref } from "./modules/index.ts";
-import { TUICObserver } from "./observer.ts";
+import { TUICObserver } from "./modules/observer/index.ts";
 
 export const TUICLibrary = {
     color: {
@@ -29,7 +30,7 @@ export const TUICLibrary = {
             TUICObserver.observer.disconnect();
             TUICLibrary.getClasses.deleteClasses();
             applySystemCss();
-            TUICObserver.observerFunction(null);
+            TUICObserver.observerFunction();
         },
         deleteClasses: () => {
             for (const id of TUICLibrary.getClasses.idList) {
@@ -48,7 +49,6 @@ export const TUICLibrary = {
             "TUIC_SVGDISPNONE",
             "TUIC_NOTSVGDISPNONE",
             "TUIC_DISCOVERMORE",
-            "TUIC_DISCOVERHEADER",
             "TUIC_ISNOTDEFAULT",
             "TUIC_NONE_SPACE_BOTTOM_TWEET",
             "TUIC_TWEETREPLACE",
@@ -64,8 +64,7 @@ export const TUICLibrary = {
             "TUICTwitterIcon_IconImg",
             "TUICScrollBottom",
             "TUICDMIcon",
-            "TUICHandledEvent",
-            "TUICUpdateFavo",
+            ProcessedClass,
         ],
     },
     getPrimitiveOrFunction: (functionOrPrimitive) => {
@@ -163,6 +162,9 @@ export const TUICLibrary = {
     showElement: (elem: Element) => {
         elem.classList.remove("TUIC_DISPNONE");
     },
+    processElement: (elem: Element) => {
+        elem.classList.add(ProcessedClass);
+    },
 };
 
 declare global {
@@ -193,6 +195,10 @@ declare global {
          * Element.hide()で非表示にした要素を再び表示するElementのメソッドです。
          */
         show(): void;
+        /**
+         * 要素を処理済みとマークするElementのメソッドです
+         */
+        process(): void;
     }
 }
 
@@ -210,4 +216,8 @@ Element.prototype.hide = function (): void {
 
 Element.prototype.show = function (): void {
     TUICLibrary.showElement(this);
+};
+
+Element.prototype.process = function (): void {
+    TUICLibrary.processElement(this);
 };

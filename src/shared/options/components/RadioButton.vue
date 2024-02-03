@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
+import { TUICObserver } from "@content/modules/observer/index.ts";
 import { TUICPref } from "@content/modules";
 
 const props = defineProps<{ id: string; valueName: string; name: string }>();
@@ -22,3 +22,4 @@ const changePref = (path, valueName) => {
     TUICObserver.observerFunction(null);
 };
 </script>
+@content/modules/observer/observer
