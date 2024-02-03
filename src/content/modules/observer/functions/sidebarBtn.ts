@@ -7,32 +7,30 @@ let sidebarButtonsCount = -1;
 export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not(.NOT_TUIC_DISPNONE)`).length)
-            if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`)) {
-                sidebarButtonProcess(bannerRoot);
-            } else {
-                let changeElem = false;
-                for (const selector of TUICPref.getPref("sidebarButtons")) {
-                    const elems = bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]);
-                    if (elems.length > 1) {
-                        const elems = [...bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector])];
-                        for (const elem of elems) {
-                            if (elem.id.includes("TUIC")) {
-                                elem.remove();
-                            }
+        if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`)) {
+            sidebarButtonProcess(bannerRoot);
+        } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not(.NOT_TUIC_DISPNONE)`).length) {
+            let changeElem = false;
+            for (const selector of TUICPref.getPref("sidebarButtons")) {
+                const elems = bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector]);
+                if (elems.length > 1) {
+                    const elems = [...bannerRoot.querySelectorAll(TUICData.sidebarButtons.selectors[selector])];
+                    for (const elem of elems) {
+                        if (elem.id.includes("TUIC")) {
+                            elem.remove();
                         }
-                        changeElem = true;
-                    } else if (elems.length == 0 && selector in TUICData.sidebarButtons.html) {
-                        changeElem = true;
                     }
+                    changeElem = true;
+                } else if (elems.length == 0 && selector in TUICData.sidebarButtons.html) {
+                    changeElem = true;
                 }
-                if (changeElem) sidebarButtonProcess(bannerRoot);
             }
+            if (changeElem) sidebarButtonProcess(bannerRoot);
+        }
     }
 }
 
 export function sidebarButtonProcess(bannerRoot: HTMLElement) {
-    const windowPath = window.location.pathname;
     if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
         sidebarButtonsCount = 0;
         for (const i of TUICPref.getPref("sidebarButtons")) {
