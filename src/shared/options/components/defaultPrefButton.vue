@@ -50,3 +50,4 @@ const setDefault = async () => {
         .open();
 };
 </script>
+@content/modules/observer/observer

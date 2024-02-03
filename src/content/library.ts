@@ -2,7 +2,7 @@ import { ProcessedClass } from "@shared/sharedData.ts";
 import { applySystemCss } from "./applyCSS.ts";
 import { TUICData } from "./data.ts";
 import { TUICPref } from "./modules/index.ts";
-import { TUICObserver } from "./observer.ts";
+import { TUICObserver } from "./modules/observer/index.ts";
 
 export const TUICLibrary = {
     color: {

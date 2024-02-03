@@ -1,5 +1,5 @@
 import { TUICI18N } from "@content/i18n";
-import { TUICObserver } from "@content/observer";
+import { TUICObserver } from "@content/modules/observer";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";

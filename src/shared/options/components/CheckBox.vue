@@ -28,3 +28,4 @@ const changePref = (path: string, event: any) => {
 </script>
 
 <style scoped></style>
+@content/modules/observer/observer

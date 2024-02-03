@@ -1,6 +1,6 @@
-import { buttonUnderTweet, showLinkCardInfo, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./modules/observer/functions.ts";
-import { placeSettingPage } from "./modules/observer/functions/placeSettingPage.ts";
-import { catchError } from "./modules/observer/errorDialog.ts";
+import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
+import { placeSettingPage } from "./functions/placeSettingPage.ts";
+import { catchError } from "./errorDialog.ts";
 
 export const TUICObserver = {
     observer: null,
@@ -16,9 +16,8 @@ export const TUICObserver = {
             // サイドバーに関する設定
             sidebarButtons();
 
-            buttonUnderTweet();
-
-            showLinkCardInfo();
+            // ツイート関連の設定
+            tweetSettings();
 
             // おすすめユーザーを非表示 (かなり処理が特殊なので他の非表示から分離)
             hideOsusumeTweets();

@@ -56,3 +56,4 @@ const importFunc = async (type: number) => {
 </script>
 
 <style scoped></style>
+@content/modules/observer/observer

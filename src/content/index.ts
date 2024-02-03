@@ -3,7 +3,7 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "./observer.ts";
+import { TUICObserver } from "./modules/observer/index.ts";
 import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
@@ -11,7 +11,7 @@ import { isSafemode, runSafemode } from "./safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
 import { TUICPref } from "./modules/index.ts";
 import { initIconObserverFunction } from "./modules/observer/functions/changeIcon.ts";
-import { titleObserverFunction } from "./modules/observer/titleOBserver.ts";
+import { titleObserverFunction } from "./modules/observer/titleObserver.ts";
 
 (async () => {
     await TUICI18N.fetch();
