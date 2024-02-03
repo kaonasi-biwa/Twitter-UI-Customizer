@@ -1158,7 +1158,7 @@ export const TUICData = {
         },
     },
     "sidebarSetting.moreMenuItems": {
-        all: ["bookmarks", "communities", "monetization", "pro", "settings", "separator"],
+        all: ["bookmarks", "communities", "monetization", "pro", "ads", "settings", "separator"],
         i18n: {
             bookmarks: "sidebarButtons-bookmarks",
             monetization: "sidebarButton-moreMenuItems-monetization",
@@ -1169,6 +1169,7 @@ export const TUICData = {
             communities: "sidebarButtons-communities",
             settings: "sidebarButton-moreMenuItems-settings",
             pro: "sidebarButton-moreMenuItems-pro",
+            ads:"sidebarButton-moreMenuItems-ads"
         },
         selectors: {
             bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
@@ -1180,6 +1181,7 @@ export const TUICData = {
             communities: `[data-testid="Dropdown"] [href$="/communities"]`,
             settings: `[data-testid="Dropdown"] [href="/settings"]`,
             pro: `[data-testid="Dropdown"] [href="https://tweetdeck.twitter.com"]`,
+            ads: `[data-testid="Dropdown"] [href*="ads.twitter.com"]`,
         },
         type: {
             bookmarks: "menuitem",
@@ -1191,6 +1193,7 @@ export const TUICData = {
             communities: "menuitem",
             settings: "menuitem",
             pro: "menuitem",
+            ads: "menuitem",
         },
     },
     accountSwitcher: {

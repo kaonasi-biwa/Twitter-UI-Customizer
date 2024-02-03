@@ -10,8 +10,8 @@
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/modules/observer/index.ts";
 import { TUICPref } from "@content/modules";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 
 const props = defineProps<{
     name: string;
@@ -23,7 +23,7 @@ const changePref = (path: string, event: any) => {
     TUICPref.setPref(path, event.target.checked);
     TUICPref.save();
     TUICLibrary.getClasses.update();
-    TUICObserver.titleObserverFunction();
+    titleObserverFunction();
 };
 </script>
 

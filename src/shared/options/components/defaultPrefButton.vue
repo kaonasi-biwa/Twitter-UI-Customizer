@@ -7,10 +7,10 @@
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-import { TUICObserver } from "@content/modules/observer/index.ts";
 import { isSafemode } from "@content/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 
 const props = defineProps<{
     classList: string[];
@@ -32,7 +32,7 @@ const setDefault = async () => {
                 } else {
                     document.querySelector("#TUIC_setting").remove();
                     TUICLibrary.getClasses.update();
-                    TUICObserver.titleObserverFunction();
+                    titleObserverFunction();
                     if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                         document.title = document.title.replace(" / Twitter", " / X");
                     }
