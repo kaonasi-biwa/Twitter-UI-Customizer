@@ -3,7 +3,7 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "./modules/observer/index.ts";
+import { TUICObserver } from "@content/modules/observer/index.ts";
 import { TUICLibrary } from "./library.ts";
 import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";

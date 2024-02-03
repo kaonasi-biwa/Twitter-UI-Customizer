@@ -41,7 +41,7 @@ export function tweetSettings() {
                         // ボタンたち
                         const underTweetButtons: { [key: string]: Element } = {};
                         for (const sel in TUICData.visibleButtons.selectors) {
-                            const elem = buttonBarBase.querySelector(TUICData.visibleButtons.selectors[sel]);
+                            const elem = buttonBarBase.querySelector<Element>(TUICData.visibleButtons.selectors[sel])?.closest(`.TUICTweetButtomBarBase > * > *`);
                             if (elem) {
                                 underTweetButtons[sel] = elem;
                             }
