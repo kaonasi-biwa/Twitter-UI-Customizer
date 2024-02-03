@@ -9,8 +9,8 @@ import { TUICI18N } from "./i18n.ts";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
 import { isSafemode, runSafemode } from "./safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
-import { twitterIcon } from "./modules/observer/functions.ts";
 import { TUICPref } from "./modules/index.ts";
+import { initIconObserverFunction } from "./modules/observer/functions/changeIcon.ts";
 
 (async () => {
     await TUICI18N.fetch();
@@ -33,7 +33,7 @@ import { TUICPref } from "./modules/index.ts";
     applyDataCss();
     applyCustomIcon();
     if (document.querySelector(`#placeholder > svg`)) {
-        TUICObserver.initIconObserverFunction();
+        initIconObserverFunction();
     }
     TUICLibrary.getClasses.deleteClasses();
     await TUICLibrary.waitForElement("title");

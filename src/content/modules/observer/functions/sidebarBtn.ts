@@ -1,7 +1,7 @@
 import { TUICData } from "@content/data";
 import { TUICLibrary } from "@content/library";
-import { moreMenuContent } from "./functions";
-import { getPref } from "../pref";
+import { moreMenuContent } from "../functions";
+import { getPref } from "../../pref";
 
 export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);

@@ -1,6 +1,6 @@
 import { TUICData } from "@content/data";
 import { TUICObserver } from "@content/observer";
-import { TUICPref } from "..";
+import { TUICPref } from "../..";
 
 export function fixDMBox() {
     if (!TUICObserver.data.fixedDMBox) {

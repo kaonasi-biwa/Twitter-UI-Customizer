@@ -1,63 +1,13 @@
 import { TUICObserver } from "@content/observer";
-import DOG from "@content/icons/logo/dog.png?url";
-import TWITTER from "@content/icons/logo/twitter.svg?raw";
-import X from "@content/icons/logo/x.svg?raw";
-import EMPTY from "@content/icons/logo/empty.svg?url";
 import { TUICLibrary } from "@content/library";
 import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
 import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { TUICPref } from "..";
+import { sidebarButtons } from "./functions/sidebarBtn";
+import { dmPage, fixDMBox } from "./functions/fixDM";
 
-export function twitterIcon(elem: HTMLElement, base: HTMLElement) {
-    const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
-    switch (TUICPref.getPref("twitterIcon")) {
-        case "invisible":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
-                favicon.href = chrome.runtime.getURL(EMPTY);
-            }
-            elem.classList.add("TUIC_SVGDISPNONE");
-            base.hide();
-            break;
-        case "twitter":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
-                //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`)
-            }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
-            break;
-        case "dog":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
-                favicon.href = chrome.runtime.getURL(DOG);
-            }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Dog");
-            break;
-        case "custom":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
-                const imageURL = localStorage.getItem(TUICPref.getPref("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-                favicon.href = imageURL ?? chrome.runtime.getURL(EMPTY);
-            }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");
-            break;
-        case "twitterIcon-X":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
-                console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null))));
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
-                //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
-            }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_X");
-            break;
-        default:
-            favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
-            elem.classList.add("TUIC_NOTSVGDISPNONE");
-            break;
-    }
-    if (!TUICPref.getPref("otherBoolSetting.faviconSet")) {
-        favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
-    }
-}
-
-export function showLinkCardInfo() {
+function showLinkCardInfo() {
     if (TUICPref.getPref("otherBoolSetting.showLinkCardInfo")) {
         for (const infoCardElem of document.querySelectorAll(`article:not(.TUICDidInfoArticle) [data-testid="card.layoutLarge.media"] a[aria-label] > div+div`)) {
             let elem = infoCardElem;
@@ -85,7 +35,7 @@ export function showLinkCardInfo() {
     }
 }
 
-export function buttonUnderTweet() {
+function buttonUnderTweet() {
     if (!TUICObserver.data.buttonUnderTweetRunning) {
         TUICObserver.data.buttonUnderTweetRunning = true;
         while (document.querySelector(`article.TUICDidArticle .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`)) {
@@ -100,10 +50,6 @@ export function buttonUnderTweet() {
         if (articles.length != 0) {
             for (const elem of articles) {
                 (async () => {
-                    const xCIcon = elem.querySelector(`path[d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"]`)?.parentElement?.parentElement;
-                    if (xCIcon != null) {
-                        twitterIcon(xCIcon, xCIcon.parentElement);
-                    }
                     if (elem.querySelector(TUICData.visibleButtons.selectors["reply-button"]) != null && elem.querySelector(TUICData.visibleButtons.selectors["like-button"]) != null) {
                         const lockedAccount = elem.querySelector(`[data-testid="icon-lock"]`) != null;
                         const userNameElem = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
@@ -297,7 +243,7 @@ export function buttonUnderTweet() {
     }
 }
 
-export function osusumeUser() {
+function osusumeUser() {
     if (TUICPref.getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
         for (const elem of cells) {
@@ -369,7 +315,7 @@ export function osusumeUser() {
     }
 }
 
-export function replacePost() {
+function replacePost() {
     // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
     function getNotReplacedElements(selector: string) {
         const replaceMarkClass = "TUIC_TWEETREPLACE";
@@ -700,7 +646,7 @@ export function replacePost() {
     }
 }
 
-export function invisibleItems() {
+function invisibleItems() {
     document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
         if (TUICPref.getPref("tweetDisplaySetting.twitter-pro-promotion-btn")) {
             e.hide();
@@ -798,7 +744,7 @@ export function invisibleItems() {
     }
 }
 
-export function profileInitialTab() {
+function profileInitialTab() {
     for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.TUICHandledEvent)`)) {
         elem.classList.add("TUICHandledEvent");
 
@@ -817,7 +763,7 @@ export function profileInitialTab() {
     profileButtonInSidebar?.addEventListener("click", profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
 }
 
-export function profileInitialTabRedirect(userName: string) {
+function profileInitialTabRedirect(userName: string) {
     if (TUICPref.getPref("profileSetting.profileInitialTab") != "tweets") {
         return () => {
             window.setTimeout(async () => {
@@ -844,7 +790,7 @@ export function profileInitialTabRedirect(userName: string) {
     }
 }
 
-export async function moreMenuContent() {
+async function moreMenuContent() {
     await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
     let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
     const upPx = {
@@ -864,7 +810,7 @@ export async function moreMenuContent() {
     document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top = menuTopPx + "px";
 }
 
-export async function tweetMoreMenuContent() {
+async function tweetMoreMenuContent() {
     await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
 
     let menuTopPx = 0;
@@ -892,7 +838,7 @@ export async function tweetMoreMenuContent() {
     }
 }
 
-export function updateStyles() {
+function updateStyles() {
     for (const i of document.querySelectorAll(".TUICSidebarButton")) {
         const itemId = i.id.replace("TUICSidebar_", "");
         let locationBool = false;
@@ -941,3 +887,5 @@ export function updateStyles() {
         }
     }
 }
+
+export { showLinkCardInfo, buttonUnderTweet, osusumeUser, replacePost, invisibleItems, profileInitialTab, profileInitialTabRedirect, moreMenuContent, tweetMoreMenuContent, updateStyles, sidebarButtons, dmPage, fixDMBox };

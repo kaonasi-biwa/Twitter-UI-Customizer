@@ -4,22 +4,19 @@ import { TUICI18N } from "./i18n.ts";
 
 import { applySystemCss } from "./applyCSS.ts";
 
-import { sidebarButtons } from "./modules/observer/sidebarBtn.ts";
-import { dmPage, fixDMBox } from "./modules/observer/fixDM.ts";
-import { twitterIcon, buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePost, invisibleItems, updateStyles, profileInitialTab } from "./modules/observer/functions.ts";
+import { buttonUnderTweet, showLinkCardInfo, osusumeUser, replacePost, invisibleItems, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixDMBox } from "./modules/observer/functions.ts";
 import { displaySetting } from "./modules/settings/display.ts";
 import { TUICPref } from "./modules/index.ts";
 
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { TextboxComponent } from "@shared/tlui/components/TextboxComponent.ts";
+import { changeIcon } from "./modules/observer/functions/changeIcon.ts";
 
 export const TUICObserver = {
     observer: null,
-    iconObserver: null,
     target: null,
     headObserver: null,
-    initIconObserver: null,
     errors: [],
 
     data: { fixedDMBox: false, buttonUnderTweetRunning: false, tweetCount: null, fontSize1: "-1", fontSize2: null },
@@ -33,44 +30,9 @@ export const TUICObserver = {
                 TUICObserver.data.fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
             }
 
-            //* setup icon observer
-            {
-                if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                    if (!TUICObserver.iconObserver) {
-                        TUICObserver.iconObserver = new MutationObserver(() => {
-                            if (document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                                TUICObserver.iconObserver.disconnect();
-                                twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
-                                TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
-                                    childList: true,
-                                    subtree: true,
-                                    attributes: true,
-                                });
-                            }
-                        });
-                        TUICObserver.iconObserver.observe(document.querySelector("header h1 a > div"), {
-                            childList: true,
-                            subtree: true,
-                            attributes: true,
-                        });
-                    }
-                    twitterIcon(document.querySelector(`header h1 a > div > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`header [role="heading"]`));
-                }
-                if (!document.querySelector(`header h1 a > div > svg`)) {
-                    TUICObserver.iconObserver = "";
-                }
-                if (document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`)) {
-                    twitterIcon(document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] [role="heading"]`));
-                }
-                if (document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                    twitterIcon(document.querySelector(`[data-testid="interstitialGraphic"] > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`[data-testid="interstitialGraphic"]`));
-                }
-                if (document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`) != null) {
-                    twitterIcon(document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#layers [data-testid="TopNavBar"] div+svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`).parentElement);
-                }
-            }
-
             if (document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd");
+
+            changeIcon();
 
             sidebarButtons();
 
@@ -273,17 +235,6 @@ export const TUICObserver = {
         TUICObserver.headObserver.observe(document.querySelector("title"), {
             characterData: true,
             childList: true,
-        });
-    },
-    initIconObserverFunction: () => {
-        if (TUICObserver.initIconObserver) TUICObserver.initIconObserver.disconnect();
-        else TUICObserver.initIconObserver = new MutationObserver(TUICObserver.initIconObserverFunction);
-
-        twitterIcon(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
-
-        TUICObserver.initIconObserver.observe(document.querySelector(`#placeholder > svg`), {
-            attributes: true,
-            attributeFilter: ["class"],
         });
     },
 };
