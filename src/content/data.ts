@@ -1020,7 +1020,7 @@ export const TUICData = {
             display: ["/i/display", "/settings/display"],
             muteAndBlock: "/settings/mute_and_block",
             bookmarks: "/i/bookmarks",
-            settings: "/settings/",
+            settings: "/settings",
         },
         tuicButtonGoToUrl: {
             __setURL: (id, selector, setURLWay: (arg0: HTMLElement) => string) => {
