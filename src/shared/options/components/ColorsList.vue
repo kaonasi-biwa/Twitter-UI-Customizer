@@ -1,6 +1,6 @@
 <template>
     <div id="TUICColorSettingsDivBox">
-        <template v-for="i in TUICData.colors.id" :key="i">
+        <template v-for="i in TUICData.colors.all" :key="i">
             <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">
                 {{ TUICI18N.get(TUICData.colors.i18n[i]) }}
             </h2>

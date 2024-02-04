@@ -187,7 +187,7 @@ export function parallelToSerialPref() {
     setPref("CSS", localStorage.getItem("CSS"));
     setPref("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
     setPref("visibleButtons", JSON.parse(localStorage.getItem("visible-button")));
-    for (const i of TUICData.colors.id) {
+    for (const i of TUICData.colors.all) {
         const a = localStorage.getItem(`${i}-background`) ?? "unknown";
         if (a != "unknown") {
             setPref("buttonColor." + i, {
