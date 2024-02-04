@@ -89,9 +89,9 @@ export function applySystemCss() {
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem in ColorData.i18nAndAllContent) {
+        for (const elem of ColorData.i18nAndAllContent.all) {
             for (const el of ["background", "border", "color"]) {
-                if (ColorData.i18nAndAllContent[elem][el]) {
+                if (ColorData.defaultTUICColor.colors[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
                 }
             }
