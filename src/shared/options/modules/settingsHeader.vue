@@ -22,7 +22,7 @@
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { isSafemode } from "@content/safemode";
-import { defaultTwitterColor } from "@shared/sharedData";
+import { ColorData } from "@shared/sharedData";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 import { TUICPref } from "@content/modules";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
@@ -79,7 +79,7 @@ const buttonList = [
     },
     {
         i18n: "easySetting-defaultTwitterColor",
-        changePref: structuredClone(defaultTwitterColor),
+        changePref: structuredClone(ColorData.defaultXColors),
     },
 ];
 const clickEv = (index) => {

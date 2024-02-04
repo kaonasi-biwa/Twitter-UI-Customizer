@@ -3,7 +3,8 @@ import { TUICLibrary } from "./library.ts";
 import { SIDEBAR_BUTTON_ICON } from "./icons";
 import { TUICPref } from "./modules/index.ts";
 
-import { i18nAndAllContent as tweetTopButtons } from "./modules/observer/functions/tweetSettings/tweetTopButtons.ts";
+import { i18nAndAllContent as tweetTopButton } from "./modules/observer/functions/tweetSettings/tweetTopButtons.ts";
+import { i18nAndAllContent as fixEngagements } from "./modules/observer/functions/tweetSettings/placeEngagementsLink.ts";
 
 import { buttonHTMLBase } from "./resources/index.ts";
 
@@ -23,75 +24,6 @@ export const TUICData = {
             "blocking-unlock": "settingColors-blockingUnlock",
             twitterIcon: "settingColors-twitterIcon",
             twitterIconFavicon: "settingColors-twitterIconFavicon",
-        },
-        "unsent-tweet": {
-            background: "rgba(29, 161, 242, 1)",
-            border: "rgba(29, 161, 242, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        "not-following": {
-            background: "rgba(255, 255, 255, 0)",
-            border: "rgba(29, 161, 242, 1)",
-            color: "rgba(29, 161, 242, 1)",
-        },
-        willFollow: {
-            background: "rgba(29, 161, 242, 1)",
-            border: "rgba(29, 161, 242, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        following: {
-            background: "rgba(29, 161, 242, 1)",
-            border: "rgba(29, 161, 242, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        "un-following": {
-            background: "rgba(255, 0, 0, 1)",
-            border: "rgba(255, 0, 0, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        profile: {
-            background: "rgba(255,255,255, 0)",
-            border: "rgba(29, 161, 242, 1)",
-            color: "rgba(29, 161, 242, 1)",
-        },
-        "profile-save": {
-            background: "rgba(29, 161, 242, 1)",
-            border: "rgba(29, 161, 242, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        birthday: {
-            background: "rgba(255, 0, 0, 1)",
-            border: "rgba(255, 0, 0, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        blocking: {
-            background: "rgba(244, 33, 46, 1)",
-            border: "rgba(244, 33, 46, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        "blocking-unlock": {
-            background: "rgba(220, 30, 41, 1)",
-            border: "rgba(220, 30, 41, 1)",
-            color: "rgba(255, 255, 255, 1)",
-        },
-        twitterIcon: {
-            color: "rgba(29, 161, 242, 1)",
-            typeColor: "imageColor",
-            ldColor: true,
-        },
-        twitterIconFavicon: {
-            color: "rgba(29, 161, 242, 1)",
-            typeColor: "imageColor",
-        },
-    },
-    "colors-buttonColorDark": {
-        twitterIcon: {
-            color: "rgba(255, 255, 255, 1)",
-        },
-    },
-    "colors-buttonColorLight": {
-        twitterIcon: {
-            color: "rgba(29, 161, 242, 1)",
         },
     },
     visibleButtons: {
@@ -540,34 +472,6 @@ export const TUICData = {
                     "r-ubezar r-hjklzo r-e157gu r-ou255f",
                 )}"></span></span></div>`,
             ).item(0);
-        },
-    },
-    fixEngagements: {
-        all: ["likes", "retweets", "quotes"],
-        i18n: {
-            likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
-            retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
-            quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
-        },
-        engagementsBox: () => {
-            return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
-        },
-        links: (id: string, article: Element, isShort: boolean) => {
-            const returnElem = TUICLibrary.HTMLParse(
-                `<div dir="ltr" class="css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-23eiwj", "r-9qu9m4", "r-1yzf0co", "r-w0qc3r", "r-18scu15")}" style="cursor: pointer;margin-right:1em;">
-                       <span class="css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}">
-                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
-                       </span>
-                     </div>`.replace(/( |\n|\r)( |\n|\r)+/g, ""),
-            ).item(0);
-            returnElem.addEventListener("click", async () => {
-                article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
-                await TUICLibrary.waitForElement(`[data-testid="tweetEngagements"]`);
-                document.querySelector<HTMLButtonElement>(`[data-testid="tweetEngagements"]`).click();
-                await TUICLibrary.waitForElement(`[role="tab"][href$="/${id}"]`);
-                document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
-            });
-            return returnElem;
         },
     },
     sidebarButtons: {
@@ -1021,29 +925,6 @@ export const TUICData = {
             },
         },
     },
-    styleColor: {
-        light: {
-            textColor: "rgba(0, 0, 0, 1)",
-            containerBackground: "rgb(247, 249, 249)",
-            containerBackground2: "rgb(237, 239, 239)",
-            colorHover: "#00000040",
-            detailBorder: "rgba(0, 0, 0, 0.08)",
-        },
-        blue: {
-            textColor: "rgba(255, 255, 255, 1)",
-            containerBackground: "rgb(30, 39, 50)",
-            containerBackground2: "rgb(40, 49, 60)",
-            colorHover: "#ffffff30",
-            detailBorder: "rgba(255, 255, 255, 0.08)",
-        },
-        dark: {
-            textColor: "rgba(255, 255, 255, 1)",
-            containerBackground: "rgb(22, 24, 28)",
-            containerBackground2: "rgb(28, 34, 38)",
-            colorHover: "#ffffff40",
-            detailBorder: "rgba(255, 255, 255, 0.16)",
-        },
-    },
     twitterIcon: {
         all: ["nomal", "invisible", "dog", "twitter", "twitterIcon-X", "custom"],
         i18n: {
@@ -1170,5 +1051,6 @@ export const TUICData = {
             editWithTwitterBlue: `[data-testid="editWithTwitterBlue"]`,
         },
     },
-    tweetTopButton: tweetTopButtons,
+    tweetTopButton,
+    fixEngagements,
 };

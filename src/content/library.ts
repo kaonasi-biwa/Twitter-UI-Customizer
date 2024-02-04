@@ -1,4 +1,4 @@
-import { ProcessedClass } from "@shared/sharedData.ts";
+import { ColorData, ProcessedClass } from "@shared/sharedData.ts";
 import { applySystemCss } from "./applyCSS.ts";
 import { TUICData } from "./data.ts";
 import { TUICPref } from "./modules/index.ts";
@@ -22,7 +22,7 @@ export const TUICLibrary = {
         getColorFromPref: (name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) => {
             let _mode = "";
             _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type];
+            return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
         },
     },
     getClasses: {

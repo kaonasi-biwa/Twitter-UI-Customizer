@@ -4,7 +4,7 @@
             {{ TUICI18N.get(text) }}
         </h4>
         <div class="TUIC_setting_input_container">
-            <template v-if="TUICData.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
+            <template v-if="ColorData.defaultTUICColor.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
                 <label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
             </template>
             <template v-else>
@@ -28,13 +28,13 @@
 import { computed } from "vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICData } from "@content/data";
 
 import RESET from "@content/icons/arrow/reset.svg?component";
 import { TUICPref } from "@content/modules";
 import { applySystemCss } from "@content/applyCSS";
 
 import { useStore } from "../store";
+import { ColorData } from "@shared/sharedData";
 
 const props = defineProps<{
     id: string;
