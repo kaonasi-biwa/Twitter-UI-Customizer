@@ -73,7 +73,7 @@ const apply2Settings = () => {
     const id = props.id;
     TUICPref.setPref(id, list.value);
     TUICPref.save();
-    updateClasses()
+    updateClasses();
 };
 
 const toLeft = () => {
