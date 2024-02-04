@@ -28,84 +28,22 @@ export const TUICData = {
             "unsent-tweet": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
         },
     },
-    settings: {
-        visibleButtons: {
-            all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM", "likeAndRT"],
-            i18n: {
-                "reply-button": "bottomTweetButtons-reply",
-                "retweet-button": "bottomTweetButtons-retweet",
-                "like-button": "bottomTweetButtons-like",
-                "share-button": "bottomTweetButtons-share",
-                tweet_analytics: "bottomTweetButtons-tweetAnalytics",
-                boolkmark: "bottomTweetButtons-bookmark",
-                "url-copy": "bottomTweetButtons-urlCopy",
-                userBlock: "bottomTweetButtons-userBlock",
-                userMute: "bottomTweetButtons-userMute",
-                quoteTweet: "bottomTweetButtons-quoteTweet",
-                deleteButton: "bottomTweetButtons-deleteButton",
-                sendDM: "bottomTweetButtons-sendDM",
-                likeAndRT: "bottomTweetButtons-likeAndRT",
-            },
-        },
-        sidebarButtons: {
-            all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch", "settings"],
-            i18n: {
-                home: "sidebarButtons-home",
-                explore: "sidebarButtons-explore",
-                communities: "sidebarButtons-communities",
-                notifications: "sidebarButtons-notifications",
-                messages: "sidebarButtons-messages",
-                bookmarks: "sidebarButtons-bookmarks",
-                profile: "sidebarButtons-profile",
-                moremenu: "sidebarButtons-moremenu",
-                topics: "sidebarButtons-topics",
-                lists: "sidebarButtons-lists",
-                drafts: "sidebarButtons-drafts",
-                connect: "sidebarButtons-connect",
-                communitynotes: "sidebarButtons-communitynotes",
-                "verified-choose": "sidebarButtons-verified-choose",
-                display: "sidebarButtons-display",
-                muteAndBlock: "sidebarButtons-muteAndBlock",
-                premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
-                settings: "sidebarButtons-settings",
-            },
-        },
-        fixEngagements: {
-            all: ["likes", "retweets", "quotes"],
-            i18n: {
-                likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
-                retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
-                quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
-            },
-        },
-        tweetTopButton: {
-            all: ["moreMenu", "block", "mute", "delete"],
-            i18n: {
-                moreMenu: "sidebarButtons-moremenu",
-                block: "bottomTweetButtons-userBlock",
-                mute: "bottomTweetButtons-userMute",
-                delete: "bottomTweetButtons-deleteButton",
-            },
-        },
-        colors: {
-            id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon", "twitterIconFavicon"],
-            i18n: {
-                "unsent-tweet": "settingColors-editUnsetTweet",
-                willFollow: "settingColors-willFollowButton",
-                "not-following": "settingColors-notFollowingButton",
-                following: "settingColors-followingButton",
-                "un-following": "settingColors-unfollowButton",
-                profile: "settingColors-editProfile",
-                "profile-save": "settingColors-saveProfile",
-                birthday: "settingColors-finalDecideButton",
-                blocking: "settingColors-blocking",
-                "blocking-unlock": "settingColors-blockingUnlock",
-                twitterIcon: "settingColors-twitterIcon",
-                twitterIconFavicon: "settingColors-twitterIconFavicon",
-            },
-        },
-    },
     colors: {
+        id: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon", "twitterIconFavicon"],
+        i18n: {
+            "unsent-tweet": "settingColors-editUnsetTweet",
+            willFollow: "settingColors-willFollowButton",
+            "not-following": "settingColors-notFollowingButton",
+            following: "settingColors-followingButton",
+            "un-following": "settingColors-unfollowButton",
+            profile: "settingColors-editProfile",
+            "profile-save": "settingColors-saveProfile",
+            birthday: "settingColors-finalDecideButton",
+            blocking: "settingColors-blocking",
+            "blocking-unlock": "settingColors-blockingUnlock",
+            twitterIcon: "settingColors-twitterIcon",
+            twitterIconFavicon: "settingColors-twitterIconFavicon",
+        },
         "unsent-tweet": {
             background: "rgba(29, 161, 242, 1)",
             border: "rgba(29, 161, 242, 1)",
@@ -177,6 +115,14 @@ export const TUICData = {
         },
     },
     tweetTopButton: {
+        all: ["moreMenu", "block", "mute", "delete"],
+        i18n: {
+            moreMenu: "sidebarButtons-moremenu",
+            block: "bottomTweetButtons-userBlock",
+            mute: "bottomTweetButtons-userMute",
+            delete: "bottomTweetButtons-deleteButton",
+        },
+
         selector: {
             moreMenu: `[data-testid="caret"]`,
             block: `[TUICTweetTopButton="block"]`,
@@ -331,6 +277,22 @@ export const TUICData = {
         },
     },
     visibleButtons: {
+        all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM", "likeAndRT"],
+        i18n: {
+            "reply-button": "bottomTweetButtons-reply",
+            "retweet-button": "bottomTweetButtons-retweet",
+            "like-button": "bottomTweetButtons-like",
+            "share-button": "bottomTweetButtons-share",
+            tweet_analytics: "bottomTweetButtons-tweetAnalytics",
+            boolkmark: "bottomTweetButtons-bookmark",
+            "url-copy": "bottomTweetButtons-urlCopy",
+            userBlock: "bottomTweetButtons-userBlock",
+            userMute: "bottomTweetButtons-userMute",
+            quoteTweet: "bottomTweetButtons-quoteTweet",
+            deleteButton: "bottomTweetButtons-deleteButton",
+            sendDM: "bottomTweetButtons-sendDM",
+            likeAndRT: "bottomTweetButtons-likeAndRT",
+        },
         selectors: {
             "reply-button": '[data-testid$="reply"]:not([data-testid*="UserAvatar-Container-"])',
             "retweet-button": '[data-testid$="retweet"]:not([data-testid*="UserAvatar-Container-"])',
@@ -761,27 +723,33 @@ export const TUICData = {
                 )}"></span></span></div>`,
             ).item(0);
         },
-        fixEngagements: {
-            engagementsBox: () => {
-                return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
-            },
-            links: (id, article, isShort) => {
-                const returnElem = TUICLibrary.HTMLParse(
-                    `<div dir="ltr" class="css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-23eiwj", "r-9qu9m4", "r-1yzf0co", "r-w0qc3r", "r-18scu15")}" style="cursor: pointer;margin-right:1em;">
-                           <span class="css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}">
-                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
-                           </span>
-                         </div>`.replace(/( |\n|\r)( |\n|\r)+/g, ""),
-                ).item(0);
-                returnElem.addEventListener("click", async () => {
-                    article.querySelector(`[data-testid="caret"]`).click();
-                    await TUICLibrary.waitForElement(`[data-testid="tweetEngagements"]`);
-                    document.querySelector<HTMLButtonElement>(`[data-testid="tweetEngagements"]`).click();
-                    await TUICLibrary.waitForElement(`[role="tab"][href$="/${id}"]`);
-                    document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
-                });
-                return returnElem;
-            },
+    },
+    fixEngagements: {
+        all: ["likes", "retweets", "quotes"],
+        i18n: {
+            likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
+            retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
+            quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
+        },
+        engagementsBox: () => {
+            return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
+        },
+        links: (id: string, article: Element, isShort: boolean) => {
+            const returnElem = TUICLibrary.HTMLParse(
+                `<div dir="ltr" class="css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-23eiwj", "r-9qu9m4", "r-1yzf0co", "r-w0qc3r", "r-18scu15")}" style="cursor: pointer;margin-right:1em;">
+                       <span class="css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}">
+                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
+                       </span>
+                     </div>`.replace(/( |\n|\r)( |\n|\r)+/g, ""),
+            ).item(0);
+            returnElem.addEventListener("click", async () => {
+                article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
+                await TUICLibrary.waitForElement(`[data-testid="tweetEngagements"]`);
+                document.querySelector<HTMLButtonElement>(`[data-testid="tweetEngagements"]`).click();
+                await TUICLibrary.waitForElement(`[role="tab"][href$="/${id}"]`);
+                document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
+            });
+            return returnElem;
         },
     },
     showLinkCardInfo: (link, domain, title, description) => {
@@ -834,6 +802,27 @@ export const TUICData = {
         ).item(0);
     },
     sidebarButtons: {
+        all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch", "settings"],
+        i18n: {
+            home: "sidebarButtons-home",
+            explore: "sidebarButtons-explore",
+            communities: "sidebarButtons-communities",
+            notifications: "sidebarButtons-notifications",
+            messages: "sidebarButtons-messages",
+            bookmarks: "sidebarButtons-bookmarks",
+            profile: "sidebarButtons-profile",
+            moremenu: "sidebarButtons-moremenu",
+            topics: "sidebarButtons-topics",
+            lists: "sidebarButtons-lists",
+            drafts: "sidebarButtons-drafts",
+            connect: "sidebarButtons-connect",
+            communitynotes: "sidebarButtons-communitynotes",
+            "verified-choose": "sidebarButtons-verified-choose",
+            display: "sidebarButtons-display",
+            muteAndBlock: "sidebarButtons-muteAndBlock",
+            premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
+            settings: "sidebarButtons-settings",
+        },
         selectors: {
             home: `[href="/home"]`,
             explore: `[href="/explore"]`,

@@ -136,7 +136,7 @@ export function tweetSettings() {
                         }
                         lastButton.classList.add("r-1rq6c10", "r-1b7u577");
 
-                        for (const i of TUICData.settings.visibleButtons.all) {
+                        for (const i of TUICData.visibleButtons.all) {
                             if (!TUICPref.getPref("visibleButtons").includes(i) && i in underTweetButtons) {
                                 underTweetButtons[i].hide();
                             }
@@ -169,7 +169,7 @@ function tweetTopButtons(articleInfo: ArticleInfomation) {
         const tweetTopButtons: { [key: string]: HTMLDivElement } = {};
         const tweetTopParent = articleBase.querySelector(TUICData.tweetTopButton.selector.moreMenu).parentElement;
         const marginSize = TUICLibrary.fontSizeClass("20px", "20px", "20px", "20px", "20px");
-        for (const i of TUICData.settings.tweetTopButton.all) {
+        for (const i of TUICData.tweetTopButton.all) {
             const div = articleBase.querySelector(TUICData.tweetTopButton.selector[i]);
             if (div) {
                 tweetTopButtons[i] = div;
@@ -193,7 +193,7 @@ function tweetTopButtons(articleInfo: ArticleInfomation) {
             tweetTopParent.appendChild(div);
         }
 
-        for (const i of TUICData.settings.tweetTopButton.all) {
+        for (const i of TUICData.tweetTopButton.all) {
             if (!TUICPref.getPref("tweetTopButton").includes(i) && i in tweetTopButtons) {
                 tweetTopButtons[i].hide();
             }
@@ -263,9 +263,9 @@ function placeEngagementsLink(articleInfo: ArticleInfomation) {
             engageFixListFunc(1);
         }
         for (const engageList of engagementsFixList) {
-            const engagementsBox = TUICData.visibleButtons.fixEngagements.engagementsBox();
+            const engagementsBox = TUICData.fixEngagements.engagementsBox();
             for (const engagementsID of engageList) {
-                engagementsBox.appendChild(TUICData.visibleButtons.fixEngagements.links(engagementsID, articleBase, shortName));
+                engagementsBox.appendChild(TUICData.fixEngagements.links(engagementsID, articleBase, shortName));
             }
             buttonBarBase.hasClosest(`:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBox, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
         }
