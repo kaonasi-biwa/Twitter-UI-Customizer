@@ -1,7 +1,7 @@
 import { ColorData, ProcessedClass } from "@shared/sharedData.ts";
 import { applySystemCss } from "./applyCSS.ts";
-import { TUICPref } from "./modules/index.ts";
-import { TUICObserver } from "./modules/observer/index.ts";
+import { TUICPref } from "@content/modules/index.ts";
+import { TUICObserver } from "@content/modules/observer/index.ts";
 
 export const TUICLibrary = {
     color: {
@@ -23,48 +23,6 @@ export const TUICLibrary = {
             _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
             return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
         },
-    },
-    getClasses: {
-        update: () => {
-            TUICObserver.observer.disconnect();
-            TUICLibrary.getClasses.deleteClasses();
-            applySystemCss();
-            TUICObserver.observerFunction();
-        },
-        deleteClasses: () => {
-            for (const id of TUICLibrary.getClasses.idList) {
-                document.querySelectorAll(`.${id}`).forEach((elem) => {
-                    elem.classList.remove(id);
-                }); /*
-                for (const elem of document.getElementsByClassName(id)) {
-                    elem.classList.remove(id);
-                }*/
-            }
-        },
-        idList: [
-            "NOT_TUIC_DISPNONE",
-            "TUIC_DISPNONE",
-            "TUIC_DISPNONE_PARENT",
-            "TUIC_SVGDISPNONE",
-            "TUIC_NOTSVGDISPNONE",
-            "TUIC_DISCOVERMORE",
-            "TUIC_ISNOTDEFAULT",
-            "TUIC_NONE_SPACE_BOTTOM_TWEET",
-            "TUIC_TWEETREPLACE",
-            "TUIC_UnderTweetButton",
-            "TUICDidArticle",
-            "TUICDidInfoArticle",
-            "TUICItIsBigArticle",
-            "TUICItIsBigArticlePhoto",
-            "TUICTweetButtomBarBase",
-            "TUICTwitterIcon_Twitter",
-            "TUICTwitterIcon_X",
-            "TUICTwitterIcon_Dog",
-            "TUICTwitterIcon_IconImg",
-            "TUICScrollBottom",
-            "TUICDMIcon",
-            ProcessedClass,
-        ],
     },
     getPrimitiveOrFunction: (functionOrPrimitive) => {
         if (typeof functionOrPrimitive == "function") {

@@ -57,7 +57,7 @@ import { TUICI18N } from "@content/i18n.js";
 import { TUICData } from "@content/data.js";
 import { TUICPref } from "@content/modules";
 
-import { TUICLibrary } from "@content/library.js";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string }>();
 
@@ -73,7 +73,7 @@ const apply2Settings = () => {
     const id = props.id;
     TUICPref.setPref(id, list.value);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
+    updateClasses()
 };
 
 const toLeft = () => {

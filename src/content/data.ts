@@ -1,11 +1,11 @@
-import { i18nAndAllContent as tweetTopButton } from "./modules/observer/functions/tweetSettings/tweetTopButtons.ts";
-import { i18nAndAllContent as fixEngagements } from "./modules/observer/functions/tweetSettings/placeEngagementsLink.ts";
-import { i18nAndAllContent as tweetMoreMenuContent } from "./modules/observer/functions/tweetSettings/tweetMoreMenuContent.ts";
-import { i18nAndAllContent as dmPage } from "./modules/observer/functions/fixDM.ts";
-import { i18nAndAllContent as initProfileTab } from "./modules/observer/functions/initProfileTab.ts";
-import { i18nAndAllContent as sidebarMoreMenuCont } from "./modules/observer/functions/sidebarBtn/moreMenuContent.ts";
-import { i18nAndAllContent as visibleButtons } from "./modules/observer/functions/tweetSettings/index.ts";
-import { i18nAndAllContent as sidebarButtons } from "./modules/observer/functions/sidebarBtn/index.ts";
+import { i18nAndAllContent as tweetTopButton } from "@content/modules/observer/functions/tweetSettings/tweetTopButtons.ts";
+import { i18nAndAllContent as fixEngagements } from "@content/modules/observer/functions/tweetSettings/placeEngagementsLink.ts";
+import { i18nAndAllContent as tweetMoreMenuContent } from "@content/modules/observer/functions/tweetSettings/tweetMoreMenuContent.ts";
+import { i18nAndAllContent as dmPage } from "@content/modules/observer/functions/fixDM.ts";
+import { i18nAndAllContent as initProfileTab } from "@content/modules/observer/functions/initProfileTab.ts";
+import { i18nAndAllContent as sidebarMoreMenuCont } from "@content/modules/observer/functions/sidebarBtn/moreMenuContent.ts";
+import { i18nAndAllContent as visibleButtons } from "@content/modules/observer/functions/tweetSettings/index.ts";
+import { i18nAndAllContent as sidebarButtons } from "@content/modules/observer/functions/sidebarBtn/index.ts";
 
 import { I18nAndAllContent } from "@shared/types.ts";
 import { ColorData } from "@shared/sharedData.ts";

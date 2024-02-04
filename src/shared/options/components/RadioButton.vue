@@ -9,16 +9,16 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
-import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/modules/observer/index.ts";
 import { TUICPref } from "@content/modules";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string; valueName: string; name: string }>();
 
 const changePref = (path, valueName) => {
     TUICPref.setPref(path, valueName);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
+    updateClasses();
     TUICObserver.observerFunction();
 };
 </script>

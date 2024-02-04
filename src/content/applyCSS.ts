@@ -1,9 +1,9 @@
 import browser from "webextension-polyfill";
-import { TUICLibrary } from "./library.ts";
-import { isSafemode } from "./safemode.ts";
+import { TUICLibrary } from "@content/library.ts";
+import { isSafemode } from "@content/safemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
-import { TUICPref } from "./modules/index.ts";
+import { TUICPref } from "@content/modules/index.ts";
 import { ColorData } from "@shared/sharedData.ts";
 
 export function addCssElement() {

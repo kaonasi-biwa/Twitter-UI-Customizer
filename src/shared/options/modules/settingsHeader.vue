@@ -20,12 +20,12 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
-import { TUICLibrary } from "@content/library";
 import { isSafemode } from "@content/safemode";
 import { ColorData } from "@shared/sharedData";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 import { TUICPref } from "@content/modules";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 const buttonList = [
     {
@@ -89,7 +89,7 @@ const clickEv = (index) => {
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }
-    TUICLibrary.getClasses.update();
+    updateClasses();
     titleObserverFunction();
     if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
         document.title = document.title.replace(" / Twitter", " / X");

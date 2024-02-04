@@ -36,11 +36,11 @@ import { isSafemode } from "@content/safemode";
 
 import ColorsList from "../components/ColorsList.vue";
 
-import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
 import { useStore } from "../store";
 import { ColorData } from "@shared/sharedData";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 const ColorSettingRadio = (event) => {
     const store = useStore();
@@ -54,7 +54,7 @@ const setDefaultTwitterColor = () => {
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }
-    TUICLibrary.getClasses.update();
+    updateClasses();
 };
 </script>
 
