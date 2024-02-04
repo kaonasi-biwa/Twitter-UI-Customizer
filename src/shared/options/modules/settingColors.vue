@@ -23,7 +23,7 @@
         <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 12px">{{ TUICI18N.get("settingColors-select-explain") }} </span>
     </div>
     <br />
-    <button class="TUIC_setting_text TUIC_setting_button TUICEasySettingButtons" style="margin-top: 10px; margin-bottom: 10px" @click="defaultTwitterColor">
+    <button class="TUIC_setting_text TUIC_setting_button TUICEasySettingButtons" style="margin-top: 10px; margin-bottom: 10px" @click="setDefaultTwitterColor">
         {{ TUICI18N.get("settingColors-newTwitterColor") }}
     </button>
     <br />
@@ -33,28 +33,28 @@
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { isSafemode } from "@content/safemode";
-import { TUICData } from "@content/data";
 
 import ColorsList from "../components/ColorsList.vue";
 
-import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
 import { useStore } from "../store";
+import { ColorData } from "@shared/sharedData";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 const ColorSettingRadio = (event) => {
     const store = useStore();
     store.editingColorType = event.currentTarget.getAttribute("value");
 };
 
-const defaultTwitterColor = () => {
-    const importPref = structuredClone(TUICData.defaultTwitterColor);
+const setDefaultTwitterColor = () => {
+    const importPref = structuredClone(ColorData.defaultXColors);
     TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
     TUICPref.save();
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }
-    TUICLibrary.getClasses.update();
+    updateClasses();
 };
 </script>
 

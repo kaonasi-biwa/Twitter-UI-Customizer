@@ -22,6 +22,8 @@ import { isSafemode } from "@content/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { TUICPref } from "@content/modules";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 
 const importBox = defineModel<HTMLInputElement>();
 const importFunc = async (type: number) => {
@@ -38,10 +40,10 @@ const importFunc = async (type: number) => {
             location.href = `${location.protocol}//${location.hostname}`;
         } else {
             document.querySelector("#TUIC_setting").remove();
-            TUICLibrary.getClasses.update();
+            updateClasses();
             applySystemCss();
-            TUICObserver.observerFunction(null);
-            TUICObserver.titleObserverFunction();
+            TUICObserver.observerFunction();
+            titleObserverFunction();
             if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                 document.title = document.title.replace(" / Twitter", " / X");
             }

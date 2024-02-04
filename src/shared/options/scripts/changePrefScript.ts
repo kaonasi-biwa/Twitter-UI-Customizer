@@ -1,7 +1,7 @@
-import { TUICLibrary } from "@content/library";
 import { isSafemode } from "@content/safemode";
 import { TUICPref } from "@content/modules";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 export const XToTwitterRestoreIcon = () => {
     const importPref = {
@@ -13,7 +13,7 @@ export const XToTwitterRestoreIcon = () => {
     };
     TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
     TUICPref.save();
-    TUICLibrary.getClasses.update();
+    updateClasses();
     titleObserverFunction();
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();

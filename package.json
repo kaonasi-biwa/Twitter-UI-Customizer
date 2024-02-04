@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
+        "dependency-cruiser": "^16.1.0",
         "pinia": "^2.1.7",
         "vue": "^3.4.15",
         "webextension-polyfill": "^0.10.0"

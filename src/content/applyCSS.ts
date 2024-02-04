@@ -1,11 +1,10 @@
 import browser from "webextension-polyfill";
-
-import { TUICData } from "./data.ts";
-import { TUICLibrary } from "./library.ts";
-import { isSafemode } from "./safemode.ts";
+import { TUICLibrary } from "@content/library.ts";
+import { isSafemode } from "@content/safemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
-import { TUICPref } from "./modules/index.ts";
+import { TUICPref } from "@content/modules/index.ts";
+import { ColorData } from "@shared/sharedData.ts";
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
@@ -90,24 +89,24 @@ export function applySystemCss() {
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem in TUICData.colors) {
+        for (const elem in ColorData.i18nAndAllContent) {
             for (const el of ["background", "border", "color"]) {
-                if (TUICData.colors[elem][el]) {
+                if (ColorData.i18nAndAllContent[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
                 }
             }
         }
 
-        rs.setProperty("--twitter-TUIC-color", TUICData.styleColor[backgroundColor].textColor);
-        rs.setProperty("--TUIC-container-background", TUICData.styleColor[backgroundColor].containerBackground);
-        rs.setProperty("--TUIC-container-background2", TUICData.styleColor[backgroundColor].containerBackground2);
-        rs.setProperty("--TUIC-color-hover-efect", TUICData.styleColor[backgroundColor].colorHover);
+        rs.setProperty("--twitter-TUIC-color", ColorData.TUICFixedColor[backgroundColor].textColor);
+        rs.setProperty("--TUIC-container-background", ColorData.TUICFixedColor[backgroundColor].containerBackground);
+        rs.setProperty("--TUIC-container-background2", ColorData.TUICFixedColor[backgroundColor].containerBackground2);
+        rs.setProperty("--TUIC-color-hover-efect", ColorData.TUICFixedColor[backgroundColor].colorHover);
 
         rs.setProperty("--TUIC-sidebar-hover-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)");
         rs.setProperty("--TUIC-sidebar-active-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)");
         rs.setProperty("--TUIC-sidebar-focus-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)");
 
-        rs.setProperty("--TUIC-detail-border", TUICData.styleColor[backgroundColor].detailBorder);
+        rs.setProperty("--TUIC-detail-border", ColorData.TUICFixedColor[backgroundColor].detailBorder);
 
         rs.setProperty("--TUIC-pinnedTab-background", `rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
 

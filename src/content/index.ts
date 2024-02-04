@@ -4,14 +4,15 @@
  */
 
 import { TUICObserver } from "@content/modules/observer/index.ts";
-import { TUICLibrary } from "./library.ts";
-import { TUICI18N } from "./i18n.ts";
-import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "./applyCSS.ts";
-import { isSafemode, runSafemode } from "./safemode.ts";
+import { TUICLibrary } from "@content/library.ts";
+import { TUICI18N } from "@content/i18n.ts";
+import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "@content/applyCSS.ts";
+import { isSafemode, runSafemode } from "@content/safemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
-import { TUICPref } from "./modules/index.ts";
-import { initIconObserverFunction } from "./modules/observer/functions/changeIcon.ts";
-import { titleObserverFunction } from "./modules/observer/titleObserver.ts";
+import { TUICPref } from "@content/modules/index.ts";
+import { initIconObserverFunction } from "@content/modules/observer/functions/changeIcon.ts";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver.ts";
+import { updateClasses } from "./modules/htmlClass/classManager";
 
 (async () => {
     // I18Nを取得
@@ -21,7 +22,7 @@ import { titleObserverFunction } from "./modules/observer/titleObserver.ts";
     await TUICLibrary.waitForElement("#react-root");
 
     // 前起動時のTUICの要素・Classが残っていればすべて削除
-    TUICLibrary.getClasses.deleteClasses();
+    updateClasses();
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();
     }

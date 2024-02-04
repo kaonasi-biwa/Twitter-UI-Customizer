@@ -1,8 +1,8 @@
 <template>
     <div id="TUICColorSettingsDivBox">
-        <template v-for="i in TUICData.colors.id" :key="i">
+        <template v-for="i in ColorData.i18nAndAllContent.all" :key="i">
             <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">
-                {{ TUICI18N.get(TUICData.colors.i18n[i]) }}
+                {{ TUICI18N.get(ColorData.i18nAndAllContent.i18n[i]) }}
             </h2>
             <div class="TUIC_col_setting_container_2">
                 <ThreeColorSetting :id="i" />
@@ -12,10 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
-
 import ThreeColorSetting from "./ThreeColorSetting.vue";
+import { ColorData } from "@shared/sharedData";
 </script>
 
 <style scoped></style>
