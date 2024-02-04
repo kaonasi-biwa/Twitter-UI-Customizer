@@ -21,11 +21,11 @@
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/modules/observer/index.ts";
 import { isSafemode } from "@content/safemode";
-import { TUICData } from "@content/data";
+import { defaultTwitterColor } from "@shared/sharedData";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 import { TUICPref } from "@content/modules";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 
 const buttonList = [
     {
@@ -79,7 +79,7 @@ const buttonList = [
     },
     {
         i18n: "easySetting-defaultTwitterColor",
-        changePref: structuredClone(TUICData.defaultTwitterColor),
+        changePref: structuredClone(defaultTwitterColor),
     },
 ];
 const clickEv = (index) => {
@@ -90,7 +90,7 @@ const clickEv = (index) => {
         document.querySelector("#TUIC_setting").remove();
     }
     TUICLibrary.getClasses.update();
-    TUICObserver.titleObserverFunction();
+    titleObserverFunction();
     if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
         document.title = document.title.replace(" / Twitter", " / X");
     }
