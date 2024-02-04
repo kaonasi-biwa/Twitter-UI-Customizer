@@ -1,4 +1,3 @@
-import { TUICData } from "@content/data";
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
