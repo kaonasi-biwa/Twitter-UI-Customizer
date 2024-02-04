@@ -1,6 +1,5 @@
 import { ColorData, ProcessedClass } from "@shared/sharedData.ts";
 import { applySystemCss } from "./applyCSS.ts";
-import { TUICData } from "./data.ts";
 import { TUICPref } from "./modules/index.ts";
 import { TUICObserver } from "./modules/observer/index.ts";
 
@@ -140,6 +139,25 @@ export const TUICLibrary = {
                 observer.observe(parentElement, { subtree: true, childList: true });
             });
         }
+    },
+    waitAndClickElement: async (selector: string): Promise<boolean> => {
+        for (let i = 0; i <= 25; i++) {
+            const re = await new Promise((resolve2) => {
+                const elem = document.querySelector<HTMLInputElement>(selector);
+                if (elem != null) {
+                    elem.click();
+                    resolve2("ok");
+                }
+                resolve2("bb");
+            });
+            if (re == "ok") return true;
+            await new Promise((resolve2) => {
+                window.setTimeout(() => {
+                    resolve2("");
+                }, 100);
+            });
+        }
+        return false;
     },
     hasClosest: (elem: Element, selector: string): Element => {
         let elem2 = elem;
