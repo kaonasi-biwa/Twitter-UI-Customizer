@@ -12,7 +12,7 @@ import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
-
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 const props = defineProps<{
     name: string;
     value: string;
@@ -22,7 +22,7 @@ const props = defineProps<{
 const changePref = (path: string, event: any) => {
     TUICPref.setPref(path, event.target.checked);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
+    updateClasses();
     titleObserverFunction();
 };
 </script>

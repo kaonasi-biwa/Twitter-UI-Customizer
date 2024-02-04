@@ -1,11 +1,9 @@
 import browser from "webextension-polyfill";
-
-import { TUICData } from "./data.ts";
-import { TUICLibrary } from "./library.ts";
-import { isSafemode } from "./safemode.ts";
+import { TUICLibrary } from "@content/library.ts";
+import { isSafemode } from "@content/safemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
-import { TUICPref } from "./modules/index.ts";
+import { TUICPref } from "@content/modules/index.ts";
 import { ColorData } from "@shared/sharedData.ts";
 
 export function addCssElement() {
@@ -91,9 +89,9 @@ export function applySystemCss() {
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem of TUICData.colors.all) {
+        for (const elem of ColorData.i18nAndAllContent.all) {
             for (const el of ["background", "border", "color"]) {
-                if (ColorData.defaultTUICColor.colors[elem]?.[el]) {
+                if (ColorData.defaultTUICColor.colors[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
                 }
             }

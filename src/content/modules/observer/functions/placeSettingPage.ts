@@ -6,17 +6,16 @@ export function placeSettingPage() {
         case "/tuic/safemode":
             break;
         case "/settings/display": {
-            rewriteTweet();
             TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
                 const _large = elems[0].closest<HTMLElement>(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
                 const _small = elems[0].closest<HTMLElement>(`main > div > div > div > div:nth-child(2)`);
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
                 displaySetting(_large ? _large : _small);
             });
+            rewriteTweet();
             break;
         }
         case "/i/display": {
-            rewriteTweet();
             //* /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
 
             TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
@@ -25,6 +24,7 @@ export function placeSettingPage() {
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
                 displaySetting(_dialog ? _dialog : _fullscreen);
             });
+            rewriteTweet();
         }
     }
 }
@@ -32,8 +32,6 @@ export function placeSettingPage() {
 function rewriteTweet() {
     if (document.querySelector("#TUIC_setting") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
         const displayRootElement = document.querySelector('[role="slider"]:not(article *)').closest<HTMLElement>(`:is([data-viewportview="true"],[aria-labelledby="detail-header"],main>div>div>div) > div+div`);
-
-        displaySetting(displayRootElement);
 
         (async () => {
             const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
