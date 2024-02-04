@@ -1,6 +1,4 @@
 import browser from "webextension-polyfill";
-
-import { TUICData } from "./data.ts";
 import { TUICLibrary } from "./library.ts";
 import { isSafemode } from "./safemode.ts";
 
@@ -91,9 +89,9 @@ export function applySystemCss() {
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem in TUICData.colors) {
+        for (const elem in ColorData.i18nAndAllContent) {
             for (const el of ["background", "border", "color"]) {
-                if (TUICData.colors[elem][el]) {
+                if (ColorData.i18nAndAllContent[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
                 }
             }

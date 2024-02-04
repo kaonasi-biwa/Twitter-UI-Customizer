@@ -258,7 +258,7 @@ export function sidebarButtons() {
     }
 }
 
-export function sidebarButtonProcess(bannerRoot: HTMLElement) {
+function sidebarButtonProcess(bannerRoot: HTMLElement) {
     if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
         sidebarButtonsCount = 0;
         for (const i of TUICPref.getPref("sidebarButtons")) {

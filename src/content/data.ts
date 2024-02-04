@@ -8,28 +8,13 @@ import { i18nAndAllContent as visibleButtons } from "./modules/observer/function
 import { i18nAndAllContent as sidebarButtons } from "./modules/observer/functions/sidebarBtn/index.ts";
 
 import { I18nAndAllContent } from "@shared/types.ts";
+import { ColorData } from "@shared/sharedData.ts";
 
 export const TUICData: {
     [key: string]: I18nAndAllContent;
 } = {
     // 色の設定
-    colors: {
-        all: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon", "twitterIconFavicon"],
-        i18n: {
-            "unsent-tweet": "settingColors-editUnsetTweet",
-            willFollow: "settingColors-willFollowButton",
-            "not-following": "settingColors-notFollowingButton",
-            following: "settingColors-followingButton",
-            "un-following": "settingColors-unfollowButton",
-            profile: "settingColors-editProfile",
-            "profile-save": "settingColors-saveProfile",
-            birthday: "settingColors-finalDecideButton",
-            blocking: "settingColors-blocking",
-            "blocking-unlock": "settingColors-blockingUnlock",
-            twitterIcon: "settingColors-twitterIcon",
-            twitterIconFavicon: "settingColors-twitterIconFavicon",
-        },
-    },
+    colors: ColorData.i18nAndAllContent,
     // ツイート関連の設定
     visibleButtons,
     "tweetDisplaySetting.linkCopyURL": {
