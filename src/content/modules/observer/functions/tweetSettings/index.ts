@@ -5,7 +5,7 @@ import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
 import { I18nAndAllContent } from "@shared/types";
 import { buttonHTMLBase } from "@content/resources";
-import { TUICI18N } from "@content/modules/i18n";
+import { TUICI18N } from "@modules/i18n";
 
 let buttonUnderTweetRunning: boolean = false;
 

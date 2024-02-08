@@ -12,7 +12,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { TUICI18N } from "@content/i18n.js";
+import { TUICI18N } from "@modules/i18n";
 
 export default defineComponent({
     props: {
@@ -28,4 +28,3 @@ export default defineComponent({
 </script>
 
 <style scoped></style>
-@content/modules/i18n/i18n.js

@@ -31,8 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
+import { TUICI18N } from "@modules/i18n";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 
 import ColorsList from "../components/ColorsList.vue";
 
@@ -40,7 +40,7 @@ import { TUICPref } from "@content/modules";
 
 import { useStore } from "../store";
 import { ColorData } from "@shared/sharedData";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const ColorSettingRadio = (event) => {
     const store = useStore();
@@ -59,4 +59,4 @@ const setDefaultTwitterColor = () => {
 </script>
 
 <style scoped></style>
-@content/modules/settings/safemode/safemode @content/modules/i18n/i18n
+@modules/settings/safemode/safemode @modules/i18n/i18n

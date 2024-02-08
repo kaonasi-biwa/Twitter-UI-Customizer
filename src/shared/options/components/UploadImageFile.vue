@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 
 async function changeCustomCSS() {
     if (this.$refs.twitterIcon.files.length >= 1) {
@@ -45,4 +45,4 @@ async function changeCustomCSS() {
 </script>
 
 <style scoped></style>
-@content/modules/i18n/i18n
+@modules/i18n/i18n

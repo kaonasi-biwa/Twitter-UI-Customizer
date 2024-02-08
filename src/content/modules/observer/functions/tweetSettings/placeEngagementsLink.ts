@@ -1,4 +1,4 @@
-import { TUICI18N } from "@content/modules/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { I18nAndAllContent } from "@shared/types";

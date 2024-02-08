@@ -19,13 +19,13 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
+import { TUICI18N } from "@modules/i18n";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { ColorData } from "@shared/sharedData";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 import { TUICPref } from "@content/modules";
-import { titleObserverFunction } from "@content/modules/observer/titleObserver";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { titleObserverFunction } from "@modules/observer/titleObserver";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const buttonList = [
     {
@@ -98,4 +98,4 @@ const clickEv = (index) => {
 </script>
 
 <style scoped></style>
-@content/modules/observer/observer @content/modules/settings/safemode/safemode @content/modules/i18n/i18n
+@modules/observer/observer @modules/settings/safemode/safemode @modules/i18n/i18n

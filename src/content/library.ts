@@ -1,5 +1,5 @@
 import { ColorData, ProcessedClass } from "@shared/sharedData.ts";
-import { TUICPref } from "@content/modules/index.ts";
+import { TUICPref } from "@modules/index.ts";
 
 export const TUICLibrary = {
     color: {

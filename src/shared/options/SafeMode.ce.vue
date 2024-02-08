@@ -38,7 +38,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 
 import OptionMain from "./OptionMain.ce.vue";
 
@@ -101,4 +101,4 @@ nav {
     display: none;
 }
 </style>
-@content/modules/i18n/i18n
+@modules/i18n/i18n

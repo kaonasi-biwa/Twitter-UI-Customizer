@@ -53,11 +53,11 @@ import RESET from "@content/icons/arrow/reset.svg?component";
 
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
-import { TUICI18N } from "@content/i18n.js";
-import { TUICData } from "@content/data.js";
+import { TUICI18N } from "@modules/i18n";
+import { TUICData } from "@content/data";
 import { TUICPref } from "@content/modules";
 
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string }>();
 
@@ -159,4 +159,3 @@ if (UDALL.length > 5) {
 </script>
 
 <style scoped></style>
-@content/modules/i18n/i18n.js

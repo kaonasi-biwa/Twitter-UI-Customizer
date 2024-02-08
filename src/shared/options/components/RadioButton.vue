@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { TUICObserver } from "@content/modules/observer/index.ts";
+import { TUICI18N } from "@modules/i18n";
+import { TUICObserver } from "@modules/observer/index.ts";
 import { TUICPref } from "@content/modules";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string; valueName: string; name: string }>();
 
@@ -22,4 +22,4 @@ const changePref = (path, valueName) => {
     TUICObserver.observerFunction();
 };
 </script>
-@content/modules/observer/observer @content/modules/i18n/i18n
+@modules/observer/observer @modules/i18n/i18n

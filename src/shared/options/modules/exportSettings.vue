@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { TUICPref } from "@content/modules";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 
 const exportText = defineModel<HTMLInputElement>();
 
@@ -21,4 +21,4 @@ function exportPrefCopy() {
     navigator.clipboard.writeText(exportText.value.value);
 }
 </script>
-@content/modules/i18n/i18n
+@modules/i18n/i18n

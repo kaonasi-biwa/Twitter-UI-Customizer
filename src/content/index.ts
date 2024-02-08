@@ -3,16 +3,16 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "@content/modules/observer/index.ts";
+import { TUICObserver } from "@modules/observer/index.ts";
 import { TUICLibrary } from "@content/library.ts";
-import { TUICI18N } from "@content/modules/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "@content/applyCSS.ts";
-import { runSafemode } from "@content/modules/settings/safemode/safemode";
-import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
+import { runSafemode } from "@modules/settings/safemode/safemode";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
-import { TUICPref } from "@content/modules/index.ts";
-import { initIconObserverFunction } from "@content/modules/observer/functions/changeIcon.ts";
-import { titleObserverFunction } from "@content/modules/observer/titleObserver.ts";
+import { TUICPref } from "@modules/index.ts";
+import { initIconObserverFunction } from "@modules/observer/functions/changeIcon.ts";
+import { titleObserverFunction } from "@modules/observer/titleObserver.ts";
 import { updateClasses } from "./modules/htmlClass/classManager";
 
 (async () => {

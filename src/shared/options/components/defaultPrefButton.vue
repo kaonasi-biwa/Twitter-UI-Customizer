@@ -4,14 +4,14 @@
     </button>
 </template>
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
-import { titleObserverFunction } from "@content/modules/observer/titleObserver";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { titleObserverFunction } from "@modules/observer/titleObserver";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const props = defineProps<{
     classList: string[];
@@ -51,4 +51,4 @@ const setDefault = async () => {
         .open();
 };
 </script>
-@content/modules/observer/observer @content/modules/settings/safemode/safemode @content/modules/i18n/i18n
+@modules/observer/observer @modules/settings/safemode/safemode @modules/i18n/i18n

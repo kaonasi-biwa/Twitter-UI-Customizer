@@ -12,10 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import ThreeColorSetting from "./ThreeColorSetting.vue";
 import { ColorData } from "@shared/sharedData";
 </script>
 
 <style scoped></style>
-@content/modules/i18n/i18n
+@modules/i18n/i18n

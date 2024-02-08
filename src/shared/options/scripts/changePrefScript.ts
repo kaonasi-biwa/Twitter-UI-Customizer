@@ -1,7 +1,7 @@
-import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { TUICPref } from "@content/modules";
-import { titleObserverFunction } from "@content/modules/observer/titleObserver";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { titleObserverFunction } from "@modules/observer/titleObserver";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 export const XToTwitterRestoreIcon = () => {
     const importPref = {

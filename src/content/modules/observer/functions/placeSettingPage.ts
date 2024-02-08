@@ -1,5 +1,5 @@
 import { TUICLibrary } from "@content/library";
-import { displaySetting } from "@content/modules/settings/display";
+import { displaySetting } from "@modules/settings/display";
 
 export function placeSettingPage() {
     switch (window.location.pathname) {

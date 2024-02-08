@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { TUICI18N } from "@content/modules/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
 
 import RESET from "@content/icons/arrow/reset.svg?component";
@@ -113,4 +113,4 @@ function changeColorCheck(colorAttr, colorType, colorKind) {
 </script>
 
 <style scoped></style>
-@content/modules/i18n/i18n
+@modules/i18n/i18n

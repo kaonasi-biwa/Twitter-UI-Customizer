@@ -8,10 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
-import { titleObserverFunction } from "@content/modules/observer/titleObserver";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { titleObserverFunction } from "@modules/observer/titleObserver";
+import { updateClasses } from "@modules/htmlClass/classManager";
 const props = defineProps<{
     name: string;
     value: string;
@@ -27,4 +27,4 @@ const changePref = (path: string, event: any) => {
 </script>
 
 <style scoped></style>
-@content/modules/observer/observer @content/modules/i18n/i18n
+@modules/observer/observer @modules/i18n/i18n

@@ -145,7 +145,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
 
 import CheckBox from "./components/CheckBox.vue";
@@ -194,4 +194,4 @@ export default defineComponent({
     background: red;
 }
 </style> -->
-@content/modules/i18n/i18n
+@modules/i18n/i18n
