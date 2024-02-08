@@ -1,6 +1,6 @@
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "..";
-import { isSafemode } from "@content/safemode";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 
 let headObserver: MutationObserver | null = null;
 

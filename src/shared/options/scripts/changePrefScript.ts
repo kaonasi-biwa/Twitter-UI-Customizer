@@ -1,4 +1,4 @@
-import { isSafemode } from "@content/safemode";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 import { TUICPref } from "@content/modules";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 import { updateClasses } from "@content/modules/htmlClass/classManager";

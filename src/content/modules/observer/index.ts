@@ -45,7 +45,7 @@ export const TUICObserver = {
 
             TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
         } catch (e) {
-            catchError(e);
+            catchError(e, TUICObserver.observerFunction);
         }
     },
     config: {

@@ -1,12 +1,11 @@
 import { TUICI18N } from "@content/i18n";
-import { TUICObserver } from "@content/modules/observer";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";
 
 const errors = [];
 
-export function catchError(e) {
+export function catchError(e: Error, obs: () => void) {
     console.error(e);
     errors.push(`${e.toString()}${"\r"}${e.stack}`);
     if (errors.length > 2) {
@@ -31,6 +30,6 @@ export function catchError(e) {
             ])
             .open();
     } else {
-        window.setTimeout(TUICObserver.observerFunction, 5000);
+        window.setTimeout(obs, 5000);
     }
 }

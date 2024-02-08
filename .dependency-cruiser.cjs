@@ -194,7 +194,7 @@ module.exports = {
           leave out if you want to exclude neither (recommended!)
     */
         exclude: {
-            path: ["/content/icons/", "/shared/", "i18n", "safemode", "pref", "node_modules"],
+            path: ["/content/icons/", "node_modules", "tlui", "src/content/i18n.ts", "src/content/modules/pref"],
             dynamic: true,
         },
 

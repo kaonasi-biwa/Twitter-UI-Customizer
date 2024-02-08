@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
-import { isSafemode } from "@content/safemode";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 import { ColorData } from "@shared/sharedData";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 import { TUICPref } from "@content/modules";
@@ -98,4 +98,4 @@ const clickEv = (index) => {
 </script>
 
 <style scoped></style>
-@content/modules/observer/observer
+@content/modules/observer/observer @content/modules/settings/safemode/safemode

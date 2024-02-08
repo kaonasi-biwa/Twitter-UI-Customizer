@@ -1,6 +1,6 @@
 import browser from "webextension-polyfill";
 import { TUICLibrary } from "@content/library.ts";
-import { isSafemode } from "@content/safemode.ts";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
 import { TUICPref } from "@content/modules/index.ts";

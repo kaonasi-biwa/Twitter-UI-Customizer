@@ -7,7 +7,7 @@
 import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-import { isSafemode } from "@content/safemode";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
@@ -51,4 +51,4 @@ const setDefault = async () => {
         .open();
 };
 </script>
-@content/modules/observer/observer
+@content/modules/observer/observer @content/modules/settings/safemode/safemode

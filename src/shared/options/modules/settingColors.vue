@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
-import { isSafemode } from "@content/safemode";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 
 import ColorsList from "../components/ColorsList.vue";
 
@@ -59,3 +59,4 @@ const setDefaultTwitterColor = () => {
 </script>
 
 <style scoped></style>
+@content/modules/settings/safemode/safemode

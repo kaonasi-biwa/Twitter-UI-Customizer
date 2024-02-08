@@ -18,7 +18,7 @@ import { TUICI18N } from "@content/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICObserver } from "@content/modules/observer/index.ts";
 import { applySystemCss } from "@content/applyCSS";
-import { isSafemode } from "@content/safemode";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { TUICPref } from "@content/modules";
@@ -58,4 +58,4 @@ const importFunc = async (type: number) => {
 </script>
 
 <style scoped></style>
-@content/modules/observer/observer
+@content/modules/observer/observer @content/modules/settings/safemode/safemode

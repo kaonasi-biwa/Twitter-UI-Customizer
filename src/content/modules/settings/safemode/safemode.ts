@@ -1,6 +1,4 @@
-import { injectSafeMode } from "../shared/options/injectSafeMode.ts";
-
-export const isSafemode = location.pathname === "/tuic/safemode";
+import { injectSafeMode } from "../../../../shared/options/injectSafeMode.ts";
 
 export function runSafemode() {
     document.querySelector("#TUIC_safemode")?.remove();
