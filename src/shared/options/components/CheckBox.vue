@@ -9,7 +9,6 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@content/i18n";
-import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 import { updateClasses } from "@content/modules/htmlClass/classManager";

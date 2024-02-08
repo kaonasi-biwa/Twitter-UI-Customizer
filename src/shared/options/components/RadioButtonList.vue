@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent } from "vue";
 import RadioButton from "./RadioButton.vue";
 import { TUICData } from "@content/data";
 
