@@ -22,6 +22,15 @@ import { updateClasses } from "./modules/htmlClass/classManager";
     // Twitterの親要素を待機
     await TUICLibrary.waitForElement("#react-root");
 
+    // 起動メッセージ
+    console.log(
+        `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
+        `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
+        `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
+    );
+
+    // 旧バージョンからのPrefのアップデート
+    await TUICPref.updatePref();
     // 前起動時のTUICの要素・Classが残っていればすべて削除
     updateClasses();
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
@@ -33,16 +42,6 @@ import { updateClasses } from "./modules/htmlClass/classManager";
         type: "update",
         updateType: "openTwitter",
     });
-
-    // 起動メッセージ
-    console.log(
-        `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
-        `font-family: system-ui, -apple-system, sans-serif, monospace; font-size: 1.2em; font-weight: bold; text-align: center; background: ${isSafemode ? "#5a9e1b" : "#1da1f2"}; color: #ffffff; padding: 0.5em 2em; margin-top: 0.5em; margin-left: 0.5em;`,
-        `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
-    );
-
-    // 旧バージョンからのPrefのアップデート
-    await TUICPref.updatePref();
 
     // CSSの適用
     addCssElement();

@@ -63,7 +63,7 @@ export function applySystemCss() {
 
     const settingsArr = [
         "sidebarSetting.buttonConfigsmallerSidebarContent",
-        "otherBoolSetting.roundIcon",
+        "twitterIcon.options.roundIcon",
         "invisibleItems.subscribe-profile",
         "invisibleItems.hideBelowDM",
         "tweetDisplaySetting.bottomSpace",

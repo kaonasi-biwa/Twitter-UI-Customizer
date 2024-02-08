@@ -57,7 +57,7 @@ export const TUICData: {
     },
 
     // Twitterアイコンの設定
-    twitterIcon: {
+    "twitterIcon.icon": {
         all: ["nomal", "invisible", "dog", "twitter", "twitterIcon-X", "custom"],
         i18n: {
             nomal: "twitterIcon-normal",
@@ -67,6 +67,10 @@ export const TUICData: {
             "twitterIcon-X": "twitterIcon-X",
             custom: "twitterIcon-custom",
         },
+    },
+    "twitterIcon.options": {
+        all: ["faviconSet", "roundIcon"],
+        i18n: { faviconSet: "twitterIcon-favicon", roundIcon: "twitterIcon-roundIcon" },
     },
 
     // サイドバーの設定

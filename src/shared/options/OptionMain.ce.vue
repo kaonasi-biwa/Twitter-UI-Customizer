@@ -56,11 +56,10 @@
             </detailsBox>
 
             <detailsBox i18n="twitterIcon-settingTitle">
-                <RadioButtonList id="twitterIcon" />
+                <RadioButtonList id="twitterIcon.icon" />
 
                 <br />
-                <CheckBox value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
-                <CheckBox value="otherBoolSetting.roundIcon" name="twitterIcon-roundIcon" />
+                <CheckBoxList id="twitterIcon.options" />
 
                 <br />
                 <SettingSubTitle i18n="twitterIcon-usedIcon" />

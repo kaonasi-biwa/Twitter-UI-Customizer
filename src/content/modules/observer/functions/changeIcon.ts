@@ -26,36 +26,37 @@ const iconObserverFunc = (elem: Element) => {
 
 function changeIconProcess(elem: Element, base: Element) {
     const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
-    switch (TUICPref.getPref("twitterIcon")) {
+    const changeFavicon = TUICPref.getPref("twitterIcon.options.faviconSet");
+    switch (TUICPref.getPref("twitterIcon.icon")) {
         case "invisible":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
+            if (changeFavicon) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE");
             base.hide();
             break;
         case "twitter":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
+            if (changeFavicon) {
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`)
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
             break;
         case "dog":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
+            if (changeFavicon) {
                 favicon.href = chrome.runtime.getURL(DOG);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Dog");
             break;
         case "custom":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
-                const imageURL = localStorage.getItem(TUICPref.getPref("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+            if (changeFavicon) {
+                const imageURL = localStorage.getItem(TUICPref.getPref("twitterIcon.options.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                 favicon.href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");
             break;
         case "twitterIcon-X":
-            if (TUICPref.getPref("otherBoolSetting.faviconSet")) {
+            if (changeFavicon) {
                 console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null))));
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
@@ -68,7 +69,7 @@ function changeIconProcess(elem: Element, base: Element) {
             break;
     }
     elem.process();
-    if (!TUICPref.getPref("otherBoolSetting.faviconSet")) {
+    if (!changeFavicon) {
         favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
     }
 }

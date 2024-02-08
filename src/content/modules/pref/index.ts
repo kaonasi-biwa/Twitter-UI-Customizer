@@ -25,7 +25,7 @@ const getPointerFromKey = (object: object, key: string) => {
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
  * @return {unknown} 取得した値(identifierが空文字ならTUICのPref全体)
  */
-export function getPref(identifier) {
+export function getPref(identifier: string) {
     const { object, key } = getPointerFromKey(config, identifier);
     return object[key];
 }
@@ -51,7 +51,7 @@ export function setPref(identifier: string, value: unknown) {
  *
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
  */
-export function deletePref(identifier) {
+export function deletePref(identifier: string) {
     const { object, key } = getPointerFromKey(config, identifier);
     delete object[key];
 }
@@ -68,7 +68,7 @@ export function save() {
  *
  * @return {string} TUICのPrefをJSON.stringify()で文字列にしたもの
  */
-export function exportPref() {
+export function exportPref(): string {
     return JSON.stringify(config);
 }
 
@@ -77,7 +77,7 @@ export function exportPref() {
  * @param {object} source マージ元
  * @param {object} target マージ先
  */
-export function mergePref(source, target) {
+export function mergePref(source: object, target: object) {
     for (const i in source) {
         if (!(i in target)) {
             target[i] = source[i];
@@ -99,6 +99,12 @@ export async function updatePref() {
     if (typeof getPref("rightSidebar") != "object") setPref("rightSidebar", {});
 
     if (typeof getPref("XToTwitter") != "object") setPref("XToTwitter", {});
+
+    if (typeof getPref("twitterIcon") == "string") {
+        const twitterIconPref = getPref("twitterIcon");
+        setPref("twitterIcon", {});
+        setPref("twitterIcon.icon", twitterIconPref);
+    }
 
     if (typeof getPref("clientInfo") == "object") deletePref("clientInfo");
 
@@ -134,6 +140,8 @@ export async function updatePref() {
         "invisibleItems.verifiedFollowerTab": "profileSetting.invisible.verifiedFollowerTab",
         "otherBoolSetting.smallerSidebarContent": "sidebarSetting.buttonConfig.smallerSidebarContent",
         "otherBoolSetting.sidebarNoneScrollbar": "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
+        "otherBoolSetting.faviconSet": "twitterIcon.options.faviconSet",
+        "otherBoolSetting.roundIcon": "twitterIcon.options.roundIcon",
     };
     for (const oldKey in boolKeys) {
         changeBooleanKey(oldKey, boolKeys[oldKey]);

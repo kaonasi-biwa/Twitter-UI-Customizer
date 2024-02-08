@@ -224,7 +224,7 @@
     padding-top: 0 !important;
 }
 
-:root[TUICSettings*="|otherBoolSetting.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
+:root[TUICSettings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
     border-radius: 9999px !important;
 }
 
