@@ -159,3 +159,4 @@ if (UDALL.length > 5) {
 </script>
 
 <style scoped></style>
+@content/modules/i18n/i18n.js

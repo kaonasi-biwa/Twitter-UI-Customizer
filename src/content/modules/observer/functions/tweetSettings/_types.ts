@@ -1,5 +1,5 @@
 interface ArticleInfomation {
-    elements: { buttonBarBase: Element; articleBase: Element; statusButton: Element };
+    elements: { buttonBarBase: Element; articleBase: Element; statusButton: HTMLAnchorElement };
     option: {
         isLockedAccount: boolean;
         cannotRT: boolean;

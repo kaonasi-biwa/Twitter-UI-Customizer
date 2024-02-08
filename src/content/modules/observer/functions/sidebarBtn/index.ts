@@ -2,7 +2,7 @@ import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { moreMenuContent } from "./moreMenuContent";
 import { I18nAndAllContent } from "@shared/types";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
 let sidebarButtonsCount = -1;
 
@@ -54,7 +54,7 @@ const _data = {
     ...i18nAndAllContent,
     selectors: SidebarButtonSelectors,
     html: {
-        __base: (id, svg) => {
+        __base: (id: string, svg: string): string => {
             return `
             <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction(
                 _data.tuicButtonGoToUrl[id],
@@ -77,7 +77,7 @@ const _data = {
                 </div>
             </a>`;
         },
-        topics: () => {
+        topics: (): string => {
             return _data.html.__base("topics", `<path d="${SIDEBAR_BUTTON_ICON.topics.unselected}"></path>`);
         },
         /*"lists": () => {
@@ -86,26 +86,26 @@ const _data = {
         /*"communities": () => {
           return _data.html.__base("communities",`<path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"></path>`)
         },*/
-        drafts: () => {
+        drafts: (): string => {
             return _data.html.__base("drafts", `<path d="${SIDEBAR_BUTTON_ICON.drafts.unselected}">`);
         },
-        connect: () => {
+        connect: (): string => {
             return _data.html.__base("connect", `<path d="${SIDEBAR_BUTTON_ICON.connect.unselected}"></path>`);
         },
-        display: () => {
+        display: (): string => {
             return _data.html.__base("display", `<path d="${SIDEBAR_BUTTON_ICON.display.unselected}"></path><path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>`);
         },
-        muteAndBlock: () => {
+        muteAndBlock: (): string => {
             return _data.html.__base("muteAndBlock", `<path d="${SIDEBAR_BUTTON_ICON.muteAndBlock.unselected}"></path>`);
         },
-        bookmarks: () => {
+        bookmarks: (): string => {
             return _data.html.__base("bookmarks", `<path d="${SIDEBAR_BUTTON_ICON.bookmarks.unselected}"></path>`);
         },
-        settings: () => {
+        settings: (): string => {
             return _data.html.__base("settings", `<path d="${SIDEBAR_BUTTON_ICON.settings.unselected}"></path>`);
         },
     },
-    buttonClickInMoreMenu: async (e, selector) => {
+    buttonClickInMoreMenu: async (selector: string) => {
         await TUICLibrary.waitAndClickElement(`[data-testid="AppTabBar_More_Menu"] > div > div`);
         const foundElem = await TUICLibrary.waitAndClickElement(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`);
         if (!foundElem) {
@@ -115,7 +115,7 @@ const _data = {
         return true;
     },
     buttonFunctions: {
-        topics: async (e) => {
+        topics: async (e: Event) => {
             e?.preventDefault?.();
             if (!location.pathname.endsWith("/topics")) {
                 const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
@@ -129,26 +129,26 @@ const _data = {
                 }, 150);
             }
         },
-        lists: (e) => {
+        lists: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(e, `[href$="/lists"]`);
+            _data.buttonClickInMoreMenu(`[href$="/lists"]`);
         },
-        /*"communities": function (e) {
-          _data.buttonClickInMoreMenu(e, `[href$="/communities"]`)
+        /*"communities": function (e:Event) {
+          _data.buttonClickInMoreMenu( `[href$="/communities"]`)
         },*/
-        drafts: async (e) => {
+        drafts: async (e: Event) => {
             e?.preventDefault?.();
-            //_data.buttonClickInMoreMenu(e, `[href="/compose/tweet/unsent/drafts"]`);
+            //_data.buttonClickInMoreMenu( `[href="/compose/tweet/unsent/drafts"]`);
             document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
             await TUICLibrary.waitAndClickElement(`[data-testid="unsentButton"]`);
         },
-        connect: (e) => {
+        connect: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(e, `[href="/i/connect_people"]`);
+            _data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
         },
-        display: async (e) => {
+        display: async (e: Event) => {
             e?.preventDefault?.();
-            /*if (_data.buttonClickInMoreMenu(e, `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
+            /*if (_data.buttonClickInMoreMenu( `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
                 await TUICLibrary.waitAndClickElement(`[href="/i/display"]`);
             }*/
             if (!location.pathname.endsWith("/settings/display")) {
@@ -162,7 +162,7 @@ const _data = {
                 }, 150);
             }
         },
-        muteAndBlock: async (e) => {
+        muteAndBlock: async (e: Event) => {
             e?.preventDefault?.();
             if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
                 const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
@@ -175,11 +175,11 @@ const _data = {
                 }, 150);
             }
         },
-        bookmarks: (e) => {
+        bookmarks: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(e, `[href="/i/bookmarks"]`);
+            _data.buttonClickInMoreMenu(`[href="/i/bookmarks"]`);
         },
-        settings: (e) => {
+        settings: (e: Event) => {
             e?.preventDefault?.();
             if (!location.pathname.includes("/settings") || location.pathname.includes("/settings/display")) {
                 const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
@@ -268,8 +268,8 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 moveElem.classList.add("NOT_TUIC_DISPNONE");
                 if (i == "moremenu") {
                     moveElem.onclick = moreMenuContent;
-                    moveElem.addEventListener("keydown", (e) => {
-                        if (e.keyCode === 13) {
+                    moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
+                        if (e.key === "Enter") {
                             e.preventDefault();
                             moreMenuContent();
                         }
@@ -280,12 +280,10 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 moveElem = TUICLibrary.HTMLParse(_data.html[i]()).item(0);
                 moveElem.classList.add("NOT_TUIC_DISPNONE");
                 moveElem.onclick = _data.buttonFunctions[i];
-                moveElem.addEventListener("keydown", (e) => {
-                    if (e.keyCode === 13) {
+                moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
+                    if (e.key === "Enter") {
                         e.preventDefault();
-                        _data.buttonFunctions[i]({
-                            currentTarget: e.target.parentElement,
-                        });
+                        _data.buttonFunctions[i]();
                     }
                 });
                 bannerRoot.appendChild(moveElem);

@@ -12,7 +12,7 @@ export const i18nAndAllContent: I18nAndAllContent = {
 const _data = {
     ...i18nAndAllContent,
     element: {
-        html: () => {
+        html: (): string => {
             return `
 <div class="css-175oi2r r-obd0qt r-18u37iz TUICOriginalContent TUICDMIconBox">
 <div class="css-175oi2r" style="width: ${TUICLibrary.fontSizeClass("47", "49", "52", "57", "62")}px;"></div>
@@ -46,13 +46,13 @@ const _data = {
 </div>
             `;
         },
-        make: (NoIcon) => {
+        make: (/*NoIcon*/) => {
             const elem = TUICLibrary.HTMLParse(_data.element.html()).item(0);
-            if (!NoIcon) {
+            /*if (!NoIcon) {
                 elem.querySelector<HTMLElement>(".TUICDMIconDisplay").style.backgroundImage = document.querySelector<HTMLElement>(
                     `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
                 ).style.backgroundImage;
-            }
+            }*/
 
             elem.querySelector("a").addEventListener("click", (e) => {
                 e.preventDefault();
@@ -83,7 +83,7 @@ export function dmPage() {
                 elem.querySelector("div > div+div+div.TUICDMIconBox")?.remove();
 
                 const elemParent = elem.parentElement.querySelector(`[data-testid="messageEntry"] > div`);
-                elemParent.appendChild(_data.element.make(false));
+                elemParent.appendChild(_data.element.make());
             }
         }
     } else {

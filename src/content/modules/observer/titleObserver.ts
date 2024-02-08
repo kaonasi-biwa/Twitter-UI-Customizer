@@ -1,4 +1,4 @@
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 import { TUICPref } from "..";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";
 

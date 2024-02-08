@@ -27,4 +27,4 @@ const changePref = (path: string, event: any) => {
 </script>
 
 <style scoped></style>
-@content/modules/observer/observer
+@content/modules/observer/observer @content/modules/i18n/i18n

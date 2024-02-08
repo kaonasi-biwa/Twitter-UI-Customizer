@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 import { TUICLibrary } from "@content/library";
 
 import RESET from "@content/icons/arrow/reset.svg?component";
@@ -47,12 +47,12 @@ const store = useStore();
 const isDefault = computed(() => {
     return !!TUICPref.getPref(store.editingColorType)?.[props.id]?.[props.type];
 });
-const TUIC_color = computed(() => {
+const TUIC_color = computed<Array<string>>(() => {
     return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
 });
 
 const TUICColor1 = computed(() => {
-    return TUICLibrary.color.rgb2hex([Number(TUIC_color.value[0]), Number(TUIC_color.value[1]), Number(TUIC_color.value[2])]);
+    return TUICLibrary.color.rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)));
 });
 
 function defaultColor(colorAttr, colorType, colorKind) {
@@ -113,3 +113,4 @@ function changeColorCheck(colorAttr, colorType, colorKind) {
 </script>
 
 <style scoped></style>
+@content/modules/i18n/i18n

@@ -98,4 +98,4 @@ const clickEv = (index) => {
 </script>
 
 <style scoped></style>
-@content/modules/observer/observer @content/modules/settings/safemode/safemode
+@content/modules/observer/observer @content/modules/settings/safemode/safemode @content/modules/i18n/i18n

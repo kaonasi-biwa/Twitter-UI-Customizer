@@ -45,3 +45,4 @@ async function changeCustomCSS() {
 </script>
 
 <style scoped></style>
+@content/modules/i18n/i18n

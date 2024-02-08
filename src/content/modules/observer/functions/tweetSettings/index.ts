@@ -5,7 +5,7 @@ import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
 import { I18nAndAllContent } from "@shared/types";
 import { buttonHTMLBase } from "@content/resources";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 
 let buttonUnderTweetRunning: boolean = false;
 
@@ -48,14 +48,14 @@ const _data = {
     ...i18nAndAllContent,
     selectors: { ...ButtonUnderTweetSelectors },
     buttonHTML: {
-        _base: function (id: string, svg, isBigArticle: boolean, disable = false, redButton = false) {
+        _base: function (id: string, svg, isBigArticle: boolean, disable = false, redButton = false): string {
             const tabindex = disable ? "-1" : "0";
             const clazzDir = disable ? "r-icoktb" : "css-18t94o4";
             const clazzLtr = TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-rjixqe", "r-1inkyih", "r-1i10wst");
             const clazzSVG = `${isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"}${redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`;
             return buttonHTMLBase.replaceAll("${id}", id).replaceAll("${tabindex}", tabindex).replaceAll("${clazzDir}", clazzDir).replaceAll("${clazzSVG}", clazzSVG).replaceAll("${clazzLtr}", clazzLtr).replaceAll("${svg}", svg);
         },
-        _svg: function (svg: string) {
+        _svg: function (svg: string): string {
             return `
         <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr \${clazzSVG}">
             <g>${svg}</g>
@@ -64,7 +64,7 @@ const _data = {
         /*boolkmark: function (isBigArticle) {
             return _data.buttonHTML._base("bookmark", `<path d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z" class="TUIC_BOOKMARK"></path>`, isBigArticle);
         },*/
-        "url-copy": function (isBigArticle: boolean) {
+        "url-copy": function (isBigArticle: boolean): string {
             return _data.buttonHTML._base(
                 "urlCopy",
                 _data.buttonHTML._svg(
@@ -73,7 +73,7 @@ const _data = {
                 isBigArticle,
             );
         },
-        userBlock: function (isBigArticle: boolean, isMe: boolean) {
+        userBlock: function (isBigArticle: boolean, isMe: boolean): string {
             return _data.buttonHTML._base(
                 "userBlock",
                 _data.buttonHTML._svg(
@@ -83,7 +83,7 @@ const _data = {
                 isMe,
             );
         },
-        userMute: function (isBigArticle: boolean, isMe: boolean) {
+        userMute: function (isBigArticle: boolean, isMe: boolean): string {
             return _data.buttonHTML._base(
                 "userMute",
                 _data.buttonHTML._svg(
@@ -93,7 +93,7 @@ const _data = {
                 isMe,
             );
         },
-        quoteTweet: function (isBigArticle: boolean, locked: boolean) {
+        quoteTweet: function (isBigArticle: boolean, locked: boolean): string {
             return _data.buttonHTML._base(
                 "quoteTweet",
                 _data.buttonHTML._svg(
@@ -103,7 +103,7 @@ const _data = {
                 locked,
             );
         },
-        likeAndRT: function (isBigArticle: boolean, disable: boolean) {
+        likeAndRT: function (isBigArticle: boolean, disable: boolean): string {
             return _data.buttonHTML._base(
                 "likeAndRT",
                 _data.buttonHTML._svg(
@@ -113,7 +113,7 @@ const _data = {
                 disable,
             );
         },
-        deleteButton: function (isBigArticle: boolean, isMe: boolean) {
+        deleteButton: function (isBigArticle: boolean, isMe: boolean): string {
             return _data.buttonHTML._base(
                 "deleteButton",
                 _data.buttonHTML._svg(
@@ -124,7 +124,7 @@ const _data = {
                 true,
             );
         },
-        sendDM: function (isBigArticle: boolean, cannotShare) {
+        sendDM: function (isBigArticle: boolean, cannotShare: boolean): string {
             return _data.buttonHTML._base(
                 "sendDM",
                 _data.buttonHTML._svg(
@@ -155,7 +155,7 @@ const _data = {
                 }
             }
         },*/
-        sendDM: function (e) {
+        sendDM: function (e: HTMLInputElement) {
             for (const i of [0, 1, 2]) {
                 const urlCopyButton = document.querySelector(
                     `[role="menu"] [role="menuitem"] [d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"]:not(.TUIC_sendDM)`,
@@ -168,7 +168,7 @@ const _data = {
                 }
             }
         },
-        "url-copy": function (e) {
+        "url-copy": function (e: HTMLInputElement) {
             for (const i of [0, 1, 2]) {
                 const urlCopyButton =
                     document.querySelector(`[role="menuitem"] :is([d="M11.96 14.945c-.067 0-.136-.01-.203-.027-1.13-.318-2.097-.986-2.795-1.932-.832-1.125-1.176-2.508-.968-3.893s.942-2.605 2.068-3.438l3.53-2.608c2.322-1.716 5.61-1.224 7.33 1.1.83 1.127 1.175 2.51.967 3.895s-.943 2.605-2.07 3.438l-1.48 1.094c-.333.246-.804.175-1.05-.158-.246-.334-.176-.804.158-1.05l1.48-1.095c.803-.592 1.327-1.463 1.476-2.45.148-.988-.098-1.975-.69-2.778-1.225-1.656-3.572-2.01-5.23-.784l-3.53 2.608c-.802.593-1.326 1.464-1.475 2.45-.15.99.097 1.975.69 2.778.498.675 1.187 1.15 1.992 1.377.4.114.633.528.52.928-.092.33-.394.547-.722.547z"],
@@ -181,17 +181,17 @@ const _data = {
                 }
             }
         },
-        "url-copy-cannotCopy": function (elem) {
+        "url-copy-cannotCopy": function (elem: HTMLAnchorElement) {
             _data.buttonFunction["url-copy-base"](elem.href.replace(/(twitter\.com|x\.com)/, _data.copyURL[TUICPref.getPref("tweetDisplaySetting.linkCopyURL")]));
         },
-        "url-copy-inShare": function (elem) {
+        "url-copy-inShare": function (elem: HTMLAnchorElement) {
             _data.buttonFunction["url-copy-base"](elem.href.replace(/(twitter\.com|x\.com)/, _data.copyURL[TUICPref.getPref("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]));
 
             //if ((await navigator.clipboard.readText()).split("?")[0] != copyLink) {
 
             //}
         },
-        "url-copy-base": (url) => {
+        "url-copy-base": (url: string) => {
             navigator.clipboard.writeText(url);
             const baseElem = document.querySelector(`#layers`);
             if (baseElem != null) {
@@ -228,11 +228,11 @@ const _data = {
                 }, 3000);
             }
         },
-        userBlock: async function (article) {
+        userBlock: async function (article: Element) {
             for (let i = 0; i <= 2; i++) {
                 const blockButton = document.querySelector<HTMLDivElement>(`[data-testid="block"][role="menuitem"]`);
                 if (blockButton == null) {
-                    article.querySelector(`[data-testid="caret"]`).click();
+                    article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
                 } else {
                     blockButton.click();
                     await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
@@ -250,13 +250,13 @@ const _data = {
                 }
             }
         },
-        deleteButton: function (article) {
+        deleteButton: function (article: Element) {
             for (let i = 0; i <= 2; i++) {
                 const deleteButtonButton = document.querySelector(
                     `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
                 );
                 if (deleteButtonButton == null) {
-                    article.querySelector(`[data-testid="caret"]`).click();
+                    article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
                 } else {
                     deleteButtonButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                     if (TUICPref.getPref("tweetDisplaySetting.noModalbottomTweetButtons")) {
@@ -273,20 +273,20 @@ const _data = {
                 }
             }
         },
-        userMute: function (article) {
+        userMute: function (article: Element) {
             for (let i = 0; i <= 2; i++) {
                 const blockButton = document.querySelector(
                     `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
                 );
                 if (blockButton == null) {
-                    article.querySelector(`[data-testid="caret"]`).click();
+                    article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
                 } else {
                     blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
                     break;
                 }
             }
         },
-        quoteTweet: function (retButton) {
+        quoteTweet: function (retButton: HTMLButtonElement) {
             for (let i = 0; i <= 2; i++) {
                 const quoteButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`);
                 if (quoteButton == null) {
@@ -297,7 +297,7 @@ const _data = {
                 }
             }
         },
-        likeAndRT: function (retButton, likeButton) {
+        likeAndRT: function (retButton: HTMLButtonElement, likeButton: HTMLButtonElement) {
             likeButton.click();
             if (TUICPref.getPref("tweetDisplaySetting.RTNotQuote")) {
                 retButton.click();
@@ -320,7 +320,7 @@ const _data = {
                 }, 100);
             }
         },
-        "share-button": function (elem) {
+        "share-button": function (elem: HTMLAnchorElement) {
             window.setTimeout(async () => {
                 await TUICLibrary.waitForElement(
                     `[role="menuitem"] path[d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"]`,
@@ -339,13 +339,13 @@ const _data = {
         },
     },
     buttonElement: {
-        _handleEvent: function (elem, eventFunc, twitterButton) {
-            (twitterButton ? elem.children[0].children[0] : elem.children[0]).addEventListener("keydown", (e) => {
-                if (e.keyCode === 13) {
+        _handleEvent: function (elem: Element, eventFunc: () => void, twitterButton: Element) {
+            (twitterButton ? elem.children[0].children[0] : elem.children[0]).addEventListener("keydown", (e: KeyboardEvent) => {
+                if (e.key === "Enter") {
                     eventFunc();
                 }
             });
-            elem.children[0].addEventListener("click", (e) => {
+            elem.children[0].addEventListener("click", () => {
                 eventFunc();
             });
         },
@@ -356,7 +356,7 @@ const _data = {
             });
             return elem;
         },*/
-        sendDM: function (val) {
+        sendDM: function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["sendDM"](val.option.isBigArticle, val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)).item(0);
             if (!(val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)) {
                 _data.buttonElement._handleEvent(
@@ -369,7 +369,7 @@ const _data = {
             }
             return elem;
         },
-        "url-copy": function (val) {
+        "url-copy": function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["url-copy"](val.option.isBigArticle)).item(0);
             //if (val.option.isLockedAccount || val.option.cannotRT) {
             if (val.elements.statusButton != null) {
@@ -392,42 +392,42 @@ const _data = {
             }*/
             return elem;
         },
-        userBlock: function (val) {
+        userBlock: function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["userBlock"](val.option.isBigArticle, val.option.isMe)).item(0);
             _data.buttonElement._handleEvent(
                 elem,
                 () => {
-                    _data.buttonFunction["userBlock"](val.elements.article);
+                    _data.buttonFunction["userBlock"](val.elements.articleBase);
                 },
                 null,
             );
             return elem;
         },
-        userMute: function (val) {
+        userMute: function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["userMute"](val.option.isBigArticle, val.option.isMe)).item(0);
             _data.buttonElement._handleEvent(
                 elem,
                 () => {
-                    _data.buttonFunction["userMute"](val.elements.article);
+                    _data.buttonFunction["userMute"](val.elements.articleBase);
                 },
                 null,
             );
             return elem;
         },
-        deleteButton: function (val) {
+        deleteButton: function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["deleteButton"](val.option.isBigArticle, val.option.isMe)).item(0);
             if (val.option.isMe) {
                 _data.buttonElement._handleEvent(
                     elem,
                     () => {
-                        _data.buttonFunction["deleteButton"](val.elements.article);
+                        _data.buttonFunction["deleteButton"](val.elements.articleBase);
                     },
                     null,
                 );
             }
             return elem;
         },
-        quoteTweet: function (val) {
+        quoteTweet: function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["quoteTweet"](val.option.isBigArticle, val.option.cannotRT)).item(0);
             if (!val.option.cannotRT)
                 _data.buttonElement._handleEvent(
@@ -439,7 +439,7 @@ const _data = {
                 );
             return elem;
         },
-        likeAndRT: function (val) {
+        likeAndRT: function (val: ArticleInfomation) {
             const elem = TUICLibrary.HTMLParse(_data.buttonHTML["likeAndRT"](val.option.isBigArticle, val.option.cannotRT)).item(0);
             if (!val.option.cannotRT)
                 _data.buttonElement._handleEvent(
@@ -502,7 +502,7 @@ export function tweetSettings() {
                             }
                         }
                         // ステータスボタン
-                        const statusButton = articleBase.querySelector(`[href*="/status/"] > time`)?.parentElement;
+                        const statusButton = articleBase.querySelector(`[href*="/status/"] > time`)?.parentElement as HTMLAnchorElement;
 
                         // ツイートについての情報集
                         const articleInfo: ArticleInfomation = {

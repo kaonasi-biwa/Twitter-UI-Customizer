@@ -22,4 +22,4 @@ const changePref = (path, valueName) => {
     TUICObserver.observerFunction();
 };
 </script>
-@content/modules/observer/observer
+@content/modules/observer/observer @content/modules/i18n/i18n

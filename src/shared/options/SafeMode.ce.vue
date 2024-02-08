@@ -101,3 +101,4 @@ nav {
     display: none;
 }
 </style>
+@content/modules/i18n/i18n

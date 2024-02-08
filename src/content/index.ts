@@ -5,7 +5,7 @@
 
 import { TUICObserver } from "@content/modules/observer/index.ts";
 import { TUICLibrary } from "@content/library.ts";
-import { TUICI18N } from "@content/i18n.ts";
+import { TUICI18N } from "@content/modules/i18n";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "@content/applyCSS.ts";
 import { runSafemode } from "@content/modules/settings/safemode/safemode";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode.ts";

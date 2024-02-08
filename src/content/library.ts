@@ -3,14 +3,14 @@ import { TUICPref } from "@content/modules/index.ts";
 
 export const TUICLibrary = {
     color: {
-        rgb2hex: (rgb) => {
+        rgb2hex: (rgb: Array<number>) => {
             return `#${rgb
                 .map((value) => {
                     return ("0" + value.toString(16)).slice(-2);
                 })
                 .join("")}`;
         },
-        hex2rgb: (hex) => {
+        hex2rgb: (hex: string) => {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
             return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
                 return parseInt(str, 16);
@@ -39,7 +39,7 @@ export const TUICLibrary = {
             return "light";
         }
     },
-    backgroundColorClass: (dark, blue, white) => {
+    backgroundColorClass: <T extends number | string>(dark: T, blue: T, white: T) => {
         const backgroundType = TUICLibrary.backgroundColorCheck();
         if (backgroundType == "dark") {
             return dark;

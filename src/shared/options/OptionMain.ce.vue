@@ -194,3 +194,4 @@ export default defineComponent({
     background: red;
 }
 </style> -->
+@content/modules/i18n/i18n

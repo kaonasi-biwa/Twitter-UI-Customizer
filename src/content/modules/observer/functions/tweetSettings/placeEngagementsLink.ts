@@ -1,4 +1,4 @@
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { I18nAndAllContent } from "@shared/types";
@@ -13,10 +13,10 @@ export const i18nAndAllContent: I18nAndAllContent = {
 };
 const _data = {
     i18nAndAllContent,
-    engagementsBox: () => {
+    engagementsBox: (): Element => {
         return TUICLibrary.HTMLParse(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
     },
-    links: (id: string, article: Element, isShort: boolean) => {
+    links: (id: string, article: Element, isShort: boolean): Element => {
         const returnElem = TUICLibrary.HTMLParse(
             `<div dir="ltr" class="css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-23eiwj", "r-9qu9m4", "r-1yzf0co", "r-w0qc3r", "r-18scu15")}" style="cursor: pointer;margin-right:1em;">
                    <span class="css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}">
@@ -47,7 +47,7 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         const shortName = TUICPref.getPref("otherBoolSetting.placeEngagementsLinkShort");
 
         const engagementsFixList = [];
-        const engageFixListFunc = (count) => {
+        const engageFixListFunc = (count: number) => {
             let tempArr = [];
             for (let i = 0; i < engageentsTypeList.length; i++) {
                 tempArr.push([engageentsTypeList[i]]);

@@ -28,3 +28,4 @@ export default defineComponent({
 </script>
 
 <style scoped></style>
+@content/modules/i18n/i18n.js

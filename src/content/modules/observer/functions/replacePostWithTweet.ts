@@ -1,5 +1,5 @@
 import { TUICPref } from "@content/modules";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 
 let tweetCount: number = -1;
 

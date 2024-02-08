@@ -1,4 +1,4 @@
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@content/modules/i18n";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";

@@ -51,4 +51,4 @@ const setDefault = async () => {
         .open();
 };
 </script>
-@content/modules/observer/observer @content/modules/settings/safemode/safemode
+@content/modules/observer/observer @content/modules/settings/safemode/safemode @content/modules/i18n/i18n

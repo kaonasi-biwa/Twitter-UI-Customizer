@@ -21,3 +21,4 @@ function exportPrefCopy() {
     navigator.clipboard.writeText(exportText.value.value);
 }
 </script>
+@content/modules/i18n/i18n
