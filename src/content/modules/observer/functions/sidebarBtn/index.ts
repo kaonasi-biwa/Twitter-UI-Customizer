@@ -115,36 +115,82 @@ const _data = {
         return true;
     },
     buttonFunctions: {
+        _goToURL: (url: string, backMask: boolean = false, backButton: boolean = false) => {
+            history.pushState({}, "", url);
+            history.back();
+            history.forward();
+            if (backMask) {
+                TUICLibrary.waitForElement<HTMLDivElement>(`[data-testid="mask"]`).then((elem) => {
+                    elem[0].onclick = (e: MouseEvent) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        history.back();
+                    };
+                });
+            }
+            if (backButton) {
+                TUICLibrary.waitForElement<HTMLDivElement>(`[data-testid="app-bar-back"],[data-testid="app-bar-close"]`).then((elem) => {
+                    elem[0].onclick = (e: MouseEvent) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        history.back();
+                    };
+                });
+            }
+        },
         topics: async (e: Event) => {
             e?.preventDefault?.();
             if (!location.pathname.endsWith("/topics")) {
-                const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
-                if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
-                setTimeout(async () => {
-                    //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
-                    await TUICLibrary.waitAndClickElement(`[href="/settings/privacy_and_safety"]`);
-                    await TUICLibrary.waitAndClickElement(`[href="/settings/content_you_see"]`);
-                    await TUICLibrary.waitAndClickElement(`main [href$="/topics"]`);
-                }, 150);
+                const userName = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
+                if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL") && userName) {
+                    _data.buttonFunctions._goToURL(`/${userName.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/topics`, false, true);
+                } else {
+                    const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+                    setTimeout(async () => {
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
+                        await TUICLibrary.waitAndClickElement(`[href="/settings/privacy_and_safety"]`);
+                        await TUICLibrary.waitAndClickElement(`[href="/settings/content_you_see"]`);
+                        await TUICLibrary.waitAndClickElement(`main [href$="/topics"]`);
+                    }, 150);
+                }
             }
         },
         lists: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(`[href$="/lists"]`);
+            const userName = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
+            if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL") && userName) {
+                _data.buttonFunctions._goToURL(`/${userName.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/lists`, false, true);
+            } else {
+                _data.buttonClickInMoreMenu(`[href$="/lists"]`);
+            }
         },
-        /*"communities": function (e:Event) {
-          _data.buttonClickInMoreMenu( `[href$="/communities"]`)
-        },*/
+        communities: function (e: Event) {
+            const userName = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
+            if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL") && userName) {
+                _data.buttonFunctions._goToURL(`/${userName.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/communities`, false, true);
+            } else {
+                _data.buttonClickInMoreMenu(`[href$="/communities"]`);
+            }
+        },
         drafts: async (e: Event) => {
             e?.preventDefault?.();
             //_data.buttonClickInMoreMenu( `[href="/compose/tweet/unsent/drafts"]`);
-            document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
-            await TUICLibrary.waitAndClickElement(`[data-testid="unsentButton"]`);
+            if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL")) {
+                _data.buttonFunctions._goToURL("/compose/tweet/unsent/drafts", true, true);
+            } else {
+                document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
+                await TUICLibrary.waitAndClickElement(`[data-testid="unsentButton"]`);
+            }
         },
         connect: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
+            if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL")) {
+                _data.buttonFunctions._goToURL("/i/connect_people", false, true);
+            } else {
+                _data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
+            }
         },
         display: async (e: Event) => {
             e?.preventDefault?.();
@@ -152,42 +198,58 @@ const _data = {
                 await TUICLibrary.waitAndClickElement(`[href="/i/display"]`);
             }*/
             if (!location.pathname.endsWith("/settings/display")) {
-                const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
-                if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
-                setTimeout(async () => {
-                    //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
-                    await TUICLibrary.waitAndClickElement(`[href="/settings/accessibility_display_and_languages"]`);
-                    await TUICLibrary.waitAndClickElement(`[href="/settings/display"]`);
-                }, 150);
+                if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL")) {
+                    _data.buttonFunctions._goToURL("/i/display", true);
+                } else {
+                    const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+                    setTimeout(async () => {
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
+                        await TUICLibrary.waitAndClickElement(`[href="/settings/accessibility_display_and_languages"]`);
+                        await TUICLibrary.waitAndClickElement(`[href="/settings/display"]`);
+                    }, 150);
+                }
             }
         },
         muteAndBlock: async (e: Event) => {
             e?.preventDefault?.();
-            if (!location.pathname.endsWith("/settings/privacy_and_safety")) {
-                const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
-                if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
-                setTimeout(async () => {
-                    //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
-                    await TUICLibrary.waitAndClickElement(`[href="/settings/privacy_and_safety"]`);
-                    await TUICLibrary.waitAndClickElement(`[href="/settings/mute_and_block"]`);
-                }, 150);
+            if (!location.pathname.endsWith("/settings/mute_and_block")) {
+                if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL")) {
+                    _data.buttonFunctions._goToURL("/settings/mute_and_block", false, true);
+                } else {
+                    const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+                    setTimeout(async () => {
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
+                        await TUICLibrary.waitAndClickElement(`[href="/settings/privacy_and_safety"]`);
+                        await TUICLibrary.waitAndClickElement(`[href="/settings/mute_and_block"]`);
+                    }, 150);
+                }
             }
         },
         bookmarks: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(`[href="/i/bookmarks"]`);
+            if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL")) {
+                _data.buttonFunctions._goToURL("/i/bookmarks");
+            } else {
+                _data.buttonClickInMoreMenu(`[href="/i/bookmarks"]`);
+            }
         },
         settings: (e: Event) => {
             e?.preventDefault?.();
             if (!location.pathname.includes("/settings") || location.pathname.includes("/settings/display")) {
-                const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
-                if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
-                setTimeout(async () => {
-                    //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
-                }, 150);
+                if (TUICPref.getPref("sidebarSetting.buttonConfig.experimentalMoveURL")) {
+                    _data.buttonFunctions._goToURL("/settings");
+                } else {
+                    const moreMenu = document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
+                    setTimeout(async () => {
+                        //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
+                        await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
+                    }, 150);
+                }
             }
         },
     },

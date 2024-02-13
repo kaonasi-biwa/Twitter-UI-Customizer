@@ -310,6 +310,7 @@ export const defaultPref = {
         buttonConfig: {
             smallerSidebarContent: true,
             sidebarNoneScrollbar: false,
+            experimentalMoveURL: false,
         },
         moreMenuItems: {
             bookmarks: false,

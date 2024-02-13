@@ -76,10 +76,11 @@ export const TUICData: {
     // サイドバーの設定
     sidebarButtons,
     "sidebarSetting.buttonConfig": {
-        all: ["smallerSidebarContent", "sidebarNoneScrollbar"],
+        all: ["smallerSidebarContent", "sidebarNoneScrollbar", "experimentalMoveURL"],
         i18n: {
             smallerSidebarContent: "sidebarButton-setting-narrowBetweenButtons",
             sidebarNoneScrollbar: "sidebarButton-setting-sidebarNoneScrollbar",
+            experimentalMoveURL: "sidebarButton-setting-experimentalMoveURL",
         },
     },
     "sidebarSetting.homeIcon": {
