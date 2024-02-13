@@ -6,7 +6,7 @@ import { Plugin } from "vite";
 
 export function generateCRX() {
     const crx = new ChromeExtenson({
-        codebase: "https://github.com/" + process.env.GITHUB_REPO + "/releases/latest/download/Twitter_UI_Customizer_Chromium.crx",
+        codebase: `https://github.com/${process.env.GITHUB_REPO}/releases/latest/download/Twitter_UI_Customizer_Chromium.crx`,
         privateKey: process.env.CHROME_EXTENSION_KEY,
     });
 
