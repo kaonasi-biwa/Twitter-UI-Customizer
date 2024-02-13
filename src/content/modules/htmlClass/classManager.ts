@@ -26,11 +26,11 @@ const ClassList = [
     "TUICDMIcon",
     ProcessedClass,
 ];
-export const updateClasses = () => {
-    TUICObserver.observer.disconnect();
+export const updateClasses = (isInit: boolean = false) => {
+    if (!isInit) TUICObserver.observer.disconnect();
     deleteClasses();
     applySystemCss();
-    TUICObserver.observerFunction();
+    if (!isInit) TUICObserver.observerFunction();
 };
 const deleteClasses = () => {
     for (const id of ClassList) {

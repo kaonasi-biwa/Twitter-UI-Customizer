@@ -3,10 +3,12 @@ import { ProcessedClass } from "@shared/sharedData";
 
 export function hideOsusumeTweets() {
     if (window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3]) && document.querySelector(`[data-testid="primaryColumn"]`)) {
+        console.log("aiusoe");
         let cells = document.querySelectorAll<HTMLDivElement>(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.${ProcessedClass})`);
         for (const elem of cells) {
-            if (elem.querySelector("article") && elem.querySelector("h2") && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
+            if (!elem.querySelector("article") && elem.querySelector("h2") && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                 elem.process();
+                console.log(TUICPref.getPref("timeline-discoverMore"));
                 switch (TUICPref.getPref("timeline-discoverMore")) {
                     case "timeline-discoverMore": {
                         elem.hide();

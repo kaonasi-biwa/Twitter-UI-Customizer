@@ -32,7 +32,7 @@ import { updateClasses } from "./modules/htmlClass/classManager";
     // 旧バージョンからのPrefのアップデート
     await TUICPref.updatePref();
     // 前起動時のTUICの要素・Classが残っていればすべて削除
-    updateClasses();
+    updateClasses(true);
     for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
         elem.remove();
     }
