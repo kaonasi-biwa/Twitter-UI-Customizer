@@ -8,7 +8,7 @@ export function hideOsusumeTweets() {
             if (!elem.querySelector("article") && elem.querySelector("h2") && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                 elem.process();
                 switch (TUICPref.getPref("timeline-discoverMore")) {
-                    case "timeline-discoverMore": {
+                    case "discoverMore_invisible": {
                         elem.hide();
                         elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                         if (elem.getAttribute("TUICDiscoverMore")) {

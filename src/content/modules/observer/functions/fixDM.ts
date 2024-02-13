@@ -48,11 +48,11 @@ const _data = {
         },
         make: (/*NoIcon*/) => {
             const elem = TUICLibrary.HTMLParse(_data.element.html()).item(0);
-            /*if (!NoIcon) {
-                elem.querySelector<HTMLElement>(".TUICDMIconDisplay").style.backgroundImage = document.querySelector<HTMLElement>(
-                    `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
-                ).style.backgroundImage;
-            }*/
+            //if (!NoIcon) {
+            elem.querySelector<HTMLElement>(".TUICDMIconDisplay").style.backgroundImage = document.querySelector<HTMLElement>(
+                `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,
+            ).style.backgroundImage;
+            //}
 
             elem.querySelector("a").addEventListener("click", (e) => {
                 e.preventDefault();
