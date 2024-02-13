@@ -65,17 +65,9 @@ jobs:
               run: |
                   pnpm install
                   pnpm vite build --mode chromiumCRX
-                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
               env:
                   GITHUB_REPO: ${{ github.repository }}
-            - name: CRX
-              uses: cardinalby/webext-buildtools-chrome-crx-action@v2
-              with:
-                  zipFilePath: Twitter_UI_Customizer_Chromium.zip
-                  crxFilePath: Twitter_UI_Customizer_Chromium.crx
-                  privateKey: ${{ secrets.CHROME_EXTENSION_KEY }}
-                  updateXmlPath: crxupdate.xml
-                  updateXmlCodebaseUrl: https://github.com/${{ github.repository }}/releases/latest/download/Twitter_UI_Customizer_Chromium.crx
+                  CHROME_EXTENSION_KEY: ${{ secrets.CHROME_EXTENSION_KEY }}
             - name: Publish
               uses: actions/upload-artifact@v4
               with:

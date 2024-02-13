@@ -31,6 +31,7 @@
         "@typescript-eslint/parser": "^7.0.1",
         "@unplugin-vue-ce/sub-style": "1.0.0-beta.19",
         "@vitejs/plugin-vue": "^5.0.4",
+        "crx": "^5.0.1",
         "dotenv": "^16.4.3",
         "eslint": "^8.56.0",
         "eslint-config-prettier": "^9.1.0",
