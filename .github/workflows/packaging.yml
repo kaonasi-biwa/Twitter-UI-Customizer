@@ -104,15 +104,8 @@ jobs:
             - name: loadFile
               uses: actions/download-artifact@v4
               with:
-                  name: Twitter_UI_Customizer_Firefox
-            - name: loadFile
-              uses: actions/download-artifact@v4
-              with:
-                  name: Twitter_UI_Customizer_Chromium
-            - name: loadFile
-              uses: actions/download-artifact@v4
-              with:
-                  name: Twitter_UI_Customizer_Chromium_crx
+                  pattern: Twitter_UI_Customizer_*
+                  merge-multiple: true
             - name: loadFile
               uses: actions/download-artifact@v4
               with:
