@@ -16,6 +16,7 @@ function generateCRX() {
                 .then((crxBuffer) => {
                     fs.writeFile("crxupdate.xml", crx.generateUpdateXML());
                     fs.writeFile("Twitter_UI_Customizer_Chromium.crx", crxBuffer);
+                    console.log("\x1b[32m✓\x1b[0m CRX generated.");
                 })
                 .catch(console.error);
         })
@@ -24,5 +25,4 @@ function generateCRX() {
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
     generateCRX();
-    console.log("\x1b[32m✓\x1b[0m CRX generated.");
 }
