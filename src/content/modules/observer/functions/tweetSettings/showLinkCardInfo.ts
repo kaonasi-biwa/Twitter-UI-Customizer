@@ -72,6 +72,6 @@ export function showLinkCardInfo(articleInfo: ArticleInfomation) {
             }
         }
     } else {
-        articleBase.querySelector(".TUIC_LinkCardInfo").remove();
+        articleBase.querySelector(".TUIC_LinkCardInfo")?.remove();
     }
 }

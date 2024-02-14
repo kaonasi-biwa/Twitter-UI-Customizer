@@ -1,12 +1,17 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
 import { placeSettingPage } from "./functions/placeSettingPage.ts";
-import { catchError } from "./errorDialog.ts";
+import { catchError, _Observer } from "./errorDialog.ts";
 
-export const TUICObserver = {
+interface TUICObserverInterface {
+    observer: MutationObserver;
+    target: Element;
+    observerFunction: () => void;
+    config: { [keys: string]: boolean };
+}
+
+export const TUICObserver: TUICObserverInterface = {
     observer: null,
     target: null,
-
-    data: { buttonUnderTweetRunning: false },
     observerFunction: () => {
         TUICObserver.observer.disconnect();
         try {
@@ -45,7 +50,7 @@ export const TUICObserver = {
 
             TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
         } catch (e) {
-            catchError(e, TUICObserver.observerFunction);
+            catchError(e);
         }
     },
     config: {
@@ -53,4 +58,6 @@ export const TUICObserver = {
         subtree: true,
     },
 };
+
 TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
+_Observer.observerFunction = TUICObserver.observerFunction;

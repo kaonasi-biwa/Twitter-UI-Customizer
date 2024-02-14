@@ -5,7 +5,11 @@ import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";
 
 const errors = [];
 
-export function catchError(e: Error, obs: () => void) {
+export const _Observer: {
+    observerFunction: () => void;
+} = { observerFunction: null };
+
+export function catchError(e: Error) {
     console.error(e);
     errors.push(`${e.toString()}${"\r"}${e.stack}`);
     if (errors.length > 2) {
@@ -30,6 +34,8 @@ export function catchError(e: Error, obs: () => void) {
             ])
             .open();
     } else {
-        window.setTimeout(obs, 5000);
+        window.setTimeout(() => {
+            _Observer.observerFunction();
+        }, 5000);
     }
 }
