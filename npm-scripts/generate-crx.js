@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import url from "node:url";
 
 import ChromeExtenson from "crx";
-import { Plugin } from "vite";
 
 function generateCRX() {
     const crx = new ChromeExtenson({
@@ -22,16 +22,7 @@ function generateCRX() {
         .catch(console.error);
 }
 
-export default async (mode: string): Promise<Plugin> => {
-    return {
-        name: "generate-crx",
-        enforce: "post",
-        apply: "build",
-        closeBundle() {
-            if (mode === "chromiumCRX") {
-                generateCRX();
-                console.log("\x1b[32m✓\x1b[0m CRX generated.");
-            }
-        },
-    };
-};
+if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+    generateCRX();
+    console.log("\x1b[32m✓\x1b[0m CRX generated.");
+}

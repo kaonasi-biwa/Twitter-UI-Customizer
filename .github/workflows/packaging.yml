@@ -67,6 +67,11 @@ jobs:
                   pnpm vite build --mode chromiumCRX
               env:
                   GITHUB_REPO: ${{ github.repository }}
+            - name: CRX
+              run: |
+                  node ./npm_scripts/generate-crx.js
+              env:
+                  GITHUB_REPO: ${{ github.repository }}
                   CHROME_EXTENSION_KEY: ${{ secrets.CHROME_EXTENSION_KEY }}
             - name: Publish
               uses: actions/upload-artifact@v4

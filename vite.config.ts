@@ -5,7 +5,6 @@ import path from "node:path";
 import * as fs from "node:fs/promises";
 
 // Vite Plugins
-import vitePluginCRX from "./npm-scripts/vite-plugin/vite-plugin-crx";
 import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
@@ -90,7 +89,6 @@ export default defineConfig(({ command, mode }) => {
                     console.log(new Date().toLocaleString());
                 },
             },
-            vitePluginCRX(mode),
             vitePluginWebExt(__dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
             // Vue Plugins
             vue(),
