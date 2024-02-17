@@ -28,11 +28,14 @@ import { titleObserverFunction } from "@modules/observer/titleObserver";
 const importBox = defineModel<HTMLInputElement>();
 const importFunc = async (type: number) => {
     try {
-        const importPref = JSON.parse(importBox.value.value);
+        let tempPref;
+        [tempPref, TUICPref.config] = [TUICPref.config, JSON.parse(importBox.value.value)];
+        TUICPref.updatePref();
+        [tempPref, TUICPref.config] = [TUICPref.config, tempPref];
         if (type == 1) {
-            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
+            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), tempPref));
         } else if (type == 2) {
-            TUICPref.setPref("", TUICPref.mergePref(structuredClone(TUICPref.defaultPref), importPref));
+            TUICPref.setPref("", TUICPref.mergePref(structuredClone(TUICPref.defaultPref), tempPref));
         }
 
         TUICPref.save();
