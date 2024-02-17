@@ -9,12 +9,12 @@
         "debug:chromium": "pnpm build:chromium --watch",
         "lint": "pnpm lint:eslint & pnpm lint:stylelint & pnpm lint:prettier",
         "lint:eslint": "eslint .",
-        "lint:stylelint": "stylelint **/*.{css,scss}",
-        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.vue **/*.css **/*.scss",
+        "lint:stylelint": "stylelint **/*.{css,pcss}",
+        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.vue **/*.css **/*.pcss",
         "format": "pnpm format:eslint & pnpm format:stylelint & pnpm format:prettier",
         "format:eslint": "eslint --fix .",
-        "format:stylelint": "stylelint --fix **/*.{css,scss}",
-        "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.scss"
+        "format:stylelint": "stylelint --fix **/*.{css,pcss}",
+        "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.pcss"
     },
     "dependencies": {
         "@unocss/reset": "^0.58.5",
@@ -41,8 +41,11 @@
         "node-fetch": "^3.3.2",
         "postcss-import": "^16.0.1",
         "postcss-nesting": "^12.0.2",
+        "postcss-sort-media-queries": "^5.2.0",
         "prettier": "^3.2.5",
         "stylelint": "^16.2.1",
+        "stylelint-config-recess-order": "^4.6.0",
+        "stylelint-config-standard": "^36.0.0",
         "typescript": "^5.3.3",
         "unocss": "^0.58.5",
         "vite": "^5.1.3",

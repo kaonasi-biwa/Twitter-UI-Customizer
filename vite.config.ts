@@ -8,7 +8,7 @@ import * as fs from "node:fs/promises";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
-import UnoCSS from 'unocss/vite';
+import UnoCSS from "unocss/vite";
 //
 
 import { changeManifest } from "./npm-scripts/change-manifest";

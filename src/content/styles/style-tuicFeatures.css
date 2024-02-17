@@ -4,11 +4,11 @@
 
 .TUICScrollBottom {
     padding-right: 8px;
-    margin-right: -8px;
-    padding-left: 8px;
-    margin-left: -8px;
     padding-bottom: 16px;
+    padding-left: 8px;
+    margin-right: -8px;
     margin-bottom: -16px;
+    margin-left: -8px;
 }
 
 .TUICScrollBottom,
@@ -36,27 +36,27 @@
 }
 
 [role="alertdialog"] [data-testid="confirmationSheetDialog"] .TUICTwitterIcon_IconImg {
-    height: 40px;
     width: 40px;
-    margin-left: auto;
+    height: 40px;
     margin-right: auto;
+    margin-left: auto;
 }
 
 [role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
-    mask-size: contain !important;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    -webkit-mask-size: contain !important;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    background-size: contain !important;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain !important;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain !important;
+    mask-size: contain !important;
 }
 
 :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
-    mask-size: cover !important;
     -webkit-mask-size: cover !important;
+    mask-size: cover !important;
 }
 
 .TUICTwitterIcon_Twitter {
@@ -72,10 +72,10 @@
 }
 
 #layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
-    background-size: contain !important;
+    width: auto !important;
     background-repeat: no-repeat !important;
     background-position: center;
-    width: auto !important;
+    background-size: contain !important;
 }
 
 .TUIC_SVGDISPNONE > * {
@@ -95,23 +95,23 @@
 }
 
 [TUICDiscoverMore="false"]::before {
-    content: "";
     position: absolute;
     top: 50%;
     /* 縦軸をセンタリングする */
     left: 20px;
-    transform: translateY(-50%);
+    content: "";
     /* 縦軸をセンタリングする */
     border: 5px solid transparent;
     border-left: 8px solid #555;
+    transform: translateY(-50%);
     /* 好みで色を変えてください */
 }
 
 [TUICDiscoverMore="true"]::before {
-    content: "";
     position: absolute;
     top: 50%;
     left: 20px;
+    content: "";
     border: 6px solid transparent;
     border-top: 7px solid #555;
     /* 好みで色を変えてください */
@@ -184,16 +184,16 @@
 }
 
 .TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div {
-    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
     background-color: rgb(29 155 240 / 10%);
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
 }
 
 .TUICButtonUnderTweet > div {
     display: flex;
 }
 .TUICButtonUnderTweet > div > div {
-    align-items: stretch;
     display: flex;
+    align-items: stretch;
 }
 
 .TUIC_LinkCardInfo > a {
@@ -220,8 +220,8 @@
 }
 
 .TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
-    padding-bottom: 0 !important;
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 :root[TUICSettings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
@@ -253,8 +253,8 @@
     position: sticky;
     top: var(--TUIC-pinnedTab-top);
     z-index: 1;
-    backdrop-filter: blur(12px);
     background-color: var(--TUIC-pinnedTab-background);
+    backdrop-filter: blur(12px);
 }
 
 :root[tuicsettings*="|uncategorizedSettings.disableBackdropFilter|"] * {

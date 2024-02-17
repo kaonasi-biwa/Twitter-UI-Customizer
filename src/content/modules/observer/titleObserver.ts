@@ -16,10 +16,8 @@ export function titleObserverFunction() {
             headObserver.disconnect();
             stoppedObserver = true;
 
-            const replaceI18NRes = (regexp:RegExp,i18nRes: string) => {
-                const titleInfo = document.title.match(
-                    new RegExp(regexp),
-                ); /*/Xユーザーの(.*)さん: 「(.*)」/*/
+            const replaceI18NRes = (regexp: RegExp, i18nRes: string) => {
+                const titleInfo = document.title.match(new RegExp(regexp)); /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 if (!titleInfo || titleInfo.length <= 1) {
                     document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
                 } else {
@@ -29,7 +27,7 @@ export function titleObserverFunction() {
                             .replaceAll("&quot;", '"')
                             .replace(`{fullName}`, titleInfo[1])
                             .replace("{screenName}", titleInfo[2])
-                            .replace("{tweetText}",titleInfo[2]) //locPath.includes("/status/")
+                            .replace("{tweetText}", titleInfo[2]) //locPath.includes("/status/")
                             .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
                 }
             };
@@ -52,7 +50,7 @@ export function titleObserverFunction() {
                 /* /Xユーザーの(.*)さん: 「(.*)」/ */
                 const regexp = new RegExp(mediaLatest.replaceAll("&quot;", '"').replaceAll("(", "\\(").replaceAll(")", "\\)").replace("{fullName}", "(.*)").replace("{screenName}", "(.*)"));
 
-                replaceI18NRes(regexp,mediaOld);
+                replaceI18NRes(regexp, mediaOld);
             } else if (locPath.endsWith("/likes") && !locPath.includes("/status/")) {
                 const likesLatest = TUICI18N.get("XtoTwitter-PostToTweet-profile-likes-latest");
                 const likesOld = TUICI18N.get("XtoTwitter-PostToTweet-profile-likes-old");
@@ -60,7 +58,7 @@ export function titleObserverFunction() {
                 /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 const regexp = new RegExp(likesLatest.replaceAll("&quot;", '"').replaceAll("(", "\\(").replaceAll(")", "\\)").replace("{fullName}", "(.*)").replace("{screenName}", "(.*)"));
 
-                replaceI18NRes(regexp,likesOld);
+                replaceI18NRes(regexp, likesOld);
             } else if (locPath.includes("/status/")) {
                 const titlePeopleTweetedUser = TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweetedUser");
                 const titlePeopleTweeted = TUICI18N.get("XtoTwitter-PostToTweet-titlePeopleTweeted");
@@ -68,7 +66,7 @@ export function titleObserverFunction() {
                 /*/Xユーザーの(.*)さん: 「(.*)」/*/
                 const regexp = new RegExp(titlePeopleTweetedUser.replaceAll("&quot;", '"').replace("{fullName}", "(.*)").replace("{tweetText}", "(.*)"));
 
-                replaceI18NRes(regexp,titlePeopleTweeted);
+                replaceI18NRes(regexp, titlePeopleTweeted);
             } else if (document.title.endsWith(" / X")) {
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
             }
