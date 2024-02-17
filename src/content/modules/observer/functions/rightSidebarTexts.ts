@@ -16,7 +16,6 @@ const _data = {
             `.replace(/\s\s+/g, "");
     },
     make: () => {
-        console.log(_data.html());
         const elem = TUICLibrary.HTMLParse(_data.html()).item(0);
 
         elem.addEventListener("click", (e) => {
