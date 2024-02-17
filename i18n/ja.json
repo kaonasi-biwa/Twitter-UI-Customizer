@@ -185,5 +185,7 @@
     "common-no": "いいえ",
     "common-close": "閉じる",
     "common-error": "エラー",
-    "common-confirm": "確認"
+    "common-confirm": "確認",
+
+    "common-displaySetting": "表示設定"
 }

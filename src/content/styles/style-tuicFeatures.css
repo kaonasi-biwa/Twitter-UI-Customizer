@@ -223,6 +223,10 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
+#TUICDisplayRightSidebar:hover {
+    text-decoration-thickness: 1px;
+}
+
 .TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
     padding-bottom: 0 !important;
     padding-top: 0 !important;
