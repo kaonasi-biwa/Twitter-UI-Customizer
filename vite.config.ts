@@ -5,10 +5,10 @@ import path from "node:path";
 import * as fs from "node:fs/promises";
 
 // Vite Plugins
-import { viteVueCESubStyle } from "@unplugin-vue-ce/sub-style";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
+import UnoCSS from 'unocss/vite';
 //
 
 import { changeManifest } from "./npm-scripts/change-manifest";
@@ -90,10 +90,10 @@ export default defineConfig(({ command, mode }) => {
                 },
             },
             vitePluginWebExt(__dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
+            UnoCSS(),
             // Vue Plugins
             vue(),
             svgLoader(),
-            viteVueCESubStyle({}) as PluginOption,
         ],
         resolve: {
             alias: [

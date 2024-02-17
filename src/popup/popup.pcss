@@ -1,20 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-$white: #eee;
-$black: #111;
-$black_sub: #333;
-
-$twt: #1da1f2;
-$tuic: #2b8af7da;
+:root {
+    --tuic-popup-white: #eee;
+    --tuic-popup-black: #111;
+    --tuic-popup-black_sub: #333;
+    --tuic-popup-twt: #1da1f2;
+    --tuic-popup-tuic: #2b8af7da;
+}
 
 body {
     width: 360px;
     text-align: center;
-    // margin: 0 auto;
-    background-color: $black;
-    color: $white;
+    /* margin: 0 auto; */
+    background-color: var(--tuic-popup-black);
+    color: var(--tuic-popup-white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,12 +28,12 @@ body {
         margin: 0;
     }
     p {
-        color: $white;
-        // color: #e8e8e8d2;
+        color: var(--tuic-popup-white);
+        /* color: #e8e8e8d2; */
     }
     .thankyou {
         border-bottom: 2px solid #2e7eb4;
-        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, $tuic 50%, rgb(0 212 255 / 0%) 100%);
+        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, var(--tuic-popup-tuic) 50%, rgb(0 212 255 / 0%) 100%);
         border-image-slice: 1;
         padding-bottom: 0.3rem;
         margin-bottom: 1rem;
@@ -51,8 +48,8 @@ body {
     height: auto;
     a {
         text-decoration: none;
-        background: $tuic;
-        color: $white;
+        background: var(--tuic-popup-tuic);
+        color: var(--tuic-popup-white);
         padding: 8px 12px;
         border-radius: 30px;
         margin-bottom: 8px;
@@ -62,7 +59,7 @@ body {
             opacity: 0.8;
         }
         &:active {
-            background-color: $white;
+            background-color: var(--tuic-popup-white);
             border-radius: 8px;
         }
         div {
