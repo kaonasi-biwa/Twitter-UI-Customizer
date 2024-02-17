@@ -1,7 +1,7 @@
 /* セーフモード時の設定画面スタイル */
 #TUIC_safemode > #TUIC_setting {
-    margin: 2em auto;
     max-width: 600px;
+    margin: 2em auto;
 }
 
 #TUIC_safemode > .r-135wba7 {
@@ -9,8 +9,8 @@
 }
 
 .TUICDefaultColor {
-    margin: 2px 0 2px auto !important;
     width: fit-content;
+    margin: 2px 0 2px auto !important;
     border-color: #71767b !important;
 }
 
@@ -29,43 +29,43 @@
 }
 
 .TUIC_setting_color_colmn > h4 {
-    margin-left: 10px !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    margin-left: 10px !important;
     font-weight: normal !important;
 }
 
 /* 無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく） */
 .TUIC_col_setting_container input[type="color"] {
-    -webkit-appearance: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transform: translate(-25%, -25%);
     width: 200%;
     height: 200%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transform: translate(-25%, -25%);
 }
 
 /* type=colorなinputタグを無理やり丸くするためのマスク */
 .TUIC_input_color_rounded {
-    border-radius: 50%;
     width: 23px;
     height: 23px;
     overflow: hidden;
+    border-radius: 50%;
 }
 
 /* ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ */
 .TUIC_input_color_rounded__container {
-    background-color: rgb(127 127 127 / 50%);
-    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 23px;
     height: 23px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 4px;
+    margin-right: 5px !important;
+    background-color: rgb(127 127 127 / 50%);
     border-radius: 50%;
     transition: 0.3s;
-    margin-right: 5px !important;
 }
 
 .TUIC_input_color_rounded__container:hover {
@@ -84,8 +84,8 @@
 
 /* 設定項目のタイトル */
 .TUIC_setting_title {
-    font-weight: bold;
     font-size: 1rem;
+    font-weight: bold;
     color: #71767b !important;
 }
 
@@ -97,22 +97,22 @@
 }
 
 .TUIC_col_setting_container_2 {
-    background: var(--TUIC-container-background2);
-    margin-top: 8px;
     padding: 10px 14px;
-    border-radius: 14px;
+    margin-top: 8px;
     margin-bottom: 1em;
+    background: var(--TUIC-container-background2);
+    border-radius: 14px;
 }
 
 /* 表示非表示のセレクトボックス */
 .TUIC_selectbox {
-    border: solid 1px #71767b;
-    border-radius: 6px;
-    margin-top: 10px;
+    height: calc((1em + 9px) * var(--contentCount) + 10px);
     padding-top: 5px;
     padding-bottom: 5px;
-    height: calc((1em + 9px) * var(--contentCount) + 10px);
+    margin-top: 10px;
     overflow-x: auto;
+    border: solid 1px #71767b;
+    border-radius: 6px;
     scrollbar-width: thin;
 }
 
@@ -127,15 +127,15 @@
 
 .TUICDetails,
 .TUICEasySetting {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-bottom: 20px;
+    font-family: sans-serif;
+    background-color: var(--TUIC-container-background);
     border: 2px solid;
     border-color: rgb(0 0 0 / 0%) !important;
     border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    background-color: var(--TUIC-container-background);
-    font-family: sans-serif;
 }
 
 .TUICDetails:not([open]),
@@ -145,16 +145,16 @@
 }
 
 .TUIC_icon_button_con {
-    border-radius: 9999px;
-    background: transparent;
-    border: none;
-    padding: 2px;
-    width: 30px;
-    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
 }
 
 .TUIC_icon_button_con > svg * {
@@ -175,13 +175,13 @@
 }
 
 .TUIC_setting_button {
+    cursor: pointer;
     background: transparent;
     /* border-color: var(--twitter-TUIC-color); */
     border-color: #71767b !important;
     border-radius: 9999px;
-    transition: 0.3s;
-    cursor: pointer;
     box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%);
+    transition: 0.3s;
     /* color: #71767b !important; */
 }
 
@@ -214,17 +214,17 @@
 
 #TUIC_invisible,
 #TUIC_visible {
-    background: transparent;
     padding-bottom: 10px;
     overflow-y: clip;
+    background: transparent;
 }
 
 #TUIC_invisible span,
 #TUIC_visible span,
 #css_textarea,
 .TUICTextInput {
-    background: transparent;
     color: var(--twitter-TUIC-color);
+    background: transparent;
 }
 
 #TUIC_invisible > div,
@@ -235,8 +235,8 @@
 
 #TUIC_invisible > div span,
 #TUIC_visible > div > span {
-    white-space: nowrap;
     line-height: calc(1em + 5px);
+    white-space: nowrap;
 }
 
 [TUICSelectedUpDownContent="true"] {
@@ -256,51 +256,46 @@ textarea#css_textarea {
 textarea#css_textarea,
 .TUICTextInput {
     width: calc(100% - 10px);
+    margin-bottom: 20px;
     border: 1px solid #808080;
     border-radius: 6px;
-    margin-bottom: 20px;
 }
 
 /* チェックボタン(Transparent) */
 .TUICButtonColorCheck {
     width: 1.7em;
     height: 1.7em;
-    border-radius: 50%;
-    border: 2px solid rgb(127 127 127);
-    background-color: #fff;
     margin-right: 0.2em;
     margin-left: 0.5em;
+    background-color: #fff;
+    border: 2px solid rgb(127 127 127);
+    border-radius: 50%;
 }
 
 .TUICButtonColorCheck[data-checked="true"] {
+    background-color: rgb(29 161 242 / 100%);
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>");
     /* チェックされている */
     background-position: center;
     background-size: 90%;
-    background-color: rgb(29 161 242 / 100%);
-    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>");
 }
 
 .TUICSettingRadioTypeBigButton {
+    display: flex;
     flex: 1 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
     padding-right: 5px;
     padding-left: 5px;
     margin-right: 5px;
     margin-left: 5px;
-    height: 50px;
-    border-radius: 5px !important;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border-radius: 5px !important;
 }
 
 .TUICSettingRadioTypeBigButton > span > span {
-    mix-blend-mode: difference;
-    white-space: nowrap;
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
     font-family:
         "Segoe UI",
         Meiryo,
@@ -308,6 +303,11 @@ textarea#css_textarea,
         -apple-system,
         BlinkMacSystemFont,
         sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    mix-blend-mode: difference;
 }
 
 .TUICSettingRadioTypeBigButton > span {
@@ -327,10 +327,10 @@ textarea#css_textarea,
 }
 
 .TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton > span::before {
-    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g><path fill='%23FFFFFF' d='M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z'></path></g></svg>");
-    background-color: rgb(29 155 240);
-    height: 1em;
     width: 1em;
+    height: 1em;
+    background-color: rgb(29 155 240);
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g><path fill='%23FFFFFF' d='M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z'></path></g></svg>");
 }
 
 .TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton > span::before {
@@ -338,18 +338,18 @@ textarea#css_textarea,
 }
 
 .TUICSettingRadioTypeBigButton > span::before {
-    margin-right: 10px;
-    border-radius: 9999px;
-    background-size: 16px 16px;
-    background-position: center;
-    width: 1em;
-    height: 1em;
-    box-sizing: border-box;
-    display: inline-block;
-    content: " ";
-    transform: translateY(-50%);
     position: relative;
     top: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 10px;
+    content: " ";
+    background-position: center;
+    background-size: 16px 16px;
+    border-radius: 9999px;
+    transform: translateY(-50%);
 }
 
 .TUICSettingSubTitle {
@@ -376,9 +376,9 @@ textarea#css_textarea,
 
 :is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
     display: inline-block;
-    margin-left: 0.25em;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 0.25em;
 }
 
 #TUIC_setting :is(label, span, button, h2) {
@@ -391,10 +391,10 @@ textarea#css_textarea,
 }
 
 #TUICSelectedColorType {
-    display: flex;
     position: sticky;
     top: 0;
     z-index: 9999;
-    background-color: var(--TUIC-container-background);
+    display: flex;
     padding-top: 20px;
+    background-color: var(--TUIC-container-background);
 }
