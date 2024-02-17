@@ -1,26 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-$white: #eee;
-$black: #111;
-$black_sub: #333;
-
-$twt: #1da1f2;
-$tuic: #2b8af7da;
+:root {
+    --tuic-popup-white: #eee;
+    --tuic-popup-black: #111;
+    --tuic-popup-black_sub: #333;
+    --tuic-popup-twt: #1da1f2;
+    --tuic-popup-tuic: #2b8af7da;
+}
 
 body {
-    width: 360px;
-    text-align: center;
-    // margin: 0 auto;
-    background-color: $black;
-    color: $white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #191919;
+    width: 360px;
     margin: 15px 0;
+    color: var(--tuic-popup-white);
+    text-align: center;
+    /* margin: 0 auto; */
+    background-color: var(--tuic-popup-black);
+    border: 1px solid #191919;
 }
 
 .message_container {
@@ -31,57 +28,57 @@ body {
         margin: 0;
     }
     p {
-        color: $white;
-        // color: #e8e8e8d2;
+        color: var(--tuic-popup-white);
+        /* color: #e8e8e8d2; */
     }
     .thankyou {
-        border-bottom: 2px solid #2e7eb4;
-        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, $tuic 50%, rgb(0 212 255 / 0%) 100%);
-        border-image-slice: 1;
         padding-bottom: 0.3rem;
         margin-bottom: 1rem;
         font-size: 1.25rem;
+        border-bottom: 2px solid #2e7eb4;
+        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, var(--tuic-popup-tuic) 50%, rgb(0 212 255 / 0%) 100%);
+        border-image-slice: 1;
     }
 }
 
 .links {
     display: flex;
     flex-direction: column;
-    margin-bottom: 8px;
     height: auto;
+    margin-bottom: 8px;
     a {
-        text-decoration: none;
-        background: $tuic;
-        color: $white;
         padding: 8px 12px;
-        border-radius: 30px;
         margin-bottom: 8px;
         font-size: 0.9rem;
+        color: var(--tuic-popup-white);
+        text-decoration: none;
+        background: var(--tuic-popup-tuic);
+        border-radius: 30px;
         transition: 0.1s;
         &:hover {
             opacity: 0.8;
         }
         &:active {
-            background-color: $white;
+            background-color: var(--tuic-popup-white);
             border-radius: 8px;
         }
         div {
+            position: relative;
             padding: 0 30px;
             text-align: center;
-            position: relative;
         }
         .bi {
-            padding: 0;
             position: absolute;
+            padding: 0;
         }
     }
 }
 
 #logo {
-    vertical-align: middle;
     display: inline-block;
     width: 150px;
     margin: 15px;
+    vertical-align: middle;
 }
 
 details {
@@ -89,7 +86,7 @@ details {
     div {
         label {
             input {
-                @apply appearance-none relative  w-4 h-4 bg-gray-700 border-gray-600 rounded;
+                @apply appearance-none relative w-4 h-4 bg-gray-700 border-gray-600 rounded;
                 &:hover,
                 &:focus {
                     @apply ring-2 ring-offset-2 ring-blue-500 ring-offset-slate-900;
@@ -100,7 +97,7 @@ details {
             }
         }
         display: flex;
-        align-items: center;
         flex-direction: column;
+        align-items: center;
     }
 }
