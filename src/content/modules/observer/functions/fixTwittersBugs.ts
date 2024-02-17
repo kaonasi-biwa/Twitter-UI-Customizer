@@ -13,4 +13,9 @@ export function fixTwittersBugs() {
             fixedDMBox = true;
         }
     }
+
+    for (const elem of document.querySelectorAll(`[data-testid="messageEntry"] > div > div~div:not(.TUICOriginalContent) > div:not([role="presentation"])
+                                                    :is(.r-1sv84sj, .r-144un9c, .r-11rk87y, .r-1b5uinu, .r-l3vzaz)`)) {
+        elem.classList.remove("r-1sv84sj", "r-144un9c", "r-11rk87y", "r-1b5uinu", "r-l3vzaz");
+    }
 }

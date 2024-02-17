@@ -9,7 +9,7 @@ export default {
             {
                 matches: ["*://*.twitter.com/*"],
                 js: ["inject.js"],
-                css: ["./styles/style-tuicSettingPage.css", "./styles/style-polyfillForTwitter.css", "./styles/style-tuicColor.css", "./styles/style-tuicFeatures.css", "./styles/style-tlui.css"],
+                css: ["./styles/style-tuicSettingPage.css", "./styles/style-polyfillForTwitter.css", "./styles/style-tuicColor.css", "./styles/style-tuicFeatures.css", "./styles/style-tlui.css", "./styles/firefox/style-compat.css"],
                 run_at: "document_start",
             },
         ],
