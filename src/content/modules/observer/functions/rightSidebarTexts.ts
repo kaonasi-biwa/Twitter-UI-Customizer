@@ -10,7 +10,7 @@ const _data = {
         "r-n6v787 r-1cwl3u0 r-j2kj52",
         "r-1b43r93 r-14yzgew r-1ba89he",
         "r-ubezar r-hjklzo r-n3sdqm",
-    )}" style="text-overflow: unset; color: rgb(139, 152, 165);padding-top: 1.5px;">
+    )}" style="text-overflow: unset; color: rgb(${TUICLibrary.backgroundColorClass<string>("113, 118, 123", "139, 152, 165", "83, 100, 113")});padding-top: 1.5px;">
         <span class="css-1qaijid r-bcqeeo r-qvutc0 r-1tl8opc" style="text-overflow: unset;">${TUICI18N.get("common-displaySetting")}</span>
     </a>
             `.replace(/\s\s+/g, "");
