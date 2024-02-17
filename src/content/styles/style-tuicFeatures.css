@@ -90,6 +90,10 @@
     display: none !important;
 }
 
+.TUIC_HideNextElements ~ * {
+    visibility: hidden !important;
+}
+
 [TUICDiscoverMore] {
     padding-left: 20px;
 }

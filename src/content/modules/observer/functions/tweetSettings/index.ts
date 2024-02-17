@@ -491,7 +491,7 @@ export function tweetSettings() {
                         // 名前の判断に使う要素(画面左下...だったはず)
                         const userNameElem = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
                         // ツイート下ボタンの親
-                        const buttonBarBase = articleBase.querySelector<Element>(_data.selectors["reply-button"]).hasClosest(_data.selectors["like-button"]);
+                        const buttonBarBase = articleBase.querySelector(_data.selectors["reply-button"]).hasClosest<HTMLDivElement>(_data.selectors["like-button"]);
                         buttonBarBase.parentElement.classList.add("TUICTweetButtomBarBase");
                         // ボタンたち
                         const underTweetButtons: { [key: string]: Element } = {};
@@ -584,11 +584,18 @@ export function tweetSettings() {
                             }
                         }
                         // 最後のボタンだけ特殊処理
-                        if (lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
-                            lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").remove();
-                            lastButton.classList.add(TUICLibrary.fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                        if (lastButton) {
+                            if (lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
+                                lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").remove();
+                                lastButton.classList.add(TUICLibrary.fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                            }
+                            lastButton.classList.add("r-1rq6c10", "r-1b7u577");
+                            buttonBarBase.style.minHeight = "";
+                            buttonBarBase.style.height = "";
+                        } else {
+                            buttonBarBase.style.minHeight = "0";
+                            buttonBarBase.style.height = "0";
                         }
-                        lastButton.classList.add("r-1rq6c10", "r-1b7u577");
 
                         for (const i of _data.all) {
                             if (!TUICPref.getPref("visibleButtons").includes(i) && i in underTweetButtons) {
@@ -620,5 +627,10 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     // リツイートを非表示
     if (TUICPref.getPref("timeline.hideOhterRTTL") && articleBase.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
         articleBase.hide();
+    }
+
+    // リツイートを非表示
+    if (TUICPref.getPref("timeline.hideReply") && articleInfo.option.isBigArticle) {
+        articleBase.closest(`[data-testid="cellInnerDiv"]`).classList.add("TUIC_HideNextElements");
     }
 }
