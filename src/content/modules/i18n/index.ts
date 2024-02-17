@@ -15,9 +15,7 @@ export const TUICI18N = {
     },
     get: (key: string) => {
         const lang = document.querySelector("html").getAttribute("lang");
-
         for (const _lang of [lang, "en", "ja"]) {
-            //console.log(i18nData[_lang][key]);
             if (_lang in i18nData && key in i18nData[_lang]) {
                 return i18nData[_lang][key];
             }
