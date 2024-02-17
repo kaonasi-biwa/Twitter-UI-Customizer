@@ -1,6 +1,7 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
 import { placeSettingPage } from "./functions/placeSettingPage.ts";
 import { catchError, _Observer } from "./errorDialog.ts";
+import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
 interface TUICObserverInterface {
     observer: MutationObserver;
@@ -41,6 +42,9 @@ export const TUICObserver: TUICObserverInterface = {
 
             // プロフィールページの初期タブの設定
             profileInitialTab();
+
+            // 右サイドバーに「表示」を配置
+            placeDisplayButton();
 
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();

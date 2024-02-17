@@ -115,14 +115,14 @@ export const TUICLibrary = {
         }
         return false;
     },
-    hasClosest: (elem: Element, selector: string): Element => {
+    hasClosest: <T extends Element>(elem: Element, selector: string): T => {
         let elem2 = elem;
         while (elem2 && !elem2.querySelector(selector)) {
             elem2 = elem2.parentElement;
         }
-        return elem2;
+        return elem2 as T;
     },
-    hasClosestSelector: (elem: Element, selector: string): Element => {
+    hasClosestSelector: <T extends Element>(elem: Element, selector: string): T => {
         let elem2 = elem;
         let returnElem = null;
         while (elem2 && !(returnElem = elem2.querySelector(selector))) {
@@ -151,7 +151,7 @@ declare global {
          * @param {string} selector 探索するElementのセレクター
          * @return {Element} 指定されたElementを子孫ノードに持つセレクター
          */
-        hasClosest(selector: string): Element;
+        hasClosest<T extends Element>(selector: string): T;
         /**
          * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです。
          *
@@ -160,7 +160,7 @@ declare global {
          * @param {string} selector 探索するElementのセレクター
          * @return {Element} 指定されたElement
          */
-        hasClosestSelector(selector: string): Element;
+        hasClosestSelector<T extends Element>(selector: string): T;
         /**
          * 要素を非表示にするElementのメソッドです。
          */
@@ -176,11 +176,11 @@ declare global {
     }
 }
 
-Element.prototype.hasClosest = function (selector: string): Element {
+Element.prototype.hasClosest = function <T extends Element>(selector: string): T {
     return TUICLibrary.hasClosest(this, selector);
 };
 
-Element.prototype.hasClosestSelector = function (selector: string): Element {
+Element.prototype.hasClosestSelector = function <T extends Element>(selector: string): T {
     return TUICLibrary.hasClosestSelector(this, selector);
 };
 

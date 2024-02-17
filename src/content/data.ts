@@ -126,10 +126,11 @@ export const TUICData: {
 
     // タイムラインの設定
     timeline: {
-        all: ["osusume-user-timeline", "hideOhterRTTL", "accountStart"],
+        all: ["osusume-user-timeline", "hideOhterRTTL", "hideReply", "accountStart"],
         i18n: {
             "osusume-user-timeline": "timeline-osusumeUsersOnTL",
             hideOhterRTTL: "timeline-hideOhterRTTL",
+            hideReply: "timeline-hideReply",
             accountStart: "timeline-accountStart",
         },
     },

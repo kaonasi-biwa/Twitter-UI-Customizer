@@ -90,6 +90,10 @@
     display: none !important;
 }
 
+.TUIC_HideNextElements ~ * {
+    visibility: hidden !important;
+}
+
 [TUICDiscoverMore] {
     padding-left: 20px;
 }
@@ -217,6 +221,10 @@
 
 .TUICTweetTopButton.css-18t94o4:active .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 20%);
+}
+
+#TUICDisplayRightSidebar:hover {
+    text-decoration-thickness: 1px;
 }
 
 .TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
