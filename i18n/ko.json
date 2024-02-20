@@ -101,6 +101,7 @@
     "timeline-settingTitle": "타임라인 설정",
     "timeline-osusumeUsersOnTL": "추천 사용자를 숨기기",
     "timeline-hideOhterRTTL": "리트윗을 숨기기",
+    "timeline-hideReply": "트윗에 대한 답글 아래에 있는 것을 숨기기",
     "timeline-accountStart": "계정 만들때 \"설정을 시작해 볼까요?\"를 숨기기",
     "timeline-discoverMore": "트윗 댓글창의 \"더 찾아보기\"",
     "timeline-discoverMore-nomal": "아무 것도 하지 않기",
@@ -163,5 +164,6 @@
     "common-no": "아니오",
     "common-close": "닫기",
     "common-error": "오류",
-    "common-confirm": "확인"
+    "common-confirm": "확인",
+    "common-displaySetting": "표시 설정"
 }
