@@ -300,8 +300,6 @@ export const defaultPref = {
         },
     },
     otherBoolSetting: {
-        roundIcon: true,
-        faviconSet: false,
         placeEngagementsLink: false,
         placeEngagementsLinkShort: false,
         showLinkCardInfo: true,
@@ -327,7 +325,11 @@ export const defaultPref = {
         hideOhterRTTL: false,
         accountStart: false,
     },
-    twitterIcon: "nomal",
+    twitterIcon: {
+        icon: "nomal",
+        roundIcon: true,
+        faviconSet: false,
+    },
     rightSidebar: {
         searchBox: false,
         verified: false,

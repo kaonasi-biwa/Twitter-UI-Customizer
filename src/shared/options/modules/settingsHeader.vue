@@ -39,7 +39,9 @@ const buttonList = [
                 PostToTweet: true,
             },
             sidebarSetting: { homeIcon: "birdGoBack" },
-            twitterIcon: "twitter",
+            twitterIcon: {
+                icon: "twitter",
+            },
         },
     },
     {

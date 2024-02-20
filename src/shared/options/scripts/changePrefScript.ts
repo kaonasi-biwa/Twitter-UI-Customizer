@@ -9,7 +9,9 @@ export const XToTwitterRestoreIcon = () => {
             faviconSet: true,
         },
         sidebarSetting: { buttonConfig: { birdGoBack: true } },
-        twitterIcon: "twitter",
+        twitterIcon: {
+            icon: "twitter",
+        },
     };
     TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
     TUICPref.save();
