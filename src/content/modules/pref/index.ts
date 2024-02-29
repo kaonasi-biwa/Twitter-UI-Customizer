@@ -88,7 +88,7 @@ export function mergePref(source: object, target: object) {
     return target;
 }
 
-export async function updatePref() {
+export async function updatePref(mergeDefault: boolean = true) {
     /*
     if (localStorage.getItem("unsent-tweet-background")) {
         parallelToSerialPref();
@@ -187,63 +187,10 @@ export async function updatePref() {
         );
     }
 
-    setPref("", mergePref(structuredClone(defaultPref), structuredClone(getPref(""))));
+    if (mergeDefault) {
+        setPref("", mergePref(structuredClone(defaultPref), structuredClone(getPref(""))));
+    }
 }
-/*
-export function parallelToSerialPref() {
-    setPref("CSS", localStorage.getItem("CSS"));
-    setPref("invisibleItems.osusume-user-timeline", (localStorage.getItem("osusume-user-timeline") ?? "0") === "1");
-    setPref("visibleButtons", JSON.parse(localStorage.getItem("visible-button")));
-    for (const i of ColorData.i18nAndAllContent) {
-        const a = localStorage.getItem(`${i}-background`) ?? "unknown";
-        if (a != "unknown") {
-            setPref("buttonColor." + i, {
-                background: a,
-                border: localStorage.getItem(`${i}-border`),
-                color: localStorage.getItem(`${i}-color`),
-            });
-        }
-    }
-
-    for (const pref of [
-        "unsent-tweet-background",
-        "unsent-tweet-border",
-        "unsent-tweet-color",
-        "not-following-background",
-        "not-following-border",
-        "not-following-color",
-        "following-background",
-        "following-border",
-        "following-color",
-        "un-following-background",
-        "un-following-border",
-        "un-following-color",
-        "profile-background",
-        "profile-border",
-        "profile-color",
-        "profile-save-background",
-        "profile-save-border",
-        "profile-save-color",
-        "birthday-background",
-        "birthday-border",
-        "birthday-color",
-        "profile-link-background",
-        "profile-link-border",
-        "profile-link-color",
-        "reply-button",
-        "retweet-button",
-        "like-button",
-        "downvote-button",
-        "share-button",
-        "tweet_analytics",
-        "visible-button",
-        "osusume-user-timeline",
-        "CSS",
-    ]) {
-        localStorage.removeItem(pref);
-    }
-    save();
-}*/
 
 export const defaultPref = {
     buttonColor: {},

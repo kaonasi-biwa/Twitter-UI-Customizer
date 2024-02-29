@@ -30,7 +30,7 @@ const importFunc = async (type: number) => {
     try {
         let tempPref;
         [tempPref, TUICPref.config] = [TUICPref.config, JSON.parse(importBox.value.value)];
-        TUICPref.updatePref();
+        TUICPref.updatePref(false);
         [tempPref, TUICPref.config] = [TUICPref.config, tempPref];
         if (type == 1) {
             TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), tempPref));
