@@ -1,5 +1,4 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
-import { placeSettingPage } from "./functions/placeSettingPage.ts";
 import { catchError, _Observer } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
@@ -7,9 +6,12 @@ interface TUICObserverInterface {
     observer: MutationObserver;
     target: Element;
     observerFunction: () => void;
-    config: { [keys: string]: boolean };
 }
 
+const config = {
+    childList: true,
+    subtree: true,
+};
 export const TUICObserver: TUICObserverInterface = {
     observer: null,
     target: null,
@@ -49,17 +51,10 @@ export const TUICObserver: TUICObserverInterface = {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            // 設定画面の配置
-            placeSettingPage();
-
-            TUICObserver.observer.observe(TUICObserver.target, TUICObserver.config);
+            TUICObserver.observer.observe(TUICObserver.target, config);
         } catch (e) {
             catchError(e);
         }
-    },
-    config: {
-        childList: true,
-        subtree: true,
     },
 };
 

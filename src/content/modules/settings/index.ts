@@ -1,5 +1,21 @@
+let DisplaySettingObserver: MutationObserver = null;
+
+const target = document.querySelector("body");
+const config = {
+    childList: true,
+    subtree: true,
+};
 import { TUICLibrary } from "@content/library";
 import { displaySetting } from "@modules/settings/display";
+
+export function placeSettingObserver() {
+    if (DisplaySettingObserver) DisplaySettingObserver.disconnect();
+    else DisplaySettingObserver = new MutationObserver(placeSettingObserver);
+
+    placeSettingPage();
+
+    DisplaySettingObserver.observe(target, config);
+}
 
 export function placeSettingPage() {
     switch (window.location.pathname) {
