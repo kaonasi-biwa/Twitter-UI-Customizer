@@ -1,8 +1,6 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
-import { I18nAndAllContent } from "@shared/types";
-
 const eventHandle = (elem: Element, func: () => void) => {
     elem.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Enter") {

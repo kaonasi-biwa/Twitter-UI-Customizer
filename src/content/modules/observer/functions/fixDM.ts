@@ -1,5 +1,4 @@
 import { TUICPref } from "../..";
-import { I18nAndAllContent } from "@shared/types";
 import { TUICLibrary } from "@content/library";
 
 export const i18nAndAllContent: I18nAndAllContent = {

@@ -1,6 +1,6 @@
 {
     "typeAcquisition": {
-        "include": ["@types/chrome", "vite/client"],
+        "include": ["@types/chrome", "vite/client"]
     },
     "compilerOptions": {
         "esModuleInterop": true,
@@ -15,7 +15,7 @@
         "paths": {
             "@content/*": ["./src/content/*"],
             "@shared/*": ["./src/shared/*"],
-            "@modules/*": ["./src/content/modules/*"],
-        },
-    },
+            "@modules/*": ["./src/content/modules/*"]
+        }
+    }
 }

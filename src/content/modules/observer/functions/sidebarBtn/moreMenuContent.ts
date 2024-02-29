@@ -1,6 +1,5 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-import { I18nAndAllContent } from "@shared/types";
 
 export const i18nAndAllContent: I18nAndAllContent = {
     all: ["premium", "bookmarks", "communities", "monetization", "pro", "ads", "settings", "separator"],

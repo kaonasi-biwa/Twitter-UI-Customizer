@@ -7,7 +7,6 @@ import { i18nAndAllContent as sidebarMoreMenuCont } from "@modules/observer/func
 import { i18nAndAllContent as visibleButtons } from "@modules/observer/functions/tweetSettings/index.ts";
 import { i18nAndAllContent as sidebarButtons } from "@modules/observer/functions/sidebarBtn/index.ts";
 
-import { I18nAndAllContent } from "@shared/types.ts";
 import { ColorData } from "@shared/sharedData.ts";
 
 export const TUICData: {

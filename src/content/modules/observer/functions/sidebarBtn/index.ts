@@ -1,7 +1,6 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { moreMenuContent } from "./moreMenuContent";
-import { I18nAndAllContent } from "@shared/types";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
 let sidebarButtonsCount = -1;

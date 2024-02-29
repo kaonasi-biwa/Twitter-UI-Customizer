@@ -1,6 +1,5 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-import { I18nAndAllContent } from "@shared/types";
 
 export const i18nAndAllContent: I18nAndAllContent = {
     all: ["notHelpful", "notInterested", "follow", "deleteTweet", "highlighOnPin", "highlightUpsell", "addMemberOfList", "userMute", "muteTalk", "leaveTalk", "block", "whoCanReply", "engagements", "analytics", "embed", "report", "hiddenReply", "editWithTwitterBlue"],

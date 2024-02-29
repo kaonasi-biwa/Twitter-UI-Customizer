@@ -1,7 +1,6 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { ProcessedClass } from "@shared/sharedData";
-import { I18nAndAllContent } from "@shared/types";
 
 export const i18nAndAllContent: I18nAndAllContent = {
     all: ["tweets", "replies", "media", "likes"],

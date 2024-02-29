@@ -3,7 +3,6 @@ import { TUICPref } from "@content/modules";
 import { tweetTopButtons } from "./tweetTopButtons";
 import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
-import { I18nAndAllContent } from "@shared/types";
 import { buttonHTMLBase } from "@content/resources";
 import { TUICI18N } from "@modules/i18n";
 
