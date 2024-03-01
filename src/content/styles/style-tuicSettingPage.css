@@ -591,3 +591,14 @@ textarea#css_textarea,
 .TUIC_setting_detailsbox_content_container > :not(hr) {
     padding: 20px 35px;
 }
+
+.TUIC_setting_color_select_info {
+    color: rgb(113 118 124);
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 20px 0 0;
+    padding: 0;
+    display: flex;
+    letter-spacing: 1px;
+    font-feature-settings: "palt";
+}

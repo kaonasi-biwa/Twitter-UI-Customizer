@@ -20,8 +20,8 @@
                 </span>
             </label>
         </div>
-        <div style="margin-left: 10px; margin-right: 10px">
-            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 12px">{{ TUICI18N.get("settingColors-select-explain") }} </span>
+        <div>
+            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text TUIC_setting_color_select_info">{{ TUICI18N.get("settingColors-select-explain") }} </span>
         </div>
         <br />
         <!--TODO: 現状機能しない-->
