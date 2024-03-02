@@ -27,10 +27,10 @@ const ClassList = [
     ProcessedClass,
 ];
 export const updateClasses = (isInit: boolean = false) => {
-    if (!isInit) TUICObserver.observer.disconnect();
+    if (!isInit) TUICObserver.unbind();
     deleteClasses();
     applySystemCss();
-    if (!isInit) TUICObserver.observerFunction();
+    if (!isInit) TUICObserver.callback();
 };
 const deleteClasses = () => {
     for (const id of ClassList) {

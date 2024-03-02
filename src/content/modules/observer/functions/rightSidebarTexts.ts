@@ -16,7 +16,7 @@ const _data = {
             `.replace(/\s\s+/g, "");
     },
     make: () => {
-        const elem = TUICLibrary.HTMLParse(_data.html()).item(0);
+        const elem = TUICLibrary.parseHtml(_data.html()).item(0);
 
         elem.addEventListener("click", (e) => {
             e.preventDefault();
@@ -24,9 +24,9 @@ const _data = {
             if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
             setTimeout(async () => {
                 //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                await TUICLibrary.waitAndClickElement(`[href="/settings"]`);
-                await TUICLibrary.waitAndClickElement(`[href="/settings/accessibility_display_and_languages"]`);
-                await TUICLibrary.waitAndClickElement(`[href="/settings/display"]`);
+                (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
+                (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
+                (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
             }, 150);
         });
         return elem;

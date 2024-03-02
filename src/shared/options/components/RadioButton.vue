@@ -19,7 +19,7 @@ const changePref = (path, valueName) => {
     TUICPref.setPref(path, valueName);
     TUICPref.save();
     updateClasses();
-    TUICObserver.observerFunction();
+    TUICObserver.callback();
 };
 </script>
 @modules/observer/observer @modules/i18n/i18n

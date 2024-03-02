@@ -194,7 +194,7 @@ const _data = {
             navigator.clipboard.writeText(url);
             const baseElem = document.querySelector(`#layers`);
             if (baseElem != null) {
-                const layerElem = TUICLibrary.HTMLParse(
+                const layerElem = TUICLibrary.parseHtml(
                     `<div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
                         <div class="css-175oi2r r-12vffkv">
                             <div class="css-175oi2r r-12vffkv">
@@ -312,10 +312,11 @@ const _data = {
                 }
             }
         },
-        "retweet-button": () => {
+        "retweet-button": async () => {
             if (TUICPref.getPref("tweetDisplaySetting.RTNotQuote")) {
-                window.setTimeout(() => {
-                    TUICLibrary.waitAndClickElement(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`);
+                // TODO: wait 関数を作って置き換えるべきか？
+                window.setTimeout(async () => {
+                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();
                 }, 100);
             }
         },
@@ -356,7 +357,7 @@ const _data = {
             return elem;
         },*/
         sendDM: function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["sendDM"](val.option.isBigArticle, val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["sendDM"](val.option.isBigArticle, val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)).item(0);
             if (!(val.option.cannotRT || val.option.cannotShare || val.option.isLockedAccount)) {
                 _data.buttonElement._handleEvent(
                     elem,
@@ -369,7 +370,7 @@ const _data = {
             return elem;
         },
         "url-copy": function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["url-copy"](val.option.isBigArticle)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["url-copy"](val.option.isBigArticle)).item(0);
             //if (val.option.isLockedAccount || val.option.cannotRT) {
             if (val.elements.statusButton != null) {
                 _data.buttonElement._handleEvent(
@@ -392,7 +393,7 @@ const _data = {
             return elem;
         },
         userBlock: function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["userBlock"](val.option.isBigArticle, val.option.isMe)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["userBlock"](val.option.isBigArticle, val.option.isMe)).item(0);
             _data.buttonElement._handleEvent(
                 elem,
                 () => {
@@ -403,7 +404,7 @@ const _data = {
             return elem;
         },
         userMute: function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["userMute"](val.option.isBigArticle, val.option.isMe)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["userMute"](val.option.isBigArticle, val.option.isMe)).item(0);
             _data.buttonElement._handleEvent(
                 elem,
                 () => {
@@ -414,7 +415,7 @@ const _data = {
             return elem;
         },
         deleteButton: function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["deleteButton"](val.option.isBigArticle, val.option.isMe)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["deleteButton"](val.option.isBigArticle, val.option.isMe)).item(0);
             if (val.option.isMe) {
                 _data.buttonElement._handleEvent(
                     elem,
@@ -427,7 +428,7 @@ const _data = {
             return elem;
         },
         quoteTweet: function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["quoteTweet"](val.option.isBigArticle, val.option.cannotRT)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["quoteTweet"](val.option.isBigArticle, val.option.cannotRT)).item(0);
             if (!val.option.cannotRT)
                 _data.buttonElement._handleEvent(
                     elem,
@@ -439,7 +440,7 @@ const _data = {
             return elem;
         },
         likeAndRT: function (val: ArticleInfomation) {
-            const elem = TUICLibrary.HTMLParse(_data.buttonHTML["likeAndRT"](val.option.isBigArticle, val.option.cannotRT)).item(0);
+            const elem = TUICLibrary.parseHtml(_data.buttonHTML["likeAndRT"](val.option.isBigArticle, val.option.cannotRT)).item(0);
             if (!val.option.cannotRT)
                 _data.buttonElement._handleEvent(
                     elem,
@@ -452,7 +453,7 @@ const _data = {
         },
     },
     emptyElement: () => {
-        return TUICLibrary.HTMLParse(
+        return TUICLibrary.parseHtml(
             `<div class="css-175oi2r r-xoduu5 r-1udh08x"><span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);"><span class="css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
                 "r-1enofrn r-1f529hi r-cxdvbh r-s1qlax",
                 "r-1enofrn r-fxxt2n r-cxdvbh r-s1qlax",

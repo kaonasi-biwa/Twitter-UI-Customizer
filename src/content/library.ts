@@ -3,16 +3,14 @@ import { TUICPref } from "@modules/index.ts";
 
 export const TUICLibrary = {
     color: {
-        rgb2hex: (rgb: Array<number>) => {
-            return `#${rgb
-                .map((value) => {
-                    return ("0" + value.toString(16)).slice(-2);
-                })
-                .join("")}`;
+        /** RGB 配列を #xxxxxx 表記に変換します。 */
+        rgb2hex: (rgb: [number, number, number]) => {
+            return `#${rgb.map((value) => ("0" + value.toString(16)).slice(-2)).join("")}`;
         },
-        hex2rgb: (hex: string) => {
+        /** #xxxxxx 表記を RGB に変換します。 */
+        hex2rgb: (hex: string): [number, number, number] => {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-            return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
+            return <[number, number, number]>[hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
                 return parseInt(str, 16);
             });
         },
@@ -22,9 +20,9 @@ export const TUICLibrary = {
             return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
         },
     },
-    getPrimitiveOrFunction: (functionOrPrimitive) => {
-        if (typeof functionOrPrimitive == "function") {
-            return functionOrPrimitive();
+    getPrimitiveOrFunction: <T>(functionOrPrimitive: (() => T) | T): T => {
+        if (typeof functionOrPrimitive === "function") {
+            return (functionOrPrimitive as () => T)();
         } else {
             return functionOrPrimitive;
         }
@@ -61,7 +59,7 @@ export const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
         }
     },
-    HTMLParse: (elem: string) => {
+    parseHtml: (elem: string) => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     // escapeToUseHTML: (text) => {
@@ -95,25 +93,6 @@ export const TUICLibrary = {
                 observer.observe(parentElement, { subtree: true, childList: true });
             });
         }
-    },
-    waitAndClickElement: async (selector: string): Promise<boolean> => {
-        for (let i = 0; i <= 25; i++) {
-            const re = await new Promise((resolve2) => {
-                const elem = document.querySelector<HTMLInputElement>(selector);
-                if (elem != null) {
-                    elem.click();
-                    resolve2("ok");
-                }
-                resolve2("bb");
-            });
-            if (re == "ok") return true;
-            await new Promise((resolve2) => {
-                window.setTimeout(() => {
-                    resolve2("");
-                }, 100);
-            });
-        }
-        return false;
     },
     hasClosest: <T extends Element>(elem: Element, selector: string): T => {
         let elem2 = elem;

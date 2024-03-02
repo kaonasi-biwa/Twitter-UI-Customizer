@@ -5,11 +5,8 @@ import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";
 
 const errors = [];
 
-export const _Observer: {
-    observerFunction: () => void;
-} = { observerFunction: null };
-
-export function catchError(e: Error) {
+/** エラーダイアログを表示します。 */
+export function catchError(e: Error, callback: (() => unknown) | null = null, callbackTime: number = 5000) {
     console.error(e);
     errors.push(`${e.toString()}${"\r"}${e.stack}`);
     if (errors.length > 2) {
@@ -34,8 +31,6 @@ export function catchError(e: Error) {
             ])
             .open();
     } else {
-        window.setTimeout(() => {
-            _Observer.observerFunction();
-        }, 5000);
+        if (callback) window.setTimeout(() => callback?.(), callbackTime);
     }
 }

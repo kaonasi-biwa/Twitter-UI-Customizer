@@ -1,22 +1,30 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
-import { catchError, _Observer } from "./errorDialog.ts";
+import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
-interface TUICObserverInterface {
-    observer: MutationObserver;
-    target: Element;
-    observerFunction: () => void;
-}
+export const TUICObserver = new (class TUICObserver {
+    /** 内部で使用される MutationObserver */
+    public observer: MutationObserver = new MutationObserver(() => this.callback());
+    /** 監視対象の要素 */
+    public target: Element | null = null;
 
-const config = {
-    childList: true,
-    subtree: true,
-};
-export const TUICObserver: TUICObserverInterface = {
-    observer: null,
-    target: null,
-    observerFunction: () => {
-        TUICObserver.observer.disconnect();
+    /** オブザーバーを開始します。 */
+    public bind(): void {
+        if (!this.target) throw new TypeError("Target is null");
+        this.observer.observe(this.target, {
+            childList: true,
+            subtree: true,
+        });
+    }
+
+    /** オブザーバーを停止します。 */
+    public unbind(): void {
+        this.observer.disconnect();
+    }
+
+    /** オブザーバーのコールバック */
+    public callback(): void {
+        this.unbind();
         try {
             // Twitterのアイコンに関する設定
             changeIcon();
@@ -51,12 +59,9 @@ export const TUICObserver: TUICObserverInterface = {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            TUICObserver.observer.observe(TUICObserver.target, config);
+            this.bind();
         } catch (e) {
-            catchError(e);
+            catchError(e, () => this.callback());
         }
-    },
-};
-
-TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
-_Observer.observerFunction = TUICObserver.observerFunction;
+    }
+})();
