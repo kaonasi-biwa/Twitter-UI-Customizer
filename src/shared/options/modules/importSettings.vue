@@ -45,7 +45,7 @@ const importFunc = async (type: number) => {
             document.querySelector("#TUIC_setting").remove();
             updateClasses();
             applySystemCss();
-            TUICObserver.observerFunction();
+            TUICObserver.callback();
             titleObserverFunction();
             if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                 document.title = document.title.replace(" / Twitter", " / X");

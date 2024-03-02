@@ -1,21 +1,17 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
-import { catchError, _Observer } from "./errorDialog.ts";
+import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
-interface TUICObserverInterface {
-    observer: MutationObserver;
-    target: Element;
-    observerFunction: () => void;
-}
-
-const config = {
-    childList: true,
-    subtree: true,
-};
-export const TUICObserver: TUICObserverInterface = {
-    observer: null,
-    target: null,
-    observerFunction: () => {
+export const TUICObserver = {
+    observer: <MutationObserver>null,
+    target: <Element>null,
+    observe: () => {
+        TUICObserver.observer.observe(TUICObserver.target, {
+            childList: true,
+            subtree: true,
+        });
+    },
+    callback: () => {
         TUICObserver.observer.disconnect();
         try {
             // Twitterのアイコンに関する設定
@@ -51,12 +47,11 @@ export const TUICObserver: TUICObserverInterface = {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            TUICObserver.observer.observe(TUICObserver.target, config);
+            TUICObserver.observe();
         } catch (e) {
-            catchError(e);
+            catchError(e, TUICObserver.callback);
         }
     },
 };
 
-TUICObserver.observer = new MutationObserver(TUICObserver.observerFunction);
-_Observer.observerFunction = TUICObserver.observerFunction;
+TUICObserver.observer = new MutationObserver(TUICObserver.callback);
