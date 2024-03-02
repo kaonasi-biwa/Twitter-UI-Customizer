@@ -59,7 +59,7 @@ export const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
         }
     },
-    HTMLParse: (elem: string) => {
+    parseHtml: (elem: string) => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     // escapeToUseHTML: (text) => {
