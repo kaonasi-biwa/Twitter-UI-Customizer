@@ -2,7 +2,7 @@ import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyl
 import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
-export const TUICObserver = new (class TUICObserver {
+export const TUICObserver = new class TUICObserver {
     /** 内部で使用される MutationObserver */
     public observer: MutationObserver = new MutationObserver(this.callback);
     /** 監視対象の要素 */
@@ -64,4 +64,4 @@ export const TUICObserver = new (class TUICObserver {
             catchError(e, this.callback);
         }
     }
-})();
+}();
