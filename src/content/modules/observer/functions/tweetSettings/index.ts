@@ -5,27 +5,9 @@ import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
 import { buttonHTMLBase } from "@content/resources";
 import { TUICI18N } from "@modules/i18n";
+import { TUICData } from "@content/data";
 
 let buttonUnderTweetRunning: boolean = false;
-
-export const i18nAndAllContent: I18nAndAllContent = {
-    all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM", "likeAndRT"],
-    i18n: {
-        "reply-button": "bottomTweetButtons-reply",
-        "retweet-button": "bottomTweetButtons-retweet",
-        "like-button": "bottomTweetButtons-like",
-        "share-button": "bottomTweetButtons-share",
-        tweet_analytics: "bottomTweetButtons-tweetAnalytics",
-        boolkmark: "bottomTweetButtons-bookmark",
-        "url-copy": "bottomTweetButtons-urlCopy",
-        userBlock: "bottomTweetButtons-userBlock",
-        userMute: "bottomTweetButtons-userMute",
-        quoteTweet: "bottomTweetButtons-quoteTweet",
-        deleteButton: "bottomTweetButtons-deleteButton",
-        sendDM: "bottomTweetButtons-sendDM",
-        likeAndRT: "bottomTweetButtons-likeAndRT",
-    },
-};
 
 export const ButtonUnderTweetSelectors = {
     "reply-button": '[data-testid$="reply"]:not([data-testid*="UserAvatar-Container-"])',
@@ -44,7 +26,7 @@ export const ButtonUnderTweetSelectors = {
 };
 
 const _data = {
-    ...i18nAndAllContent,
+    all: TUICData.visibleButtons.all,
     selectors: { ...ButtonUnderTweetSelectors },
     buttonHTML: {
         _base: function (id: string, svg, isBigArticle: boolean, disable = false, redButton = false): string {

@@ -1,12 +1,3 @@
-import { i18nAndAllContent as tweetTopButton } from "@modules/observer/functions/tweetSettings/tweetTopButtons.ts";
-import { i18nAndAllContent as fixEngagements } from "@modules/observer/functions/tweetSettings/placeEngagementsLink.ts";
-import { i18nAndAllContent as tweetMoreMenuContent } from "@modules/observer/functions/tweetSettings/tweetMoreMenuContent.ts";
-import { i18nAndAllContent as dmPage } from "@modules/observer/functions/fixDM.ts";
-import { i18nAndAllContent as initProfileTab } from "@modules/observer/functions/initProfileTab.ts";
-import { i18nAndAllContent as sidebarMoreMenuCont } from "@modules/observer/functions/sidebarBtn/moreMenuContent.ts";
-import { i18nAndAllContent as visibleButtons } from "@modules/observer/functions/tweetSettings/index.ts";
-import { i18nAndAllContent as sidebarButtons } from "@modules/observer/functions/sidebarBtn/index.ts";
-
 import { ColorData } from "@shared/sharedData.ts";
 
 export const TUICData: {
@@ -15,7 +6,24 @@ export const TUICData: {
     // 色の設定
     colors: ColorData.i18nAndAllContent,
     // ツイート関連の設定
-    visibleButtons,
+    visibleButtons: {
+        all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM", "likeAndRT"],
+        i18n: {
+            "reply-button": "bottomTweetButtons-reply",
+            "retweet-button": "bottomTweetButtons-retweet",
+            "like-button": "bottomTweetButtons-like",
+            "share-button": "bottomTweetButtons-share",
+            tweet_analytics: "bottomTweetButtons-tweetAnalytics",
+            boolkmark: "bottomTweetButtons-bookmark",
+            "url-copy": "bottomTweetButtons-urlCopy",
+            userBlock: "bottomTweetButtons-userBlock",
+            userMute: "bottomTweetButtons-userMute",
+            quoteTweet: "bottomTweetButtons-quoteTweet",
+            deleteButton: "bottomTweetButtons-deleteButton",
+            sendDM: "bottomTweetButtons-sendDM",
+            likeAndRT: "bottomTweetButtons-likeAndRT",
+        },
+    },
     "tweetDisplaySetting.linkCopyURL": {
         all: ["linkCopyURL_twitter", "linkCopyURL_X", "linkCopyURL_vxTwitter", "linkCopyURL_fxTwitter"],
         i18n: {
@@ -43,9 +51,46 @@ export const TUICData: {
             discoverMore_invisible: "timeline-discoverMore-invisible",
         },
     },
-    fixEngagements,
-    tweetTopButton,
-    "tweetDisplaySetting.tweetMoreMenuItems": tweetMoreMenuContent,
+    fixEngagements: {
+        all: ["likes", "retweets", "quotes"],
+        i18n: {
+            likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
+            retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
+            quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
+        },
+    },
+    tweetTopButton: {
+        all: ["moreMenu", "block", "mute", "delete"],
+        i18n: {
+            moreMenu: "sidebarButtons-moremenu",
+            block: "bottomTweetButtons-userBlock",
+            mute: "bottomTweetButtons-userMute",
+            delete: "bottomTweetButtons-deleteButton",
+        },
+    },
+    "tweetDisplaySetting.tweetMoreMenuItems": {
+        all: ["notHelpful", "notInterested", "follow", "deleteTweet", "highlighOnPin", "highlightUpsell", "addMemberOfList", "userMute", "muteTalk", "leaveTalk", "block", "whoCanReply", "engagements", "analytics", "embed", "report", "hiddenReply", "editWithTwitterBlue"],
+        i18n: {
+            notHelpful: "tweetMoreMenuItems-notHelpful",
+            hiddenReply: "tweetMoreMenuItems-hiddenReply",
+            notInterested: "tweetMoreMenuItems-notInterested",
+            follow: "tweetMoreMenuItems-follow",
+            deleteTweet: "bottomTweetButtons-deleteButton",
+            highlighOnPin: "tweetMoreMenuItems-highlighOnPin",
+            highlightUpsell: "tweetMoreMenuItems-highlightUpsell",
+            addMemberOfList: "tweetMoreMenuItems-addMemberOfList",
+            userMute: "bottomTweetButtons-userMute",
+            muteTalk: "tweetMoreMenuItems-muteTalk",
+            leaveTalk: "tweetMoreMenuItems-leaveTalk",
+            block: "bottomTweetButtons-userBlock",
+            whoCanReply: "tweetMoreMenuItems-whoCanReply",
+            engagements: "tweetMoreMenuItems-engagements",
+            analytics: "bottomTweetButtons-tweetAnalytics",
+            embed: "XtoTwitter-PostToTweet-menu-embed",
+            report: "XtoTwitter-PostToTweet-reportTweet",
+            editWithTwitterBlue: "tweetMoreMenuItems-editWithTwitterBlue",
+        },
+    },
     tweetDisplaySetting: {
         all: ["bottomSpace", "twitter-pro-promotion-btn", "subscribe-tweets"],
         i18n: {
@@ -73,7 +118,29 @@ export const TUICData: {
     },
 
     // サイドバーの設定
-    sidebarButtons,
+    sidebarButtons: {
+        all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch", "settings"],
+        i18n: {
+            home: "sidebarButtons-home",
+            explore: "sidebarButtons-explore",
+            communities: "sidebarButtons-communities",
+            notifications: "sidebarButtons-notifications",
+            messages: "sidebarButtons-messages",
+            bookmarks: "sidebarButtons-bookmarks",
+            profile: "sidebarButtons-profile",
+            moremenu: "sidebarButtons-moremenu",
+            topics: "sidebarButtons-topics",
+            lists: "sidebarButtons-lists",
+            drafts: "sidebarButtons-drafts",
+            connect: "sidebarButtons-connect",
+            communitynotes: "sidebarButtons-communitynotes",
+            "verified-choose": "sidebarButtons-verified-choose",
+            display: "sidebarButtons-display",
+            muteAndBlock: "sidebarButtons-muteAndBlock",
+            premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
+            settings: "sidebarButtons-settings",
+        },
+    },
     "sidebarSetting.buttonConfig": {
         all: ["smallerSidebarContent", "sidebarNoneScrollbar"],
         i18n: {
@@ -93,7 +160,22 @@ export const TUICData: {
         all: ["icon", "nameID", "moreMenu"],
         i18n: { icon: "sidebarButton-accountSwitcher-Icon", nameID: "sidebarButton-accountSwitcher-NameID", moreMenu: "sidebarButton-accountSwitcher-MoreMenu" },
     },
-    "sidebarSetting.moreMenuItems": sidebarMoreMenuCont,
+    "sidebarSetting.moreMenuItems": {
+        all: ["premium", "bookmarks", "communities", "monetization", "pro", "ads", "settings", "separator"],
+        i18n: {
+            bookmarks: "sidebarButtons-bookmarks",
+            monetization: "sidebarButton-moreMenuItems-monetization",
+            separator: "sidebarButton-moreMenuItems-separator",
+            creatorStudio: "sidebarButton-moreMenuItems-creatorStudio",
+            professionalTool: "sidebarButton-moreMenuItems-professionalTool",
+            settingsAndSupport: "sidebarButton-moreMenuItems-settingsAndSupport",
+            communities: "sidebarButtons-communities",
+            settings: "sidebarButton-moreMenuItems-settings",
+            pro: "sidebarButton-moreMenuItems-pro",
+            ads: "sidebarButton-moreMenuItems-ads",
+            premium: "sidebarButton-moreMenuItems-premium",
+        },
+    },
 
     // プロフィールの設定
     "profileSetting.tabs": {
@@ -102,7 +184,15 @@ export const TUICData: {
             pinnedTab: "profileSetting-tabs-pinnedTab",
         },
     },
-    "profileSetting.profileInitialTab": initProfileTab,
+    "profileSetting.profileInitialTab": {
+        all: ["tweets", "replies", "media", "likes"],
+        i18n: {
+            tweets: "profileSetting-profileInitialTab-tweet",
+            replies: "profileSetting-profileInitialTab-reply",
+            media: "profileSetting-profileInitialTab-media",
+            likes: "profileSetting-profileInitialTab-likes",
+        },
+    },
     "profileSetting.invisible": {
         all: ["subscribe-profile", "profileHighlights", "profileAffiliates", "verifiedFollowerTab"],
         i18n: {
@@ -163,7 +253,12 @@ export const TUICData: {
     },
 
     // DMの設定
-    dmPage,
+    dmPage: {
+        all: ["showIcon"],
+        i18n: {
+            showIcon: "dmPage-showIcon",
+        },
+    },
 
     // その他の設定
     uncategorizedSettings: {

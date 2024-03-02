@@ -4,30 +4,6 @@ import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
 let sidebarButtonsCount = -1;
-
-export const i18nAndAllContent: I18nAndAllContent = {
-    all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch", "settings"],
-    i18n: {
-        home: "sidebarButtons-home",
-        explore: "sidebarButtons-explore",
-        communities: "sidebarButtons-communities",
-        notifications: "sidebarButtons-notifications",
-        messages: "sidebarButtons-messages",
-        bookmarks: "sidebarButtons-bookmarks",
-        profile: "sidebarButtons-profile",
-        moremenu: "sidebarButtons-moremenu",
-        topics: "sidebarButtons-topics",
-        lists: "sidebarButtons-lists",
-        drafts: "sidebarButtons-drafts",
-        connect: "sidebarButtons-connect",
-        communitynotes: "sidebarButtons-communitynotes",
-        "verified-choose": "sidebarButtons-verified-choose",
-        display: "sidebarButtons-display",
-        muteAndBlock: "sidebarButtons-muteAndBlock",
-        premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
-        settings: "sidebarButtons-settings",
-    },
-};
 export const SidebarButtonSelectors = {
     home: `[href="/home"]`,
     explore: `[href="/explore"]`,
@@ -50,7 +26,6 @@ export const SidebarButtonSelectors = {
 };
 
 const _data = {
-    ...i18nAndAllContent,
     selectors: SidebarButtonSelectors,
     html: {
         __base: (id: string, svg: string): string => {

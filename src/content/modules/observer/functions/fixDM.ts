@@ -1,15 +1,7 @@
 import { TUICPref } from "../..";
 import { TUICLibrary } from "@content/library";
 
-export const i18nAndAllContent: I18nAndAllContent = {
-    all: ["showIcon"],
-    i18n: {
-        showIcon: "dmPage-showIcon",
-    },
-};
-
 const _data = {
-    ...i18nAndAllContent,
     element: {
         html: (): string => {
             return `

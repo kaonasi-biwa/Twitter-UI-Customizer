@@ -2,16 +2,7 @@ import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
-export const i18nAndAllContent: I18nAndAllContent = {
-    all: ["likes", "retweets", "quotes"],
-    i18n: {
-        likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
-        retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
-        quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
-    },
-};
 const _data = {
-    i18nAndAllContent,
     engagementsBox: (): Element => {
         return TUICLibrary.parseHtml(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${TUICLibrary.backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
     },

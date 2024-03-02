@@ -1,38 +1,16 @@
+import { TUICData } from "@content/data";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
-export const i18nAndAllContent: I18nAndAllContent = {
-    all: ["notHelpful", "notInterested", "follow", "deleteTweet", "highlighOnPin", "highlightUpsell", "addMemberOfList", "userMute", "muteTalk", "leaveTalk", "block", "whoCanReply", "engagements", "analytics", "embed", "report", "hiddenReply", "editWithTwitterBlue"],
-    i18n: {
-        notHelpful: "tweetMoreMenuItems-notHelpful",
-        hiddenReply: "tweetMoreMenuItems-hiddenReply",
-        notInterested: "tweetMoreMenuItems-notInterested",
-        follow: "tweetMoreMenuItems-follow",
-        deleteTweet: "bottomTweetButtons-deleteButton",
-        highlighOnPin: "tweetMoreMenuItems-highlighOnPin",
-        highlightUpsell: "tweetMoreMenuItems-highlightUpsell",
-        addMemberOfList: "tweetMoreMenuItems-addMemberOfList",
-        userMute: "bottomTweetButtons-userMute",
-        muteTalk: "tweetMoreMenuItems-muteTalk",
-        leaveTalk: "tweetMoreMenuItems-leaveTalk",
-        block: "bottomTweetButtons-userBlock",
-        whoCanReply: "tweetMoreMenuItems-whoCanReply",
-        engagements: "tweetMoreMenuItems-engagements",
-        analytics: "bottomTweetButtons-tweetAnalytics",
-        embed: "XtoTwitter-PostToTweet-menu-embed",
-        report: "XtoTwitter-PostToTweet-reportTweet",
-        editWithTwitterBlue: "tweetMoreMenuItems-editWithTwitterBlue",
-    },
-};
-
-interface TweetMoreMenuContentData extends I18nAndAllContent {
+interface TweetMoreMenuContentData {
+    all: string[];
     selectors: {
         [key: string]: string | (() => Element);
     };
 }
 
 const _data: TweetMoreMenuContentData = {
-    ...i18nAndAllContent,
+    all: TUICData["tweetDisplaySetting.tweetMoreMenuItems"].all,
     selectors: {
         hiddenReply: `[href$="/hidden"]`,
         notHelpful: (): Element => {

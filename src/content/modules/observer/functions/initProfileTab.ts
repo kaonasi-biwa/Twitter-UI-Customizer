@@ -2,16 +2,6 @@ import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { ProcessedClass } from "@shared/sharedData";
 
-export const i18nAndAllContent: I18nAndAllContent = {
-    all: ["tweets", "replies", "media", "likes"],
-    i18n: {
-        tweets: "profileSetting-profileInitialTab-tweet",
-        replies: "profileSetting-profileInitialTab-reply",
-        media: "profileSetting-profileInitialTab-media",
-        likes: "profileSetting-profileInitialTab-likes",
-    },
-};
-
 const _data = {
     selectors: {
         replies: `[href$="/with_replies"]`,
