@@ -4,7 +4,7 @@ import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
 export const TUICObserver = new class TUICObserver {
     /** 内部で使用される MutationObserver */
-    public observer: MutationObserver = new MutationObserver(this.callback);
+    public observer: MutationObserver = new MutationObserver(() => this.callback());
     /** 監視対象の要素 */
     public target: Element | null = null;
 
@@ -61,7 +61,7 @@ export const TUICObserver = new class TUICObserver {
 
             this.bind();
         } catch (e) {
-            catchError(e, this.callback);
+            catchError(e, () => this.callback());
         }
     }
 }();
