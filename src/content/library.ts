@@ -3,16 +3,16 @@ import { TUICPref } from "@modules/index.ts";
 
 export const TUICLibrary = {
     color: {
-        rgb2hex: (rgb: Array<number>) => {
+        /** RGB 配列を #xxxxxx 表記に変換します。 */
+        rgb2hex: (rgb: [number, number, number]) => {
             return `#${rgb
-                .map((value) => {
-                    return ("0" + value.toString(16)).slice(-2);
-                })
+                .map(value => ("0" + value.toString(16)).slice(-2))
                 .join("")}`;
         },
-        hex2rgb: (hex: string) => {
+        /** #xxxxxx 表記を RGB に変換します。 */
+        hex2rgb: (hex: string): [number, number, number] => {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-            return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
+            return <[number, number, number]>[hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
                 return parseInt(str, 16);
             });
         },
@@ -22,9 +22,9 @@ export const TUICLibrary = {
             return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
         },
     },
-    getPrimitiveOrFunction: (functionOrPrimitive) => {
-        if (typeof functionOrPrimitive == "function") {
-            return functionOrPrimitive();
+    getPrimitiveOrFunction: <T>(functionOrPrimitive: (() => T) | T): T => {
+        if (typeof functionOrPrimitive === "function") {
+            return (functionOrPrimitive as () => T)();
         } else {
             return functionOrPrimitive;
         }
