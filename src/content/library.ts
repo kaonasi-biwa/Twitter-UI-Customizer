@@ -94,25 +94,6 @@ export const TUICLibrary = {
             });
         }
     },
-    waitAndClickElement: async (selector: string): Promise<boolean> => {
-        for (let i = 0; i <= 25; i++) {
-            const re = await new Promise((resolve2) => {
-                const elem = document.querySelector<HTMLInputElement>(selector);
-                if (elem != null) {
-                    elem.click();
-                    resolve2("ok");
-                }
-                resolve2("bb");
-            });
-            if (re == "ok") return true;
-            await new Promise((resolve2) => {
-                window.setTimeout(() => {
-                    resolve2("");
-                }, 100);
-            });
-        }
-        return false;
-    },
     hasClosest: <T extends Element>(elem: Element, selector: string): T => {
         let elem2 = elem;
         while (elem2 && !elem2.querySelector(selector)) {
