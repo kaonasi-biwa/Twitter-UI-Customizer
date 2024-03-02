@@ -13,10 +13,7 @@
 <path d="M0 0L100 0L100 500L0 500L0 0Z" id="Fill_8"/>
 </defs>
 <path d="M0 0L1000 0L1000 500L0 500L0 0Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
-<clipPath id="ArtboardFrame">
-<rect height="500" width="1000" x="0" y="0"/>
-</clipPath>
-<g clip-path="url(#ArtboardFrame)" id="レイヤー-1">
+<g>
 <g opacity="1">
 <mask height="30.3774" id="StrokeMask" maskUnits="userSpaceOnUse" width="30.3774" x="34.8113" y="83.0428">
 <rect fill="#000000" height="30.3774" stroke="none" width="30.3774" x="34.8113" y="83.0428"/>
@@ -95,7 +92,7 @@
 <path d="M699.811 500L755.15 500" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
 <path d="M699.811 302.205L797.461 302.205" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
 </g>
-<g id="レイヤー-2">
+<g>
 <g opacity="1">
 <mask height="500" id="StrokeMask_8" maskUnits="userSpaceOnUse" width="100" x="0" y="0">
 <rect fill="#000000" height="500" stroke="none" width="100" x="0" y="0"/>

@@ -19,7 +19,7 @@
                 <settingColors />
             </detailsBox>
             <detailsBox summaryI18N="settingDetailsBox-sidebar" :icon="ICON_SIDEBAR" :icon-opened="ICON_SIDEBAR_ENABLED">
-                <span>サイドバーの設定をここに出したい</span>
+                <settingSidebar />
             </detailsBox>
             <detailsBox summaryI18N="settingDetailsBox-effect_and_text" :icon="ICON_PENCIL" :icon-opened="ICON_PENCIL_ENABLED">
                 <span>画面効果とテキストの設定をここに出したい</span>
@@ -53,6 +53,7 @@ import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
 import detailsBox from "./components/detailsBox.vue";
 import settingColors from "@shared/options/modules/settingColors.vue";
+import settingSidebar from "./modules/settingSidebar.vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
 </script>

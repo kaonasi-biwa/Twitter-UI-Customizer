@@ -133,12 +133,11 @@
 
 /* 表示非表示のセレクトボックス */
 .TUIC_selectbox {
-    border: solid 1px #71767b;
+    border: solid 1px #303438;
+    background: black;
     border-radius: 6px;
     margin-top: 10px;
-    padding-top: 5px;
     padding-bottom: 5px;
-    height: calc((1em + 9px) * var(--contentCount) + 10px);
     overflow-x: auto;
     scrollbar-width: thin;
 }
@@ -174,13 +173,13 @@
     border-radius: 9999px;
     background: transparent;
     border: none;
-    padding: 2px;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding: 0;
 }
 
 .TUIC_icon_button_con > svg * {
@@ -190,6 +189,9 @@
 
 .TUIC_icon_button_con > svg {
     pointer-events: none;
+    width: 22px;
+    height: 22px;
+    stroke-width: 0.5px;
 }
 
 .TUIC_icon_button_con:hover {
@@ -243,8 +245,8 @@
 
 #TUIC_invisible,
 #TUIC_visible {
-    background: transparent;
-    padding-bottom: 10px;
+    height: 100%;
+    padding-bottom: 50px;
     overflow-y: clip;
 }
 
@@ -258,8 +260,21 @@
 
 #TUIC_invisible > div,
 #TUIC_visible > div {
-    height: calc(1em + 5px);
-    padding: 2px 1em;
+    height: 100$;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+#TUIC_invisible > div:hover,
+#TUIC_visible > div:hover {
+    background-color: #181818;
+}
+div[tuicudbox="sidebarButtons"] > .UpDownButtons {
+    padding: 0 7px;
+}
+.TUIC_setting_detailsbox_content_container div[tuicudbox="sidebarButtons"] {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
 }
 
 #TUIC_invisible > div span,
@@ -268,8 +283,14 @@
     line-height: calc(1em + 5px);
 }
 
-[TUICSelectedUpDownContent="true"] {
-    background-color: rgb(51 167 229 / 70%);
+[TUICSelectedUpDownContent="true"],
+[TUICSelectedUpDownContent="true"]:hover {
+    background-color: #1da1f2 !important;
+}
+
+.TUIC_setting_UpdownList_listContainer {
+    display: flex;
+    flex-direction: column;
 }
 
 .TUICTextInput {
@@ -378,9 +399,13 @@ textarea#css_textarea,
 }
 
 .TUICSettingSubTitle {
+    color: var(--twitter-TUIC-color);
+    font-size: 15px;
+    font-weight: 700;
+    font-feature-settings: "palt";
+    letter-spacing: 1px;
     margin-top: 0 !important;
-    margin-bottom: 5px !important;
-    margin-left: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .TUICUploadedImg:not([data-testid="interstitialGraphic"] > svg) {
@@ -392,11 +417,13 @@ textarea#css_textarea,
 }
 
 .TUICCheckBoxParent:not(:last-of-type) {
-    margin-bottom: 8px;
+    padding-bottom: 10px;
 }
 
 .TUICCheckBoxParent {
     display: flex;
+    padding-top: 10px;
+    gap: 15px;
 }
 
 :is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
@@ -540,6 +567,13 @@ textarea#css_textarea,
     font-weight: 700;
     margin: 0;
 }
+.TUIC_setting_section_title_2 {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+}
 
 .TUIC_setting_detailsbox_icon {
     width: 24px;
@@ -601,4 +635,58 @@ textarea#css_textarea,
     display: flex;
     letter-spacing: 1px;
     font-feature-settings: "palt";
+}
+
+.TUIC_setting_sidebarFigure {
+    border-radius: 0 10px 10px 0;
+    height: 100%;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.TUIC_setting_UpdownListBtnDivider {
+    margin: 5px 0;
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: #303438;
+}
+
+.TUIC_settings_subtitle2 {
+    color: rgb(113 118 124);
+    font-size: 15px;
+    margin: 20px 0 10px;
+    font-feature-settings: "palt";
+    letter-spacing: 1px;
+}
+
+.TUIC_setting_IconRadioButton > svg {
+    width: 24px;
+    height: 24px;
+}
+
+.TUIC_setting_IconRadioButton {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+}
+
+.TUICIconRadioButton input[type="radio"]:checked ~ div > label {
+    background-color: #1da1f2;
+}
+.TUICIconRadioButton input[type="radio"] {
+    display: none;
+}
+
+.TUIC_settings_settingsSidebar_IconRadioBtnList_container {
+    display: flex;
+    gap: 10px;
+}
+
+.TUICSettingSubTitleNomargin {
+    margin: 0;
+    padding: 0;
 }

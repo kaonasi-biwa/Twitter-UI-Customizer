@@ -64,7 +64,7 @@
     "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
     "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
 
-    "tweetMoreMenuItems-settingTitle": "ツイート右上の「もっと見る」のメニューの非表示設定",
+    "tweetMoreMenuItems-settingTitle": "ツイート右上「もっと見る」メニュー",
     "tweetMoreMenuItems-engagements": "エンゲージメントを表示",
     "tweetMoreMenuItems-highlighOnPin": "プロフィールに固定/固定を解除",
     "tweetMoreMenuItems-addMemberOfList": "ユーザーをリストに追加/削除",
@@ -78,18 +78,19 @@
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
+    "sidebarButton-setting-LeftSidebar": "左サイドバー",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
-    "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニューの設定",
-    "sidebarButton-accountSwitcher-Icon": "アイコンを非表示にする",
-    "sidebarButton-accountSwitcher-NameID": "ユーザー名とIDを非表示にする",
-    "sidebarButton-accountSwitcher-MoreMenu": "右端の三点を非表示にする",
+    "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニュー",
+    "sidebarButton-accountSwitcher-Icon": "アイコン",
+    "sidebarButton-accountSwitcher-NameID": "ユーザー名とID",
+    "sidebarButton-accountSwitcher-MoreMenu": "右端の三点",
     "sidebarButton-homeIcon-settingTitle": "ホームのアイコン",
     "sidebarButton-homeIcon-normal": "家のアイコン",
     "sidebarButton-homeIcon-birdGoBack": "巣箱のアイコン",
     "sidebarButton-homeIcon-TUIC": "Twitter UI Customizerのアイコン",
 
-    "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニューの非表示設定",
+    "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニュー",
     "sidebarButton-moreMenuItems-separator": "分離線",
 
     "rightSidebar-settingTitle": "右サイドバーの設定",
@@ -190,5 +191,6 @@
     "common-no": "いいえ",
     "common-close": "閉じる",
     "common-error": "エラー",
-    "common-confirm": "確認"
+    "common-confirm": "確認",
+    "common-hidebelow": "以下を非表示"
 }
