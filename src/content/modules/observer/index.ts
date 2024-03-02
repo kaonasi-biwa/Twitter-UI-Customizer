@@ -2,20 +2,29 @@ import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyl
 import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 
-export const TUICObserver = {
-    observer: <MutationObserver>null,
-    target: <Element>null,
-    bind: () => {
-        TUICObserver.observer.observe(TUICObserver.target, {
+export const TUICObserver = new (class TUICObserver {
+    /** 内部で使用される MutationObserver */
+    public observer: MutationObserver = new MutationObserver(this.callback);
+    /** 監視対象の要素 */
+    public target: Element | null = null;
+
+    /** オブザーバーを開始します。 */
+    public bind(): void {
+        if (!this.target) throw new TypeError("Target is null");
+        this.observer.observe(this.target, {
             childList: true,
             subtree: true,
         });
-    },
-    unbind: () => {
-        TUICObserver.observer.disconnect();
-    },
-    callback: () => {
-        TUICObserver.unbind();
+    }
+
+    /** オブザーバーを停止します。 */
+    public unbind(): void {
+        this.observer.disconnect();
+    }
+
+    /** オブザーバーのコールバック */
+    public callback(): void {
+        this.unbind();
         try {
             // Twitterのアイコンに関する設定
             changeIcon();
@@ -50,11 +59,9 @@ export const TUICObserver = {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            TUICObserver.bind();
+            this.bind();
         } catch (e) {
-            catchError(e, TUICObserver.callback);
+            catchError(e, this.callback);
         }
-    },
-};
-
-TUICObserver.observer = new MutationObserver(TUICObserver.callback);
+    }
+})();

@@ -31,6 +31,6 @@ export function catchError(e: Error, callback: (() => unknown) | null = null, ca
             ])
             .open();
     } else {
-        window.setTimeout(() => callback?.(), callbackTime);
+        if (callback) window.setTimeout(() => callback?.(), callbackTime);
     }
 }
