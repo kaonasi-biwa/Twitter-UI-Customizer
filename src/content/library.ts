@@ -5,9 +5,7 @@ export const TUICLibrary = {
     color: {
         /** RGB 配列を #xxxxxx 表記に変換します。 */
         rgb2hex: (rgb: [number, number, number]) => {
-            return `#${rgb
-                .map(value => ("0" + value.toString(16)).slice(-2))
-                .join("")}`;
+            return `#${rgb.map((value) => ("0" + value.toString(16)).slice(-2)).join("")}`;
         },
         /** #xxxxxx 表記を RGB に変換します。 */
         hex2rgb: (hex: string): [number, number, number] => {
