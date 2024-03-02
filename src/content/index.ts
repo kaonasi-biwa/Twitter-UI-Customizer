@@ -61,7 +61,7 @@ import { updateClasses } from "./modules/htmlClass/classManager";
     startTluiObserver();
 
     // メインのObserver
-    (TUICObserver.target = document.querySelector("body")), TUICObserver.observe();
+    (TUICObserver.target = document.querySelector("body")), TUICObserver.bind();
     TUICObserver.callback();
 
     // フォントサイズ変更の検出のためのObserver

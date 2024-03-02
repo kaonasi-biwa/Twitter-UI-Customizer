@@ -5,14 +5,17 @@ import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
 export const TUICObserver = {
     observer: <MutationObserver>null,
     target: <Element>null,
-    observe: () => {
+    bind: () => {
         TUICObserver.observer.observe(TUICObserver.target, {
             childList: true,
             subtree: true,
         });
     },
-    callback: () => {
+    unbind: () => {
         TUICObserver.observer.disconnect();
+    },
+    callback: () => {
+        TUICObserver.unbind();
         try {
             // Twitterのアイコンに関する設定
             changeIcon();
@@ -47,7 +50,7 @@ export const TUICObserver = {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            TUICObserver.observe();
+            TUICObserver.bind();
         } catch (e) {
             catchError(e, TUICObserver.callback);
         }
