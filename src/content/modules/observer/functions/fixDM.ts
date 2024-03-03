@@ -1,6 +1,6 @@
-import { IconElement } from "@content/resources";
 import { TUICPref } from "../..";
 import { render } from "solid-js/web";
+import { IconElement } from "@content/modules/observer/resources/dmIcon";
 
 export function dmPage() {
     if (TUICPref.getPref("dmPage.showIcon")) {

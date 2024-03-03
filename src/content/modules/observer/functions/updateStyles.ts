@@ -2,8 +2,8 @@ import { applySystemCss } from "@content/applyCSS";
 import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { TUICPref } from "@content/modules";
 import { ProcessedClass } from "@shared/sharedData";
-import { ButtonUnderTweetSelectors } from "./tweetSettings";
 import { SidebarButtonSelectors } from "./sidebarBtn";
+import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
 
 let fontSize1: string = "";
 let fontSize2: boolean | null = null;
