@@ -1,6 +1,6 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
 import { catchError } from "./errorDialog.ts";
-import { placeDisplayButton } from "./functions/rightSidebarTexts.ts";
+import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
 
 export const TUICObserver = new (class TUICObserver {
     /** 内部で使用される MutationObserver */
