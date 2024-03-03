@@ -14,6 +14,7 @@ import { TUICPref } from "@modules/index.ts";
 import { initIconObserverFunction } from "@modules/observer/functions/changeIcon.ts";
 import { titleObserverFunction } from "@modules/observer/titleObserver.ts";
 import { updateClasses } from "./modules/htmlClass/classManager";
+import { placeSettingObserver } from "./modules/settings";
 
 (async () => {
     await Promise.all([
@@ -65,6 +66,7 @@ import { updateClasses } from "./modules/htmlClass/classManager";
     // メインのObserver
     (TUICObserver.target = document.querySelector("body")), TUICObserver.bind();
     TUICObserver.callback();
+    placeSettingObserver();
 
     // フォントサイズ変更の検出のためのObserver
     new MutationObserver(applySystemCss).observe(document.querySelector("body"), {
