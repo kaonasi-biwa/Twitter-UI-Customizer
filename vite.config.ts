@@ -9,6 +9,7 @@ import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
 import UnoCSS from "unocss/vite";
+import solidPlugin from 'vite-plugin-solid';
 //
 
 import { changeManifest } from "./npm-scripts/change-manifest";
@@ -91,6 +92,7 @@ export default defineConfig(({ command, mode }) => {
             },
             vitePluginWebExt(__dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
             UnoCSS(),
+            solidPlugin(),
             // Vue Plugins
             vue(),
             svgLoader(),
