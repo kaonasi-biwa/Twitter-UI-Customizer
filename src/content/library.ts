@@ -27,7 +27,7 @@ export const TUICLibrary = {
             return functionOrPrimitive;
         }
     },
-    backgroundColorCheck: () => {
+    backgroundColorCheck: (): "dark" | "blue" | "light" => {
         const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {
             return "dark";
@@ -59,7 +59,7 @@ export const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
         }
     },
-    parseHtml: (elem: string) => {
+    parseHtml: (elem: string): HTMLCollection => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     // escapeToUseHTML: (text) => {
