@@ -87,104 +87,108 @@ export function mergePref(source: object, target: object) {
     }
     return target;
 }
+/**
+ * boolean 値の設定キーを変更します。
+ *
+ * 値が truthy であれば `replaceValue` に、値が falsy であればキーを変更せず古いキーの削除だけを行います。
+ * @param {string} previousKey 変更元のキー
+ * @param {string} nextKey 変更先のキー
+ * @param {any} replaceValue 置き換える値
+ */
+const changeBooleanKey = (previousKey: string, nextKey: string, replaceValue: string | boolean = true) => {
+    if (getPref(previousKey) === true) setPref(nextKey, replaceValue);
+    deletePref(previousKey);
+};
 
 export async function updatePref(mergeDefault: boolean = true) {
-    /*
+    const prefVersion = getPref("prefVersion") ?? 0;
+    switch (prefVersion) {
+        case 0: {
+            /*
     if (localStorage.getItem("unsent-tweet-background")) {
         parallelToSerialPref();
     }*/
 
-    if (typeof getPref("timeline") != "object") setPref("timeline", {});
+            if (typeof getPref("timeline") != "object") setPref("timeline", {});
 
-    if (typeof getPref("rightSidebar") != "object") setPref("rightSidebar", {});
+            if (typeof getPref("rightSidebar") != "object") setPref("rightSidebar", {});
 
-    if (typeof getPref("XToTwitter") != "object") setPref("XToTwitter", {});
+            if (typeof getPref("XToTwitter") != "object") setPref("XToTwitter", {});
 
-    if (typeof getPref("twitterIcon") == "string") {
-        const twitterIconPref = getPref("twitterIcon");
-        setPref("twitterIcon", {});
-        setPref("twitterIcon.icon", twitterIconPref);
-    }
+            if (typeof getPref("twitterIcon") == "string") {
+                const twitterIconPref = getPref("twitterIcon");
+                setPref("twitterIcon", {});
+                setPref("twitterIcon.icon", twitterIconPref);
+            }
 
-    if (typeof getPref("clientInfo") == "object") deletePref("clientInfo");
+            if (typeof getPref("clientInfo") == "object") deletePref("clientInfo");
 
-    /**
-     * boolean 値の設定キーを変更します。
-     *
-     * 値が truthy であれば `replaceValue` に、値が falsy であればキーを変更せず古いキーの削除だけを行います。
-     * @param {string} previousKey 変更元のキー
-     * @param {string} nextKey 変更先のキー
-     * @param {any} replaceValue 置き換える値
-     */
-    const changeBooleanKey = (previousKey: string, nextKey: string, replaceValue: string | boolean = true) => {
-        if (getPref(previousKey) === true) setPref(nextKey, replaceValue);
-        deletePref(previousKey);
-    };
-
-    const boolKeys = {
-        "invisibleItems.osusume-user-timeline": "timeline.osusume-user-timeline",
-        "invisibleItems.hideOhterRTTL": "timeline.hideOhterRTTL",
-        "invisibleItems.verified-rSidebar": "rightSidebar.verified",
-        "otherBoolSetting.XtoTwitter": "XToTwitter.XToTwitter",
-        "otherBoolSetting.PostToTweet": "XToTwitter.PostToTweet",
-        "invisibleItems.twitter-pro-promotion-btn": "tweetDisplaySetting.twitter-pro-promotion-btn",
-        "invisibleItems.subscribe-tweets": "tweetDisplaySetting.subscribe-tweets",
-        "otherBoolSetting.bottomScroll": "tweetDisplaySetting.bottomScroll",
-        "otherBoolSetting.bottomSpace": "tweetDisplaySetting.bottomSpace",
-        "otherBoolSetting.RTNotQuote": "tweetDisplaySetting.RTNotQuote",
-        "otherBoolSetting.noModalbottomTweetButtons": "tweetDisplaySetting.noModalbottomTweetButtons",
-        "otherBoolSetting.noNumberBottomTweetButtons": "tweetDisplaySetting.noNumberBottomTweetButtons",
-        "invisibleItems.subscribe-profile": "profileSetting.invisible.subscribe-profile",
-        "invisibleItems.profileHighlights": "profileSetting.invisible.profileHighlights",
-        "invisibleItems.profileAffiliates": "profileSetting.invisible.profileAffiliates",
-        "invisibleItems.verifiedFollowerTab": "profileSetting.invisible.verifiedFollowerTab",
-        "otherBoolSetting.smallerSidebarContent": "sidebarSetting.buttonConfig.smallerSidebarContent",
-        "otherBoolSetting.sidebarNoneScrollbar": "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
-        "otherBoolSetting.faviconSet": "twitterIcon.options.faviconSet",
-        "otherBoolSetting.roundIcon": "twitterIcon.options.roundIcon",
-    };
-    for (const oldKey in boolKeys) {
-        changeBooleanKey(oldKey, boolKeys[oldKey]);
-    }
-
-    changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", "discoverMore_invisible");
-    changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
-    changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", "birdGoBack");
-
-    if (getPref("CSS")) localStorage.setItem("TUIC_CSS", getPref("CSS"));
-    setPref("CSS", null);
-
-    if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
-        await new Promise((resolve, reject) => {
-            const element = document.createElement("canvas");
-            element.height = 200;
-            element.width = 200;
-            const context = element.getContext("2d");
-            context.beginPath();
-            context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
-            context.clip();
-            const image = new Image();
-            image.onload = function () {
-                context.beginPath();
-                context.drawImage(image, 0, 0, image.naturalHeight, image.naturalWidth, 0, 0, 200, 200);
-                localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
-                resolve(null);
+            const boolKeys = {
+                "invisibleItems.osusume-user-timeline": "timeline.osusume-user-timeline",
+                "invisibleItems.hideOhterRTTL": "timeline.hideOhterRTTL",
+                "invisibleItems.verified-rSidebar": "rightSidebar.verified",
+                "otherBoolSetting.XtoTwitter": "XToTwitter.XToTwitter",
+                "otherBoolSetting.PostToTweet": "XToTwitter.PostToTweet",
+                "invisibleItems.twitter-pro-promotion-btn": "tweetDisplaySetting.twitter-pro-promotion-btn",
+                "invisibleItems.subscribe-tweets": "tweetDisplaySetting.subscribe-tweets",
+                "otherBoolSetting.bottomScroll": "tweetDisplaySetting.bottomScroll",
+                "otherBoolSetting.bottomSpace": "tweetDisplaySetting.bottomSpace",
+                "otherBoolSetting.RTNotQuote": "tweetDisplaySetting.RTNotQuote",
+                "otherBoolSetting.noModalbottomTweetButtons": "tweetDisplaySetting.noModalbottomTweetButtons",
+                "otherBoolSetting.noNumberBottomTweetButtons": "tweetDisplaySetting.noNumberBottomTweetButtons",
+                "invisibleItems.subscribe-profile": "profileSetting.invisible.subscribe-profile",
+                "invisibleItems.profileHighlights": "profileSetting.invisible.profileHighlights",
+                "invisibleItems.profileAffiliates": "profileSetting.invisible.profileAffiliates",
+                "invisibleItems.verifiedFollowerTab": "profileSetting.invisible.verifiedFollowerTab",
+                "otherBoolSetting.smallerSidebarContent": "sidebarSetting.buttonConfig.smallerSidebarContent",
+                "otherBoolSetting.sidebarNoneScrollbar": "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
+                "otherBoolSetting.faviconSet": "twitterIcon.options.faviconSet",
+                "otherBoolSetting.roundIcon": "twitterIcon.options.roundIcon",
             };
-            image.src = localStorage.getItem(`TUIC_IconImg`);
-        });
-    }
+            for (const oldKey in boolKeys) {
+                changeBooleanKey(oldKey, boolKeys[oldKey]);
+            }
 
-    if (typeof getPref("visibleButtons") == "object" && ~getPref("visibleButtons").indexOf("downvote-button")) {
-        setPref(
-            "visibleButtons",
-            getPref("visibleButtons").filter((elem) => elem != "downvote-button"),
-        );
-    }
-    if (typeof getPref("sidebarButtons") == "object" && (~getPref("sidebarButtons").indexOf("verified-orgs-signup") || ~getPref("sidebarButtons").indexOf("twiter-blue") || ~getPref("sidebarButtons").indexOf("sidebarButtons-circles"))) {
-        setPref(
-            "sidebarButtons",
-            getPref("sidebarButtons").filter((elem) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
-        );
+            changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", "discoverMore_invisible");
+            changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
+            changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", "birdGoBack");
+
+            if (getPref("CSS")) localStorage.setItem("TUIC_CSS", getPref("CSS"));
+            setPref("CSS", null);
+
+            if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
+                await new Promise((resolve, reject) => {
+                    const element = document.createElement("canvas");
+                    element.height = 200;
+                    element.width = 200;
+                    const context = element.getContext("2d");
+                    context.beginPath();
+                    context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
+                    context.clip();
+                    const image = new Image();
+                    image.onload = function () {
+                        context.beginPath();
+                        context.drawImage(image, 0, 0, image.naturalHeight, image.naturalWidth, 0, 0, 200, 200);
+                        localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
+                        resolve(null);
+                    };
+                    image.src = localStorage.getItem(`TUIC_IconImg`);
+                });
+            }
+
+            if (typeof getPref("visibleButtons") == "object" && ~getPref("visibleButtons").indexOf("downvote-button")) {
+                setPref(
+                    "visibleButtons",
+                    getPref("visibleButtons").filter((elem) => elem != "downvote-button"),
+                );
+            }
+            if (typeof getPref("sidebarButtons") == "object" && (~getPref("sidebarButtons").indexOf("verified-orgs-signup") || ~getPref("sidebarButtons").indexOf("twiter-blue") || ~getPref("sidebarButtons").indexOf("sidebarButtons-circles"))) {
+                setPref(
+                    "sidebarButtons",
+                    getPref("sidebarButtons").filter((elem) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
+                );
+            }
+        }
     }
 
     if (mergeDefault) {
@@ -193,6 +197,7 @@ export async function updatePref(mergeDefault: boolean = true) {
 }
 
 export const defaultPref = {
+    prefVersion: 1,
     buttonColor: {},
     buttonColorLight: {},
     buttonColorDark: {},
