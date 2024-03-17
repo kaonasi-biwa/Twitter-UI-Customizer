@@ -507,14 +507,33 @@ const ids: {
     uncategorizedSettings: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter" }],
 };
 
+/**
+ * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します
+ *
+ * @param {string} id 設定カテゴリーID
+ * @return {string[]} 取得した値一覧
+ */
 export function getSettingIDs(id: string): string[] {
     return ids[id].map((elem) => elem.id);
 }
 
+/**
+ * 指定した設定カテゴリーIDのデータ(全ての値についてのidとi18nをObjectとして羅列するArray)を出力します。
+ *
+ * @param {string} id 設定カテゴリーID
+ * @return {{id:string,i18n:string}[]} 取得したデータ
+ */
 export function getSettingData(id: string): { id: string; i18n: string }[] {
     return ids[id];
 }
 
+/**
+ * 指定した設定のi18nのIDを出力します。
+ *
+ * @param {string} id 設定カテゴリーID
+ * @param {string} id 設定自体のID(設定カテゴリーIDを除く)
+ * @return {string} i18nのID
+ */
 export function getSettingI18n(id: string, itemValue: string): string {
     return ids[id].filter((elem) => elem.id == itemValue)[0].i18n;
 }
