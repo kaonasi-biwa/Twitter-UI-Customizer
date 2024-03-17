@@ -19,6 +19,8 @@ const _data = {
         block: `[TUICTweetTopButton="block"]`,
         mute: `[TUICTweetTopButton="mute"]`,
         delete: `[TUICTweetTopButton="delete"]`,
+        list: `[TUICTweetTopButton="list"]`,
+        report: `[TUICTweetTopButton="report"]`,
     },
     buttonElement: {
         /**
@@ -140,6 +142,51 @@ const _data = {
                                     moremenu.click();
                                 });
                             }
+                            break;
+                        }
+                    }
+                };
+
+                eventHandle(elem, eventFunc);
+            }
+
+            return elem;
+        },
+        list: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
+            const elem = TUICLibrary.parseHtml(
+                _data.buttonElement._base(
+                    "list",
+                    `<path d="M5.5 4c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5H12v2H5.5C4.12 22 3 20.88 3 19.5v-15C3 3.12 4.12 2 5.5 2h13C19.88 2 21 3.12 21 4.5V13h-2V4.5c0-.28-.22-.5-.5-.5h-13zM16 10H8V8h8v2zm-8 2h8v2H8v-2zm10 7v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" class="TUIC_AddListButton"></path>`,
+                ),
+            ).item(0) as HTMLDivElement;
+
+            const eventFunc = async () => {
+                for (const i of [0, 1, 2]) {
+                    const blockButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"][href="/i/lists/add_member"]`);
+                    if (blockButton == null) {
+                        moremenu.click();
+                    } else {
+                        blockButton.click();
+                        break;
+                    }
+                }
+            };
+
+            eventHandle(elem, eventFunc);
+
+            return elem;
+        },
+        report: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
+            const elem = TUICLibrary.parseHtml(_data.buttonElement._base("report", `<path d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z" class="TUIC_Report"></path>`, info.option.isMe)).item(0) as HTMLDivElement;
+
+            if (!info.option.isMe) {
+                const eventFunc = async () => {
+                    for (const i of [0, 1, 2]) {
+                        const blockButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"][data-testid="report"]`);
+                        if (blockButton == null) {
+                            moremenu.click();
+                        } else {
+                            blockButton.click();
                             break;
                         }
                     }

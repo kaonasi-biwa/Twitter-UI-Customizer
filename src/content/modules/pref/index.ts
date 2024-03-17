@@ -363,6 +363,8 @@ const ids: {
         { id: "block", i18n: "bottomTweetButtons-userBlock" },
         { id: "mute", i18n: "bottomTweetButtons-userMute" },
         { id: "delete", i18n: "bottomTweetButtons-deleteButton" },
+        { id: "list", i18n: "tweetMoreMenuItems-addMemberOfList" },
+        { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
     ],
     "tweetDisplaySetting.tweetMoreMenuItems": [
         { id: "notHelpful", i18n: "tweetMoreMenuItems-notHelpful" },
