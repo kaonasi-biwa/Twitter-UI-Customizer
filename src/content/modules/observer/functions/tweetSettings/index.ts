@@ -9,7 +9,7 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 
 let buttonUnderTweetRunning: boolean = false;
 const _data = {
-    all: TUICPref.ids.visibleButtons.all,
+    all: TUICPref.getSettingIDs("visibleButtons"),
     selectors: { ...ButtonUnderTweetSelectors },
     buttonFunction: {
         "retweet-button": async () => {

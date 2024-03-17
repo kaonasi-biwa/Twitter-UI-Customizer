@@ -13,7 +13,7 @@ const eventHandle = (elem: Element, func: () => void) => {
 };
 
 const _data = {
-    all: TUICPref.ids.tweetTopButton.all,
+    all: TUICPref.getSettingIDs("tweetTopButton"),
     selector: {
         moreMenu: `[data-testid="caret"]`,
         block: `[TUICTweetTopButton="block"]`,

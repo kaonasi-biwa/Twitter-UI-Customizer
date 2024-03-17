@@ -119,21 +119,4 @@ export const ColorData = {
             },
         },
     },
-    i18nAndAllContent: {
-        all: ["unsent-tweet", "not-following", "willFollow", "following", "un-following", "blocking", "blocking-unlock", "profile", "profile-save", "birthday", "twitterIcon", "twitterIconFavicon"],
-        i18n: {
-            "unsent-tweet": "settingColors-editUnsetTweet",
-            willFollow: "settingColors-willFollowButton",
-            "not-following": "settingColors-notFollowingButton",
-            following: "settingColors-followingButton",
-            "un-following": "settingColors-unfollowButton",
-            profile: "settingColors-editProfile",
-            "profile-save": "settingColors-saveProfile",
-            birthday: "settingColors-finalDecideButton",
-            blocking: "settingColors-blocking",
-            "blocking-unlock": "settingColors-blockingUnlock",
-            twitterIcon: "settingColors-twitterIcon",
-            twitterIconFavicon: "settingColors-twitterIconFavicon",
-        },
-    },
 };

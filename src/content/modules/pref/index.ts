@@ -195,7 +195,6 @@ export async function updatePref(mergeDefault: boolean = true) {
         setPref("", mergePref(structuredClone(defaultPref), structuredClone(getPref(""))));
     }
 }
-
 export const defaultPref = {
     prefVersion: 1,
     buttonColor: {},
@@ -302,275 +301,222 @@ export const defaultPref = {
     "timeline-discoverMore": "discoverMore_nomal",
 };
 
-import { ColorData } from "@shared/sharedData.ts";
-
-export const ids: {
-    [key: string]: I18nAndAllContent;
+const ids: {
+    [key: string]: { id: string; i18n: string }[];
 } = {
     // 色の設定
-    colors: ColorData.i18nAndAllContent,
+    colors: [
+        { id: "unsent-tweet", i18n: "settingColors-editUnsetTweet" },
+        { id: "not-following", i18n: "settingColors-notFollowingButton" },
+        { id: "willFollow", i18n: "settingColors-willFollowButton" },
+        { id: "following", i18n: "settingColors-followingButton" },
+        { id: "un-following", i18n: "settingColors-unfollowButton" },
+        { id: "blocking", i18n: "settingColors-blocking" },
+        { id: "blocking-unlock", i18n: "settingColors-blockingUnlock" },
+        { id: "profile", i18n: "settingColors-editProfile" },
+        { id: "profile-save", i18n: "settingColors-saveProfile" },
+        { id: "birthday", i18n: "settingColors-finalDecideButton" },
+        { id: "twitterIcon", i18n: "settingColors-twitterIcon" },
+        { id: "twitterIconFavicon", i18n: "settingColors-twitterIconFavicon" },
+    ],
     // ツイート関連の設定
-    visibleButtons: {
-        all: ["reply-button", "retweet-button", "quoteTweet", "like-button", "share-button", "tweet_analytics", "boolkmark", "url-copy", "userBlock", "userMute", "deleteButton", "sendDM", "likeAndRT"],
-        i18n: {
-            "reply-button": "bottomTweetButtons-reply",
-            "retweet-button": "bottomTweetButtons-retweet",
-            "like-button": "bottomTweetButtons-like",
-            "share-button": "bottomTweetButtons-share",
-            tweet_analytics: "bottomTweetButtons-tweetAnalytics",
-            boolkmark: "bottomTweetButtons-bookmark",
-            "url-copy": "bottomTweetButtons-urlCopy",
-            userBlock: "bottomTweetButtons-userBlock",
-            userMute: "bottomTweetButtons-userMute",
-            quoteTweet: "bottomTweetButtons-quoteTweet",
-            deleteButton: "bottomTweetButtons-deleteButton",
-            sendDM: "bottomTweetButtons-sendDM",
-            likeAndRT: "bottomTweetButtons-likeAndRT",
-        },
-    },
-    "tweetDisplaySetting.linkCopyURL": {
-        all: ["linkCopyURL_twitter", "linkCopyURL_X", "linkCopyURL_vxTwitter", "linkCopyURL_fxTwitter"],
-        i18n: {
-            linkCopyURL_twitter: "bottomTweetButtons-setting-linkCopyURL-twitter",
-            linkCopyURL_X: "bottomTweetButtons-setting-linkCopyURL-X",
-            linkCopyURL_vxTwitter: "bottomTweetButtons-setting-linkCopyURL-vxTwitter",
-            linkCopyURL_fxTwitter: "bottomTweetButtons-setting-linkCopyURL-fxTwitter",
-        },
-    },
-    "tweetDisplaySetting.linkShareCopyURL": {
-        all: ["linkShareCopyURL_twitter", "linkShareCopyURL_X", "linkShareCopyURL_vxTwitter", "linkShareCopyURL_fxTwitter"],
-        i18n: {
-            linkShareCopyURL_twitter: "bottomTweetButtons-setting-linkCopyURL-twitter",
-            linkShareCopyURL_X: "bottomTweetButtons-setting-linkCopyURL-X",
-            linkShareCopyURL_vxTwitter: "bottomTweetButtons-setting-linkCopyURL-vxTwitter",
-            linkShareCopyURL_fxTwitter: "bottomTweetButtons-setting-linkCopyURL-fxTwitter",
-        },
-    },
-    "timeline-discoverMore": {
-        all: ["discoverMore_nomal", "discoverMore_detailOpen", "discoverMore_detailClose", "discoverMore_invisible"],
-        i18n: {
-            discoverMore_nomal: "timeline-discoverMore-nomal",
-            discoverMore_detailOpen: "timeline-discoverMore-detailOpen",
-            discoverMore_detailClose: "timeline-discoverMore-detailClose",
-            discoverMore_invisible: "timeline-discoverMore-invisible",
-        },
-    },
-    fixEngagements: {
-        all: ["likes", "retweets", "quotes"],
-        i18n: {
-            likes: "bottomTweetButtons-setting-placeEngagementsLink-likes-short",
-            retweets: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short",
-            quotes: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short",
-        },
-    },
-    tweetTopButton: {
-        all: ["moreMenu", "block", "mute", "delete"],
-        i18n: {
-            moreMenu: "sidebarButtons-moremenu",
-            block: "bottomTweetButtons-userBlock",
-            mute: "bottomTweetButtons-userMute",
-            delete: "bottomTweetButtons-deleteButton",
-        },
-    },
-    "tweetDisplaySetting.tweetMoreMenuItems": {
-        all: ["notHelpful", "notInterested", "follow", "deleteTweet", "highlighOnPin", "highlightUpsell", "addMemberOfList", "userMute", "muteTalk", "leaveTalk", "block", "whoCanReply", "engagements", "analytics", "embed", "report", "hiddenReply", "editWithTwitterBlue"],
-        i18n: {
-            notHelpful: "tweetMoreMenuItems-notHelpful",
-            hiddenReply: "tweetMoreMenuItems-hiddenReply",
-            notInterested: "tweetMoreMenuItems-notInterested",
-            follow: "tweetMoreMenuItems-follow",
-            deleteTweet: "bottomTweetButtons-deleteButton",
-            highlighOnPin: "tweetMoreMenuItems-highlighOnPin",
-            highlightUpsell: "tweetMoreMenuItems-highlightUpsell",
-            addMemberOfList: "tweetMoreMenuItems-addMemberOfList",
-            userMute: "bottomTweetButtons-userMute",
-            muteTalk: "tweetMoreMenuItems-muteTalk",
-            leaveTalk: "tweetMoreMenuItems-leaveTalk",
-            block: "bottomTweetButtons-userBlock",
-            whoCanReply: "tweetMoreMenuItems-whoCanReply",
-            engagements: "tweetMoreMenuItems-engagements",
-            analytics: "bottomTweetButtons-tweetAnalytics",
-            embed: "XtoTwitter-PostToTweet-menu-embed",
-            report: "XtoTwitter-PostToTweet-reportTweet",
-            editWithTwitterBlue: "tweetMoreMenuItems-editWithTwitterBlue",
-        },
-    },
-    tweetDisplaySetting: {
-        all: ["bottomSpace", "twitter-pro-promotion-btn", "subscribe-tweets"],
-        i18n: {
-            bottomSpace: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2",
-            "twitter-pro-promotion-btn": "invisibleItems-twitterProPromotionBtn",
-            "subscribe-tweets": "invisibleItems-subscribeTweets",
-        },
-    },
+    visibleButtons: [
+        { id: "reply-button", i18n: "bottomTweetButtons-reply" },
+        { id: "retweet-button", i18n: "bottomTweetButtons-retweet" },
+        { id: "quoteTweet", i18n: "bottomTweetButtons-quoteTweet" },
+        { id: "like-button", i18n: "bottomTweetButtons-like" },
+        { id: "share-button", i18n: "bottomTweetButtons-share" },
+        { id: "tweet_analytics", i18n: "bottomTweetButtons-tweetAnalytics" },
+        { id: "boolkmark", i18n: "bottomTweetButtons-bookmark" },
+        { id: "url-copy", i18n: "bottomTweetButtons-urlCopy" },
+        { id: "userBlock", i18n: "bottomTweetButtons-userBlock" },
+        { id: "userMute", i18n: "bottomTweetButtons-userMute" },
+        { id: "deleteButton", i18n: "bottomTweetButtons-deleteButton" },
+        { id: "sendDM", i18n: "bottomTweetButtons-sendDM" },
+        { id: "likeAndRT", i18n: "bottomTweetButtons-likeAndRT" },
+    ],
+    "tweetDisplaySetting.linkCopyURL": [
+        { id: "linkCopyURL_twitter", i18n: "bottomTweetButtons-setting-linkCopyURL-twitter" },
+        { id: "linkCopyURL_X", i18n: "bottomTweetButtons-setting-linkCopyURL-X" },
+        { id: "linkCopyURL_vxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-vxTwitter" },
+        { id: "linkCopyURL_fxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-fxTwitter" },
+    ],
+    "tweetDisplaySetting.linkShareCopyURL": [
+        { id: "linkShareCopyURL_twitter", i18n: "bottomTweetButtons-setting-linkCopyURL-twitter" },
+        { id: "linkShareCopyURL_X", i18n: "bottomTweetButtons-setting-linkCopyURL-X" },
+        { id: "linkShareCopyURL_vxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-vxTwitter" },
+        { id: "linkShareCopyURL_fxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-fxTwitter" },
+    ],
+    "timeline-discoverMore": [
+        { id: "discoverMore_nomal", i18n: "timeline-discoverMore-nomal" },
+        { id: "discoverMore_detailOpen", i18n: "timeline-discoverMore-detailOpen" },
+        { id: "discoverMore_detailClose", i18n: "timeline-discoverMore-detailClose" },
+        { id: "discoverMore_invisible", i18n: "timeline-discoverMore-invisible" },
+    ],
+    fixEngagements: [
+        { id: "likes", i18n: "bottomTweetButtons-setting-placeEngagementsLink-likes-short" },
+        { id: "retweets", i18n: "bottomTweetButtons-setting-placeEngagementsLink-retweets-short" },
+        { id: "quotes", i18n: "bottomTweetButtons-setting-placeEngagementsLink-quotes-short" },
+    ],
+    tweetTopButton: [
+        { id: "moreMenu", i18n: "sidebarButtons-moremenu" },
+        { id: "block", i18n: "bottomTweetButtons-userBlock" },
+        { id: "mute", i18n: "bottomTweetButtons-userMute" },
+        { id: "delete", i18n: "bottomTweetButtons-deleteButton" },
+    ],
+    "tweetDisplaySetting.tweetMoreMenuItems": [
+        { id: "notHelpful", i18n: "tweetMoreMenuItems-notHelpful" },
+        { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested" },
+        { id: "follow", i18n: "tweetMoreMenuItems-follow" },
+        { id: "deleteTweet", i18n: "bottomTweetButtons-deleteButton" },
+        { id: "highlighOnPin", i18n: "tweetMoreMenuItems-highlighOnPin" },
+        { id: "highlightUpsell", i18n: "tweetMoreMenuItems-highlightUpsell" },
+        { id: "addMemberOfList", i18n: "tweetMoreMenuItems-addMemberOfList" },
+        { id: "userMute", i18n: "bottomTweetButtons-userMute" },
+        { id: "muteTalk", i18n: "tweetMoreMenuItems-muteTalk" },
+        { id: "leaveTalk", i18n: "tweetMoreMenuItems-leaveTalk" },
+        { id: "block", i18n: "bottomTweetButtons-userBlock" },
+        { id: "whoCanReply", i18n: "tweetMoreMenuItems-whoCanReply" },
+        { id: "engagements", i18n: "tweetMoreMenuItems-engagements" },
+        { id: "analytics", i18n: "bottomTweetButtons-tweetAnalytics" },
+        { id: "embed", i18n: "XtoTwitter-PostToTweet-menu-embed" },
+        { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
+        { id: "hiddenReply", i18n: "tweetMoreMenuItems-hiddenReply" },
+        { id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue" },
+    ],
+    tweetDisplaySetting: [
+        { id: "bottomSpace", i18n: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2" },
+        { id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn" },
+        { id: "subscribe-tweets", i18n: "invisibleItems-subscribeTweets" },
+    ],
 
     // Twitterアイコンの設定
-    "twitterIcon.icon": {
-        all: ["nomal", "invisible", "dog", "twitter", "twitterIcon-X", "custom"],
-        i18n: {
-            nomal: "twitterIcon-normal",
-            invisible: "twitterIcon-invisible",
-            dog: "twitterIcon-dog",
-            twitter: "twitterIcon-twitter",
-            "twitterIcon-X": "twitterIcon-X",
-            custom: "twitterIcon-custom",
-        },
-    },
-    "twitterIcon.options": {
-        all: ["faviconSet", "roundIcon"],
-        i18n: { faviconSet: "twitterIcon-favicon", roundIcon: "twitterIcon-roundIcon" },
-    },
+    "twitterIcon.icon": [
+        { id: "nomal", i18n: "twitterIcon-normal" },
+        { id: "invisible", i18n: "twitterIcon-invisible" },
+        { id: "dog", i18n: "twitterIcon-dog" },
+        { id: "twitter", i18n: "twitterIcon-twitter" },
+        { id: "twitterIcon-X", i18n: "twitterIcon-X" },
+        { id: "custom", i18n: "twitterIcon-custom" },
+    ],
+    "twitterIcon.options": [
+        { id: "faviconSet", i18n: "twitterIcon-favicon" },
+        { id: "roundIcon", i18n: "twitterIcon-roundIcon" },
+    ],
 
     // サイドバーの設定
-    sidebarButtons: {
-        all: ["home", "explore", "communities", "notifications", "messages", "bookmarks", "profile", "moremenu", "topics", "lists", "drafts", "connect", "communitynotes", "verified-choose", "display", "muteAndBlock", "premiumTierSwitch", "settings"],
-        i18n: {
-            home: "sidebarButtons-home",
-            explore: "sidebarButtons-explore",
-            communities: "sidebarButtons-communities",
-            notifications: "sidebarButtons-notifications",
-            messages: "sidebarButtons-messages",
-            bookmarks: "sidebarButtons-bookmarks",
-            profile: "sidebarButtons-profile",
-            moremenu: "sidebarButtons-moremenu",
-            topics: "sidebarButtons-topics",
-            lists: "sidebarButtons-lists",
-            drafts: "sidebarButtons-drafts",
-            connect: "sidebarButtons-connect",
-            communitynotes: "sidebarButtons-communitynotes",
-            "verified-choose": "sidebarButtons-verified-choose",
-            display: "sidebarButtons-display",
-            muteAndBlock: "sidebarButtons-muteAndBlock",
-            premiumTierSwitch: "sidebarButtons-premiumTierSwitch",
-            settings: "sidebarButtons-settings",
-        },
-    },
-    "sidebarSetting.buttonConfig": {
-        all: ["smallerSidebarContent", "sidebarNoneScrollbar"],
-        i18n: {
-            smallerSidebarContent: "sidebarButton-setting-narrowBetweenButtons",
-            sidebarNoneScrollbar: "sidebarButton-setting-sidebarNoneScrollbar",
-        },
-    },
-    "sidebarSetting.homeIcon": {
-        all: ["normal", "birdGoBack", "TUIC"],
-        i18n: {
-            normal: "sidebarButton-homeIcon-normal",
-            birdGoBack: "sidebarButton-homeIcon-birdGoBack",
-            TUIC: "sidebarButton-homeIcon-TUIC",
-        },
-    },
-    accountSwitcher: {
-        all: ["icon", "nameID", "moreMenu"],
-        i18n: { icon: "sidebarButton-accountSwitcher-Icon", nameID: "sidebarButton-accountSwitcher-NameID", moreMenu: "sidebarButton-accountSwitcher-MoreMenu" },
-    },
-    "sidebarSetting.moreMenuItems": {
-        all: ["premium", "bookmarks", "communities", "monetization", "pro", "ads", "settings", "separator"],
-        i18n: {
-            bookmarks: "sidebarButtons-bookmarks",
-            monetization: "sidebarButton-moreMenuItems-monetization",
-            separator: "sidebarButton-moreMenuItems-separator",
-            creatorStudio: "sidebarButton-moreMenuItems-creatorStudio",
-            professionalTool: "sidebarButton-moreMenuItems-professionalTool",
-            settingsAndSupport: "sidebarButton-moreMenuItems-settingsAndSupport",
-            communities: "sidebarButtons-communities",
-            settings: "sidebarButton-moreMenuItems-settings",
-            pro: "sidebarButton-moreMenuItems-pro",
-            ads: "sidebarButton-moreMenuItems-ads",
-            premium: "sidebarButton-moreMenuItems-premium",
-        },
-    },
+    sidebarButtons: [
+        { id: "home", i18n: "sidebarButtons-home" },
+        { id: "explore", i18n: "sidebarButtons-explore" },
+        { id: "communities", i18n: "sidebarButtons-communities" },
+        { id: "notifications", i18n: "sidebarButtons-notifications" },
+        { id: "messages", i18n: "sidebarButtons-messages" },
+        { id: "bookmarks", i18n: "sidebarButtons-bookmarks" },
+        { id: "profile", i18n: "sidebarButtons-profile" },
+        { id: "moremenu", i18n: "sidebarButtons-moremenu" },
+        { id: "topics", i18n: "sidebarButtons-topics" },
+        { id: "lists", i18n: "sidebarButtons-lists" },
+        { id: "drafts", i18n: "sidebarButtons-drafts" },
+        { id: "connect", i18n: "sidebarButtons-connect" },
+        { id: "communitynotes", i18n: "sidebarButtons-communitynotes" },
+        { id: "verified-choose", i18n: "sidebarButtons-verified-choose" },
+        { id: "display", i18n: "sidebarButtons-display" },
+        { id: "muteAndBlock", i18n: "sidebarButtons-muteAndBlock" },
+        { id: "premiumTierSwitch", i18n: "sidebarButtons-premiumTierSwitch" },
+        { id: "settings", i18n: "sidebarButtons-settings" },
+    ],
+    "sidebarSetting.buttonConfig": [
+        { id: "smallerSidebarContent", i18n: "sidebarButton-setting-narrowBetweenButtons" },
+        { id: "sidebarNoneScrollbar", i18n: "sidebarButton-setting-sidebarNoneScrollbar" },
+    ],
+    "sidebarSetting.homeIcon": [
+        { id: "normal", i18n: "sidebarButton-homeIcon-normal" },
+        { id: "birdGoBack", i18n: "sidebarButton-homeIcon-birdGoBack" },
+        { id: "TUIC", i18n: "sidebarButton-homeIcon-TUIC" },
+    ],
+    accountSwitcher: [
+        { id: "icon", i18n: "sidebarButton-accountSwitcher-Icon" },
+        { id: "nameID", i18n: "sidebarButton-accountSwitcher-NameID" },
+        { id: "moreMenu", i18n: "sidebarButton-accountSwitcher-MoreMenu" },
+    ],
+    "sidebarSetting.moreMenuItems": [
+        { id: "premium", i18n: "sidebarButton-moreMenuItems-premium" },
+        { id: "bookmarks", i18n: "sidebarButtons-bookmarks" },
+        { id: "communities", i18n: "sidebarButtons-communities" },
+        { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization" },
+        { id: "pro", i18n: "sidebarButton-moreMenuItems-pro" },
+        { id: "ads", i18n: "sidebarButton-moreMenuItems-ads" },
+        { id: "settings", i18n: "sidebarButton-moreMenuItems-settings" },
+        { id: "separator", i18n: "sidebarButton-moreMenuItems-separator" },
+    ],
 
     // プロフィールの設定
-    "profileSetting.tabs": {
-        all: ["pinnedTab"],
-        i18n: {
-            pinnedTab: "profileSetting-tabs-pinnedTab",
-        },
-    },
-    "profileSetting.profileInitialTab": {
-        all: ["tweets", "replies", "media", "likes"],
-        i18n: {
-            tweets: "profileSetting-profileInitialTab-tweet",
-            replies: "profileSetting-profileInitialTab-reply",
-            media: "profileSetting-profileInitialTab-media",
-            likes: "profileSetting-profileInitialTab-likes",
-        },
-    },
-    "profileSetting.invisible": {
-        all: ["subscribe-profile", "profileHighlights", "profileAffiliates", "verifiedFollowerTab"],
-        i18n: {
-            "subscribe-profile": "invisibleItems-subscribeProfile",
-            profileHighlights: "invisibleItems-profileHighlights",
-            profileAffiliates: "invisibleItems-profileAffiliates",
-            verifiedFollowerTab: "invisibleItems-verifiedFollowerTab",
-        },
-    },
+    "profileSetting.tabs": [{ id: "pinnedTab", i18n: "profileSetting-tabs-pinnedTab" }],
+    "profileSetting.profileInitialTab": [
+        { id: "tweets", i18n: "profileSetting-profileInitialTab-tweet" },
+        { id: "replies", i18n: "profileSetting-profileInitialTab-reply" },
+        { id: "media", i18n: "profileSetting-profileInitialTab-media" },
+        { id: "likes", i18n: "profileSetting-profileInitialTab-likes" },
+    ],
+    "profileSetting.invisible": [
+        { id: "subscribe-profile", i18n: "invisibleItems-subscribeProfile" },
+        { id: "profileHighlights", i18n: "invisibleItems-profileHighlights" },
+        { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates" },
+        { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab" },
+    ],
 
     // 非表示設定
-    invisibleItems: {
-        all: ["config-premium", "hideBelowDM", "verifiedNotifications"],
-        i18n: {
-            "config-premium": "invisibleItems-configPremium",
-            hideBelowDM: "invisibleItems-hideBelowDM",
-            verifiedNotifications: "invisibleItems-verifiedNotifications",
-        },
-    },
+    invisibleItems: [
+        { id: "config-premium", i18n: "invisibleItems-configPremium" },
+        { id: "hideBelowDM", i18n: "invisibleItems-hideBelowDM" },
+        { id: "verifiedNotifications", i18n: "invisibleItems-verifiedNotifications" },
+    ],
 
     // タイムラインの設定
-    timeline: {
-        all: ["osusume-user-timeline", "hideOhterRTTL", "hideReply", "accountStart"],
-        i18n: {
-            "osusume-user-timeline": "timeline-osusumeUsersOnTL",
-            hideOhterRTTL: "timeline-hideOhterRTTL",
-            hideReply: "timeline-hideReply",
-            accountStart: "timeline-accountStart",
-        },
-    },
+    timeline: [
+        { id: "osusume-user-timeline", i18n: "timeline-osusumeUsersOnTL" },
+        { id: "hideOhterRTTL", i18n: "timeline-hideOhterRTTL" },
+        { id: "hideReply", i18n: "timeline-hideReply" },
+        { id: "accountStart", i18n: "timeline-accountStart" },
+    ],
 
     // X → Twitterの設定
-    XToTwitter: {
-        all: ["XToTwitter", "PostToTweet"],
-        i18n: { XToTwitter: "XtoTwitter-XtoTwitter", PostToTweet: "XtoTwitter-PostToTweet" },
-    },
+    XToTwitter: [
+        { id: "XToTwitter", i18n: "XtoTwitter-XtoTwitter" },
+        { id: "PostToTweet", i18n: "XtoTwitter-PostToTweet" },
+    ],
 
     // 右サイドバーの設定
-    rightSidebar: {
-        all: ["searchBox", "verified", "space", "relevantPeople", "trend", "osusumeUser", "links"],
-        i18n: {
-            verified: "rightSidebar-rightSidebarVerified",
-            trend: "rightSidebar-trend",
-            osusumeUser: "rightSidebar-osusumeUser",
-            links: "rightSidebar-links",
-            searchBox: "rightSidebar-searchBox",
-            space: "rightSidebar-space",
-            relevantPeople: "rightSidebar-relevantPeople",
-        },
-    },
+    rightSidebar: [
+        { id: "searchBox", i18n: "rightSidebar-searchBox" },
+        { id: "verified", i18n: "rightSidebar-rightSidebarVerified" },
+        { id: "space", i18n: "rightSidebar-space" },
+        { id: "relevantPeople", i18n: "rightSidebar-relevantPeople" },
+        { id: "trend", i18n: "rightSidebar-trend" },
+        { id: "osusumeUser", i18n: "rightSidebar-osusumeUser" },
+        { id: "links", i18n: "rightSidebar-links" },
+    ],
 
     // ツイート投稿画面の設定
-    composetweet: {
-        all: ["hideDraft"],
-        i18n: {
-            hideDraft: "composetweet-hideDraft",
-        },
-    },
+    composetweet: [{ id: "hideDraft", i18n: "composetweet-hideDraft" }],
 
     // DMの設定
-    dmPage: {
-        all: ["showIcon"],
-        i18n: {
-            showIcon: "dmPage-showIcon",
-        },
-    },
+    dmPage: [{ id: "showIcon", i18n: "dmPage-showIcon" }],
 
     // その他の設定
-    uncategorizedSettings: {
-        all: ["disableBackdropFilter"],
-        i18n: {
-            disableBackdropFilter: "uncategorizedSettings-disableBackdropFilter",
-        },
-    },
+    uncategorizedSettings: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter" }],
 };
+
+export function getSettingIDs(id: string): string[] {
+    return ids[id].map((elem) => elem.id);
+}
+
+export function getSettingData(id: string): { id: string; i18n: string }[] {
+    return ids[id];
+}
+
+export function getSettingI18n(id: string, itemValue: string): string {
+    return ids[id].filter((elem) => elem.id == itemValue)[0].i18n;
+}
 
 config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(defaultPref));

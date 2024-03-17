@@ -2,7 +2,7 @@ import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
 const _data = {
-    all: TUICPref.ids["sidebarSetting.moreMenuItems"].all,
+    all: TUICPref.getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
         monetization: `[data-testid="Dropdown"] [href="/settings/monetization"]`,

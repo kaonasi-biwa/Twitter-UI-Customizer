@@ -9,7 +9,7 @@ interface TweetMoreMenuContentData {
 }
 
 const _data: TweetMoreMenuContentData = {
-    all: TUICPref.ids["tweetDisplaySetting.tweetMoreMenuItems"].all,
+    all: TUICPref.getSettingIDs("tweetDisplaySetting.tweetMoreMenuItems"),
     selectors: {
         hiddenReply: `[href$="/hidden"]`,
         notHelpful: (): Element => {

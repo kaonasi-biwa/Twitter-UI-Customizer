@@ -1,5 +1,5 @@
 <template>
-    <RadioButton v-for="i in TUICPref.ids[id].all" :key="i" :id="id" :valueName="i" :name="TUICPref.ids[id].i18n[i]" />
+    <RadioButton v-for="i of TUICPref.getSettingData(id)" :key="i.id" :id="id" :valueName="i.id" :name="i.i18n" />
 </template>
 
 <script setup lang="ts">

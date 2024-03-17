@@ -1,6 +1,6 @@
 <template>
-    <template v-for="i in TUICPref.ids[id].all" :key="i">
-        <CheckBox :value="`${id}.${i}`" :name="TUICPref.ids[id].i18n[i]" />
+    <template v-for="i of TUICPref.getSettingData(id)" :key="i.id">
+        <CheckBox :value="`${id}.${i.id}`" :name="i.i18n" />
     </template>
 </template>
 
