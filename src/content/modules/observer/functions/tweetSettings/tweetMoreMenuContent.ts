@@ -1,4 +1,3 @@
-import { TUICData } from "@content/data";
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
@@ -10,7 +9,7 @@ interface TweetMoreMenuContentData {
 }
 
 const _data: TweetMoreMenuContentData = {
-    all: TUICData["tweetDisplaySetting.tweetMoreMenuItems"].all,
+    all: TUICPref.ids["tweetDisplaySetting.tweetMoreMenuItems"].all,
     selectors: {
         hiddenReply: `[href$="/hidden"]`,
         notHelpful: (): Element => {

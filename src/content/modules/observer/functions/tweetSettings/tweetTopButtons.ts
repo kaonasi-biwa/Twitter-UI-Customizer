@@ -1,7 +1,6 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
-import { TUICData } from "@content/data";
 const eventHandle = (elem: Element, func: () => void) => {
     elem.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Enter") {
@@ -14,7 +13,7 @@ const eventHandle = (elem: Element, func: () => void) => {
 };
 
 const _data = {
-    all: TUICData.tweetTopButton.all,
+    all: TUICPref.ids.tweetTopButton.all,
     selector: {
         moreMenu: `[data-testid="caret"]`,
         block: `[TUICTweetTopButton="block"]`,

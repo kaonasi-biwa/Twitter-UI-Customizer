@@ -3,14 +3,13 @@ import { TUICPref } from "@content/modules";
 import { tweetTopButtons } from "./tweetTopButtons";
 import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
-import { TUICData } from "@content/data";
 import { render } from "solid-js/web";
 import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData } from "./buttonHTML";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 
 let buttonUnderTweetRunning: boolean = false;
 const _data = {
-    all: TUICData.visibleButtons.all,
+    all: TUICPref.ids.visibleButtons.all,
     selectors: { ...ButtonUnderTweetSelectors },
     buttonFunction: {
         "retweet-button": async () => {
