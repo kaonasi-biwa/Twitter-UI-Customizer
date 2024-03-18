@@ -105,8 +105,9 @@ const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceV
 };
 
 export async function updatePref(source = config) {
-    const prefVersion = getPref("prefVersion", source) ?? 0;
-    switch (prefVersion) {
+    const prefVersion_ = getPref("prefVersion", source) ?? 0;
+    setPref("prefVersion", prefVersion);
+    switch (prefVersion_) {
         case 0: {
             /*
     if (localStorage.getItem("unsent-tweet-background")) {
@@ -222,7 +223,6 @@ export function mergeDefaultPref(source) {
     if (defaultData == null) {
         defaultData = {};
         for (const elem in ids) {
-            console.log(elem);
             if (elem == "buttonColor") {
                 defaultData.buttonColor = {};
                 defaultData.buttonColorLight = {};
@@ -248,7 +248,6 @@ export function mergeDefaultPref(source) {
             }
         }
     }
-    console.log(defaultData);
     return mergePref(structuredClone(defaultData), structuredClone(source));
 }
 
@@ -271,6 +270,7 @@ export function getDefaultPref(id: string) {
     }
 }
 
+const prefVersion = 2;
 const ids: {
     [key: string]:
         | {
@@ -594,7 +594,6 @@ const ids: {
  * @return {string[]} 取得した値一覧
  */
 export function getSettingIDs(id: string): string[] {
-    console.log(id);
     return ids[id].values.map((elem) => elem.id);
 }
 
