@@ -54,7 +54,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
 // リンクカードを設置
 export function showLinkCardInfo(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
-    if (TUICPref.getPref("otherBoolSetting.showLinkCardInfo")) {
+    if (TUICPref.getPref("showLinkCardInfo.showLinkCardInfo")) {
         if (articleBase.querySelector(`[data-testid="card.layoutLarge.media"] a[aria-label] > div+div`)) {
             const card = articleBase.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 

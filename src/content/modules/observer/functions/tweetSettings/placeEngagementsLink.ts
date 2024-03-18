@@ -32,9 +32,9 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         boxElem.remove();
     }
 
-    if (TUICPref.getPref("otherBoolSetting.placeEngagementsLink")) {
+    if (TUICPref.getPref("placeEngagementsLink.placeEngagementsLink")) {
         const engageentsTypeList = TUICPref.getPref("fixEngagements");
-        const shortName = TUICPref.getPref("otherBoolSetting.placeEngagementsLinkShort");
+        const shortName = TUICPref.getPref("placeEngagementsLink.placeEngagementsLinkShort");
 
         const engagementsFixList = [];
         const engageFixListFunc = (count: number) => {

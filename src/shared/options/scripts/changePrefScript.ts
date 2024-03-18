@@ -5,11 +5,11 @@ import { updateClasses } from "@modules/htmlClass/classManager";
 
 export const XToTwitterRestoreIcon = () => {
     const importPref = {
-        otherBoolSetting: {
-            faviconSet: true,
-        },
         sidebarSetting: { buttonConfig: { birdGoBack: true } },
         twitterIcon: {
+            options: {
+                faviconSet: true,
+            },
             icon: "twitter",
         },
     };

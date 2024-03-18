@@ -3,7 +3,7 @@ import { TUICPref } from "@content/modules";
 // NOTE: 条件分岐とClass付与を一行にまとめる場合は、.? をつけるのを忘れないようにしましょう
 export function hideElements() {
     document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-        if (TUICPref.getPref("tweetDisplaySetting.twitter-pro-promotion-btn")) {
+        if (TUICPref.getPref("tweetDisplaySetting.invisible.twitter-pro-promotion-btn")) {
             e.hide();
         } else {
             e.show();
@@ -22,7 +22,7 @@ export function hideElements() {
         }
     }
 
-    if (TUICPref.getPref("tweetDisplaySetting.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3])) {
+    if (TUICPref.getPref("tweetDisplaySetting.invisible.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3])) {
         document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`)?.parentElement.hide();
     }
 

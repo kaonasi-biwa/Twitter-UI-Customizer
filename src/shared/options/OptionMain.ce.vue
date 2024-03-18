@@ -18,11 +18,7 @@
                 <UpDownList id="visibleButtons" /><br />
 
                 <SettingSubTitle i18n="bottomTweetButtons-settingTitle" />
-                <CheckBox value="tweetDisplaySetting.bottomScroll" name="bottomTweetButtons-setting-visibleScrollBar" />
-                <CheckBox value="tweetDisplaySetting.likeToFavo" name="bottomTweetButtons-setting-likeToFavo" />
-                <CheckBox value="tweetDisplaySetting.RTNotQuote" name="bottomTweetButtons-setting-RTNotQuote" />
-                <CheckBox value="tweetDisplaySetting.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
-                <CheckBox value="tweetDisplaySetting.noNumberBottomTweetButtons" name="bottomTweetButtons-setting-noNumber" />
+                <CheckBoxList id="tweetDisplaySetting.option" />
 
                 <br />
                 <SettingSubTitle i18n="bottomTweetButtons-setting-linkCopyURL" />
@@ -37,22 +33,21 @@
                 <SettingSubTitle i18n="fixEngagements-settingTitle" />
                 <UpDownList id="fixEngagements" />
                 <br />
-                <CheckBox value="otherBoolSetting.placeEngagementsLink" name="bottomTweetButtons-setting-placeEngagementsLink" />
-                <CheckBox value="otherBoolSetting.placeEngagementsLinkShort" name="fixEngagements-shortName" />
+                <CheckBoxList id="engagementsLink.option" />
 
                 <SettingSubTitle i18n="bottomTweetButtons-settingTitle-linkCard" />
-                <CheckBox value="otherBoolSetting.showLinkCardInfo" name="bottomTweetButtons-setting-showLinkCardInfo" />
+                <CheckBoxList id="showLinkCardInfo" />
 
                 <SettingSubTitle i18n="tweetTopButton-settingTitle" />
                 <UpDownList id="tweetTopButton" />
                 <br />
-                <CheckBox value="tweetTopButtonBool.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
+                <CheckBoxList id="tweetTopButtonBool" />
 
                 <SettingSubTitle i18n="tweetMoreMenuItems-settingTitle" />
                 <CheckBoxList id="tweetDisplaySetting.tweetMoreMenuItems" />
 
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
-                <CheckBoxList id="tweetDisplaySetting" />
+                <CheckBoxList id="tweetDisplaySetting.invisible" />
             </detailsBox>
 
             <detailsBox i18n="twitterIcon-settingTitle">

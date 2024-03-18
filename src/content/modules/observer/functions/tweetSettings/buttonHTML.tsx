@@ -98,7 +98,7 @@ export const tweetButtonData: {
                 } else {
                     blockButton.click();
                     await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-                    if (TUICPref.getPref("tweetDisplaySetting.noModalbottomTweetButtons")) {
+                    if (TUICPref.getPref("tweetDisplaySetting.option.noModalbottomTweetButtons")) {
                         document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                     } else {
                         document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -176,7 +176,7 @@ export const tweetButtonData: {
             const retButton = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]);
             const likeButton = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"]);
             likeButton.click();
-            if (TUICPref.getPref("tweetDisplaySetting.RTNotQuote")) {
+            if (TUICPref.getPref("tweetDisplaySetting.option.RTNotQuote")) {
                 retButton.click();
             } else {
                 for (let i = 0; i <= 2; i++) {
@@ -213,7 +213,7 @@ export const tweetButtonData: {
                     article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
                 } else {
                     deleteButtonButton.closest<HTMLElement>(`[role="menuitem"]`).click();
-                    if (TUICPref.getPref("tweetDisplaySetting.noModalbottomTweetButtons")) {
+                    if (TUICPref.getPref("tweetDisplaySetting.option.noModalbottomTweetButtons")) {
                         document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                     } else {
                         document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {

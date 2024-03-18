@@ -31,17 +31,17 @@ const buttonList = [
     {
         i18n: "easySetting-restoreIcon",
         changePref: {
-            otherBoolSetting: {
-                faviconSet: true,
+            twitterIcon: {
+                options: {
+                    faviconSet: true,
+                },
+                icon: "twitter",
             },
             XToTwitter: {
                 XToTwitter: true,
                 PostToTweet: true,
             },
             sidebarSetting: { homeIcon: "birdGoBack" },
-            twitterIcon: {
-                icon: "twitter",
-            },
         },
     },
     {

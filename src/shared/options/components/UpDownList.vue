@@ -113,7 +113,7 @@ const toDown = () => {
 
 const toDefault = () => {
     const settingId = props.id;
-    list.value = structuredClone(TUICPref.defaultPref[settingId]);
+    list.value = structuredClone(TUICPref.getDefaultPref(settingId).data);
     selectedElem.value = "";
     apply2Settings();
 };

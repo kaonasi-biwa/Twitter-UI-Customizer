@@ -13,7 +13,7 @@ const _data = {
     selectors: { ...ButtonUnderTweetSelectors },
     buttonFunction: {
         "retweet-button": async () => {
-            if (TUICPref.getPref("tweetDisplaySetting.RTNotQuote")) {
+            if (TUICPref.getPref("tweetDisplaySetting.option.RTNotQuote")) {
                 // TODO: wait 関数を作って置き換えるべきか？
                 window.setTimeout(async () => {
                     (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();
@@ -192,9 +192,9 @@ export function tweetSettings() {
 function tweetStyle(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
     // 横スクロールバーを設置
-    if (TUICPref.getPref("tweetDisplaySetting.bottomScroll")) articleInfo.elements.buttonBarBase.parentElement.classList.add("TUICScrollBottom");
+    if (TUICPref.getPref("tweetDisplaySetting.option.bottomScroll")) articleInfo.elements.buttonBarBase.parentElement.classList.add("TUICScrollBottom");
     // 下のスペースを無くす
-    if (TUICPref.getPref("tweetDisplaySetting.bottomSpace")) {
+    if (TUICPref.getPref("tweetDisplaySetting.invisible.bottomSpace")) {
         const space = articleBase.querySelector(`[aria-labelledby]`);
         if (space && space.children?.[0]?.childElementCount === 0) {
             space.classList.add("TUIC_NONE_SPACE_BOTTOM_TWEET");

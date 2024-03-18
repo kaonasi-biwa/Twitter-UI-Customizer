@@ -74,7 +74,7 @@ function sidebarButtons() {
 
 // いいねをふぁぼに
 function likeToFavo() {
-    if (TUICPref.getPref("tweetDisplaySetting.likeToFavo")) {
+    if (TUICPref.getPref("tweetDisplaySetting.option.likeToFavo")) {
         for (const elem of document.querySelectorAll(`${ButtonUnderTweetSelectors["like-button"]} svg:not(.${ProcessedClass})`)) {
             const selected = elem.closest(ButtonUnderTweetSelectors["like-button"]).getAttribute("data-testid") == "unlike" ? "selected" : "unselected";
             elem.querySelector("path").setAttribute("d", FAVORITE_ICON.favorite[selected]);

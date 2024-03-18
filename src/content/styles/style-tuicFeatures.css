@@ -239,7 +239,7 @@
 :is(
         :root[tuicsettings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
         :root[tuicsettings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-        :root[tuicsettings*="|tweetDisplaySetting.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[tuicsettings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
         :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
         :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
         :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
@@ -249,7 +249,7 @@
     display: none !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
+:root[tuicsettings*="|tweetDisplaySetting.invisible.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
     margin-top: 0 !important;
 }
 
@@ -269,31 +269,31 @@
     backdrop-filter: none !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
     box-shadow: rgba(142 204 258) 0 0 0 2px inset !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:active > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:active > div > div {
     background-color: rgb(255 212 0 / 20%) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
     fill: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover path {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
     fill: rgb(255 212 0) !important;
 }

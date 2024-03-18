@@ -66,16 +66,16 @@ export function applySystemCss() {
         "twitterIcon.options.roundIcon",
         "invisibleItems.subscribe-profile",
         "invisibleItems.hideBelowDM",
-        "tweetDisplaySetting.bottomSpace",
+        "tweetDisplaySetting.invisible.bottomSpace",
         "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
-        "tweetDisplaySetting.noNumberBottomTweetButtons",
+        "tweetDisplaySetting.option.noNumberBottomTweetButtons",
         "accountSwitcher.icon",
         "accountSwitcher.nameID",
         "accountSwitcher.moreMenu",
         "profileSetting.tabs.pinnedTab",
         "uncategorizedSettings.disableBackdropFilter",
         "composetweet.hideDraft",
-        "tweetDisplaySetting.likeToFavo",
+        "tweetDisplaySetting.option.likeToFavo",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
@@ -89,7 +89,7 @@ export function applySystemCss() {
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem of TUICPref.getSettingIDs("colors")) {
+        for (const elem of TUICPref.getSettingIDs("buttonColor")) {
             for (const el of ["background", "border", "color"]) {
                 if (ColorData.defaultTUICColor.colors[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
