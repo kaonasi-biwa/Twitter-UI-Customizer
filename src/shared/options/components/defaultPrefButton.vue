@@ -25,8 +25,9 @@ const setDefault = async () => {
             TUICI18N.get("settingUI-restoreDefaultAll-confirm"),
             new ButtonComponent(TUICI18N.get("common-yes"), () => {
                 dialog.close();
-                localStorage.setItem("TUIC", JSON.stringify(TUICPref.defaultPref));
-                TUICPref.setPref("", TUICPref.defaultPref);
+                const defaultPref = TUICPref.mergeDefaultPref({});
+                localStorage.setItem("TUIC", JSON.stringify(defaultPref));
+                TUICPref.setPref("", defaultPref);
 
                 if (isSafemode) {
                     location.href = `${location.protocol}//${location.hostname}`;

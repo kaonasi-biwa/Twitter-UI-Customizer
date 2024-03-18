@@ -1,4 +1,4 @@
-export let config = null;
+let config = null;
 
 const getPointerFromKey = (object: object, key: string) => {
     const keys = ["o", ...key.split(".").filter((k) => k !== "")];
@@ -23,10 +23,11 @@ const getPointerFromKey = (object: object, key: string) => {
  * TUICのPrefの値を取得します。
  *
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
+ * @param {object} source 使用するPrefのObject。
  * @return {unknown} 取得した値(identifierが空文字ならTUICのPref全体)
  */
-export function getPref(identifier: string) {
-    const { object, key } = getPointerFromKey(config, identifier);
+export function getPref(identifier: string, source = config) {
+    const { object, key } = getPointerFromKey(source, identifier);
     return object[key];
 }
 
@@ -36,12 +37,13 @@ export function getPref(identifier: string) {
  * identifierが空文字ならTUICのPref全体が変更されます。
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
  * @param {string} value 設定する値
+ * @param {object} source 使用するPrefのObject。
  */
-export function setPref(identifier: string, value: unknown) {
+export function setPref(identifier: string, value: unknown, source = config) {
     if (identifier == "") {
         config = value;
     } else {
-        const { object, key } = getPointerFromKey(config, identifier);
+        const { object, key } = getPointerFromKey(source, identifier);
         object[key] = value;
     }
 }
@@ -50,9 +52,10 @@ export function setPref(identifier: string, value: unknown) {
  * TUICのPrefの値を削除します。
  *
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
+ * @param {object} source 使用するPrefのObject。
  */
-export function deletePref(identifier: string) {
-    const { object, key } = getPointerFromKey(config, identifier);
+export function deletePref(identifier: string, source = config) {
+    const { object, key } = getPointerFromKey(source, identifier);
     delete object[key];
 }
 
@@ -95,13 +98,13 @@ export function mergePref(source: object, target: object) {
  * @param {string} nextKey 変更先のキー
  * @param {any} replaceValue 置き換える値
  */
-const changeBooleanKey = (previousKey: string, nextKey: string, replaceValue: string | boolean = true) => {
-    if (getPref(previousKey) === true) setPref(nextKey, replaceValue);
-    deletePref(previousKey);
+const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceValue: string | boolean = true) => {
+    if (getPref(previousKey) === true) setPref(nextKey, replaceValue, source);
+    deletePref(previousKey, source);
 };
 
-export async function updatePref(mergeDefault: boolean = true) {
-    const prefVersion = getPref("prefVersion") ?? 0;
+export async function updatePref(source = config) {
+    const prefVersion = getPref("prefVersion", source) ?? 0;
     switch (prefVersion) {
         case 0: {
             /*
@@ -109,19 +112,19 @@ export async function updatePref(mergeDefault: boolean = true) {
         parallelToSerialPref();
     }*/
 
-            if (typeof getPref("timeline") != "object") setPref("timeline", {});
+            if (typeof getPref("timeline", source) != "object") setPref("timeline", {}, source);
 
-            if (typeof getPref("rightSidebar") != "object") setPref("rightSidebar", {});
+            if (typeof getPref("rightSidebar", source) != "object") setPref("rightSidebar", {}, source);
 
-            if (typeof getPref("XToTwitter") != "object") setPref("XToTwitter", {});
+            if (typeof getPref("XToTwitter", source) != "object") setPref("XToTwitter", {}, source);
 
-            if (typeof getPref("twitterIcon") == "string") {
-                const twitterIconPref = getPref("twitterIcon");
-                setPref("twitterIcon", {});
-                setPref("twitterIcon.icon", twitterIconPref);
+            if (typeof getPref("twitterIcon", source) == "string") {
+                const twitterIconPref = getPref("twitterIcon", source);
+                setPref("twitterIcon", {}, source);
+                setPref("twitterIcon.icon", twitterIconPref, source);
             }
 
-            if (typeof getPref("clientInfo") == "object") deletePref("clientInfo");
+            if (typeof getPref("clientInfo", source) == "object") deletePref("clientInfo", source);
 
             const boolKeys = {
                 "invisibleItems.osusume-user-timeline": "timeline.osusume-user-timeline",
@@ -146,15 +149,15 @@ export async function updatePref(mergeDefault: boolean = true) {
                 "otherBoolSetting.roundIcon": "twitterIcon.options.roundIcon",
             };
             for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey]);
+                changeBooleanKey(oldKey, boolKeys[oldKey], source);
             }
 
-            changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", "discoverMore_invisible");
-            changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", "invisible");
-            changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", "birdGoBack");
+            changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", source, "discoverMore_invisible");
+            changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", source, "invisible");
+            changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", source, "birdGoBack");
 
-            if (getPref("CSS")) localStorage.setItem("TUIC_CSS", getPref("CSS"));
-            setPref("CSS", null);
+            if (getPref("CSS", source)) localStorage.setItem("TUIC_CSS", getPref("CSS"));
+            deletePref("CSS", source);
 
             if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
                 await new Promise((resolve, reject) => {
@@ -176,24 +179,26 @@ export async function updatePref(mergeDefault: boolean = true) {
                 });
             }
 
-            if (typeof getPref("visibleButtons") == "object" && ~getPref("visibleButtons").indexOf("downvote-button")) {
+            if (typeof getPref("visibleButtons", source) == "object" && ~getPref("visibleButtons", source).indexOf("downvote-button")) {
                 setPref(
                     "visibleButtons",
-                    getPref("visibleButtons").filter((elem: string) => elem != "downvote-button"),
+                    getPref("visibleButtons", source).filter((elem: string) => elem != "downvote-button"),
+                    source,
                 );
             }
-            if (typeof getPref("sidebarButtons") == "object" && (~getPref("sidebarButtons").indexOf("verified-orgs-signup") || ~getPref("sidebarButtons").indexOf("twiter-blue") || ~getPref("sidebarButtons").indexOf("sidebarButtons-circles"))) {
+            if (typeof getPref("sidebarButtons", source) == "object" && (~getPref("sidebarButtons", source).indexOf("verified-orgs-signup") || ~getPref("sidebarButtons", source).indexOf("twiter-blue") || ~getPref("sidebarButtons", source).indexOf("sidebarButtons-circles"))) {
                 setPref(
                     "sidebarButtons",
-                    getPref("sidebarButtons").filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
+                    getPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
+                    source,
                 );
             }
         }
     }
+}
 
-    if (mergeDefault) {
-        setPref("", mergePref(structuredClone(defaultPref), structuredClone(getPref(""))));
-    }
+export function mergeDefaultPref(source) {
+    return mergePref(structuredClone(defaultPref), structuredClone(source));
 }
 export const defaultPref = {
     prefVersion: 1,

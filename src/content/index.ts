@@ -28,6 +28,8 @@ import { placeSettingObserver } from "./modules/settings";
         TUICLibrary.waitForElement("#react-root"),
     ]);
 
+    TUICPref.setPref("", TUICPref.mergeDefaultPref(TUICPref.getPref("")));
+
     // 起動メッセージ
     console.log(
         `%cTwitter UI Customizer${isSafemode ? " (Safe Mode)" : ""}%cby kaonasi_biwa\n\nTwitter を思いのままに。⧸ Language: ${TUICI18N.get("@JapaneseLanguageName")}`,
