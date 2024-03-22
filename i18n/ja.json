@@ -108,6 +108,10 @@
     "profileSetting-tabs-settingTitle": "タブの設定",
     "profileSetting-tabs-pinnedTab": "タブを上部に固定する",
     "profileSetting-profileInitialTab-settingTitle": "プロフィール表示時に初期表示するタブ",
+    "profileSetting-followersListButtons-settingTitle": "フォロワー一覧のボタン設定",
+    "profileSetting-followersListButtons-followButton": "フォロー/フォロー中",
+    "profileSetting-followersListButtons-reportButton": "ユーザーを報告する",
+    "profileSetting-followersListButtons-removeFollowerButton": "フォロワーを削除する",
 
     "timeline-settingTitle": "タイムラインの設定",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
