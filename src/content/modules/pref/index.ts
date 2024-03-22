@@ -272,14 +272,14 @@ export function getDefaultPref(id: string) {
 
 const prefVersion = 2;
 const ids: {
-    [key: string]:
+    [key in string]:
         | {
               type: "color";
               values: { id: string; i18n: string }[];
           }
         | { type: "order"; default: string[]; values: { id: string; i18n: string }[] }
         | { type: "select"; default: string; values: { id: string; i18n: string }[] }
-        | { type: "boolean"; values: { id: string; i18n: string; default?: boolean }[] };
+        | { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] };
 } = {
     // 色の設定
     buttonColor: {
@@ -322,11 +322,11 @@ const ids: {
     "tweetDisplaySetting.option": {
         type: "boolean",
         values: [
-            { id: "bottomScroll", i18n: "bottomTweetButtons-setting-visibleScrollBar" },
-            { id: "likeToFavo", i18n: "bottomTweetButtons-setting-likeToFavo" },
-            { id: "RTNotQuote", i18n: "bottomTweetButtons-setting-RTNotQuote" },
-            { id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal" },
-            { id: "noNumberBottomTweetButtons", i18n: "bottomTweetButtons-setting-noNumber" },
+            { id: "bottomScroll", i18n: "bottomTweetButtons-setting-visibleScrollBar", default: false },
+            { id: "likeToFavo", i18n: "bottomTweetButtons-setting-likeToFavo", default: false },
+            { id: "RTNotQuote", i18n: "bottomTweetButtons-setting-RTNotQuote", default: false },
+            { id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal", default: false },
+            { id: "noNumberBottomTweetButtons", i18n: "bottomTweetButtons-setting-noNumber", default: false },
         ],
     },
     "tweetDisplaySetting.linkCopyURL": {
@@ -371,13 +371,13 @@ const ids: {
     "engagementsLink.option": {
         type: "boolean",
         values: [
-            { id: "placeEngagementsLink", i18n: "bottomTweetButtons-setting-placeEngagementsLink" },
-            { id: "placeEngagementsLinkShort", i18n: "fixEngagements-shortName" },
+            { id: "placeEngagementsLink", i18n: "bottomTweetButtons-setting-placeEngagementsLink", default: false },
+            { id: "placeEngagementsLinkShort", i18n: "fixEngagements-shortName", default: false },
         ],
     },
     showLinkCardInfo: {
         type: "boolean",
-        values: [{ id: "showLinkCardInfo", i18n: "bottomTweetButtons-setting-showLinkCardInfo" }],
+        values: [{ id: "showLinkCardInfo", i18n: "bottomTweetButtons-setting-showLinkCardInfo", default: false }],
     },
     tweetTopButton: {
         type: "order",
@@ -393,37 +393,37 @@ const ids: {
     },
     tweetTopButtonBool: {
         type: "boolean",
-        values: [{ id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal" }],
+        values: [{ id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal", default: false }],
     },
     "tweetDisplaySetting.tweetMoreMenuItems": {
         type: "boolean",
         values: [
-            { id: "notHelpful", i18n: "tweetMoreMenuItems-notHelpful" },
-            { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested" },
-            { id: "follow", i18n: "tweetMoreMenuItems-follow" },
-            { id: "deleteTweet", i18n: "bottomTweetButtons-deleteButton" },
-            { id: "highlighOnPin", i18n: "tweetMoreMenuItems-highlighOnPin" },
-            { id: "highlightUpsell", i18n: "tweetMoreMenuItems-highlightUpsell" },
-            { id: "addMemberOfList", i18n: "tweetMoreMenuItems-addMemberOfList" },
-            { id: "userMute", i18n: "bottomTweetButtons-userMute" },
-            { id: "muteTalk", i18n: "tweetMoreMenuItems-muteTalk" },
-            { id: "leaveTalk", i18n: "tweetMoreMenuItems-leaveTalk" },
-            { id: "block", i18n: "bottomTweetButtons-userBlock" },
-            { id: "whoCanReply", i18n: "tweetMoreMenuItems-whoCanReply" },
-            { id: "engagements", i18n: "tweetMoreMenuItems-engagements" },
-            { id: "analytics", i18n: "bottomTweetButtons-tweetAnalytics" },
-            { id: "embed", i18n: "XtoTwitter-PostToTweet-menu-embed" },
-            { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
-            { id: "hiddenReply", i18n: "tweetMoreMenuItems-hiddenReply" },
-            { id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue" },
+            { id: "notHelpful", i18n: "tweetMoreMenuItems-notHelpful", default: false },
+            { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested", default: false },
+            { id: "follow", i18n: "tweetMoreMenuItems-follow", default: false },
+            { id: "deleteTweet", i18n: "bottomTweetButtons-deleteButton", default: false },
+            { id: "highlighOnPin", i18n: "tweetMoreMenuItems-highlighOnPin", default: false },
+            { id: "highlightUpsell", i18n: "tweetMoreMenuItems-highlightUpsell", default: false },
+            { id: "addMemberOfList", i18n: "tweetMoreMenuItems-addMemberOfList", default: false },
+            { id: "userMute", i18n: "bottomTweetButtons-userMute", default: false },
+            { id: "muteTalk", i18n: "tweetMoreMenuItems-muteTalk", default: false },
+            { id: "leaveTalk", i18n: "tweetMoreMenuItems-leaveTalk", default: false },
+            { id: "block", i18n: "bottomTweetButtons-userBlock", default: false },
+            { id: "whoCanReply", i18n: "tweetMoreMenuItems-whoCanReply", default: false },
+            { id: "engagements", i18n: "tweetMoreMenuItems-engagements", default: false },
+            { id: "analytics", i18n: "bottomTweetButtons-tweetAnalytics", default: false },
+            { id: "embed", i18n: "XtoTwitter-PostToTweet-menu-embed", default: false },
+            { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet", default: false },
+            { id: "hiddenReply", i18n: "tweetMoreMenuItems-hiddenReply", default: false },
+            { id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue", default: false },
         ],
     },
     "tweetDisplaySetting.invisible": {
         type: "boolean",
         values: [
-            { id: "bottomSpace", i18n: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2" },
-            { id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn" },
-            { id: "subscribe-tweets", i18n: "invisibleItems-subscribeTweets" },
+            { id: "bottomSpace", i18n: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", default: false },
+            { id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn", default: false },
+            { id: "subscribe-tweets", i18n: "invisibleItems-subscribeTweets", default: false },
         ],
     },
 
@@ -443,7 +443,7 @@ const ids: {
     "twitterIcon.options": {
         type: "boolean",
         values: [
-            { id: "faviconSet", i18n: "twitterIcon-favicon" },
+            { id: "faviconSet", i18n: "twitterIcon-favicon", default: false },
             { id: "roundIcon", i18n: "twitterIcon-roundIcon", default: true },
         ],
     },
@@ -477,7 +477,7 @@ const ids: {
         type: "boolean",
         values: [
             { id: "smallerSidebarContent", i18n: "sidebarButton-setting-narrowBetweenButtons", default: true },
-            { id: "sidebarNoneScrollbar", i18n: "sidebarButton-setting-sidebarNoneScrollbar" },
+            { id: "sidebarNoneScrollbar", i18n: "sidebarButton-setting-sidebarNoneScrollbar", default: false },
         ],
     },
     "sidebarSetting.homeIcon": {
@@ -492,27 +492,27 @@ const ids: {
     accountSwitcher: {
         type: "boolean",
         values: [
-            { id: "icon", i18n: "sidebarButton-accountSwitcher-Icon" },
-            { id: "nameID", i18n: "sidebarButton-accountSwitcher-NameID" },
-            { id: "moreMenu", i18n: "sidebarButton-accountSwitcher-MoreMenu" },
+            { id: "icon", i18n: "sidebarButton-accountSwitcher-Icon", default: false },
+            { id: "nameID", i18n: "sidebarButton-accountSwitcher-NameID", default: false },
+            { id: "moreMenu", i18n: "sidebarButton-accountSwitcher-MoreMenu", default: false },
         ],
     },
     "sidebarSetting.moreMenuItems": {
         type: "boolean",
         values: [
-            { id: "premium", i18n: "sidebarButton-moreMenuItems-premium" },
-            { id: "bookmarks", i18n: "sidebarButtons-bookmarks" },
-            { id: "communities", i18n: "sidebarButtons-communities" },
-            { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization" },
-            { id: "pro", i18n: "sidebarButton-moreMenuItems-pro" },
-            { id: "ads", i18n: "sidebarButton-moreMenuItems-ads" },
-            { id: "settings", i18n: "sidebarButton-moreMenuItems-settings" },
-            { id: "separator", i18n: "sidebarButton-moreMenuItems-separator" },
+            { id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
+            { id: "bookmarks", i18n: "sidebarButtons-bookmarks", default: false },
+            { id: "communities", i18n: "sidebarButtons-communities", default: false },
+            { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },
+            { id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
+            { id: "ads", i18n: "sidebarButton-moreMenuItems-ads", default: false },
+            { id: "settings", i18n: "sidebarButton-moreMenuItems-settings", default: false },
+            { id: "separator", i18n: "sidebarButton-moreMenuItems-separator", default: false },
         ],
     },
 
     // プロフィールの設定
-    "profileSetting.tabs": { type: "boolean", values: [{ id: "pinnedTab", i18n: "profileSetting-tabs-pinnedTab" }] },
+    "profileSetting.tabs": { type: "boolean", values: [{ id: "pinnedTab", i18n: "profileSetting-tabs-pinnedTab", default: false }] },
     "profileSetting.profileInitialTab": {
         type: "select",
         default: "tweets",
@@ -526,10 +526,10 @@ const ids: {
     "profileSetting.invisible": {
         type: "boolean",
         values: [
-            { id: "subscribe-profile", i18n: "invisibleItems-subscribeProfile" },
-            { id: "profileHighlights", i18n: "invisibleItems-profileHighlights" },
-            { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates" },
-            { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab" },
+            { id: "subscribe-profile", i18n: "invisibleItems-subscribeProfile", default: false },
+            { id: "profileHighlights", i18n: "invisibleItems-profileHighlights", default: false },
+            { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates", default: false },
+            { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab", default: false },
         ],
     },
     "profileSetting.followersListButtons": {
@@ -547,16 +547,16 @@ const ids: {
 
     "profileSetting.followersListButtonsOptions": {
         type: "boolean",
-        values: [{ id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal" }],
+        values: [{ id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal", default: false }],
     },
 
     // 非表示設定
     invisibleItems: {
         type: "boolean",
         values: [
-            { id: "config-premium", i18n: "invisibleItems-configPremium" },
-            { id: "hideBelowDM", i18n: "invisibleItems-hideBelowDM" },
-            { id: "verifiedNotifications", i18n: "invisibleItems-verifiedNotifications" },
+            { id: "config-premium", i18n: "invisibleItems-configPremium", default: false },
+            { id: "hideBelowDM", i18n: "invisibleItems-hideBelowDM", default: false },
+            { id: "verifiedNotifications", i18n: "invisibleItems-verifiedNotifications", default: false },
         ],
     },
 
@@ -564,10 +564,10 @@ const ids: {
     timeline: {
         type: "boolean",
         values: [
-            { id: "osusume-user-timeline", i18n: "timeline-osusumeUsersOnTL" },
-            { id: "hideOhterRTTL", i18n: "timeline-hideOhterRTTL" },
-            { id: "hideReply", i18n: "timeline-hideReply" },
-            { id: "accountStart", i18n: "timeline-accountStart" },
+            { id: "osusume-user-timeline", i18n: "timeline-osusumeUsersOnTL", default: false },
+            { id: "hideOhterRTTL", i18n: "timeline-hideOhterRTTL", default: false },
+            { id: "hideReply", i18n: "timeline-hideReply", default: false },
+            { id: "accountStart", i18n: "timeline-accountStart", default: false },
         ],
     },
 
@@ -575,8 +575,8 @@ const ids: {
     XToTwitter: {
         type: "boolean",
         values: [
-            { id: "XToTwitter", i18n: "XtoTwitter-XtoTwitter" },
-            { id: "PostToTweet", i18n: "XtoTwitter-PostToTweet" },
+            { id: "XToTwitter", i18n: "XtoTwitter-XtoTwitter", default: false },
+            { id: "PostToTweet", i18n: "XtoTwitter-PostToTweet", default: false },
         ],
     },
 
@@ -584,25 +584,25 @@ const ids: {
     rightSidebar: {
         type: "boolean",
         values: [
-            { id: "searchBox", i18n: "rightSidebar-searchBox" },
-            { id: "verified", i18n: "rightSidebar-rightSidebarVerified" },
-            { id: "space", i18n: "rightSidebar-space" },
-            { id: "relevantPeople", i18n: "rightSidebar-relevantPeople" },
-            { id: "trend", i18n: "rightSidebar-trend" },
-            { id: "osusumeUser", i18n: "rightSidebar-osusumeUser" },
-            { id: "links", i18n: "rightSidebar-links" },
+            { id: "searchBox", i18n: "rightSidebar-searchBox", default: false },
+            { id: "verified", i18n: "rightSidebar-rightSidebarVerified", default: false },
+            { id: "space", i18n: "rightSidebar-space", default: false },
+            { id: "relevantPeople", i18n: "rightSidebar-relevantPeople", default: false },
+            { id: "trend", i18n: "rightSidebar-trend", default: false },
+            { id: "osusumeUser", i18n: "rightSidebar-osusumeUser", default: false },
+            { id: "links", i18n: "rightSidebar-links", default: false },
         ],
     },
 
     // ツイート投稿画面の設定
-    composetweet: { type: "boolean", values: [{ id: "hideDraft", i18n: "composetweet-hideDraft" }] },
+    composetweet: { type: "boolean", values: [{ id: "hideDraft", i18n: "composetweet-hideDraft", default: false }] },
 
     // DMの設定
-    dmPage: { type: "boolean", values: [{ id: "showIcon", i18n: "dmPage-showIcon" }] },
+    dmPage: { type: "boolean", values: [{ id: "showIcon", i18n: "dmPage-showIcon", default: false }] },
 
     // その他の設定
-    uncategorizedSettings: { type: "boolean", values: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter" }] },
-};
+    uncategorizedSettings: { type: "boolean", values: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter", default: false }] },
+} as const;
 
 /**
  * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します
@@ -620,7 +620,7 @@ export function getSettingIDs(id: string): string[] {
  * @param {string} id 設定カテゴリーID
  * @return {{id:string,i18n:string}[]} 取得したデータ
  */
-export function getSettingData(id: string): { id: string; i18n: string }[] {
+export function getSettingData(id: string): { id: string }[] {
     return ids[id].values;
 }
 
