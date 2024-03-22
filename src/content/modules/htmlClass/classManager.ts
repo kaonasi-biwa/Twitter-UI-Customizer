@@ -24,6 +24,7 @@ const ClassList = [
     "TUICTwitterIcon_IconImg",
     "TUICScrollBottom",
     "TUICDMIcon",
+    "TUICFollowerListButtons",
     ProcessedClass,
 ];
 export const updateClasses = (isInit: boolean = false) => {

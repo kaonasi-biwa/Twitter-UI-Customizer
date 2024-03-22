@@ -393,7 +393,7 @@ const ids: {
     },
     tweetTopButtonBool: {
         type: "boolean",
-        values: [{ id: "tweetTopButtonBool.noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal" }],
+        values: [{ id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal" }],
     },
     "tweetDisplaySetting.tweetMoreMenuItems": {
         type: "boolean",
@@ -531,6 +531,23 @@ const ids: {
             { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates" },
             { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab" },
         ],
+    },
+    "profileSetting.followersListButtons": {
+        type: "order",
+        default: ["followButton", "moremenuButton"],
+        values: [
+            { id: "followButton", i18n: "profileSetting-followersListButtons-followButton" },
+            { id: "moremenuButton", i18n: "sidebarButtons-moremenu" },
+            { id: "blockButton", i18n: "bottomTweetButtons-userBlock" },
+            { id: "muteButton", i18n: "bottomTweetButtons-userMute" },
+            { id: "reportButton", i18n: "profileSetting-followersListButtons-reportButton" },
+            { id: "removeFollowerButton", i18n: "profileSetting-followersListButtons-removeFollowerButton" },
+        ],
+    },
+
+    "profileSetting.followersListButtonsOptions": {
+        type: "boolean",
+        values: [{ id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal" }],
     },
 
     // 非表示設定

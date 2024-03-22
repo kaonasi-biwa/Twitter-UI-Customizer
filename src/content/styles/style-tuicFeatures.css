@@ -223,6 +223,25 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
+[data-TUICFollowerListButton]:hover .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 10%);
+}
+[data-TUICFollowerListButton]:hover svg {
+    color: rgb(29 155 240);
+}
+
+[data-TUICFollowerListButton]:focus-visible .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 10%);
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+}
+[data-TUICFollowerListButton]:focus-visible svg {
+    color: rgb(29 155 240);
+}
+
+[data-TUICFollowerListButton]:active .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 20%);
+}
+
 #TUICDisplayRightSidebar:hover {
     text-decoration-thickness: 1px;
 }

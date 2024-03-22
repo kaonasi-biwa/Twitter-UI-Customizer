@@ -34,6 +34,7 @@ export function replacePost() {
         const isUserPage = !!document.querySelector('[data-testid="primaryColumn"] [data-testid="UserName"]');
         const isUnsentPage = location.pathname.includes("/unsent/");
         const isTweetingPage = location.pathname.includes("/compose/tweet");
+        const isFollowersList = location.pathname.endsWith("/followers");
 
         const isHoveringMiniSidenavTweetButton = !!document.querySelector('.r-1vtznih[data-testid="SideNav_NewTweet_Button"]');
         const isHoveringRetweetButton = !!document.querySelector('[role="button"][data-testid="retweet"] > div > div > div.r-15azkrj');
@@ -103,8 +104,12 @@ export function replacePost() {
             elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyURL");
 
         // 共有 > その他の方法
-        for (const elem of getNotReplacedElements('[role="menu"] [data-testid="Dropdown"] [d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"]'))
-            elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
+        if (!isFollowersList) {
+            for (const elem of getNotReplacedElements(
+                '[role="menu"] [data-testid="Dropdown"] [d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"]',
+            ))
+                elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-shareMenu-copyOtherWay");
+        }
 
         // ツイート入力ダイアログ
         const isDialog = !!document.querySelector('[role="alertdialog"],[role="dialog"],[data-testid="twc-cc-mask"]+div');
@@ -188,12 +193,15 @@ export function replacePost() {
         for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]'))
             elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-menu-embed");
         // ツイートその他ポップアップの「ツイートを報告」ボタン
-        for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) {
-            const changeElem = elem?.parentElement?.parentElement?.parentElement?.parentElement?.querySelector("span");
-            if (changeElem) {
-                changeElem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-reportTweet");
+        if (!isFollowersList) {
+            for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) {
+                const changeElem = elem?.parentElement?.parentElement?.parentElement?.parentElement?.querySelector("span");
+                if (changeElem) {
+                    changeElem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-reportTweet");
+                }
             }
         }
+
         // ツイートその他ポップアップの「ツイートアナリティクスの表示」ボタン
         localizeElemText('[role="menu"] a[role="menuitem"][href$="/analytics"] span', TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics"));
 

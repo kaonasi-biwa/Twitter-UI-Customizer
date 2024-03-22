@@ -1,6 +1,7 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
 import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
+import { followersList } from "./functions/followersList.tsx";
 
 export const TUICObserver = new (class TUICObserver {
     /** 内部で使用される MutationObserver */
@@ -37,6 +38,9 @@ export const TUICObserver = new (class TUICObserver {
 
             // おすすめユーザーを非表示 (かなり処理が特殊なので他の非表示から分離)
             hideOsusumeTweets();
+
+            // フォロワー一覧にボタンを追加
+            followersList();
 
             // DMに関する設定
             dmPage();

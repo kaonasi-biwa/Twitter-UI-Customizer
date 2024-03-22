@@ -262,7 +262,7 @@ export const tweetButtonData: {
 };
 
 // ツイートのボタン
-export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfomation /*enable: boolean = true*/): (() => JSX.Element) => {
+export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfomation): (() => JSX.Element) => {
     const enable = tweetButtonData[id].enable(articleInfomation);
     return (): JSX.Element => (
         <div class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid; justify-content: inherit; transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px); -moz-box-pack: inherit">

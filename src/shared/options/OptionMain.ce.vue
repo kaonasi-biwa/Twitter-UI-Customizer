@@ -84,7 +84,11 @@
                 <RadioButtonList id="profileSetting.profileInitialTab" />
 
                 <SettingSubTitle i18n="invisibleItems-settingTitle" />
-                <CheckBoxList id="profileSetting.invisible" />
+                <CheckBoxList id="profileSetting.invisible" /><br />
+
+                <SettingSubTitle i18n="profileSetting-followersListButtons-settingTitle" />
+                <UpDownList id="profileSetting.followersListButtons" /><br />
+                <CheckBoxList id="profileSetting.followersListButtonsOptions" /><br />
             </detailsBox>
 
             <detailsBox i18n="invisibleItems-settingTitle">
