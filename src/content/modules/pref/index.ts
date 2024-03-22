@@ -271,16 +271,17 @@ export function getDefaultPref(id: string) {
 }
 
 const prefVersion = 2;
-const ids: {
-    [key in string]:
-        | {
-              type: "color";
-              values: { id: string; i18n: string }[];
-          }
-        | { type: "order"; default: string[]; values: { id: string; i18n: string }[] }
-        | { type: "select"; default: string; values: { id: string; i18n: string }[] }
-        | { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] };
-} = {
+
+// Objectの中身はこれに従ってください
+type TUICSetting =
+    | {
+          type: "color"; // 色設定 あとから変更する予定です
+          values: { id: string; i18n: string }[];
+      }
+    | { type: "order"; default: string[]; values: { id: string; i18n: string }[] } // 並び替え
+    | { type: "select"; default: string; values: { id: string; i18n: string }[] } //ラジオボタンなどの一つのみ設定するやつ
+    | { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] }; //チェックボックスなどの一つ一つがboolean型の設定になるもの
+const ids = {
     // 色の設定
     buttonColor: {
         type: "color",
@@ -604,13 +605,15 @@ const ids: {
     uncategorizedSettings: { type: "boolean", values: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter", default: false }] },
 } as const;
 
+type TUICSettingIDs = keyof typeof ids;
+
 /**
  * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します
  *
  * @param {string} id 設定カテゴリーID
  * @return {string[]} 取得した値一覧
  */
-export function getSettingIDs(id: string): string[] {
+export function getSettingIDs<T extends TUICSettingIDs>(id: T): (typeof ids)[T]["values"][number]["id"][] {
     return ids[id].values.map((elem) => elem.id);
 }
 
@@ -620,10 +623,9 @@ export function getSettingIDs(id: string): string[] {
  * @param {string} id 設定カテゴリーID
  * @return {{id:string,i18n:string}[]} 取得したデータ
  */
-export function getSettingData(id: string): { id: string }[] {
+export function getSettingData<T extends TUICSettingIDs>(id: T): (typeof ids)[T]["values"] {
     return ids[id].values;
 }
-
 /**
  * 指定した設定のi18nのIDを出力します。
  *
@@ -631,7 +633,7 @@ export function getSettingData(id: string): { id: string }[] {
  * @param {string} id 設定自体のID(設定カテゴリーIDを除く)
  * @return {string} i18nのID
  */
-export function getSettingI18n(id: string, itemValue: string): string {
+export function getSettingI18n<T extends TUICSettingIDs>(id: T, itemValue: (typeof ids)[T]["values"][number]["id"]): string {
     return ids[id].values.filter((elem) => elem.id == itemValue)[0].i18n;
 }
 
