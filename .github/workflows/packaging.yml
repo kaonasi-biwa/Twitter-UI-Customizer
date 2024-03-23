@@ -14,8 +14,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  git checkout -b  "archive/${{ github.ref_name }}"
-                  git push origin release
+                  git checkout -b "archive/${{ github.ref_name }}"
+                  git push --set-upstream origin "HEAD:archive/${{ github.ref_name }}"
     build-firefox:
         runs-on: ubuntu-latest
         steps:
