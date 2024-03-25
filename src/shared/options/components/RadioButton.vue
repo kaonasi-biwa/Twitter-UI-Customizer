@@ -1,8 +1,11 @@
 <template>
     <div class="TUICCheckBoxParent">
-        <input type="radio" :id="`${id.replace(/\./g, '-_-')}-_-${valueName}`" :name="id.replace(/\./g, '-_-')" :value="valueName" :checked="TUICPref.getPref(id) == valueName" @change="changePref(id, valueName)" />
-        <div>
-            <label class="TUIC_setting_text" :for="`${id.replace(/\./g, '-_-')}-_-${valueName}`">{{ TUICI18N.get(name) }}</label>
+        <input style="margin: 0;" type="radio" :id="`${id.replace(/\./g, '-_-')}-_-${valueName}`"
+            :name="id.replace(/\./g, '-_-')" :value="valueName" :checked="TUICPref.getPref(id) == valueName"
+            @change="changePref(id, valueName)" />
+        <div style="margin: 0;">
+            <label style="margin: 0;" class="TUIC_setting_text" :for="`${id.replace(/\./g, '-_-')}-_-${valueName}`">{{
+            TUICI18N.get(name) }}</label>
         </div>
     </div>
 </template>

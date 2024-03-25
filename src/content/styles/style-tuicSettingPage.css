@@ -666,6 +666,7 @@ textarea#css_textarea,
 }
 
 .TUIC_setting_IconRadioButton {
+    cursor: pointer;
     width: 36px;
     height: 36px;
     display: flex;
@@ -677,6 +678,15 @@ textarea#css_textarea,
 .TUICIconRadioButton input[type="radio"]:checked ~ div > label {
     background-color: #1da1f2;
 }
+
+.TUICIconRadioButton input[type="radio"]:not(:checked):hover ~ div > label {
+    background-color: #303438;
+}
+
+.TUICIconRadioButton input[type="radio"] ~ div > label {
+    transition: 0.2s;
+}
+
 .TUICIconRadioButton input[type="radio"] {
     display: none;
 }
@@ -689,4 +699,16 @@ textarea#css_textarea,
 .TUICSettingSubTitleNomargin {
     margin: 0;
     padding: 0;
+}
+
+.TUICSelectImg {
+    font-size: 15px;
+}
+.TUICSelectImg::file-selector-button,
+.TUICSelectImg::-webkit-file-upload-button {
+    background-color: #303438;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-right: 12px;
 }
