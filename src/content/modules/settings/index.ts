@@ -1,6 +1,6 @@
 let DisplaySettingObserver: MutationObserver = null;
 
-const target = document.querySelector("body");
+let target = document.querySelector("body") ?? undefined;
 const config = {
     childList: true,
     subtree: true,
@@ -13,6 +13,8 @@ export function placeSettingObserver() {
     else DisplaySettingObserver = new MutationObserver(placeSettingObserver);
 
     placeSettingPage();
+
+    if (!target) target = document.querySelector("body");
 
     DisplaySettingObserver.observe(target, config);
 }

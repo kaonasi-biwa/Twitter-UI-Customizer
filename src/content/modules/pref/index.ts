@@ -188,10 +188,10 @@ export async function updatePref(source = config) {
                     source,
                 );
             }
-            if (typeof getPref("sidebarButtons", source) == "object" && (~getPref("sidebarButtons", source).indexOf("verified-orgs-signup") || ~getPref("sidebarButtons", source).indexOf("twiter-blue") || ~getPref("sidebarButtons", source).indexOf("sidebarButtons-circles"))) {
+            if (typeof getPref("sidebarButtons", source) == "object" && (~getPref("sidebarButtons", source).indexOf("verified-orgs-signup") || ~getPref("sidebarButtons", source).indexOf("twiter-blue") || ~getPref("sidebarButtons", source).indexOf("circles"))) {
                 setPref(
                     "sidebarButtons",
-                    getPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup"),
+                    getPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup" && elem != "circles"),
                     source,
                 );
             }
@@ -634,7 +634,7 @@ export function getSettingData<T extends TUICSettingIDs>(id: T): (typeof ids)[T]
  * @return {string} i18nのID
  */
 export function getSettingI18n<T extends TUICSettingIDs>(id: T, itemValue: (typeof ids)[T]["values"][number]["id"]): string {
-    return ids[id].values.filter((elem) => elem.id == itemValue)[0].i18n;
+    return ids[id].values.filter((elem) => elem.id == itemValue)[0]?.i18n ?? undefined;
 }
 
 config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(mergeDefaultPref({})));
