@@ -5,7 +5,7 @@ import { followersList } from "./functions/followersList.tsx";
 
 export const TUICObserver = new (class TUICObserver {
     /** 内部で使用される MutationObserver */
-    public observer: MutationObserver = new MutationObserver(() => this.callback());
+    public observer: MutationObserver = new MutationObserver((mutations) => this.callback(mutations));
     /** 監視対象の要素 */
     public target: Element | null = null;
 
@@ -23,8 +23,14 @@ export const TUICObserver = new (class TUICObserver {
         this.observer.disconnect();
     }
 
-    /** オブザーバーのコールバック */
-    public callback(): void {
+    /** オブザーバーのコールバック
+     * 引数がなし or undefinedの場合、要素チェックは行われません*/
+    public callback(mutations: MutationRecord[] = undefined): void {
+        if (mutations) {
+            const mutationElements = mutations.flatMap((m) => Array.from(m.addedNodes) as Element[]);
+            if (mutationElements.length === 0 || mutationElements.every((e) => e.nodeType === Node.TEXT_NODE || e.nodeName === "SCRIPT")) return;
+            mutationElements.forEach((e) => console.log(e));
+        }
         this.unbind();
         try {
             // Twitterのアイコンに関する設定
