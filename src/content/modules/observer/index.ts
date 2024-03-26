@@ -3,7 +3,7 @@ import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
 import { followersList } from "./functions/followersList.tsx";
 
-let time = 0;
+//let time = 0;
 
 export const TUICObserver = new (class TUICObserver {
     /** 内部で使用される MutationObserver */
