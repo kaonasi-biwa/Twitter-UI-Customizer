@@ -174,8 +174,8 @@ export const tweetButtonData: {
         },
         clickEvent: (data: ArticleInfomation) => {
             const retButton = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]);
-            const likeButton = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"]);
-            likeButton.click();
+            const likeButton = data.elements.buttonBarBase?.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"]);
+            likeButton?.click();
             if (TUICPref.getPref("tweetDisplaySetting.option.RTNotQuote")) {
                 retButton.click();
             } else {
