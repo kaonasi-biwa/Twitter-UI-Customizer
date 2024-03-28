@@ -1,6 +1,7 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
+import { ProcessedClass } from "@shared/sharedData";
 const eventHandle = (elem: Element, func: () => void) => {
     elem.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Enter") {
@@ -202,9 +203,11 @@ const _data = {
 
 export function tweetTopButtons(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
-    if (articleBase.querySelector(_data.selector.moreMenu)) {
+    const moreMenuButton = articleBase.querySelector<HTMLElement>(_data.selector.moreMenu + `:not(${ProcessedClass})`);
+    if (moreMenuButton) {
+        moreMenuButton.process();
+
         // もっと見るメニュー内を修正するためにEvent
-        const moreMenuButton = articleBase.querySelector<HTMLElement>(_data.selector.moreMenu);
         eventHandle(moreMenuButton, tweetMoreMenuContent);
 
         //ツイート上ボタンの並び替え
@@ -219,7 +222,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
     const tweetTopParent = articleBase.querySelector(_data.selector.moreMenu).parentElement;
     const marginSize = TUICLibrary.fontSizeClass("20px", "20px", "20px", "20px", "20px");
     for (const i of _data.all) {
-        const div = articleBase.querySelector(_data.selector[i]);
+        const div = articleBase.querySelector<HTMLDivElement>(_data.selector[i]);
         if (div) {
             tweetTopButtons[i] = div;
         }

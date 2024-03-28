@@ -6,6 +6,7 @@ import { showLinkCardInfo } from "./showLinkCardInfo";
 import { render } from "solid-js/web";
 import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData } from "./buttonHTML";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
+import { ProcessedClass } from "@shared/sharedData";
 
 let buttonUnderTweetRunning: boolean = false;
 const _data = {
@@ -56,14 +57,20 @@ const _data = {
 export function tweetSettings() {
     if (!buttonUnderTweetRunning) {
         buttonUnderTweetRunning = true;
-        while (document.querySelector(`article.TUICDidArticle .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`)) {
-            const elem = document.querySelector(`article.TUICDidArticle .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
-            let barBase = elem;
-            while (!barBase.classList.contains("TUICDidArticle")) {
-                barBase = barBase.parentElement;
+        {
+            const getElement = () => document.querySelector<HTMLElement>(`article.TUICDidArticle [data-testid="caret"]:not(${ProcessedClass})`);
+            for (let elem = getElement(); elem; elem = getElement()) {
+                elem.closest(".TUICDidArticle").classList.remove("TUICDidArticle");
             }
-            barBase.classList.remove("TUICDidArticle");
         }
+
+        {
+            const getElement = () => document.querySelector(`article.TUICDidArticle .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
+            for (let elem = getElement(); elem; elem = getElement()) {
+                elem.closest(".TUICDidArticle").classList.remove("TUICDidArticle");
+            }
+        }
+
         const articles = document.querySelectorAll(`article:not(.TUICDidArticle)`);
         if (articles.length != 0) {
             for (const articleBase of articles) {
