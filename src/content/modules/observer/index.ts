@@ -3,9 +3,11 @@ import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
 import { followersList } from "./functions/followersList.tsx";
 
+//let time = 0;
+
 export const TUICObserver = new (class TUICObserver {
     /** 内部で使用される MutationObserver */
-    public observer: MutationObserver = new MutationObserver(() => this.callback());
+    public observer: MutationObserver = new MutationObserver((mutations) => this.callback(mutations));
     /** 監視対象の要素 */
     public target: Element | null = null;
 
@@ -23,8 +25,14 @@ export const TUICObserver = new (class TUICObserver {
         this.observer.disconnect();
     }
 
-    /** オブザーバーのコールバック */
-    public callback(): void {
+    /** オブザーバーのコールバック
+     * 引数がなし or undefinedの場合、要素チェックは行われません*/
+    public callback(mutations: MutationRecord[] = undefined): void {
+        const mutationElements = mutations ? mutations.flatMap((m) => Array.from(m.addedNodes) as Element[]) : [];
+        if (mutations) {
+            if (mutationElements.length === 0 || mutationElements.every((e) => e.nodeType === Node.TEXT_NODE || e.nodeName === "SCRIPT")) return;
+            //mutationElements.forEach((e) => console.log(e));
+        }
         this.unbind();
         try {
             // Twitterのアイコンに関する設定
@@ -33,8 +41,15 @@ export const TUICObserver = new (class TUICObserver {
             // サイドバーに関する設定
             sidebarButtons();
 
-            // ツイート関連の設定
-            tweetSettings();
+            //  ツイート関連の設定
+            //  const timeTemp = Date.now();
+
+            //tweetSettings();
+            //if (mutationElements.some((e) => (e as HTMLElement).dataset?.testid === "cellInnerDiv")) tweetSettings();
+            if (mutationElements.some((e) => (e as HTMLElement).dataset?.testid === "cellInnerDiv") || (mutations ? mutations.map((m) => m.target as Element).filter((e) => e?.closest(".TUICTweetButtomBarBase")) : []).length !== 0) tweetSettings();
+
+            //  time += Date.now() - timeTemp;
+            //  console.log(time);
 
             // おすすめユーザーを非表示 (かなり処理が特殊なので他の非表示から分離)
             hideOsusumeTweets();
