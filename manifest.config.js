@@ -3,7 +3,7 @@ export default {
     common: {
         name: "__MSG_extensionName__",
         description: "__MSG_extensionDescription__",
-        version: "4.2.1",
+        version: "4.2.2",
         default_locale: "ja",
         content_scripts: [
             {
