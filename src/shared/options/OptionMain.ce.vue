@@ -77,9 +77,6 @@
             </detailsBox>
 
             <detailsBox i18n="profileSetting-settingTitle">
-                <SettingSubTitle i18n="profileSetting-tabs-settingTitle" />
-                <CheckBoxList id="profileSetting.tabs" />
-
                 <SettingSubTitle i18n="profileSetting-profileInitialTab-settingTitle" />
                 <RadioButtonList id="profileSetting.profileInitialTab" />
 
@@ -120,6 +117,8 @@
 
             <detailsBox i18n="uncategorizedSettings-settingTitle">
                 <CheckBoxList id="uncategorizedSettings" />
+                <SettingSubTitle i18n="profileSetting-tabs-settingTitle" />
+                <CheckBoxList id="profileSetting.tabs" />
             </detailsBox>
 
             <br />
