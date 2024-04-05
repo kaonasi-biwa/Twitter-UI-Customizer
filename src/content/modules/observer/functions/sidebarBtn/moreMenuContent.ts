@@ -15,6 +15,7 @@ const _data = {
         pro: `[data-testid="Dropdown"] [href="https://tweetdeck.twitter.com"]`,
         ads: `[data-testid="Dropdown"] [href*="ads.twitter.com"]`,
         premium: `[data-testid="Dropdown"] [href="/i/verified-choose"]`,
+        jobs: `[data-testid="Dropdown"] [href="/jobs"]`,
     },
     type: {
         bookmarks: "menuitem",
@@ -28,6 +29,7 @@ const _data = {
         pro: "menuitem",
         ads: "menuitem",
         premium: "menuitem",
+        jobs: "menuitem",
     },
 };
 

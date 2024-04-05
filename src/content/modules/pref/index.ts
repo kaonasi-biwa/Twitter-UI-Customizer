@@ -507,6 +507,7 @@ const ids = {
             { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },
             { id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
             { id: "ads", i18n: "sidebarButton-moreMenuItems-ads", default: false },
+            { id: "jobs", i18n: "sidebarButton-moreMenuItems-jobs", default: false },
             { id: "settings", i18n: "sidebarButton-moreMenuItems-settings", default: false },
             { id: "separator", i18n: "sidebarButton-moreMenuItems-separator", default: false },
         ],
