@@ -316,3 +316,7 @@
 :root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
     fill: rgb(255 212 0) !important;
 }
+
+:root[tuicsettings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
+    display: none !important;
+}

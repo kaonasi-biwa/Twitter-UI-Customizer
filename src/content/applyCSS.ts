@@ -83,6 +83,9 @@ export function applySystemCss() {
             settingsOutput += elem + "|";
         }
     }
+    if (!TUICPref.getPref("sidebarButtons").includes("verified-choose")) {
+        settingsOutput += "sidebarButtons.style.verifiedChoose" + "|";
+    }
     document.documentElement.setAttribute("TUICSettings", settingsOutput);
 
     const r = document.querySelector(":root");
