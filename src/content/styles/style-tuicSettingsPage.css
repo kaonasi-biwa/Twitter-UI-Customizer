@@ -1,0 +1,400 @@
+/* セーフモード時の設定画面スタイル */
+#TUIC_safemode > #TUIC_setting {
+    max-width: 600px;
+    margin: 2em auto;
+}
+
+#TUIC_safemode > .r-135wba7 {
+    line-height: 1em;
+}
+
+.TUICDefaultColor {
+    width: fit-content;
+    margin: 2px 0 2px auto !important;
+    border-color: #71767b !important;
+}
+
+.TUIC_ISNOTDEFAULT:not(:last-of-type) {
+    margin-bottom: calc(12px + 1em);
+}
+.TUIC_ISNOTDEFAULT + .TUICDefaultColor {
+    display: none;
+}
+
+/* 色選択 */
+.TUIC_setting_color_colmn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TUIC_setting_color_colmn > h4 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 10px !important;
+    font-weight: normal !important;
+}
+
+/* 無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく） */
+.TUIC_col_setting_container input[type="color"] {
+    width: 200%;
+    height: 200%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transform: translate(-25%, -25%);
+}
+
+/* type=colorなinputタグを無理やり丸くするためのマスク */
+.TUIC_input_color_rounded {
+    width: 23px;
+    height: 23px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+/* ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ */
+.TUIC_input_color_rounded__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    padding: 4px;
+    margin-right: 5px !important;
+    background-color: rgb(127 127 127 / 50%);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.TUIC_input_color_rounded__container:hover {
+    background: var(--TUIC-color-hover-efect);
+}
+
+.TUIC_input_color_rounded__container:active {
+    transform: scale(0.8);
+}
+
+/* 色設定項目の操作可能なオブジェクトのコンテナ */
+.TUIC_setting_input_container {
+    display: flex;
+    align-items: center;
+}
+
+/* 設定項目のタイトル */
+.TUIC_setting_title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #71767b !important;
+}
+
+/* 設定用項目のコンテナ */
+.TUIC_col_setting_container {
+    /* margin-top: 8px; */
+    padding: 10px 14px;
+    border-radius: 14px;
+}
+
+.TUIC_col_setting_container_2 {
+    padding: 10px 14px;
+    margin-top: 8px;
+    margin-bottom: 1em;
+    background: var(--TUIC-container-background2);
+    border-radius: 14px;
+}
+
+/* 表示非表示のセレクトボックス */
+.TUIC_selectbox {
+    height: calc((1em + 9px) * var(--contentCount) + 10px);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    overflow-x: auto;
+    border: solid 1px #71767b;
+    border-radius: 6px;
+    scrollbar-width: thin;
+}
+
+.TUIC_selectbox::-webkit-scrollbar {
+    height: 8px;
+}
+
+/* 設定画面の文字色 */
+.TUIC_setting_text {
+    color: var(--twitter-TUIC-color);
+}
+
+.TUICDetails,
+.TUICEasySetting {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    background-color: var(--TUIC-container-background);
+    border: 2px solid;
+    border-color: rgb(0 0 0 / 0%) !important;
+    border-radius: 5px;
+}
+
+.TUICDetails:not([open]),
+.TUICEasySetting {
+    padding-bottom: 10px;
+    border-color: var(--TUIC-detail-border) !important;
+}
+
+.TUIC_icon_button_con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
+}
+
+.TUIC_icon_button_con > svg * {
+    stroke: var(--twitter-TUIC-color);
+    transition: 0.2s;
+}
+
+.TUIC_icon_button_con > svg {
+    pointer-events: none;
+}
+
+.TUIC_icon_button_con:hover {
+    background: #ffffff20;
+}
+
+.TUIC_icon_button_con:active {
+    transform: scale(0.9);
+}
+
+.TUIC_setting_button {
+    cursor: pointer;
+    background: transparent;
+    /* border-color: var(--twitter-TUIC-color); */
+    border-color: #71767b !important;
+    border-radius: 9999px;
+    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%);
+    transition: 0.3s;
+    /* color: #71767b !important; */
+}
+
+.TUIC_setting_button:hover {
+    background: var(--TUIC-container-background);
+}
+
+.TUIC_setting_button_width {
+    width: 100%;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 5px;
+}
+.TUICEasySettingButtons {
+    width: 100%;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.TUIC_none_scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.TUIC_none_scroll::-webkit-scrollbar {
+    display: none;
+}
+
+#TUIC_invisible,
+#TUIC_visible {
+    padding-bottom: 10px;
+    overflow-y: clip;
+    background: transparent;
+}
+
+#TUIC_invisible span,
+#TUIC_visible span,
+#css_textarea,
+.TUICTextInput {
+    color: var(--twitter-TUIC-color);
+    background: transparent;
+}
+
+#TUIC_invisible > div,
+#TUIC_visible > div {
+    height: calc(1em + 5px);
+    padding: 2px 1em;
+}
+
+#TUIC_invisible > div span,
+#TUIC_visible > div > span {
+    line-height: calc(1em + 5px);
+    white-space: nowrap;
+}
+
+[TUICSelectedUpDownContent="true"] {
+    background-color: rgb(51 167 229 / 70%);
+}
+
+.TUICTextInput {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+textarea#css_textarea {
+    height: 300px;
+    resize: vertical;
+}
+
+textarea#css_textarea,
+.TUICTextInput {
+    width: calc(100% - 10px);
+    margin-bottom: 20px;
+    border: 1px solid #808080;
+    border-radius: 6px;
+}
+
+/* チェックボタン(Transparent) */
+.TUICButtonColorCheck {
+    width: 1.7em;
+    height: 1.7em;
+    margin-right: 0.2em;
+    margin-left: 0.5em;
+    background-color: #fff;
+    border: 2px solid rgb(127 127 127);
+    border-radius: 50%;
+}
+
+.TUICButtonColorCheck[data-checked="true"] {
+    background-color: rgb(29 161 242 / 100%);
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>");
+    /* チェックされている */
+    background-position: center;
+    background-size: 90%;
+}
+
+.TUICSettingRadioTypeBigButton {
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    border-radius: 5px !important;
+}
+
+.TUICSettingRadioTypeBigButton > span > span {
+    font-family:
+        "Segoe UI",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    mix-blend-mode: difference;
+}
+
+.TUICSettingRadioTypeBigButton > span {
+    white-space: nowrap;
+}
+
+.TUICColorSettingRadio {
+    display: none;
+}
+
+.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton {
+    border: 2px solid rgb(29 155 240);
+}
+
+.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton {
+    border: 2px solid rgb(127 127 127);
+}
+
+.TUICColorSettingRadio:checked + .TUICSettingRadioTypeBigButton > span::before {
+    width: 1em;
+    height: 1em;
+    background-color: rgb(29 155 240);
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g><path fill='%23FFFFFF' d='M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z'></path></g></svg>");
+}
+
+.TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton > span::before {
+    border: 2px solid rgb(127 127 127 / 50%);
+}
+
+.TUICSettingRadioTypeBigButton > span::before {
+    position: relative;
+    top: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 10px;
+    content: " ";
+    background-position: center;
+    background-size: 16px 16px;
+    border-radius: 9999px;
+    transform: translateY(-50%);
+}
+
+.TUICSettingSubTitle {
+    margin-top: 0 !important;
+    margin-bottom: 5px !important;
+    margin-left: 10px !important;
+}
+
+.TUICUploadedImg:not([data-testid="interstitialGraphic"] > svg) {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    border: 1px solid;
+    border-color: var(--TUIC-detail-border) !important;
+}
+
+.TUICCheckBoxParent:not(:last-of-type) {
+    margin-bottom: 8px;
+}
+
+.TUICCheckBoxParent {
+    display: flex;
+}
+
+:is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0.25em;
+}
+
+#TUIC_setting :is(label, span, button, h2) {
+    white-space: pre-wrap;
+}
+
+.TUICUpDownTitle {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#TUICSelectedColorType {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    padding-top: 20px;
+    background-color: var(--TUIC-container-background);
+}

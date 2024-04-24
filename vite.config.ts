@@ -40,6 +40,7 @@ export default defineConfig(({ command, mode }) => {
             // outDir,
             target: "es2022",
             assetsInlineLimit: 0,
+            reportCompressedSize: false,
 
             rollupOptions: {
                 input: {
@@ -74,11 +75,11 @@ export default defineConfig(({ command, mode }) => {
                 async buildStart(options) {
                     await Promise.all([
                         changeManifest(mode),
-                        fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
-                        fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
-                        fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
+                        //fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
+                        //fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
+                        //fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
                         fs.cp(rl("_locales"), rl("dist/_locales"), { recursive: true }),
-                        fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
+                        //fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
                     ]);
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },

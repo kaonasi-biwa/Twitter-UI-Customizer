@@ -6,7 +6,7 @@
 import { TUICObserver } from "@modules/observer/index.ts";
 import { TUICLibrary } from "@content/library.ts";
 import { TUICI18N } from "@modules/i18n";
-import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon } from "@content/applyCSS.ts";
+import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon, applyDefaultStyle } from "@content/applyCSS.ts";
 import { runSafemode } from "@modules/settings/safemode/safemode";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { startTluiObserver } from "@shared/tlui/observer.ts";
@@ -50,6 +50,7 @@ import { placeSettingObserver } from "./modules/settings";
     });
 
     // CSSの適用
+    applyDefaultStyle();
     addCssElement();
     applyDataCss();
     applyCustomIcon();
