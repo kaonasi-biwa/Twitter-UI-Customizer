@@ -104,6 +104,7 @@ export default defineConfig(({ command, mode }) => {
                 { find: "@shared", replacement: r("src/shared") },
                 { find: "@modules", replacement: r("src/content/modules") },
                 { find: "@i18nData", replacement: r("i18n") },
+                { find: "@third-party",replacement: r("third-party")}
             ],
         },
     };
