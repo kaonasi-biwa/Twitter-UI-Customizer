@@ -79,7 +79,7 @@ export const TUICObserver = new (class TUICObserver {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            throwTestError();
+            //throwTestError();
 
             this.bind();
         } catch (e) {
