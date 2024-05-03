@@ -31,14 +31,13 @@
             <detailsBox summaryI18N="timeline-setting-timeline" :icon="ICON_HOME" :icon-opened="ICON_HOME_ENABLED">
                 <SettingTimeline />
             </detailsBox>
+            <detailsBox summaryI18N="tweetbuttons-setting-tweet" :icon="ICON_TWEET" :icon-opened="ICON_TWEET_ENABLED">
+                <SettingTweet />
+            </detailsBox>
         </div>
         <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-other" />
-        </div>
-        <hr class="TUIC_setting_divider" />
-        <div>
-            <SectionTitle titleI18N="settingSection-extentionInfo" />
         </div>
     </div>
 </template>
@@ -53,6 +52,8 @@ import ICON_PENCIL from "@content/icons/common/pencil.svg?component";
 import ICON_PENCIL_ENABLED from "@content/icons/common/pencil_enabled.svg?component";
 import ICON_HOME from "@content/icons/common/home.svg?component";
 import ICON_HOME_ENABLED from "@content/icons/common/home_enabled.svg?component";
+import ICON_TWEET from "@content/icons/common/tweet.svg?component";
+import ICON_TWEET_ENABLED from "@content/icons/common/tweet_enabled.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
@@ -63,6 +64,7 @@ import settingEffectText from "./modules/settingEffectText.vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
 import SettingTimeline from "./modules/settingTimeline.vue";
+import SettingTweet from "./modules/settingTweet.vue";
 </script>
 <!--
 <style scoped>

@@ -36,7 +36,9 @@
     "settingDetailsBox-sidebar": "サイドバー",
     "settingDetailsBox-effect_and_text": "画面効果とテキスト",
 
-    "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
+    "tweetbuttons-setting-tweet": "ツイート",
+
+    "bottomTweetButtons-settingTitle": "ツイート下ボタン",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
     "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
@@ -61,8 +63,9 @@
     "bottomTweetButtons-setting-linkCopyURL-X": "x.com",
     "bottomTweetButtons-setting-linkCopyURL-vxTwitter": "vxtwitter.com",
     "bottomTweetButtons-setting-linkCopyURL-fxTwitter": "fxtwitter.com",
-    "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
-    "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
+    "bottomTweetButtons-setting-linkCopy": "ツイート下ボタンの「ツイートのリンクをコピー」",
+    "bottomTweetButtons-setting-linkShareMenuCopy": "共有ボタンのメニューの「ツイートのリンクをコピー」",
+    "setting-linkShareCopyURL": "「ツイートのリンクをコピー」のドメイン",
 
     "tweetMoreMenuItems-settingTitle": "ツイート右上「もっと見る」メニュー",
     "tweetMoreMenuItems-engagements": "エンゲージメントを表示",
@@ -72,10 +75,12 @@
     "tweetMoreMenuItems-notInterested": "このツイートに興味がない",
     "tweetMoreMenuItems-notHelpful": "このツイートは役に立ちませんでした",
 
-    "tweetTopButton-settingTitle": "ツイート上ボタンの設定",
+    "tweetTopButton-settingTitle": "ツイート上ボタン",
 
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
+
+    "tweetViewSettings-other": " その他",
 
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-LeftSidebar": "左サイドバー",

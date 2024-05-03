@@ -269,10 +269,16 @@
 #TUIC_visible > div:hover {
     background-color: #181818;
 }
-div[tuicudbox="sidebarButtons"] > .UpDownButtons {
+div[tuicudbox="sidebarButtons"] > .UpDownButtons,
+div[tuicudbox="visibleButtons"] > .UpDownButtons,
+div[tuicudbox="fixEngagements"] > .UpDownButtons,
+div[tuicudbox="tweetTopButton"] > .UpDownButtons {
     padding: 0 7px;
 }
-.TUIC_setting_detailsbox_content_container div[tuicudbox="sidebarButtons"] {
+.TUIC_setting_detailsbox_content_container div[tuicudbox="tweetTopButton"],
+.TUIC_setting_detailsbox_content_container div[tuicudbox="sidebarButtons"],
+.TUIC_setting_detailsbox_content_container div[tuicudbox="fixEngagements"],
+.TUIC_setting_detailsbox_content_container div[tuicudbox="visibleButtons"] {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
 }
@@ -646,6 +652,24 @@ textarea#css_textarea,
 
 .TUIC_setting_rightSidebarFigure {
     border-radius: 10px 0 0 10px;
+}
+
+.TUIC_setting_TwButtonFigure {
+    border-radius: 10px 10px 0 10px;
+    height: 100%;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.TUIC_setting_TwButtonFigure_top {
+    border-radius: 10px 0 10px 10px;
+}
+
+.TUIC_setting_TwEngagementFigure {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    margin: 20px 0;
 }
 
 .TUIC_setting_UpdownListBtnDivider {
