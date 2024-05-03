@@ -2,6 +2,7 @@ import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyl
 import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
 import { followersList } from "./functions/followersList.tsx";
+import { throwTestError } from "@shared/testError.ts";
 
 //let time = 0;
 
@@ -77,6 +78,8 @@ export const TUICObserver = new (class TUICObserver {
 
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
+
+            //throwTestError();
 
             this.bind();
         } catch (e) {

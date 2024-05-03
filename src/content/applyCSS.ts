@@ -6,6 +6,17 @@ import { DOG, TWITTER, X } from "./icons/index.ts";
 import { TUICPref } from "@modules/index.ts";
 import { ColorData } from "@shared/sharedData.ts";
 
+import styleUrl from "./styles/index.pcss?url";
+
+export function applyDefaultStyle() {
+    document.querySelector("#tuicDefaultStyle")?.remove();
+    const link = document.createElement("link");
+    link.id = "tuicDefaultStyle";
+    link.rel = "stylesheet";
+    link.href = browser.runtime.getURL(styleUrl);
+    document.head.appendChild(link);
+}
+
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
     document.querySelector("#twitter_ui_customizer")?.remove();
