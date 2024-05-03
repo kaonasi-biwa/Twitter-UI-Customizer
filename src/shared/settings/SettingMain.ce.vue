@@ -28,6 +28,9 @@
         <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-page" />
+            <detailsBox summaryI18N="timeline-setting-timeline" :icon="ICON_HOME" :icon-opened="ICON_HOME_ENABLED">
+                <SettingTimeline />
+            </detailsBox>
         </div>
         <hr class="TUIC_setting_divider" />
         <div>
@@ -48,6 +51,8 @@ import ICON_SIDEBAR from "@content/icons/common/sidebar.svg?component";
 import ICON_SIDEBAR_ENABLED from "@content/icons/common/sidebar_enabled.svg?component";
 import ICON_PENCIL from "@content/icons/common/pencil.svg?component";
 import ICON_PENCIL_ENABLED from "@content/icons/common/pencil_enabled.svg?component";
+import ICON_HOME from "@content/icons/common/home.svg?component";
+import ICON_HOME_ENABLED from "@content/icons/common/home_enabled.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
@@ -57,6 +62,7 @@ import settingSidebar from "./modules/settingSidebar.vue";
 import settingEffectText from "./modules/settingEffectText.vue";
 import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
+import SettingTimeline from "./modules/settingTimeline.vue";
 </script>
 <!--
 <style scoped>

@@ -121,6 +121,7 @@
     "profileSetting-profileInitialTab-settingTitle": "プロフィール表示時に初期表示するタブ",
 
     "timeline-settingTitle": "タイムラインの設定",
+    "timeline-setting-timeline": "タイムライン",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
     "timeline-hideOhterRTTL": "リツイートを非表示にする",
     "timeline-accountStart": "アカウント作成時の「設定しましょう」を非表示にする",
