@@ -23,6 +23,8 @@ export const SidebarButtonSelectors = {
     muteAndBlock: "#TUICSidebar_muteAndBlock",
     settings: "#TUICSidebar_settings",
     premiumTierSwitch: `[href="/i/premium_tier_switch"]`,
+    jobs: "#TUICSidebar_jobs",
+    spaces: "#TUICSidebar_spaces",
 };
 
 const _data = {
@@ -77,6 +79,12 @@ const _data = {
         },
         settings: (): string => {
             return _data.html.__base("settings", `<path d="${SIDEBAR_BUTTON_ICON.settings.unselected}"></path>`);
+        },
+        jobs: (): string => {
+            return _data.html.__base("jobs", `<path d="${SIDEBAR_BUTTON_ICON.jobs.unselected}"></path>`);
+        },
+        spaces: (): string => {
+            return _data.html.__base("spaces", `<path d="${SIDEBAR_BUTTON_ICON.spaces.unselected}"></path>`);
         },
     },
     buttonClickInMoreMenu: async (selector: string) => {
@@ -165,6 +173,14 @@ const _data = {
                 }, 150);
             }
         },
+        jobs: (e: Event) => {
+            e?.preventDefault?.();
+            _data.buttonClickInMoreMenu(`[href="/jobs"]`);
+        },
+        spaces: (e: Event) => {
+            e?.preventDefault?.();
+            _data.buttonClickInMoreMenu(`[href="/i/spaces/start"]`);
+        },
     },
     tuicButtonGoToUrl: {
         __setURL: (id, selector, setURLWay: (arg0: HTMLElement) => string) => {
@@ -204,6 +220,8 @@ const _data = {
         muteAndBlock: "https://twitter.com/settings/mute_and_block",
         bookmarks: "https://twitter.com/i/bookmarks",
         settings: "https://twitter.com/settings/",
+        jobs: "https://twitter.com/jobs/",
+        spaces: "https://twitter.com/i/spaces/start/",
     },
 };
 

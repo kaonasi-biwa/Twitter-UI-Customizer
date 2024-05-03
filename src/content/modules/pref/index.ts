@@ -472,6 +472,8 @@ const ids = {
             { id: "muteAndBlock", i18n: "sidebarButtons-muteAndBlock" },
             { id: "premiumTierSwitch", i18n: "sidebarButtons-premiumTierSwitch" },
             { id: "settings", i18n: "sidebarButtons-settings" },
+            { id: "spaces", i18n: "sidebarButton-moreMenuItems-spaces" },
+            { id: "jobs", i18n: "sidebarButton-moreMenuItems-jobs" },
         ],
     },
     "sidebarSetting.buttonConfig": {
