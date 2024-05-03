@@ -4,7 +4,7 @@
             <div>
                 <component v-if="!opened" :is="icon" class="TUIC_setting_detailsbox_icon" />
                 <component v-if="opened" :is="iconOpened" class="TUIC_setting_detailsbox_icon" />
-                {{ TUICI18N.get(summaryI18N) }}
+                <span :style="opened ? `font-weight: bold` : ``">{{ TUICI18N.get(summaryI18N) }}</span>
                 <ICON_REVEAL style="width: 24px; margin: auto" :style="opened ? `transform: rotate(180deg)` : ``" />
             </div>
         </summary>

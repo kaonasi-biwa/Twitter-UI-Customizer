@@ -94,6 +94,7 @@
     "sidebarButton-moreMenuItems-separator": "分離線",
 
     "rightSidebar-settingTitle": "右サイドバーの設定",
+    "rightSidebar-setting-rightSidebar": "右サイドバー",
     "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
     "rightSidebar-trend": "「いまどうしてる？」を非表示にする",
     "rightSidebar-relevantPeople": "「関連性の高いアカウント」を非表示にする",
@@ -172,6 +173,8 @@
 
     "uncategorizedSettings-settingTitle": "その他の設定",
     "uncategorizedSettings-disableBackdropFilter": "ぼかし効果などの背景効果を無効にする",
+
+    "settingPerformance-settingTitle": "パフォーマンス",
 
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",

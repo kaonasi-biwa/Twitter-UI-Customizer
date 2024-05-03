@@ -92,7 +92,11 @@ export default defineConfig(({ command, mode }) => {
             vitePluginWebExt(__dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "chromium" : mode),
             // Vue Plugins
             vue(),
-            svgLoader(),
+            svgLoader({
+                svgoConfig: {
+                    plugins: ["prefixIds"],
+                },
+            }),
             viteVueCESubStyle({}) as PluginOption,
         ],
         resolve: {

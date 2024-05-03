@@ -644,6 +644,10 @@ textarea#css_textarea,
     margin: 20px 0;
 }
 
+.TUIC_setting_rightSidebarFigure {
+    border-radius: 10px 0 0 10px;
+}
+
 .TUIC_setting_UpdownListBtnDivider {
     margin: 5px 0;
     width: 100%;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1000 500" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="leftSidebarFigure"  height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1000 500" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <path d="M34.8113 98.2315C34.8113 89.8431 41.6115 83.0428 50 83.0428C58.3885 83.0428 65.1887 89.8431 65.1887 98.2315C65.1887 106.62 58.3885 113.42 50 113.42C41.6115 113.42 34.8113 106.62 34.8113 98.2315Z" id="Fill"/>
 <path d="M34.8113 143.086C34.8113 134.697 41.6115 127.897 50 127.897C58.3885 127.897 65.1887 134.697 65.1887 143.086C65.1887 151.474 58.3885 158.275 50 158.275C41.6115 158.275 34.8113 151.474 34.8113 143.086Z" id="Fill_2"/>
@@ -10,13 +10,10 @@
 <path d="M34.8113 277.649C34.8113 269.261 41.6115 262.461 50 262.461C58.3885 262.461 65.1887 269.261 65.1887 277.649C65.1887 286.038 58.3885 292.838 50 292.838C41.6115 292.838 34.8113 286.038 34.8113 277.649Z" id="Fill_5"/>
 <path d="M34.8113 322.504C34.8113 314.115 41.6115 307.315 50 307.315C58.3885 307.315 65.1887 314.115 65.1887 322.504C65.1887 330.892 58.3885 337.692 50 337.692C41.6115 337.692 34.8113 330.892 34.8113 322.504Z" id="Fill_6"/>
 <path d="M864.98 310.825C864.98 302.437 871.78 295.637 880.169 295.637L942.979 295.637C951.367 295.637 958.168 302.437 958.168 310.825L958.168 310.825C958.168 319.214 951.367 326.014 942.979 326.014L880.169 326.014C871.78 326.014 864.98 319.214 864.98 310.825L864.98 310.825Z" id="Fill_7"/>
-<path d="M650 0L1000 0L1000 500L650 500L650 0Z" id="Fill_8"/>
+<path d="M0 0L100 0L100 500L0 500L0 0Z" id="Fill_8"/>
 </defs>
 <path d="M0 0L1000 0L1000 500L0 500L0 0Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
-<clipPath id="ArtboardFrame">
-<rect height="500" width="1000" x="0" y="0"/>
-</clipPath>
-<g clip-path="url(#ArtboardFrame)" id="レイヤー-1">
+<g>
 <g opacity="1">
 <mask height="30.3774" id="StrokeMask" maskUnits="userSpaceOnUse" width="30.3774" x="34.8113" y="83.0428">
 <rect fill="#000000" height="30.3774" stroke="none" width="30.3774" x="34.8113" y="83.0428"/>
@@ -95,10 +92,10 @@
 <path d="M699.811 500L755.15 500" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
 <path d="M699.811 302.205L797.461 302.205" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
 </g>
-<g id="レイヤー-2">
+<g>
 <g opacity="1">
-<mask height="500" id="StrokeMask_8" maskUnits="userSpaceOnUse" width="350" x="650" y="0">
-<rect fill="#000000" height="500" stroke="none" width="350" x="650" y="0"/>
+<mask height="500" id="StrokeMask_8" maskUnits="userSpaceOnUse" width="100" x="0" y="0">
+<rect fill="#000000" height="500" stroke="none" width="100" x="0" y="0"/>
 <use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill_8"/>
 </mask>
 <use fill="none" mask="url(#StrokeMask_8)" stroke="#1da1f2" stroke-linecap="butt" stroke-linejoin="round" stroke-width="16" xlink:href="#Fill_8"/>
