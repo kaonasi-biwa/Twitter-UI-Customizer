@@ -16,6 +16,7 @@ const _data = {
         ads: `[data-testid="Dropdown"] [href*="ads.twitter.com"]`,
         premium: `[data-testid="Dropdown"] [href="/i/verified-choose"]`,
         jobs: `[data-testid="Dropdown"] [href="/jobs"]`,
+        spaces: `[data-testid="Dropdown"] [href="/i/spaces/start"]`,
     },
     type: {
         bookmarks: "menuitem",
@@ -30,6 +31,7 @@ const _data = {
         ads: "menuitem",
         premium: "menuitem",
         jobs: "menuitem",
+        spaces: "menuitem",
     },
 };
 

@@ -501,15 +501,16 @@ const ids = {
     "sidebarSetting.moreMenuItems": {
         type: "boolean",
         values: [
-            { id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
+            //{ id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
             { id: "bookmarks", i18n: "sidebarButtons-bookmarks", default: false },
             { id: "communities", i18n: "sidebarButtons-communities", default: false },
             { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },
-            { id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
+            //{ id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
             { id: "ads", i18n: "sidebarButton-moreMenuItems-ads", default: false },
             { id: "jobs", i18n: "sidebarButton-moreMenuItems-jobs", default: false },
+            { id: "spaces", i18n: "sidebarButton-moreMenuItems-spaces", default: false },
             { id: "settings", i18n: "sidebarButton-moreMenuItems-settings", default: false },
-            { id: "separator", i18n: "sidebarButton-moreMenuItems-separator", default: false },
+            //{ id: "separator", i18n: "sidebarButton-moreMenuItems-separator", default: false },
         ],
     },
 
