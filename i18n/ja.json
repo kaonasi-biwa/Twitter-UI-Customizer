@@ -25,7 +25,7 @@
     "easySetting-restoreIcon": "Xなんて嫌！アイコンも名前もTwitterがいいんだ！！",
     "easySetting-deleteVerified": "「認証しろ」ってうるさい？全部非表示にしよう！",
     "easySetting-discoverMoreDelete": "「もっと見つける」が邪魔？消しちゃえ！",
-    "easySetting-defaultTwitterColor": "Twitterの新しい色はにもう慣れた？それなら、今の色に合わせよう！",
+    "easySetting-defaultTwitterColor": "Twitterの新しい色にはもう慣れた？それなら、今の色に合わせよう！",
 
     "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
@@ -182,7 +182,7 @@
     "import-select-explain": "「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートされます。この場合、インポート元に含まれない設定はデフォルト値になります。",
     "import-error": "構文解析に失敗しました。インポート元のデータが破損している可能性があります。",
 
-    "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)にお伝え下さい。",
+    "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
     "observerError-copy": "コピーして閉じる",
 
     "common-yes": "はい",
