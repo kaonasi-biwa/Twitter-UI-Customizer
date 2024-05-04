@@ -1,8 +1,8 @@
 <template>
     <form>
-        <textarea id="css_textarea" v-model="customCSS" ref="CustomCSSBox"></textarea>
+        <textarea id="css_textarea" class="TUIC_setting_customcss_input" v-model="customCSS" ref="CustomCSSBox"></textarea>
     </form>
-    <button id="save" class="TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" @click="changeCustomCSS()">
+    <button id="save" class="TUIC_setting_customcss_button TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" @click="changeCustomCSS()">
         {{ TUICI18N.get("customCSS-save") }}
     </button>
 </template>

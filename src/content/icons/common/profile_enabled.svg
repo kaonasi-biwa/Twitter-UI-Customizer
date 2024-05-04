@@ -4,6 +4,6 @@
 <svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 24 24" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs/>
 <g id="名称未設定">
-<path d="M12 2C9.791 2 8 3.79 8 6C8 8.21 9.791 10 12 10C14.209 10 16 8.21 16 6C16 3.79 14.209 2 12 2ZM12 11C9.648 11 7.615 11.8475 6.125 13.4375C4.648 15.0175 3.766 17.2462 3.5 19.9062L3.40625 21L20.5938 21L20.5 19.9062C20.234 17.2463 19.352 15.0175 17.875 13.4375C16.385 11.8475 14.352 11 12 11Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M12 2C9.791 2 8 3.79 8 6C8 8.21 9.791 10 12 10C14.209 10 16 8.21 16 6C16 3.79 14.209 2 12 2ZM12 11C9.648 11 7.615 11.8475 6.125 13.4375C4.648 15.0175 3.766 17.2462 3.5 19.9062L3.40625 21L20.5938 21L20.5 19.9062C20.234 17.2463 19.352 15.0175 17.875 13.4375C16.385 11.8475 14.352 11 12 11Z" style="fill: var(--twitter-TUIC-color);" fill-rule="nonzero" opacity="1" stroke="none"/>
 </g>
 </svg>

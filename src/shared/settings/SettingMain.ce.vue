@@ -34,6 +34,15 @@
             <detailsBox summaryI18N="tweetbuttons-setting-tweet" :icon="ICON_TWEET" :icon-opened="ICON_TWEET_ENABLED">
                 <SettingTweet />
             </detailsBox>
+            <detailsBox summaryI18N="dmPage-setting-dm" :icon="ICON_DM" :icon-opened="ICON_DM_ENABLED">
+                <SettingDM />
+            </detailsBox>
+            <detailsBox summaryI18N="profileSetting-profile" :icon="ICON_PROFILE" :icon-opened="ICON_PROFILE_ENABLED">
+                <SettingProfile />
+            </detailsBox>
+            <detailsBox summaryI18N="uncategorizedSettings-settingTitle" :icon="ICON_MORE_CIRCLE" :icon-opened="ICON_MORE_CIRCLE_ENABLED">
+                <SettingUncategorized />
+            </detailsBox>
         </div>
         <hr class="TUIC_setting_divider" />
         <div>
@@ -54,6 +63,12 @@ import ICON_HOME from "@content/icons/common/home.svg?component";
 import ICON_HOME_ENABLED from "@content/icons/common/home_enabled.svg?component";
 import ICON_TWEET from "@content/icons/common/tweet.svg?component";
 import ICON_TWEET_ENABLED from "@content/icons/common/tweet_enabled.svg?component";
+import ICON_DM from "@content/icons/common/dm.svg?component";
+import ICON_DM_ENABLED from "@content/icons/common/dm_enabled.svg?component";
+import ICON_PROFILE from "@content/icons/common/profile.svg?component";
+import ICON_PROFILE_ENABLED from "@content/icons/common/profile_enabled.svg?component";
+import ICON_MORE_CIRCLE from "@content/icons/common/more_circle.svg?component";
+import ICON_MORE_CIRCLE_ENABLED from "@content/icons/common/more_circle_enabled.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
@@ -65,6 +80,9 @@ import { TUICI18N } from "@content/i18n";
 import { TUICPref } from "@content/modules";
 import SettingTimeline from "./modules/settingTimeline.vue";
 import SettingTweet from "./modules/settingTweet.vue";
+import SettingDM from "./modules/settingDM.vue";
+import SettingProfile from "./modules/settingProfile.vue";
+import SettingUncategorized from "./modules/settingUncategorized.vue";
 </script>
 <!--
 <style scoped>
