@@ -752,6 +752,34 @@ textarea#css_textarea {
 .TUIC_setting_customcss_button:active {
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 30%);
 }
+.TUIC_setting_button_new {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
+    color: var(--TUIC-container-background);
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 9999px;
+    font-weight: bold;
+}
+
+.TUIC_setting_button_new:active {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 30%);
+}
+.TUIC_setting_intro_paragraph_bold {
+    font-weight: bold;
+}
+
+.TUIC_setting_intro_paragraph {
+    color: rgb(113 118 124);
+    font-size: 15px;
+    margin: 20px 0 10px;
+    font-feature-settings: "palt";
+    letter-spacing: 1px;
+}
+.TUIC_setting_textarea_new {
+    border: 1px solid #303438;
+    background: var(--tlui-dialog-background);
+}
 
 .TUICSelectImg {
     font-size: 15px;

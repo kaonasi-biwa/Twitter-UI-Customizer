@@ -47,6 +47,10 @@
         <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-other" />
+            <detailsBox summaryI18N="export-import" :icon="ICON_ARROW_RIGHT" :icon-opened="ICON_ARROW_RIGHT_ENABLED">
+                <SettingImportExport />
+            </detailsBox>
+            <defaultPrefButton />
         </div>
     </div>
 </template>
@@ -69,6 +73,8 @@ import ICON_PROFILE from "@content/icons/common/profile.svg?component";
 import ICON_PROFILE_ENABLED from "@content/icons/common/profile_enabled.svg?component";
 import ICON_MORE_CIRCLE from "@content/icons/common/more_circle.svg?component";
 import ICON_MORE_CIRCLE_ENABLED from "@content/icons/common/more_circle_enabled.svg?component";
+import ICON_ARROW_RIGHT from "@content/icons/common/arrow_right.svg?component";
+import ICON_ARROW_RIGHT_ENABLED from "@content/icons/common/arrow_right_enabled.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
@@ -83,6 +89,8 @@ import SettingTweet from "./modules/settingTweet.vue";
 import SettingDM from "./modules/settingDM.vue";
 import SettingProfile from "./modules/settingProfile.vue";
 import SettingUncategorized from "./modules/settingUncategorized.vue";
+import SettingImportExport from "./modules/settingImportExport.vue";
+import defaultPrefButton from "./components/defaultPrefButton.vue";
 </script>
 <!--
 <style scoped>
