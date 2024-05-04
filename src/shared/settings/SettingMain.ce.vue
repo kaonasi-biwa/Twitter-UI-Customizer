@@ -52,6 +52,16 @@
             </detailsBox>
             <defaultPrefButton />
         </div>
+        <hr class="TUIC_setting_divider" />
+        <div>
+            <SectionTitle titleI18N="settingSection-extentionInfo" />
+            <IconButton i18n="addonInfo-aboutTUIC" :icon="ICON_INFORMATION" @click="openReadme" />
+            <IconButton i18n="addonInfo-TUICOfficialTwitter" :icon="ICON_TWITTER" @click="openOfficialTwitter" />
+            <IconButton i18n="addonInfo-github" :icon="ICON_GITHUB" @click="openGithub" />
+        </div>
+        <a class="TUIC_setting_bottom_copyright" href="https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE">
+            <span style="color: rgb(113, 118, 124); font-size: 15px; text-align: center">&copy; 2022 kaonasi-biwa</span>
+        </a>
     </div>
 </template>
 
@@ -75,6 +85,9 @@ import ICON_MORE_CIRCLE from "@content/icons/common/more_circle.svg?component";
 import ICON_MORE_CIRCLE_ENABLED from "@content/icons/common/more_circle_enabled.svg?component";
 import ICON_ARROW_RIGHT from "@content/icons/common/arrow_right.svg?component";
 import ICON_ARROW_RIGHT_ENABLED from "@content/icons/common/arrow_right_enabled.svg?component";
+import ICON_INFORMATION from "@content/icons/common/information.svg?component";
+import ICON_TWITTER from "@content/icons/common/twitter.svg?component";
+import ICON_GITHUB from "@content/icons/common/github.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/SectionTitle.vue";
@@ -82,8 +95,6 @@ import detailsBox from "./components/detailsBox.vue";
 import settingColors from "@shared/options/modules/settingColors.vue";
 import settingSidebar from "./modules/settingSidebar.vue";
 import settingEffectText from "./modules/settingEffectText.vue";
-import { TUICI18N } from "@content/i18n";
-import { TUICPref } from "@content/modules";
 import SettingTimeline from "./modules/settingTimeline.vue";
 import SettingTweet from "./modules/settingTweet.vue";
 import SettingDM from "./modules/settingDM.vue";
@@ -91,6 +102,20 @@ import SettingProfile from "./modules/settingProfile.vue";
 import SettingUncategorized from "./modules/settingUncategorized.vue";
 import SettingImportExport from "./modules/settingImportExport.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
+import IconButton from "./components/IconButton.vue";
+
+function openReadme() {
+    openInNewTab("https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/README.md");
+}
+function openOfficialTwitter() {
+    openInNewTab("https://twitter.com/TUIC_official");
+}
+function openGithub() {
+    openInNewTab("https://github.com/kaonasi-biwa/Twitter-UI-Customizer");
+}
+function openInNewTab(url: string) {
+    window.open(url, "_blank");
+}
 </script>
 <!--
 <style scoped>

@@ -792,3 +792,20 @@ textarea#css_textarea {
     border-radius: 10px;
     margin-right: 12px;
 }
+
+.TUIC_setting_bottom_copyright {
+    margin: 35px 0;
+    text-decoration-color: rgb(113, 118, 124) !important;
+    text-decoration-line: none;
+}
+.TUIC_setting_bottom_copyright:hover {
+    text-decoration: underline;
+}
+.TUIC_setting_bottom_copyright:active {
+    text-decoration: none;
+}
+.TUIC_setting_bottom_copyright span {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

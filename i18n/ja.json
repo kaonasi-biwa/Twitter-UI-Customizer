@@ -210,6 +210,10 @@
     "import-select-explain": "「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートされます。この場合、インポート元に含まれない設定はデフォルト値になります。",
     "import-error": "構文解析に失敗しました。インポート元のデータが破損している可能性があります。",
 
+    "addonInfo-aboutTUIC": "Twitter UI Customizerについて",
+    "addonInfo-TUICOfficialTwitter": "公式アカウント(@TUIC_Official)",
+    "addonInfo-github": "GitHub",
+
     "common-yes": "はい",
     "common-no": "いいえ",
     "common-close": "閉じる",
