@@ -280,7 +280,7 @@ export function getDefaultPref(id: string) {
     }
 }
 
-const prefVersion = 2;
+const prefVersion = 3;
 
 // Objectの中身はこれに従ってください
 type TUICSetting =
