@@ -1,20 +1,22 @@
-import { TUICLibrary } from "@content/library";
-import { isSafemode } from "@content/safemode";
-import { TUICObserver } from "@content/observer";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { TUICPref } from "@content/modules";
+import { titleObserverFunction } from "@modules/observer/titleObserver";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 export const XToTwitterRestoreIcon = () => {
     const importPref = {
-        otherBoolSetting: {
-            faviconSet: true,
-        },
         sidebarSetting: { buttonConfig: { birdGoBack: true } },
-        twitterIcon: "twitter",
+        twitterIcon: {
+            options: {
+                faviconSet: true,
+            },
+            icon: "twitter",
+        },
     };
     TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
     TUICPref.save();
-    TUICLibrary.getClasses.update();
-    TUICObserver.titleObserverFunction();
+    updateClasses();
+    titleObserverFunction();
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }

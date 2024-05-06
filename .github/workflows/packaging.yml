@@ -6,11 +6,21 @@ on:
     workflow_dispatch:
 
 jobs:
+    create-branch:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Create new Branch
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  git checkout -b "archive/${{ github.ref_name }}"
+                  git push --set-upstream origin "HEAD:archive/${{ github.ref_name }}"
     build-firefox:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v2
+            - uses: pnpm/action-setup@v3
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
@@ -20,17 +30,23 @@ jobs:
                   pnpm install
                   pnpm build:firefox
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
+                  cp ./dist/index.js ./codeToDebug.js
             - name: Publish
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: Twitter_UI_Customizer_Firefox
                   path: Twitter_UI_Customizer_Firefox.xpi
+            - name: Publish
+              uses: actions/upload-artifact@v4
+              with:
+                  name: codeToDebug
+                  path: codeToDebug.js
 
     build-chromium:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v2
+            - uses: pnpm/action-setup@v3
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
@@ -41,7 +57,7 @@ jobs:
                   pnpm build:chromium
                   cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
             - name: Publish
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: Twitter_UI_Customizer_Chromium
                   path: Twitter_UI_Customizer_Chromium.zip
@@ -50,7 +66,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v2
+            - uses: pnpm/action-setup@v3
             - uses: actions/setup-node@v4
               with:
                   node-version-file: "package.json"
@@ -59,24 +75,21 @@ jobs:
               run: |
                   pnpm install
                   pnpm vite build --mode chromiumCRX
-                  cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
               env:
                   GITHUB_REPO: ${{ github.repository }}
             - name: CRX
-              uses: cardinalby/webext-buildtools-chrome-crx-action@v2
-              with:
-                  zipFilePath: Twitter_UI_Customizer_Chromium.zip
-                  crxFilePath: Twitter_UI_Customizer_Chromium.crx
-                  privateKey: ${{ secrets.CHROME_EXTENSION_KEY }}
-                  updateXmlPath: crxupdate.xml
-                  updateXmlCodebaseUrl: https://github.com/${{ github.repository }}/releases/latest/download/Twitter_UI_Customizer_Chromium.crx
+              run: |
+                  node ./npm-scripts/generate-crx.js
+              env:
+                  GITHUB_REPO: ${{ github.repository }}
+                  CHROME_EXTENSION_KEY: ${{ secrets.CHROME_EXTENSION_KEY }}
             - name: Publish
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: Twitter_UI_Customizer_Chromium_crx
                   path: Twitter_UI_Customizer_Chromium.crx
             - name: Publish
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: crxupdate
                   path: crxupdate.xml
@@ -88,7 +101,7 @@ jobs:
         steps:
             - name: Create Release
               id: create_release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@4634c16e79c963813287e889244c50009e7f0981
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   tag_name: ${{ github.ref_name }}
@@ -96,24 +109,21 @@ jobs:
                   draft: false
                   prerelease: false
             - name: loadFile
-              uses: actions/download-artifact@v3
+              uses: actions/download-artifact@v4
               with:
-                  name: Twitter_UI_Customizer_Firefox
+                  pattern: Twitter_UI_Customizer_*
+                  merge-multiple: true
             - name: loadFile
-              uses: actions/download-artifact@v3
-              with:
-                  name: Twitter_UI_Customizer_Chromium
-            - name: loadFile
-              uses: actions/download-artifact@v3
-              with:
-                  name: Twitter_UI_Customizer_Chromium_crx
-            - name: loadFile
-              uses: actions/download-artifact@v3
+              uses: actions/download-artifact@v4
               with:
                   name: crxupdate
+            - name: loadFile
+              uses: actions/download-artifact@v4
+              with:
+                  name: codeToDebug
             - name: Upload Release Asset
               id: upload-release-asset
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@4634c16e79c963813287e889244c50009e7f0981
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   files: |
@@ -121,3 +131,4 @@ jobs:
                       Twitter_UI_Customizer_Chromium.zip
                       Twitter_UI_Customizer_Chromium.crx
                       crxupdate.xml
+                      codeToDebug.js

@@ -10,18 +10,16 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
+import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
 import { Component } from "vue";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string; valueName: string; name: string; icon: Component }>();
 
 const changePref = (path, valueName) => {
     TUICPref.setPref(path, valueName);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
-    TUICObserver.observerFunction(null);
+    updateClasses();
 };
 </script>

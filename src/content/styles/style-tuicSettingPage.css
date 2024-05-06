@@ -1,7 +1,7 @@
 /* セーフモード時の設定画面スタイル */
 #TUIC_safemode > #TUIC_setting {
-    margin: 2em auto;
     max-width: 600px;
+    margin: 2em auto;
 }
 
 #TUIC_safemode > .r-135wba7 {
@@ -57,13 +57,13 @@
 
 /* 無理やり丸くするための準備（スタイルを消しまくったりポインタをカーソルにしてわかりやすく） */
 .TUIC_col_setting_container input[type="color"] {
-    -webkit-appearance: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transform: translate(-25%, -25%);
     width: 200%;
     height: 200%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transform: translate(-25%, -25%);
 }
 
 /* type=colorなinputタグを無理やり丸くするためのマスク */
@@ -72,6 +72,7 @@
     width: 30px;
     height: 30px;
     overflow: hidden;
+    border-radius: 50%;
 }
 
 /* ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ */
@@ -139,6 +140,8 @@
     margin-top: 10px;
     padding-bottom: 5px;
     overflow-x: auto;
+    border: solid 1px #71767b;
+    border-radius: 6px;
     scrollbar-width: thin;
 }
 
@@ -154,6 +157,7 @@
 .TUICDetails,
 .TUICEasySetting {
     margin-bottom: 20px;
+    font-family: sans-serif;
     border: 2px solid;
     border-color: rgb(0 0 0 / 0%) !important;
     border-radius: 5px;
@@ -178,6 +182,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2px;
     cursor: pointer;
     padding: 0;
 }
@@ -203,12 +208,14 @@
 }
 
 .TUIC_setting_button {
+    cursor: pointer;
     background: transparent;
     /* border-color: var(--twitter-TUIC-color); */
     border-color: #71767b !important;
     border-radius: 9999px;
     transition: none;
     cursor: pointer;
+    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%);
     /* color: #71767b !important; */
 }
 
@@ -239,22 +246,19 @@
     display: none;
 }
 
-.TUIC_DISPNONE {
-    display: none !important;
-}
-
 #TUIC_invisible,
 #TUIC_visible {
     height: 100%;
     padding-bottom: 50px;
     overflow-y: clip;
+    background: transparent;
 }
 
 #TUIC_invisible span,
 #TUIC_visible span,
 .TUICTextInput {
-    background: transparent;
     color: var(--twitter-TUIC-color);
+    background: transparent;
 }
 
 #TUIC_invisible > div,
@@ -284,8 +288,8 @@ div[tuicudbox="tweetTopButton"] > .UpDownButtons {
 
 #TUIC_invisible > div span,
 #TUIC_visible > div > span {
-    white-space: nowrap;
     line-height: calc(1em + 5px);
+    white-space: nowrap;
 }
 
 [TUICSelectedUpDownContent="true"],
@@ -313,9 +317,9 @@ textarea#css_textarea {
 
 .TUICTextInput {
     width: calc(100% - 10px);
+    margin-bottom: 20px;
     border: 1px solid #808080;
     border-radius: 6px;
-    margin-bottom: 20px;
 }
 
 /* チェックボタン(Transparent) */
@@ -340,11 +344,14 @@ textarea#css_textarea {
 }
 
 .TUICButtonColorCheck[data-checked="true"] {
+    background-color: rgb(29 161 242 / 100%);
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'></polyline></svg>");
     /* チェックされている */
     border: solid 3px #1da1f2;
 }
 
 .TUICSettingRadioTypeBigButton {
+    display: flex;
     flex: 1 1;
     height: 50px;
     border-radius: 10px !important;
@@ -357,11 +364,6 @@ textarea#css_textarea {
 }
 
 .TUICSettingRadioTypeBigButton > span > span {
-    mix-blend-mode: difference;
-    white-space: nowrap;
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
     font-family:
         Inter,
         -apple-system,
@@ -373,6 +375,11 @@ textarea#css_textarea {
         Meiryo,
         system-ui,
         sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    mix-blend-mode: difference;
 }
 
 .TUICSettingRadioTypeBigButton > span {
@@ -435,9 +442,9 @@ textarea#css_textarea {
 
 :is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
     display: inline-block;
-    margin-left: 0.25em;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 0.25em;
 }
 
 #TUIC_setting :is(label, span, button, h2) {
@@ -450,13 +457,13 @@ textarea#css_textarea {
 }
 
 #TUICSelectedColorType {
-    display: flex;
     position: sticky;
     gap: 10px;
     top: 0;
     z-index: 9999;
-    background-color: var(--TUIC-container-background);
+    display: flex;
     padding-top: 20px;
+    background-color: var(--TUIC-container-background);
 }
 
 .TUIC_setting_divider {

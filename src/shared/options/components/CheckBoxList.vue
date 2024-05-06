@@ -1,13 +1,12 @@
 <template>
-    <template v-for="i in TUICData[id].all" :key="i">
-        <CheckBox :value="`${id}.${i}`" :name="TUICData[id].i18n[i]" />
+    <template v-for="i of TUICPref.getSettingData(id)" :key="i.id">
+        <CheckBox :value="`${id}.${i.id}`" :name="i.i18n" />
     </template>
 </template>
 
 <script setup lang="ts">
+import { TUICPref } from "@content/modules";
 import CheckBox from "./CheckBox.vue";
-
-import { TUICData } from "@content/data.js";
 
 const props = defineProps<{ id: string }>();
 </script>

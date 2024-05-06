@@ -90,9 +90,14 @@ export class Dialog {
     public addComponents(components: (string | Component)[]): Dialog {
         for (const component of components) {
             if (typeof component === "string") {
-                const p = document.createElement("p");
-                p.textContent = component;
-                this.container.appendChild(p);
+                if (component) {
+                    const p = document.createElement("p");
+                    p.textContent = component;
+                    this.container.appendChild(p);
+                } else {
+                    const br = document.createElement("br");
+                    this.container.appendChild(br);
+                }
             } else {
                 this.container.appendChild(component.element);
             }

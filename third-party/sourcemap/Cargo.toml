@@ -1,0 +1,14 @@
+[package]
+name = "sourcemap-js"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+#when testing with main.rs, commentout these two lines
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+sourcemap = "8.0.1"
+wasm-bindgen = "0.2.92"

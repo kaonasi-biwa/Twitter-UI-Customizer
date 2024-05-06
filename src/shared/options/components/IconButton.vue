@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 
 const props = defineProps<{
     btnAction: string;
@@ -15,3 +15,4 @@ const props = defineProps<{
 </script>
 
 <style scoped></style>
+@modules/i18n/i18n

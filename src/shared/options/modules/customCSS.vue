@@ -9,12 +9,14 @@
 
 <script setup lang="ts">
 import { applyCustomCss } from "@content/applyCSS";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
+const CustomCSSBox = defineModel<HTMLTextAreaElement>();
 
 function changeCustomCSS() {
-    localStorage.setItem("TUIC_CSS", this.$refs.CustomCSSBox.value);
+    localStorage.setItem("TUIC_CSS", CustomCSSBox.value.value);
     applyCustomCss();
 }
 
 const customCSS = localStorage.getItem("TUIC_CSS");
 </script>
+@modules/i18n/i18n

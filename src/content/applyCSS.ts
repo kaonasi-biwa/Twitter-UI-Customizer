@@ -1,11 +1,21 @@
 import browser from "webextension-polyfill";
-
-import { TUICData } from "./data.ts";
-import { TUICLibrary } from "./library.ts";
-import { isSafemode } from "./safemode.ts";
+import { TUICLibrary } from "@content/library.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
-import { TUICPref } from "./modules/index.ts";
+import { TUICPref } from "@modules/index.ts";
+import { ColorData } from "@shared/sharedData.ts";
+
+import styleUrl from "./styles/index.pcss?url";
+
+export function applyDefaultStyle() {
+    document.querySelector("#tuicDefaultStyle")?.remove();
+    const link = document.createElement("link");
+    link.id = "tuicDefaultStyle";
+    link.rel = "stylesheet";
+    link.href = browser.runtime.getURL(styleUrl);
+    document.head.appendChild(link);
+}
 
 export function addCssElement() {
     document.querySelector("#twitter_ui_customizer_css")?.remove();
@@ -64,19 +74,19 @@ export function applySystemCss() {
 
     const settingsArr = [
         "sidebarSetting.buttonConfigsmallerSidebarContent",
-        "otherBoolSetting.roundIcon",
+        "twitterIcon.options.roundIcon",
         "invisibleItems.subscribe-profile",
         "invisibleItems.hideBelowDM",
-        "tweetDisplaySetting.bottomSpace",
+        "tweetDisplaySetting.invisible.bottomSpace",
         "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
-        "tweetDisplaySetting.noNumberBottomTweetButtons",
+        "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
         "accountSwitcher.icon",
         "accountSwitcher.nameID",
         "accountSwitcher.moreMenu",
         "profileSetting.tabs.pinnedTab",
         "uncategorizedSettings.disableBackdropFilter",
         "composetweet.hideDraft",
-        "tweetDisplaySetting.likeToFavo",
+        "tweetDisplaySetting.option.likeToFavo",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
@@ -84,30 +94,33 @@ export function applySystemCss() {
             settingsOutput += elem + "|";
         }
     }
+    if (!TUICPref.getPref("sidebarButtons").includes("verified-choose")) {
+        settingsOutput += "sidebarButtons.style.verifiedChoose" + "|";
+    }
     document.documentElement.setAttribute("TUICSettings", settingsOutput);
 
     const r = document.querySelector(":root");
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem in TUICData.colors) {
+        for (const elem of TUICPref.getSettingIDs("buttonColor")) {
             for (const el of ["background", "border", "color"]) {
-                if (TUICData.colors[elem][el]) {
+                if (ColorData.defaultTUICColor.colors[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, TUICLibrary.color.getColorFromPref(elem, el, null));
                 }
             }
         }
 
-        rs.setProperty("--twitter-TUIC-color", TUICData.styleColor[backgroundColor].textColor);
-        rs.setProperty("--TUIC-container-background", TUICData.styleColor[backgroundColor].containerBackground);
-        rs.setProperty("--TUIC-container-background2", TUICData.styleColor[backgroundColor].containerBackground2);
-        rs.setProperty("--TUIC-color-hover-efect", TUICData.styleColor[backgroundColor].colorHover);
+        rs.setProperty("--twitter-TUIC-color", ColorData.TUICFixedColor[backgroundColor].textColor);
+        rs.setProperty("--TUIC-container-background", ColorData.TUICFixedColor[backgroundColor].containerBackground);
+        rs.setProperty("--TUIC-container-background2", ColorData.TUICFixedColor[backgroundColor].containerBackground2);
+        rs.setProperty("--TUIC-color-hover-efect", ColorData.TUICFixedColor[backgroundColor].colorHover);
 
         rs.setProperty("--TUIC-sidebar-hover-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)");
         rs.setProperty("--TUIC-sidebar-active-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)");
         rs.setProperty("--TUIC-sidebar-focus-color", TUICLibrary.backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)");
 
-        rs.setProperty("--TUIC-detail-border", TUICData.styleColor[backgroundColor].detailBorder);
+        rs.setProperty("--TUIC-detail-border", ColorData.TUICFixedColor[backgroundColor].detailBorder);
 
         rs.setProperty("--TUIC-pinnedTab-background", `rgba(${TUICLibrary.backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
 

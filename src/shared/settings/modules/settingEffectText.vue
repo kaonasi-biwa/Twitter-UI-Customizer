@@ -13,6 +13,6 @@
 <script setup lang="ts">
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { XToTwitterRestoreIcon } from "@shared/options/scripts/changePrefScript";
 </script>

@@ -19,24 +19,21 @@
     inset: 0;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     background-color: var(--tlui-dialog-mask);
 }
 
 /* ダイアログ > コンテナ */
 .tlui-dialog > .tlui-container {
-    background-color: var(--tlui-dialog-background);
-    color: var(--tlui-dialog-text);
-
-    border-radius: 16px;
-
     width: fit-content;
     min-width: 380px;
     max-width: 80vw;
     max-height: 80vh;
     margin: auto;
+
+    overflow-y: auto;
 
     font-family:
         "Segoe UI",
@@ -45,8 +42,10 @@
         -apple-system,
         BlinkMacSystemFont,
         sans-serif;
+    color: var(--tlui-dialog-text);
+    background-color: var(--tlui-dialog-background);
 
-    overflow-y: auto;
+    border-radius: 16px;
 }
 .tlui-dialog:not(.has-padding) > .tlui-container {
     padding: 0;
@@ -58,41 +57,41 @@
 .tlui-dialog h1 {
     margin: 0;
     margin-bottom: 8px;
-    line-height: 24px;
     font-size: 20px;
     font-weight: 700;
+    line-height: 24px;
     word-wrap: break-word;
 }
 /* ダイアログ > 外枠 > コンテナ > 本文 */
 .tlui-dialog p {
-    font-size: 15px;
     margin: 0;
-    color: rgb(113 118 123);
+    font-size: 15px;
     line-height: 22px;
+    color: rgb(113 118 123);
 }
 /* ダイアログ > 外枠 > コンテナ > ボタン */
 .tlui-dialog button {
-    cursor: pointer;
-    background: var(--tlui-button-background);
-    color: var(--tlui-button-text);
-    border: 1px solid rgb(83 100 113);
-    border-radius: 100000px;
+    height: 45px;
+    padding-inline: 16px;
+    margin-inline: auto;
+    margin-top: 16px;
 
     font-size: 1.1em;
     font-weight: 700;
     line-height: 1em;
-    padding-inline: 16px;
-    margin-inline: auto;
-    margin-top: 16px;
-    height: 45px;
+    color: var(--tlui-button-text);
+    cursor: pointer;
+    background: var(--tlui-button-background);
+    border: 1px solid rgb(83 100 113);
+    border-radius: 100000px;
     transition-duration: 0.2s;
 }
-.tlui-dialog button.full-width {
+.tlui-dialog .full-width:is(button, textarea) {
     width: 100%;
 }
 .tlui-dialog button.invert-color {
-    background-color: var(--tlui-button-text);
     color: var(--tlui-button-background);
+    background-color: var(--tlui-button-text);
 }
 .tlui-dialog button:hover {
     background-color: var(--tlui-button-background-hover);

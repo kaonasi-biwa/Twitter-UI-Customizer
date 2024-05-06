@@ -6,7 +6,7 @@
             </h2>
             <div id="TUIC_visible" class="TUIC_selectbox TUICSelectBox-left" :style="{ '--contentCount': _contentCount }">
                 <div v-for="i in list" :key="i" :value="i" :id="i" class="TUICUpDownContent" @click="clickEv(i)" :TUICSelectedUpDownContent="i === selectedElem">
-                    <span>{{ TUICI18N.get(TUICData.settings[id].i18n[i]) }}</span>
+                    <span>{{ TUICI18N.get(TUICPref.getSettingI18n(id, i)) }}</span>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
             </h2>
             <div id="TUIC_invisible" class="TUIC_selectbox TUICSelectBox-right" :style="{ '--contentCount': _contentCount }">
                 <div
-                    v-for="i in TUICData.settings[id].all.filter((value) => {
+                    v-for="i in TUICPref.getSettingIDs(id).filter((value: string) => {
                         return !list.includes(value);
                     })"
                     :key="i"
@@ -36,7 +36,7 @@
                     @click="clickEv(i)"
                     :TUICSelectedUpDownContent="i === selectedElem"
                 >
-                    <span>{{ TUICI18N.get(TUICData.settings[id].i18n[i]) }}</span>
+                    <span>{{ TUICI18N.get(TUICPref.getSettingI18n(id, i)) }}</span>
                 </div>
             </div>
         </div>
@@ -56,11 +56,10 @@ import RESET from "@content/icons/common/reset.svg?component";
 
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
-import { TUICI18N } from "@content/i18n.js";
-import { TUICData } from "@content/data.js";
+import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
 
-import { TUICLibrary } from "@content/library.js";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string }>();
 
@@ -76,7 +75,7 @@ const apply2Settings = () => {
     const id = props.id;
     TUICPref.setPref(id, list.value);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
+    updateClasses();
 };
 
 const toLeft = () => {
@@ -117,7 +116,7 @@ const toDown = () => {
 
 const toDefault = () => {
     const settingId = props.id;
-    list.value = structuredClone(TUICPref.defaultPref[settingId]);
+    list.value = structuredClone(TUICPref.getDefaultPref(settingId).data);
     selectedElem.value = "";
     apply2Settings();
 };
@@ -159,7 +158,7 @@ const UpdownButtonFuncs = [
         nextHr: false,
     },
 ];
-const UDALL = TUICData.settings[props.id].all;
+const UDALL = TUICPref.getSettingIDs(props.id);
 let _contentCount = 5;
 if (UDALL.length > 5) {
     _contentCount = UDALL.length;

@@ -4,8 +4,8 @@
             {{ TUICI18N.get(text) }}
         </h4>
         <div class="TUIC_setting_input_container">
-            <template v-if="TUICData.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
-                <label class="r-jwli3a r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
+            <template v-if="ColorData.defaultTUICColor.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
+                <label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
             </template>
             <template v-else>
                 <ColorResetButton :btn-id="`${id}-${type}-default`" :btn-title="TUICI18N.get('settingUI-colorPicker-restoreDefault')" @clicked-btn="resetBtnClicked" />
@@ -18,9 +18,8 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICData } from "@content/data";
 
 import RoundedColorPicker from "@shared/settings/components/RoundedColorPicker.vue";
 import TransparentToggleButton from "@shared/settings/components/TransparentToggleButton.vue";
@@ -29,6 +28,7 @@ import { TUICPref } from "@content/modules";
 import { applySystemCss } from "@content/applyCSS";
 
 import { useStore } from "../store";
+import { ColorData } from "@shared/sharedData";
 
 const transparentButton = ref(null);
 const colorRoot = ref(null);
@@ -64,7 +64,7 @@ const TUIC_color = computed(() => {
 
 // TUIC_colorで取得した色をhex形式に変換して返す
 const TUICColor1 = computed(() => {
-    return TUICLibrary.color.rgb2hex([Number(TUIC_color.value[0]), Number(TUIC_color.value[1]), Number(TUIC_color.value[2])]);
+    return TUICLibrary.color.rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)));
 });
 
 function defaultColor(colorAttr, colorType, colorKind) {
@@ -110,3 +110,4 @@ function changeColorCheck(colorAttr, colorType, colorKind, isChecked) {
 </script>
 
 <style scoped></style>
+@modules/i18n/i18n

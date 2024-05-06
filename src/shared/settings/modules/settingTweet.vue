@@ -4,13 +4,11 @@
         <FIGURE_TWEETBUTTONS_BOTTOM class="TUIC_setting_TwButtonFigure" />
 
         <UpDownList id="visibleButtons" />
-        <CheckBox style="padding-top: 20px" value="tweetDisplaySetting.bottomScroll" name="bottomTweetButtons-setting-visibleScrollBar" />
-        <CheckBox value="tweetDisplaySetting.likeToFavo" name="bottomTweetButtons-setting-likeToFavo" />
+        <settingSubtitle2 title-i18-n="bottomTweetButtons-settingTitle" />
+        <CheckBoxList id="tweetDisplaySetting.option" />
 
         <settingSubtitle2 title-i18-n="common-hidebelow" />
-        <CheckBox value="tweetDisplaySetting.RTNotQuote" name="bottomTweetButtons-setting-RTNotQuote" />
-        <CheckBox value="tweetDisplaySetting.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
-        <CheckBox value="tweetDisplaySetting.noNumberBottomTweetButtons" name="bottomTweetButtons-setting-noNumber" />
+        <CheckBoxList id="tweetDisplaySetting.buttonsInvisible" />
 
         <div style="margin-top: 20px">
             <SettingSubTitle i18n="setting-linkShareCopyURL" />
@@ -55,8 +53,11 @@
     <div>
         <SectionTitle2 titleI18N="tweetViewSettings-other" />
 
+        <settingSubtitle2 titleI18N="bottomTweetButtons-settingTitle-linkCard" />
+        <CheckBoxList id="showLinkCardInfo" />
+
         <settingSubtitle2 title-i18-n="common-hidebelow" />
-        <CheckBoxList id="tweetDisplaySetting" />
+        <CheckBoxList id="tweetDisplaySetting.option" />
     </div>
 </template>
 

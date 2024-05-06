@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 
 const props = defineProps<{
     i18n: string;

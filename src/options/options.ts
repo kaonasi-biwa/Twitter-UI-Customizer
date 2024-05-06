@@ -1,4 +1,4 @@
-import { TUICI18N } from "../content/i18n.ts";
+import { TUICI18N } from "@modules/i18n/index.ts";
 
 let setting = {};
 

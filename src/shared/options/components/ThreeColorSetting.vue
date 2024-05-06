@@ -11,13 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { TUICData } from "@content/data";
-
 import ColorSetting from "./ColorSetting.vue";
+import { ColorData } from "@shared/sharedData";
 
 const props = defineProps<{ id: string }>();
 
-const _color = TUICData.colors[props.id];
+const _color = ColorData.defaultTUICColor.colors[props.id];
 const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
 </script>
 

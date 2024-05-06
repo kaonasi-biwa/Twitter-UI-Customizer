@@ -1,24 +1,22 @@
 <template>
-    <div style="display: flex;justify-content: space-between;align-items: center;">
-        <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()"
-            ref="twitterIcon" />
-        <div style="display: flex;gap: 8px;align-items: center;">
-            <p style="color: rgb(113 118 124);" class="TUIC_setting_text">{{ TUICI18N.get("twitterIcon-nowIcon") }}</p>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
+        <div style="display: flex; gap: 8px; align-items: center">
+            <p style="color: rgb(113 118 124)" class="TUIC_setting_text">{{ TUICI18N.get("twitterIcon-nowIcon") }}</p>
             <span id="TUICIcon_IconImg" class="TUICUploadedImg"></span>
         </div>
-
     </div>
 </template>
 
 <script setup lang="ts">
 import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 import { ref } from "vue";
 
 import { TUICPref } from "@content/modules";
 
-const twitterIcon = ref(null)
+const twitterIcon = ref(null);
 
 async function changeCustomCSS() {
     if (twitterIcon.value.files.length >= 1) {
@@ -53,11 +51,8 @@ async function changeCustomCSS() {
 
     applySystemCss();
     applyCustomIcon();
-    if (TUICPref.getPref("twitterIcon") == "custom" && TUICPref.getPref("otherBoolSetting.faviconSet")) {
-        const imageURL = localStorage.getItem(TUICPref.getPref("otherBoolSetting.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
-        document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`).href = imageURL ?? chrome.runtime.getURL(EMPTY);
-    }
 }
 </script>
 
 <style scoped></style>
+@modules/i18n/i18n
