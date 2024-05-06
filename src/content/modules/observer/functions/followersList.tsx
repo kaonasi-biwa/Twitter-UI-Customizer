@@ -87,34 +87,36 @@ const data: {
 export function followersList() {
     if (location.pathname.endsWith("/followers") && document.querySelectorAll(`[aria-haspopup="menu"]`)) {
         for (const elem of document.querySelectorAll(`[data-testid="primaryColumn"] [data-testid="UserCell"]:not(.${ProcessedClass})`)) {
-            elem.process();
-            const followButton = elem.querySelector(data.followButton.selector);
-            if (followButton) {
-                const baseElement = followButton.hasClosest<HTMLElement>(data.moremenuButton.selector);
-                baseElement.classList.add("TUICFollowerListButtons");
-                let elementCounter = 0;
-                for (const id of TUICPref.getPref("profileSetting.followersListButtons")) {
-                    let buttonElement = baseElement.querySelector(data[id].selector);
-                    if (buttonElement) {
-                        buttonElement.show();
-                        baseElement.appendChild(buttonElement.closest(".TUICFollowerListButtons > *"));
-                        elementCounter++;
-                        if (id == "followButton") {
-                            const undisplayedElem = baseElement.querySelector(`div[id]`);
-                            if (undisplayedElem) {
-                                baseElement.appendChild(baseElement.querySelector(`div[id]`));
-                                elementCounter++;
+            if (document.querySelector(`[data-testid="UserCell"] ${data.moremenuButton.selector}`)) {
+                elem.process();
+                const followButton = elem.querySelector(data.followButton.selector);
+                if (followButton) {
+                    const baseElement = followButton.hasClosest<HTMLElement>(data.moremenuButton.selector);
+                    baseElement.classList.add("TUICFollowerListButtons");
+                    let elementCounter = 0;
+                    for (const id of TUICPref.getPref("profileSetting.followersListButtons")) {
+                        let buttonElement = baseElement.querySelector(data[id].selector);
+                        if (buttonElement) {
+                            buttonElement.show();
+                            baseElement.appendChild(buttonElement.closest(".TUICFollowerListButtons > *"));
+                            elementCounter++;
+                            if (id == "followButton") {
+                                const undisplayedElem = baseElement.querySelector(`div[id]`);
+                                if (undisplayedElem) {
+                                    baseElement.appendChild(baseElement.querySelector(`div[id]`));
+                                    elementCounter++;
+                                }
                             }
+                        } else if (id in data) {
+                            render(followersListButton(id, baseElement), baseElement);
+                            elementCounter++;
                         }
-                    } else if (id in data) {
-                        render(followersListButton(id, baseElement), baseElement);
-                        elementCounter++;
                     }
-                }
-                const baseElementChildren = baseElement.children.length;
-                if (elementCounter != baseElementChildren) {
-                    for (let i = 0; elementCounter + i < baseElementChildren; i++) {
-                        baseElement.children[i].hide();
+                    const baseElementChildren = baseElement.children.length;
+                    if (elementCounter != baseElementChildren) {
+                        for (let i = 0; elementCounter + i < baseElementChildren; i++) {
+                            baseElement.children[i].hide();
+                        }
                     }
                 }
             }
