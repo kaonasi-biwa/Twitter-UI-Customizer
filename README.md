@@ -1,4 +1,4 @@
-# <img width="32" height="32" src="./icon/newIcon_TUIC_C_Blue.svg"> Twitter UI Customizer
+# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg"> Twitter UI Customizer
 
 [English Translation](./README_EN.md)
 
