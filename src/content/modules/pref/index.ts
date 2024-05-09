@@ -100,7 +100,7 @@ export function mergePref(source: object, target: object) {
  * @param {any} replaceValue 置き換える値
  */
 const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceValue: string | boolean = true) => {
-    if (getPref(previousKey) === true) setPref(nextKey, replaceValue, source);
+    if (getPref(previousKey, source) === true) setPref(nextKey, replaceValue, source);
     deletePref(previousKey, source);
 };
 
