@@ -24,8 +24,7 @@
             <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text TUIC_setting_color_select_info">{{ TUICI18N.get("settingColors-select-explain") }} </span>
         </div>
         <br />
-        <!--TODO: 現状機能しない-->
-        <button class="TUIC_setting_text TUIC_setting_button TUICEasySettingButtons TUIC_resetOnly_colorSettings" style="margin-top: 10px; margin-bottom: 10px" @click="defaultTwitterColor">
+        <button class="TUIC_setting_text TUIC_setting_button TUICEasySettingButtons TUIC_resetOnly_colorSettings" style="margin-top: 10px; margin-bottom: 10px" @click="setDefaultTwitterColor">
             {{ TUICI18N.get("settingColors-newTwitterColor") }}
         </button>
     </div>
