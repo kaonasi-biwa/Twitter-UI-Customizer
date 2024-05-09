@@ -79,7 +79,7 @@ export function applySystemCss() {
         "invisibleItems.hideBelowDM",
         "tweetDisplaySetting.invisible.bottomSpace",
         "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
-        "tweetDisplaySetting.option.noNumberBottomTweetButtons",
+        "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
         "accountSwitcher.icon",
         "accountSwitcher.nameID",
         "accountSwitcher.moreMenu",

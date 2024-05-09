@@ -40,7 +40,7 @@ import { defineComponent } from "vue";
 
 import { TUICI18N } from "@modules/i18n";
 
-import OptionMain from "./OptionMain.ce.vue";
+import OptionMain from "../settings/SettingMain.ce.vue";
 
 export default defineComponent({
     components: { OptionMain },

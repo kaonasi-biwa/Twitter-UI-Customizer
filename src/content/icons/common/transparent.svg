@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 24 24" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<path d="M0 0L24 0L24 24L0 24L0 0Z" fill="#ffffff" fill-rule="nonzero" opacity="1" stroke="none"/>
+<clipPath id="ArtboardFrame">
+<rect height="24" width="24" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="名称未設定">
+<path d="M0 0L4 0L4 4L0 4L0 0Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M8.88178e-16 8L4 8L4 12L8.88178e-16 12L8.88178e-16 8Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M0 16L4 16L4 20L0 20L0 16Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M4 4L8 4L8 8L4 8L4 4Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M4 12L8 12L8 16L4 16L4 12Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M4 20L8 20L8 24L4 24L4 20Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M8 0L12 0L12 4L8 4L8 0Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M8 8L12 8L12 12L8 12L8 8Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M8 16L12 16L12 20L8 20L8 16Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M12 4L16 4L16 8L12 8L12 4Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M12 12L16 12L16 16L12 16L12 12Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M12 20L16 20L16 24L12 24L12 20Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M16 0L20 0L20 4L16 4L16 0Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M16 8L20 8L20 12L16 12L16 8Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M16 16L20 16L20 20L16 20L16 16Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M20 4L24 4L24 8L20 8L20 4Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M20 12L24 12L24 16L20 16L20 12Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M20 20L24 20L24 24L20 24L20 20Z" fill="#d7dbdc" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M24 0L0 24" fill="none" opacity="1" stroke="#f4222d" stroke-linecap="butt" stroke-linejoin="round" stroke-width="2"/>
+</g>
+</svg>

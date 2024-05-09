@@ -14,7 +14,7 @@ const _data = {
     selectors: { ...ButtonUnderTweetSelectors },
     buttonFunction: {
         "retweet-button": async () => {
-            if (TUICPref.getPref("tweetDisplaySetting.option.RTNotQuote")) {
+            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 // TODO: wait 関数を作って置き換えるべきか？
                 window.setTimeout(async () => {
                     (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();

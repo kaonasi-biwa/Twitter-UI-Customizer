@@ -100,7 +100,7 @@ export function mergePref(source: object, target: object) {
  * @param {any} replaceValue 置き換える値
  */
 const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceValue: string | boolean = true) => {
-    if (getPref(previousKey) === true) setPref(nextKey, replaceValue, source);
+    if (getPref(previousKey, source) === true) setPref(nextKey, replaceValue, source);
     deletePref(previousKey, source);
 };
 
@@ -202,13 +202,23 @@ export async function updatePref(source = config) {
                 "tweetDisplaySetting.subscribe-tweets": "tweetDisplaySetting.invisible.subscribe-tweets",
                 "tweetDisplaySetting.bottomSpace": "tweetDisplaySetting.invisible.bottomSpace",
                 "tweetDisplaySetting.bottomScroll": "tweetDisplaySetting.option.bottomScroll",
-                "tweetDisplaySetting.RTNotQuote": "tweetDisplaySetting.option.RTNotQuote",
-                "tweetDisplaySetting.noModalbottomTweetButtons": "tweetDisplaySetting.option.noModalbottomTweetButtons",
-                "tweetDisplaySetting.noNumberBottomTweetButtons": "tweetDisplaySetting.option.noNumberBottomTweetButtons",
+                "tweetDisplaySetting.RTNotQuote": "tweetDisplaySetting.buttonsInvisible.RTNotQuote",
+                "tweetDisplaySetting.noModalbottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons",
+                "tweetDisplaySetting.noNumberBottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
                 "tweetDisplaySetting.likeToFavo": "tweetDisplaySetting.option.likeToFavo",
                 "otherBoolSetting.placeEngagementsLink": "engagementsLink.option.placeEngagementsLink",
                 "otherBoolSetting.placeEngagementsLinkShort": "engagementsLink.option.placeEngagementsLinkShort",
                 "otherBoolSetting.showLinkCardInfo": "showLinkCardInfo.showLinkCardInfo",
+            };
+            for (const oldKey in boolKeys) {
+                changeBooleanKey(oldKey, boolKeys[oldKey], source);
+            }
+        }
+        case 2: {
+            const boolKeys = {
+                "tweetDisplaySetting.option.RTNotQuote": "tweetDisplaySetting.buttonsInvisible.RTNotQuote",
+                "tweetDisplaySetting.option.noModalbottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons",
+                "tweetDisplaySetting.option.noNumberBottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
             };
             for (const oldKey in boolKeys) {
                 changeBooleanKey(oldKey, boolKeys[oldKey], source);
@@ -270,7 +280,7 @@ export function getDefaultPref(id: string) {
     }
 }
 
-const prefVersion = 2;
+const prefVersion = 3;
 
 // Objectの中身はこれに従ってください
 type TUICSetting =
@@ -323,8 +333,13 @@ const ids = {
     "tweetDisplaySetting.option": {
         type: "boolean",
         values: [
-            { id: "bottomScroll", i18n: "bottomTweetButtons-setting-visibleScrollBar", default: false },
             { id: "likeToFavo", i18n: "bottomTweetButtons-setting-likeToFavo", default: false },
+            { id: "bottomScroll", i18n: "bottomTweetButtons-setting-visibleScrollBar", default: false },
+        ],
+    },
+    "tweetDisplaySetting.buttonsInvisible": {
+        type: "boolean",
+        values: [
             { id: "RTNotQuote", i18n: "bottomTweetButtons-setting-RTNotQuote", default: false },
             { id: "noModalbottomTweetButtons", i18n: "bottomTweetButtons-setting-noModal", default: false },
             { id: "noNumberBottomTweetButtons", i18n: "bottomTweetButtons-setting-noNumber", default: false },
@@ -416,7 +431,7 @@ const ids = {
             { id: "embed", i18n: "XtoTwitter-PostToTweet-menu-embed", default: false },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet", default: false },
             { id: "hiddenReply", i18n: "tweetMoreMenuItems-hiddenReply", default: false },
-            { id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue", default: false },
+            //{ id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue", default: false },
         ],
     },
     "tweetDisplaySetting.invisible": {

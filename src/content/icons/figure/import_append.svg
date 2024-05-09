@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 770 230" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="レイヤー-1">
+<g opacity="1">
+<path d="M482.022 100.1C482.022 78.8636 499.238 61.6478 520.474 61.6478C541.711 61.6478 558.927 78.8636 558.927 100.1C558.927 121.337 541.711 138.553 520.474 138.553C499.238 138.553 482.022 121.337 482.022 100.1Z" fill="#f91980" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M578.725 127.993L621.807 202.613L535.643 202.613L578.725 127.993Z" fill="#7856ff" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M441.708 161.248L508.981 161.248L508.981 228.522L441.708 228.522L441.708 161.248Z" fill="#ffd400" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+<path d="M387.311 145.085L374.215 131.994L376.844 129.354L392.569 145.085L376.844 160.815L374.215 158.175L387.311 145.085Z" fill="#71767c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<g opacity="1">
+<path d="M285.211 127.993L328.292 202.613L242.129 202.613L285.211 127.993Z" fill="#7856ff" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M148.193 161.248L215.466 161.248L215.466 228.522L148.193 228.522L148.193 161.248Z" fill="#ffd400" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M226.974 61.6472C205.737 61.6472 188.505 78.8792 188.505 100.116C188.505 121.353 205.737 138.553 226.974 138.553C248.211 138.553 265.412 121.353 265.412 100.116C265.412 99.035 265.217 98.0093 265.099 96.9597L231.255 96.9597L231.255 62.1159C229.831 61.9438 228.446 61.6472 226.974 61.6472Z" fill="#00ba7c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M310.75 4.25C307.391 4.17664 304.006 5.34365 301.344 7.78125L258.719 46.8438C247.946 47.7115 239.469 56.7504 239.469 67.75L239.469 88.7188L260.438 88.7188C271.42 88.7188 280.474 80.2462 281.312 69.4688L320.375 26.8438C325.28 21.5242 325.072 13.2891 320 8.1875C317.443 5.63671 314.109 4.32336 310.75 4.25ZM310.562 12.625C311.831 12.6522 313.067 13.1609 314.031 14.125C315.96 16.0533 316.063 19.1441 314.219 21.1562L279.5 59.0312C277.404 54.4621 273.725 50.7793 269.156 48.6875L307 13.9688C308.006 13.0465 309.294 12.5978 310.562 12.625Z" style="fill: var(--twitter-TUIC-color)" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M260.431 80.3269L247.855 80.3269L247.855 67.7511C247.855 60.8051 253.473 55.1753 260.431 55.1753C267.39 55.1753 273.007 60.8051 273.007 67.7511C273.007 74.6971 267.39 80.3269 260.431 80.3269Z" fill="#f91980" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+</svg>
