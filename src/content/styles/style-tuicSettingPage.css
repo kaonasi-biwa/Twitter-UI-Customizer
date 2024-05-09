@@ -16,6 +16,18 @@
     align-items: center;
     border-color: #71767b !important;
 }
+
+.TUICDefaultColor:hover {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
+}
+.TUICDefaultColor:active {
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
+}
+
+.TUIC_ISNOTDEFAULT .TUICDefaultColor:hover,
+.TUIC_ISNOTDEFAULT .TUICDefaultColor:active {
+    background: transparent;
+}
 .TUICButtonRest_innersvg__container svg {
     width: 22px;
     height: 22px;
@@ -34,6 +46,10 @@
 }
 .TUIC_ISNOTDEFAULT .TUICDefaultColor .TUICButtonRest_innersvg__container svg {
     opacity: 0.6;
+}
+
+.TUIC_ISNOTDEFAULT button.TUICDefaultColor {
+    cursor: not-allowed;
 }
 
 /* 色選択 */
@@ -185,6 +201,7 @@
     padding: 2px;
     cursor: pointer;
     padding: 0;
+    transition: 0.3s;
 }
 
 .TUIC_icon_button_con > svg * {
@@ -200,11 +217,13 @@
 }
 
 .TUIC_icon_button_con:hover {
-    background: #ffffff20;
+    transition: none;
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
 }
 
 .TUIC_icon_button_con:active {
-    border-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
+    transition: none;
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
 }
 
 .TUIC_setting_button {
@@ -215,7 +234,7 @@
     border-radius: 9999px;
     transition: none;
     cursor: pointer;
-    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%);
+    /* box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%); */
     /* color: #71767b !important; */
 }
 
@@ -252,6 +271,7 @@
     padding-bottom: 50px;
     overflow-y: clip;
     background: transparent;
+    border-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
 }
 
 #TUIC_invisible span,
@@ -270,7 +290,7 @@
 
 #TUIC_invisible > div:hover,
 #TUIC_visible > div:hover {
-    background-color: #181818;
+    background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
 }
 div[tuicudbox="sidebarButtons"] > .UpDownButtons,
 div[tuicudbox="visibleButtons"] > .UpDownButtons,
@@ -582,7 +602,7 @@ textarea#css_textarea {
     margin: 0;
 }
 .TUIC_setting_section_title_2 {
-    color: white;
+    color: var(--twitter-TUIC-color);
     font-size: 20px;
     font-weight: 700;
     padding: 0;
@@ -713,10 +733,11 @@ textarea#css_textarea {
 
 .TUICIconRadioButton input[type="radio"]:checked ~ div > label {
     background-color: #1da1f2;
+    --twitter-TUIC-color: white;
 }
 
 .TUICIconRadioButton input[type="radio"]:not(:checked):hover ~ div > label {
-    background-color: #303438;
+    background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
 }
 
 .TUICIconRadioButton input[type="radio"] ~ div > label {
@@ -743,7 +764,7 @@ textarea#css_textarea {
     line-height: 1.4;
 }
 .TUIC_setting_customcss_input {
-    border: 1px solid #303438;
+    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
     background: var(--tlui-dialog-background);
     font-family: monospace;
 }
@@ -784,7 +805,7 @@ textarea#css_textarea {
     letter-spacing: 1px;
 }
 .TUIC_setting_textarea_new {
-    border: 1px solid #303438;
+    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
     background: var(--tlui-dialog-background);
 }
 
@@ -793,7 +814,7 @@ textarea#css_textarea {
 }
 .TUICSelectImg::file-selector-button,
 .TUICSelectImg::-webkit-file-upload-button {
-    background-color: #303438;
+    background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
     border: none;
     padding: 10px 20px;
     border-radius: 10px;

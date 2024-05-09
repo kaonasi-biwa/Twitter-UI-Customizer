@@ -26,12 +26,14 @@ const rl = (str: string): URL => {
 };
 
 const root = r("src");
+const publicDir = r("public");
 const outDir = r("dist");
 
 export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
     json = {
         root,
+        publicDir,
         // base: "/",
         build: {
             outDir,

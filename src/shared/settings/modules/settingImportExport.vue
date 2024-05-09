@@ -1,5 +1,5 @@
 <template>
-    <!--Import-->
+    <!--Export-->
     <div>
         <SectionTitle2 title-i18-n="export-settingTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
@@ -28,7 +28,7 @@
         </p>
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
-    <!--Export-->
+    <!--Import-->
     <div>
         <SectionTitle2 style="margin-top: 0" title-i18-n="import-settingTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
