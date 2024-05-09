@@ -11,6 +11,7 @@ on:
 
 jobs:
     update-i18n:
+        if: github.repository_owner == 'kaonasi-biwa' || github.event_name != 'push'
         name: Update
         runs-on: ubuntu-latest
         steps:
@@ -18,7 +19,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Setup pnpm
-              uses: pnpm/action-setup@v2
+              uses: pnpm/action-setup@v3
 
             - name: Setup Node.js
               uses: actions/setup-node@v4

@@ -14,8 +14,7 @@
 
             <settingSubtitle2 style="margin: 0; margin-top: 18px" title-i-18-n="twitterIcon-usedIcon" />
             <UploadImageFile />
-            <CheckBox style="margin-top: 25px; padding: 0; padding-bottom: 10px" value="otherBoolSetting.faviconSet" name="twitterIcon-favicon" />
-            <CheckBox style="padding-bottom: 10px" value="otherBoolSetting.roundIcon" name="twitterIcon-roundIcon" />
+            <CheckBoxList id="twitterIcon.options" />
         </div>
 
         <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center">

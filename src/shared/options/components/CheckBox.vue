@@ -8,11 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
+import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
-
+import { titleObserverFunction } from "@modules/observer/titleObserver";
+import { updateClasses } from "@modules/htmlClass/classManager";
 const props = defineProps<{
     name: string;
     value: string;
@@ -22,9 +21,10 @@ const props = defineProps<{
 const changePref = (path: string, event: any) => {
     TUICPref.setPref(path, event.target.checked);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
-    TUICObserver.titleObserverFunction();
+    updateClasses();
+    titleObserverFunction();
 };
 </script>
 
 <style scoped></style>
+@modules/observer/observer @modules/i18n/i18n

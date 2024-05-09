@@ -35,31 +35,32 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { isSafemode } from "@content/safemode";
-import { TUICData } from "@content/data";
+import { TUICI18N } from "@modules/i18n";
+import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 
 import ColorsList from "../components/ColorsList.vue";
 
-import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
 
 import { useStore } from "../store";
+import { ColorData } from "@shared/sharedData";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const ColorSettingRadio = (event) => {
     const store = useStore();
     store.editingColorType = event.currentTarget.getAttribute("value");
 };
 
-const defaultTwitterColor = () => {
-    const importPref = structuredClone(TUICData.defaultTwitterColor);
+const setDefaultTwitterColor = () => {
+    const importPref = structuredClone(ColorData.defaultXColors);
     TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
     TUICPref.save();
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }
-    TUICLibrary.getClasses.update();
+    updateClasses();
 };
 </script>
 
 <style scoped></style>
+@modules/settings/safemode/safemode @modules/i18n/i18n

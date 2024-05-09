@@ -25,7 +25,7 @@
     "easySetting-restoreIcon": "Xなんて嫌！アイコンも名前もTwitterがいいんだ！！",
     "easySetting-deleteVerified": "「認証しろ」ってうるさい？全部非表示にしよう！",
     "easySetting-discoverMoreDelete": "「もっと見つける」が邪魔？消しちゃえ！",
-    "easySetting-defaultTwitterColor": "Twitterの新しい色はにもう慣れた？それなら、今の色に合わせよう！",
+    "easySetting-defaultTwitterColor": "Twitterの新しい色にはもう慣れた？それなら、今の色に合わせよう！",
 
     "settingSection-general": "全般",
     "settingSection-page": "ページ",
@@ -125,11 +125,16 @@
     "profileSetting-tabs-settingTitle": "タブの設定",
     "profileSetting-tabs-pinnedTab": "タブを上部に固定する",
     "profileSetting-profileInitialTab-settingTitle": "プロフィール表示時に初期表示するタブ",
+    "profileSetting-followersListButtons-settingTitle": "フォロワー一覧のボタン設定",
+    "profileSetting-followersListButtons-followButton": "フォロー/フォロー中",
+    "profileSetting-followersListButtons-reportButton": "ユーザーを報告する",
+    "profileSetting-followersListButtons-removeFollowerButton": "フォロワーを削除する",
 
     "timeline-settingTitle": "タイムラインの設定",
     "timeline-setting-timeline": "タイムライン",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
     "timeline-hideOhterRTTL": "リツイートを非表示にする",
+    "timeline-hideReply": "ツイートに対する返信以下にあるものを非表示にする",
     "timeline-accountStart": "アカウント作成時の「設定しましょう」を非表示にする",
     "timeline-discoverMore": "ツイートの返信一覧の「もっと見つける」",
     "timeline-discoverMore-nomal": "何もしない",
@@ -214,12 +219,16 @@
     "addonInfo-TUICOfficialTwitter": "公式アカウント(@TUIC_Official)",
     "addonInfo-github": "GitHub",
 
+    "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
+    "observerError-copy": "コピーして閉じる",
+
     "common-yes": "はい",
     "common-no": "いいえ",
     "common-close": "閉じる",
     "common-error": "エラー",
     "common-confirm": "確認",
     "common-hidebelow": "以下を非表示",
+    "common-displaySetting": "表示設定",
 
     "temp-notice-hideDMSheetOnBottomRight": "現在、画面右下に存在するDMの欄は、「その他の設定」から非表示にできます。"
 }

@@ -4,11 +4,11 @@
 
 .TUICScrollBottom {
     padding-right: 8px;
-    margin-right: -8px;
-    padding-left: 8px;
-    margin-left: -8px;
     padding-bottom: 16px;
+    padding-left: 8px;
+    margin-right: -8px;
     margin-bottom: -16px;
+    margin-left: -8px;
 }
 
 .TUICScrollBottom,
@@ -21,8 +21,10 @@
     height: 8px;
 }
 
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *):not([role="img"] > * > *) {
     margin: 8px;
+}
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
     background-size: cover;
 }
 
@@ -30,33 +32,32 @@
     position: absolute;
     margin: auto;
 }
-
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *):not([role="img"] > * > *) {
     height: inherit !important;
 }
 
 [role="alertdialog"] [data-testid="confirmationSheetDialog"] .TUICTwitterIcon_IconImg {
-    height: 40px;
     width: 40px;
-    margin-left: auto;
+    height: 40px;
     margin-right: auto;
+    margin-left: auto;
 }
 
 [role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
-    mask-size: contain !important;
-    mask-repeat: no-repeat;
-    mask-position: center;
-    -webkit-mask-size: contain !important;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    background-size: contain !important;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain !important;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain !important;
+    mask-size: contain !important;
 }
 
 :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
-    mask-size: cover !important;
     -webkit-mask-size: cover !important;
+    mask-size: cover !important;
 }
 
 .TUICTwitterIcon_Twitter {
@@ -72,10 +73,10 @@
 }
 
 #layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
-    background-size: contain !important;
+    width: auto !important;
     background-repeat: no-repeat !important;
     background-position: center;
-    width: auto !important;
+    background-size: contain !important;
 }
 
 .TUIC_SVGDISPNONE > * {
@@ -86,28 +87,36 @@
     display: none !important;
 }
 
-[TUICDiscoberMore] {
+.TUIC_DISPNONE {
+    display: none !important;
+}
+
+.TUIC_HideNextElements ~ * {
+    visibility: hidden !important;
+}
+
+[TUICDiscoverMore] {
     padding-left: 20px;
 }
 
-[TUICDiscoberMore="false"]::before {
-    content: "";
+[TUICDiscoverMore="false"]::before {
     position: absolute;
     top: 50%;
     /* 縦軸をセンタリングする */
     left: 20px;
-    transform: translateY(-50%);
+    content: "";
     /* 縦軸をセンタリングする */
     border: 5px solid transparent;
     border-left: 8px solid #555;
+    transform: translateY(-50%);
     /* 好みで色を変えてください */
 }
 
-[TUICDiscoberMore="true"]::before {
-    content: "";
+[TUICDiscoverMore="true"]::before {
     position: absolute;
     top: 50%;
     left: 20px;
+    content: "";
     border: 6px solid transparent;
     border-top: 7px solid #555;
     /* 好みで色を変えてください */
@@ -180,16 +189,16 @@
 }
 
 .TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div {
-    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
     background-color: rgb(29 155 240 / 10%);
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
 }
 
 .TUICButtonUnderTweet > div {
     display: flex;
 }
 .TUICButtonUnderTweet > div > div {
-    align-items: stretch;
     display: flex;
+    align-items: stretch;
 }
 
 .TUIC_LinkCardInfo > a {
@@ -215,19 +224,42 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
-.TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
+[data-TUICFollowerListButton]:hover .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 10%);
+}
+[data-TUICFollowerListButton]:hover svg {
+    color: rgb(29 155 240);
 }
 
-:root[TUICSettings*="|otherBoolSetting.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
+[data-TUICFollowerListButton]:focus-visible .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 10%);
+    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+}
+[data-TUICFollowerListButton]:focus-visible svg {
+    color: rgb(29 155 240);
+}
+
+[data-TUICFollowerListButton]:active .TUIC_ButtonHover {
+    background-color: rgb(29 155 240 / 20%);
+}
+
+#TUICDisplayRightSidebar:hover {
+    text-decoration-thickness: 1px;
+}
+
+.TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+:root[TUICSettings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
     border-radius: 9999px !important;
 }
 
 :is(
         :root[tuicsettings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
         :root[tuicsettings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-        :root[tuicsettings*="|tweetDisplaySetting.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[tuicsettings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
         :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
         :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
         :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
@@ -237,7 +269,7 @@
     display: none !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
+:root[tuicsettings*="|tweetDisplaySetting.invisible.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
     margin-top: 0 !important;
 }
 
@@ -249,39 +281,43 @@
     position: sticky;
     top: var(--TUIC-pinnedTab-top);
     z-index: 1;
-    backdrop-filter: blur(12px);
     background-color: var(--TUIC-pinnedTab-background);
+    backdrop-filter: blur(12px);
 }
 
 :root[tuicsettings*="|uncategorizedSettings.disableBackdropFilter|"] * {
     backdrop-filter: none !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
     box-shadow: rgba(142 204 258) 0 0 0 2px inset !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:active > div > div {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:active > div > div {
     background-color: rgb(255 212 0 / 20%) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
     fill: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.likeToFavo|"] [data-testid="like"] > div:hover path {
+:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
     fill: rgb(255 212 0) !important;
+}
+
+:root[tuicsettings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
+    display: none !important;
 }

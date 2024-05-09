@@ -1,0 +1,14 @@
+/** ダイレクトメッセージが使えなくなる問題を修正 **/
+
+/* https://github.com/Floorp-Projects/Floorp-core/blob/4433faa42c63eb32fdcbaa94747cb31702a45bcd/browser/extensions/webextensions/floorp-system/shared/webcompat/bug-894-twitter-com.css
+ * ライセンス変更含め使用許諾済み */
+
+main div > span {
+    line-height: normal !important;
+}
+
+/* こっから自分で書いたコード */
+
+[data-testid="messageEntry"] > div > div ~ div:not(.TUICOriginalContent) > div:not([role="presentation"]) {
+    margin-bottom: 0;
+}

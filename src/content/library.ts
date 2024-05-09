@@ -1,81 +1,33 @@
-import { applySystemCss } from "./applyCSS.ts";
-import { TUICData } from "./data.ts";
-import { TUICPref } from "./modules/index.ts";
-import { TUICObserver } from "./observer.ts";
+import { ColorData, ProcessedClass } from "@shared/sharedData.ts";
+import { TUICPref } from "@modules/index.ts";
 
 export const TUICLibrary = {
     color: {
-        rgb2hex: (rgb) => {
-            return `#${rgb
-                .map((value) => {
-                    return ("0" + value.toString(16)).slice(-2);
-                })
-                .join("")}`;
+        /** RGB 配列を #xxxxxx 表記に変換します。 */
+        rgb2hex: (rgb: [number, number, number]) => {
+            return `#${rgb.map((value) => ("0" + value.toString(16)).slice(-2)).join("")}`;
         },
-        hex2rgb: (hex) => {
+        /** #xxxxxx 表記を RGB に変換します。 */
+        hex2rgb: (hex: string): [number, number, number] => {
             if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-            return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
+            return <[number, number, number]>[hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
                 return parseInt(str, 16);
             });
         },
         getColorFromPref: (name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) => {
             let _mode = "";
             _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? TUICData?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? TUICData.colors[name][type];
+            return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
         },
     },
-    getClasses: {
-        update: () => {
-            TUICObserver.observer.disconnect();
-            TUICLibrary.getClasses.deleteClasses();
-            applySystemCss();
-            TUICObserver.observerFunction(null);
-        },
-        deleteClasses: () => {
-            for (const id of TUICLibrary.getClasses.idList) {
-                document.querySelectorAll(`.${id}`).forEach((elem) => {
-                    elem.classList.remove(id);
-                }); /*
-                for (const elem of document.getElementsByClassName(id)) {
-                    elem.classList.remove(id);
-                }*/
-            }
-        },
-        idList: [
-            "NOT_TUIC_DISPNONE",
-            "TUIC_DISPNONE",
-            "TUIC_DISPNONE_PARENT",
-            "TUIC_SVGDISPNONE",
-            "TUIC_NOTSVGDISPNONE",
-            "TUIC_DISCOVERMORE",
-            "TUIC_DISCOVERHEADER",
-            "TUIC_ISNOTDEFAULT",
-            "TUIC_NONE_SPACE_BOTTOM_TWEET",
-            "TUIC_TWEETREPLACE",
-            "TUIC_UnderTweetButton",
-            "TUICDidArticle",
-            "TUICDidInfoArticle",
-            "TUICItIsBigArticle",
-            "TUICItIsBigArticlePhoto",
-            "TUICTweetButtomBarBase",
-            "TUICTwitterIcon_Twitter",
-            "TUICTwitterIcon_X",
-            "TUICTwitterIcon_Dog",
-            "TUICTwitterIcon_IconImg",
-            "TUICScrollBottom",
-            "TUICDMIcon",
-            "TUICHandledEvent",
-            "TUICUpdateFavo",
-        ],
-    },
-    getPrimitiveOrFunction: (functionOrPrimitive) => {
-        if (typeof functionOrPrimitive == "function") {
-            return functionOrPrimitive();
+    getPrimitiveOrFunction: <T>(functionOrPrimitive: (() => T) | T): T => {
+        if (typeof functionOrPrimitive === "function") {
+            return (functionOrPrimitive as () => T)();
         } else {
             return functionOrPrimitive;
         }
     },
-    backgroundColorCheck: () => {
+    backgroundColorCheck: (): "dark" | "blue" | "light" => {
         const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
         if (bodyStyle == "rgb(0, 0, 0)") {
             return "dark";
@@ -85,7 +37,7 @@ export const TUICLibrary = {
             return "light";
         }
     },
-    backgroundColorClass: (dark, blue, white) => {
+    backgroundColorClass: <T extends number | string>(dark: T, blue: T, white: T) => {
         const backgroundType = TUICLibrary.backgroundColorCheck();
         if (backgroundType == "dark") {
             return dark;
@@ -107,7 +59,7 @@ export const TUICLibrary = {
             return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
         }
     },
-    HTMLParse: (elem: string) => {
+    parseHtml: (elem: string): HTMLCollection => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },
     // escapeToUseHTML: (text) => {
@@ -142,14 +94,14 @@ export const TUICLibrary = {
             });
         }
     },
-    hasClosest: (elem: Element, selector: string): Element => {
+    hasClosest: <T extends Element>(elem: Element, selector: string): T => {
         let elem2 = elem;
         while (elem2 && !elem2.querySelector(selector)) {
             elem2 = elem2.parentElement;
         }
-        return elem2;
+        return elem2 as T;
     },
-    hasClosestSelector: (elem: Element, selector: string): Element => {
+    hasClosestSelector: <T extends Element>(elem: Element, selector: string): T => {
         let elem2 = elem;
         let returnElem = null;
         while (elem2 && !(returnElem = elem2.querySelector(selector))) {
@@ -163,6 +115,9 @@ export const TUICLibrary = {
     showElement: (elem: Element) => {
         elem.classList.remove("TUIC_DISPNONE");
     },
+    processElement: (elem: Element) => {
+        elem.classList.add(ProcessedClass);
+    },
 };
 
 declare global {
@@ -175,7 +130,7 @@ declare global {
          * @param {string} selector 探索するElementのセレクター
          * @return {Element} 指定されたElementを子孫ノードに持つセレクター
          */
-        hasClosest(selector: string): Element;
+        hasClosest<T extends Element>(selector: string): T;
         /**
          * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです。
          *
@@ -184,7 +139,7 @@ declare global {
          * @param {string} selector 探索するElementのセレクター
          * @return {Element} 指定されたElement
          */
-        hasClosestSelector(selector: string): Element;
+        hasClosestSelector<T extends Element>(selector: string): T;
         /**
          * 要素を非表示にするElementのメソッドです。
          */
@@ -193,14 +148,18 @@ declare global {
          * Element.hide()で非表示にした要素を再び表示するElementのメソッドです。
          */
         show(): void;
+        /**
+         * 要素を処理済みとマークするElementのメソッドです
+         */
+        process(): void;
     }
 }
 
-Element.prototype.hasClosest = function (selector: string): Element {
+Element.prototype.hasClosest = function <T extends Element>(selector: string): T {
     return TUICLibrary.hasClosest(this, selector);
 };
 
-Element.prototype.hasClosestSelector = function (selector: string): Element {
+Element.prototype.hasClosestSelector = function <T extends Element>(selector: string): T {
     return TUICLibrary.hasClosestSelector(this, selector);
 };
 
@@ -210,4 +169,8 @@ Element.prototype.hide = function (): void {
 
 Element.prototype.show = function (): void {
     TUICLibrary.showElement(this);
+};
+
+Element.prototype.process = function (): void {
+    TUICLibrary.processElement(this);
 };

@@ -1,5 +1,5 @@
 <template>
-    <!--Import-->
+    <!--Export-->
     <div>
         <SectionTitle2 title-i18-n="export-settingTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
@@ -28,7 +28,7 @@
         </p>
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
-    <!--Export-->
+    <!--Import-->
     <div>
         <SectionTitle2 style="margin-top: 0" title-i18-n="import-settingTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
@@ -76,12 +76,10 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
 import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
 import { applySystemCss } from "@content/applyCSS";
-import { isSafemode } from "@content/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 
@@ -90,6 +88,9 @@ import FIGURE_IMPORTREPLACE from "@content/icons/figure/import_replace.svg?compo
 import SectionTitle2 from "../components/SectionTitle2.vue";
 import SettingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
 import { ref } from "vue";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
 
 // EXPORT LOGIC
 const exportText = ref<HTMLInputElement>();
@@ -105,11 +106,12 @@ function exportPrefCopy() {
 const importBox = defineModel<HTMLInputElement>();
 const importFunc = async (type: number) => {
     try {
-        const importPref = JSON.parse(importBox.value.value);
+        const importedPref = JSON.parse(importBox.value.value);
+        await TUICPref.updatePref(importedPref);
         if (type == 1) {
-            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importPref));
+            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importedPref));
         } else if (type == 2) {
-            TUICPref.setPref("", TUICPref.mergePref(structuredClone(TUICPref.defaultPref), importPref));
+            TUICPref.setPref("", TUICPref.mergeDefaultPref(importedPref));
         }
 
         TUICPref.save();
@@ -117,10 +119,10 @@ const importFunc = async (type: number) => {
             location.href = `${location.protocol}//${location.hostname}`;
         } else {
             document.querySelector("#TUIC_setting").remove();
-            TUICLibrary.getClasses.update();
+            updateClasses();
             applySystemCss();
-            TUICObserver.observerFunction(null);
-            TUICObserver.titleObserverFunction();
+
+            titleObserverFunction();
             if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                 document.title = document.title.replace(" / Twitter", " / X");
             }

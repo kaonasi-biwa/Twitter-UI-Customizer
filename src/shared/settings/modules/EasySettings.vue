@@ -12,26 +12,30 @@ import ICON_MORE from "@content/icons/common/more.svg?component";
 import BRAND_X from "@content/icons/brand/x.svg?component";
 import IconButton from "@shared/settings/components/IconButton.vue";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
-import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
-import { isSafemode } from "@content/safemode";
-import { TUICData } from "@content/data";
+
+import { ColorData } from "@shared/sharedData";
+
 import { TUICPref } from "@content/modules";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
 // copied from old component; @shared/options/modules/SettingsHeader.vue
 const buttonList = [
     {
         i18n: "easySetting-restoreIcon",
         iconSource: BRAND_TWITTER,
         changePref: {
-            otherBoolSetting: {
-                faviconSet: true,
+            twitterIcon: {
+                options: {
+                    faviconSet: true,
+                },
+                icon: "twitter",
             },
             XToTwitter: {
                 XToTwitter: true,
                 PostToTweet: true,
             },
             sidebarSetting: { homeIcon: "birdGoBack" },
-            twitterIcon: "twitter",
         },
     },
     {
@@ -51,8 +55,10 @@ const buttonList = [
                 verified: true,
             },
             tweetDisplaySetting: {
-                "twitter-pro-promotion-btn": true,
-                "subscribe-tweets": true,
+                invisible: {
+                    "twitter-pro-promotion-btn": true,
+                    "subscribe-tweets": true,
+                },
             },
         },
         changeFunc: () => {
@@ -74,7 +80,7 @@ const buttonList = [
     {
         i18n: "easySetting-defaultTwitterColor",
         iconSource: BRAND_X,
-        changePref: structuredClone(TUICData.defaultTwitterColor),
+        changePref: structuredClone(ColorData.defaultXColors),
     },
 ];
 const clickEv = (index) => {
@@ -84,8 +90,8 @@ const clickEv = (index) => {
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }
-    TUICLibrary.getClasses.update();
-    TUICObserver.titleObserverFunction();
+    updateClasses();
+    titleObserverFunction();
     if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
         document.title = document.title.replace(" / Twitter", " / X");
     }

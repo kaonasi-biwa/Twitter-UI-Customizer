@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
+import { TUICI18N } from "@modules/i18n";
 import { Component } from "vue";
 defineProps<{
     i18n: string;

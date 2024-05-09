@@ -11,17 +11,18 @@
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@content/i18n";
-import { TUICLibrary } from "@content/library";
-import { TUICObserver } from "@content/observer";
+import { TUICI18N } from "@modules/i18n";
+import { TUICObserver } from "@modules/observer/index.ts";
 import { TUICPref } from "@content/modules";
+import { updateClasses } from "@modules/htmlClass/classManager";
 
 const props = defineProps<{ id: string; valueName: string; name: string }>();
 
 const changePref = (path, valueName) => {
     TUICPref.setPref(path, valueName);
     TUICPref.save();
-    TUICLibrary.getClasses.update();
-    TUICObserver.observerFunction(null);
+    updateClasses();
+    TUICObserver.callback();
 };
 </script>
+@modules/observer/observer @modules/i18n/i18n
