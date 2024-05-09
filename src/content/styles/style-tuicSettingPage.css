@@ -9,11 +9,11 @@
 }
 
 .TUICDefaultColor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 36px !important;
     height: 36px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-color: #71767b !important;
 }
 
@@ -34,11 +34,11 @@
     opacity: 1;
 }
 .TUICButtonRest_innersvg__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30px;
     height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .TUIC_ISNOTDEFAULT:not(:last-of-type) {
@@ -61,8 +61,8 @@
 
 .TUIC_setting_color_colmn > h4 {
     margin: 0 !important;
-    font-weight: 700 !important;
     font-size: 15px;
+    font-weight: 700 !important;
     color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
 }
 
@@ -84,7 +84,6 @@
 
 /* type=colorなinputタグを無理やり丸くするためのマスク */
 .TUIC_input_color_rounded {
-    border-radius: 50%;
     width: 30px;
     height: 30px;
     overflow: hidden;
@@ -93,13 +92,13 @@
 
 /* ホバー時の背景色変化とクリック時のサイズ変更を加えるためだけのコンテナ */
 .TUIC_input_color_rounded__container {
-    background-color: #9c9c9c80;
-    border: solid 3px color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30px;
     height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #9c9c9c80;
+    border: solid 3px color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
     border-radius: 50%;
     transition: none;
 }
@@ -120,13 +119,13 @@
 
 /* 設定項目のタイトル */
 .TUIC_setting_title {
-    font-weight: 700;
-    font-size: 15px;
-    color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%) !important;
-    font-feature-settings: "palt";
-    margin: 0;
     padding: 0;
+    margin: 0;
     margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    font-feature-settings: "palt";
+    color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%) !important;
 }
 
 /* 設定用項目のコンテナ */
@@ -150,12 +149,10 @@
 
 /* 表示非表示のセレクトボックス */
 .TUIC_selectbox {
-    border: solid 1px #303438;
-    background: black;
-    border-radius: 6px;
-    margin-top: 10px;
     padding-bottom: 5px;
+    margin-top: 10px;
     overflow-x: auto;
+    background: black;
     border: solid 1px #71767b;
     border-radius: 6px;
     scrollbar-width: thin;
@@ -172,15 +169,15 @@
 
 .TUICDetails,
 .TUICEasySetting {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-bottom: 20px;
     font-family: sans-serif;
+    background-color: var(--TUIC-container-background);
     border: 2px solid;
     border-color: rgb(0 0 0 / 0%) !important;
     border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    background-color: var(--TUIC-container-background);
 }
 
 .TUICDetails:not([open]),
@@ -190,17 +187,17 @@
 }
 
 .TUIC_icon_button_con {
-    border-radius: 9999px;
-    background: transparent;
-    border: none;
-    width: 36px;
-    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 36px;
+    height: 36px;
     padding: 2px;
-    cursor: pointer;
     padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
     transition: 0.3s;
 }
 
@@ -210,20 +207,20 @@
 }
 
 .TUIC_icon_button_con > svg {
-    pointer-events: none;
     width: 22px;
     height: 22px;
+    pointer-events: none;
     stroke-width: 0.5px;
 }
 
 .TUIC_icon_button_con:hover {
-    transition: none;
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
+    transition: none;
 }
 
 .TUIC_icon_button_con:active {
-    transition: none;
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
+    transition: none;
 }
 
 .TUIC_setting_button {
@@ -233,7 +230,6 @@
     border-color: #71767b !important;
     border-radius: 9999px;
     transition: none;
-    cursor: pointer;
     /* box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%); */
     /* color: #71767b !important; */
 }
@@ -322,17 +318,12 @@ div[tuicudbox="tweetTopButton"] > .UpDownButtons {
     flex-direction: column;
 }
 
-.TUICTextInput {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
 textarea#css_textarea {
-    height: 300px;
-    resize: vertical;
     width: calc(100% - 10px);
-    border-radius: 6px;
+    height: 300px;
     margin-bottom: 20px;
+    resize: vertical;
+    border-radius: 6px;
 }
 
 .TUICTextInput {
@@ -340,17 +331,19 @@ textarea#css_textarea {
     margin-bottom: 20px;
     border: 1px solid #808080;
     border-radius: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* チェックボタン(Transparent) */
 .TUICButtonColorCheck {
-    border-radius: 50%;
-    border: solid 3px color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
+    display: flex;
     padding: 0;
     overflow: hidden;
-    object-fit: cover;
-    display: flex;
     cursor: pointer;
+    object-fit: cover;
+    border: solid 3px color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
+    border-radius: 50%;
 }
 
 .TUICButtonColorCheck_innersvg__container {
@@ -373,14 +366,13 @@ textarea#css_textarea {
 .TUICSettingRadioTypeBigButton {
     display: flex;
     flex: 1 1;
-    height: 50px;
-    border-radius: 10px !important;
-    font-size: 20px;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-size: 20px;
     border: 3px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
+    border-radius: 10px !important;
 }
 
 .TUICSettingRadioTypeBigButton > span > span {
@@ -415,15 +407,15 @@ textarea#css_textarea {
 }
 
 .TUICColorSettingRadio:not(:checked) + .TUICSettingRadioTypeBigButton {
-    border: 3px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%) !important;
     font-weight: 400;
+    border: 3px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%) !important;
 }
 
 .TUIC_resetOnly_colorSettings {
-    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
-    color: var(--TUIC-container-background);
     width: 100%;
     height: 40px;
+    color: var(--TUIC-container-background);
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
     border: none;
     border-radius: 9999px;
 }
@@ -433,13 +425,13 @@ textarea#css_textarea {
 }
 
 .TUICSettingSubTitle {
-    color: var(--twitter-TUIC-color);
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
     font-size: 15px;
     font-weight: 700;
     font-feature-settings: "palt";
+    color: var(--twitter-TUIC-color);
     letter-spacing: 1px;
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
 }
 
 .TUICUploadedImg:not([data-testid="interstitialGraphic"] > svg) {
@@ -456,8 +448,8 @@ textarea#css_textarea {
 
 .TUICCheckBoxParent {
     display: flex;
-    padding-top: 10px;
     gap: 15px;
+    padding-top: 10px;
 }
 
 :is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
@@ -478,18 +470,18 @@ textarea#css_textarea {
 
 #TUICSelectedColorType {
     position: sticky;
-    gap: 10px;
     top: 0;
     z-index: 9999;
     display: flex;
+    gap: 10px;
     padding-top: 20px;
     background-color: var(--TUIC-container-background);
 }
 
 .TUIC_setting_divider {
+    margin: 20px 0;
     border: none;
     border-top: solid 1px var(--TUIC-detail-border);
-    margin: 20px 0;
 }
 
 .TUIC_setting_divider_nomargin {
@@ -505,10 +497,10 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_toplogo_container {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 #TUIC_setting {
     padding: 0;
@@ -530,25 +522,25 @@ textarea#css_textarea {
 }
 
 .TUIC_settings_header_container {
-    padding: 0 35px;
-    padding-top: 35px;
     display: flex;
     flex-direction: column;
-    align-items: start;
     gap: 10px;
+    align-items: start;
+    padding: 0 35px;
+    padding-top: 35px;
 }
 
 .TUIC_settings_header_title {
-    margin: 0;
     padding: 0;
+    margin: 0;
     font-size: 25px;
 }
 
 .TUIC_settings_header_desc {
-    margin: 0;
     padding: 0;
-    color: #71767c;
+    margin: 0;
     font-size: 15px;
+    color: #71767c;
 }
 
 .TUIC_settings_header_title.TUIC_settings_header_lv2 {
@@ -568,16 +560,16 @@ textarea#css_textarea {
     display: grid;
     grid-template-columns: 90px 1fr;
     align-items: center;
-    font-size: 15px;
     height: 50px;
+    font-size: 15px;
+    font-feature-settings: "palt";
     cursor: pointer;
     transition: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-    font-feature-settings: "palt";
 }
 
 .TUIC_setting_iconbutton:hover {
-    transition: none;
     background: var(--TUIC-container-background);
+    transition: none;
 }
 
 .TUIC_setting_iconbutton:active {
@@ -596,17 +588,17 @@ textarea#css_textarea {
 
 .TUIC_setting_section_title {
     padding: 0 35px 10px;
-    color: rgb(113 118 124);
+    margin: 0;
     font-size: 20px;
     font-weight: 700;
-    margin: 0;
+    color: rgb(113 118 124);
 }
 .TUIC_setting_section_title_2 {
-    color: var(--twitter-TUIC-color);
-    font-size: 20px;
-    font-weight: 700;
     padding: 0;
     margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--twitter-TUIC-color);
 }
 
 .TUIC_setting_detailsbox_icon {
@@ -618,25 +610,25 @@ textarea#css_textarea {
     display: grid;
     grid-template-columns: 90px 1fr 90px;
     align-items: center;
+    height: 100%;
     font-size: 15px;
     font-feature-settings: "palt";
-    height: 100%;
     user-select: none;
 }
 
 .TUIC_setting_detailsbox summary {
     height: 50px;
-    cursor: pointer;
     list-style-type: none;
+    cursor: pointer;
 }
 .TUIC_RoundedColorPicker_input {
-    -webkit-appearance: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transform: translate(-25%, -25%);
     width: 200%;
     height: 200%;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transform: translate(-25%, -25%);
 }
 
 .TUIC_setting_detailsbox {
@@ -645,8 +637,8 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_detailsbox summary:hover {
-    transition: none;
     background: var(--TUIC-container-background);
+    transition: none;
 }
 
 .TUIC_setting_detailsbox summary:active {
@@ -661,21 +653,21 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_color_select_info {
-    color: rgb(113 118 124);
-    font-size: 15px;
-    line-height: 1.4;
-    margin: 20px 0 0;
-    padding: 0;
     display: flex;
-    letter-spacing: 1px;
+    padding: 0;
+    margin: 20px 0 0;
+    font-size: 15px;
     font-feature-settings: "palt";
+    line-height: 1.4;
+    color: rgb(113 118 124);
+    letter-spacing: 1px;
 }
 
 .TUIC_setting_sidebarFigure {
-    border-radius: 0 10px 10px 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
     margin: 20px 0;
+    border-radius: 0 10px 10px 0;
 }
 
 .TUIC_setting_rightSidebarFigure {
@@ -683,10 +675,10 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_TwButtonFigure {
-    border-radius: 10px 10px 0 10px;
-    height: 100%;
     width: 100%;
+    height: 100%;
     margin: 20px 0;
+    border-radius: 10px 10px 0;
 }
 
 .TUIC_setting_TwButtonFigure_top {
@@ -694,25 +686,25 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_TwEngagementFigure {
-    border-radius: 10px;
-    height: 100%;
     width: 100%;
+    height: 100%;
     margin: 20px 0;
+    border-radius: 10px;
 }
 
 .TUIC_setting_UpdownListBtnDivider {
-    margin: 5px 0;
     width: 100%;
     height: 1px;
-    border: none;
+    margin: 5px 0;
     background-color: #303438;
+    border: none;
 }
 
 .TUIC_settings_subtitle2 {
-    color: rgb(113 118 124);
-    font-size: 15px;
     margin: 20px 0 10px;
+    font-size: 15px;
     font-feature-settings: "palt";
+    color: rgb(113 118 124);
     letter-spacing: 1px;
 }
 
@@ -722,17 +714,18 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_IconRadioButton {
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
     border-radius: 9999px;
 }
 
 .TUICIconRadioButton input[type="radio"]:checked ~ div > label {
     background-color: #1da1f2;
+
     --twitter-TUIC-color: white;
 }
 
@@ -754,25 +747,25 @@ textarea#css_textarea {
 }
 
 .TUICSettingSubTitleNomargin {
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 .TUIC_setting_notice_paragraph {
-    color: rgb(113, 118, 124);
     font-size: 15px;
     font-weight: 400;
     line-height: 1.4;
+    color: rgb(113 118 124);
 }
 .TUIC_setting_customcss_input {
-    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
-    background: var(--tlui-dialog-background);
     font-family: monospace;
+    background: var(--tlui-dialog-background);
+    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
 }
 .TUIC_setting_customcss_button {
-    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
-    color: var(--TUIC-container-background);
     width: 100%;
     height: 40px;
+    color: var(--TUIC-container-background);
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
     border: none;
     border-radius: 9999px;
 }
@@ -781,13 +774,13 @@ textarea#css_textarea {
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 30%);
 }
 .TUIC_setting_button_new {
-    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
-    color: var(--TUIC-container-background);
     width: 100%;
     height: 40px;
+    font-weight: bold;
+    color: var(--TUIC-container-background);
+    background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
     border: none;
     border-radius: 9999px;
-    font-weight: bold;
 }
 
 .TUIC_setting_button_new:active {
@@ -798,15 +791,15 @@ textarea#css_textarea {
 }
 
 .TUIC_setting_intro_paragraph {
-    color: rgb(113 118 124);
-    font-size: 15px;
     margin: 20px 0 10px;
+    font-size: 15px;
     font-feature-settings: "palt";
+    color: rgb(113 118 124);
     letter-spacing: 1px;
 }
 .TUIC_setting_textarea_new {
-    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
     background: var(--tlui-dialog-background);
+    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
 }
 
 .TUICSelectImg {
@@ -814,17 +807,17 @@ textarea#css_textarea {
 }
 .TUICSelectImg::file-selector-button,
 .TUICSelectImg::-webkit-file-upload-button {
+    padding: 10px 20px;
+    margin-right: 12px;
     background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
     border: none;
-    padding: 10px 20px;
     border-radius: 10px;
-    margin-right: 12px;
 }
 
 .TUIC_setting_bottom_copyright {
     margin: 35px 0;
-    text-decoration-color: rgb(113, 118, 124) !important;
     text-decoration-line: none;
+    text-decoration-color: rgb(113 118 124) !important;
 }
 .TUIC_setting_bottom_copyright:hover {
     text-decoration: underline;
@@ -833,7 +826,7 @@ textarea#css_textarea {
     text-decoration: none;
 }
 .TUIC_setting_bottom_copyright span {
+    display: block;
     width: 100%;
     height: 100%;
-    display: block;
 }
