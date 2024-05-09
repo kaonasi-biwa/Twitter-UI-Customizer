@@ -27,7 +27,18 @@
     "easySetting-discoverMoreDelete": "「もっと見つける」が邪魔？消しちゃえ！",
     "easySetting-defaultTwitterColor": "Twitterの新しい色にはもう慣れた？それなら、今の色に合わせよう！",
 
-    "bottomTweetButtons-settingTitle": "ツイート下ボタンの設定",
+    "settingSection-general": "全般",
+    "settingSection-page": "ページ",
+    "settingSection-other": "その他",
+    "settingSection-extentionInfo": "アドオン情報",
+
+    "settingDetailsBox-color": "色",
+    "settingDetailsBox-sidebar": "サイドバー",
+    "settingDetailsBox-effect_and_text": "画面効果とテキスト",
+
+    "tweetbuttons-setting-tweet": "ツイート",
+
+    "bottomTweetButtons-settingTitle": "ツイート下ボタン",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
     "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",
     "bottomTweetButtons-setting-visibleScrollBar": "ツイート下ボタンにスクロールバーを表示",
@@ -52,10 +63,11 @@
     "bottomTweetButtons-setting-linkCopyURL-X": "x.com",
     "bottomTweetButtons-setting-linkCopyURL-vxTwitter": "vxtwitter.com",
     "bottomTweetButtons-setting-linkCopyURL-fxTwitter": "fxtwitter.com",
-    "bottomTweetButtons-setting-linkCopyURL": "ツイート下ボタンの「ツイートのリンクをコピー」のドメイン",
-    "bottomTweetButtons-setting-linkShareCopyURL": "共有ボタンのメニューの「ツイートのリンクをコピー」のドメイン",
+    "bottomTweetButtons-setting-linkCopy": "ツイート下ボタンの「ツイートのリンクをコピー」",
+    "bottomTweetButtons-setting-linkShareMenuCopy": "共有ボタンのメニューの「ツイートのリンクをコピー」",
+    "setting-linkShareCopyURL": "「ツイートのリンクをコピー」のドメイン",
 
-    "tweetMoreMenuItems-settingTitle": "ツイート右上の「もっと見る」のメニューの非表示設定",
+    "tweetMoreMenuItems-settingTitle": "ツイート右上「もっと見る」メニュー",
     "tweetMoreMenuItems-engagements": "エンゲージメントを表示",
     "tweetMoreMenuItems-highlighOnPin": "プロフィールに固定/固定を解除",
     "tweetMoreMenuItems-addMemberOfList": "ユーザーをリストに追加/削除",
@@ -63,27 +75,31 @@
     "tweetMoreMenuItems-notInterested": "このツイートに興味がない",
     "tweetMoreMenuItems-notHelpful": "このツイートは役に立ちませんでした",
 
-    "tweetTopButton-settingTitle": "ツイート上ボタンの設定",
+    "tweetTopButton-settingTitle": "ツイート上ボタン",
 
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
+    "tweetViewSettings-other": " その他",
+
     "sidebarButton-settingTitle": "左サイドバーの設定",
+    "sidebarButton-setting-LeftSidebar": "左サイドバー",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
-    "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニューの設定",
-    "sidebarButton-accountSwitcher-Icon": "アイコンを非表示にする",
-    "sidebarButton-accountSwitcher-NameID": "ユーザー名とIDを非表示にする",
-    "sidebarButton-accountSwitcher-MoreMenu": "右端の三点を非表示にする",
+    "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニュー",
+    "sidebarButton-accountSwitcher-Icon": "アイコン",
+    "sidebarButton-accountSwitcher-NameID": "ユーザー名とID",
+    "sidebarButton-accountSwitcher-MoreMenu": "右端の三点",
     "sidebarButton-homeIcon-settingTitle": "ホームのアイコン",
     "sidebarButton-homeIcon-normal": "家のアイコン",
     "sidebarButton-homeIcon-birdGoBack": "巣箱のアイコン",
     "sidebarButton-homeIcon-TUIC": "Twitter UI Customizerのアイコン",
 
-    "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニューの非表示設定",
+    "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニュー",
     "sidebarButton-moreMenuItems-separator": "分離線",
 
     "rightSidebar-settingTitle": "右サイドバーの設定",
+    "rightSidebar-setting-rightSidebar": "右サイドバー",
     "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
     "rightSidebar-trend": "「いまどうしてる？」を非表示にする",
     "rightSidebar-relevantPeople": "「関連性の高いアカウント」を非表示にする",
@@ -104,6 +120,7 @@
     "invisibleItems-verifiedFollowerTab": "フォロワー一覧の「認証済みのフォロワー」タブ",
     "invisibleItems-verifiedNotifications": "通知の「認証済み」タブ",
 
+    "profileSetting-profile": "プロフィール",
     "profileSetting-settingTitle": "プロフィール周辺の設定",
     "profileSetting-tabs-settingTitle": "タブの設定",
     "profileSetting-tabs-pinnedTab": "タブを上部に固定する",
@@ -114,6 +131,7 @@
     "profileSetting-followersListButtons-removeFollowerButton": "フォロワーを削除する",
 
     "timeline-settingTitle": "タイムラインの設定",
+    "timeline-setting-timeline": "タイムライン",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
     "timeline-hideOhterRTTL": "リツイートを非表示にする",
     "timeline-hideReply": "ツイートに対する返信以下にあるものを非表示にする",
@@ -157,6 +175,8 @@
     "twitterIcon-nowIcon": "現在の画像",
     "twitterIcon-roundIcon": "アイコンを丸くする(カスタムアイコン時のみ有効)",
     "twitterIcon-favicon": "タブのアイコンも変更する",
+    "twitterIcon-preset": "プリセット",
+    "twitterIcon-other": "その他",
 
     "XToTwitter-settingTitle": "Twitterの帰還",
     "XtoTwitter-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
@@ -166,21 +186,38 @@
     "uncategorizedSettings-settingTitle": "その他の設定",
     "uncategorizedSettings-disableBackdropFilter": "ぼかし効果などの背景効果を無効にする",
 
+    "settingPerformance-settingTitle": "パフォーマンス",
+
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
 
+    "dmPage-setting-dm": "ダイレクトメッセージ",
     "dmPage-settingTitle": "ダイレクトメッセージの設定",
     "dmPage-showIcon": "対個人のダイレクトメッセージでも相手のアイコンを表示する",
 
+    "export-import": "エクスポート/インポート",
+    "export-intro": "TUICの設定をバックアップしたり、他のブラウザのTUICに設定をコピーしたりできます。",
+    "export-intro-step1": "1. 「設定をエクスポート」をクリックします。",
+    "export-intro-step2": "2. 「エクスポートした設定をコピー」をクリックするか、生成されたテキストをコピーします。",
+    "export-intro-toRestore": "コピーしたテキストを保存しておけば、いつでも設定を復元できます。",
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",
     "export-exportButtonCopy": "エクスポートした設定をコピー",
 
+    "import-intro": "エクスポートした設定をお持ちの場合は、このTUICで読み込むことができます。",
+    "import-intro-step1": "1. 以下のテキストボックスに、エクスポートした設定をペーストします。",
+    "import-intro-step2": "2. 設定をインポートします。",
+    "import-intro-append": "上記のテキストに含まれる項目のみがインポートされます。\n既存の設定と重複している場合は、新しい設定に置き換えられます。",
+    "import-intro-replace": "既存の設定をすべて削除してから、上記のテキストの項目がインポートされます。\nこの場合、上記のテキストに含まれない設定はデフォルト値になります。",
     "import-settingTitle": "インポート",
     "import-importAppend": "インポートして追記する",
     "import-importReplace": "インポートして置き換える",
     "import-select-explain": "「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートされます。この場合、インポート元に含まれない設定はデフォルト値になります。",
     "import-error": "構文解析に失敗しました。インポート元のデータが破損している可能性があります。",
+
+    "addonInfo-aboutTUIC": "Twitter UI Customizerについて",
+    "addonInfo-TUICOfficialTwitter": "公式アカウント(@TUIC_Official)",
+    "addonInfo-github": "GitHub",
 
     "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
     "observerError-copy": "コピーして閉じる",
@@ -190,6 +227,8 @@
     "common-close": "閉じる",
     "common-error": "エラー",
     "common-confirm": "確認",
+    "common-hidebelow": "以下を非表示",
+    "common-displaySetting": "表示設定",
 
-    "common-displaySetting": "表示設定"
+    "temp-notice-hideDMSheetOnBottomRight": "現在、画面右下に存在するDMの欄は、「その他の設定」から非表示にできます。"
 }
