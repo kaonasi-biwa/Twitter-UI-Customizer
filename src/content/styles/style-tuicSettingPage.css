@@ -805,7 +805,7 @@ textarea#css_textarea {
     letter-spacing: 1px;
 }
 .TUIC_setting_textarea_new {
-    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 40%);
+    border: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
     background: var(--tlui-dialog-background);
 }
 
