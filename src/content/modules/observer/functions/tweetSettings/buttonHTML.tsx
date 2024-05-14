@@ -172,22 +172,13 @@ export const tweetButtonData: {
                 ></path>
             );
         },
-        clickEvent: (data: ArticleInfomation) => {
-            const retButton = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]);
-            const likeButton = data.elements.buttonBarBase?.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"]);
-            likeButton?.click();
-            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
-                retButton.click();
-            } else {
-                for (let i = 0; i <= 2; i++) {
-                    const quoteButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])`);
-                    if (quoteButton == null) {
-                        retButton.click();
-                    } else {
-                        quoteButton.click();
-                        break;
-                    }
-                }
+        clickEvent: async (data: ArticleInfomation) => {
+            (await TUICLibrary.waitForElement(ButtonUnderTweetSelectors["retweet-button"], data.elements.buttonBarBase))[0].click();
+            (await TUICLibrary.waitForElement(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
+
+            // NOTE: ワンクリックでRTできる設定の場合は、RTボタンを押した時点でRTされるのでこの処理は不要
+            if (!TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
+                (await TUICLibrary.waitForElement(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
             }
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
