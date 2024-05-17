@@ -7,7 +7,7 @@ import { render } from "solid-js/web";
 function followersListButton(id: string, baseElement: HTMLElement): () => JSX.Element {
     return (): JSX.Element => (
         <div
-            class="css-175oi2r r-18u37iz r-1h0z5md r-19u6a5r TUICOriginalContent"
+            class="css-175oi2r r-18u37iz r-1h0z5md r-1cwvpvk TUICOriginalContent"
             data-TUICFollowerListButton={id}
             onKeyDown={(e: KeyboardEvent) => {
                 if (e.key === "Enter") {

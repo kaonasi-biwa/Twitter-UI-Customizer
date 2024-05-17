@@ -292,13 +292,15 @@
 div[tuicudbox="sidebarButtons"] > .UpDownButtons,
 div[tuicudbox="visibleButtons"] > .UpDownButtons,
 div[tuicudbox="fixEngagements"] > .UpDownButtons,
-div[tuicudbox="tweetTopButton"] > .UpDownButtons {
+div[tuicudbox="tweetTopButton"] > .UpDownButtons,
+div[tuicudbox="profileSetting.followersListButtons"] > .UpDownButtons {
     padding: 0 7px;
 }
 .TUIC_setting_detailsbox_content_container div[tuicudbox="tweetTopButton"],
 .TUIC_setting_detailsbox_content_container div[tuicudbox="sidebarButtons"],
 .TUIC_setting_detailsbox_content_container div[tuicudbox="fixEngagements"],
-.TUIC_setting_detailsbox_content_container div[tuicudbox="visibleButtons"] {
+.TUIC_setting_detailsbox_content_container div[tuicudbox="visibleButtons"],
+.TUIC_setting_detailsbox_content_container div[tuicudbox="profileSetting.followersListButtons"] {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
 }
