@@ -6,8 +6,8 @@
     --tuic-popup-twt: #1da1f2;
     --tuic-popup-tuic: #2b8af7da;
     --tuic-popup-left-margin: 30px;
-    --tuic-popup-item-hover: rgba(255, 255, 255, 0.05);
-    --tuic-popup-item-active: rgba(255, 255, 255, 0.2);
+    --tuic-popup-item-hover: rgb(255 255 255 / 5%);
+    --tuic-popup-item-active: rgb(255 255 255 / 20%);
 }
 
 body {
@@ -45,20 +45,20 @@ body {
 }
 
 .links {
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: auto;
     margin-bottom: 8px;
     a {
-        font-size: 0.95rem;
-        color: var(--tuic-popup-white);
-        text-decoration: none;
-        background: transparent;
         display: flex;
         gap: 25px;
         align-items: center;
         padding: 15px var(--tuic-popup-left-margin);
+        font-size: 0.95rem;
+        color: var(--tuic-popup-white);
+        text-decoration: none;
+        background: transparent;
         &:hover {
             background: var(--tuic-popup-item-hover);
         }
@@ -66,16 +66,16 @@ body {
             background: var(--tuic-popup-item-active);
         }
         .bi::before {
-            font-size: 20px;
             display: block;
-            color: rgba(255, 255, 255, 0.55);
+            font-size: 20px;
+            color: rgb(255 255 255 / 55%);
         }
         .bi-tuic::before {
-            content: " ";
-            background-size: cover;
-            background-image: url("./tuic_logo_gray.svg");
             width: 20px;
             height: 20px;
+            content: " ";
+            background-image: url("./tuic_logo_gray.svg");
+            background-size: cover;
         }
         div:not(.bi) {
             height: fit-content;
@@ -92,14 +92,14 @@ body {
 
 hr.divider {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
 a.license {
-    color: var(--tuic-popup-gray-bright);
-    font-size: 0.8rem;
-    text-decoration: none;
     margin-top: 25px;
+    font-size: 0.8rem;
+    color: var(--tuic-popup-gray-bright);
+    text-decoration: none;
     &:hover {
         text-decoration: underline;
     }
@@ -108,19 +108,19 @@ a.license {
 details {
     margin-bottom: 5px;
     summary {
-        padding: 15px var(--tuic-popup-left-margin);
-        cursor: pointer;
-        font-size: 0.95rem;
-        list-style-type: none;
         display: flex;
         gap: 25px;
+        padding: 15px var(--tuic-popup-left-margin);
+        font-size: 0.95rem;
+        list-style-type: none;
+        cursor: pointer;
         * {
             user-select: none;
         }
         .bi::before {
-            color: rgba(255, 255, 255, 0.55);
             display: block;
             font-size: 20px;
+            color: rgb(255 255 255 / 55%);
         }
         &:hover {
             background: var(--tuic-popup-item-hover);
@@ -130,12 +130,12 @@ details {
         }
     }
     div#notifySettings {
-        background: rgba(255, 255, 255, 0.08);
         display: flex;
-        gap: 15px;
         flex-direction: column;
-        overflow-x: scroll;
+        gap: 15px;
         padding: 20px 22px;
+        overflow-x: scroll;
+        background: rgb(255 255 255 / 8%);
         label {
             input {
                 @apply appearance-none relative w-4 h-4 bg-gray-700 border-gray-600 rounded;
