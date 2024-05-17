@@ -7,11 +7,11 @@ export default {
         default_locale: "ja",
         content_scripts: [
             {
-                matches: ["*://*.twitter.com/*"],
+                matches: ["*://*.twitter.com//"],
                 js: ["printPref.js"],
             },
             {
-                matches: ["*://*.x.com/*"],
+                matches: ["*://*.x.com/*", "*://*.twitter.com/*"],
                 js: ["inject.js"],
 
                 run_at: "document_start",

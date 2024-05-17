@@ -781,6 +781,8 @@ textarea#css_textarea {
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 90%);
     border: none;
     border-radius: 9999px;
+    text-align: center !important;
+    font-size: 15px !important;
 }
 
 .TUIC_setting_button_new:active {
