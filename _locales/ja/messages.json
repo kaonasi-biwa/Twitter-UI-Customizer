@@ -58,6 +58,10 @@
         "message": "最新版をGitHubからインストール",
         "description": "ポップアップのボタンのツールチップ"
     },
+    "popupButton7": {
+        "message": "ドメイン変更によって失われてしまったtwitter.comでの設定を救出",
+        "description": "ポップアップのボタンのツールチップ"
+    },
     "pSettings": {
         "message": "設定",
         "description": "ポップアップの設定ボタン"
@@ -77,6 +81,10 @@
     "pInstallFromGH": {
         "message": "最新版をインストール",
         "description": "ポップアップのGitHubから最新版をインストールするボタン"
+    },
+    "pPrintTUICPref": {
+        "message": "twitter.comでの設定を救出",
+        "description": "ポップアップのtwitter.comでの設定を救出するボタン"
     },
     "pUpdateOnBrowserLaunch": {
         "message": "ブラウザを起動したとき",
