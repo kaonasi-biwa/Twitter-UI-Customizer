@@ -62,7 +62,7 @@ export default {
         web_accessible_resources: [
             {
                 resources: ["*"],
-                matches: ["*://*.twitter.com/*"],
+                matches: ["*://*.twitter.com/*", "*://*.x.com/*"],
             },
         ],
         permissions: ["notifications", "storage"],
