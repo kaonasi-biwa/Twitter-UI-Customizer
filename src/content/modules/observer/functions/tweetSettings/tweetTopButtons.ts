@@ -56,25 +56,20 @@ const _data = {
             ).item(0) as HTMLDivElement;
             if (!info.option.isMe) {
                 const eventFunc = async () => {
-                    for (let i = 0; i <= 2; i++) {
-                        const blockButton = document.querySelector<HTMLDivElement>(`[data-testid="block"][role="menuitem"]`);
-                        if (blockButton == null) {
+                    moremenu.click();
+                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="menuitem"]`))[0].click();
+
+                    // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
+                    await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
+                    if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
+                        document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
+                    } else {
+                        document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
                             moremenu.click();
-                        } else {
-                            blockButton.click();
-                            await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-                            if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
-                                document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
-                            } else {
-                                document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
-                                    moremenu.click();
-                                });
-                                document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
-                                    moremenu.click();
-                                });
-                            }
-                            break;
-                        }
+                        });
+                        document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                            moremenu.click();
+                        });
                     }
                 };
 
@@ -94,17 +89,14 @@ const _data = {
 
             if (!info.option.isMe) {
                 const eventFunc = async () => {
-                    for (let i = 0; i <= 2; i++) {
-                        const blockButton = document.querySelector(
+                    moremenu.click();
+                    (
+                        await TUICLibrary.waitForElement<HTMLButtonElement>(
                             `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
-                        );
-                        if (blockButton == null) {
-                            moremenu.click();
-                        } else {
-                            blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
-                            break;
-                        }
-                    }
+                        )
+                    )[0]
+                        .closest<HTMLElement>(`[role="menuitem"]`)
+                        .click();
                 };
 
                 eventHandle(elem, eventFunc);
@@ -124,27 +116,26 @@ const _data = {
 
             if (info.option.isMe) {
                 const eventFunc = async () => {
-                    for (const i of [0, 1, 2]) {
-                        const blockButton = document.querySelector(
+                    moremenu.click();
+                    (
+                        await TUICLibrary.waitForElement<HTMLButtonElement>(
                             `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
-                        );
-                        if (blockButton == null) {
+                        )
+                    )[0]
+                        .closest<HTMLElement>(`[role="menuitem"]`)
+                        .click();
+
+                    // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
+                    const elems = await TUICLibrary.waitForElement<HTMLButtonElement>(`button[data-testid="confirmationSheetConfirm"]`);
+                    if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
+                        elems[0].click();
+                    } else {
+                        document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (_) => {
                             moremenu.click();
-                        } else {
-                            blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
-                            const elems = await TUICLibrary.waitForElement<HTMLButtonElement>(`button[data-testid="confirmationSheetConfirm"]`);
-                            if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
-                                elems[0].click();
-                            } else {
-                                document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (_) => {
-                                    moremenu.click();
-                                });
-                                document.querySelector(`[data-testid="mask"]`).addEventListener("click", (_) => {
-                                    moremenu.click();
-                                });
-                            }
-                            break;
-                        }
+                        });
+                        document.querySelector(`[data-testid="mask"]`).addEventListener("click", (_) => {
+                            moremenu.click();
+                        });
                     }
                 };
 
@@ -162,15 +153,8 @@ const _data = {
             ).item(0) as HTMLDivElement;
 
             const eventFunc = async () => {
-                for (const i of [0, 1, 2]) {
-                    const blockButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"][href="/i/lists/add_member"]`);
-                    if (blockButton == null) {
-                        moremenu.click();
-                    } else {
-                        blockButton.click();
-                        break;
-                    }
-                }
+                moremenu.click();
+                (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][href="/i/lists/add_member"]`))[0].click();
             };
 
             eventHandle(elem, eventFunc);
@@ -182,15 +166,8 @@ const _data = {
 
             if (!info.option.isMe) {
                 const eventFunc = async () => {
-                    for (const i of [0, 1, 2]) {
-                        const blockButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"][data-testid="report"]`);
-                        if (blockButton == null) {
-                            moremenu.click();
-                        } else {
-                            blockButton.click();
-                            break;
-                        }
-                    }
+                    moremenu.click();
+                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="report"]`))[0].click();
                 };
 
                 eventHandle(elem, eventFunc);
