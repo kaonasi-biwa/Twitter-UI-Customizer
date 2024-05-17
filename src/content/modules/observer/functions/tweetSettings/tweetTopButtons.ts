@@ -57,7 +57,7 @@ const _data = {
             if (!info.option.isMe) {
                 const eventFunc = async () => {
                     moremenu.click();
-                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="menuitem"]`))[0].click();
+                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="block"]`))[0].click();
 
                     // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
                     await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
