@@ -1,58 +1,110 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="./options.pcss" />
         <title class="i18n" i18n-id="optionTitle">設定及び操作方法(Twitter UI Customizer)</title>
         <meta charset="utf-8" />
         <script type="module" src="./options.ts"></script>
     </head>
     <body>
-        <h1 class="i18n" i18n-id="optionHeading1">Twitter UI Customizerの設定</h1>
-        <h2 class="i18n" i18n-id="optionHeading1_1">Twitterの設定:</h2>
-        <a i18n-id="optionContent1_1_1" href="https://twitter.com/settings/display" target="_blank" rel="noopener noreferrer" class="i18n">(Twitterの設定→アクセシビリティ、表示、言語→表示)</a>
-        <h2 class="i18n" i18n-id="optionHeading1_2">アップデート通知の設定:</h2>
-        <div>
-            <input type="checkbox" id="runBrowser" />
-            <label for="runBrowser" class="i18n" i18n-id="optionContent1_2_1">ブラウザを起動したときにアップデート通知する</label><br />
-            <input type="checkbox" id="iconClick" />
-            <label for="iconClick" class="i18n" i18n-id="optionContent1_2_2">アイコンをクリックしたときにアップデート通知する</label><br />
-            <input type="checkbox" id="openTwitter" />
-            <label for="openTwitter" class="i18n" i18n-id="optionContent1_2_3">Twitterを開いたときにアップデート通知する</label>
-        </div>
-        <h1 class="i18n" i18n-id="optionHeading2">Twitter UI Customizerの操作方法</h1>
-        <p class="i18n" i18n-id="optionContent2_1">上のURL先から設定を変えます。</p>
-        <p class="i18n" i18n-id="optionContent2_2">再起動は必要ありません。</p>
-        <p class="i18n" i18n-id="optionContent2_3">デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。</p>
-        <p class="i18n" i18n-id="optionContent2_4">※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。</p>
-        <h1 class="i18n" i18n-id="optionSpecialThanks">Special Thanks</h1>
-        <h2 class="i18n" i18n-id="optionSpecialThanksGitHub">GitHub:</h2>
-        <ul style="font-size: 15px; margin-top: -15px">
-            <li>@GrapeApple0 (<span class="i18n" i18n-id="optionSpecialThanks_GrapeApple0">クライアント名表示・Twitter APIの主</span>)</li>
-            <li>@irhdevel (<span class="i18n" i18n-id="optionSpecialThanks_irhdevel">すばらしきデザイン</span>)</li>
-            <li>@Taka005 (<span class="i18n" i18n-id="optionSpecialThanks_Taka005">ソースコードの整理</span>)</li>
-            <li>@Hibi-10000 (<span class="i18n" i18n-id="optionSpecialThanks_Hibi_10000">アメリカ英語の翻訳者</span>)</li>
-            <li>@KotoneFami (<span class="i18n" i18n-id="optionSpecialThanks_KotoneFami_v2">機能追加やソースコードの整理など</span>)</li>
-            <li>@nakasyou (<span class="i18n" i18n-id="optionSpecialThanks_nakasyou">デザインの改良</span>)</li>
-            <li>@typeling1578 (<span class="i18n" i18n-id="optionSpecialThanks_typeling1578">ソースコードの整理</span>)</li>
-            <li>@GreenDotBlue99 (<span class="i18n" i18n-id="optionSpecialThanks_GreenDotBlue99">タブの固定機能</span>)</li>
-            <li>@nyanrus (<span class="i18n" i18n-id="optionSpecialThanks_nyanrus_v2">韓国語の翻訳者や設定画面の改良</span>)</li>
-        </ul>
-        <h2 class="i18n" i18n-id="optionSpecialThanksCrowdin">Crowdin:</h2>
-        <ul style="font-size: 15px; margin-top: -15px">
-            <li>@loading_yt (<span class="i18n" i18n-id="optionSpecialThanks_loading_yt">中国語の翻訳者</span>)</li>
-            <li>@enthropyreg (<span class="i18n" i18n-id="optionSpecialThanks_enthropyreg">ロシアの翻訳者</span>)</li>
-        </ul>
-        <h2 class="i18n" i18n-id="optionSpecialThanksOther">Other:</h2>
-        <ul style="font-size: 15px; margin-top: -15px">
-            <li>
-                @CutterKnife_ /
-                <span class="i18n" i18n-id="optionSpecialThanksOtherTwitter">Twitter</span>
-                (<span class="i18n" i18n-id="optionSpecialThanks_CutterKnife_">アイコン・ロゴの作成者</span>)
-            </li>
-            <li>
-                @PianoCat1010 /
-                <span class="i18n" i18n-id="optionSpecialThanksOtherTwitter">Twitter</span>
-                (<span class="i18n" i18n-id="optionSpecialThanks_PianoCat1010">「いいねとリツイート」のアイコンの作成者</span>)
-            </li>
-        </ul>
+        <main id="container">
+            <img id="icon" src="./tuic_logo_gray.svg" alt="icon for TUIC" />
+            <h1 class="i18n TUIC_options_title" i18n-id="optionHeading1">Twitter UI Customizerの設定</h1>
+            <div class="TUIC_options_twSetting">
+                <h2 class="TUIC_options_titleWithIcon">
+                    <div class="bi bi-twitter"></div>
+                    <span class="i18n" i18n-id="optionHeading1_1">Twitterの設定:</span>
+                </h2>
+                <a class="TUIC_options_openTwSettingContainer" href="https://twitter.com/settings/display" target="_blank" rel="noopener noreferrer">
+                    <div>
+                        <span class="i18n TUIC_options_openTwSetting_main" i18n-id="optionContent1_1_2">Twitterの設定を開く!</span>
+                        <span class="i18n TUIC_options_openTwSetting_sub" i18n-id="optionContent1_1_1">(Twitterの設定→アクセシビリティ、表示、言語→表示) </span>
+                    </div>
+                    <div class="bi bi-arrow-right"></div>
+                </a>
+            </div>
+            <h2 class="TUIC_options_titleWithIcon">
+                <div class="bi bi-arrow-repeat"></div>
+                <span class="i18n" i18n-id="optionHeading1_2">アップデート通知の設定:</span>
+            </h2>
+            <div class="TUIC_options_updateTiming_chkContainer">
+                <div>
+                    <input type="checkbox" id="runBrowser" />
+                    <label for="runBrowser" class="i18n" i18n-id="optionContent1_2_1">ブラウザを起動したときにアップデート通知する</label><br />
+                </div>
+                <div>
+                    <input type="checkbox" id="iconClick" />
+                    <label for="iconClick" class="i18n" i18n-id="optionContent1_2_2">アイコンをクリックしたときにアップデート通知する</label><br />
+                </div>
+                <div>
+                    <input type="checkbox" id="openTwitter" />
+                    <label for="openTwitter" class="i18n" i18n-id="optionContent1_2_3">Twitterを開いたときにアップデート通知する</label>
+                </div>
+            </div>
+            <hr class="TUIC_options_divider_small" />
+            <div class="TUIC_options_howtoOperate_container">
+                <h1 class="TUIC_options_titleWithIcon">
+                    <div class="bi bi-info-circle-fill"></div>
+                    <span class="i18n" i18n-id="optionHeading2">Twitter UI Customizerの操作方法</span>
+                </h1>
+                <p class="i18n" i18n-id="optionContent2_1">上のURL先から設定を変えます。</p>
+                <p class="i18n" i18n-id="optionContent2_2">再起動は必要ありません。</p>
+                <p class="i18n" i18n-id="optionContent2_3">デフォルトに戻すボタンで(この拡張機能での)デフォルトに戻せます。</p>
+                <p class="i18n" i18n-id="optionContent2_4">※この拡張機能のデフォルトは、日本時間2021/8/12のデザイン変更の前のデザインが基準になっています。</p>
+            </div>
+            <hr class="TUIC_options_divider_small" />
+            <h1 class="TUIC_options_titleWithIcon">
+                <div class="bi bi-hearts"></div>
+                <span class="i18n" i18n-id="optionSpecialThanks">Special Thanks</span>
+            </h1>
+            <h2 class="TUIC_options_titleWithIcon">
+                <div class="bi bi-github"></div>
+                <span class="i18n" i18n-id="optionSpecialThanksGitHub">GitHub:</span>
+            </h2>
+            <ul class="TUIC_options_thanks_members">
+                <li>@GrapeApple0<span class="i18n" i18n-id="optionSpecialThanks_GrapeApple0">クライアント名表示・Twitter APIの主</span></li>
+                <li>@irhdevel<span class="i18n" i18n-id="optionSpecialThanks_irhdevel">すばらしきデザイン</span></li>
+                <li>@Taka005<span class="i18n" i18n-id="optionSpecialThanks_Taka005">ソースコードの整理</span></li>
+                <li>@Hibi-10000<span class="i18n" i18n-id="optionSpecialThanks_Hibi_10000">アメリカ英語の翻訳者</span></li>
+                <li>@KotoneFami<span class="i18n" i18n-id="optionSpecialThanks_KotoneFami_v2">機能追加やソースコードの整理など</span></li>
+                <li>@nakasyou<span class="i18n" i18n-id="optionSpecialThanks_nakasyou">デザインの改良</span></li>
+                <li>@typeling1578<span class="i18n" i18n-id="optionSpecialThanks_typeling1578">ソースコードの整理</span></li>
+                <li>@GreenDotBlue99<span class="i18n" i18n-id="optionSpecialThanks_GreenDotBlue99">タブの固定機能</span></li>
+                <li>@nyanrus<span class="i18n" i18n-id="optionSpecialThanks_nyanrus_v2">韓国語の翻訳者や設定画面の改良</span></li>
+            </ul>
+
+            <h2 class="TUIC_options_titleWithIcon">
+                <div class="bi bi-translate"></div>
+                <span class="i18n" i18n-id="optionSpecialThanksCrowdin">Crowdin:</span>
+            </h2>
+            <ul class="TUIC_options_thanks_members">
+                <li>@loading_yt<span class="i18n" i18n-id="optionSpecialThanks_loading_yt">中国語の翻訳者</span></li>
+                <li>@enthropyreg<span class="i18n" i18n-id="optionSpecialThanks_enthropyreg">ロシアの翻訳者</span></li>
+            </ul>
+            <h2 class="TUIC_options_titleWithIcon">
+                <div class="bi bi-stars"></div>
+                <span class="i18n" i18n-id="optionSpecialThanksOther">Other:</span>
+            </h2>
+            <ul class="TUIC_options_thanks_members">
+                <li>
+                    @CutterKnife_
+                    <div class="TUIC_options_thanks_member_platform">
+                        <div class="bi bi-exclamation-circle"></div>
+                        <span class="i18n" i18n-id="optionSpecialThanksOtherID">ID:</span>
+                        <span class="i18n" i18n-id="optionSpecialThanksOtherTwitter">Twitter</span>
+                    </div>
+                    <span class="i18n" i18n-id="optionSpecialThanks_CutterKnife_">アイコン・ロゴの作成者</span>
+                </li>
+                <li>
+                    @PianoCat1010
+                    <div class="TUIC_options_thanks_member_platform">
+                        <div class="bi bi-exclamation-circle"></div>
+                        <span class="i18n" i18n-id="optionSpecialThanksOtherID">ID:</span>
+                        <span class="i18n" i18n-id="optionSpecialThanksOtherTwitter">Twitter</span>
+                    </div>
+                    <span class="i18n" i18n-id="optionSpecialThanks_PianoCat1010">「いいねとリツイート」のアイコンの作成者</span>
+                </li>
+            </ul>
+        </main>
     </body>
 </html>
