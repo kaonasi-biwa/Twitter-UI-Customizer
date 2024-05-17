@@ -13,8 +13,24 @@ const elem2 = (): JSX.Element => {
         <div id="aiueoaa">
             <h1>{TUICI18N.get("rescuePref-ButtonLabel")}</h1>
             <h2>{TUICI18N.get("rescuePref-detail")}</h2>
-            <textarea class="full-width" value={localStorage.getItem("TUIC")} style={{ width: "100%", border: "solid black", "margin-bottom": "10px" }} readonly rows="8"></textarea>
+            <textarea class="full-width" value={localStorage.getItem("TUIC")} style={{ width: "100%", border: "solid black" }} readonly rows="8"></textarea>
+            <button
+                onclick={() => {
+                    navigator.clipboard.writeText(localStorage.getItem("TUIC"));
+                }}
+                style={{ width: "100%", "margin-bottom": "10px", height: "30px", border: "1px solid #333", cursor: "initial", background: "initial" }}
+            >
+                ↑{TUICI18N.get("common-copy")}
+            </button>
             <textarea class="full-width" value={localStorage.getItem("TUIC_CSS")} style={{ width: "100%", border: "solid black" }} readonly rows="8"></textarea>
+            <button
+                onclick={() => {
+                    navigator.clipboard.writeText(localStorage.getItem("TUIC_CSS"));
+                }}
+                style={{ width: "100%", "margin-bottom": "10px", height: "30px", border: "1px solid #333", cursor: "initial", background: "initial" }}
+            >
+                ↑{TUICI18N.get("common-copy")}
+            </button>
             <h2>{TUICI18N.get("rescuePref-complete")}</h2>
         </div>
     );

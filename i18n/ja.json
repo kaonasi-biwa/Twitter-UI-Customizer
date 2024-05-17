@@ -232,6 +232,7 @@
     "common-displaySetting": "表示設定",
     "common-copy-and-close": "コピーして閉じる",
     "common-copy-and-go": "コピーして進む",
+    "common-copy": "コピー",
 
     "rescuePref-ButtonLabel": "twitter.comのTUICの設定を救出する",
     "rescuePref-detail": "エクスポートされた設定、CSSの順で表示されます。それぞれコピーしてx.comでインポート/保存してください。",
