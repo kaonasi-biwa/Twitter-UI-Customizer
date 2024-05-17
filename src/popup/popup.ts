@@ -50,14 +50,11 @@ window.onload = async () => {
         chrome.tabs.create({ url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE" });
     };
 
-    const $link7 = document.getElementById("link7");
-    if (isFirefox && $link7 instanceof HTMLAnchorElement) {
-        $link7.hidden = false;
-        document.getElementById("link7").onclick = () => {
-            //chrome.tabs.create({ url: chrome.runtime.getURL("safemode.html") });
-            chrome.tabs.create({ url: "https://twitter.com/ja/tos" });
-        };
-    } // Firefoxの場合のみ有効
+    document.getElementById("link7").onclick = () => {
+        //chrome.tabs.create({ url: chrome.runtime.getURL("safemode.html") });
+        chrome.tabs.create({ url: "https://twitter.com/ja/tos" });
+    };
+    // Firefoxの場合のみ有効
 
     chrome.storage.sync.get("TUIC", async (settingT) => {
         const updateUrl = chrome.runtime.getManifest().update_url;
