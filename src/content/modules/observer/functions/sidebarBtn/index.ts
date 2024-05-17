@@ -45,7 +45,7 @@ const _data = {
                         "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-fv9tdh",
                         "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t",
                         "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
-                        "r-evnaw r-eaezby r-16dba41 r-i0ley5 r-k1rd3f",
+                        "r-evnaw r-eaezby r-16dba41 r-i0ley5 r-19o66xi",
                         "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
                     )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
