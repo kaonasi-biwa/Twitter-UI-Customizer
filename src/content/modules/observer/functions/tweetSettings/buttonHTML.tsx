@@ -5,6 +5,8 @@ import { JSX } from "solid-js";
 import { render } from "solid-js/web";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 
+export let willClickRT = false;
+
 const copiedURLMessage = (): JSX.Element => {
     return (
         <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
@@ -91,25 +93,20 @@ export const tweetButtonData: {
         },
         clickEvent: async (data: ArticleInfomation) => {
             const article = data.elements.articleBase;
-            for (let i = 0; i <= 2; i++) {
-                const blockButton = document.querySelector<HTMLDivElement>(`[data-testid="block"][role="menuitem"]`);
-                if (blockButton == null) {
-                    article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
-                } else {
-                    blockButton.click();
-                    await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-                    if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
-                        document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
-                    } else {
-                        document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
-                            article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
-                        });
-                        document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
-                            article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
-                        });
-                    }
-                    break;
-                }
+            article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
+            (await TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="block"][role="menuitem"]`))[0].click();
+
+            // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
+            await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
+            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
+                document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
+            } else {
+                document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                    article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
+                });
+                document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                    article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
+                });
             }
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
@@ -125,19 +122,16 @@ export const tweetButtonData: {
                 ></path>
             );
         },
-        clickEvent: (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInfomation) => {
             const article = data.elements.articleBase;
-            for (let i = 0; i <= 2; i++) {
-                const blockButton = document.querySelector(
+            article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
+            (
+                await TUICLibrary.waitForElement<HTMLButtonElement>(
                     `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
-                );
-                if (blockButton == null) {
-                    article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
-                } else {
-                    blockButton.closest<HTMLElement>(`[role="menuitem"]`).click();
-                    break;
-                }
-            }
+                )
+            )[0]
+                .closest<HTMLElement>(`[role="menuitem"]`)
+                .click();
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
             return !articleInfomation.option.isMe;
@@ -147,17 +141,11 @@ export const tweetButtonData: {
         svg: (): JSX.Element => {
             return <path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z" class="TUIC_QuoteTweet"></path>;
         },
-        clickEvent: (data: ArticleInfomation) => {
-            const retButton = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]);
-            for (let i = 0; i <= 2; i++) {
-                const quoteButton = document.querySelector<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`);
-                if (quoteButton == null) {
-                    retButton.click();
-                } else {
-                    quoteButton.click();
-                    break;
-                }
-            }
+        clickEvent: async (data: ArticleInfomation) => {
+            willClickRT = true;
+            data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]).click();
+            (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`))[0].click();
+            willClickRT = false;
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
             return !articleInfomation.option.cannotRT;
@@ -173,12 +161,12 @@ export const tweetButtonData: {
             );
         },
         clickEvent: async (data: ArticleInfomation) => {
-            (await TUICLibrary.waitForElement(ButtonUnderTweetSelectors["retweet-button"], data.elements.buttonBarBase))[0].click();
-            (await TUICLibrary.waitForElement(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
+            (await TUICLibrary.waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"], data.elements.buttonBarBase))[0].click();
+            (await TUICLibrary.waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
 
             // NOTE: ワンクリックでRTできる設定の場合は、RTボタンを押した時点でRTされるのでこの処理は不要
             if (!TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
-                (await TUICLibrary.waitForElement(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
+                (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
             }
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
@@ -194,28 +182,26 @@ export const tweetButtonData: {
                 ></path>
             );
         },
-        clickEvent: (data: ArticleInfomation) => {
+        clickEvent: async (data: ArticleInfomation) => {
             const article = data.elements.articleBase;
-            for (let i = 0; i <= 2; i++) {
-                const deleteButtonButton = document.querySelector(
+            article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
+            (
+                await TUICLibrary.waitForElement<HTMLButtonElement>(
                     `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
-                );
-                if (deleteButtonButton == null) {
-                    article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
-                } else {
-                    deleteButtonButton.closest<HTMLElement>(`[role="menuitem"]`).click();
-                    if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
-                        document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
-                    } else {
-                        document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
-                            article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
-                        });
-                        document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
-                            article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
-                        });
-                    }
-                    break;
-                }
+                )
+            )[0]
+                .closest<HTMLElement>(`[role="menuitem"]`)
+                .click();
+            // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
+            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
+                document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
+            } else {
+                document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
+                    article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
+                });
+                document.querySelector(`[data-testid="mask"]`).addEventListener("click", (e) => {
+                    article.querySelector<HTMLDivElement>(`[data-testid="caret"]`).click();
+                });
             }
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
@@ -232,19 +218,15 @@ export const tweetButtonData: {
                 ></path>
             );
         },
-        clickEvent: (data: ArticleInfomation) => {
-            const e = data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["share-button"]);
-            for (const i of [0, 1, 2]) {
-                const urlCopyButton = document.querySelector(
+        clickEvent: async (data: ArticleInfomation) => {
+            data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["share-button"]).click();
+            (
+                await TUICLibrary.waitForElement<HTMLButtonElement>(
                     `[role="menu"] [role="menuitem"] [d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"]:not(.TUIC_sendDM)`,
-                );
-                if (urlCopyButton == null) {
-                    e.click();
-                } else {
-                    urlCopyButton.closest<HTMLElement>(`[role="menuitem"]`).click();
-                    break;
-                }
-            }
+                )
+            )[0]
+                .closest<HTMLElement>(`[role="menuitem"]`)
+                .click();
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
             return !(articleInfomation.option.cannotRT || articleInfomation.option.cannotShare || articleInfomation.option.isLockedAccount);
