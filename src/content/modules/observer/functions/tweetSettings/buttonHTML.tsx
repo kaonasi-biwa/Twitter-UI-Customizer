@@ -278,13 +278,7 @@ export const EmptyButtonHTML = (): JSX.Element => {
         <div class="css-175oi2r r-xoduu5 r-1udh08x">
             <span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);">
                 <span
-                    class={`css-901oao css-16my406 r-1tl8opc r-qvutc0 ${TUICLibrary.fontSizeClass(
-                        "r-1enofrn r-1f529hi r-cxdvbh r-s1qlax",
-                        "r-1enofrn r-fxxt2n r-cxdvbh r-s1qlax",
-                        "r-n6v787 r-1cwl3u0 r-1k6nrdp r-s1qlax",
-                        "r-1b43r93 r-14yzgew r-1buqboj r-s1qlax",
-                        "r-ubezar r-hjklzo r-e157gu r-ou255f",
-                    )}`}
+                    class={`css-1jxf684 r-1ttztb7 r-qvutc0 r-1tl8opc ${TUICLibrary.fontSizeClass("r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd", "r-1enofrn r-fxxt2n r-cxdvbh r-n7gxbd", "r-n6v787 r-1cwl3u0 r-1k6nrdp r-n7gxbd", "r-1b43r93 r-14yzgew r-1buqboj r-n7gxbd", "r-ubezar r-hjklzo r-e157gu r-1ntr0p")}`}
                 ></span>
             </span>
         </div>
