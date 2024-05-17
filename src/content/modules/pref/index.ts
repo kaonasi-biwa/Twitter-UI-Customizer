@@ -489,6 +489,7 @@ const ids = {
             { id: "settings", i18n: "sidebarButtons-settings" },
             { id: "spaces", i18n: "sidebarButton-moreMenuItems-spaces" },
             { id: "jobs", i18n: "sidebarButton-moreMenuItems-jobs" },
+            { id: "grok", i18n: "sidebarButtons-grok", default: false },
         ],
     },
     "sidebarSetting.buttonConfig": {

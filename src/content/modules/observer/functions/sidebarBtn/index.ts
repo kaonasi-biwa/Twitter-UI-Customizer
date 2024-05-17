@@ -25,6 +25,7 @@ export const SidebarButtonSelectors = {
     premiumTierSwitch: `[href="/i/premium_tier_switch"]`,
     jobs: "#TUICSidebar_jobs",
     spaces: "#TUICSidebar_spaces",
+    grok: `[href="/i/grok"]`,
 };
 
 const _data = {
