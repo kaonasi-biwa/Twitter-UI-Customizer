@@ -232,6 +232,7 @@
     transition: none;
     /* box-shadow: 0 5px 5px 0 rgb(0 0 0 / 30%); */
     /* color: #71767b !important; */
+    text-align: center;
 }
 
 .TUIC_setting_button:hover {
