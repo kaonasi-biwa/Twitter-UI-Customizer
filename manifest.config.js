@@ -8,6 +8,10 @@ export default {
         content_scripts: [
             {
                 matches: ["*://*.twitter.com/*"],
+                js: ["printPref.js"],
+            },
+            {
+                matches: ["*://*.x.com/*"],
                 js: ["inject.js"],
 
                 run_at: "document_start",
