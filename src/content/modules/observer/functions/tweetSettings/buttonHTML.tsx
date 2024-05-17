@@ -12,7 +12,7 @@ const copiedURLMessage = (): JSX.Element => {
         <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
             <div class="css-175oi2r r-12vffkv">
                 <div class="css-175oi2r r-12vffkv">
-                    <div class="css-175oi2r r-1jgb5lz r-1ye8kvj r-633pao r-13qz1uu">
+                    <div class="css-175oi2r r-1jgb5lz r-633pao r-13qz1uu">
                         <div
                             role="alert"
                             class={`css-175oi2r r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe r-18u37iz r-1wtj0ep r-105ug2t r-dkhcqf r-axxi2z r-18jm5s1 ${TUICLibrary.fontSizeClass("r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au")}  ${TUICLibrary.fontSizeClass(

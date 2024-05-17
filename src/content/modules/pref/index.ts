@@ -519,7 +519,7 @@ const ids = {
     "sidebarSetting.moreMenuItems": {
         type: "boolean",
         values: [
-            //{ id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
+            { id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
             { id: "bookmarks", i18n: "sidebarButtons-bookmarks", default: false },
             { id: "communities", i18n: "sidebarButtons-communities", default: false },
             { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },

@@ -284,7 +284,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 sidebarButtonsCount += 1;
             }
         }
-        for (const i of bannerRoot.querySelectorAll(`:is(a,div[role="button"]):not(.NOT_TUIC_DISPNONE)`)) {
+        for (const i of bannerRoot.querySelectorAll(`:is(a,div[role="button"],button,[type="button"]):not(.NOT_TUIC_DISPNONE)`)) {
             i.hide();
         }
     }
