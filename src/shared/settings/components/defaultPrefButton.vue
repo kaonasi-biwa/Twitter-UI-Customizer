@@ -16,7 +16,7 @@ import IconButton from "@shared/settings/components/IconButton.vue";
 
 const ICON = ICON_RESET;
 const props = defineProps<{
-    classList: string[];
+    classList?: string[];
 }>();
 
 const setDefault = async () => {

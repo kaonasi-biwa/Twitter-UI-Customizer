@@ -1,7 +1,7 @@
 <template>
     <div id="TUIC_setting" class="css-175oi2r r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
         <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
-            <hr class="TUIC_setting_divider TUIC_setting_divider_m35" />
+            <hr v-if="!isSafemode" class="TUIC_setting_divider TUIC_setting_divider_m35" />
             <div class="TUIC_setting_toplogo_container">
                 <TUICLOGO_GRAY class="TUIC_setting_toplogo" />
             </div>
@@ -103,6 +103,7 @@ import SettingUncategorized from "./modules/settingUncategorized.vue";
 import SettingImportExport from "./modules/settingImportExport.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
 
 function openReadme() {
     openInNewTab("https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/README.md");

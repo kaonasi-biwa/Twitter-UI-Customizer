@@ -31,6 +31,7 @@
                 </a>
             </div>
         </nav>
+        <div class="spacer"></div>
         <OptionMain />
     </div>
 </template>
@@ -64,33 +65,36 @@ nav a {
         sans-serif,
         monospace;
     font-weight: bold;
+    text-decoration: none;
 }
 nav {
     position: sticky;
     top: 0px;
     justify-content: space-between;
-    padding-block: 1em;
-    margin-inline: 2em;
-    border-bottom: 1px solid currentColor;
+    border-bottom: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
     background-color: var(--TUIC-container-background);
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
     z-index: 1;
+    padding: 12px 0;
 
     div {
         width: 100%;
     }
     svg {
-        height: 2.5em;
+        height: 1.7em;
         fill: currentColor;
+        width: unset;
         &.icon-tabler {
             fill: none;
             stroke: currentColor;
         }
     }
     span {
-        margin-left: 0.5em;
+        margin-left: 0.3em;
     }
+}
+.spacer {
+    height: 20px;
+    width: 100%;
 }
 @media (max-width: 600px) {
     nav a span {

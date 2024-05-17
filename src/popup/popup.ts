@@ -46,6 +46,10 @@ window.onload = async () => {
             });
     } // Firefoxの場合のみ有効
 
+    document.getElementById("link6").onclick = () => {
+        chrome.tabs.create({ url: "https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE" });
+    };
+
     chrome.storage.sync.get("TUIC", async (settingT) => {
         const updateUrl = chrome.runtime.getManifest().update_url;
         const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
