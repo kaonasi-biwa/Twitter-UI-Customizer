@@ -57,6 +57,10 @@
         "message": "최신 버전을 GitHub에서 설치",
         "description": "ポップアップのボタンのツールチップ"
     },
+    "popupButton7": {
+        "message": "도메인 변경으로 소실된 twitter.com에서의 설정 구출",
+        "description": "ポップアップのボタンのツールチップ"
+    },
     "pSettings": {
         "message": "설정",
         "description": "ポップアップの設定ボタン"
@@ -76,6 +80,10 @@
     "pInstallFromGH": {
         "message": "최신 버전을 설치",
         "description": "ポップアップのGitHubから最新版をインストールするボタン"
+    },
+    "pPrintTUICPref": {
+        "message": "twitter.com에서의 설정을 구출",
+        "description": "ポップアップのtwitter.comでの設定を救出するボタン"
     },
     "pUpdateOnBrowserLaunch": {
         "message": "브라우저를 켰을때",
