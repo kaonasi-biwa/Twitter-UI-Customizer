@@ -80,12 +80,12 @@
     font-weight: 700;
     line-height: 1em;
     color: var(--tlui-button-text);
+    text-align: center;
     cursor: pointer;
     background: var(--tlui-button-background);
     border: 1px solid rgb(83 100 113);
     border-radius: 100000px;
     transition-duration: 0.2s;
-    text-align: center;
 }
 .tlui-dialog .full-width:is(button, textarea) {
     width: 100%;
