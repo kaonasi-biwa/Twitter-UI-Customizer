@@ -21,6 +21,9 @@
             <detailsBox summaryI18N="settingDetailsBox-sidebar" :icon="ICON_SIDEBAR" :icon-opened="ICON_SIDEBAR_ENABLED">
                 <settingSidebar />
             </detailsBox>
+            <detailsBox summaryI18N="settingDetailsBox-logo" :icon="ICON_TWITTER" :icon-opened="ICON_TWITTER">
+                <settingLogo />
+            </detailsBox>
             <detailsBox summaryI18N="settingDetailsBox-effect_and_text" :icon="ICON_PENCIL" :icon-opened="ICON_PENCIL_ENABLED">
                 <settingEffectText />
             </detailsBox>
@@ -101,6 +104,7 @@ import SettingDM from "./modules/settingDM.vue";
 import SettingProfile from "./modules/settingProfile.vue";
 import SettingUncategorized from "./modules/settingUncategorized.vue";
 import SettingImportExport from "./modules/settingImportExport.vue";
+import settingLogo from "./modules/settingLogo.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
