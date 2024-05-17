@@ -50,7 +50,6 @@ export default defineConfig(({ command, mode }) => {
                     "ent-popup_html": r("src/popup/popup.html"),
                     index: r("src/content/index.ts"),
                     background: r("src/background.ts"),
-                    printPref: r("src//content/printPref.ts"),
                     //safemode: r("src/shared/options/injectSafeMode.ts"),
                 },
                 output: {

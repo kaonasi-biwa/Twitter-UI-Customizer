@@ -55,7 +55,7 @@ window.onload = async () => {
         $link7.hidden = false;
         document.getElementById("link7").onclick = () => {
             //chrome.tabs.create({ url: chrome.runtime.getURL("safemode.html") });
-            chrome.tabs.create({ url: "https://twitter.com//" });
+            chrome.tabs.create({ url: "https://twitter.com/ja/tos" });
         };
     } // Firefoxの場合のみ有効
 

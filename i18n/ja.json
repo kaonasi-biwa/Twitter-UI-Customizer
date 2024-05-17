@@ -221,15 +221,21 @@
     "addonInfo-github": "GitHub",
 
     "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
-    "observerError-copy": "コピーして閉じる",
 
     "common-yes": "はい",
     "common-no": "いいえ",
     "common-close": "閉じる",
+    "common-go": "進む",
     "common-error": "エラー",
     "common-confirm": "確認",
     "common-hidebelow": "以下を非表示",
     "common-displaySetting": "表示設定",
+    "common-copy-and-close": "コピーして閉じる",
+    "common-copy-and-go": "コピーして進む",
+
+    "rescuePref-ButtonLabel": "twitter.comのTUICの設定を救出する",
+    "rescuePref-detail": "エクスポートされた設定、CSSの順で表示されます。それぞれコピーしてx.comでインポート/保存してください。",
+    "rescuePref-complete": "これで救出完了です。それぞれx.comのTUICで読み込んでください。カスタムアイコンに関しては、申し訳ございませんが対応しておりません。",
 
     "temp-notice-hideDMSheetOnBottomRight": "現在、画面右下に存在するDMの欄は、「その他の設定」から非表示にできます。"
 }

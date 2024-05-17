@@ -7,10 +7,6 @@ export default {
         default_locale: "ja",
         content_scripts: [
             {
-                matches: ["*://*.twitter.com//"],
-                js: ["printPref.js"],
-            },
-            {
                 matches: ["*://*.x.com/*", "*://*.twitter.com/*"],
                 js: ["inject.js"],
 

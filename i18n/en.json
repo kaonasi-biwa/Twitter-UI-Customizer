@@ -163,7 +163,7 @@
     "import-select-explain": "In the case of \"Append\", only the items included in the import source are imported. In the case of \"Replace\", all settings are returned to default, and then \"Append\" is performed.",
     "import-error": "Parsing failed. Data of import source may be corrupted.",
     "observerError-message": "It stopped because some errors has happened 3 times or more in Twitter UI Customizer.\nPlease copy and send the error message under there, to developer(@kaonasi_biwa)",
-    "observerError-copy": "Copy and Close",
+    "common-copy-and-close": "Copy and Close",
     "common-yes": "Yes",
     "common-no": "No",
     "common-close": "Close",
