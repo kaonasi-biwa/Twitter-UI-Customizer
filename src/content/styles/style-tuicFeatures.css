@@ -21,8 +21,10 @@
     height: 8px;
 }
 
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *, [role="img"] > * > *) {
     margin: 8px;
+}
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
     background-size: cover;
 }
 
@@ -30,8 +32,7 @@
     position: absolute;
     margin: auto;
 }
-
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *, [role="img"] > * > *) {
     height: inherit !important;
 }
 

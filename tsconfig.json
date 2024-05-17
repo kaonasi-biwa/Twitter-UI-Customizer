@@ -17,7 +17,8 @@
         "paths": {
             "@content/*": ["./src/content/*"],
             "@shared/*": ["./src/shared/*"],
-            "@modules/*": ["./src/content/modules/*"]
+            "@modules/*": ["./src/content/modules/*"],
+            "@third-party/*": ["./third-party/*"]
         }
     }
 }

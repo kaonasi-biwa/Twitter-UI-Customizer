@@ -32,6 +32,8 @@ const tuicButtonUrl = {
     muteAndBlock: "/settings/mute_and_block",
     bookmarks: "/i/bookmarks",
     settings: ["/settings", "/settings/"],
+    jobs: "/jobs",
+    spaces: "/i/spaces/start",
 };
 function sidebarButtons() {
     // TUIC独自のサイドバーボタン(太線かどうかを変更)

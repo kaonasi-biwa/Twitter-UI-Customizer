@@ -11,7 +11,7 @@ import prettier from "eslint-config-prettier";
 
 export default [
     {
-        ignores: ["dist/**", "node_modules/**"],
+        ignores: ["dist/**", "node_modules/**", "third-party/**"],
     },
     {
         files: ["**/*.{js,ts,vue}"],

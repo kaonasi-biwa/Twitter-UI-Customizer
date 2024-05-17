@@ -7,9 +7,9 @@ export default {
         default_locale: "ja",
         content_scripts: [
             {
-                matches: ["*://*.twitter.com/*"],
+                matches: ["*://*.x.com/*", "*://*.twitter.com/*"],
                 js: ["inject.js"],
-                css: ["./styles/style-tuicSettingPage.css", "./styles/style-polyfillForTwitter.css", "./styles/style-tuicColor.css", "./styles/style-tuicFeatures.css", "./styles/style-tlui.css", "./styles/firefox/style-compat.css"],
+
                 run_at: "document_start",
             },
         ],

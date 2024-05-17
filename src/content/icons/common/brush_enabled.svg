@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 24 24" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="名称未設定">
+<path d="M20 1.84375C19.1988 1.82625 18.385 2.106 17.75 2.6875L7.59375 12.0312C5.02375 12.2383 3 14.376 3 17L3 22L8 22C10.62 22 12.7687 19.9773 12.9688 17.4062L22.3125 7.25C23.4825 5.981 23.4288 3.99825 22.2188 2.78125C21.6087 2.17275 20.8012 1.86125 20 1.84375ZM19.9688 3.84375C20.2712 3.85025 20.5513 3.98875 20.7812 4.21875C21.2413 4.67875 21.2837 5.395 20.8438 5.875L12.5625 14.9062C12.0625 13.8162 11.1838 12.9365 10.0938 12.4375L19.125 4.15625C19.365 3.93625 19.6663 3.83725 19.9688 3.84375Z" style="fill: var(--twitter-TUIC-color);" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M8 20L5 20L5 17C5 15.343 6.34 14 8 14C9.66 14 11 15.343 11 17C11 18.657 9.66 20 8 20Z" fill="#1da1f2" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</svg>

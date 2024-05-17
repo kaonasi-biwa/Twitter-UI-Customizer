@@ -1,8 +1,7 @@
 <template>
-    <button :class="[`TUIC_setting_text`, 'TUIC_setting_button', ...(classList ?? [])]" @click="setDefault">
-        {{ TUICI18N.get("settingUI-restoreDefaultAll") }}
-    </button>
+    <IconButton i18n="settingUI-restoreDefaultAll" :icon="ICON" class="TUIC_setting_defaultprefbutton" @click="setDefault" />
 </template>
+
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
@@ -12,9 +11,12 @@ import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
 import { titleObserverFunction } from "@modules/observer/titleObserver";
 import { updateClasses } from "@modules/htmlClass/classManager";
+import ICON_RESET from "@content/icons/common/reset.svg?component";
+import IconButton from "@shared/settings/components/IconButton.vue";
 
+const ICON = ICON_RESET;
 const props = defineProps<{
-    classList: string[];
+    classList?: string[];
 }>();
 
 const setDefault = async () => {
@@ -52,4 +54,3 @@ const setDefault = async () => {
         .open();
 };
 </script>
-@modules/observer/observer @modules/settings/safemode/safemode @modules/i18n/i18n

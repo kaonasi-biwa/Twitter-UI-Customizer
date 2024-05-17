@@ -23,6 +23,9 @@ export const SidebarButtonSelectors = {
     muteAndBlock: "#TUICSidebar_muteAndBlock",
     settings: "#TUICSidebar_settings",
     premiumTierSwitch: `[href="/i/premium_tier_switch"]`,
+    jobs: "#TUICSidebar_jobs",
+    spaces: "#TUICSidebar_spaces",
+    grok: `[href="/i/grok"]`,
 };
 
 const _data = {
@@ -39,12 +42,12 @@ const _data = {
                             <g>${svg}</g>
                         </svg>
                     </div>
-                    <div dir="ltr" class="css-901oao css-1hf3ou5 r-1tl8opc ${TUICLibrary.fontSizeClass(
-                        "r-1i10wst r-16dba41 r-hbpseb r-1uvorsx r-1oa8saw",
-                        "r-1b6yd1w r-16dba41 r-7ptqe7 r-j240cv r-y3t9qe",
-                        "r-adyw6z r-135wba7 r-1joea0r r-88pszg",
-                        "r-evnaw r-16dba41 r-eaezby r-uzqwk8 r-12e0a8i",
-                        "r-1x35g6 r-16dba41 r-1h1c4di r-6uxfom r-le9fof",
+                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc ${TUICLibrary.fontSizeClass(
+                        "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-fv9tdh",
+                        "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t",
+                        "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
+                        "r-evnaw r-eaezby r-16dba41 r-i0ley5 r-19o66xi",
+                        "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
                     )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
                     </div>
@@ -77,6 +80,12 @@ const _data = {
         },
         settings: (): string => {
             return _data.html.__base("settings", `<path d="${SIDEBAR_BUTTON_ICON.settings.unselected}"></path>`);
+        },
+        jobs: (): string => {
+            return _data.html.__base("jobs", `<path d="${SIDEBAR_BUTTON_ICON.jobs.unselected}"></path>`);
+        },
+        spaces: (): string => {
+            return _data.html.__base("spaces", `<path d="${SIDEBAR_BUTTON_ICON.spaces.unselected}"></path>`);
         },
     },
     buttonClickInMoreMenu: async (selector: string) => {
@@ -165,6 +174,14 @@ const _data = {
                 }, 150);
             }
         },
+        jobs: (e: Event) => {
+            e?.preventDefault?.();
+            _data.buttonClickInMoreMenu(`[href="/jobs"]`);
+        },
+        spaces: (e: Event) => {
+            e?.preventDefault?.();
+            _data.buttonClickInMoreMenu(`[href="/i/spaces/start"]`);
+        },
     },
     tuicButtonGoToUrl: {
         __setURL: (id, selector, setURLWay: (arg0: HTMLElement) => string) => {
@@ -204,6 +221,8 @@ const _data = {
         muteAndBlock: "https://twitter.com/settings/mute_and_block",
         bookmarks: "https://twitter.com/i/bookmarks",
         settings: "https://twitter.com/settings/",
+        jobs: "https://twitter.com/jobs/",
+        spaces: "https://twitter.com/i/spaces/start/",
     },
 };
 

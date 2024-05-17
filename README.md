@@ -1,8 +1,8 @@
-# <img width="32" height="32" src="./icon/newIcon_TUIC_C_Blue.svg"> Twitter UI Customizer
+# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg"> Twitter UI Customizer
 
 [English Translation](./README_EN.md)
 
-![ヘッダー](./icon/header.png)
+![ヘッダー](./public/icon/header.png)
 [![Github Actions](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/packaging.yml)
 [![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
 [![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)

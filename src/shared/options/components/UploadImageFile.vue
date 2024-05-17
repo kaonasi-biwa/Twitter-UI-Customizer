@@ -1,15 +1,25 @@
 <template>
-    <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
-    <p class="TUIC_setting_text">{{ TUICI18N.get("twitterIcon-nowIcon") }}</p>
-    <span id="TUICIcon_IconImg" class="TUICUploadedImg"></span>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
+        <div style="display: flex; gap: 8px; align-items: center">
+            <p style="color: rgb(113 118 124)" class="TUIC_setting_text">{{ TUICI18N.get("twitterIcon-nowIcon") }}</p>
+            <span id="TUICIcon_IconImg" class="TUICUploadedImg"></span>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
 import { applyCustomIcon, applySystemCss } from "@content/applyCSS";
 import { TUICI18N } from "@modules/i18n";
+import EMPTY from "@content/icons/logo/empty.svg?url";
+import { ref } from "vue";
+
+import { TUICPref } from "@content/modules";
+
+const twitterIcon = ref(null);
 
 async function changeCustomCSS() {
-    if (this.$refs.twitterIcon.files.length >= 1) {
+    if (twitterIcon.value.files.length >= 1) {
         await new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
@@ -32,7 +42,7 @@ async function changeCustomCSS() {
 
                 image.src = reader.result as string;
             });
-            reader.readAsDataURL(this.$refs.twitterIcon.files[0]);
+            reader.readAsDataURL(twitterIcon.value.files[0]);
         });
     } else {
         localStorage.setItem(`TUIC_IconImg`, "");

@@ -1,35 +1,29 @@
 <template>
-    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size: 18px; margin-bottom: 1px">
-        {{ TUICI18N.get("settingUI-easySetting") }}
-    </h2>
-    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size: 14px">
-        {{ TUICI18N.get("settingUI-easySetting-detail") }}
-    </h2>
-    <div class="TUICEasySetting" style="margin-top: 15px">
-        <button class="TUIC_setting_text TUIC_setting_button TUICEasySettingButtons" v-for="(i, index) in buttonList" :key="i.i18n" @click="clickEv(index)">
-            {{ TUICI18N.get(i.i18n) }}
-        </button>
-
-        <defaultPrefButton :class-list="['TUICEasySettingButtons']" />
+    <div class="TUIC_setting_easysetting_buttons_container">
+        <IconButton v-for="(btInfo, index) in buttonList" :key="btInfo.i18n" :i18n="btInfo.i18n" :icon="btInfo.iconSource" @click="clickEv(index)" />
+        <defaultPrefButton />
     </div>
-    <br />
-    <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title" style="font-size: 18px">
-        {{ TUICI18N.get("settingUI-everythingSetting") }}
-    </h2>
 </template>
 
 <script setup lang="ts">
-import { TUICI18N } from "@modules/i18n";
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
-import { ColorData } from "@shared/sharedData";
+import BRAND_TWITTER from "@content/icons/brand/twitter.svg?component";
+import ICON_VERIFIED from "@content/icons/common/verified.svg?component";
+import ICON_MORE from "@content/icons/common/more.svg?component";
+import BRAND_X from "@content/icons/brand/x.svg?component";
+import IconButton from "@shared/settings/components/IconButton.vue";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
-import { TUICPref } from "@content/modules";
-import { titleObserverFunction } from "@modules/observer/titleObserver";
-import { updateClasses } from "@modules/htmlClass/classManager";
 
+import { ColorData } from "@shared/sharedData";
+
+import { TUICPref } from "@content/modules";
+import { titleObserverFunction } from "@content/modules/observer/titleObserver";
+import { updateClasses } from "@content/modules/htmlClass/classManager";
+import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
+// copied from old component; @shared/options/modules/SettingsHeader.vue
 const buttonList = [
     {
         i18n: "easySetting-restoreIcon",
+        iconSource: BRAND_TWITTER,
         changePref: {
             twitterIcon: {
                 options: {
@@ -46,6 +40,7 @@ const buttonList = [
     },
     {
         i18n: "easySetting-deleteVerified",
+        iconSource: ICON_VERIFIED,
         changePref: {
             invisibleItems: {
                 verifiedNotifications: true,
@@ -60,8 +55,10 @@ const buttonList = [
                 verified: true,
             },
             tweetDisplaySetting: {
-                "twitter-pro-promotion-btn": true,
-                "subscribe-tweets": true,
+                invisible: {
+                    "twitter-pro-promotion-btn": true,
+                    "subscribe-tweets": true,
+                },
             },
         },
         changeFunc: () => {
@@ -75,12 +72,14 @@ const buttonList = [
     },
     {
         i18n: "easySetting-discoverMoreDelete",
+        iconSource: ICON_MORE,
         changePref: {
             "timeline-discoverMore": "discoverMore_invisible",
         },
     },
     {
         i18n: "easySetting-defaultTwitterColor",
+        iconSource: BRAND_X,
         changePref: structuredClone(ColorData.defaultXColors),
     },
 ];
@@ -97,7 +96,5 @@ const clickEv = (index) => {
         document.title = document.title.replace(" / Twitter", " / X");
     }
 };
+// end of copied codes
 </script>
-
-<style scoped></style>
-@modules/observer/observer @modules/settings/safemode/safemode @modules/i18n/i18n

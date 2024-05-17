@@ -1,9 +1,13 @@
 :root {
     --tuic-popup-white: #eee;
+    --tuic-popup-gray-bright: #999;
     --tuic-popup-black: #111;
     --tuic-popup-black_sub: #333;
     --tuic-popup-twt: #1da1f2;
     --tuic-popup-tuic: #2b8af7da;
+    --tuic-popup-left-margin: 30px;
+    --tuic-popup-item-hover: rgba(255, 255, 255, 0.05);
+    --tuic-popup-item-active: rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -12,9 +16,9 @@ body {
     align-items: center;
     justify-content: center;
     width: 360px;
-    margin: 15px 0;
+    padding: 15px 0;
+    margin: 0;
     color: var(--tuic-popup-white);
-    text-align: center;
     /* margin: 0 auto; */
     background-color: var(--tuic-popup-black);
     border: 1px solid #191919;
@@ -23,53 +27,58 @@ body {
 .message_container {
     display: flex;
     flex-direction: column;
-    margin: 0 15px 15px;
+    margin: 20px var(--tuic-popup-left-margin);
     * {
         margin: 0;
     }
     p {
-        color: var(--tuic-popup-white);
+        color: var(--tuic-popup-gray-bright);
         /* color: #e8e8e8d2; */
     }
     .thankyou {
-        padding-bottom: 0.3rem;
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-        border-bottom: 2px solid #2e7eb4;
-        border-image: linear-gradient(90deg, rgb(46 126 180 / 0%) 0%, var(--tuic-popup-tuic) 50%, rgb(0 212 255 / 0%) 100%);
-        border-image-slice: 1;
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
     }
+}
+.main_section {
+    width: 100%;
 }
 
 .links {
+    width: 100%;
     display: flex;
     flex-direction: column;
     height: auto;
     margin-bottom: 8px;
     a {
-        padding: 8px 12px;
-        margin-bottom: 8px;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--tuic-popup-white);
         text-decoration: none;
-        background: var(--tuic-popup-tuic);
-        border-radius: 30px;
-        transition: 0.1s;
+        background: transparent;
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        padding: 15px var(--tuic-popup-left-margin);
         &:hover {
-            opacity: 0.8;
+            background: var(--tuic-popup-item-hover);
         }
         &:active {
-            background-color: var(--tuic-popup-white);
-            border-radius: 8px;
+            background: var(--tuic-popup-item-active);
         }
-        div {
-            position: relative;
-            padding: 0 30px;
-            text-align: center;
+        .bi::before {
+            font-size: 20px;
+            display: block;
+            color: rgba(255, 255, 255, 0.55);
         }
-        .bi {
-            position: absolute;
-            padding: 0;
+        .bi-tuic::before {
+            content: " ";
+            background-size: cover;
+            background-image: url("./tuic_logo_gray.svg");
+            width: 20px;
+            height: 20px;
+        }
+        div:not(.bi) {
+            height: fit-content;
         }
     }
 }
@@ -81,9 +90,52 @@ body {
     vertical-align: middle;
 }
 
+hr.divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+a.license {
+    color: var(--tuic-popup-gray-bright);
+    font-size: 0.8rem;
+    text-decoration: none;
+    margin-top: 25px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 details {
     margin-bottom: 5px;
-    div {
+    summary {
+        padding: 15px var(--tuic-popup-left-margin);
+        cursor: pointer;
+        font-size: 0.95rem;
+        list-style-type: none;
+        display: flex;
+        gap: 25px;
+        * {
+            user-select: none;
+        }
+        .bi::before {
+            color: rgba(255, 255, 255, 0.55);
+            display: block;
+            font-size: 20px;
+        }
+        &:hover {
+            background: var(--tuic-popup-item-hover);
+        }
+        &:active {
+            background: var(--tuic-popup-item-active);
+        }
+    }
+    div#notifySettings {
+        background: rgba(255, 255, 255, 0.08);
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        overflow-x: scroll;
+        padding: 20px 22px;
         label {
             input {
                 @apply appearance-none relative w-4 h-4 bg-gray-700 border-gray-600 rounded;
@@ -96,8 +148,5 @@ details {
                 @apply absolute left-0 -top-0.5 opacity-0;
             }
         }
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 }

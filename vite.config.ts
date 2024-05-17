@@ -9,7 +9,7 @@ import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
 import UnoCSS from "unocss/vite";
-import solidPlugin from 'vite-plugin-solid';
+import solidPlugin from "vite-plugin-solid";
 //
 
 import { changeManifest } from "./npm-scripts/change-manifest";
@@ -26,12 +26,14 @@ const rl = (str: string): URL => {
 };
 
 const root = r("src");
+const publicDir = r("public");
 const outDir = r("dist");
 
 export default defineConfig(({ command, mode }) => {
     let json: UserConfig = {};
     json = {
         root,
+        publicDir,
         // base: "/",
         build: {
             outDir,
@@ -40,6 +42,7 @@ export default defineConfig(({ command, mode }) => {
             // outDir,
             target: "es2022",
             assetsInlineLimit: 0,
+            reportCompressedSize: false,
 
             rollupOptions: {
                 input: {
@@ -74,11 +77,11 @@ export default defineConfig(({ command, mode }) => {
                 async buildStart(options) {
                     await Promise.all([
                         changeManifest(mode),
-                        fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
-                        fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
-                        fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
+                        //fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
+                        //fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
+                        //fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
                         fs.cp(rl("_locales"), rl("dist/_locales"), { recursive: true }),
-                        fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
+                        //fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
                     ]);
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },
@@ -95,7 +98,11 @@ export default defineConfig(({ command, mode }) => {
             solidPlugin(),
             // Vue Plugins
             vue(),
-            svgLoader(),
+            svgLoader({
+                svgoConfig: {
+                    plugins: ["prefixIds"],
+                },
+            }),
         ],
         resolve: {
             alias: [
@@ -103,6 +110,7 @@ export default defineConfig(({ command, mode }) => {
                 { find: "@shared", replacement: r("src/shared") },
                 { find: "@modules", replacement: r("src/content/modules") },
                 { find: "@i18nData", replacement: r("i18n") },
+                { find: "@third-party", replacement: r("third-party") },
             ],
         },
     };

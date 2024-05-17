@@ -4,7 +4,7 @@ import { tweetTopButtons } from "./tweetTopButtons";
 import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
 import { render } from "solid-js/web";
-import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData } from "./buttonHTML";
+import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData, willClickRT } from "./buttonHTML";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 
@@ -14,11 +14,13 @@ const _data = {
     selectors: { ...ButtonUnderTweetSelectors },
     buttonFunction: {
         "retweet-button": async () => {
-            if (TUICPref.getPref("tweetDisplaySetting.option.RTNotQuote")) {
+            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 // TODO: wait 関数を作って置き換えるべきか？
-                window.setTimeout(async () => {
-                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();
-                }, 100);
+                if (!willClickRT) {
+                    window.setTimeout(async () => {
+                        (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();
+                    }, 100);
+                }
             }
         },
         "share-button": function (elem: HTMLAnchorElement) {

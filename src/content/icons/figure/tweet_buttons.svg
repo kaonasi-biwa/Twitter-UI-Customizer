@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1000 360" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<path d="M896.918 299.297C896.918 285.974 907.719 275.173 921.042 275.173C934.365 275.173 945.166 285.974 945.166 299.297C945.166 312.621 934.365 323.421 921.042 323.421C907.719 323.421 896.918 312.621 896.918 299.297Z" id="Fill"/>
+<path d="M718.831 299.297C718.831 285.974 729.631 275.173 742.955 275.173C756.278 275.173 767.079 285.974 767.079 299.297C767.079 312.621 756.278 323.421 742.955 323.421C729.631 323.421 718.831 312.621 718.831 299.297Z" id="Fill_2"/>
+<path d="M540.743 299.297C540.743 285.974 551.544 275.173 564.867 275.173C578.191 275.173 588.991 285.974 588.991 299.297C588.991 312.621 578.191 323.421 564.867 323.421C551.544 323.421 540.743 312.621 540.743 299.297Z" id="Fill_3"/>
+<path d="M362.656 299.297C362.656 285.974 373.457 275.173 386.78 275.173C400.103 275.173 410.904 285.974 410.904 299.297C410.904 312.621 400.103 323.421 386.78 323.421C373.457 323.421 362.656 312.621 362.656 299.297Z" id="Fill_4"/>
+<path d="M184.568 299.297C184.568 285.974 195.369 275.173 208.693 275.173C222.016 275.173 232.817 285.974 232.817 299.297C232.817 312.621 222.016 323.421 208.693 323.421C195.369 323.421 184.568 312.621 184.568 299.297Z" id="Fill_5"/>
+<path d="M121.321 238.833L1000 238.833L1000 360L121.321 360L121.321 238.833Z" id="Fill_6"/>
+</defs>
+<path d="M0 0L1000 0L1000 360L0 360L0 0Z" fill="#000000" fill-rule="nonzero" opacity="1" stroke="none"/>
+<g id="レイヤー-1">
+<path d="M38.8288 95.5273C38.8288 62.9708 65.2211 36.5785 97.7776 36.5785C130.334 36.5785 156.726 62.9708 156.726 95.5273C156.726 128.084 130.334 154.476 97.7776 154.476C65.2211 154.476 38.8288 128.084 38.8288 95.5273Z" fill="#71767c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M193.491 62.6467L351.338 62.6467" fill="none" opacity="1" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+<path d="M193.491 124.005L935.705 124.005" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+<path d="M188.877 173.941L935.705 173.941" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+<path d="M188.877 223.877L792.377 223.877" fill="none" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+<path d="M395.833 62.6467L543.885 62.6467" fill="#71767c" fill-rule="nonzero" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+<path d="M586.748 62.6467L647.778 62.6467" fill="#71767c" fill-rule="nonzero" opacity="1" stroke="#71767c" stroke-linecap="round" stroke-linejoin="round" stroke-width="15"/>
+<path d="M896.042 62.6467C896.042 59.5911 898.542 57.0911 901.598 57.0911C904.653 57.0911 907.153 59.5911 907.153 62.6467C907.153 65.7022 904.653 68.2022 901.598 68.2022C898.542 68.2022 896.042 65.7022 896.042 62.6467ZM921.042 68.2022C924.098 68.2022 926.598 65.7022 926.598 62.6467C926.598 59.5911 924.098 57.0911 921.042 57.0911C917.987 57.0911 915.487 59.5911 915.487 62.6467C915.487 65.7022 917.987 68.2022 921.042 68.2022ZM940.487 68.2022C943.542 68.2022 946.042 65.7022 946.042 62.6467C946.042 59.5911 943.542 57.0911 940.487 57.0911C937.431 57.0911 934.931 59.5911 934.931 62.6467C934.931 65.7022 937.431 68.2022 940.487 68.2022Z" fill="#71767c" fill-rule="nonzero" opacity="1" stroke="none"/>
+<g opacity="1">
+<mask height="48.2481" id="StrokeMask" maskUnits="userSpaceOnUse" width="48.2481" x="896.918" y="275.173">
+<rect fill="#000000" height="48.2481" stroke="none" width="48.2481" x="896.918" y="275.173"/>
+<use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask)" stroke="#71767c" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14" xlink:href="#Fill"/>
+</g>
+<g opacity="1">
+<mask height="48.2481" id="StrokeMask_2" maskUnits="userSpaceOnUse" width="48.2481" x="718.831" y="275.173">
+<rect fill="#000000" height="48.2481" stroke="none" width="48.2481" x="718.831" y="275.173"/>
+<use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill_2"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask_2)" stroke="#71767c" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14" xlink:href="#Fill_2"/>
+</g>
+<g opacity="1">
+<mask height="48.2481" id="StrokeMask_3" maskUnits="userSpaceOnUse" width="48.2481" x="540.743" y="275.173">
+<rect fill="#000000" height="48.2481" stroke="none" width="48.2481" x="540.743" y="275.173"/>
+<use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill_3"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask_3)" stroke="#71767c" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14" xlink:href="#Fill_3"/>
+</g>
+<g opacity="1">
+<mask height="48.2481" id="StrokeMask_4" maskUnits="userSpaceOnUse" width="48.2481" x="362.656" y="275.173">
+<rect fill="#000000" height="48.2481" stroke="none" width="48.2481" x="362.656" y="275.173"/>
+<use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill_4"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask_4)" stroke="#71767c" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14" xlink:href="#Fill_4"/>
+</g>
+<g opacity="1">
+<mask height="48.2481" id="StrokeMask_5" maskUnits="userSpaceOnUse" width="48.2481" x="184.568" y="275.173">
+<rect fill="#000000" height="48.2481" stroke="none" width="48.2481" x="184.568" y="275.173"/>
+<use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill_5"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask_5)" stroke="#71767c" stroke-linecap="butt" stroke-linejoin="round" stroke-width="14" xlink:href="#Fill_5"/>
+</g>
+</g>
+<g id="レイヤー-2"/>
+<g id="レイヤー-3">
+<g opacity="1">
+<mask height="121.167" id="StrokeMask_6" maskUnits="userSpaceOnUse" width="878.679" x="121.321" y="238.833">
+<rect fill="#000000" height="121.167" stroke="none" width="878.679" x="121.321" y="238.833"/>
+<use fill="#ffffff" fill-rule="evenodd" stroke="none" xlink:href="#Fill_6"/>
+</mask>
+<use fill="none" mask="url(#StrokeMask_6)" stroke="#1da1f2" stroke-linecap="butt" stroke-linejoin="round" stroke-width="16" xlink:href="#Fill_6"/>
+</g>
+</g>
+</svg>

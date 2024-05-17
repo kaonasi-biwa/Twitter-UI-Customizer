@@ -28,7 +28,7 @@ export class TextboxComponent implements Component {
     constructor(text: string, options: TextboxComponentInit = {}) {
         this.element = new DOMParser().parseFromString(
             `
-            <textarea class="full-width"></button>
+            <textarea class="full-width" />
             `,
             "text/html",
         ).body.children[0] as HTMLTextAreaElement;
@@ -68,7 +68,7 @@ export class TextboxComponent implements Component {
     }
 
     /**
-     * リードオンリーかどうか（初期値: `false`）
+     * 何行のテキストボックスなのか（初期値: 指定なし）
      */
     public get rows(): number {
         return Number(this.element.getAttribute("rows"));
