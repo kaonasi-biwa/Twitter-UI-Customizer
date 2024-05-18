@@ -13,6 +13,7 @@
         <button class="TUIC_setting_button_new TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport" @click="exportPref()">
             {{ TUICI18N.get("export-exportButton") }}
         </button>
+        <CheckBoxList id="inportExportOptions" />
         <input style="min-height: 150px; margin: 20px 0" id="TUICExportBox" class="TUIC_setting_textarea_new TUICTextInput" type="text" ref="exportText" readonly />
 
         <!--STEP2-->
@@ -91,12 +92,21 @@ import { ref } from "vue";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 import { updateClasses } from "@content/modules/htmlClass/classManager";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
+import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 
 // EXPORT LOGIC
 const exportText = ref<HTMLInputElement>();
 
 function exportPref() {
-    exportText.value.value = TUICPref.exportPref();
+    console.log(TUICPref.getPref("inportExportOptions.includingCustomCSS"));
+    console.log(TUICPref.exportPref());
+    if (TUICPref.getPref("inportExportOptions.includingCustomCSS")) {
+        const exportingPref = structuredClone(TUICPref.getPref(""));
+        exportingPref.CustomCSS = localStorage.getItem("TUIC_CSS");
+        exportText.value.value = JSON.stringify(exportingPref);
+    } else {
+        exportText.value.value = TUICPref.exportPref();
+    }
 }
 function exportPrefCopy() {
     navigator.clipboard.writeText(exportText.value.value);
@@ -107,6 +117,10 @@ const importBox = defineModel<HTMLInputElement>();
 const importFunc = async (type: number) => {
     try {
         const importedPref = JSON.parse(importBox.value.value);
+        if ("CustomCSS" in importedPref) {
+            localStorage.setItem("TUIC_CSS", importedPref.CustomCSS);
+            delete importedPref.CustomCSS;
+        }
         await TUICPref.updatePref(importedPref);
         if (type == 1) {
             TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importedPref));

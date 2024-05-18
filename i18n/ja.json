@@ -239,5 +239,7 @@
     "rescuePref-detail": "エクスポートされた設定、CSSの順で表示されます。それぞれコピーしてx.comでインポート/保存してください。",
     "rescuePref-complete": "これで救出完了です。それぞれx.comのTUICで読み込んでください。カスタムアイコンに関しては、申し訳ございませんが対応しておりません。",
 
+    "inportExportOptions.includingCustomCSS": "エクスポート内容にカスタムCSSを含める",
+
     "temp-notice-hideDMSheetOnBottomRight": "現在、画面右下に存在するDMの欄は、「その他の設定」から非表示にできます。"
 }
