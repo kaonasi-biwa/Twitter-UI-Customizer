@@ -100,6 +100,19 @@ function profile() {
             document.querySelector(`nav [data-testid="ScrollSnap-prevButtonWrapper"]:not(.TUIC_DISPNONE_PARENT > *)`)?.parentElement.classList.add("TUIC_DISPNONE_PARENT");
         }
     }
+    if (TUICPref.getPref("profileSetting.invisible.followersYouFollowTab")) {
+        const nowURL = location.pathname;
+        if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
+            const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/followers_you_follow"]`);
+            if (tab) {
+                tab.parentElement.hide();
+                if (nowURL.endsWith("/followers_you_follow")) {
+                    document.querySelector<HTMLAnchorElement>(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
+                }
+            }
+            document.querySelector(`nav [data-testid="ScrollSnap-prevButtonWrapper"]:not(.TUIC_DISPNONE_PARENT > *)`)?.parentElement.classList.add("TUIC_DISPNONE_PARENT");
+        }
+    }
 }
 
 function osusumeUser() {
