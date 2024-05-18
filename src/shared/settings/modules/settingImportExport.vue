@@ -31,7 +31,7 @@
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <!--Import-->
     <div>
-        <SectionTitle2 style="margin-top: 0" title-i18-n="import-settingTitle" />
+        <SectionTitle2 style="margin-top: 0" title-i18-n="import-settingTitle" id="importTitle" />
         <p class="TUIC_setting_intro_paragraph TUIC_setting_intro_paragraph_bold">
             {{ TUICI18N.get("import-intro") }}
         </p>
@@ -98,8 +98,6 @@ import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 const exportText = ref<HTMLInputElement>();
 
 function exportPref() {
-    console.log(TUICPref.getPref("inportExportOptions.includingCustomCSS"));
-    console.log(TUICPref.exportPref());
     if (TUICPref.getPref("inportExportOptions.includingCustomCSS")) {
         const exportingPref = structuredClone(TUICPref.getPref(""));
         exportingPref.CustomCSS = localStorage.getItem("TUIC_CSS");
