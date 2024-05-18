@@ -51,7 +51,6 @@ window.onload = async () => {
     };
 
     document.getElementById("link7").onclick = () => {
-        //chrome.tabs.create({ url: chrome.runtime.getURL("safemode.html") });
         chrome.tabs.create({ url: "https://twitter.com/?mx=1" });
     };
     // Firefoxの場合のみ有効

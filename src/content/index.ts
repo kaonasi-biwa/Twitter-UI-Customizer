@@ -24,6 +24,14 @@ import { placePrintPrefButton } from "./printPref";
         await TUICI18N.fetch();
         // Pref救出
         placePrintPrefButton();
+    } else if (location.href === "https://twitter.com//") {
+        // NOTE: i18n データのフェッチ
+        await TUICI18N.fetch();
+        //document.write("aaa");
+        alert(TUICI18N.get("rescuePref-detail", "ja") + "\n\n" + TUICI18N.get("rescuePref-detail", "en"));
+        alert(localStorage.getItem("TUIC"));
+        alert(localStorage.getItem("TUIC_CSS"));
+        alert(TUICI18N.get("rescuePref-complete", "ja") + "\n\n" + TUICI18N.get("rescuePref-complete", "en"));
     } else {
         await Promise.all([
             // NOTE: i18n データのフェッチ
