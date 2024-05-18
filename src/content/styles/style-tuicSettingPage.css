@@ -521,7 +521,7 @@ textarea#css_textarea {
         "Noto Sans JP",
         Meiryo,
         system-ui,
-        sans-serif !important;
+        sans-serif;
 }
 
 .TUIC_settings_header_container {
