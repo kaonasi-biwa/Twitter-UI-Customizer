@@ -11,7 +11,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                     "r-kzbkwu r-1e081e0 r-ttdzmv",
                     "r-ig955 r-1orpq53 r-19urhcx",
                     "r-i03k3n r-779j7e r-5t7p9m",
-                )}" id="id__7fpkgwkoke8" data-testid="card.layoutSmall.detail">
+                )}" id="id__7fpkgwkoke8" data-testid="card.layoutSmall.detail" style="padding: 12px 15px">
                     <div dir="auto" class="css-901oao css-1hf3ou5 ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
                         "r-1b43r93 r-14yzgew",
                         "r-1b43r93 r-hjklzo",

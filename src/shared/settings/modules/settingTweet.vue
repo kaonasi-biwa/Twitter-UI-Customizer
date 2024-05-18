@@ -41,8 +41,8 @@
         <SectionTitle2 title-i18-n="fixEngagements-settingTitle" />
         <FIGURE_TWEET_ENGAGEMENT class="TUIC_setting_TwEngagementFigure" />
         <UpDownList style="margin-top: 20px" id="fixEngagements" />
-        <CheckBox style="margin-top: 20px" value="otherBoolSetting.placeEngagementsLink" name="bottomTweetButtons-setting-placeEngagementsLink" />
-        <CheckBox value="otherBoolSetting.placeEngagementsLinkShort" name="fixEngagements-shortName" />
+        <CheckBox style="margin-top: 20px" value="engagementsLink.option.placeEngagementsLink" name="bottomTweetButtons-setting-placeEngagementsLink" />
+        <CheckBox value="engagementsLink.option.placeEngagementsLinkShort" name="fixEngagements-shortName" />
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
