@@ -17,6 +17,7 @@ const _data = {
         premium: `[data-testid="Dropdown"] :is([href="/i/verified-choose"],[href="/i/premium_sign_up"])`,
         jobs: `[data-testid="Dropdown"] [href="/jobs"]`,
         spaces: `[data-testid="Dropdown"] [href="/i/spaces/start"]`,
+        followerRequests: `[data-testid="Dropdown"] [href="/follower_requests"]`,
     },
     type: {
         bookmarks: "menuitem",
@@ -32,6 +33,7 @@ const _data = {
         premium: "menuitem",
         jobs: "menuitem",
         spaces: "menuitem",
+        followerRequests: "menuitem",
     },
 };
 

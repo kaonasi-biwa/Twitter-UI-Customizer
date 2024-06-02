@@ -529,6 +529,7 @@ const ids = {
             { id: "spaces", i18n: "sidebarButton-moreMenuItems-spaces", default: false },
             { id: "settings", i18n: "sidebarButton-moreMenuItems-settings", default: false },
             //{ id: "separator", i18n: "sidebarButton-moreMenuItems-separator", default: false },
+            { id: "followerRequests", i18n: "sidebarButton-moreMenuItems-followerRequests", default: false },
         ],
     },
 
@@ -589,6 +590,7 @@ const ids = {
             { id: "osusume-user-timeline", i18n: "timeline-osusumeUsersOnTL", default: false },
             { id: "hideOhterRTTL", i18n: "timeline-hideOhterRTTL", default: false },
             { id: "hideReply", i18n: "timeline-hideReply", default: false },
+            { id: "hideLockedTweet", i18n: "timeline-hideLockedTweet", default: false },
             { id: "accountStart", i18n: "timeline-accountStart", default: false },
         ],
     },
@@ -626,7 +628,7 @@ const ids = {
     uncategorizedSettings: { type: "boolean", values: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter", default: false }] },
 
     // インポート・エクスポートのオプション
-    inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS",default:false }] },
+    inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
 } as const;
 
 type TUICSettingIDs = keyof typeof ids;

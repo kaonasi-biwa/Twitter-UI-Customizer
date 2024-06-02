@@ -136,6 +136,7 @@
     "timeline-setting-timeline": "タイムライン",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
     "timeline-hideOhterRTTL": "リツイートを非表示にする",
+    "timeline-hideLockedTweet": "非公開アカウントのツイートを非表示にする",
     "timeline-hideReply": "ツイートに対する返信以下にあるものを非表示にする",
     "timeline-accountStart": "アカウント作成時の「設定しましょう」を非表示にする",
     "timeline-discoverMore": "ツイートの返信一覧の「もっと見つける」",

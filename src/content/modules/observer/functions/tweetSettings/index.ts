@@ -213,6 +213,9 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     if (TUICPref.getPref("timeline.hideOhterRTTL") && articleBase.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
         articleBase.hide();
     }
+    if (TUICPref.getPref("timeline.hideLockedTweet") && articleInfo.option.isLockedAccount) {
+        articleBase.hide();
+    }
 
     // リツイートを非表示
     if (TUICPref.getPref("timeline.hideReply") && articleInfo.option.isBigArticle) {
