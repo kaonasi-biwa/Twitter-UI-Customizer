@@ -146,6 +146,8 @@
 }
 
 .TUICSidebarButton {
+    padding-top: 4px;
+    padding-bottom: 4px;
     text-decoration: none;
 }
 
