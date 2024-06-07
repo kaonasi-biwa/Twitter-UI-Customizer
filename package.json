@@ -1,4 +1,5 @@
 {
+    "private": true,
     "type": "module",
     "scripts": {
         "build": "pnpm build:firefox",
@@ -55,7 +56,7 @@
         "vue-tsc": "^2.0.14",
         "web-ext": "^7.11.0"
     },
-    "packageManager": "pnpm@8.15.2",
+    "packageManager": "pnpm@9.2.0",
     "engines": {
         "node": ">=20.9.0"
     }
