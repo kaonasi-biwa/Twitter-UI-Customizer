@@ -92,7 +92,11 @@ Crowdin:
 -   @gok7ug (For translating to Turkish)
 -   @saturnsoot (For translating to German)
 -   @yanniekwok314 (For translating to Traditional Chinese)
-    その他:
+-   @lafixier (For translating to English)
+-   @cutterknife (For translating to English)
+-   @deflecta (For translating to Russian)
+
+Others:
 
 -   @CutterKnife\_ / Twitter **(Icon & Logo Creator)**
 -   @PianoCat1010 / Twitter **(Creator of the 'Like and Retweet' Icon)**

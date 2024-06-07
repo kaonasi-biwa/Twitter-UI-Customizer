@@ -98,6 +98,9 @@ Crowdin:
 -   @gok7ug (トルコ語の翻訳)
 -   @saturnsoot (ドイツ語の翻訳)
 -   @yanniekwok314 (繁体中国語の翻訳)
+-   @lafixier (英語の翻訳)
+-   @cutterknife (英語の翻訳)
+-   @deflecta (ロシア語の翻訳)
 
 その他:
 
