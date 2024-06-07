@@ -1,46 +1,46 @@
 name: i18n Updater
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - "i18n/_officialTwitterI18n.json"
-            - "i18n/_officialTwitterI18nConfig.json"
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "i18n/_officialTwitterI18n.json"
+      - "i18n/_officialTwitterI18nConfig.json"
+  workflow_dispatch:
 
 jobs:
-    update-i18n:
-        if: github.repository_owner == 'kaonasi-biwa' || github.event_name != 'push'
-        name: Update
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  update-i18n:
+    if: github.repository_owner == 'kaonasi-biwa' || github.event_name != 'push'
+    name: Update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version-file: "package.json"
-                  cache: "pnpm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
 
-            - name: Update
-              run: |
-                  git config --global user.name  "github-actions[bot]"
-                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Update
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-                  pnpm install
-                  git pull
-                  node ./npm-scripts/update-i18n.js
+          pnpm install
+          git pull
+          node ./npm-scripts/update-i18n.js
 
-                  if [ -z "$(git status --porcelain)" ]; then
-                    echo "No ti18n changes"
-                    exit 0
-                  fi
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No ti18n changes"
+            exit 0
+          fi
 
-                  git add .
-                  git commit -m "Update twitter i18n"
-                  git push
+          git add .
+          git commit -m "Update twitter i18n"
+          git push

@@ -1,4 +1,4 @@
-## Viteの導入による変更
+# Viteの導入による変更
 
 ビルドツール Vite の導入により、TypeScriptやSCSSなどコンパイルが必要なソースを使用できるようになりました。  
 また、ビルド方法が変わりました。
@@ -17,14 +17,14 @@ READMEにも記載されているように、`pnpm debug`でパッケージ、�
 またはChromium系ブラウザを指定することができます。  
 また、必要な初期設定なども記載していますので、ぜひご参照ください。
 
--   `pnpm debug` または `pnpm debug:firefox`  
-    Firefox または Firefox系ブラウザでのデバッグを実行します。
+- `pnpm debug` または `pnpm debug:firefox`  
+  Firefox または Firefox系ブラウザでのデバッグを実行します。
 
--   `pnpm debug:chromium`  
-    Chrome または Chromium系ブラウザでのデバッグを実行します。
+- `pnpm debug:chromium`  
+  Chrome または Chromium系ブラウザでのデバッグを実行します。
 
-    **Chromium系ブラウザでは設定無しではデバッグが正常作動しません。**  
-    詳しくは[`.env.local.example`](../.env.local.example)をご参照ください。
+  **Chromium系ブラウザでは設定無しではデバッグが正常作動しません。**  
+  詳しくは[`.env.local.example`](../.env.local.example)をご参照ください。
 
 `pnpm build --watch` で、`pnpm debug` と同じコマンドになります。
 
@@ -44,10 +44,10 @@ Firefox (Stable)で実行される時、Dev Editionより旧バージョンな�
 自動反映はされません。
 zipファイルが生成されます。
 
--   `pnpm build` または `pnpm build:firefox`  
-    Firefox 及び Firefox系ブラウザ向けのビルドをします。
+- `pnpm build` または `pnpm build:firefox`  
+  Firefox 及び Firefox系ブラウザ向けのビルドをします。
 
--   `pnpm build:chromium`  
-    Chrome 及び Chromium系ブラウザ向けのビルドをします。
+- `pnpm build:chromium`  
+  Chrome 及び Chromium系ブラウザ向けのビルドをします。
 
-    Chromium CRXビルドに関しては、[`.github/workflows/packaging.yml`](../.github/workflows/packaging.yml)をご参照ください。
+  Chromium CRXビルドに関しては、[`.github/workflows/packaging.yml`](../.github/workflows/packaging.yml)をご参照ください。
