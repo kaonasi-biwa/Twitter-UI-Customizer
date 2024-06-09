@@ -1,4 +1,4 @@
-name: Lint
+name: Lint & Format
 
 on:
   push:
@@ -50,3 +50,23 @@ jobs:
           pnpm lint:eslint
           pnpm lint:stylelint
           pnpm lint:prettier
+        continue-on-error: ${{ github.repository_owner == 'kaonasi-biwa' || github.event_name == 'workflow_dispatch' }}
+
+      - name: Run format
+        run: |
+          pnpm format:eslint
+          pnpm format:prettier
+          pnpm format:stylelint
+
+      - name: Commit
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No format changes"
+            exit 0
+          fi
+
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update twitter i18n"
+          git push

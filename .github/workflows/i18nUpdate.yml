@@ -11,7 +11,7 @@ on:
 
 jobs:
   update-i18n:
-    if: github.repository_owner == 'kaonasi-biwa' || github.event_name != 'push'
+    if: github.repository_owner == 'kaonasi-biwa' || github.event_name == 'workflow_dispatch'
     name: Update
     runs-on: ubuntu-latest
     steps:
