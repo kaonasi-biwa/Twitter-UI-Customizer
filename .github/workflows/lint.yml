@@ -50,9 +50,10 @@ jobs:
           pnpm lint:eslint
           pnpm lint:stylelint
           pnpm lint:prettier
-        continue-on-error: ${{ github.repository_owner == 'kaonasi-biwa' || github.event_name == 'workflow_dispatch' }}
+        continue-on-error: ${{ (github.repository_owner == 'kaonasi-biwa' && github.event_name != 'pull_request' ) || github.event_name == 'workflow_dispatch' }}
 
       - name: Run format
+        if: github.event_name != 'pull_request'
         run: |
           pnpm format:eslint
           pnpm format:prettier
