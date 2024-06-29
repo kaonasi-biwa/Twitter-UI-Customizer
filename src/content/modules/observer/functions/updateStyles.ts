@@ -41,7 +41,7 @@ function sidebarButtons() {
         const itemId = i.id.replace("TUICSidebar_", "");
 
         let locationBool = false;
-        const includesCheck = (buttonUrl: string) => {
+        const includesCheck = (buttonUrl: string = "") => {
             if (buttonUrl.endsWith("/")) {
                 locationBool = location.pathname.includes(buttonUrl) ? true : locationBool;
             } else {
