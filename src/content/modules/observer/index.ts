@@ -3,6 +3,7 @@ import { catchError } from "./errorDialog.ts";
 import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
 import { followersList } from "./functions/followersList.tsx";
 import { throwTestError } from "@shared/testError.ts";
+import { getPref } from "../pref/index.ts";
 
 //let time = 0;
 
@@ -31,6 +32,15 @@ export const TUICObserver = new (class TUICObserver {
     public callback(mutations: MutationRecord[] = undefined): void {
         const mutationElements = mutations ? mutations.flatMap((m) => Array.from(m.addedNodes) as Element[]) : [];
         if (mutations) {
+            if (getPref("performanceSettings.removeDeletedTweets")) {
+                const removedElements = mutations.filter((m) => (Array.from(m.removedNodes) as Element[]).some((e) => (e as HTMLElement)?.classList.contains("TUICDidArticle")));
+                if (removedElements.length !== 0) {
+                    for (const elem of removedElements) {
+                        (elem.target as Element)?.closest(`[data-testid="cellInnerDiv"]`)?.remove();
+                    }
+                }
+            }
+
             if (mutationElements.length === 0 || mutationElements.every((e) => e.nodeType === Node.TEXT_NODE || e.nodeName === "SCRIPT")) return;
             //mutationElements.forEach((e) => console.log(e));
         }

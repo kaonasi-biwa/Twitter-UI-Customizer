@@ -627,6 +627,9 @@ const ids = {
     // その他の設定
     uncategorizedSettings: { type: "boolean", values: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter", default: false }] },
 
+    // その他の設定
+    performanceSettings: { type: "boolean", values: [{ id: "removeDeletedTweets", i18n: "performanceSettings-removeDeletedTweets", default: true }] },
+
     // インポート・エクスポートのオプション
     inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
 } as const;

@@ -191,6 +191,8 @@
 
     "settingPerformance-settingTitle": "パフォーマンス",
 
+    "performanceSettings-removeDeletedTweets": "削除したツイートの残骸を消去する",
+
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
 
