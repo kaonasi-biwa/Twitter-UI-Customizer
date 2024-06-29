@@ -32,5 +32,11 @@
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
+    },
+    "[markdown]": {
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.tabSize": 2
     }
 }

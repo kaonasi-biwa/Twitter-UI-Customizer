@@ -1,52 +1,73 @@
-name: Lint
+name: Lint & Format
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-    lint:
-        name: Run ESLint & Prettier & Stylelint scanning
-        runs-on: ubuntu-latest
-        #permissions:
-        #    contents: read
-        #    security-events: write
-        #    actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  lint:
+    name: Run ESLint & Prettier & Stylelint scanning
+    runs-on: ubuntu-latest
+    #permissions:
+    #    contents: read
+    #    security-events: write
+    #    actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version-file: "package.json"
-                  cache: "pnpm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
 
-            - name: Install ESLint & Prettier & Stylelint
-              run: |
-                  pnpm install
+      - name: Install ESLint & Prettier & Stylelint
+        run: |
+          pnpm install
 
-            #- name: Generate SARIF file
-            #  run: |
-            #      pnpm lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
-            #  continue-on-error: true
-            #
-            #- name: Upload SARIF file
-            #  uses: github/codeql-action/upload-sarif@v2
-            #  with:
-            #      sarif_file: eslint-results.sarif
-            #      wait-for-processing: true
+      #- name: Generate SARIF file
+      #  run: |
+      #      pnpm lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
+      #  continue-on-error: true
+      #
+      #- name: Upload SARIF file
+      #  uses: github/codeql-action/upload-sarif@v2
+      #  with:
+      #      sarif_file: eslint-results.sarif
+      #      wait-for-processing: true
 
-            - name: Run ESLint & Prettier & Stylelint
-              run: |
-                  pnpm lint:eslint
-                  pnpm lint:stylelint
-                  pnpm lint:prettier
+      - name: Run ESLint & Prettier & Stylelint
+        run: |
+          pnpm lint:eslint
+          pnpm lint:stylelint
+          pnpm lint:prettier
+        continue-on-error: ${{ (github.repository_owner == 'kaonasi-biwa' && github.event_name != 'pull_request' ) || github.event_name == 'workflow_dispatch' }}
+
+      - name: Run format
+        if: github.event_name != 'pull_request'
+        run: |
+          pnpm format:eslint
+          pnpm format:prettier
+          pnpm format:stylelint
+
+      - name: Commit
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No format changes"
+            exit 0
+          fi
+
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update twitter i18n"
+          git push

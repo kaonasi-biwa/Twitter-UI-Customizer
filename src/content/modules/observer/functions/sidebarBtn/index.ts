@@ -33,22 +33,22 @@ const _data = {
     html: {
         __base: (id: string, svg: string): string => {
             return `
-            <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction(
+            <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction<string>(
                 _data.tuicButtonGoToUrl[id],
-            )}" role="link" tabindex="0" class="css-4rbku5 css-18t94o4 css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-oyd9sg r-13qz1uu TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
+            )}" role="link" tabindex="0" class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
                 <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
                     <div class="css-175oi2r">
                         <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
                             <g>${svg}</g>
                         </svg>
                     </div>
-                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc ${TUICLibrary.fontSizeClass(
+                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${TUICLibrary.fontSizeClass(
                         "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
                         "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
                         "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
                         "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
                         "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
-                    )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="text-overflow: unset;" >
+                    )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="margin-right: 15px; text-overflow: unset;" >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
                     </div>
                 </div>
@@ -256,7 +256,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
     if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
         sidebarButtonsCount = 0;
         for (const i of TUICPref.getPref("sidebarButtons")) {
-            let moveElem = bannerRoot.querySelector(_data.selectors[i]);
+            let moveElem = bannerRoot.querySelector<HTMLElement>(_data.selectors[i]);
             if (moveElem != null) {
                 bannerRoot.appendChild(moveElem);
                 moveElem.classList.add("NOT_TUIC_DISPNONE");
@@ -271,7 +271,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 }
                 sidebarButtonsCount += 1;
             } else if (i in _data.html) {
-                moveElem = TUICLibrary.parseHtml(_data.html[i]()).item(0);
+                moveElem = TUICLibrary.parseHtml(_data.html[i]()).item(0) as HTMLElement;
                 moveElem.classList.add("NOT_TUIC_DISPNONE");
                 moveElem.onclick = _data.buttonFunctions[i];
                 moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
