@@ -113,6 +113,10 @@
         "message": "(Twitter Settings→Accessibility, display, and languages→Display)",
         "description": "設定画面の文章"
     },
+    "optionContent1_1_2": {
+        "message": "Open Twitter Settings!",
+        "description": "設定画面の文章"
+    },
     "optionHeading1_2": {
         "message": "Update Notification Settings:",
         "description": "設定画面の見出し"
@@ -164,6 +168,10 @@
     "optionSpecialThanksOther": {
         "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOtherID": {
+        "message": "ID:",
+        "description": "設定画面のSpecial thanksのサービス名用タイトル"
     },
     "optionSpecialThanksOtherTwitter": {
         "message": "Twitter",

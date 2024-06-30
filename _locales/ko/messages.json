@@ -113,6 +113,10 @@
         "message": "(트위터 설정 → 접근성, 표시, 언어 → 화면)",
         "description": "設定画面の文章"
     },
+    "optionContent1_1_2": {
+        "message": "트위터 설정 열기!",
+        "description": "設定画面の文章"
+    },
     "optionHeading1_2": {
         "message": "업데이트 알림 설정:",
         "description": "設定画面の見出し"
@@ -164,6 +168,10 @@
     "optionSpecialThanksOther": {
         "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOtherID": {
+        "message": "ID:",
+        "description": "設定画面のSpecial thanksのサービス名用タイトル"
     },
     "optionSpecialThanksOtherTwitter": {
         "message": "트위터",
