@@ -15,7 +15,7 @@ export function hideElements() {
     osusumeUser();
 
     if (TUICPref.getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
-        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
+        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([data-processed-article]):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
             elem.closest(`div[data-testid="cellInnerDiv"]`).hide();
             elem.closest(`div[data-testid="cellInnerDiv"]`).previousElementSibling?.hide();
@@ -117,7 +117,7 @@ function profile() {
 
 function osusumeUser() {
     if (TUICPref.getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
-        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
+        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([data-processed-article]):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
         for (const elem of cells) {
             if (
                 elem.querySelector(`[data-testid="UserCell"]`) != null &&

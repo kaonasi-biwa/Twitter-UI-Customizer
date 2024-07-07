@@ -33,7 +33,7 @@ export const TUICObserver = new (class TUICObserver {
         const mutationElements = mutations ? mutations.flatMap((m) => Array.from(m.addedNodes) as Element[]) : [];
         if (mutations) {
             if (getPref("performanceSettings.removeDeletedTweets")) {
-                const removedElements = mutations.filter((m) => (Array.from(m.removedNodes) as Element[]).some((e) => (e as HTMLElement)?.classList.contains("TUICDidArticle")));
+                const removedElements = mutations.filter((m) => (Array.from(m.removedNodes) as Element[]).some((e) => (e as HTMLElement)?.tagName === "ARTICLE" && (e as HTMLElement)?.dataset.processedArticle === ""));
                 if (removedElements.length !== 0) {
                     for (const elem of removedElements) {
                         (elem.target as Element)?.closest(`[data-testid="cellInnerDiv"]`)?.remove();

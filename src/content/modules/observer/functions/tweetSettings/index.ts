@@ -60,20 +60,20 @@ export function tweetSettings() {
     if (!buttonUnderTweetRunning) {
         buttonUnderTweetRunning = true;
         {
-            const getElement = () => document.querySelector<HTMLElement>(`article.TUICDidArticle [data-testid="caret"]:not(${ProcessedClass})`);
+            const getElement = () => document.querySelector<HTMLElement>(`article[data-processed-article] [data-testid="caret"]:not(${ProcessedClass})`);
             for (let elem = getElement(); elem; elem = getElement()) {
-                elem.closest(".TUICDidArticle").classList.remove("TUICDidArticle");
+                delete elem.closest<HTMLElement>("[data-processed-article]").dataset.processedArticle;
             }
         }
 
         {
-            const getElement = () => document.querySelector(`article.TUICDidArticle .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
+            const getElement = () => document.querySelector(`article[data-processed-article] .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
             for (let elem = getElement(); elem; elem = getElement()) {
-                elem.closest(".TUICDidArticle").classList.remove("TUICDidArticle");
+                delete elem.closest<HTMLElement>("[data-processed-article]").dataset.processedArticle;
             }
         }
 
-        const articles = document.querySelectorAll(`article:not(.TUICDidArticle)`);
+        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-processed-article]):not([data-testid="tweet"] *)`);
         if (articles.length != 0) {
             for (const articleBase of articles) {
                 (async () => {
@@ -190,7 +190,7 @@ export function tweetSettings() {
 
                         tweetTopButtons(articleInfo);
                     }
-                    articleBase.classList.add("TUICDidArticle");
+                    articleBase.dataset.processedArticle = "";
                 })();
             }
         }
