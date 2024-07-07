@@ -4,6 +4,7 @@ import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
 import { followersList } from "./functions/followersList.tsx";
 import { throwTestError } from "@shared/testError.ts";
 import { getPref } from "../pref/index.ts";
+import { TUICLibrary } from "@content/library.ts";
 
 //let time = 0;
 
@@ -36,7 +37,17 @@ export const TUICObserver = new (class TUICObserver {
                 const removedElements = mutations.filter((m) => (Array.from(m.removedNodes) as Element[]).some((e) => (e as HTMLElement)?.tagName === "ARTICLE" && (e as HTMLElement)?.dataset.processedArticle === ""));
                 if (removedElements.length !== 0) {
                     for (const elem of removedElements) {
-                        (elem.target as Element)?.closest(`[data-testid="cellInnerDiv"]`)?.remove();
+                        const removeElement = (elem.target as Element)?.closest(`[data-testid="cellInnerDiv"]`);
+                        if (removeElement.nextElementSibling && !removeElement.nextElementSibling.querySelector("article")) {
+                            removeElement.nextElementSibling.remove();
+                            TUICLibrary.hideElement(removeElement);
+                        } else {
+                            if (removeElement.previousElementSibling && !removeElement.previousElementSibling.querySelector("article")) {
+                                removeElement?.remove();
+                            } else {
+                                TUICLibrary.hideElement(removeElement);
+                            }
+                        }
                     }
                 }
             }
