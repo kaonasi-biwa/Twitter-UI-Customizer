@@ -1,9 +1,9 @@
-import { TUICLibrary } from "@content/library";
+import { parseHtml } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): Element => {
-    return TUICLibrary.parseHtml(
+    return parseHtml(
         `<div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
             <a href="${link}" rel="noopener noreferrer nofollow" target="_blank" role="link" class="css-4rbku5 css-18t94o4 css-175oi2r r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg">
                 <div class="css-175oi2r r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci ${fontSizeClass(

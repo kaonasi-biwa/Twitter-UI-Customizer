@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { getPref, setPref, mergeDefaultPref } from "@modules/pref";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
@@ -20,7 +20,7 @@ const props = defineProps<{
 }>();
 
 const setDefault = async () => {
-    await TUICLibrary.waitForElement("#layers");
+    await waitForElement("#layers");
     const dialog = new Dialog(TUICI18N.get("common-confirm"));
     dialog
         .addComponents([

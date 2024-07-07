@@ -1,4 +1,4 @@
-import { TUICLibrary } from "@content/library";
+import { waitForElement, parseHtml } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
 import { ProcessedClass } from "@shared/sharedData";
@@ -49,7 +49,7 @@ const _data = {
             `;
         },
         block: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
-            const elem = TUICLibrary.parseHtml(
+            const elem = parseHtml(
                 _data.buttonElement._base(
                     "block",
                     `<path d="M12 3.75c-4.55 0-8.25 3.69-8.25 8.25 0 1.92.66 3.68 1.75 5.08L17.09 5.5C15.68 4.4 13.92 3.75 12 3.75zm6.5 3.17L6.92 18.5c1.4 1.1 3.16 1.75 5.08 1.75 4.56 0 8.25-3.69 8.25-8.25 0-1.92-.65-3.68-1.75-5.08zM1.75 12C1.75 6.34 6.34 1.75 12 1.75S22.25 6.34 22.25 12 17.66 22.25 12 22.25 1.75 17.66 1.75 12z" class="TUIC_USERBLOCK"></path>`,
@@ -59,10 +59,10 @@ const _data = {
             if (!info.option.isMe) {
                 const eventFunc = async () => {
                     moremenu.click();
-                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="block"]`))[0].click();
+                    (await waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="block"]`))[0].click();
 
                     // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
-                    await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
+                    await waitForElement(`[data-testid="confirmationSheetConfirm"]`);
                     if (getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
                         document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                     } else {
@@ -81,7 +81,7 @@ const _data = {
             return elem;
         },
         mute: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
-            const elem = TUICLibrary.parseHtml(
+            const elem = parseHtml(
                 _data.buttonElement._base(
                     "mute",
                     `<path d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z" class="TUIC_USERMUTE"></path>`,
@@ -93,7 +93,7 @@ const _data = {
                 const eventFunc = async () => {
                     moremenu.click();
                     (
-                        await TUICLibrary.waitForElement<HTMLButtonElement>(
+                        await waitForElement<HTMLButtonElement>(
                             `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
                         )
                     )[0]
@@ -107,7 +107,7 @@ const _data = {
             return elem;
         },
         delete: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
-            const elem = TUICLibrary.parseHtml(
+            const elem = parseHtml(
                 _data.buttonElement._base(
                     "delete",
                     `<path d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z" class="TUIC_DeleteButton"></path>`,
@@ -120,7 +120,7 @@ const _data = {
                 const eventFunc = async () => {
                     moremenu.click();
                     (
-                        await TUICLibrary.waitForElement<HTMLButtonElement>(
+                        await waitForElement<HTMLButtonElement>(
                             `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
                         )
                     )[0]
@@ -128,7 +128,7 @@ const _data = {
                         .click();
 
                     // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
-                    const elems = await TUICLibrary.waitForElement<HTMLButtonElement>(`button[data-testid="confirmationSheetConfirm"]`);
+                    const elems = await waitForElement<HTMLButtonElement>(`button[data-testid="confirmationSheetConfirm"]`);
                     if (getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
                         elems[0].click();
                     } else {
@@ -147,7 +147,7 @@ const _data = {
             return elem;
         },
         list: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
-            const elem = TUICLibrary.parseHtml(
+            const elem = parseHtml(
                 _data.buttonElement._base(
                     "list",
                     `<path d="M5.5 4c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5H12v2H5.5C4.12 22 3 20.88 3 19.5v-15C3 3.12 4.12 2 5.5 2h13C19.88 2 21 3.12 21 4.5V13h-2V4.5c0-.28-.22-.5-.5-.5h-13zM16 10H8V8h8v2zm-8 2h8v2H8v-2zm10 7v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z" class="TUIC_AddListButton"></path>`,
@@ -156,7 +156,7 @@ const _data = {
 
             const eventFunc = async () => {
                 moremenu.click();
-                (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][href="/i/lists/add_member"]`))[0].click();
+                (await waitForElement<HTMLButtonElement>(`[role="menuitem"][href="/i/lists/add_member"]`))[0].click();
             };
 
             eventHandle(elem, eventFunc);
@@ -164,12 +164,12 @@ const _data = {
             return elem;
         },
         report: function (moremenu: HTMLButtonElement, info: ArticleInfomation) {
-            const elem = TUICLibrary.parseHtml(_data.buttonElement._base("report", `<path d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z" class="TUIC_Report"></path>`, info.option.isMe)).item(0) as HTMLDivElement;
+            const elem = parseHtml(_data.buttonElement._base("report", `<path d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z" class="TUIC_Report"></path>`, info.option.isMe)).item(0) as HTMLDivElement;
 
             if (!info.option.isMe) {
                 const eventFunc = async () => {
                     moremenu.click();
-                    (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="report"]`))[0].click();
+                    (await waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="report"]`))[0].click();
                 };
 
                 eventHandle(elem, eventFunc);

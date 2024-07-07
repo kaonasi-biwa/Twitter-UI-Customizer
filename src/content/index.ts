@@ -4,7 +4,6 @@
  */
 
 import { TUICObserver } from "@modules/observer/index.ts";
-import { TUICLibrary } from "@content/library.ts";
 import { TUICI18N } from "@modules/i18n";
 import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon, applyDefaultStyle } from "@content/applyCSS.ts";
 import { runSafemode } from "@modules/settings/safemode/safemode";
@@ -16,6 +15,7 @@ import { updateClasses } from "./modules/htmlClass/classManager";
 import { placeSettingObserver } from "./modules/settings";
 import { placePrintPrefButton } from "./printPref";
 import { getPref, mergeDefaultPref, setPref, updatePref } from "@modules/pref";
+import { waitForElement } from "@modules/utils/controlElements";
 
 (async () => {
     if (location.href === "https://twitter.com/ja/tos") {
@@ -41,7 +41,7 @@ import { getPref, mergeDefaultPref, setPref, updatePref } from "@modules/pref";
             updatePref(),
 
             // NOTE: Twitter のレンダリングを待機
-            TUICLibrary.waitForElement("#react-root"),
+            waitForElement("#react-root"),
         ]);
 
         setPref("", mergeDefaultPref(getPref("")));
@@ -77,7 +77,7 @@ import { getPref, mergeDefaultPref, setPref, updatePref } from "@modules/pref";
         }
 
         // タイトル変更のためのObserver
-        TUICLibrary.waitForElement("title").then(titleObserverFunction);
+        waitForElement("title").then(titleObserverFunction);
 
         // TLUI用のObserver
         startTluiObserver();

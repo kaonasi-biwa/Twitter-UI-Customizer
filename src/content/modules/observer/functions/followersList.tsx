@@ -1,4 +1,4 @@
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
@@ -49,7 +49,7 @@ const data: {
             baseElement.querySelector<HTMLButtonElement>(data.moremenuButton.selector).click();
             document.querySelector<HTMLButtonElement>(`[data-testid="block"`).click();
             if (getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
-                TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
+                waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
                     elem[0].click();
                 });
             }
@@ -78,7 +78,7 @@ const data: {
             baseElement.querySelector<HTMLButtonElement>(data.moremenuButton.selector).click();
             document.querySelector<HTMLButtonElement>(`[data-testid="removeFollower"]`).click();
             if (getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
-                TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
+                waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
                     elem[0].click();
                 });
             }

@@ -79,7 +79,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@modules/pref";
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { applySystemCss } from "@content/applyCSS";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
@@ -141,7 +141,7 @@ const importFunc = async (type: number) => {
         }
     } catch (x) {
         console.error(x);
-        await TUICLibrary.waitForElement("#layers");
+        await waitForElement("#layers");
         const dialog = new Dialog(TUICI18N.get("common-error"));
         dialog.addComponents([TUICI18N.get("import-error"), new ButtonComponent(TUICI18N.get("common-close"), () => dialog.close())]).open();
     }

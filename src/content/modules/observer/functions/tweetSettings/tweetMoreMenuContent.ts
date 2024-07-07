@@ -1,4 +1,4 @@
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
@@ -72,7 +72,7 @@ const _data: TweetMoreMenuContentData = {
 };
 
 export async function tweetMoreMenuContent() {
-    await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+    await waitForElement(`[data-testid="Dropdown"]`);
 
     let menuTopPx = 0;
     const menuItemPx = fontSizeClass(40, 41, 44, 48, 52);

@@ -1,4 +1,4 @@
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { TUICI18N } from "@modules/i18n";
 import { JSX } from "solid-js";
@@ -89,10 +89,10 @@ export const tweetButtonData: {
         clickEvent: async (data: ArticleInfomation) => {
             const article = data.elements.articleBase;
             article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
-            (await TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="block"][role="menuitem"]`))[0].click();
+            (await waitForElement<HTMLButtonElement>(`[data-testid="block"][role="menuitem"]`))[0].click();
 
             // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
-            await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
+            await waitForElement(`[data-testid="confirmationSheetConfirm"]`);
             if (getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
                 document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
             } else {
@@ -121,7 +121,7 @@ export const tweetButtonData: {
             const article = data.elements.articleBase;
             article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
             (
-                await TUICLibrary.waitForElement<HTMLButtonElement>(
+                await waitForElement<HTMLButtonElement>(
                     `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
                 )
             )[0]
@@ -139,7 +139,7 @@ export const tweetButtonData: {
         clickEvent: async (data: ArticleInfomation) => {
             willClickRT = true;
             data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]).click();
-            (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`))[0].click();
+            (await waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`))[0].click();
             willClickRT = false;
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
@@ -156,12 +156,12 @@ export const tweetButtonData: {
             );
         },
         clickEvent: async (data: ArticleInfomation) => {
-            (await TUICLibrary.waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"], data.elements.buttonBarBase))[0].click();
-            (await TUICLibrary.waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
+            (await waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"], data.elements.buttonBarBase))[0].click();
+            (await waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
 
             // NOTE: ワンクリックでRTできる設定の場合は、RTボタンを押した時点でRTされるのでこの処理は不要
             if (!getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
-                (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
+                (await waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
             }
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
@@ -181,7 +181,7 @@ export const tweetButtonData: {
             const article = data.elements.articleBase;
             article.querySelector<HTMLButtonElement>(`[data-testid="caret"]`).click();
             (
-                await TUICLibrary.waitForElement<HTMLButtonElement>(
+                await waitForElement<HTMLButtonElement>(
                     `[role="menuitem"] [d="M16 6V4.5C16 3.12 14.88 2 13.5 2h-3C9.11 2 8 3.12 8 4.5V6H3v2h1.06l.81 11.21C4.98 20.78 6.28 22 7.86 22h8.27c1.58 0 2.88-1.22 3-2.79L19.93 8H21V6h-5zm-6-1.5c0-.28.22-.5.5-.5h3c.27 0 .5.22.5.5V6h-4V4.5zm7.13 14.57c-.04.52-.47.93-1 .93H7.86c-.53 0-.96-.41-1-.93L6.07 8h11.85l-.79 11.07zM9 17v-6h2v6H9zm4 0v-6h2v6h-2z"]`,
                 )
             )[0]
@@ -216,7 +216,7 @@ export const tweetButtonData: {
         clickEvent: async (data: ArticleInfomation) => {
             data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["share-button"]).click();
             (
-                await TUICLibrary.waitForElement<HTMLButtonElement>(
+                await waitForElement<HTMLButtonElement>(
                     `[role="menu"] [role="menuitem"] [d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"]:not(.TUIC_sendDM)`,
                 )
             )[0]

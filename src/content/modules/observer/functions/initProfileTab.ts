@@ -1,4 +1,4 @@
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
@@ -33,8 +33,8 @@ function profileInitialTabRedirect(userName: string) {
     return () => {
         if (getPref("profileSetting.profileInitialTab") != "tweets") {
             window.setTimeout(async () => {
-                await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
-                await TUICLibrary.waitForElement(`nav [role="presentation"]`);
+                await waitForElement(`a[href="/${userName}/photo"]`);
+                await waitForElement(`nav [role="presentation"]`);
 
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve2) => {
