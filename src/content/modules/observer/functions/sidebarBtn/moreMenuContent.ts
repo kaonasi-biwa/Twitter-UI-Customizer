@@ -1,4 +1,5 @@
 import { TUICLibrary } from "@content/library";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 import { getPref, getSettingIDs } from "@modules/pref";
 
 const _data = {
@@ -41,8 +42,8 @@ export async function moreMenuContent() {
     await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
     let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
     const upPx = {
-        menu: TUICLibrary.fontSizeClass(46, 49, 52, 58, 62),
-        menuitem: TUICLibrary.fontSizeClass(50, 53, 56, 62, 67),
+        menu: fontSizeClass(46, 49, 52, 58, 62),
+        menuitem: fontSizeClass(50, 53, 56, 62, 67),
         separator: 5,
     };
     for (const pref of _data.all) {

@@ -4,6 +4,8 @@ import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { backgroundColorCheck } from "@modules/utils/color";
+import { getPrimitiveOrFunction } from "@modules/utils/getValues";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
 let sidebarButtonsCount = -1;
 export const SidebarButtonSelectors = {
@@ -34,16 +36,16 @@ const _data = {
     html: {
         __base: (id: string, svg: string): string => {
             return `
-            <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction<string>(
+            <a id="TUICSidebar_${id}" href="${getPrimitiveOrFunction<string>(
                 _data.tuicButtonGoToUrl[id],
             )}" role="link" tabindex="0" class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
-                <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
+                <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
                     <div class="css-175oi2r">
                         <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
                             <g>${svg}</g>
                         </svg>
                     </div>
-                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${TUICLibrary.fontSizeClass(
+                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
                         "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
                         "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
                         "r-adyw6z r-135wba7 r-dlybji r-nazi8o",

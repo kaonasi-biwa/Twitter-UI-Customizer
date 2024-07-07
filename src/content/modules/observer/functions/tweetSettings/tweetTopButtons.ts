@@ -3,6 +3,7 @@ import { getPref, getSettingIDs } from "@modules/pref";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
 import { ProcessedClass } from "@shared/sharedData";
 import { backgroundColorClass } from "@content/modules/utils/color";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 const eventHandle = (elem: Element, func: () => void) => {
     elem.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Enter") {
@@ -34,7 +35,7 @@ const _data = {
         _base: function (type: string, svg: string, disable: boolean = false, redButton: boolean = false) {
             return `
 <div role="button" tabindex="${disable ? -1 : 0}" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr${disable ? "" : " r-1loqt21"} r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}" TUICTweetTopButton="${type}">
-<div dir="ltr" class="css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q" style="text-overflow: unset; color: rgb(139, 152, 165);">
+<div dir="ltr" class="css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr ${fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q" style="text-overflow: unset; color: rgb(139, 152, 165);">
     <div class="css-175oi2r r-xoduu5">
         <div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
         <svg viewBox="0 0 24 24" class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} ${redButton ? "TUIC_DeleteButton" : ""}">
@@ -198,7 +199,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
     let isFirst = true;
     const tweetTopButtons: { [key: string]: HTMLDivElement } = {};
     const tweetTopParent = articleBase.querySelector(_data.selector.moreMenu).parentElement;
-    const marginSize = TUICLibrary.fontSizeClass("20px", "20px", "20px", "20px", "20px");
+    const marginSize = fontSizeClass("20px", "20px", "20px", "20px", "20px");
     for (const i of _data.all) {
         const div = articleBase.querySelector<HTMLDivElement>(_data.selector[i]);
         if (div) {

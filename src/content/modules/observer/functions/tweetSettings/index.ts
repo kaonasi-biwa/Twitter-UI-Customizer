@@ -7,6 +7,7 @@ import { render } from "solid-js/web";
 import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData, willClickRT } from "./buttonHTML";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
 let buttonUnderTweetRunning: boolean = false;
 const _data = {
@@ -163,7 +164,7 @@ export function tweetSettings() {
                                     render(EmptyButtonHTML, processingButton.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`));
                                 }
                                 processingButton.classList.remove("r-1rq6c10", "r-1b7u577", "r-1wron08", "r-ogg1b9", "r-uzdrn4", "r-1l8l4mf");
-                                processingButton.classList.add(TUICLibrary.fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                processingButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
                                 lastButton = processingButton;
                                 buttonBarBase.appendChild(processingButton);
                             }
@@ -172,7 +173,7 @@ export function tweetSettings() {
                         if (lastButton) {
                             if (lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x") != null && lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").children[0].children[0].childElementCount == 0) {
                                 lastButton.querySelector(".css-175oi2r.r-xoduu5.r-1udh08x").remove();
-                                lastButton.classList.add(TUICLibrary.fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                lastButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
                             }
                             lastButton.classList.add("r-1rq6c10", "r-1b7u577");
                             buttonBarBase.style.minHeight = "";

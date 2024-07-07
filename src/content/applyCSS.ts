@@ -1,5 +1,4 @@
 import browser from "webextension-polyfill";
-import { TUICLibrary } from "@content/library.ts";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
@@ -8,6 +7,7 @@ import { ColorData } from "@shared/sharedData.ts";
 import styleUrl from "./styles/index.pcss?url";
 import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color.ts";
 import { getPref, getSettingIDs } from "@modules/pref";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
 export function applyDefaultStyle() {
     document.querySelector("#tuicDefaultStyle")?.remove();
@@ -124,7 +124,7 @@ export function applySystemCss() {
 
         rs.setProperty("--TUIC-pinnedTab-background", `rgba(${backgroundColorClass("0, 0, 0, 0.65", "21, 32, 43, 0.75", "255, 255, 255, 0.85")})`);
 
-        rs.setProperty("--TUIC-pinnedTab-top", `${TUICLibrary.fontSizeClass("47", "49", "52", "57", "63")}px`);
+        rs.setProperty("--TUIC-pinnedTab-top", `${fontSizeClass("47", "49", "52", "57", "63")}px`);
     }
 }
 export function applyCustomCss() {

@@ -1,26 +1,6 @@
 import { ProcessedClass } from "@shared/sharedData.ts";
 
 export const TUICLibrary = {
-    getPrimitiveOrFunction: <T>(functionOrPrimitive: (() => T) | T): T => {
-        if (typeof functionOrPrimitive === "function") {
-            return (functionOrPrimitive as () => T)();
-        } else {
-            return functionOrPrimitive;
-        }
-    },
-
-    fontSizeClass: <T extends number | string>(x1: T, x2: T, x3: T, x4: T, x5: T) => {
-        const fontSize = document.querySelector("html").style.fontSize.toString();
-        if (fontSize == "17px") {
-            return x4;
-        } else if (fontSize == "18px") {
-            return x5;
-        } else if (fontSize == "15px") {
-            return x3;
-        } else if (fontSize == "14px") {
-            return document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31") ? x1 : x2;
-        }
-    },
     parseHtml: (elem: string): HTMLCollection => {
         return new DOMParser().parseFromString(elem, "text/html").body.children;
     },

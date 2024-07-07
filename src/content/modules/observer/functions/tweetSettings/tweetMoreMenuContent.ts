@@ -1,5 +1,6 @@
 import { TUICLibrary } from "@content/library";
 import { getPref, getSettingIDs } from "@modules/pref";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
 interface TweetMoreMenuContentData {
     all: string[];
@@ -74,7 +75,7 @@ export async function tweetMoreMenuContent() {
     await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
 
     let menuTopPx = 0;
-    const menuItemPx = TUICLibrary.fontSizeClass(40, 41, 44, 48, 52);
+    const menuItemPx = fontSizeClass(40, 41, 44, 48, 52);
     for (const id of _data.all) {
         if (getPref(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
             const getFunc = _data.selectors[id];
