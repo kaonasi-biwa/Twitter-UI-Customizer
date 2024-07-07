@@ -1,4 +1,4 @@
-import { waitForElement } from "@modules/utils/controlElements";
+import { processElement, waitForElement } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
@@ -12,20 +12,20 @@ const _data = {
 
 export function profileInitialTab() {
     for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.${ProcessedClass})`)) {
-        elem.process();
+        processElement(elem);
 
         const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
         elem.addEventListener("click", profileInitialTabRedirect(userName));
     }
     for (const elem of document.querySelectorAll(`[data-testid="tweet"] a[style*="color"]:not(.${ProcessedClass})`)) {
-        elem.process();
+        processElement(elem);
         if (elem.textContent.startsWith("@")) {
             elem.addEventListener("click", profileInitialTabRedirect(elem.textContent.slice(1)));
         }
     }
     const profileButtonInSidebar = document.querySelector(`[data-testid="AppTabBar_Profile_Link"]:not(.${ProcessedClass})`);
 
-    profileButtonInSidebar?.process();
+    processElement(profileButtonInSidebar);
     profileButtonInSidebar?.addEventListener("click", profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
 }
 

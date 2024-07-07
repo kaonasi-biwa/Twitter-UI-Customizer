@@ -1,4 +1,4 @@
-import { parseHtml } from "@modules/utils/controlElements";
+import { hideElement, parseHtml } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
@@ -48,9 +48,9 @@ export function showLinkCardInfo(articleInfo: ArticleInfomation) {
             const card = articleBase.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 
             if (card.querySelector(".TUIC_LinkCardInfo") == null) {
-                card.children[1].hide();
-                card.parentElement.children[1]?.hide();
-                card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div').hide();
+                hideElement(card.children[1]);
+                hideElement(card.parentElement.children[1]);
+                hideElement(card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div'));
 
                 const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;
                 const domain = card.querySelector('[data-testid="card.layoutLarge.media"] a').getAttribute("aria-label").replace(/ .*$/, "");

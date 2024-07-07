@@ -1,4 +1,4 @@
-import { waitForElement } from "@modules/utils/controlElements";
+import { hideElement, waitForElement } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
@@ -87,7 +87,7 @@ export async function tweetMoreMenuContent() {
             }
 
             if (elem) {
-                elem.closest(`[role="menuitem"]`).hide();
+                hideElement(elem.closest(`[role="menuitem"]`));
                 menuTopPx += menuItemPx;
             }
         }

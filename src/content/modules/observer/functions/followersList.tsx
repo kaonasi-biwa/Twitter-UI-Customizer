@@ -1,4 +1,4 @@
-import { waitForElement } from "@modules/utils/controlElements";
+import { hideElement, waitForElement, hasClosest, showElement, processElement } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
@@ -90,16 +90,16 @@ export function followersList() {
     if (location.pathname.endsWith("/followers") && document.querySelectorAll(`[aria-haspopup="menu"]`)) {
         for (const elem of document.querySelectorAll(`[data-testid="primaryColumn"] [data-testid="UserCell"]:not(.${ProcessedClass})`)) {
             if (document.querySelector(`[data-testid="UserCell"] ${data.moremenuButton.selector}`)) {
-                elem.process();
+                processElement(elem);
                 const followButton = elem.querySelector(data.followButton.selector);
                 if (followButton) {
-                    const baseElement = followButton.hasClosest<HTMLElement>(data.moremenuButton.selector);
+                    const baseElement = hasClosest<HTMLElement>(followButton, data.moremenuButton.selector);
                     baseElement.classList.add("TUICFollowerListButtons");
                     let elementCounter = 0;
                     for (const id of getPref("profileSetting.followersListButtons")) {
                         let buttonElement = baseElement.querySelector(data[id].selector);
                         if (buttonElement) {
-                            buttonElement.show();
+                            showElement(buttonElement);
                             baseElement.appendChild(buttonElement.closest(".TUICFollowerListButtons > *"));
                             elementCounter++;
                             if (id == "followButton") {
@@ -117,7 +117,7 @@ export function followersList() {
                     const baseElementChildren = baseElement.children.length;
                     if (elementCounter != baseElementChildren) {
                         for (let i = 0; elementCounter + i < baseElementChildren; i++) {
-                            baseElement.children[i].hide();
+                            hideElement(baseElement.children[i]);
                         }
                     }
                 }

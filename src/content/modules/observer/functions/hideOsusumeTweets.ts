@@ -1,3 +1,4 @@
+import { hideElement, processElement } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
@@ -6,10 +7,10 @@ export function hideOsusumeTweets() {
         let cells = document.querySelectorAll<HTMLDivElement>(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.${ProcessedClass})`);
         for (const elem of cells) {
             if (!elem.querySelector("article") && elem.querySelector("h2") && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
-                elem.process();
+                processElement(elem);
                 switch (getPref("timeline-discoverMore")) {
                     case "discoverMore_invisible": {
-                        elem.hide();
+                        hideElement(elem);
                         elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
                         if (elem.getAttribute("TUICDiscoverMore")) {
                             elem.removeAttribute("TUICDiscoverMore");

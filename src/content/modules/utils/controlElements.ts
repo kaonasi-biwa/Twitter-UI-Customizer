@@ -98,7 +98,7 @@ export function hasClosestSelector<T extends Element>(elem: Element, selector: s
  * @param {Element} elem 対象のElement
  */
 export function hideElement(elem: Element) {
-    elem.classList.add("TUIC_DISPNONE");
+    elem?.classList.add("TUIC_DISPNONE");
 }
 
 /**
@@ -107,7 +107,7 @@ export function hideElement(elem: Element) {
  * @param {Element} elem 対象のElement
  */
 export function showElement(elem: Element) {
-    elem.classList.remove("TUIC_DISPNONE");
+    elem?.classList.remove("TUIC_DISPNONE");
 }
 
 /**
@@ -116,10 +116,10 @@ export function showElement(elem: Element) {
  * @param {Element} elem 対象のElement
  */
 export function processElement(elem: Element) {
-    elem.classList.add(ProcessedClass);
+    elem?.classList.add(ProcessedClass);
 }
 
-declare global {
+/*declare global {
     interface Element {
         /**
          * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索するElementのメソッドです。
@@ -128,7 +128,7 @@ declare global {
          * それを防ぐためには擬似クラスの:scopeをお使いください
          * @param {string} selector 探索するElementのセレクター
          * @return {Element} 指定されたElementを子孫ノードに持つセレクター
-         */
+         * /
         hasClosest<T extends Element>(selector: string): T;
         /**
          * selectorで指定された要素を子孫ノードに持つまで文書ルートに向かって探索し、見つかった要素を返すElementのメソッドです。
@@ -137,19 +137,19 @@ declare global {
          * それを防ぐためには擬似クラスの:scopeをお使いください
          * @param {string} selector 探索するElementのセレクター
          * @return {Element} 指定されたElement
-         */
+         * /
         hasClosestSelector<T extends Element>(selector: string): T;
         /**
          * 要素を非表示にするElementのメソッドです。
-         */
+         * /
         hide(): void;
         /**
          * Element.hide()で非表示にした要素を再び表示するElementのメソッドです。
-         */
+         * /
         show(): void;
         /**
          * 要素を処理済みとマークするElementのメソッドです
-         */
+         * /
         process(): void;
     }
 }
@@ -173,3 +173,4 @@ Element.prototype.show = function (): void {
 Element.prototype.process = function (): void {
     processElement(this);
 };
+*/

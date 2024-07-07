@@ -1,4 +1,4 @@
-import { waitForElement, parseHtml } from "@modules/utils/controlElements";
+import { waitForElement, parseHtml, hideElement, showElement, processElement } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
 import { ProcessedClass } from "@shared/sharedData";
@@ -184,7 +184,7 @@ export function tweetTopButtons(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
     const moreMenuButton = articleBase.querySelector<HTMLElement>(_data.selector.moreMenu + `:not(${ProcessedClass})`);
     if (moreMenuButton) {
-        moreMenuButton.process();
+        processElement(moreMenuButton);
 
         // もっと見るメニュー内を修正するためにEvent
         eventHandle(moreMenuButton, tweetMoreMenuContent);
@@ -210,7 +210,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
         let div: HTMLDivElement = null;
         if (i in tweetTopButtons) {
             div = tweetTopButtons[i];
-            div.show();
+            showElement(div);
         } else if (i in _data.buttonElement) {
             div = _data.buttonElement[i](articleBase.querySelector(_data.selector.moreMenu), articleInfo);
             tweetTopButtons[i] = div;
@@ -226,7 +226,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
 
     for (const i of _data.all) {
         if (!getPref("tweetTopButton").includes(i) && i in tweetTopButtons) {
-            tweetTopButtons[i].hide();
+            hideElement(tweetTopButtons[i]);
         }
     }
 }

@@ -1,4 +1,4 @@
-import { waitForElement, parseHtml } from "@modules/utils/controlElements";
+import { waitForElement, parseHtml, hideElement } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
@@ -288,7 +288,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
             }
         }
         for (const i of bannerRoot.querySelectorAll(`:is(a,div[role="button"],button,[type="button"]):not(.NOT_TUIC_DISPNONE)`)) {
-            i.hide();
+            hideElement(i);
         }
     }
 }

@@ -4,6 +4,7 @@ import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 import { SidebarButtonSelectors } from "./sidebarBtn";
 import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
+import { hasClosest, processElement } from "@content/modules/utils/controlElements";
 
 let fontSize1: string = "";
 let fontSize2: boolean | null = null;
@@ -81,10 +82,10 @@ function likeToFavo() {
             const selected = elem.closest(ButtonUnderTweetSelectors["like-button"]).getAttribute("data-testid") == "unlike" ? "selected" : "unselected";
             elem.querySelector("path").setAttribute("d", FAVORITE_ICON.favorite[selected]);
             if (getPref("visibleButtons").includes("likeAndRT")) {
-                elem.hasClosest(ButtonUnderTweetSelectors["retweet-button"]).querySelector(`${ButtonUnderTweetSelectors.likeAndRT} path`)?.setAttribute("d", FAVORITE_ICON.favoriteRT.unselected);
+                hasClosest(elem, ButtonUnderTweetSelectors["retweet-button"])?.querySelector(`${ButtonUnderTweetSelectors.likeAndRT} path`)?.setAttribute("d", FAVORITE_ICON.favoriteRT.unselected);
             }
 
-            elem.process();
+            processElement(elem);
         }
     }
 }

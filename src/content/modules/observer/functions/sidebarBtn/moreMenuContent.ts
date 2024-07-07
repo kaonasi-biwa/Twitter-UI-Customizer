@@ -1,4 +1,4 @@
-import { waitForElement } from "@modules/utils/controlElements";
+import { hideElement, waitForElement } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
 import { getPref, getSettingIDs } from "@modules/pref";
 
@@ -50,7 +50,7 @@ export async function moreMenuContent() {
         if (getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
             const elem = document.querySelector(_data.selectors[pref]);
             if (elem) {
-                elem.parentElement.hide();
+                hideElement(elem.parentElement);
                 menuTopPx += upPx[_data.type[pref]];
             }
         }

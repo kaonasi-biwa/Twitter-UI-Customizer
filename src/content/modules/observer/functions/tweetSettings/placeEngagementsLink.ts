@@ -1,5 +1,5 @@
 import { TUICI18N } from "@modules/i18n";
-import { waitForElement, parseHtml } from "@modules/utils/controlElements";
+import { waitForElement, parseHtml, hasClosest } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { fontSizeClass } from "@modules/utils/fontSize.ts";
@@ -65,7 +65,7 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
             for (const engagementsID of engageList) {
                 engagementsBox.appendChild(_data.links(engagementsID, articleBase, shortName));
             }
-            buttonBarBase.hasClosest(`:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBox, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
+            hasClosest(buttonBarBase, `:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBox, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
         }
     }
 }

@@ -1,5 +1,6 @@
 import { getPref } from "@modules/pref";
 import { TUICI18N } from "@modules/i18n";
+import { hasClosest, hasClosestSelector } from "@modules/utils/controlElements";
 
 let tweetCount: number = -1;
 
@@ -209,7 +210,7 @@ export function replacePost() {
         localizeElemText('[data-testid="SideNav_NewTweet_Button"] > div > span > div > div > span > span', TUICI18N.get("XtoTwitter-PostToTweet-tweetButton"));
 
         //右サイドバーのスペースのやつ
-        for (const elem of getNotReplacedElements(`[data-testid="sidebarColumn"] [data-testid="pill-contents-container"]`)) elem.hasClosestSelector("h2 span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-rightSidebar-spaceTitle");
+        for (const elem of getNotReplacedElements(`[data-testid="sidebarColumn"] [data-testid="pill-contents-container"]`)) hasClosestSelector(elem, "h2 span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-rightSidebar-spaceTitle");
 
         // 「新しいツイートを表示」ポップアップ
         localizeElemText('[data-testid="pillLabel"] > span > span > span', TUICI18N.get("XtoTwitter-PostToTweet-tweeted"));
@@ -312,13 +313,13 @@ export function replacePost() {
 
         // 固定ツイートの「固定」表示
         for (const elem of getNotReplacedElements('[data-testid="tweet"] path[d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z"]'))
-            elem.hasClosestSelector(`[data-testid="socialContext"]`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-pinnedTweet");
+            hasClosestSelector(elem, `[data-testid="socialContext"]`).textContent = TUICI18N.get("XtoTwitter-PostToTweet-pinnedTweet");
 
         // 「{user}さんがリツイートしました」もしくは「リツイート済み」
         for (const elem of getNotReplacedElements(
             '[data-testid="tweet"] path[d="M4.75 3.79l4.603 4.3-1.706 1.82L6 8.38v7.37c0 .97.784 1.75 1.75 1.75H13V20H7.75c-2.347 0-4.25-1.9-4.25-4.25V8.38L1.853 9.91.147 8.09l4.603-4.3zm11.5 2.71H11V4h5.25c2.347 0 4.25 1.9 4.25 4.25v7.37l1.647-1.53 1.706 1.82-4.603 4.3-4.603-4.3 1.706-1.82L18 15.62V8.25c0-.97-.784-1.75-1.75-1.75z"]',
         )) {
-            const container = elem.hasClosestSelector(`[data-testid="socialContext"]`);
+            const container = hasClosestSelector(elem, `[data-testid="socialContext"]`);
 
             // NOTE: リツイートのSVGで取得しているが、これだとリツイートボタンも引っかかってしまうため、コンテナが検出できない場合スキップ
             if (!container) continue;

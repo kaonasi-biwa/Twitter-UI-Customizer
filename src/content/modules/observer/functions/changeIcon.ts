@@ -4,6 +4,7 @@ import X from "@content/icons/logo/x.svg?raw";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 import { getColorFromPref } from "@content/modules/utils/color";
 import { getPref } from "@modules/pref";
+import { hideElement, processElement } from "@modules/utils/controlElements";
 
 let iconObserver: MutationObserver | null = null;
 
@@ -32,7 +33,7 @@ function changeIconProcess(elem: Element, base: Element) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE");
-            base.hide();
+            hideElement(base);
             break;
         case "twitter":
             if (favicon && changeFavicon) {
@@ -69,7 +70,7 @@ function changeIconProcess(elem: Element, base: Element) {
             elem.classList.add("TUIC_NOTSVGDISPNONE");
             break;
     }
-    elem.process();
+    processElement(elem);
     if (favicon && !changeFavicon) {
         favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
     }

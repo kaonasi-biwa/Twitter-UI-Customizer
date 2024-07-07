@@ -1,4 +1,4 @@
-import { waitForElement } from "@modules/utils/controlElements";
+import { hasClosest, hideElement, showElement, waitForElement } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { tweetTopButtons } from "./tweetTopButtons";
 import { placeEngagementsLink } from "./placeEngagementsLink";
@@ -84,7 +84,7 @@ export function tweetSettings() {
                         // 名前の判断に使う要素(画面左下...だったはず)
                         const userNameElem = document.querySelector(`[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`);
                         // ツイート下ボタンの親
-                        const buttonBarBase = articleBase.querySelector(_data.selectors["reply-button"]).hasClosest<HTMLDivElement>(_data.selectors["like-button"]);
+                        const buttonBarBase = hasClosest<HTMLDivElement>(articleBase.querySelector(_data.selectors["reply-button"]), _data.selectors["like-button"]);
                         buttonBarBase.parentElement.classList.add("TUICTweetButtomBarBase");
                         // ボタンたち
                         const underTweetButtons: { [key: string]: Element } = {};
@@ -153,10 +153,10 @@ export function tweetSettings() {
                             if (i in underTweetButtons) {
                                 processingButton = underTweetButtons[i];
                                 processingButton.classList.add("TUIC_UnderTweetButton");
-                                processingButton.show();
+                                showElement(processingButton);
                             } else if (i in tweetButtonData) {
                                 render(TweetUnderButtonsHTML(i, articleInfo), buttonBarBase);
-                                processingButton = Array.from(buttonBarBase.children).slice(-1)[0];
+                                processingButton = Array.from(buttonBarBase.children).at(-1);
                             }
                             // Twitterのボタンと同化させるためにClassとかごにょごにょしてる
                             if (processingButton) {
@@ -185,7 +185,7 @@ export function tweetSettings() {
 
                         for (const i of _data.all) {
                             if (!getPref("visibleButtons").includes(i) && i in underTweetButtons) {
-                                underTweetButtons[i].hide();
+                                hideElement(underTweetButtons[i]);
                             }
                         }
 
@@ -212,10 +212,10 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
     // リツイートを非表示
     if (getPref("timeline.hideOhterRTTL") && articleBase.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
-        articleBase.hide();
+        hideElement(articleBase);
     }
     if (getPref("timeline.hideLockedTweet") && articleInfo.option.isLockedAccount) {
-        articleBase.hide();
+        hideElement(articleBase);
     }
 
     // リツイートを非表示
