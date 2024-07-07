@@ -11,10 +11,10 @@ export function parseHtml(elem: string): HTMLCollection {
 }
 
 /**
- * HTMLで用いるために&'`"<>=;を&を用いた表記にエンコードします。
+ * HTMLで用いるために&'`"<>=;を&を用いた表記にエスケープします。
  *
- * @param {string} text エンコード前の文字列
- * @return {text} エンコード後の文字列
+ * @param {string} text エスケープ前の文字列
+ * @return {text} エスケープ後の文字列
  */
 export function escapeToUseHTML(text) {
     return text
