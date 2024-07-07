@@ -45,7 +45,7 @@ export function hideElements() {
 
 function rightSidebar() {
     if (TUICPref.getPref("rightSidebar.verified")) {
-        document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"])`)?.hasClosest(`[role="complementary"]`).hide();
+        document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"], [href="/i/premium_sign_up"])`)?.hasClosest(`[role="complementary"]`).hide();
     }
     if (TUICPref.getPref("rightSidebar.trend")) {
         document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`)?.hasClosest(":scope > * >  section").hide();
