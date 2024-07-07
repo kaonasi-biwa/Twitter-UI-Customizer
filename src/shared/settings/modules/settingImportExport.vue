@@ -10,7 +10,7 @@
         <p class="TUIC_setting_intro_paragraph">
             {{ TUICI18N.get("export-intro-step1") }}
         </p>
-        <button class="TUIC_setting_button_new TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport" @click="exportPref()">
+        <button class="TUIC_setting_button_new TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" id="TUICExport" @click="displayPref()">
             {{ TUICI18N.get("export-exportButton") }}
         </button>
         <CheckBoxList id="inportExportOptions" />
@@ -78,7 +78,7 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
-import { TUICPref } from "@content/modules";
+import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@modules/pref";
 import { TUICLibrary } from "@content/library";
 import { applySystemCss } from "@content/applyCSS";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
@@ -97,13 +97,13 @@ import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 // EXPORT LOGIC
 const exportText = ref<HTMLInputElement>();
 
-function exportPref() {
-    if (TUICPref.getPref("inportExportOptions.includingCustomCSS")) {
-        const exportingPref = structuredClone(TUICPref.getPref(""));
+function displayPref() {
+    if (getPref("inportExportOptions.includingCustomCSS")) {
+        const exportingPref = structuredClone(getPref(""));
         exportingPref.CustomCSS = localStorage.getItem("TUIC_CSS");
         exportText.value.value = JSON.stringify(exportingPref);
     } else {
-        exportText.value.value = TUICPref.exportPref();
+        exportText.value.value = exportPref();
     }
 }
 function exportPrefCopy() {
@@ -119,14 +119,14 @@ const importFunc = async (type: number) => {
             localStorage.setItem("TUIC_CSS", importedPref.CustomCSS);
             delete importedPref.CustomCSS;
         }
-        await TUICPref.updatePref(importedPref);
+        await updatePref(importedPref);
         if (type == 1) {
-            TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), importedPref));
+            setPref("", mergePref(getPref(""), importedPref));
         } else if (type == 2) {
-            TUICPref.setPref("", TUICPref.mergeDefaultPref(importedPref));
+            setPref("", mergeDefaultPref(importedPref));
         }
 
-        TUICPref.save();
+        savePref();
         if (isSafemode) {
             location.href = `${location.protocol}//${location.hostname}`;
         } else {
@@ -135,7 +135,7 @@ const importFunc = async (type: number) => {
             applySystemCss();
 
             titleObserverFunction();
-            if (!TUICPref.getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
+            if (!getPref("otherBoolSetting.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                 document.title = document.title.replace(" / Twitter", " / X");
             }
         }

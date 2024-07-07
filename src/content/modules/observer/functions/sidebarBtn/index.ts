@@ -1,9 +1,9 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
-import { backgroundColorCheck } from "@content/modules/utils/color";
+import { backgroundColorCheck } from "@modules/utils/color";
 
 let sidebarButtonsCount = -1;
 export const SidebarButtonSelectors = {
@@ -234,7 +234,7 @@ export function sidebarButtons() {
             sidebarButtonProcess(bannerRoot);
         } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not(.NOT_TUIC_DISPNONE)`).length) {
             let changeElem = false;
-            for (const selector of TUICPref.getPref("sidebarButtons")) {
+            for (const selector of getPref("sidebarButtons")) {
                 const elems = bannerRoot.querySelectorAll(_data.selectors[selector]);
                 if (elems.length > 1) {
                     const elems = [...bannerRoot.querySelectorAll(_data.selectors[selector])];
@@ -256,7 +256,7 @@ export function sidebarButtons() {
 function sidebarButtonProcess(bannerRoot: HTMLElement) {
     if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
         sidebarButtonsCount = 0;
-        for (const i of TUICPref.getPref("sidebarButtons")) {
+        for (const i of getPref("sidebarButtons")) {
             let moveElem = bannerRoot.querySelector<HTMLElement>(_data.selectors[i]);
             if (moveElem != null) {
                 bannerRoot.appendChild(moveElem);

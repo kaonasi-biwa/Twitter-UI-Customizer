@@ -15,7 +15,7 @@ import defaultPrefButton from "../components/defaultPrefButton.vue";
 
 import { ColorData } from "@shared/sharedData";
 
-import { TUICPref } from "@content/modules";
+import { getPref, setPref, savePref, mergePref } from "@modules/pref";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 import { updateClasses } from "@content/modules/htmlClass/classManager";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
@@ -62,9 +62,9 @@ const buttonList = [
             },
         },
         changeFunc: () => {
-            TUICPref.setPref(
+            setPref(
                 "sidebarButtons",
-                TUICPref.getPref("sidebarButtons").filter((elem) => {
+                getPref("sidebarButtons").filter((elem) => {
                     return elem != "verified-choose";
                 }),
             );
@@ -84,15 +84,15 @@ const buttonList = [
     },
 ];
 const clickEv = (index) => {
-    TUICPref.setPref("", TUICPref.mergePref(TUICPref.getPref(""), buttonList[index].changePref ?? {}));
+    setPref("", mergePref(getPref(""), buttonList[index].changePref ?? {}));
     buttonList[index]?.changeFunc?.();
-    TUICPref.save();
+    savePref();
     if (!isSafemode) {
         document.querySelector("#TUIC_setting").remove();
     }
     updateClasses();
     titleObserverFunction();
-    if (!TUICPref.getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
+    if (!getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
         document.title = document.title.replace(" / Twitter", " / X");
     }
 };

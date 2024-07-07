@@ -1,6 +1,6 @@
 import { applySystemCss } from "@content/applyCSS";
 import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@content/icons";
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 import { SidebarButtonSelectors } from "./sidebarBtn";
 import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
@@ -70,17 +70,17 @@ function sidebarButtons() {
     if (elem) {
         const isHome = location.pathname === "/home";
         const SVGElem = elem.querySelector("svg path");
-        SVGElem.setAttribute("d", HOME_ICON[TUICPref.getPref("sidebarSetting.homeIcon")][isHome ? "selected" : "unselected"]);
+        SVGElem.setAttribute("d", HOME_ICON[getPref("sidebarSetting.homeIcon")][isHome ? "selected" : "unselected"]);
     }
 }
 
 // いいねをふぁぼに
 function likeToFavo() {
-    if (TUICPref.getPref("tweetDisplaySetting.option.likeToFavo")) {
+    if (getPref("tweetDisplaySetting.option.likeToFavo")) {
         for (const elem of document.querySelectorAll(`${ButtonUnderTweetSelectors["like-button"]} svg:not(.${ProcessedClass})`)) {
             const selected = elem.closest(ButtonUnderTweetSelectors["like-button"]).getAttribute("data-testid") == "unlike" ? "selected" : "unselected";
             elem.querySelector("path").setAttribute("d", FAVORITE_ICON.favorite[selected]);
-            if (TUICPref.getPref("visibleButtons").includes("likeAndRT")) {
+            if (getPref("visibleButtons").includes("likeAndRT")) {
                 elem.hasClosest(ButtonUnderTweetSelectors["retweet-button"]).querySelector(`${ButtonUnderTweetSelectors.likeAndRT} path`)?.setAttribute("d", FAVORITE_ICON.favoriteRT.unselected);
             }
 

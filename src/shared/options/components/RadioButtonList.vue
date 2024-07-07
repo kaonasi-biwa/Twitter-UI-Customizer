@@ -1,12 +1,12 @@
 <template>
-    <RadioButton v-for="i of TUICPref.getSettingData(id)" :key="i.id" :id="id" :valueName="i.id" :name="i.i18n" />
+    <RadioButton v-for="i of getSettingData(id)" :key="i.id" :id="id" :valueName="i.id" :name="i.i18n" />
 </template>
 
 <script setup lang="ts">
-import { TUICPref } from "@content/modules";
+import { getSettingData, TUICSettingIDs } from "@modules/pref";
 import RadioButton from "./RadioButton.vue";
 
-const props = defineProps<{ id: string }>();
+const props = defineProps<{ id: TUICSettingIDs }>();
 </script>
 
 <style scoped></style>

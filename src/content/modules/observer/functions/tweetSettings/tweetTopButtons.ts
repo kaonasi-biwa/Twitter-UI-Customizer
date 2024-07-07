@@ -1,5 +1,5 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref, getSettingIDs } from "@modules/pref";
 import { tweetMoreMenuContent } from "./tweetMoreMenuContent";
 import { ProcessedClass } from "@shared/sharedData";
 import { backgroundColorClass } from "@content/modules/utils/color";
@@ -15,7 +15,7 @@ const eventHandle = (elem: Element, func: () => void) => {
 };
 
 const _data = {
-    all: TUICPref.getSettingIDs("tweetTopButton"),
+    all: getSettingIDs("tweetTopButton"),
     selector: {
         moreMenu: `[data-testid="caret"]`,
         block: `[TUICTweetTopButton="block"]`,
@@ -62,7 +62,7 @@ const _data = {
 
                     // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
                     await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-                    if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
+                    if (getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
                         document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
                     } else {
                         document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -128,7 +128,7 @@ const _data = {
 
                     // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
                     const elems = await TUICLibrary.waitForElement<HTMLButtonElement>(`button[data-testid="confirmationSheetConfirm"]`);
-                    if (TUICPref.getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
+                    if (getPref("tweetTopButtonBool.noModalbottomTweetButtons")) {
                         elems[0].click();
                     } else {
                         document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (_) => {
@@ -205,7 +205,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
             tweetTopButtons[i] = div;
         }
     }
-    for (const i of TUICPref.getPref("tweetTopButton")) {
+    for (const i of getPref("tweetTopButton")) {
         let div: HTMLDivElement = null;
         if (i in tweetTopButtons) {
             div = tweetTopButtons[i];
@@ -224,7 +224,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
     }
 
     for (const i of _data.all) {
-        if (!TUICPref.getPref("tweetTopButton").includes(i) && i in tweetTopButtons) {
+        if (!getPref("tweetTopButton").includes(i) && i in tweetTopButtons) {
             tweetTopButtons[i].hide();
         }
     }

@@ -1,4 +1,4 @@
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
 export function hideOsusumeTweets() {
@@ -7,7 +7,7 @@ export function hideOsusumeTweets() {
         for (const elem of cells) {
             if (!elem.querySelector("article") && elem.querySelector("h2") && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                 elem.process();
-                switch (TUICPref.getPref("timeline-discoverMore")) {
+                switch (getPref("timeline-discoverMore")) {
                     case "discoverMore_invisible": {
                         elem.hide();
                         elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");

@@ -3,11 +3,11 @@ import { TUICLibrary } from "@content/library.ts";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 
 import { DOG, TWITTER, X } from "./icons/index.ts";
-import { TUICPref } from "@modules/index.ts";
 import { ColorData } from "@shared/sharedData.ts";
 
 import styleUrl from "./styles/index.pcss?url";
-import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@content/modules/utils/color.ts";
+import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color.ts";
+import { getPref, getSettingIDs } from "@modules/pref";
 
 export function applyDefaultStyle() {
     document.querySelector("#tuicDefaultStyle")?.remove();
@@ -91,11 +91,11 @@ export function applySystemCss() {
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
-        if (TUICPref.getPref(elem)) {
+        if (getPref(elem)) {
             settingsOutput += elem + "|";
         }
     }
-    if (!TUICPref.getPref("sidebarButtons").includes("verified-choose")) {
+    if (!getPref("sidebarButtons").includes("verified-choose")) {
         settingsOutput += "sidebarButtons.style.verifiedChoose" + "|";
     }
     document.documentElement.setAttribute("TUICSettings", settingsOutput);
@@ -104,7 +104,7 @@ export function applySystemCss() {
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem of TUICPref.getSettingIDs("buttonColor")) {
+        for (const elem of getSettingIDs("buttonColor")) {
             for (const el of ["background", "border", "color"]) {
                 if (ColorData.defaultTUICColor.colors[elem][el]) {
                     rs.setProperty(`--twitter-${elem}-${el}`, getColorFromPref(elem, el, null));

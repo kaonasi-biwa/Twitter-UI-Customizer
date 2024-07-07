@@ -1,10 +1,10 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
-import { TUICI18N } from "@content/modules/i18n";
+import { getPref } from "@modules/pref";
+import { TUICI18N } from "@modules/i18n";
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
-import { backgroundColorClass } from "@content/modules/utils/color";
+import { backgroundColorClass } from "@modules/utils/color";
 export let willClickRT = false;
 
 const copiedURLMessage = (): JSX.Element => {
@@ -75,7 +75,7 @@ export const tweetButtonData: {
             );
         },
         clickEvent: (data: ArticleInfomation) => {
-            navigator.clipboard.writeText(data.elements.statusButton.href.replace(/(twitter\.com|x\.com)/, TweetUnderButtonsData.copyURL[TUICPref.getPref("tweetDisplaySetting.linkCopyURL")]));
+            navigator.clipboard.writeText(data.elements.statusButton.href.replace(/(twitter\.com|x\.com)/, TweetUnderButtonsData.copyURL[getPref("tweetDisplaySetting.linkCopyURL")]));
             placeCopiedURLMessage();
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
@@ -98,7 +98,7 @@ export const tweetButtonData: {
 
             // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
             await TUICLibrary.waitForElement(`[data-testid="confirmationSheetConfirm"]`);
-            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
+            if (getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
                 document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
             } else {
                 document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {
@@ -165,7 +165,7 @@ export const tweetButtonData: {
             (await TUICLibrary.waitForElement<HTMLButtonElement>(ButtonUnderTweetSelectors["like-button"], data.elements.buttonBarBase))[0].click();
 
             // NOTE: ワンクリックでRTできる設定の場合は、RTボタンを押した時点でRTされるのでこの処理は不要
-            if (!TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
+            if (!getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 (await TUICLibrary.waitForElement<HTMLButtonElement>(`[role="menuitem"][data-testid="retweetConfirm"]`))[0].click();
             }
         },
@@ -193,7 +193,7 @@ export const tweetButtonData: {
                 .closest<HTMLElement>(`[role="menuitem"]`)
                 .click();
             // NOTE: 押したあとに表示されるメニューをスキップ・閉じたときにもっと見るが残らないようにする
-            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
+            if (getPref("tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons")) {
                 document.querySelector<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).click();
             } else {
                 document.querySelector(`[data-testid="confirmationSheetCancel"]`).addEventListener("click", (e) => {

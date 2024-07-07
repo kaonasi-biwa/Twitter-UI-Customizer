@@ -2,8 +2,8 @@ import DOG from "@content/icons/logo/dog.png?url";
 import TWITTER from "@content/icons/logo/twitter.svg?raw";
 import X from "@content/icons/logo/x.svg?raw";
 import EMPTY from "@content/icons/logo/empty.svg?url";
-import { TUICPref } from "../..";
 import { getColorFromPref } from "@content/modules/utils/color";
+import { getPref } from "@modules/pref";
 
 let iconObserver: MutationObserver | null = null;
 
@@ -23,11 +23,10 @@ const iconObserverFunc = (elem: Element) => {
         });
     }
 };
-
 function changeIconProcess(elem: Element, base: Element) {
     const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
-    const changeFavicon = TUICPref.getPref("twitterIcon.options.faviconSet");
-    switch (TUICPref.getPref("twitterIcon.icon")) {
+    const changeFavicon = getPref("twitterIcon.options.faviconSet");
+    switch (getPref("twitterIcon.icon")) {
         case "invisible":
             if (favicon && changeFavicon) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
@@ -50,7 +49,7 @@ function changeIconProcess(elem: Element, base: Element) {
             break;
         case "custom":
             if (favicon && changeFavicon) {
-                const imageURL = localStorage.getItem(TUICPref.getPref("twitterIcon.options.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
+                const imageURL = localStorage.getItem(getPref("twitterIcon.options.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                 favicon.href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");

@@ -1,5 +1,5 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { ProcessedClass } from "@shared/sharedData";
 import { JSX } from "solid-js";
@@ -47,7 +47,7 @@ const data: {
         clickEvent(baseElement) {
             baseElement.querySelector<HTMLButtonElement>(data.moremenuButton.selector).click();
             document.querySelector<HTMLButtonElement>(`[data-testid="block"`).click();
-            if (TUICPref.getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
+            if (getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
                 TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
                     elem[0].click();
                 });
@@ -76,7 +76,7 @@ const data: {
         clickEvent(baseElement) {
             baseElement.querySelector<HTMLButtonElement>(data.moremenuButton.selector).click();
             document.querySelector<HTMLButtonElement>(`[data-testid="removeFollower"]`).click();
-            if (TUICPref.getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
+            if (getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
                 TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
                     elem[0].click();
                 });
@@ -95,7 +95,7 @@ export function followersList() {
                     const baseElement = followButton.hasClosest<HTMLElement>(data.moremenuButton.selector);
                     baseElement.classList.add("TUICFollowerListButtons");
                     let elementCounter = 0;
-                    for (const id of TUICPref.getPref("profileSetting.followersListButtons")) {
+                    for (const id of getPref("profileSetting.followersListButtons")) {
                         let buttonElement = baseElement.querySelector(data[id].selector);
                         if (buttonElement) {
                             buttonElement.show();

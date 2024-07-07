@@ -1,5 +1,5 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
 const _data = {
@@ -31,7 +31,7 @@ export function profileInitialTab() {
 
 function profileInitialTabRedirect(userName: string) {
     return () => {
-        if (TUICPref.getPref("profileSetting.profileInitialTab") != "tweets") {
+        if (getPref("profileSetting.profileInitialTab") != "tweets") {
             window.setTimeout(async () => {
                 await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
                 await TUICLibrary.waitForElement(`nav [role="presentation"]`);
@@ -39,7 +39,7 @@ function profileInitialTabRedirect(userName: string) {
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve2) => {
                         if (window.scrollY == 0) {
-                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[TUICPref.getPref("profileSetting.profileInitialTab")]}`).click();
+                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[getPref("profileSetting.profileInitialTab")]}`).click();
                             resolve2("ok");
                         }
                         resolve2("bb");

@@ -1,5 +1,5 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): Element => {
     return TUICLibrary.parseHtml(
@@ -54,7 +54,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
 // リンクカードを設置
 export function showLinkCardInfo(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
-    if (TUICPref.getPref("showLinkCardInfo.showLinkCardInfo")) {
+    if (getPref("showLinkCardInfo.showLinkCardInfo")) {
         if (articleBase.querySelector(`[data-testid="card.layoutLarge.media"] a[aria-label] > div+div`)) {
             const card = articleBase.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 

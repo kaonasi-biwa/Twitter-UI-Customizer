@@ -1,4 +1,4 @@
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { TUICI18N } from "@modules/i18n";
 
 let tweetCount: number = -1;
@@ -21,7 +21,7 @@ function getNotReplacedElements(selector: string) {
 }
 
 export function replacePost() {
-    if (TUICPref.getPref("XToTwitter.PostToTweet")) {
+    if (getPref("XToTwitter.PostToTweet")) {
         const isTweetPage = location.pathname.includes("/status/");
         const isEngagementsPage = document.querySelector(`[role="tab"]`) && location.pathname.includes("/status/") && (location.pathname.endsWith("/quotes") || location.pathname.endsWith("/retweets") || location.pathname.endsWith("/likes"));
         const isRetweetPage = location.pathname.endsWith("/retweets");

@@ -1,6 +1,6 @@
 import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 
 const _data = {
@@ -33,9 +33,9 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         boxElem.remove();
     }
 
-    if (TUICPref.getPref("engagementsLink.option.placeEngagementsLink")) {
-        const engageentsTypeList = TUICPref.getPref("fixEngagements");
-        const shortName = TUICPref.getPref("engagementsLink.option.placeEngagementsLinkShort");
+    if (getPref("engagementsLink.option.placeEngagementsLink")) {
+        const engageentsTypeList = getPref("fixEngagements");
+        const shortName = getPref("engagementsLink.option.placeEngagementsLinkShort");
 
         const engagementsFixList = [];
         const engageFixListFunc = (count: number) => {

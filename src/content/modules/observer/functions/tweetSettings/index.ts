@@ -1,5 +1,5 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref, getSettingIDs } from "@modules/pref";
 import { tweetTopButtons } from "./tweetTopButtons";
 import { placeEngagementsLink } from "./placeEngagementsLink";
 import { showLinkCardInfo } from "./showLinkCardInfo";
@@ -10,11 +10,11 @@ import { ProcessedClass } from "@shared/sharedData";
 
 let buttonUnderTweetRunning: boolean = false;
 const _data = {
-    all: TUICPref.getSettingIDs("visibleButtons"),
+    all: getSettingIDs("visibleButtons"),
     selectors: { ...ButtonUnderTweetSelectors },
     buttonFunction: {
         "retweet-button": async () => {
-            if (TUICPref.getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
+            if (getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 // TODO: wait 関数を作って置き換えるべきか？
                 if (!willClickRT) {
                     window.setTimeout(async () => {
@@ -35,7 +35,7 @@ const _data = {
                     .closest<HTMLElement>(`[role="menuitem"]`)
                     .addEventListener("click", (e) => {
                         e.stopImmediatePropagation();
-                        navigator.clipboard.writeText(elem.href.replace(/(twitter\.com|x\.com)/, TweetUnderButtonsData.copyURL[TUICPref.getPref("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]));
+                        navigator.clipboard.writeText(elem.href.replace(/(twitter\.com|x\.com)/, TweetUnderButtonsData.copyURL[getPref("tweetDisplaySetting.linkShareCopyURL").replace("Share", "")]));
                         placeCopiedURLMessage();
                         document.querySelector<HTMLDivElement>(`#layers > div+div > div > div > div > div+div > div > div`).click();
                     });
@@ -147,7 +147,7 @@ export function tweetSettings() {
 
                         // ツイート下ボタンの並び替え
                         let lastButton: Element | null = null;
-                        for (const i of TUICPref.getPref("visibleButtons")) {
+                        for (const i of getPref("visibleButtons")) {
                             let processingButton: Element | null = null;
                             if (i in underTweetButtons) {
                                 processingButton = underTweetButtons[i];
@@ -183,7 +183,7 @@ export function tweetSettings() {
                         }
 
                         for (const i of _data.all) {
-                            if (!TUICPref.getPref("visibleButtons").includes(i) && i in underTweetButtons) {
+                            if (!getPref("visibleButtons").includes(i) && i in underTweetButtons) {
                                 underTweetButtons[i].hide();
                             }
                         }
@@ -201,24 +201,24 @@ export function tweetSettings() {
 function tweetStyle(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
     // 横スクロールバーを設置
-    if (TUICPref.getPref("tweetDisplaySetting.option.bottomScroll")) articleInfo.elements.buttonBarBase.parentElement.classList.add("TUICScrollBottom");
+    if (getPref("tweetDisplaySetting.option.bottomScroll")) articleInfo.elements.buttonBarBase.parentElement.classList.add("TUICScrollBottom");
     // 下のスペースを無くす
-    if (TUICPref.getPref("tweetDisplaySetting.invisible.bottomSpace")) {
+    if (getPref("tweetDisplaySetting.invisible.bottomSpace")) {
         const space = articleBase.querySelector(`[aria-labelledby]`);
         if (space && space.children?.[0]?.childElementCount === 0) {
             space.classList.add("TUIC_NONE_SPACE_BOTTOM_TWEET");
         }
     }
     // リツイートを非表示
-    if (TUICPref.getPref("timeline.hideOhterRTTL") && articleBase.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
+    if (getPref("timeline.hideOhterRTTL") && articleBase.querySelector(`a[href^="/"] > [data-testid="socialContext"]`) != null) {
         articleBase.hide();
     }
-    if (TUICPref.getPref("timeline.hideLockedTweet") && articleInfo.option.isLockedAccount) {
+    if (getPref("timeline.hideLockedTweet") && articleInfo.option.isLockedAccount) {
         articleBase.hide();
     }
 
     // リツイートを非表示
-    if (TUICPref.getPref("timeline.hideReply") && articleInfo.option.isBigArticle) {
+    if (getPref("timeline.hideReply") && articleInfo.option.isBigArticle) {
         articleBase.closest(`[data-testid="cellInnerDiv"]`).classList.add("TUIC_HideNextElements");
     }
 }

@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref, setPref, mergeDefaultPref } from "@modules/pref";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 import { Dialog } from "@shared/tlui/components/Dialog.ts";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
@@ -27,9 +27,9 @@ const setDefault = async () => {
             TUICI18N.get("settingUI-restoreDefaultAll-confirm"),
             new ButtonComponent(TUICI18N.get("common-yes"), () => {
                 dialog.close();
-                const defaultPref = TUICPref.mergeDefaultPref({});
+                const defaultPref = mergeDefaultPref({});
                 localStorage.setItem("TUIC", JSON.stringify(defaultPref));
-                TUICPref.setPref("", defaultPref);
+                setPref("", defaultPref);
 
                 if (isSafemode) {
                     location.href = `${location.protocol}//${location.hostname}`;
@@ -37,7 +37,7 @@ const setDefault = async () => {
                     document.querySelector("#TUIC_setting").remove();
                     updateClasses();
                     titleObserverFunction();
-                    if (!TUICPref.getPref("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
+                    if (!getPref("XToTwitter.XtoTwitter") && document.title.endsWith(" / Twitter")) {
                         document.title = document.title.replace(" / Twitter", " / X");
                     }
                 }

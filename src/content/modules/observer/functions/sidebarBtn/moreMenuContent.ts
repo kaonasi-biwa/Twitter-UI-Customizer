@@ -1,8 +1,8 @@
 import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { getPref, getSettingIDs } from "@modules/pref";
 
 const _data = {
-    all: TUICPref.getSettingIDs("sidebarSetting.moreMenuItems"),
+    all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
         monetization: `[data-testid="Dropdown"] [href="/settings/monetization"]`,
@@ -46,7 +46,7 @@ export async function moreMenuContent() {
         separator: 5,
     };
     for (const pref of _data.all) {
-        if (TUICPref.getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
+        if (getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
             const elem = document.querySelector(_data.selectors[pref]);
             if (elem) {
                 elem.parentElement.hide();
