@@ -1,6 +1,6 @@
 import { TUICLibrary } from "@content/library";
 import { TUICPref } from "@content/modules";
-
+import { backgroundColorClass } from "@content/modules/utils/color";
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): Element => {
     return TUICLibrary.parseHtml(
         `<div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
@@ -12,7 +12,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                     "r-ig955 r-1orpq53 r-19urhcx",
                     "r-i03k3n r-779j7e r-5t7p9m",
                 )}" id="id__7fpkgwkoke8" data-testid="card.layoutSmall.detail" style="padding: 12px 15px">
-                    <div dir="auto" class="css-901oao css-1hf3ou5 ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
+                    <div dir="auto" class="css-901oao css-1hf3ou5 ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
                         "r-1b43r93 r-14yzgew",
                         "r-1b43r93 r-hjklzo",
                         "r-a023e6 r-rjixqe",
@@ -23,7 +23,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${domain}</span>
                         </span>
                     </div>
-                    <div dir="auto" class="css-901oao css-1hf3ou5 ${TUICLibrary.backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${TUICLibrary.fontSizeClass(
+                    <div dir="auto" class="css-901oao css-1hf3ou5 ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${TUICLibrary.fontSizeClass(
                         "r-1b43r93 r-14yzgew",
                         "r-1b43r93 r-hjklzo",
                         "r-a023e6 r-rjixqe",
@@ -34,7 +34,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">${title}</span>
                         </span>
                     </div>
-                    <div dir="auto" class="css-901oao css-cens5h ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
+                    <div dir="auto" class="css-901oao css-cens5h ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${TUICLibrary.fontSizeClass(
                         "r-1b43r93 r-14yzgew",
                         "r-1b43r93 r-hjklzo",
                         "r-a023e6 r-rjixqe",

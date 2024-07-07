@@ -3,7 +3,7 @@ import TWITTER from "@content/icons/logo/twitter.svg?raw";
 import X from "@content/icons/logo/x.svg?raw";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 import { TUICPref } from "../..";
-import { TUICLibrary } from "@content/library";
+import { getColorFromPref } from "@content/modules/utils/color";
 
 let iconObserver: MutationObserver | null = null;
 
@@ -37,8 +37,8 @@ function changeIconProcess(elem: Element, base: Element) {
             break;
         case "twitter":
             if (favicon && changeFavicon) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
-                //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`)
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`)
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
             break;
@@ -57,9 +57,9 @@ function changeIconProcess(elem: Element, base: Element) {
             break;
         case "twitterIcon-X":
             if (favicon && changeFavicon) {
-                //console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null))));
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color", null)));
-                //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${TUICLibrary.color.getColorFromPref("twitterIconFavicon", "color")}"`);
+                //console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null))));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_X");
             break;

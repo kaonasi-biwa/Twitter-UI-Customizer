@@ -19,7 +19,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { TUICI18N } from "@modules/i18n";
-import { TUICLibrary } from "@content/library";
 
 import RoundedColorPicker from "@shared/settings/components/RoundedColorPicker.vue";
 import TransparentToggleButton from "@shared/settings/components/TransparentToggleButton.vue";
@@ -29,6 +28,7 @@ import { applySystemCss } from "@content/applyCSS";
 
 import { useStore } from "../store";
 import { ColorData } from "@shared/sharedData";
+import { getColorFromPref, hex2rgb, rgb2hex } from "@content/modules/utils/color";
 
 const transparentButton = ref(null);
 const colorRoot = ref(null);
@@ -59,19 +59,18 @@ const isDefault = computed(() => {
 // Prefから設定された色を取得(配列で[R: string, G: string, B: string]の形式)
 // このコンポーネントを呼び出すときのpropsから取得する色の場所などが決定される
 const TUIC_color = computed(() => {
-    return TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
+    return getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
 });
-
 // TUIC_colorで取得した色をhex形式に変換して返す
 const TUICColor1 = computed(() => {
-    return TUICLibrary.color.rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)));
+    return rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)));
 });
 
 function defaultColor(colorAttr, colorType, colorKind) {
     if (TUICPref.getPref(`${colorKind}.${colorAttr}`) && TUICPref.getPref(`${colorKind}.${colorAttr}.${colorType}`)) TUICPref.deletePref(`${colorKind}.${colorAttr}.${colorType}`);
 
-    const TUIC_color = TUICLibrary.color.getColorFromPref(colorAttr, colorType, colorKind).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
-    const TUICColor1 = TUICLibrary.color.rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
+    const TUIC_color = getColorFromPref(colorAttr, colorType, colorKind).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
+    const TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
 
     // 各子コンポーネントの関数を呼び出し、デフォルトに設定した色を反映します
     rColorPicker.value.setInputValue(TUICColor1);
@@ -82,9 +81,8 @@ function defaultColor(colorAttr, colorType, colorKind) {
 
     applySystemCss();
 }
-
 function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
-    const colorValue = TUICLibrary.color.hex2rgb(colorPickerVal);
+    const colorValue = hex2rgb(colorPickerVal);
     const isChecked = transparentButton.value.checked;
 
     TUICPref.setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
@@ -98,7 +96,7 @@ function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
 }
 
 function changeColorCheck(colorAttr, colorType, colorKind, isChecked) {
-    const colorValue = TUICLibrary.color.getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
+    const colorValue = getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
 
     TUICPref.setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
     colorRoot.value.classList.remove("TUIC_ISNOTDEFAULT");

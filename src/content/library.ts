@@ -1,25 +1,6 @@
-import { ColorData, ProcessedClass } from "@shared/sharedData.ts";
-import { TUICPref } from "@modules/index.ts";
+import { ProcessedClass } from "@shared/sharedData.ts";
 
 export const TUICLibrary = {
-    color: {
-        /** RGB 配列を #xxxxxx 表記に変換します。 */
-        rgb2hex: (rgb: [number, number, number]) => {
-            return `#${rgb.map((value) => ("0" + value.toString(16)).slice(-2)).join("")}`;
-        },
-        /** #xxxxxx 表記を RGB に変換します。 */
-        hex2rgb: (hex: string): [number, number, number] => {
-            if (hex.slice(0, 1) == "#") hex = hex.slice(1);
-            return <[number, number, number]>[hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
-                return parseInt(str, 16);
-            });
-        },
-        getColorFromPref: (name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) => {
-            let _mode = "";
-            _mode = mode ? mode : TUICLibrary.backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-            return TUICPref.getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? TUICPref.getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
-        },
-    },
     getPrimitiveOrFunction: <T>(functionOrPrimitive: (() => T) | T): T => {
         if (typeof functionOrPrimitive === "function") {
             return (functionOrPrimitive as () => T)();
@@ -27,26 +8,7 @@ export const TUICLibrary = {
             return functionOrPrimitive;
         }
     },
-    backgroundColorCheck: (): "dark" | "blue" | "light" => {
-        const bodyStyle = document.querySelector("body").style.backgroundColor.toString();
-        if (bodyStyle == "rgb(0, 0, 0)") {
-            return "dark";
-        } else if (bodyStyle == "rgb(21, 32, 43)") {
-            return "blue";
-        } else {
-            return "light";
-        }
-    },
-    backgroundColorClass: <T extends number | string>(dark: T, blue: T, white: T) => {
-        const backgroundType = TUICLibrary.backgroundColorCheck();
-        if (backgroundType == "dark") {
-            return dark;
-        } else if (backgroundType == "blue") {
-            return blue;
-        } else {
-            return white;
-        }
-    },
+
     fontSizeClass: <T extends number | string>(x1: T, x2: T, x3: T, x4: T, x5: T) => {
         const fontSize = document.querySelector("html").style.fontSize.toString();
         if (fontSize == "17px") {

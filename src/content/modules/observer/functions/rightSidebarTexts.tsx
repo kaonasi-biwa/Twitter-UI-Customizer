@@ -1,8 +1,8 @@
 import { TUICLibrary } from "@content/library";
 import { TUICI18N } from "@content/modules/i18n";
+import { backgroundColorClass } from "@content/modules/utils/color";
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
-
 const elem = (): JSX.Element => {
     return (
         <a
@@ -11,7 +11,7 @@ const elem = (): JSX.Element => {
             dir="ltr"
             role="link"
             class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc r-16dba41 r-hrzydr r-1loqt21 ${TUICLibrary.fontSizeClass("r-1enofrn r-1f529hi r-mszm1p", "r-1enofrn r-fxxt2n r-mszm1p", "r-n6v787 r-1cwl3u0 r-j2kj52", "r-1b43r93 r-14yzgew r-1ba89he", "r-ubezar r-hjklzo r-n3sdqm")}`}
-            style={`text-overflow: unset; color: rgb(${TUICLibrary.backgroundColorClass<string>("113, 118, 123", "139, 152, 165", "83, 100, 113")});padding-top: 1.5px;`}
+            style={`text-overflow: unset; color: rgb(${backgroundColorClass<string>("113, 118, 123", "139, 152, 165", "83, 100, 113")});padding-top: 1.5px;`}
             onClick={(e) => {
                 e.preventDefault();
                 const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);

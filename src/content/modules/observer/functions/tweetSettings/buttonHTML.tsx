@@ -4,7 +4,7 @@ import { TUICI18N } from "@content/modules/i18n";
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
-
+import { backgroundColorClass } from "@content/modules/utils/color";
 export let willClickRT = false;
 
 const copiedURLMessage = (): JSX.Element => {
@@ -260,7 +260,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${`${articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"}${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}`}
+                                class={`r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${`${articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"}${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}`}
                             >
                                 <g>{tweetButtonData[id].svg()}</g>
                             </svg>
