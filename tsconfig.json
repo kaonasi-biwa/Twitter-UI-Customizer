@@ -1,6 +1,6 @@
 {
     "typeAcquisition": {
-        "include": ["@types/chrome", "vite/client"]
+        "include": ["@types/chrome"]
     },
     "compilerOptions": {
         "jsx": "preserve",
@@ -14,6 +14,7 @@
         "allowImportingTsExtensions": true,
         "emitDeclarationOnly": true,
         "declaration": true,
+        "types": ["vite/client"],
         "paths": {
             "@content/*": ["./src/content/*"],
             "@shared/*": ["./src/shared/*"],
