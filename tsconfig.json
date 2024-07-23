@@ -1,7 +1,4 @@
 {
-    "typeAcquisition": {
-        "include": ["@types/chrome"]
-    },
     "compilerOptions": {
         "jsx": "preserve",
         "jsxImportSource": "solid-js",
