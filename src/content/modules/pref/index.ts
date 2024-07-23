@@ -1,4 +1,3 @@
-/* eslint-disable no-fallthrough */
 let config = null;
 
 const getPointerFromKey = (object: object, key: string) => {
@@ -110,9 +109,9 @@ export async function updatePref(source = config) {
     switch (prefVersion_) {
         case 0: {
             /*
-    if (localStorage.getItem("unsent-tweet-background")) {
-        parallelToSerialPref();
-    }*/
+            if (localStorage.getItem("unsent-tweet-background")) {
+                parallelToSerialPref();
+            }*/
 
             if (typeof getPref("timeline", source) != "object") setPref("timeline", {}, source);
 
@@ -195,6 +194,7 @@ export async function updatePref(source = config) {
                     source,
                 );
             }
+            // fall through
         }
         case 1: {
             const boolKeys = {
@@ -213,6 +213,7 @@ export async function updatePref(source = config) {
             for (const oldKey in boolKeys) {
                 changeBooleanKey(oldKey, boolKeys[oldKey], source);
             }
+            // falls through
         }
         case 2: {
             const boolKeys = {
