@@ -68,7 +68,7 @@ export default [
         },
     },
     {
-        files: ["src/**"],
+        files: ["public/**", "src/**"],
         languageOptions: {
             globals: {
                 ...globals.browser,
