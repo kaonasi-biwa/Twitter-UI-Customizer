@@ -15,7 +15,7 @@ export default [
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
     },
     {
-        files: ["**/*.{js,ts,vue}"],
+        files: ["**/*.{js,ts,tsx,vue}"],
         languageOptions: {
             globals: {
                 ...globals.browser,
@@ -40,7 +40,7 @@ export default [
         },
     },
     {
-        files: ["**/*.{ts,vue}"],
+        files: ["**/*.{ts,tsx,vue}"],
         languageOptions: {
             parser: vue_parser,
             parserOptions: {

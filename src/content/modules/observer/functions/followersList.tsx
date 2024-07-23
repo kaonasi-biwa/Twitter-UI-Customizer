@@ -95,7 +95,7 @@ export function followersList() {
                     baseElement.classList.add("TUICFollowerListButtons");
                     let elementCounter = 0;
                     for (const id of TUICPref.getPref("profileSetting.followersListButtons")) {
-                        let buttonElement = baseElement.querySelector(data[id].selector);
+                        const buttonElement = baseElement.querySelector(data[id].selector);
                         if (buttonElement) {
                             buttonElement.show();
                             baseElement.appendChild(buttonElement.closest(".TUICFollowerListButtons > *"));
