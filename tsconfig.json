@@ -11,7 +11,7 @@
         "allowImportingTsExtensions": true,
         "emitDeclarationOnly": true,
         "declaration": true,
-        "types": ["vite/client"],
+        "types": ["@types/chrome", "vite/client"],
         "paths": {
             "@content/*": ["./src/content/*"],
             "@shared/*": ["./src/shared/*"],
