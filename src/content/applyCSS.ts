@@ -1,4 +1,3 @@
-import browser from "webextension-polyfill";
 import { TUICLibrary } from "@content/library.ts";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
 
@@ -13,7 +12,7 @@ export function applyDefaultStyle() {
     const link = document.createElement("link");
     link.id = "tuicDefaultStyle";
     link.rel = "stylesheet";
-    link.href = browser.runtime.getURL(styleUrl);
+    link.href = chrome.runtime.getURL(styleUrl);
     document.head.appendChild(link);
 }
 
@@ -45,13 +44,13 @@ export function applyDataCss() {
     twitterHead.appendChild(elemDataCSS);
     elemDataCSS.textContent = `
     .TUICTwitterIcon_Dog {
-        background-image: url('${browser.runtime.getURL(DOG)}');
+        background-image: url('${chrome.runtime.getURL(DOG)}');
     }
     .TUICTwitterIcon_Twitter {
-        --TUIC-twitter-icon: url('${browser.runtime.getURL(TWITTER)}') !important;
+        --TUIC-twitter-icon: url('${chrome.runtime.getURL(TWITTER)}') !important;
     }
     .TUICTwitterIcon_X {
-        --TUIC-twitter-icon:url('${browser.runtime.getURL(X)}') !important;
+        --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
     }`;
 }
 

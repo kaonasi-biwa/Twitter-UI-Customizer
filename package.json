@@ -22,13 +22,11 @@
         "bootstrap-icons": "^1.11.3",
         "pinia": "^2.1.7",
         "solid-js": "^1.8.18",
-        "vue": "^3.4.33",
-        "webextension-polyfill": "^0.11.0"
+        "vue": "^3.4.33"
     },
     "devDependencies": {
         "@eslint/js": "^9.7.0",
         "@types/chrome": "^0.0.266",
-        "@types/webextension-polyfill": "^0.10.7",
         "@typescript-eslint/eslint-plugin": "^7.16.1",
         "@typescript-eslint/parser": "^7.16.1",
         "@vitejs/plugin-vue": "^5.0.5",
