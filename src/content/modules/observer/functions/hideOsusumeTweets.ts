@@ -11,25 +11,21 @@ export function hideOsusumeTweets() {
                 switch (getPref("timeline-discoverMore")) {
                     case "discoverMore_invisible": {
                         hideElement(elem);
-                        elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
-                        if (elem.getAttribute("TUICDiscoverMore")) {
-                            elem.removeAttribute("TUICDiscoverMore");
-                        }
+                        elem.dataset.tuicDiscoverMore = "invisible";
                         break;
                     }
                     case "discoverMore_detailOpen": {
-                        setDiscoverBox(elem, true);
+                        elem.dataset.tuicDiscoverMore = "open";
+                        setDiscoverBox(elem);
                         break;
                     }
                     case "discoverMore_detailClose": {
-                        setDiscoverBox(elem, false);
+                        elem.dataset.tuicDiscoverMore = "close";
+                        setDiscoverBox(elem);
                         break;
                     }
                     default: {
-                        elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
-                        if (elem.getAttribute("TUICDiscoverMore") != null) {
-                            elem.removeAttribute("TUICDiscoverMore");
-                        }
+                        elem.dataset.tuicDiscoverMore = "visible";
                     }
                 }
             }
@@ -47,16 +43,12 @@ export function hideOsusumeTweets() {
     }
 }
 
-function setDiscoverBox(elem: HTMLDivElement, initOpen: boolean) {
-    elem.setAttribute("TUICDiscoverMore", initOpen ? "true" : "false");
-    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", initOpen ? "" : "none");
+function setDiscoverBox(elem: HTMLDivElement) {
     elem.onclick = (e) => discoverOnClick(e, elem);
 }
 
 function discoverOnClick(event: Event, elem: HTMLDivElement) {
-    const nowType = elem.getAttribute("TUICDiscoverMore");
-    elem.setAttribute("TUICDiscoverMore", nowType == "true" ? "false" : "true");
-    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", nowType == "true" ? "none" : "");
+    elem.dataset.tuicDiscoverMore = elem.dataset.tuicDiscoverMore == "open" ? "close" : "open";
     event.stopPropagation();
     event.stopImmediatePropagation();
 }

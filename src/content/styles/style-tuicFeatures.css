@@ -95,37 +95,6 @@
     visibility: hidden !important;
 }
 
-[TUICDiscoverMore] {
-    padding-left: 20px;
-}
-
-[TUICDiscoverMore="false"]::before {
-    position: absolute;
-    top: 50%;
-    /* 縦軸をセンタリングする */
-    left: 20px;
-    content: "";
-    /* 縦軸をセンタリングする */
-    border: 5px solid transparent;
-    border-left: 8px solid #555;
-    transform: translateY(-50%);
-    /* 好みで色を変えてください */
-}
-
-[TUICDiscoverMore="true"]::before {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    content: "";
-    border: 6px solid transparent;
-    border-top: 7px solid #555;
-    /* 好みで色を変えてください */
-}
-
-.TUIC_DISCOVERMORE {
-    display: var(--TUIC-DISCOVERMORE, block) !important;
-}
-
 .TUICSidebarSelected > div > [dir="ltr"] {
     font-weight: 700;
 }
