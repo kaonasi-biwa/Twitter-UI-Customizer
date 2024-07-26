@@ -1,3 +1,4 @@
+// @ts-expect-error idk
 import type { MultiExtensionRunner } from "web-ext/lib/extension-runners";
 import type WebExt from "web-ext";
 
