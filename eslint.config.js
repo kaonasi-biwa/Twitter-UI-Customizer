@@ -60,7 +60,7 @@ export default [
         },
     },
     {
-        files: ["npm-scripts/**"],
+        files: ["scripts/**"],
         languageOptions: {
             globals: {
                 ...globals.nodeBuiltin,

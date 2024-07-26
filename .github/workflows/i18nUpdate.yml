@@ -34,7 +34,7 @@ jobs:
 
           pnpm install
           git pull
-          node ./npm-scripts/update-i18n.js
+          node ./scripts/update-i18n.js
 
           if [ -z "$(git status --porcelain)" ]; then
             echo "No ti18n changes"
