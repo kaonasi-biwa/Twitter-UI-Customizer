@@ -218,37 +218,37 @@
     text-decoration-thickness: 1px;
 }
 
-.TUICTweetTopButton :root[TUICSettings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
+.TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
 
-:root[TUICSettings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
+:root[data-tuic-settings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
     border-radius: 9999px !important;
 }
 
 :is(
-        :root[tuicsettings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
-        :root[tuicsettings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-        :root[tuicsettings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
-        :root[tuicsettings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
-        :root[tuicsettings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
-        :root[tuicsettings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
-        :root[tuicsettings*="|composetweet.hideDraft|"] [data-testid="unsentButton"],
+        :root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
+        :root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
+        :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
+        :root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
+        :root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
+        :root[data-tuic-settings*="|composetweet.hideDraft|"] [data-testid="unsentButton"],
 
     ) {
     display: none !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.invisible.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
+:root[data-tuic-settings*="|tweetDisplaySetting.invisible.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
     margin-top: 0 !important;
 }
 
-:root[tuicsettings*="|sidebarSetting.buttonConfig.sidebarNoneScrollbar|"] header > div > div > div > div.r-1rnoaur {
+:root[data-tuic-settings*="|sidebarSetting.buttonConfig.sidebarNoneScrollbar|"] header > div > div > div > div.r-1rnoaur {
     overflow: clip;
 }
 
-:root[tuicsettings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] > div > div > div > div > nav[role="navigation"] {
+:root[data-tuic-settings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] > div > div > div > div > nav[role="navigation"] {
     position: sticky;
     top: var(--TUIC-pinnedTab-top);
     z-index: 1;
@@ -256,39 +256,39 @@
     backdrop-filter: blur(12px);
 }
 
-:root[tuicsettings*="|uncategorizedSettings.disableBackdropFilter|"] * {
+:root[data-tuic-settings*="|uncategorizedSettings.disableBackdropFilter|"] * {
     backdrop-filter: none !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
     box-shadow: rgba(142 204 258) 0 0 0 2px inset !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:active > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:active > div > div {
     background-color: rgb(255 212 0 / 20%) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill]) path {
     fill: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
     fill: rgb(255 212 0) !important;
 }
 
-:root[tuicsettings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
+:root[data-tuic-settings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
     display: none !important;
 }

@@ -98,7 +98,7 @@ export function applySystemCss() {
     if (!getPref("sidebarButtons").includes("verified-choose")) {
         settingsOutput += "sidebarButtons.style.verifiedChoose" + "|";
     }
-    document.documentElement.setAttribute("TUICSettings", settingsOutput);
+    document.documentElement.dataset.tuicSettings = settingsOutput;
 
     const r = document.querySelector(":root");
     if (r instanceof HTMLElement) {
