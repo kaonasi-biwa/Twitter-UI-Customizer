@@ -635,7 +635,7 @@ const ids = {
     inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
 } as const;
 
-type TUICSettingIDs = keyof typeof ids;
+export type TUICSettingIDs = keyof typeof ids;
 
 /**
  * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します

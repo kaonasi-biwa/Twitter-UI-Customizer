@@ -7,7 +7,7 @@ import { Component } from "vue";
 import IconRadioButton from "./IconRadioButton.vue";
 import { TUICPref } from "@content/modules";
 const props = defineProps<{
-    id: string;
+    id: TUICPref.TUICSettingIDs;
     iconsList: Component[];
 }>();
 </script>

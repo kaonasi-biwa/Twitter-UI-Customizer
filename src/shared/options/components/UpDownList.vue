@@ -61,7 +61,7 @@ import { TUICPref } from "@content/modules";
 
 import { updateClasses } from "@modules/htmlClass/classManager";
 
-const props = defineProps<{ id: string }>();
+const props = defineProps<{ id: TUICPref.TUICSettingIDs }>();
 
 const list = ref([]);
 list.value = TUICPref.getPref(props.id);
