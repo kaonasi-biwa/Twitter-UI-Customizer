@@ -32,7 +32,7 @@ import { TUICI18N } from "@modules/i18n";
 import { TUICPref } from "@content/modules";
 
 export type twIconsRadioListProps = {
-    radioName: "nomal" | "invisible" | "dog" | "twitter" | "twitterIcon-X" | "custom" | string;
+    radioName: "nomal" | "invisible" | "dog" | "twitter" | "twitterIcon-X" | "custom";
     // テキストの場合iconNameのTUICDataでI18Nから取ってくるので情報いらない
     isText: boolean;
     // アイコンの場合どっちか

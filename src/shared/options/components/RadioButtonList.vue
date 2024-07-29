@@ -6,7 +6,7 @@
 import { TUICPref } from "@content/modules";
 import RadioButton from "./RadioButton.vue";
 
-const props = defineProps<{ id: string }>();
+const props = defineProps<{ id: TUICPref.TUICSettingIDs }>();
 </script>
 
 <style scoped></style>
