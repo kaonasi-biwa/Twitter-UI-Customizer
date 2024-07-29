@@ -11,7 +11,7 @@ on:
 
 jobs:
   lint:
-    name: Run ESLint & Prettier & Stylelint scanning
+    name: Run lint and format
     runs-on: ubuntu-latest
     #permissions:
     #    contents: read
@@ -45,8 +45,9 @@ jobs:
       #      sarif_file: eslint-results.sarif
       #      wait-for-processing: true
 
-      - name: Run ESLint & Prettier & Stylelint
+      - name: Run lint
         run: |
+          pnpm lint:tsc
           pnpm lint:eslint
           pnpm lint:stylelint
           pnpm lint:prettier
@@ -72,3 +73,8 @@ jobs:
           git add .
           git commit -m "Format"
           git push
+
+      - name: Run typecheck
+        if: github.event_name != 'pull_request'
+        run: |
+          pnpm lint:tsc

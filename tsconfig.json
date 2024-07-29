@@ -8,9 +8,9 @@
         "isolatedModules": true,
         "skipLibCheck": true,
         "target": "ES2022",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
         "allowImportingTsExtensions": true,
-        "emitDeclarationOnly": true,
-        "declaration": true,
+        "noEmit": true,
         "types": ["@types/chrome", "vite/client"],
         "paths": {
             "@content/*": ["./src/content/*"],
