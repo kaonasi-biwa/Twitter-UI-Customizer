@@ -30,7 +30,7 @@ jobs:
           node-version-file: "package.json"
           cache: "pnpm"
 
-      - name: Install ESLint & Prettier & Stylelint
+      - name: Install npm packages
         run: |
           pnpm install
 
@@ -60,6 +60,7 @@ jobs:
           pnpm format:stylelint
 
       - name: Commit
+        if: github.event_name != 'pull_request'
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No format changes"
