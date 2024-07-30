@@ -9,7 +9,6 @@ export default {
             {
                 matches: ["*://*.x.com/*", "*://*.twitter.com/*"],
                 js: ["inject.js"],
-
                 run_at: "document_start",
             },
         ],
