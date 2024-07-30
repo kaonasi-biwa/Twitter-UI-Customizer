@@ -19,6 +19,7 @@ const _data = {
         jobs: `[data-testid="Dropdown"] [href="/jobs"]`,
         spaces: `[data-testid="Dropdown"] [href="/i/spaces/start"]`,
         followerRequests: `[data-testid="Dropdown"] [href="/follower_requests"]`,
+        verifiedOrgsSignup: `[data-testid="Dropdown"] [href="/i/verified-orgs-signup"]`,
     },
     type: {
         bookmarks: "menuitem",
@@ -35,6 +36,7 @@ const _data = {
         jobs: "menuitem",
         spaces: "menuitem",
         followerRequests: "menuitem",
+        verifiedOrgsSignup: "menuitem",
     },
 };
 
