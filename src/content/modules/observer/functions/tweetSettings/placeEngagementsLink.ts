@@ -2,7 +2,7 @@ import { TUICI18N } from "@modules/i18n";
 import { waitForElement, parseHtml, hasClosest } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 
 const _data = {
     engagementsBox: (): Element => {

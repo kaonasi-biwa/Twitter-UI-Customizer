@@ -1,9 +1,10 @@
 import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import url from "node:url";
-import manifest from "../manifest.config.js";
+import manifest from "../manifest.config";
 
-export async function changeManifest(target) {
+export async function changeManifest(target: string) {
+    if (target !== "firefox" && target !== "chromium" && target !== "chromiumCRX") return;
     // CLI引数または_langList.jsonファイルからロケールを取得
     const config = manifest;
 
@@ -14,7 +15,10 @@ export async function changeManifest(target) {
         process.exit(1);
     }
 
-    let output = {};
+    type Firefox = typeof manifest.common & typeof manifest.firefox;
+    type Chromium = typeof manifest.common & typeof manifest.chromium & { update_url?: string };
+    type ChromiumCRX = Chromium & typeof manifest.chromiumCRX;
+    let output: Firefox | Chromium | ChromiumCRX;
     if (target == "chromiumCRX") {
         output = Object.assign(config.common, config.chromium, config.chromiumCRX);
         const repo = process.env["GITHUB_REPO"];
@@ -31,5 +35,11 @@ export async function changeManifest(target) {
 }
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
-    changeManifest(process.argv[2]);
+    const target = process.argv[2];
+    if (target === "firefox" || target === "chromium" || target === "chromiumCRX") {
+        changeManifest(target);
+    } else {
+        console.error(`Error: Invalid platform "${target ?? ""}".`);
+        process.exit(1);
+    }
 }

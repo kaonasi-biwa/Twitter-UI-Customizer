@@ -7,7 +7,7 @@ import { render } from "solid-js/web";
 import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetButtonData, willClickRT } from "./buttonHTML";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 
 let buttonUnderTweetRunning: boolean = false;
 const _data = {

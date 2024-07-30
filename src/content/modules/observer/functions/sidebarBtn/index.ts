@@ -5,7 +5,7 @@ import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { backgroundColorCheck } from "@modules/utils/color";
 import { getPrimitiveOrFunction } from "@modules/utils/getValues";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 
 let sidebarButtonsCount = -1;
 export const SidebarButtonSelectors = {

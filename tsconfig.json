@@ -1,7 +1,4 @@
 {
-    "typeAcquisition": {
-        "include": ["@types/chrome", "vite/client"]
-    },
     "compilerOptions": {
         "jsx": "preserve",
         "jsxImportSource": "solid-js",
@@ -11,9 +8,10 @@
         "isolatedModules": true,
         "skipLibCheck": true,
         "target": "ES2022",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
         "allowImportingTsExtensions": true,
-        "emitDeclarationOnly": true,
-        "declaration": true,
+        "noEmit": true,
+        "types": ["@types/chrome", "vite/client"],
         "paths": {
             "@content/*": ["./src/content/*"],
             "@shared/*": ["./src/shared/*"],

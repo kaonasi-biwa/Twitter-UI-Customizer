@@ -72,7 +72,7 @@ export function replacePost() {
             }
         } else if (isUserPage) {
             // ユーザーの「n件のツイート」
-            for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
+            for (const elem of getNotReplacedElements('[data-testid="primaryColumn"] h2[role="heading"] + div')) elem.textContent = elem.textContent.split(" ")[0] + " " + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
 
             // TLのリスト選択バー・ユーザープロフィールのツイート／返信／メディア等のリスト（ここでは後者のみ）
             localizeElemText('[data-testid="primaryColumn"] [data-testid="ScrollSnap-SwipeableList"] > [data-testid="ScrollSnap-List"] > div:first-child span', TUICI18N.get("XtoTwitter-PostToTweet-tweet"));
@@ -86,7 +86,8 @@ export function replacePost() {
             } /**/
         }
 
-        for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
+        // トレンドの「n件のツイート」
+        for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent = elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
 
         // 予約ツイート関連
         if (isUnsentPage) {

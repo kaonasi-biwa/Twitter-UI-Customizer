@@ -1,6 +1,6 @@
 import { hideElement, waitForElement } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 
 interface TweetMoreMenuContentData {
     all: string[];

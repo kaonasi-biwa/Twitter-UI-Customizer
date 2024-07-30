@@ -1,20 +1,19 @@
-import browser from "webextension-polyfill";
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode";
 
-import { DOG, TWITTER, X } from "./icons/index.ts";
-import { ColorData } from "@shared/sharedData.ts";
+import { DOG, TWITTER, X } from "./icons/index";
+import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.pcss?url";
-import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color.ts";
+import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
 import { getPref, getSettingIDs } from "@modules/pref";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 
 export function applyDefaultStyle() {
     document.querySelector("#tuicDefaultStyle")?.remove();
     const link = document.createElement("link");
     link.id = "tuicDefaultStyle";
     link.rel = "stylesheet";
-    link.href = browser.runtime.getURL(styleUrl);
+    link.href = chrome.runtime.getURL(styleUrl);
     document.head.appendChild(link);
 }
 
@@ -46,13 +45,13 @@ export function applyDataCss() {
     twitterHead.appendChild(elemDataCSS);
     elemDataCSS.textContent = `
     .TUICTwitterIcon_Dog {
-        background-image: url('${browser.runtime.getURL(DOG)}');
+        background-image: url('${chrome.runtime.getURL(DOG)}');
     }
     .TUICTwitterIcon_Twitter {
-        --TUIC-twitter-icon: url('${browser.runtime.getURL(TWITTER)}') !important;
+        --TUIC-twitter-icon: url('${chrome.runtime.getURL(TWITTER)}') !important;
     }
     .TUICTwitterIcon_X {
-        --TUIC-twitter-icon:url('${browser.runtime.getURL(X)}') !important;
+        --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
     }`;
 }
 

@@ -1,4 +1,4 @@
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode";
 import { getPref, setPref, savePref, mergePref } from "@modules/pref";
 import { titleObserverFunction } from "@modules/observer/titleObserver";
 import { updateClasses } from "@modules/htmlClass/classManager";

@@ -1,4 +1,4 @@
-import { ProcessedClass } from "@shared/sharedData.ts";
+import { ProcessedClass } from "@shared/sharedData";
 
 /**
  * HTMLとしてパースします。
