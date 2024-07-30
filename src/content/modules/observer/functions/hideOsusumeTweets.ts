@@ -1,4 +1,5 @@
-import { TUICPref } from "@content/modules";
+import { hideElement, processElement } from "@modules/utils/controlElements";
+import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
 export function hideOsusumeTweets() {
@@ -6,29 +7,25 @@ export function hideOsusumeTweets() {
         let cells = document.querySelectorAll<HTMLDivElement>(`:is([data-testid="primaryColumn"],[data-testid="mask"]+div [aria-labelledby^="accessible-list"]) [data-testid="cellInnerDiv"]:not([style*="opacity: 0.01"]):not(.${ProcessedClass})`);
         for (const elem of cells) {
             if (!elem.querySelector("article") && elem.querySelector("h2") && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
-                elem.process();
-                switch (TUICPref.getPref("timeline-discoverMore")) {
+                processElement(elem);
+                switch (getPref("timeline-discoverMore")) {
                     case "discoverMore_invisible": {
-                        elem.hide();
-                        elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "none");
-                        if (elem.getAttribute("TUICDiscoverMore")) {
-                            elem.removeAttribute("TUICDiscoverMore");
-                        }
+                        hideElement(elem);
+                        elem.dataset.tuicDiscoverMore = "invisible";
                         break;
                     }
                     case "discoverMore_detailOpen": {
-                        setDiscoverBox(elem, true);
+                        elem.dataset.tuicDiscoverMore = "open";
+                        setDiscoverBox(elem);
                         break;
                     }
                     case "discoverMore_detailClose": {
-                        setDiscoverBox(elem, false);
+                        elem.dataset.tuicDiscoverMore = "close";
+                        setDiscoverBox(elem);
                         break;
                     }
                     default: {
-                        elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", "");
-                        if (elem.getAttribute("TUICDiscoverMore") != null) {
-                            elem.removeAttribute("TUICDiscoverMore");
-                        }
+                        elem.dataset.tuicDiscoverMore = "visible";
                     }
                 }
             }
@@ -46,16 +43,12 @@ export function hideOsusumeTweets() {
     }
 }
 
-function setDiscoverBox(elem: HTMLDivElement, initOpen: boolean) {
-    elem.setAttribute("TUICDiscoverMore", initOpen ? "true" : "false");
-    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", initOpen ? "" : "none");
+function setDiscoverBox(elem: HTMLDivElement) {
     elem.onclick = (e) => discoverOnClick(e, elem);
 }
 
 function discoverOnClick(event: Event, elem: HTMLDivElement) {
-    const nowType = elem.getAttribute("TUICDiscoverMore");
-    elem.setAttribute("TUICDiscoverMore", nowType == "true" ? "false" : "true");
-    elem.parentElement.style.setProperty("--TUIC-DISCOVERMORE", nowType == "true" ? "none" : "");
+    elem.dataset.tuicDiscoverMore = elem.dataset.tuicDiscoverMore == "open" ? "close" : "open";
     event.stopPropagation();
     event.stopImmediatePropagation();
 }

@@ -1,5 +1,6 @@
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { hideElement, waitForElement } from "@modules/utils/controlElements";
+import { getPref, getSettingIDs } from "@modules/pref";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
 interface TweetMoreMenuContentData {
     all: string[];
@@ -9,7 +10,7 @@ interface TweetMoreMenuContentData {
 }
 
 const _data: TweetMoreMenuContentData = {
-    all: TUICPref.getSettingIDs("tweetDisplaySetting.tweetMoreMenuItems"),
+    all: getSettingIDs("tweetDisplaySetting.tweetMoreMenuItems"),
     selectors: {
         hiddenReply: `[href$="/hidden"]`,
         notHelpful: (): Element => {
@@ -71,12 +72,12 @@ const _data: TweetMoreMenuContentData = {
 };
 
 export async function tweetMoreMenuContent() {
-    await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+    await waitForElement(`[data-testid="Dropdown"]`);
 
     let menuTopPx = 0;
-    const menuItemPx = TUICLibrary.fontSizeClass(40, 41, 44, 48, 52);
+    const menuItemPx = fontSizeClass(40, 41, 44, 48, 52);
     for (const id of _data.all) {
-        if (TUICPref.getPref(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
+        if (getPref(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
             const getFunc = _data.selectors[id];
             let elem = null;
             if (typeof getFunc == "function") {
@@ -86,7 +87,7 @@ export async function tweetMoreMenuContent() {
             }
 
             if (elem) {
-                elem.closest(`[role="menuitem"]`).hide();
+                hideElement(elem.closest(`[role="menuitem"]`));
                 menuTopPx += menuItemPx;
             }
         }

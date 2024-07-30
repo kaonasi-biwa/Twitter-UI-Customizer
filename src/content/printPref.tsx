@@ -1,7 +1,7 @@
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
 import { TUICI18N } from "./modules/i18n";
-import { TUICLibrary } from "./library";
+import { waitForElement } from "@modules/utils/controlElements";
 
 /*
 console.log(location.href);
@@ -57,6 +57,6 @@ const elem = (): JSX.Element => {
     );
 };
 export async function placePrintPrefButton() {
-    const baseELement = (await TUICLibrary.waitForElement(".u01b-01__desktop-primary-links"))[0];
+    const baseELement = (await waitForElement(".u01b-01__desktop-primary-links"))[0];
     render(elem, baseELement);
 }

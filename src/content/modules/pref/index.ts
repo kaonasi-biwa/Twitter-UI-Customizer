@@ -63,7 +63,7 @@ export function deletePref(identifier: string, source = config) {
 /**
  * 変更が加えられたTUICのPrefをlocalStorageへ保存します。
  */
-export function save() {
+export function savePref() {
     localStorage.setItem("TUIC", JSON.stringify(config));
 }
 
@@ -634,7 +634,7 @@ const ids = {
     inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
 } as const;
 
-type TUICSettingIDs = keyof typeof ids;
+export type TUICSettingIDs = keyof typeof ids;
 
 /**
  * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します

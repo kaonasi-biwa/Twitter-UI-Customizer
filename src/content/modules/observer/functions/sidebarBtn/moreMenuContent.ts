@@ -1,8 +1,9 @@
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { hideElement, waitForElement } from "@modules/utils/controlElements";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { getPref, getSettingIDs } from "@modules/pref";
 
 const _data = {
-    all: TUICPref.getSettingIDs("sidebarSetting.moreMenuItems"),
+    all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
         monetization: `[data-testid="Dropdown"] [href="/settings/monetization"]`,
@@ -38,18 +39,18 @@ const _data = {
 };
 
 export async function moreMenuContent() {
-    await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+    await waitForElement(`[data-testid="Dropdown"]`);
     let menuTopPx = parseFloat(document.querySelector<HTMLDivElement>(`[role="menu"]`).style.top);
     const upPx = {
-        menu: TUICLibrary.fontSizeClass(46, 49, 52, 58, 62),
-        menuitem: TUICLibrary.fontSizeClass(50, 53, 56, 62, 67),
+        menu: fontSizeClass(46, 49, 52, 58, 62),
+        menuitem: fontSizeClass(50, 53, 56, 62, 67),
         separator: 5,
     };
     for (const pref of _data.all) {
-        if (TUICPref.getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
+        if (getPref(`sidebarSetting.moreMenuItems.${pref}`)) {
             const elem = document.querySelector(_data.selectors[pref]);
             if (elem) {
-                elem.parentElement.hide();
+                hideElement(elem.parentElement);
                 menuTopPx += upPx[_data.type[pref]];
             }
         }

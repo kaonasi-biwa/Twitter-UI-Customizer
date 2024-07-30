@@ -1,8 +1,12 @@
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { waitForElement, parseHtml, hideElement } from "@modules/utils/controlElements";
+import { getPref } from "@modules/pref";
 import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
+import { backgroundColorCheck } from "@modules/utils/color";
+import { getPrimitiveOrFunction } from "@modules/utils/getValues";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
+
 let sidebarButtonsCount = -1;
 export const SidebarButtonSelectors = {
     home: `[href="/home"]`,
@@ -27,28 +31,27 @@ export const SidebarButtonSelectors = {
     spaces: "#TUICSidebar_spaces",
     grok: `[href="/i/grok"]`,
 };
-
 const _data = {
     selectors: SidebarButtonSelectors,
     html: {
         __base: (id: string, svg: string): string => {
             return `
-            <a id="TUICSidebar_${id}" href="${TUICLibrary.getPrimitiveOrFunction<string>(
+            <a id="TUICSidebar_${id}" href="${getPrimitiveOrFunction<string>(
                 _data.tuicButtonGoToUrl[id],
             )}" role="link" tabindex="0" class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
-                <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${TUICLibrary.fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
+                <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
                     <div class="css-175oi2r">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
                             <g>${svg}</g>
                         </svg>
                     </div>
-                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${TUICLibrary.fontSizeClass(
+                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
                         "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
                         "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
                         "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
                         "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
                         "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
-                    )} r-bcqeeo r-qvutc0 ${TUICLibrary.backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="margin-right: 15px; text-overflow: unset;" >
+                    )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="margin-right: 15px; text-overflow: unset;" >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
                     </div>
                 </div>
@@ -89,11 +92,11 @@ const _data = {
         },
     },
     buttonClickInMoreMenu: async (selector: string) => {
-        (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
-        const foundElem = (await TUICLibrary.waitForElement<HTMLAnchorElement>(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`))[0];
+        (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
+        const foundElem = (await waitForElement<HTMLAnchorElement>(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`))[0];
         foundElem.click();
         if (!foundElem) {
-            (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
+            (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
             return false;
         }
         return true;
@@ -106,10 +109,10 @@ const _data = {
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/content_you_see"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`main [href$="/topics"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/content_you_see"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`main [href$="/topics"]`))[0].click();
                 }, 150);
             }
         },
@@ -124,7 +127,7 @@ const _data = {
             e?.preventDefault?.();
             //_data.buttonClickInMoreMenu( `[href="/compose/tweet/unsent/drafts"]`);
             document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
-            (await TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="unsentButton"]`))[0].click();
+            (await waitForElement<HTMLButtonElement>(`[data-testid="unsentButton"]`))[0].click();
         },
         connect: (e: Event) => {
             e?.preventDefault?.();
@@ -133,16 +136,16 @@ const _data = {
         display: async (e: Event) => {
             e?.preventDefault?.();
             /*if (_data.buttonClickInMoreMenu( `:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`)) {
-                await TUICLibrary.waitAndClickElement(`[href="/i/display"]`);
+                await waitAndClickElement(`[href="/i/display"]`);
             }*/
             if (!location.pathname.endsWith("/settings/display")) {
                 const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
                 }, 150);
             }
         },
@@ -153,9 +156,9 @@ const _data = {
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings/mute_and_block"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/mute_and_block"]`))[0].click();
                 }, 150);
             }
         },
@@ -170,7 +173,7 @@ const _data = {
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
-                    (await TUICLibrary.waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
+                    (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
                 }, 150);
             }
         },
@@ -194,7 +197,7 @@ const _data = {
             }
         },
         __setURLWait: async (id: string, selector: string, setURLWay: (arg0: HTMLElement) => string) => {
-            await TUICLibrary.waitForElement(selector);
+            await waitForElement(selector);
             const elem = document.querySelector<HTMLLinkElement>(`#TUICSidebar_${id}`);
             if (elem) {
                 elem.href = setURLWay(document.querySelector(selector));
@@ -233,7 +236,7 @@ export function sidebarButtons() {
             sidebarButtonProcess(bannerRoot);
         } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not(.NOT_TUIC_DISPNONE)`).length) {
             let changeElem = false;
-            for (const selector of TUICPref.getPref("sidebarButtons")) {
+            for (const selector of getPref("sidebarButtons")) {
                 const elems = bannerRoot.querySelectorAll(_data.selectors[selector]);
                 if (elems.length > 1) {
                     const elems = [...bannerRoot.querySelectorAll(_data.selectors[selector])];
@@ -255,7 +258,7 @@ export function sidebarButtons() {
 function sidebarButtonProcess(bannerRoot: HTMLElement) {
     if (!window.location.pathname.startsWith("/i/communitynotes") && !window.location.pathname.startsWith("/i/birdwatch")) {
         sidebarButtonsCount = 0;
-        for (const i of TUICPref.getPref("sidebarButtons")) {
+        for (const i of getPref("sidebarButtons")) {
             let moveElem = bannerRoot.querySelector<HTMLElement>(_data.selectors[i]);
             if (moveElem != null) {
                 bannerRoot.appendChild(moveElem);
@@ -271,7 +274,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 }
                 sidebarButtonsCount += 1;
             } else if (i in _data.html) {
-                moveElem = TUICLibrary.parseHtml(_data.html[i]()).item(0) as HTMLElement;
+                moveElem = parseHtml(_data.html[i]()).item(0) as HTMLElement;
                 moveElem.classList.add("NOT_TUIC_DISPNONE");
                 moveElem.onclick = _data.buttonFunctions[i];
                 moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -285,7 +288,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
             }
         }
         for (const i of bannerRoot.querySelectorAll(`:is(a,div[role="button"],button,[type="button"]):not(.NOT_TUIC_DISPNONE)`)) {
-            i.hide();
+            hideElement(i);
         }
     }
 }

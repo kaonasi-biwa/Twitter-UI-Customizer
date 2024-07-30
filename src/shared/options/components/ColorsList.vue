@@ -1,6 +1,6 @@
 <template>
     <div id="TUICColorSettingsDivBox">
-        <template v-for="i in TUICPref.getSettingData(`buttonColor`)" :key="i.id">
+        <template v-for="i in getSettingData(`buttonColor`)" :key="i.id">
             <div class="TUICColorSettingsThree__container">
                 <h2 class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_title TUIC_setting_text">
                     {{ TUICI18N.get(i.i18n) }}
@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import ThreeColorSetting from "./ThreeColorSetting.vue";
-import { TUICPref } from "@content/modules";
+import { getSettingData } from "@modules/pref";
 </script>
 
 <style scoped></style>

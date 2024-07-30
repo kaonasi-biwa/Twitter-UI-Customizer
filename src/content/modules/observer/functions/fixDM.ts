@@ -1,9 +1,9 @@
-import { TUICPref } from "../..";
 import { render } from "solid-js/web";
 import { IconElement } from "@content/modules/observer/resources/dmIcon";
+import { getPref } from "@modules/pref";
 
 export function dmPage() {
-    if (TUICPref.getPref("dmPage.showIcon")) {
+    if (getPref("dmPage.showIcon")) {
         if (
             document.querySelector(
                 `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,

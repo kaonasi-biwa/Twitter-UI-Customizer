@@ -1,5 +1,7 @@
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { hideElement, waitForElement, hasClosest, showElement, processElement } from "@modules/utils/controlElements";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { getPref } from "@modules/pref";
+import { backgroundColorClass } from "@content/modules/utils/color";
 import { ProcessedClass } from "@shared/sharedData";
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
@@ -17,10 +19,10 @@ function followersListButton(id: string, baseElement: HTMLElement): () => JSX.El
             onclick={() => data[id].clickEvent(baseElement)}
         >
             <div role="button" tabindex="0" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l">
-                <div dir="ltr" class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${TUICLibrary.fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")}`}>
+                <div dir="ltr" class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")}`}>
                     <div class="css-175oi2r r-xoduu5">
                         <div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class={`r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${TUICLibrary.backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class={`r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}>
                             <g>
                                 <path d={data[id].svg}></path>
                             </g>
@@ -46,8 +48,8 @@ const data: {
         clickEvent(baseElement) {
             baseElement.querySelector<HTMLButtonElement>(data.moremenuButton.selector).click();
             document.querySelector<HTMLButtonElement>(`[data-testid="block"`).click();
-            if (TUICPref.getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
-                TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
+            if (getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
+                waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
                     elem[0].click();
                 });
             }
@@ -75,8 +77,8 @@ const data: {
         clickEvent(baseElement) {
             baseElement.querySelector<HTMLButtonElement>(data.moremenuButton.selector).click();
             document.querySelector<HTMLButtonElement>(`[data-testid="removeFollower"]`).click();
-            if (TUICPref.getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
-                TUICLibrary.waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
+            if (getPref("profileSetting.followersListButtonsOptions.noModalbottomTweetButtons")) {
+                waitForElement<HTMLButtonElement>(`[data-testid="confirmationSheetConfirm"]`).then((elem) => {
                     elem[0].click();
                 });
             }
@@ -88,16 +90,16 @@ export function followersList() {
     if (location.pathname.endsWith("/followers") && document.querySelectorAll(`[aria-haspopup="menu"]`)) {
         for (const elem of document.querySelectorAll(`[data-testid="primaryColumn"] [data-testid="UserCell"]:not(.${ProcessedClass})`)) {
             if (document.querySelector(`[data-testid="UserCell"] ${data.moremenuButton.selector}`)) {
-                elem.process();
+                processElement(elem);
                 const followButton = elem.querySelector(data.followButton.selector);
                 if (followButton) {
-                    const baseElement = followButton.hasClosest<HTMLElement>(data.moremenuButton.selector);
+                    const baseElement = hasClosest<HTMLElement>(followButton, data.moremenuButton.selector);
                     baseElement.classList.add("TUICFollowerListButtons");
                     let elementCounter = 0;
-                    for (const id of TUICPref.getPref("profileSetting.followersListButtons")) {
+                    for (const id of getPref("profileSetting.followersListButtons")) {
                         let buttonElement = baseElement.querySelector(data[id].selector);
                         if (buttonElement) {
-                            buttonElement.show();
+                            showElement(buttonElement);
                             baseElement.appendChild(buttonElement.closest(".TUICFollowerListButtons > *"));
                             elementCounter++;
                             if (id == "followButton") {
@@ -115,7 +117,7 @@ export function followersList() {
                     const baseElementChildren = baseElement.children.length;
                     if (elementCounter != baseElementChildren) {
                         for (let i = 0; elementCounter + i < baseElementChildren; i++) {
-                            baseElement.children[i].hide();
+                            hideElement(baseElement.children[i]);
                         }
                     }
                 }

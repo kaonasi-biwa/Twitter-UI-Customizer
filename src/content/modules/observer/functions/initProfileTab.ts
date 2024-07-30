@@ -1,5 +1,5 @@
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { processElement, waitForElement } from "@modules/utils/controlElements";
+import { getPref } from "@modules/pref";
 import { ProcessedClass } from "@shared/sharedData";
 
 const _data = {
@@ -12,34 +12,34 @@ const _data = {
 
 export function profileInitialTab() {
     for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.${ProcessedClass})`)) {
-        elem.process();
+        processElement(elem);
 
         const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
         elem.addEventListener("click", profileInitialTabRedirect(userName));
     }
     for (const elem of document.querySelectorAll(`[data-testid="tweet"] a[style*="color"]:not(.${ProcessedClass})`)) {
-        elem.process();
+        processElement(elem);
         if (elem.textContent.startsWith("@")) {
             elem.addEventListener("click", profileInitialTabRedirect(elem.textContent.slice(1)));
         }
     }
     const profileButtonInSidebar = document.querySelector(`[data-testid="AppTabBar_Profile_Link"]:not(.${ProcessedClass})`);
 
-    profileButtonInSidebar?.process();
+    processElement(profileButtonInSidebar);
     profileButtonInSidebar?.addEventListener("click", profileInitialTabRedirect(profileButtonInSidebar.getAttribute("href").replace("/", "")));
 }
 
 function profileInitialTabRedirect(userName: string) {
     return () => {
-        if (TUICPref.getPref("profileSetting.profileInitialTab") != "tweets") {
+        if (getPref("profileSetting.profileInitialTab") != "tweets") {
             window.setTimeout(async () => {
-                await TUICLibrary.waitForElement(`a[href="/${userName}/photo"]`);
-                await TUICLibrary.waitForElement(`nav [role="presentation"]`);
+                await waitForElement(`a[href="/${userName}/photo"]`);
+                await waitForElement(`nav [role="presentation"]`);
 
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve2) => {
                         if (window.scrollY == 0) {
-                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[TUICPref.getPref("profileSetting.profileInitialTab")]}`).click();
+                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[getPref("profileSetting.profileInitialTab")]}`).click();
                             resolve2("ok");
                         }
                         resolve2("bb");
