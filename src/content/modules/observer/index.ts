@@ -1,10 +1,10 @@
-import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions.ts";
-import { catchError } from "./errorDialog.ts";
-import { placeDisplayButton } from "./functions/rightSidebarTexts.tsx";
-import { followersList } from "./functions/followersList.tsx";
-import { throwTestError } from "@shared/testError.ts";
-import { getPref } from "../pref/index.ts";
-import { hideElement } from "../utils/controlElements.ts";
+import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions";
+import { catchError } from "./errorDialog";
+import { placeDisplayButton } from "./functions/rightSidebarTexts";
+import { followersList } from "./functions/followersList";
+import { throwTestError } from "@shared/testError";
+import { getPref } from "../pref/index";
+import { hideElement } from "../utils/controlElements";
 
 //let time = 0;
 

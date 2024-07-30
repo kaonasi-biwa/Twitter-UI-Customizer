@@ -1,12 +1,12 @@
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode";
 
-import { DOG, TWITTER, X } from "./icons/index.ts";
-import { ColorData } from "@shared/sharedData.ts";
+import { DOG, TWITTER, X } from "./icons/index";
+import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.pcss?url";
-import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color.ts";
+import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
 import { getPref, getSettingIDs } from "@modules/pref";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 
 export function applyDefaultStyle() {
     document.querySelector("#tuicDefaultStyle")?.remove();

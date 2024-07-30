@@ -1,5 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { TUICI18N } from "@modules/i18n/index.ts";
+import { TUICI18N } from "@modules/i18n/index";
 
 let setting = {};
 

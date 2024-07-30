@@ -81,8 +81,8 @@ import { TUICI18N } from "@modules/i18n";
 import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@modules/pref";
 import { waitForElement } from "@modules/utils/controlElements";
 import { applySystemCss } from "@content/applyCSS";
-import { Dialog } from "@shared/tlui/components/Dialog.ts";
-import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
+import { Dialog } from "@shared/tlui/components/Dialog";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 
 import FIGURE_IMPORTAPPEND from "@content/icons/figure/import_append.svg?component";
 import FIGURE_IMPORTREPLACE from "@content/icons/figure/import_replace.svg?component";

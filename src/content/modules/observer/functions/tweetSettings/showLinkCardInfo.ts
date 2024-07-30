@@ -1,5 +1,5 @@
 import { hideElement, parseHtml } from "@modules/utils/controlElements";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): Element => {

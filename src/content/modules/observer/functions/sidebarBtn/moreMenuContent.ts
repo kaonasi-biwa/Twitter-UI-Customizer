@@ -1,5 +1,5 @@
 import { hideElement, waitForElement } from "@modules/utils/controlElements";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 import { getPref, getSettingIDs } from "@modules/pref";
 
 const _data = {

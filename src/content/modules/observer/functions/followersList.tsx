@@ -1,5 +1,5 @@
 import { hideElement, waitForElement, hasClosest, showElement, processElement } from "@modules/utils/controlElements";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { ProcessedClass } from "@shared/sharedData";

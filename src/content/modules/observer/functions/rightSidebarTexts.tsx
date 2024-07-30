@@ -1,5 +1,5 @@
 import { waitForElement } from "@modules/utils/controlElements";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 import { TUICI18N } from "@content/modules/i18n";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { JSX } from "solid-js";
