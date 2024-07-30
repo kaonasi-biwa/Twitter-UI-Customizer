@@ -26,7 +26,7 @@ const ClassList = [
     "TUICFollowerListButtons",
     ProcessedClass,
 ];
-const AttrList = { processedArticle: "processed-article" };
+const AttrList = { processedArticle: "processed-article", tuicDiscoverMore: "tuic-discover-more", tuicSettings: "tuic-settings" };
 export const updateClasses = (isInit: boolean = false) => {
     if (!isInit) TUICObserver.unbind();
     deleteClasses();

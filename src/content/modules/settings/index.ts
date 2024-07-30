@@ -5,7 +5,7 @@ const config = {
     childList: true,
     subtree: true,
 };
-import { TUICLibrary } from "@content/library";
+import { waitForElement } from "@modules/utils/controlElements";
 import { displaySetting } from "@modules/settings/display";
 
 export function placeSettingObserver() {
@@ -24,7 +24,7 @@ export function placeSettingPage() {
         case "/tuic/safemode":
             break;
         case "/settings/display": {
-            TUICLibrary.waitForElement(`main div[role='slider']`).then((elems) => {
+            waitForElement(`main div[role='slider']`).then((elems) => {
                 const _large = elems[0].closest<HTMLElement>(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);
                 const _small = elems[0].closest<HTMLElement>(`main > div > div > div > div`);
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
@@ -36,7 +36,7 @@ export function placeSettingPage() {
         case "/i/display": {
             //* /settings/displayでダイアログ（/i/display）を開けると、ダイアログ側にTUICの設定が表示されない。
 
-            TUICLibrary.waitForElement(`div[role='slider']`).then((elems) => {
+            waitForElement(`div[role='slider']`).then((elems) => {
                 const _dialog = elems[0].closest<HTMLElement>(`div[aria-labelledby="modal-header"] > div > div > div > div:nth-child(2)`);
                 const _fullscreen = elems[0].closest<HTMLElement>(`main > div > div > div > div`);
                 //console.warn(`_large : ${_large}\n_small : ${_small}`);
@@ -90,7 +90,7 @@ function rewriteTweet() {
             tweetLinkElement.remove();
 
             // img要素がそもそも存在しない場合があるので、待機
-            await TUICLibrary.waitForElement("img", tweetElement);
+            await waitForElement("img", tweetElement);
 
             // ユーザーアイコン
             tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;

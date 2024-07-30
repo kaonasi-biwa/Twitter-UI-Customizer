@@ -1,5 +1,7 @@
 {
-    "oldTranslate": ["e2414185"],
+    "oldTranslate": [
+        "e2414185"
+    ],
     "latestTranslate": [
         "a4d3eb67",
         "df34a454",
@@ -30,18 +32,46 @@
         "b007440a",
         "b55d8a78",
         "bb081ea2",
-        "h5860a68"
+        "h5860a68",
+        "h3edf7a6",
+        "e2eef3c2"
     ],
-    "fixPlural": ["c42234da", "e2414185", "e74e9bb7"],
+    "fixPlural": [
+        "c42234da",
+        "e2414185",
+        "e74e9bb7"
+    ],
     "fixSingular": [],
     "deleteString": {
-        "g132f681": ["@{screenName}"],
-        "e74e9bb7": [".", "。", "{tweetCount}", "(de)", "uri"],
-        "fdc023d7": ["{formattedCount}", "{count}"],
-        "c42234da": ["{count}", "uri"],
-        "h99e9c95": ["{0}"],
-        "ee69d769": ["{verb}"],
-        "cf5af90c": ["!"],
-        "d29edd5a": ["!"]
+        "g132f681": [
+            "@{screenName}"
+        ],
+        "e74e9bb7": [
+            ".",
+            "。",
+            "{tweetCount}",
+            "(de)",
+            "uri"
+        ],
+        "fdc023d7": [
+            "{formattedCount}",
+            "{count}"
+        ],
+        "c42234da": [
+            "{count}",
+            "uri"
+        ],
+        "h99e9c95": [
+            "{0}"
+        ],
+        "ee69d769": [
+            "{verb}"
+        ],
+        "cf5af90c": [
+            "!"
+        ],
+        "d29edd5a": [
+            "!"
+        ]
     }
 }

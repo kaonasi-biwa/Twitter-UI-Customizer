@@ -1,16 +1,15 @@
 import { TUICI18N } from "@modules/i18n";
-import { TUICPref } from "..";
 import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
+import { getPref } from "../pref";
 
 const headObserver: MutationObserver = new MutationObserver(titleObserverFunction);
-
 export function titleObserverFunction() {
     let stoppedObserver = false;
     if (isSafemode) {
         headObserver.disconnect();
         stoppedObserver = true;
         document.title = TUICI18N.get("safemode-title");
-    } else if (TUICPref.getPref("XToTwitter.XToTwitter")) {
+    } else if (getPref("XToTwitter.XToTwitter")) {
         const locPath = window.location.pathname;
         if (!document.title.endsWith("Twitter")) {
             headObserver.disconnect();

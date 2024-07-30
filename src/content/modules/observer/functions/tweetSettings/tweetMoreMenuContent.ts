@@ -1,5 +1,6 @@
-import { TUICLibrary } from "@content/library";
-import { TUICPref } from "@content/modules";
+import { hideElement, waitForElement } from "@modules/utils/controlElements";
+import { getPref, getSettingIDs } from "@modules/pref";
+import { fontSizeClass } from "@modules/utils/fontSize.ts";
 
 interface TweetMoreMenuContentData {
     all: string[];
@@ -9,7 +10,7 @@ interface TweetMoreMenuContentData {
 }
 
 const _data: TweetMoreMenuContentData = {
-    all: TUICPref.getSettingIDs("tweetDisplaySetting.tweetMoreMenuItems"),
+    all: getSettingIDs("tweetDisplaySetting.tweetMoreMenuItems"),
     selectors: {
         hiddenReply: `[href$="/hidden"]`,
         notHelpful: (): Element => {
@@ -67,16 +68,17 @@ const _data: TweetMoreMenuContentData = {
         whoCanReply: `path[d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"]`,
         analytics: `[data-testid="analytics"]`,
         editWithTwitterBlue: `[data-testid="editWithTwitterBlue"]`,
+        requestCommunityNote: `[href^="/i/communitynotes/noterequest/"]`,
     },
 };
 
 export async function tweetMoreMenuContent() {
-    await TUICLibrary.waitForElement(`[data-testid="Dropdown"]`);
+    await waitForElement(`[data-testid="Dropdown"]`);
 
     let menuTopPx = 0;
-    const menuItemPx = TUICLibrary.fontSizeClass(40, 41, 44, 48, 52);
+    const menuItemPx = fontSizeClass(40, 41, 44, 48, 52);
     for (const id of _data.all) {
-        if (TUICPref.getPref(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
+        if (getPref(`tweetDisplaySetting.tweetMoreMenuItems.${id}`)) {
             const getFunc = _data.selectors[id];
             let elem = null;
             if (typeof getFunc == "function") {
@@ -86,7 +88,7 @@ export async function tweetMoreMenuContent() {
             }
 
             if (elem) {
-                elem.closest(`[role="menuitem"]`).hide();
+                hideElement(elem.closest(`[role="menuitem"]`));
                 menuTopPx += menuItemPx;
             }
         }

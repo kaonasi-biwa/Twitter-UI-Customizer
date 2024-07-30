@@ -62,7 +62,7 @@ export function deletePref(identifier: string, source = config) {
 /**
  * 変更が加えられたTUICのPrefをlocalStorageへ保存します。
  */
-export function save() {
+export function savePref() {
     localStorage.setItem("TUIC", JSON.stringify(config));
 }
 
@@ -406,6 +406,7 @@ const ids = {
             { id: "delete", i18n: "bottomTweetButtons-deleteButton" },
             { id: "list", i18n: "tweetMoreMenuItems-addMemberOfList" },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
+            { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested" },
         ],
     },
     tweetTopButtonBool: {
@@ -432,6 +433,7 @@ const ids = {
             { id: "embed", i18n: "XtoTwitter-PostToTweet-menu-embed", default: false },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet", default: false },
             { id: "hiddenReply", i18n: "tweetMoreMenuItems-hiddenReply", default: false },
+            { id: "requestCommunityNote", i18n: "tweetMoreMenuItems-requestCommunityNote", default: false },
             //{ id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue", default: false },
         ],
     },
@@ -525,6 +527,7 @@ const ids = {
             { id: "communities", i18n: "sidebarButtons-communities", default: false },
             { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },
             //{ id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
+            { id: "verifiedOrgsSignup", i18n: "sidebarButton-moreMenuItems-verifiedOrgsSignup", default: false },
             { id: "ads", i18n: "sidebarButton-moreMenuItems-ads", default: false },
             { id: "jobs", i18n: "sidebarButton-moreMenuItems-jobs", default: false },
             { id: "spaces", i18n: "sidebarButton-moreMenuItems-spaces", default: false },

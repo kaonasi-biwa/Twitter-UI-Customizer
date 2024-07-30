@@ -12,7 +12,10 @@
     "tweetMoreMenuItems-highlightUpsell": "h8a3525e",
     "tweetMoreMenuItems-whoCanReply": "bae0cbc0",
     "tweetMoreMenuItems-editWithTwitterBlue": "j11cb650",
-
+    "tweetMoreMenuItems-leaveTalk": "bb16cc76",
+    "tweetMoreMenuItems-muteTalk": "e2d6c17e",
+    "tweetMoreMenuItems-hiddenReply": "f9478972",
+    "tweetMoreMenuItems-requestCommunityNote": "h3edf7a6",
     "sidebarButtons-home": "ha8209bc",
     "sidebarButtons-explore": "fcf3e54c",
     "sidebarButtons-communities": "h02a6fe6",
@@ -45,6 +48,7 @@
     "sidebarButton-moreMenuItems-jobs": "b007440a",
     "sidebarButton-moreMenuItems-spaces": "b55d8a78",
     "sidebarButton-moreMenuItems-followerRequests": "i83d4f14",
+    "sidebarButton-moreMenuItems-verifiedOrgsSignup": "e2eef3c2",
     "XtoTwitter-PostToTweet-tweetButton": "bea869b4",
     "XtoTwitter-PostToTweet-tweetAllButton": "f70a36d0",
     "XtoTwitter-PostToTweet-tweetButton-latest": "ee69d769",
@@ -129,8 +133,5 @@
     "profileSetting-profileInitialTab-likes": "d7b8ebaa",
     "profileSetting-profileInitialTab-media": "i5450bec",
     "profileSetting-profileInitialTab-reply": "jdceda60",
-    "profileSetting-profileInitialTab-tweet": "bab1f8b0",
-    "tweetMoreMenuItems-leaveTalk": "bb16cc76",
-    "tweetMoreMenuItems-muteTalk": "e2d6c17e",
-    "tweetMoreMenuItems-hiddenReply": "f9478972"
+    "profileSetting-profileInitialTab-tweet": "bab1f8b0"
 }
