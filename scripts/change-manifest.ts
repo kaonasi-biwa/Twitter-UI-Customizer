@@ -23,7 +23,7 @@ export async function changeManifest(target: string) {
     if (target == "chromiumCRX") {
         output = Object.assign(config.common, config.chromium, config.chromiumCRX);
         const repo = process.env["GITHUB_REPO"];
-        output.update_url = output.update_url.replace("${github.repository}", repo);
+        output.update_url = output.update_url.replace("$(github.repository)", repo);
     } else {
         output = Object.assign(config.common, config[target]);
     }
