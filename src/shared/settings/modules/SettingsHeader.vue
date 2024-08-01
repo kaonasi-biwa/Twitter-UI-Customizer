@@ -14,7 +14,7 @@ type Props = {
     level?: "1" | "2";
 };
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
     titleI18N: "",
     level: "1",
 });

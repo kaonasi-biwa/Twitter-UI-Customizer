@@ -8,7 +8,7 @@
 import { getSettingData, TUICSettingIDs } from "@modules/pref";
 import CheckBox from "./CheckBox.vue";
 
-const props = defineProps<{ id: TUICSettingIDs }>();
+defineProps<{ id: TUICSettingIDs }>();
 </script>
 
 <style scoped></style>
