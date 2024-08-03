@@ -15,7 +15,7 @@ const elem2 = (): JSX.Element => {
             <h2>{TUICI18N.get("rescuePref-detail")}</h2>
             <textarea class="full-width" value={localStorage.getItem("TUIC")} style={{ width: "100%", border: "solid black" }} readonly rows="8"></textarea>
             <button
-                onclick={() => {
+                onClick={() => {
                     navigator.clipboard.writeText(localStorage.getItem("TUIC"));
                 }}
                 style={{ width: "100%", "margin-bottom": "10px", height: "30px", border: "1px solid #333", cursor: "initial", background: "initial" }}
@@ -24,7 +24,7 @@ const elem2 = (): JSX.Element => {
             </button>
             <textarea class="full-width" value={localStorage.getItem("TUIC_CSS")} style={{ width: "100%", border: "solid black" }} readonly rows="8"></textarea>
             <button
-                onclick={() => {
+                onClick={() => {
                     navigator.clipboard.writeText(localStorage.getItem("TUIC_CSS"));
                 }}
                 style={{ width: "100%", "margin-bottom": "10px", height: "30px", border: "1px solid #333", cursor: "initial", background: "initial" }}
@@ -38,7 +38,7 @@ const elem2 = (): JSX.Element => {
 
 const elem = (): JSX.Element => {
     return (
-        <li class="u01b-01__parent-link" style="border-radius: 9999px;border: solid gray;">
+        <li class="u01b-01__parent-link" style={{ "border-radius": "9999px", border: "solid gray" }}>
             <div
                 onClick={async () => {
                     const base = document.querySelector(".u01b__page-padding+div");
@@ -47,7 +47,7 @@ const elem = (): JSX.Element => {
                 }}
             >
                 <div>
-                    <a class="u01b-01__parent-link-href twtr-scribe-clicks twtr-type--roman-14  is-opaque  has-hover" style="font-size: 20px;">
+                    <a class="u01b-01__parent-link-href twtr-scribe-clicks twtr-type--roman-14  is-opaque  has-hover" style={{ "font-size": "20px" }}>
                         {TUICI18N.get("rescuePref-ButtonLabel")}
                     </a>
                     <div class="u01b-01__parent-link-indicator"></div>

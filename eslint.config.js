@@ -2,6 +2,7 @@ import eslint from "@eslint/js";
 import globals from "globals";
 
 import tseslint from "typescript-eslint";
+import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
 
 import prettier from "eslint-config-prettier";
@@ -42,12 +43,14 @@ export default tseslint.config(
         extends: [
             ...tseslint.configs.recommended,
             //...tseslint.configs.stylisticTypeChecked,
+            solideslint.configs["flat/typescript"],
             ...vueeslint.configs["flat/recommended"],
             prettier,
         ],
         rules: {
             "no-undef": 0,
             "@typescript-eslint/no-unused-vars": 0,
+            "solid/self-closing-comp": ["warn", { html: "void" }],
             "vue/no-unused-vars": 0,
             "vue/no-unused-components": 0,
             "vue/attribute-hyphenation": 0,

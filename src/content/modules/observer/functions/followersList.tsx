@@ -16,7 +16,7 @@ function followersListButton(id: string, baseElement: HTMLElement): () => JSX.El
                     data[id].clickEvent(baseElement);
                 }
             }}
-            onclick={() => data[id].clickEvent(baseElement)}
+            onClick={() => data[id].clickEvent(baseElement)}
         >
             <div role="button" tabindex="0" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l">
                 <div dir="ltr" class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")}`}>
