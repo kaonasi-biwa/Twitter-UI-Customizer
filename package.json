@@ -12,11 +12,11 @@
         "lint:tsc": "vue-tsc --noEmit",
         "lint:eslint": "eslint .",
         "lint:stylelint": "stylelint **/*.{css,pcss}",
-        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.vue **/*.css **/*.pcss",
+        "lint:prettier": "prettier --check **/*.js **/*.ts **/*.tsx **/*.vue **/*.css **/*.pcss",
         "format": "pnpm format:eslint & pnpm format:stylelint & pnpm format:prettier",
         "format:eslint": "eslint --fix .",
         "format:stylelint": "stylelint --fix **/*.{css,pcss}",
-        "format:prettier": "prettier --write **/*.js **/*.ts **/*.vue **/*.css **/*.pcss"
+        "format:prettier": "prettier --write **/*.js **/*.ts **/*.tsx **/*.vue **/*.css **/*.pcss"
     },
     "dependencies": {
         "@unocss/reset": "^0.59.4",
