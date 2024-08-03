@@ -9,7 +9,7 @@
             </template>
             <template v-else>
                 <ColorResetButton :btn-id="`${id}-${type}-default`" :btn-title="TUICI18N.get('settingUI-colorPicker-restoreDefault')" @clicked-btn="resetBtnClicked" />
-                <RoundedColorPicker :input-id="`${id}-${type}`" :input-color-value="TUICColor1" @valueChanged="colorChanged" ref="rColorPicker" />
+                <RoundedColorPicker :input-id="`${id}-${type}`" :input-color-value="TUICColor1" @value-changed="colorChanged" ref="rColorPicker" />
                 <TransparentToggleButton :btn-id="`${id}-${type}`" :is-checked="TUIC_color[3] == '0'" @btn-clicked="TransparentToggleButtonClicked" :title-string="TUICI18N.get(`settingUI-colorPicker-transparent`)" ref="transparentButton" />
             </template>
         </div>

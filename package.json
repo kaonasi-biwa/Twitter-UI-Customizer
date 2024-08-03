@@ -28,8 +28,6 @@
     "devDependencies": {
         "@eslint/js": "^9.8.0",
         "@types/chrome": "^0.0.266",
-        "@typescript-eslint/eslint-plugin": "^7.18.0",
-        "@typescript-eslint/parser": "^7.18.0",
         "@vitejs/plugin-vue": "^5.1.1",
         "autoprefixer": "^10.4.19",
         "crx": "^5.0.1",
@@ -48,6 +46,7 @@
         "stylelint-config-recess-order": "^5.0.1",
         "stylelint-config-standard": "^36.0.1",
         "typescript": "^5.5.4",
+        "typescript-eslint": "^8.0.0",
         "unocss": "^0.59.4",
         "vite": "^5.3.5",
         "vite-plugin-solid": "^2.10.2",

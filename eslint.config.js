@@ -1,16 +1,12 @@
-import js from "@eslint/js";
+import eslint from "@eslint/js";
 import globals from "globals";
 
-import typescript_eslint from "@typescript-eslint/eslint-plugin";
-import typescript_parser from "@typescript-eslint/parser";
-
-import vue_eslint from "eslint-plugin-vue";
-import vue_parser from "vue-eslint-parser";
+import tseslint from "typescript-eslint";
+import vueeslint from "eslint-plugin-vue";
 
 import prettier from "eslint-config-prettier";
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+export default tseslint.config(
     {
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
     },
@@ -22,9 +18,11 @@ export default [
                 sourceType: "module",
             },
         },
+        extends: [
+            eslint.configs.recommended, //
+            prettier,
+        ],
         rules: {
-            ...js.configs.recommended.rules,
-            ...prettier.rules,
             indent: 0,
             semi: ["error", "always"],
             "prefer-const": ["error"],
@@ -37,18 +35,17 @@ export default [
     {
         files: ["**/*.{ts,tsx,vue}"],
         languageOptions: {
-            parser: vue_parser,
             parserOptions: {
-                parser: typescript_parser,
+                parser: tseslint.parser,
             },
         },
-        plugins: {
-            "@typescript-eslint": typescript_eslint,
-            vue: vue_eslint,
-        },
+        extends: [
+            ...tseslint.configs.recommended,
+            //...tseslint.configs.stylisticTypeChecked,
+            ...vueeslint.configs["flat/recommended"],
+            prettier,
+        ],
         rules: {
-            ...typescript_eslint.configs.recommended.rules,
-            ...vue_eslint.configs["vue3-recommended"].rules,
             "no-undef": 0,
             "@typescript-eslint/no-unused-vars": 0,
             "vue/no-unused-vars": 0,
@@ -57,6 +54,7 @@ export default [
             "vue/attributes-order": 0,
             "vue/require-prop-types": 0,
             "vue/prop-name-casing": 0,
+            "vue/require-default-prop": 0,
         },
     },
     {
@@ -76,4 +74,4 @@ export default [
             },
         },
     },
-];
+);
