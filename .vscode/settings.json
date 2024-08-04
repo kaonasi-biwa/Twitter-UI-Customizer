@@ -1,32 +1,34 @@
 {
     "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript][json][css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+    "editor.formatOnSave": false,
+    "[javascript][json]": {
+        "editor.formatOnSave": false,
     },
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": "explicit"
+        "source.fixAll.stylelint": "explicit",
     },
     "editor.quickSuggestions": {
-        "strings": true
+        "strings": true,
     },
     "css.validate": false,
     "scss.validate": false,
     "files.autoSave": "onFocusChange",
     "json.schemaDownload.enable": true,
     "eslint.useFlatConfig": true,
-    "prettier.tabWidth": 4,
-    "prettier.semi": true,
-    "prettier.singleQuote": false,
-    "prettier.endOfLine": "auto",
-    "prettier.printWidth": 300,
+    "prettier.enable": true,
+    "[css][scss][postcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "prettier.tabWidth": 4,
+        "prettier.semi": true,
+        "prettier.singleQuote": false,
+        "prettier.endOfLine": "auto",
+        "prettier.printWidth": 300,
+    },
     "stylelint.packageManager": "pnpm",
-    "stylelint.snippet": ["css", "scss"],
-    "stylelint.validate": ["css", "scss"],
+    "stylelint.snippet": ["css", "scss", "pcss"],
+    "stylelint.validate": ["css", "scss", "pcss"],
     "[markdown][yaml]": {
         "editor.tabSize": 2,
-        "prettier.tabWidth": 2
-    }
+    },
 }

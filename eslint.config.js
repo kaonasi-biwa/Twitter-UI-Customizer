@@ -5,8 +5,6 @@ import tseslint from "typescript-eslint";
 import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
 
-import prettier from "eslint-config-prettier";
-
 export default tseslint.config(
     {
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
@@ -21,7 +19,6 @@ export default tseslint.config(
         },
         extends: [
             eslint.configs.recommended, //
-            prettier,
         ],
         rules: {
             indent: 0,
@@ -45,7 +42,6 @@ export default tseslint.config(
             //...tseslint.configs.stylisticTypeChecked,
             solideslint.configs["flat/typescript"],
             ...vueeslint.configs["flat/recommended"],
-            prettier,
         ],
         rules: {
             "no-undef": 0,
