@@ -20,7 +20,7 @@ const elem2 = (): JSX.Element => {
                 }}
                 style={{ width: "100%", "margin-bottom": "10px", height: "30px", border: "1px solid #333", cursor: "initial", background: "initial" }}
             >
-                ↑{TUICI18N.get("common-copy")}
+                {TUICI18N.get("common-copy")}
             </button>
             <textarea class="full-width" value={localStorage.getItem("TUIC_CSS")} style={{ width: "100%", border: "solid black" }} readonly rows="8"></textarea>
             <button
@@ -29,7 +29,7 @@ const elem2 = (): JSX.Element => {
                 }}
                 style={{ width: "100%", "margin-bottom": "10px", height: "30px", border: "1px solid #333", cursor: "initial", background: "initial" }}
             >
-                ↑{TUICI18N.get("common-copy")}
+                {TUICI18N.get("common-copy")}
             </button>
             <h2>{TUICI18N.get("rescuePref-complete")}</h2>
         </div>
