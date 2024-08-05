@@ -557,6 +557,7 @@ const ids = {
             { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates", default: false },
             { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab", default: false },
             { id: "followersYouFollowTab", i18n: "invisibleItems-followersYouFollowTab", default: false },
+            { id: "profilePagePremium", i18n: "invisibleItems-profilePagePremium", default: false },
         ],
     },
     "profileSetting.followersListButtons": {

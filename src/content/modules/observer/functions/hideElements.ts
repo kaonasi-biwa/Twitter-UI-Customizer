@@ -95,6 +95,13 @@ function profile() {
         }
     }
 
+    if (getPref("profileSetting.invisible.profilePagePremium")) {
+        const tabs = document.querySelectorAll(`[data-testid="primaryColumn"] :not(.TUIC_DISPNONE) > * [role="link"][href="/i/premium_sign_up"]`);
+        for (const elem of tabs) {
+            hideElement(elem.parentElement.parentElement);
+        }
+    }
+
     if (getPref("profileSetting.invisible.verifiedFollowerTab")) {
         const nowURL = location.pathname;
         if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
