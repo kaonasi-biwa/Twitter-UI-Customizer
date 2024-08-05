@@ -41,8 +41,8 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         const engagementsFixList = [];
         const engageFixListFunc = (count: number) => {
             let tempArr = [];
-            for (let i = 0; i < engageentsTypeList.length; i++) {
-                tempArr.push([engageentsTypeList[i]]);
+            for (const engageentsType of engageentsTypeList) {
+                tempArr.push([engageentsType]);
                 if (tempArr.length == count) {
                     engagementsFixList.push(tempArr);
                     tempArr = [];

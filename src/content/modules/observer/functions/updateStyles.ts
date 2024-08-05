@@ -6,7 +6,7 @@ import { SidebarButtonSelectors } from "./sidebarBtn";
 import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
 import { hasClosest, processElement } from "@content/modules/utils/controlElements";
 
-let fontSize1: string = "";
+let fontSize1 = "";
 let fontSize2: boolean | null = null;
 
 export function updateStyles() {
@@ -42,7 +42,7 @@ function sidebarButtons() {
         const itemId = i.id.replace("TUICSidebar_", "");
 
         let locationBool = false;
-        const includesCheck = (buttonUrl: string = "") => {
+        const includesCheck = (buttonUrl = "") => {
             if (buttonUrl.endsWith("/")) {
                 locationBool = location.pathname.includes(buttonUrl) ? true : locationBool;
             } else {

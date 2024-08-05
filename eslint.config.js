@@ -39,7 +39,7 @@ export default tseslint.config(
         },
         extends: [
             ...tseslint.configs.recommended,
-            //...tseslint.configs.stylisticTypeChecked,
+            ...tseslint.configs.stylistic, //TypeChecked
             solideslint.configs["flat/typescript"],
             ...vueeslint.configs["flat/recommended"],
         ],

@@ -11,12 +11,10 @@ import RESET from "./arrow/reset.svg?url";
 
 export { DOG, EMPTY, TWITTER, X, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, ARROW_UP, RESET };
 
-interface SelectedIcons {
-    [key: string]: {
-        unselected: string;
-        selected?: string;
-    };
-}
+type SelectedIcons = Record<string, {
+    unselected: string;
+    selected?: string;
+}>;
 export const HOME_ICON: SelectedIcons = {
     birdGoBack: {
         unselected:

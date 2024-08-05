@@ -4,9 +4,7 @@ import { fontSizeClass } from "@modules/utils/fontSize";
 
 interface TweetMoreMenuContentData {
     all: string[];
-    selectors: {
-        [key: string]: string | (() => Element);
-    };
+    selectors: Record<string, string | (() => Element)>;
 }
 
 const _data: TweetMoreMenuContentData = {

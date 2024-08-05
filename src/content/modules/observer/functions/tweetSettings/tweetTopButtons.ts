@@ -33,7 +33,7 @@ const _data = {
          * @param disable trueなら無効 (初期値:false)
          * @param redButton trueならボタンが赤くなる (初期値:false)
          */
-        _base: function (type: string, svg: string, disable: boolean = false, redButton: boolean = false) {
+        _base: function (type: string, svg: string, disable = false, redButton = false) {
             return `
 <div role="button" tabindex="${disable ? -1 : 0}" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr${disable ? "" : " r-1loqt21"} r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}" TUICTweetTopButton="${type}">
 <div dir="ltr" class="css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr ${fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q" style="text-overflow: unset; color: rgb(139, 152, 165);">
@@ -224,7 +224,7 @@ export function tweetTopButtons(articleInfo: ArticleInfomation) {
 function placeTweetTopButtons(articleInfo: ArticleInfomation) {
     const articleBase = articleInfo.elements.articleBase;
     let isFirst = true;
-    const tweetTopButtons: { [key: string]: HTMLDivElement } = {};
+    const tweetTopButtons: Record<string, HTMLDivElement> = {};
     const tweetTopParent = articleBase.querySelector(_data.selector.moreMenu).parentElement;
     const marginSize = fontSizeClass("20px", "20px", "20px", "20px", "20px");
     for (const i of _data.all) {

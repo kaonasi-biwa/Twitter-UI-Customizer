@@ -33,9 +33,7 @@ function followersListButton(id: string, baseElement: HTMLElement): () => JSX.El
         </div>
     );
 }
-const data: {
-    [key: string]: { selector: string; clickEvent?: (baseElement: HTMLElement) => void; svg?: string };
-} = {
+const data: Record<string, { selector: string; clickEvent?: (baseElement: HTMLElement) => void; svg?: string }> = {
     followButton: {
         selector: `[role="button"]:is([aria-label*="@"],[data-testid$="-unblock"])`,
     },

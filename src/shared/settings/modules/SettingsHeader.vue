@@ -12,11 +12,11 @@
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 
-type Props = {
+interface Props {
     titleI18N: string;
     descI18N?: string;
     level?: "1" | "2";
-};
+}
 
 withDefaults(defineProps<Props>(), {
     titleI18N: "",

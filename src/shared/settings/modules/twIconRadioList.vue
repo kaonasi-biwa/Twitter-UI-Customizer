@@ -33,14 +33,14 @@ import IconRadioButtonBase64Support from "@shared/options/components/IconRadioBu
 import { TUICI18N } from "@modules/i18n";
 import { getSettingI18n, TUICSettingIDs } from "@modules/pref";
 
-export type twIconsRadioListProps = {
+export interface twIconsRadioListProps {
     radioName: "nomal" | "invisible" | "dog" | "twitter" | "twitterIcon-X" | "custom";
     // テキストの場合iconNameのTUICDataでI18Nから取ってくるので情報いらない
     isText: boolean;
     // アイコンの場合どっちか
     base64Img?: string;
     svgComponent?: Component;
-};
+}
 
 const props = defineProps<{
     iconsList: twIconsRadioListProps[];

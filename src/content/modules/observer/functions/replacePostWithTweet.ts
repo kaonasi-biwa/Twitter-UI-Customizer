@@ -2,7 +2,7 @@ import { getPref } from "@modules/pref";
 import { TUICI18N } from "@modules/i18n";
 import { hasClosest, hasClosestSelector } from "@modules/utils/controlElements";
 
-let tweetCount: number = -1;
+let tweetCount = -1;
 
 // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
 function getNotReplacedElements(selector: string) {

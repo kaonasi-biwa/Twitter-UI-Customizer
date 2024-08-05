@@ -7,7 +7,7 @@ import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";
 const errors = [];
 
 /** エラーダイアログを表示します。 */
-export async function catchError(e: Error, callback: (() => unknown) | null = null, callbackTime: number = 5000) {
+export async function catchError(e: Error, callback: (() => unknown) | null = null, callbackTime = 5000) {
     console.error(e);
 
     // (async () => {

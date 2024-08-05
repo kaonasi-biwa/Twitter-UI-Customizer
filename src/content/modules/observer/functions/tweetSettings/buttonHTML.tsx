@@ -52,14 +52,12 @@ export const placeCopiedURLMessage = () => {
 };
 
 // ツイートのボタンを作るためのデータたち
-export const tweetButtonData: {
-    [key: string]: {
-        svg: () => JSX.Element;
-        clickEvent: (data: ArticleInfomation) => void;
-        redButton?: boolean;
-        enable: (articleInfomation: ArticleInfomation) => boolean;
-    };
-} = {
+export const tweetButtonData: Record<string, {
+    svg: () => JSX.Element;
+    clickEvent: (data: ArticleInfomation) => void;
+    redButton?: boolean;
+    enable: (articleInfomation: ArticleInfomation) => boolean;
+}> = {
     "url-copy": {
         svg: (): JSX.Element => {
             return (

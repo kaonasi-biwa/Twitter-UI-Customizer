@@ -16,7 +16,7 @@ defineProps<{
     isChecked: boolean;
     titleString: string;
 }>();
-const emit = defineEmits<{ (e: "btnClicked", value: boolean): void }>();
+const emit = defineEmits<(e: "btnClicked", value: boolean) => void>();
 defineExpose({ setCheckedValue });
 
 const btnClicked = ($event: Event) => {

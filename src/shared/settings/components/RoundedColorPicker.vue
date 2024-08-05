@@ -14,7 +14,7 @@ defineProps<{
     inputId: string;
     inputColorValue: string;
 }>();
-const emit = defineEmits<{ (e: "valueChanged", value: unknown): void }>();
+const emit = defineEmits<(e: "valueChanged", value: unknown) => void>();
 defineExpose({ setInputValue });
 
 const onValueChanged = ($event: Event) => {

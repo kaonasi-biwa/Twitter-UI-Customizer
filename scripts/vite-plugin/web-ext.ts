@@ -2,7 +2,7 @@
 import type { MultiExtensionRunner } from "web-ext/lib/extension-runners";
 import type WebExt from "web-ext";
 
-export type WebExtRunArgs = {
+export interface WebExtRunArgs {
     mode: string;
     watch: boolean;
     sourceDir: string;
@@ -17,7 +17,7 @@ export type WebExtRunArgs = {
         profile: string | undefined;
         keep_profile_changes: boolean;
     };
-};
+}
 
 export class WebExtRun {
     webExtRunner: MultiExtensionRunner;
