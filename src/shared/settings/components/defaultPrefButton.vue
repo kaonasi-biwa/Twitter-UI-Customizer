@@ -6,9 +6,9 @@
 import { TUICI18N } from "@modules/i18n";
 import { waitForElement } from "@modules/utils/controlElements";
 import { getPref, setPref, mergeDefaultPref } from "@modules/pref";
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
-import { Dialog } from "@shared/tlui/components/Dialog.ts";
-import { ButtonComponent } from "@shared/tlui/components/ButtonComponent.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode";
+import { Dialog } from "@shared/tlui/components/Dialog";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { titleObserverFunction } from "@modules/observer/titleObserver";
 import { updateClasses } from "@modules/htmlClass/classManager";
 import ICON_RESET from "@content/icons/common/reset.svg?component";

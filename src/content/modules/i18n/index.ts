@@ -1,5 +1,4 @@
-//@ts-expect-error Vite have import.meta.glob
-const langRes = import.meta.glob(["@i18nData/*.json", "@i18nData/ti18n/*.json"], { query: "?raw", import: "default", eager: true });
+const langRes = import.meta.glob<string>(["@i18nData/*.json", "@i18nData/ti18n/*.json"], { query: "?raw", import: "default", eager: true });
 const i18nData = { en: {}, ja: {} };
 
 export const TUICI18N = {

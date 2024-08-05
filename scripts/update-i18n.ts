@@ -50,7 +50,7 @@ import fs from "node:fs/promises";
         await Promise.all(
             locales.map(async (elem) => {
                 let tmpObj = {};
-                for (const [elem2, translateID] of Object.entries(TUICI18ns)) {
+                for (const [elem2, translateID] of Object.entries<string>(TUICI18ns)) {
                     if (i18nObject[elem][translateID] || i18nObjectOld[elem][translateID] || i18nObjectNew[elem][translateID]) {
                         let translatedText = "";
                         if (config.oldTranslate.includes(translateID)) {

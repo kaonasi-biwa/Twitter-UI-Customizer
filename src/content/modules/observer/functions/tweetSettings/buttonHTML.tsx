@@ -5,7 +5,7 @@ import { JSX } from "solid-js";
 import { render } from "solid-js/web";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { backgroundColorClass } from "@modules/utils/color";
-import { fontSizeClass } from "@modules/utils/fontSize.ts";
+import { fontSizeClass } from "@modules/utils/fontSize";
 export let willClickRT = false;
 
 const copiedURLMessage = (): JSX.Element => {

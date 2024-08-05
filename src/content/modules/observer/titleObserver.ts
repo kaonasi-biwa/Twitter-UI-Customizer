@@ -1,5 +1,5 @@
 import { TUICI18N } from "@modules/i18n";
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode";
 import { getPref } from "../pref";
 
 const headObserver: MutationObserver = new MutationObserver(titleObserverFunction);

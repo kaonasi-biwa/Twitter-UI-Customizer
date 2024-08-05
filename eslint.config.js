@@ -9,19 +9,14 @@ import vue_parser from "vue-eslint-parser";
 
 import prettier from "eslint-config-prettier";
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
     {
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
     },
     {
-        files: ["**/*.{js,ts,vue}"],
+        files: ["**/*.{js,ts,tsx,vue}"],
         languageOptions: {
-            globals: {
-                ...globals.browser,
-                i18nApply: true,
-                process: true,
-            },
             parserOptions: {
                 ecmaVersion: 2022,
                 sourceType: "module",
@@ -40,7 +35,7 @@ export default [
         },
     },
     {
-        files: ["**/*.{ts,vue}"],
+        files: ["**/*.{ts,tsx,vue}"],
         languageOptions: {
             parser: vue_parser,
             parserOptions: {
@@ -65,10 +60,19 @@ export default [
         },
     },
     {
-        files: ["src/**"],
+        files: ["scripts/**"],
         languageOptions: {
             globals: {
-                chrome: true,
+                ...globals.nodeBuiltin,
+            },
+        },
+    },
+    {
+        files: ["public/**", "src/**"],
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                chrome: false,
             },
         },
     },
