@@ -2,7 +2,9 @@
     <div style="display: flex; justify-content: space-between; align-items: center">
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
         <div style="display: flex; gap: 8px; align-items: center">
-            <p style="color: rgb(113 118 124)" class="TUIC_setting_text">{{ TUICI18N.get("twitterIcon-nowIcon") }}</p>
+            <p style="color: rgb(113 118 124)" class="TUIC_setting_text">
+                {{ TUICI18N.get("twitterIcon-nowIcon") }}
+            </p>
             <span id="TUICIcon_IconImg" class="TUICUploadedImg"></span>
         </div>
     </div>

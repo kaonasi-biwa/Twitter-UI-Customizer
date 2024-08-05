@@ -1,5 +1,7 @@
 <template>
-    <h2 class="TUICSettingSubTitle TUICSettingSubTitleNomargin">{{ TUICI18N.get(i18n) }}</h2>
+    <h2 class="TUICSettingSubTitle TUICSettingSubTitleNomargin">
+        {{ TUICI18N.get(i18n) }}
+    </h2>
 </template>
 
 <script setup lang="ts">

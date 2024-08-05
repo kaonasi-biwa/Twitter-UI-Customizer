@@ -13,7 +13,9 @@
             </div>
             <!-- アイコンが利用不可なものがあるならdetailsboxメニューに追いやる -->
             <details v-if="presetsRadioButtonsText.length !== 0">
-                <summary style="list-style-type: revert; list-style: revert; height: fit-content; margin-top: 6px">{{ TUICI18N.get("twitterIcon-other") }}</summary>
+                <summary style="list-style-type: revert; list-style: revert; height: fit-content; margin-top: 6px">
+                    {{ TUICI18N.get("twitterIcon-other") }}
+                </summary>
                 <RadioButton v-for="i in presetsRadioButtonsText" :key="i.radioName" id="twitterIcon.icon" :valueName="i.radioName" :name="getSettingI18n('twitterIcon.icon', i.radioName)" />
             </details>
         </div>

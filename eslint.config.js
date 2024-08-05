@@ -47,6 +47,14 @@ export default tseslint.config(
             "no-undef": 0,
             "@typescript-eslint/no-unused-vars": 0,
             "solid/self-closing-comp": ["warn", { html: "void" }],
+            "vue/html-indent": ["warn", 4],
+            "vue/html-self-closing": ["warn", {
+                html: {
+                    void: "always",
+                    normal: "never",
+                },
+            }],
+            "vue/max-attributes-per-line": 0,
             "vue/no-unused-vars": 0,
             "vue/no-unused-components": 0,
             "vue/attribute-hyphenation": 0,

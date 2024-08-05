@@ -3,7 +3,9 @@
         <CheckBoxList id="dmPage" />
 
         <settingSubtitle2 title-i18-n="common-hidebelow" />
-        <p class="TUIC_setting_notice_paragraph">{{ TUICI18N.get("temp-notice-hideDMSheetOnBottomRight") }}</p>
+        <p class="TUIC_setting_notice_paragraph">
+            {{ TUICI18N.get("temp-notice-hideDMSheetOnBottomRight") }}
+        </p>
     </div>
 </template>
 
