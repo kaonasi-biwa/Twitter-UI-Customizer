@@ -1,4 +1,3 @@
-/* eslint-disable no-fallthrough */
 let config = null;
 
 const getPointerFromKey = (object: object, key: string) => {
@@ -63,7 +62,7 @@ export function deletePref(identifier: string, source = config) {
 /**
  * 変更が加えられたTUICのPrefをlocalStorageへ保存します。
  */
-export function save() {
+export function savePref() {
     localStorage.setItem("TUIC", JSON.stringify(config));
 }
 
@@ -110,9 +109,9 @@ export async function updatePref(source = config) {
     switch (prefVersion_) {
         case 0: {
             /*
-    if (localStorage.getItem("unsent-tweet-background")) {
-        parallelToSerialPref();
-    }*/
+            if (localStorage.getItem("unsent-tweet-background")) {
+                parallelToSerialPref();
+            }*/
 
             if (typeof getPref("timeline", source) != "object") setPref("timeline", {}, source);
 
@@ -195,6 +194,7 @@ export async function updatePref(source = config) {
                     source,
                 );
             }
+            // fall through
         }
         case 1: {
             const boolKeys = {
@@ -213,6 +213,7 @@ export async function updatePref(source = config) {
             for (const oldKey in boolKeys) {
                 changeBooleanKey(oldKey, boolKeys[oldKey], source);
             }
+            // falls through
         }
         case 2: {
             const boolKeys = {
@@ -405,6 +406,7 @@ const ids = {
             { id: "delete", i18n: "bottomTweetButtons-deleteButton" },
             { id: "list", i18n: "tweetMoreMenuItems-addMemberOfList" },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
+            { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested" },
         ],
     },
     tweetTopButtonBool: {
@@ -431,6 +433,7 @@ const ids = {
             { id: "embed", i18n: "XtoTwitter-PostToTweet-menu-embed", default: false },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet", default: false },
             { id: "hiddenReply", i18n: "tweetMoreMenuItems-hiddenReply", default: false },
+            { id: "requestCommunityNote", i18n: "tweetMoreMenuItems-requestCommunityNote", default: false },
             //{ id: "editWithTwitterBlue", i18n: "tweetMoreMenuItems-editWithTwitterBlue", default: false },
         ],
     },
@@ -519,16 +522,18 @@ const ids = {
     "sidebarSetting.moreMenuItems": {
         type: "boolean",
         values: [
-            //{ id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
+            { id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
             { id: "bookmarks", i18n: "sidebarButtons-bookmarks", default: false },
             { id: "communities", i18n: "sidebarButtons-communities", default: false },
             { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },
             //{ id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
+            { id: "verifiedOrgsSignup", i18n: "sidebarButton-moreMenuItems-verifiedOrgsSignup", default: false },
             { id: "ads", i18n: "sidebarButton-moreMenuItems-ads", default: false },
             { id: "jobs", i18n: "sidebarButton-moreMenuItems-jobs", default: false },
             { id: "spaces", i18n: "sidebarButton-moreMenuItems-spaces", default: false },
             { id: "settings", i18n: "sidebarButton-moreMenuItems-settings", default: false },
             //{ id: "separator", i18n: "sidebarButton-moreMenuItems-separator", default: false },
+            { id: "followerRequests", i18n: "sidebarButton-moreMenuItems-followerRequests", default: false },
         ],
     },
 
@@ -549,8 +554,11 @@ const ids = {
         values: [
             { id: "subscribe-profile", i18n: "invisibleItems-subscribeProfile", default: false },
             { id: "profileHighlights", i18n: "invisibleItems-profileHighlights", default: false },
+            { id: "profileArticles", i18n: "invisibleItems-profileArticles", default: false },
             { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates", default: false },
             { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab", default: false },
+            { id: "followersYouFollowTab", i18n: "invisibleItems-followersYouFollowTab", default: false },
+            { id: "profilePagePremium", i18n: "invisibleItems-profilePagePremium", default: false },
         ],
     },
     "profileSetting.followersListButtons": {
@@ -588,6 +596,7 @@ const ids = {
             { id: "osusume-user-timeline", i18n: "timeline-osusumeUsersOnTL", default: false },
             { id: "hideOhterRTTL", i18n: "timeline-hideOhterRTTL", default: false },
             { id: "hideReply", i18n: "timeline-hideReply", default: false },
+            { id: "hideLockedTweet", i18n: "timeline-hideLockedTweet", default: false },
             { id: "accountStart", i18n: "timeline-accountStart", default: false },
         ],
     },
@@ -623,9 +632,15 @@ const ids = {
 
     // その他の設定
     uncategorizedSettings: { type: "boolean", values: [{ id: "disableBackdropFilter", i18n: "uncategorizedSettings-disableBackdropFilter", default: false }] },
+
+    // その他の設定
+    performanceSettings: { type: "boolean", values: [{ id: "removeDeletedTweets", i18n: "performanceSettings-removeDeletedTweets", default: true }] },
+
+    // インポート・エクスポートのオプション
+    inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
 } as const;
 
-type TUICSettingIDs = keyof typeof ids;
+export type TUICSettingIDs = keyof typeof ids;
 
 /**
  * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します

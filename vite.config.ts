@@ -6,13 +6,13 @@ import * as fs from "node:fs/promises";
 
 // Vite Plugins
 import svgLoader from "vite-svg-loader";
-import vitePluginWebExt from "./npm-scripts/vite-plugin/vite-plugin-web-ext";
+import vitePluginWebExt from "./scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
 import UnoCSS from "unocss/vite";
 import solidPlugin from "vite-plugin-solid";
 //
 
-import { changeManifest } from "./npm-scripts/change-manifest";
+import { changeManifest } from "./scripts/change-manifest";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

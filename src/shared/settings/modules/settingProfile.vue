@@ -7,6 +7,10 @@
 
         <SettingSubtitle2 title-i18-n="common-hidebelow" />
         <CheckBoxList id="profileSetting.invisible" />
+
+        <SettingSubtitle2 title-i18-n="profileSetting-followersListButtons-settingTitle" />
+        <UpDownList id="profileSetting.followersListButtons" />
+        <CheckBoxList id="profileSetting.followersListButtonsOptions" />
     </div>
 </template>
 
@@ -14,4 +18,5 @@
 import SettingSubtitle2 from "../components/settingSubtitle2.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import RadioButtonList from "@shared/options/components/RadioButtonList.vue";
+import UpDownList from "@shared/options/components/UpDownList.vue";
 </script>

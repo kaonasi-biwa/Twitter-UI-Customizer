@@ -6,7 +6,7 @@
             </h2>
             <div id="TUIC_visible" class="TUIC_selectbox TUICSelectBox-left" :style="{ '--contentCount': _contentCount }">
                 <div v-for="i in list" :key="i" :value="i" :id="i" class="TUICUpDownContent" @click="clickEv(i)" :TUICSelectedUpDownContent="i === selectedElem">
-                    <span>{{ TUICI18N.get(TUICPref.getSettingI18n(id, i)) }}</span>
+                    <span>{{ TUICI18N.get(getSettingI18n(id, i)) }}</span>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
             </h2>
             <div id="TUIC_invisible" class="TUIC_selectbox TUICSelectBox-right" :style="{ '--contentCount': _contentCount }">
                 <div
-                    v-for="i in TUICPref.getSettingIDs(id).filter((value: string) => {
+                    v-for="i in getSettingIDs(id).filter((value: string) => {
                         return !list.includes(value);
                     })"
                     :key="i"
@@ -36,7 +36,7 @@
                     @click="clickEv(i)"
                     :TUICSelectedUpDownContent="i === selectedElem"
                 >
-                    <span>{{ TUICI18N.get(TUICPref.getSettingI18n(id, i)) }}</span>
+                    <span>{{ TUICI18N.get(getSettingI18n(id, i)) }}</span>
                 </div>
             </div>
         </div>
@@ -57,14 +57,14 @@ import RESET from "@content/icons/common/reset.svg?component";
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
 import { TUICI18N } from "@modules/i18n";
-import { TUICPref } from "@content/modules";
+import { getPref, setPref, savePref, getSettingI18n, TUICSettingIDs, getSettingIDs, getDefaultPref } from "@modules/pref";
 
 import { updateClasses } from "@modules/htmlClass/classManager";
 
-const props = defineProps<{ id: string }>();
+const props = defineProps<{ id: TUICSettingIDs }>();
 
 const list = ref([]);
-list.value = TUICPref.getPref(props.id);
+list.value = getPref(props.id);
 const selectedElem = ref("");
 
 const clickEv = (selectItem) => {
@@ -73,8 +73,8 @@ const clickEv = (selectItem) => {
 
 const apply2Settings = () => {
     const id = props.id;
-    TUICPref.setPref(id, list.value);
-    TUICPref.save();
+    setPref(id, list.value);
+    savePref();
     updateClasses();
 };
 
@@ -116,7 +116,7 @@ const toDown = () => {
 
 const toDefault = () => {
     const settingId = props.id;
-    list.value = structuredClone(TUICPref.getDefaultPref(settingId).data);
+    list.value = structuredClone(getDefaultPref(settingId).data);
     selectedElem.value = "";
     apply2Settings();
 };
@@ -158,7 +158,7 @@ const UpdownButtonFuncs = [
         nextHr: false,
     },
 ];
-const UDALL = TUICPref.getSettingIDs(props.id);
+const UDALL = getSettingIDs(props.id);
 let _contentCount = 5;
 if (UDALL.length > 5) {
     _contentCount = UDALL.length;

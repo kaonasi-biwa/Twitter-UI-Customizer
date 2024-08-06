@@ -1,0 +1,145 @@
+body {
+    color: #eee;
+    background: #111;
+}
+
+main#container {
+    padding: 50px 60px;
+    border: 1px solid #3e3e3e;
+    /* min-width: max-content; */
+}
+.TUIC_options_title {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.TUIC_options_titleWithIcon {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+#icon {
+    width: 42px;
+}
+
+.TUIC_options_divider_small {
+    width: 85px;
+    height: 1px;
+    margin: 35px auto;
+    background: #333;
+    border: none;
+}
+
+.TUIC_options_howtoOperate_container {
+    padding: 25px 40px;
+    background: #ffffff0f;
+    border-radius: 8px;
+    p {
+        margin: 5px 0;
+        font-size: 1rem;
+        color: #a4a4a4;
+    }
+    h1 {
+        margin: 0 0 10px;
+    }
+}
+
+.TUIC_options_twSetting {
+    margin-bottom: 30px;
+}
+
+.TUIC_options_updateTiming_chkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    div {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+.TUIC_options_openTwSettingContainer {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    color: #eee;
+    text-decoration: none;
+    background: #172e53;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: 0.2s;
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+    div.bi {
+        width: fit-content;
+    }
+    .TUIC_options_openTwSetting_main {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    .TUIC_options_openTwSetting_sub {
+        font-size: 1rem;
+        color: #a4a4a4;
+    }
+    &:hover {
+        background: #1c3864;
+    }
+    &:active {
+        background: #0d192d;
+        border: 2px solid #6398ff;
+        transition: 0s;
+    }
+}
+
+.TUIC_options_thanks_members {
+    display: grid;
+    flex: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 0;
+    font-size: 15px;
+    li {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        list-style-type: none;
+        background: #ffffff0f;
+        border: 1px solid #262626;
+        border-radius: 5px;
+        span {
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: initial;
+            color: #a4a4a4;
+        }
+        .TUIC_options_thanks_member_platform {
+            display: flex;
+            gap: 3px;
+            align-items: center;
+            color: var(--color-tw);
+
+            --color-tw: #00c3ff;
+            span {
+                margin-top: 0;
+                color: var(--color-tw);
+            }
+            div.bi {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (width <= 600px) {
+    .TUIC_options_thanks_members {
+        grid-template-columns: 1fr;
+    }
+}

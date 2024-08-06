@@ -3,19 +3,19 @@
  * << Twitter を思いのままに。 >>
  */
 
-import { TUICObserver } from "@modules/observer/index.ts";
-import { TUICLibrary } from "@content/library.ts";
+import { TUICObserver } from "@modules/observer/index";
 import { TUICI18N } from "@modules/i18n";
-import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon, applyDefaultStyle } from "@content/applyCSS.ts";
+import { applySystemCss, addCssElement, applyDataCss, applyCustomIcon, applyDefaultStyle } from "@content/applyCSS";
 import { runSafemode } from "@modules/settings/safemode/safemode";
-import { isSafemode } from "@modules/settings/safemode/isSafemode.ts";
-import { startTluiObserver } from "@shared/tlui/observer.ts";
-import { TUICPref } from "@modules/index.ts";
-import { initIconObserverFunction } from "@modules/observer/functions/changeIcon.ts";
-import { titleObserverFunction } from "@modules/observer/titleObserver.ts";
+import { isSafemode } from "@modules/settings/safemode/isSafemode";
+import { startTluiObserver } from "@shared/tlui/observer";
+import { initIconObserverFunction } from "@modules/observer/functions/changeIcon";
+import { titleObserverFunction } from "@modules/observer/titleObserver";
 import { updateClasses } from "./modules/htmlClass/classManager";
 import { placeSettingObserver } from "./modules/settings";
 import { placePrintPrefButton } from "./printPref";
+import { getPref, mergeDefaultPref, setPref, updatePref } from "@modules/pref";
+import { waitForElement } from "@modules/utils/controlElements";
 
 (async () => {
     if (location.href === "https://twitter.com/ja/tos") {
@@ -24,19 +24,27 @@ import { placePrintPrefButton } from "./printPref";
         await TUICI18N.fetch();
         // Pref救出
         placePrintPrefButton();
+    } else if (location.href === "https://twitter.com//") {
+        // NOTE: i18n データのフェッチ
+        await TUICI18N.fetch();
+        //document.write("aaa");
+        alert(TUICI18N.get("rescuePref-detail", "ja") + "\n\n" + TUICI18N.get("rescuePref-detail", "en"));
+        alert(localStorage.getItem("TUIC"));
+        alert(localStorage.getItem("TUIC_CSS"));
+        alert(TUICI18N.get("rescuePref-complete", "ja") + "\n\n" + TUICI18N.get("rescuePref-complete", "en"));
     } else {
         await Promise.all([
             // NOTE: i18n データのフェッチ
             TUICI18N.fetch(),
 
             // NOTE: 設定の更新
-            TUICPref.updatePref(),
+            updatePref(),
 
             // NOTE: Twitter のレンダリングを待機
-            TUICLibrary.waitForElement("#react-root"),
+            waitForElement("#react-root"),
         ]);
 
-        TUICPref.setPref("", TUICPref.mergeDefaultPref(TUICPref.getPref("")));
+        setPref("", mergeDefaultPref(getPref("")));
 
         // 起動メッセージ
         console.log(
@@ -69,7 +77,7 @@ import { placePrintPrefButton } from "./printPref";
         }
 
         // タイトル変更のためのObserver
-        TUICLibrary.waitForElement("title").then(titleObserverFunction);
+        waitForElement("title").then(titleObserverFunction);
 
         // TLUI用のObserver
         startTluiObserver();

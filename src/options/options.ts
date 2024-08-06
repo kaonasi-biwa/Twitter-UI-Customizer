@@ -1,4 +1,5 @@
-import { TUICI18N } from "@modules/i18n/index.ts";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { TUICI18N } from "@modules/i18n/index";
 
 let setting = {};
 
@@ -23,7 +24,8 @@ window.onload = () => {
     i18nApply();
     chrome.storage.sync.get("TUIC", async (settingT) => {
         await TUICI18N.fetch();
-        const isWebstore = !(await chrome.runtime.getManifest()).update_url?.includes("google.com");
+        const updateUrl = chrome.runtime.getManifest().update_url;
+        const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
         setting = settingT.TUIC ?? {
             iconClick: isWebstore,
             runBrowser: isWebstore,

@@ -1,12 +1,13 @@
-import { TUICPref } from "@content/modules";
+import { hideElement, showElement, hasClosest } from "@modules/utils/controlElements";
+import { getPref } from "@modules/pref";
 
 // NOTE: 条件分岐とClass付与を一行にまとめる場合は、.? をつけるのを忘れないようにしましょう
 export function hideElements() {
     document.querySelectorAll('a[href$="quick_promote_web/intro"]').forEach((e) => {
-        if (TUICPref.getPref("tweetDisplaySetting.invisible.twitter-pro-promotion-btn")) {
-            e.hide();
+        if (getPref("tweetDisplaySetting.invisible.twitter-pro-promotion-btn")) {
+            hideElement(e);
         } else {
-            e.show();
+            showElement(e);
         }
     });
 
@@ -14,86 +15,113 @@ export function hideElements() {
     profile();
     osusumeUser();
 
-    if (TUICPref.getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
-        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
+    if (getPref("timeline.accountStart") && location.search.indexOf("f=user") === -1 && !location.href.includes("/settings/") && document.querySelector(`[href="/settings/profile"]`)) {
+        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([data-processed-article]):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *) [aria-live="polite"]`);
         for (const elem of cells) {
-            elem.closest(`div[data-testid="cellInnerDiv"]`).hide();
-            elem.closest(`div[data-testid="cellInnerDiv"]`).previousElementSibling?.hide();
+            hideElement(elem.closest(`div[data-testid="cellInnerDiv"]`));
+            hideElement(elem.closest(`div[data-testid="cellInnerDiv"]`).previousElementSibling);
         }
     }
 
-    if (TUICPref.getPref("tweetDisplaySetting.invisible.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3])) {
-        document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`)?.parentElement.hide();
+    if (getPref("tweetDisplaySetting.invisible.subscribe-tweets") && window.location.pathname.includes("/status/") && /^\d+$/.test(new URL(location.href).pathname.split("/")[3])) {
+        hideElement(document.querySelector(`*:not(.TUIC_DISPNONE) > [data-testid$="-subscribe"]`)?.parentElement);
     }
 
-    if (TUICPref.getPref("accountSwitcher.icon") && TUICPref.getPref("accountSwitcher.nameID") && TUICPref.getPref("accountSwitcher.moreMenu")) {
-        document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`)?.hasClosest(`:scope > * > [data-testid="SideNav_AccountSwitcher_Button"]`).hide();
+    if (getPref("accountSwitcher.icon") && getPref("accountSwitcher.nameID") && getPref("accountSwitcher.moreMenu")) {
+        hideElement(hasClosest(document.querySelector(`:not(TUIC_DISPNONE) > * > [data-testid="SideNav_AccountSwitcher_Button"]`), `:scope > * > [data-testid="SideNav_AccountSwitcher_Button"]`));
     }
 
     document.querySelectorAll('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
-        if (TUICPref.getPref("invisibleItems.config-premium")) {
-            e.hide();
+        if (getPref("invisibleItems.config-premium")) {
+            hideElement(e);
         } else {
-            e.show();
+            showElement(e);
         }
     });
 
-    if (TUICPref.getPref("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
-        document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement.hide();
+    if (getPref("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
+        hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not(.TUIC_DISPNONE > *)`)?.parentElement);
     }
 }
 
 function rightSidebar() {
-    if (TUICPref.getPref("rightSidebar.verified")) {
-        document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"])`)?.hasClosest(`[role="complementary"]`).hide();
+    if (getPref("rightSidebar.verified")) {
+        hideElement(hasClosest(document.querySelector(`*:not(.TUIC_DISPNONE) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"], [href="/i/premium_sign_up"])`), `[role="complementary"]`));
     }
-    if (TUICPref.getPref("rightSidebar.trend")) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`)?.hasClosest(":scope > * >  section").hide();
+    if (getPref("rightSidebar.trend")) {
+        hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="trend"]`), ":scope > * >  section"));
     }
-    if (TUICPref.getPref("rightSidebar.osusumeUser") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`)?.hasClosest(":scope > * > aside").hide();
+    if (getPref("rightSidebar.osusumeUser") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null) {
+        hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]:not([role="search"] *)`), ":scope > * > aside"));
     }
 
-    if (TUICPref.getPref("rightSidebar.relevantPeople") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span`)) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`)?.hasClosest(`:scope > * > * > [data-testid="UserCell"]`).hide();
+    if (getPref("rightSidebar.relevantPeople") && document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"] [dir="auto"] > span`)) {
+        hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="UserCell"]`), `:scope > * > * > [data-testid="UserCell"]`));
     }
-    if (TUICPref.getPref("rightSidebar.links")) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`)?.parentElement.hide();
+    if (getPref("rightSidebar.links")) {
+        hideElement(document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) > nav`)?.parentElement);
     }
-    if (TUICPref.getPref("rightSidebar.searchBox")) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`)?.hasClosest(`:scope > * > * > * > [role="search"]`).hide();
+    if (getPref("rightSidebar.searchBox")) {
+        hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [role="search"]`), `:scope > * > * > * > [role="search"]`));
     }
-    if (TUICPref.getPref("rightSidebar.space")) {
-        document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`)?.closest(`[data-testid="placementTracking"]`).parentElement.hide();
+    if (getPref("rightSidebar.space")) {
+        hideElement(document.querySelector(`[data-testid="sidebarColumn"] *:not(.TUIC_DISPNONE) [data-testid="pill-contents-container"]`)?.closest(`[data-testid="placementTracking"]`).parentElement);
     }
 }
 
 function profile() {
-    if (TUICPref.getPref("profileSetting.invisible.subscribe-profile")) {
-        document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`)?.hide();
+    if (getPref("profileSetting.invisible.subscribe-profile")) {
+        hideElement(document.querySelector(`[data-testid="userActions"]+[style*="border-color"][style*="rgb(201, 54, 204)"]:not(.TUIC_DISPNONE)`));
     }
 
-    if (TUICPref.getPref("profileSetting.invisible.profileHighlights")) {
+    if (getPref("profileSetting.invisible.profileHighlights")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/highlights"]`);
         for (const elem of tabs) {
-            elem.parentElement.hide();
+            hideElement(elem.parentElement);
         }
     }
 
-    if (TUICPref.getPref("profileSetting.invisible.profileAffiliates")) {
+    if (getPref("profileSetting.invisible.profileArticles")) {
+        const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/articles"]`);
+        for (const elem of tabs) {
+            hideElement(elem.parentElement);
+        }
+    }
+
+    if (getPref("profileSetting.invisible.profileAffiliates")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/affiliates"]`);
         for (const elem of tabs) {
-            elem.parentElement.hide();
+            hideElement(elem.parentElement);
         }
     }
 
-    if (TUICPref.getPref("profileSetting.invisible.verifiedFollowerTab")) {
+    if (getPref("profileSetting.invisible.profilePagePremium")) {
+        const tabs = document.querySelectorAll(`[data-testid="primaryColumn"] :not(.TUIC_DISPNONE) > * [role="link"][href="/i/premium_sign_up"]`);
+        for (const elem of tabs) {
+            hideElement(elem.parentElement.parentElement);
+        }
+    }
+
+    if (getPref("profileSetting.invisible.verifiedFollowerTab")) {
         const nowURL = location.pathname;
         if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
             const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/verified_followers"]`);
             if (tab) {
-                tab.parentElement.hide();
+                hideElement(tab.parentElement);
                 if (nowURL.endsWith("/verified_followers")) {
+                    document.querySelector<HTMLAnchorElement>(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
+                }
+            }
+            document.querySelector(`nav [data-testid="ScrollSnap-prevButtonWrapper"]:not(.TUIC_DISPNONE_PARENT > *)`)?.parentElement.classList.add("TUIC_DISPNONE_PARENT");
+        }
+    }
+    if (getPref("profileSetting.invisible.followersYouFollowTab")) {
+        const nowURL = location.pathname;
+        if (nowURL.endsWith("/followers") || nowURL.endsWith("/following") || nowURL.endsWith("/followers_you_follow") || nowURL.endsWith("/verified_followers")) {
+            const tab = document.querySelector(`[role="presentation"]:not(.TUIC_DISPNONE) > [role="tab"][href$="/followers_you_follow"]`);
+            if (tab) {
+                hideElement(tab.parentElement);
+                if (nowURL.endsWith("/followers_you_follow")) {
                     document.querySelector<HTMLAnchorElement>(`[role="presentation"] > [role="tab"][href$="/followers"]`)?.click();
                 }
             }
@@ -103,8 +131,8 @@ function profile() {
 }
 
 function osusumeUser() {
-    if (TUICPref.getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
-        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not(.TUICDidArticle):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
+    if (getPref("timeline.osusume-user-timeline") && location.search.indexOf("f=user") == -1 && !location.href.includes("/settings/")) {
+        const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([data-processed-article]):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
         for (const elem of cells) {
             if (
                 elem.querySelector(`[data-testid="UserCell"]`) != null &&
@@ -112,13 +140,13 @@ function osusumeUser() {
                 elem.querySelector(`[aria-live="polite"]`) == null &&
                 (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)
             ) {
-                elem.hide();
+                hideElement(elem);
                 if (elem.previousElementSibling.querySelector(`h2`) != null) {
-                    elem.previousElementSibling.hide();
+                    hideElement(elem.previousElementSibling);
                 }
             }
             if (elem.querySelector(`a[href*="&f=user"],a[href^="/i/connect_people?"]`) && elem.querySelector(`[aria-live="polite"]`) == null) {
-                elem.hide();
+                hideElement(elem);
             }
         }
     }

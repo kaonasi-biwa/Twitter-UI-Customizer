@@ -9,7 +9,7 @@ interface I18nAndAllContent {
 }
 
 interface ArticleInfomation {
-    elements: { buttonBarBase: HTMLDivElement; articleBase: Element; statusButton: HTMLAnchorElement };
+    elements: { buttonBarBase: HTMLDivElement; articleBase: HTMLElement; statusButton: HTMLAnchorElement };
     option: {
         isLockedAccount: boolean;
         cannotRT: boolean;

@@ -10,6 +10,7 @@
         <div class="TUIC_setting_easysetting_container">
             <settingsHeader titleI18N="settingUI-easySetting" descI18N="settingUI-easySetting-detail" />
             <EasySettings />
+            <IconButton i18n="rescuePref-ButtonLabel" :icon="TUICLogo" @click="rescuePref" />
         </div>
         <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
         <div>
@@ -50,7 +51,7 @@
         <hr class="TUIC_setting_divider" />
         <div>
             <SectionTitle titleI18N="settingSection-other" />
-            <detailsBox summaryI18N="export-import" :icon="ICON_ARROW_RIGHT" :icon-opened="ICON_ARROW_RIGHT_ENABLED">
+            <detailsBox summaryI18N="export-import" :icon="ICON_ARROW_RIGHT" :icon-opened="ICON_ARROW_RIGHT_ENABLED" id="importSection">
                 <SettingImportExport />
             </detailsBox>
             <defaultPrefButton />
@@ -107,7 +108,11 @@ import SettingImportExport from "./modules/settingImportExport.vue";
 import settingLogo from "./modules/settingLogo.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
+import TUICLogo from "@content/icons/branding/tuic_unilogo.svg?component";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
+import { Dialog } from "@shared/tlui/components/Dialog";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
+import { TUICI18N } from "@content/modules/i18n";
 
 function openReadme() {
     openInNewTab("https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/README.md");
@@ -120,6 +125,29 @@ function openGithub() {
 }
 function openInNewTab(url: string) {
     window.open(url, "_blank");
+}
+function rescuePref() {
+    const dialog = new Dialog(TUICI18N.get("rescuePref-ButtonLabel"));
+    dialog
+        .addComponents([
+            ...TUICI18N.get("rescuePref-dialog").split("\r"),
+            "",
+            /*            new TextboxComponent("", { readonly: false, rows: 5 }),
+            new ButtonComponent(TUICI18N.get("common-copy-and-close"), () => {
+                dialog.close();
+                navigator.clipboard.writeText("");
+            }),*/
+            new ButtonComponent(TUICI18N.get("common-go-and-openNewTab"), () => {
+                openInNewTab("https://twitter.com/?mx=1");
+                document.querySelector("#importSection").setAttribute("open", "true");
+                document.querySelector("#importTitle").scrollIntoView({
+                    behavior: "smooth",
+                });
+                dialog.close();
+            }),
+            new ButtonComponent(TUICI18N.get("common-cancel"), () => dialog.close(), { invertColor: true }),
+        ])
+        .open();
 }
 </script>
 <!--

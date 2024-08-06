@@ -3,13 +3,12 @@ export default {
     common: {
         name: "__MSG_extensionName__",
         description: "__MSG_extensionDescription__",
-        version: "4.2.4",
+        version: "5.0.4",
         default_locale: "ja",
         content_scripts: [
             {
                 matches: ["*://*.x.com/*", "*://*.twitter.com/*"],
                 js: ["inject.js"],
-
                 run_at: "document_start",
             },
         ],
@@ -62,7 +61,7 @@ export default {
         web_accessible_resources: [
             {
                 resources: ["*"],
-                matches: ["*://*.twitter.com/*"],
+                matches: ["*://*.twitter.com/*", "*://*.x.com/*"],
             },
         ],
         permissions: ["notifications", "storage"],

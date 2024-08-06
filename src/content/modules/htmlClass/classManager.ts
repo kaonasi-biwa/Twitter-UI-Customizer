@@ -13,7 +13,6 @@ const ClassList = [
     "TUIC_NONE_SPACE_BOTTOM_TWEET",
     "TUIC_TWEETREPLACE",
     "TUIC_UnderTweetButton",
-    "TUICDidArticle",
     "TUICDidInfoArticle",
     "TUICItIsBigArticle",
     "TUICItIsBigArticlePhoto",
@@ -27,6 +26,7 @@ const ClassList = [
     "TUICFollowerListButtons",
     ProcessedClass,
 ];
+const AttrList = { processedArticle: "processed-article", tuicDiscoverMore: "tuic-discover-more", tuicSettings: "tuic-settings" };
 export const updateClasses = (isInit: boolean = false) => {
     if (!isInit) TUICObserver.unbind();
     deleteClasses();
@@ -37,6 +37,14 @@ const deleteClasses = () => {
     for (const id of ClassList) {
         document.querySelectorAll(`.${id}`).forEach((elem) => {
             elem.classList.remove(id);
+        }); /*
+            for (const elem of document.getElementsByClassName(id)) {
+                elem.classList.remove(id);
+            }*/
+    }
+    for (const id in AttrList) {
+        document.querySelectorAll<HTMLElement>(`[data-${AttrList[id]}]`).forEach((elem) => {
+            delete elem.dataset[id];
         }); /*
             for (const elem of document.getElementsByClassName(id)) {
                 elem.classList.remove(id);

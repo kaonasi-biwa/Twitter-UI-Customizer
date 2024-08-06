@@ -1,0 +1,28 @@
+:is([data-tuic-discover-more="open"], [data-tuic-discover-more="close"]) {
+    padding-left: 20px;
+}
+
+:is([data-tuic-discover-more="open"], [data-tuic-discover-more="close"])::before {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    content: "";
+}
+
+[data-tuic-discover-more="close"]::before {
+    border: 5px solid transparent;
+    border-left: 8px solid #555;
+    transform: translateY(-50%);
+}
+
+[data-tuic-discover-more="open"]::before {
+    border: 6px solid transparent;
+    border-top: 7px solid #555;
+}
+[data-tuic-discover-more="invisible"] {
+    display: none !important;
+}
+
+:is([data-tuic-discover-more="close"], [data-tuic-discover-more="invisible"]) ~ .TUIC_DISCOVERMORE {
+    display: none !important;
+}

@@ -3,6 +3,9 @@
         <settingSubtitle2 title-i18-n="common-hidebelow" />
         <CheckBoxList id="invisibleItems" />
 
+        <settingSubtitle2 title-i18-n="settingPerformance-settingTitle" />
+        <CheckBoxList id="performanceSettings" />
+
         <settingSubtitle2 title-i18-n="customCSS-settingTitle" />
         <customCSS />
     </div>
