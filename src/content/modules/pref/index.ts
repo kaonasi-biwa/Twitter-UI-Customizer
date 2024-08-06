@@ -176,7 +176,7 @@ export async function updatePref(source = config) {
                         localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                         resolve(null);
                     };
-                    image.src = localStorage.getItem(`TUIC_IconImg`);
+                    image.src = localStorage.getItem("TUIC_IconImg");
                 });
             }
 
@@ -285,6 +285,7 @@ const prefVersion = 3;
 
 // Objectの中身はこれに従ってください
 type TUICSetting =
+    /* eslint-disable style/indent, style/indent-binary-ops */
     | {
           type: "color"; // 色設定 あとから変更する予定です
           values: { id: string; i18n: string }[];
@@ -292,6 +293,7 @@ type TUICSetting =
     | { type: "order"; default: string[]; values: { id: string; i18n: string }[] } // 並び替え
     | { type: "select"; default: string; values: { id: string; i18n: string }[] } //ラジオボタンなどの一つのみ設定するやつ
     | { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] }; //チェックボックスなどの一つ一つがboolean型の設定になるもの
+    /* eslint-enable style/indent, style/indent-binary-ops */
 const ids = {
     // 色の設定
     buttonColor: {

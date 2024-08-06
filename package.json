@@ -27,6 +27,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.8.0",
+        "@stylistic/eslint-plugin": "^2.6.1",
         "@types/chrome": "^0.0.266",
         "@vitejs/plugin-vue": "^5.1.1",
         "autoprefixer": "^10.4.19",

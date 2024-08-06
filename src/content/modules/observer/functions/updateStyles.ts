@@ -20,12 +20,12 @@ export function updateStyles() {
         fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
     }
 
-    if (document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd");
+    if (document.querySelector(".TUICSidebarButton .r-mbgqwd") != null) document.querySelector(".TUICSidebarButton .r-mbgqwd")?.classList?.remove("r-mbgqwd");
 }
 
 const tuicButtonUrl = {
-    topics: `/topics`,
-    lists: `/lists`,
+    topics: "/topics",
+    lists: "/lists",
     communities: "/communities",
     connect: "/i/connect_people",
     drafts: "/compose/tweet/unsent/",

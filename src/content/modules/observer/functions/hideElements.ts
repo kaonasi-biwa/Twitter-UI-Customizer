@@ -121,10 +121,10 @@ function osusumeUser() {
         const cells = document.querySelectorAll(`div[data-testid="cellInnerDiv"]:not([data-processed-article]):not([aria-labelledby="modal-header"] *):not([data-testid="primaryColumn"] > div > section *):not([data-testid="DMDrawer"] *):not([aria-live="polite"]+div *)`);
         for (const elem of cells) {
             if (
-                elem.querySelector(`[data-testid="UserCell"]`) != null &&
-                elem.previousElementSibling != null &&
-                elem.querySelector(`[aria-live="polite"]`) == null &&
-                (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)
+                elem.querySelector(`[data-testid="UserCell"]`) != null
+                && elem.previousElementSibling != null
+                && elem.querySelector(`[aria-live="polite"]`) == null
+                && (elem.previousElementSibling.querySelector(`[data-testid="UserCell"]`) != null || elem.previousElementSibling.querySelector(`h2`) != null)
             ) {
                 hideElement(elem);
                 if (elem.previousElementSibling.querySelector(`h2`) != null) {

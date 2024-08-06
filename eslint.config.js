@@ -1,6 +1,8 @@
 import eslint from "@eslint/js";
 import globals from "globals";
 
+import stylistic from "@stylistic/eslint-plugin";
+
 import tseslint from "typescript-eslint";
 import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
@@ -9,6 +11,14 @@ export default tseslint.config(
     {
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
     },
+    stylistic.configs.customize({
+        pluginName: "style",
+        indent: 4,
+        quotes: "double",
+        semi: true,
+        braceStyle: "1tbs",
+        quoteProps: "as-needed",
+    }),
     {
         files: ["**/*.{js,ts,tsx,vue}"],
         languageOptions: {
@@ -28,6 +38,11 @@ export default tseslint.config(
             "no-unused-vars": 0,
             "no-empty": 0,
             "no-unsafe-option-chaining": 0,
+            "style/spaced-comment": 0,
+            "style/lines-between-class-members": 0,
+            "style/jsx-closing-tag-location": 0,
+            "style/arrow-parens": ["error", "always"],
+            "style/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }],
         },
     },
     {

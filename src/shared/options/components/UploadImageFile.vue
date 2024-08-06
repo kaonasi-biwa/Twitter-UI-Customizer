@@ -22,7 +22,7 @@ async function changeCustomCSS() {
         await new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
-                localStorage.setItem(`TUIC_IconImg`, reader.result as string);
+                localStorage.setItem("TUIC_IconImg", reader.result as string);
                 const element = document.createElement("canvas");
                 element.height = 200;
                 element.width = 200;
@@ -35,7 +35,7 @@ async function changeCustomCSS() {
                     context.beginPath();
                     //@ts-expect-error idk
                     context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
-                    localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
+                    localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                     resolve(null);
                 };
 
@@ -44,8 +44,8 @@ async function changeCustomCSS() {
             reader.readAsDataURL(twitterIcon.value.files[0]);
         });
     } else {
-        localStorage.setItem(`TUIC_IconImg`, "");
-        localStorage.setItem(`TUIC_IconImg_Favicon`, "");
+        localStorage.setItem("TUIC_IconImg", "");
+        localStorage.setItem("TUIC_IconImg_Favicon", "");
     }
 
     applySystemCss();
