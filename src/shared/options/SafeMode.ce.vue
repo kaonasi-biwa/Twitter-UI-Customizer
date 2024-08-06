@@ -36,19 +36,10 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 
 import OptionMain from "../settings/SettingMain.ce.vue";
-
-export default defineComponent({
-    components: { OptionMain },
-    setup() {
-        return { TUICI18N };
-    },
-});
 </script>
 
 <style scoped>

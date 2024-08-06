@@ -4,15 +4,13 @@
     </h2>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { defineProps } from "vue";
 import { TUICI18N } from "@modules/i18n";
-export default defineComponent({
-    props: ["i18n"],
-    setup() {
-        return { TUICI18N };
-    },
-});
+
+defineProps<{
+    i18n: string;
+}>();
 </script>
 
 <style scoped></style>
