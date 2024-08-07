@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 
 // new URL("./img.png", import.meta.url).href;
 

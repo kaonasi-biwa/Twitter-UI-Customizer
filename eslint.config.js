@@ -2,6 +2,7 @@ import eslint from "@eslint/js";
 import globals from "globals";
 
 import stylistic from "@stylistic/eslint-plugin";
+import unusedimports from "eslint-plugin-unused-imports";
 
 import tseslint from "typescript-eslint";
 import solideslint from "eslint-plugin-solid";
@@ -30,6 +31,9 @@ export default tseslint.config(
         extends: [
             eslint.configs.recommended, //
         ],
+        plugins: {
+            "unused-imports": unusedimports,
+        },
         rules: {
             indent: 0,
             semi: ["error", "always"],
@@ -38,6 +42,7 @@ export default tseslint.config(
             "no-unused-vars": 0,
             "no-empty": 0,
             "no-unsafe-option-chaining": 0,
+            "unused-imports/no-unused-imports": "error",
             "style/spaced-comment": 0,
             "style/lines-between-class-members": 0,
             "style/jsx-closing-tag-location": 0,

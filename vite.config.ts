@@ -1,4 +1,4 @@
-import { UserConfig, defineConfig, PluginOption } from "vite";
+import { UserConfig, defineConfig } from "vite";
 
 import url from "node:url";
 import path from "node:path";

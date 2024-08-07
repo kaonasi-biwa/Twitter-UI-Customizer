@@ -1,5 +1,5 @@
 import { TUICI18N } from "@modules/i18n";
-import { getSourceMap, NRStack, parseErrorStringCH, parseErrorStringFF } from "@shared/sourcemap";
+import { getSourceMap, NRStack, parseErrorStringFF } from "@shared/sourcemap";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";

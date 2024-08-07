@@ -31,7 +31,7 @@ import RadioButton from "@shared/options/components/RadioButton.vue";
 import IconRadioButton from "@shared/options/components/IconRadioButton.vue";
 import IconRadioButtonBase64Support from "@shared/options/components/IconRadioButtonBase64Support.vue";
 import { TUICI18N } from "@modules/i18n";
-import { getSettingI18n, TUICSettingIDs } from "@modules/pref";
+import { getSettingI18n } from "@modules/pref";
 
 export interface twIconsRadioListProps {
     radioName: "nomal" | "invisible" | "dog" | "twitter" | "twitterIcon-X" | "custom";

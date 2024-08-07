@@ -1,6 +1,6 @@
 import { getPref } from "@modules/pref";
 import { TUICI18N } from "@modules/i18n";
-import { hasClosest, hasClosestSelector } from "@modules/utils/controlElements";
+import { hasClosestSelector } from "@modules/utils/controlElements";
 
 let tweetCount = -1;
 
