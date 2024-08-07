@@ -36,7 +36,6 @@
     "stylelint.snippet": ["css", "scss", "pcss"],
     "stylelint.validate": ["css", "scss", "pcss"],
     // eslint
-    "eslint.useFlatConfig": true,
     "eslint.validate": [
         "javascript",
         "typescript",

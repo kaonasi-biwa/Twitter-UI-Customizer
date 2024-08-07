@@ -29,19 +29,13 @@ export default tseslint.config(
             },
         },
         extends: [
-            eslint.configs.recommended, //
+            eslint.configs.recommended,
         ],
         plugins: {
             "unused-imports": unusedimports,
         },
         rules: {
-            indent: 0,
-            semi: ["error", "always"],
-            "prefer-const": ["error"],
-            "linebreak-style": 0,
             "no-unused-vars": 0,
-            "no-empty": 0,
-            "no-unsafe-option-chaining": 0,
             "unused-imports/no-unused-imports": "error",
             "style/spaced-comment": 0,
             "style/lines-between-class-members": 0,
@@ -64,7 +58,6 @@ export default tseslint.config(
             ...vueeslint.configs["flat/recommended"],
         ],
         rules: {
-            "no-undef": 0,
             "@typescript-eslint/no-unused-vars": 0,
             "solid/self-closing-comp": ["warn", { html: "void" }],
             "vue/html-indent": ["warn", 4],
@@ -75,12 +68,8 @@ export default tseslint.config(
                 },
             }],
             "vue/max-attributes-per-line": 0,
-            "vue/no-unused-vars": 0,
-            "vue/no-unused-components": 0,
             "vue/attribute-hyphenation": 0,
             "vue/attributes-order": 0,
-            "vue/require-prop-types": 0,
-            "vue/prop-name-casing": 0,
             "vue/require-default-prop": 0,
         },
     },
