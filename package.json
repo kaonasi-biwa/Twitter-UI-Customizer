@@ -29,6 +29,7 @@
         "@eslint/js": "^9.9.0",
         "@stylistic/eslint-plugin": "^2.6.2",
         "@types/chrome": "^0.0.266",
+        "@unocss/eslint-plugin": "^0.61.9",
         "@vitejs/plugin-vue": "^5.1.2",
         "autoprefixer": "^10.4.20",
         "crx": "^5.0.1",
