@@ -1,13 +1,15 @@
-# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg"> Twitter UI Customizer
+# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg" /> Twitter UI Customizer
+
+[日本語](./README.md) | English
 
 ![Header Image](./public/icon/header.png)
 [![Github Actions](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/packaging.yml)
 [![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
 [![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)
 [![License](https://img.shields.io/github/license/kaonasi-biwa/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE)  
-<a href="https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser Add-ons" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png"></a>
-<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja"><img alt="Chrome Web Store" width="191.8" height="58" src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png"></a>
-<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png"></a>
+<a href="https://addons.mozilla.org/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser Add-ons" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" /></a>
+<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh"><img alt="Chrome Web Store" width="191.8" height="58" src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" /></a>
+<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png" /></a>
 
 [Instructions for Installation Using CRX Files](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)
 
@@ -95,10 +97,11 @@ Crowdin:
 - @lafixier (For translating to English)
 - @cutterknife (For translating to English)
 - @deflecta (For translating to Russian)
+- @GrapeApple0 (For translating to English)
 
 Others:
 
-- @CutterKnife\_ / Twitter **(Icon & Logo Creator)**
+- @CutterKnife_ / Twitter **(Icon & Logo Creator)**
 - @PianoCat1010 / Twitter **(Creator of the 'Like and Retweet' Icon)**
 
 ## Source of Icon Images
