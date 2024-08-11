@@ -57,8 +57,8 @@
         "vue-tsc": "^2.0.29",
         "web-ext": "^7.12.0"
     },
-    "packageManager": "pnpm@9.6.0",
     "engines": {
-        "node": ">=20.9.0"
+        "node": ">=20.9",
+        "pnpm": ">=9"
     }
 }
