@@ -20,6 +20,12 @@ import { Component } from "vue";
 import { ref } from "vue";
 import ICON_REVEAL from "@content/icons/common/reveal.svg?component";
 
+defineProps<{
+    summaryI18N: string;
+    icon: Component;
+    iconOpened: Component;
+}>();
+
 const opened = ref(false);
 function toggled($event: ToggleEvent) {
     if (($event.currentTarget as HTMLDetailsElement).open) {
@@ -28,9 +34,4 @@ function toggled($event: ToggleEvent) {
         opened.value = false;
     }
 }
-defineProps<{
-    summaryI18N: string;
-    icon: Component;
-    iconOpened: Component;
-}>();
 </script>

@@ -30,15 +30,15 @@ import { useStore } from "../store";
 import { ColorData } from "@shared/sharedData";
 import { getColorFromPref, hex2rgb, rgb2hex } from "@content/modules/utils/color";
 
-const transparentButton = ref(null);
-const colorRoot = ref(null);
-const rColorPicker = ref(null);
-
 const props = defineProps<{
     id: string;
     type: string;
     text: string;
 }>();
+
+const transparentButton = ref(null);
+const colorRoot = ref(null);
+const rColorPicker = ref(null);
 
 const store = useStore();
 

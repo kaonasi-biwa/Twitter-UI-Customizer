@@ -56,6 +56,7 @@ export default tseslint.config(
         },
         extends: [
             ...tseslint.configs.recommended,
+            //...tseslint.configs.strict,
             ...tseslint.configs.stylistic, //TypeChecked
             solideslint.configs["flat/typescript"],
             ...vueeslint.configs["flat/recommended"],
@@ -70,6 +71,10 @@ export default tseslint.config(
                     normal: "never",
                 },
             }],
+            "vue/block-tag-newline": "error",
+            "vue/define-macros-order": "error",
+            "vue/padding-line-between-blocks": "error",
+            "vue/v-for-delimiter-style": "error",
             "vue/max-attributes-per-line": 0,
             "vue/attribute-hyphenation": 0,
             "vue/attributes-order": 0,

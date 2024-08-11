@@ -10,6 +10,7 @@
         <CheckBoxList id="uncategorizedSettings" />
     </div>
 </template>
+
 <script setup lang="ts">
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
