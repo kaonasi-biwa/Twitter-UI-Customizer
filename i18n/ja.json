@@ -21,24 +21,19 @@
     "settingUI-colorPicker-background": "背景色",
     "settingUI-colorPicker-border": "枠色",
     "settingUI-colorPicker-svgColor": "画像色",
-
     "easySetting-restoreIcon": "Xなんて嫌！アイコンも名前もTwitterがいいんだ！！",
     "easySetting-deleteVerified": "「認証しろ」ってうるさい？全部非表示にしよう！",
     "easySetting-discoverMoreDelete": "「もっと見つける」が邪魔？消しちゃえ！",
     "easySetting-defaultTwitterColor": "Twitterの新しい色にはもう慣れた？それなら、今の色に合わせよう！",
-
     "settingSection-general": "全般",
     "settingSection-page": "ページ",
     "settingSection-other": "その他",
     "settingSection-extentionInfo": "アドオン情報",
-
     "settingDetailsBox-color": "色",
     "settingDetailsBox-sidebar": "サイドバー",
     "settingDetailsBox-logo": "ロゴ",
     "settingDetailsBox-effect_and_text": "画面効果とテキスト",
-
     "tweetbuttons-setting-tweet": "ツイート",
-
     "bottomTweetButtons-settingTitle": "ツイート下ボタン",
     "bottomTweetButtons-settingTitle-v2": "ツイートの表示設定",
     "bottomTweetButtons-settingTitle-linkCard": "リンクカードの設定",
@@ -67,7 +62,6 @@
     "bottomTweetButtons-setting-linkCopy": "ツイート下ボタンの「ツイートのリンクをコピー」",
     "bottomTweetButtons-setting-linkShareMenuCopy": "共有ボタンのメニューの「ツイートのリンクをコピー」",
     "setting-linkShareCopyURL": "「ツイートのリンクをコピー」のドメイン",
-
     "tweetMoreMenuItems-settingTitle": "ツイート右上「もっと見る」メニュー",
     "tweetMoreMenuItems-engagements": "エンゲージメントを表示",
     "tweetMoreMenuItems-highlighOnPin": "プロフィールに固定/固定を解除",
@@ -75,14 +69,10 @@
     "tweetMoreMenuItems-follow": "ユーザーをフォロー/フォロー解除",
     "tweetMoreMenuItems-notInterested": "このツイートに興味がない",
     "tweetMoreMenuItems-notHelpful": "このツイートは役に立ちませんでした",
-
     "tweetTopButton-settingTitle": "ツイート上ボタン",
-
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
-
     "tweetViewSettings-other": " その他",
-
     "sidebarButton-settingTitle": "左サイドバーの設定",
     "sidebarButton-setting-LeftSidebar": "左サイドバー",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
@@ -95,10 +85,8 @@
     "sidebarButton-homeIcon-normal": "家のアイコン",
     "sidebarButton-homeIcon-birdGoBack": "巣箱のアイコン",
     "sidebarButton-homeIcon-TUIC": "Twitter UI Customizerのアイコン",
-
     "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニュー",
     "sidebarButton-moreMenuItems-separator": "分離線",
-
     "rightSidebar-settingTitle": "右サイドバーの設定",
     "rightSidebar-setting-rightSidebar": "右サイドバー",
     "rightSidebar-rightSidebarVerified": "「認証する」を非表示にする",
@@ -108,7 +96,6 @@
     "rightSidebar-links": "リンク集を非表示にする",
     "rightSidebar-searchBox": "検索箱を非表示にする",
     "rightSidebar-space": "「進行中のスペースを聞く」を非表示にする",
-
     "invisibleItems-settingTitle": "非表示設定",
     "invisibleItems-twitterProPromotionBtn": "Twitter Pro プロモーションボタン",
     "invisibleItems-configPremium": "設定画面のプレミアム関連項目",
@@ -116,12 +103,13 @@
     "invisibleItems-subscribeTweets": "ツイート右上にたまにある「購入する」",
     "invisibleItems-subscribeProfile": "プロフィールのサブスクリプションボタン",
     "invisibleItems-profileHighlights": "プロフィールの「ハイライト」タブ",
+    "invisibleItems-profileArticles": "プロフィールの「記事」タブ",
     "invisibleItems-profileAffiliates": "プロフィールの「関連アカウント」タブ",
+    "invisibleItems-profilePagePremium": "プロフィールの「認証される」ボタン",
     "invisibleItems-hideBelowDM": "画面右下に存在するDMの欄",
     "invisibleItems-verifiedFollowerTab": "フォロワー一覧の「認証済みのフォロワー」タブ",
     "invisibleItems-verifiedNotifications": "通知の「認証済み」タブ",
     "invisibleItems-followersYouFollowTab": "フォロワー一覧の「知り合いのフォロワー」タブ",
-
     "profileSetting-profile": "プロフィール",
     "profileSetting-settingTitle": "プロフィール周辺の設定",
     "profileSetting-tabs-settingTitle": "タブの設定",
@@ -131,7 +119,6 @@
     "profileSetting-followersListButtons-followButton": "フォロー/フォロー中",
     "profileSetting-followersListButtons-reportButton": "ユーザーを報告する",
     "profileSetting-followersListButtons-removeFollowerButton": "フォロワーを削除する",
-
     "timeline-settingTitle": "タイムラインの設定",
     "timeline-setting-timeline": "タイムライン",
     "timeline-osusumeUsersOnTL": "おすすめユーザーを非表示にする",
@@ -146,7 +133,6 @@
     "timeline-discoverMore-invisible": "非表示にする",
     "customCSS-settingTitle": "カスタムCSS",
     "customCSS-save": "カスタムCSSを保存",
-
     "settingColors-settingTitle": "色の設定",
     "settingColors-select-base": "ベース",
     "settingColors-select-light": "ライト",
@@ -166,7 +152,6 @@
     "settingColors-blockingUnlock": "ブロック解除時のフォローボタン",
     "settingColors-twitterIcon": "Twitterアイコンの色",
     "settingColors-twitterIconFavicon": "タブのTwitterアイコンの色",
-
     "twitterIcon-settingTitle": "Twitterのアイコン",
     "twitterIcon-normal": "通常のアイコン",
     "twitterIcon-invisible": "非表示",
@@ -180,26 +165,19 @@
     "twitterIcon-favicon": "タブのアイコンも変更する",
     "twitterIcon-preset": "プリセット",
     "twitterIcon-other": "その他",
-
     "XToTwitter-settingTitle": "Twitterの帰還",
     "XtoTwitter-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
-
     "uncategorizedSettings-settingTitle": "その他の設定",
     "uncategorizedSettings-disableBackdropFilter": "ぼかし効果などの背景効果を無効にする",
-
     "settingPerformance-settingTitle": "パフォーマンス",
-
     "performanceSettings-removeDeletedTweets": "削除したツイートの残骸を消去する",
-
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
-
     "dmPage-setting-dm": "ダイレクトメッセージ",
     "dmPage-settingTitle": "ダイレクトメッセージの設定",
     "dmPage-showIcon": "対個人のダイレクトメッセージでも相手のアイコンを表示する",
-
     "export-import": "エクスポート/インポート",
     "export-intro": "TUICの設定をバックアップしたり、他のブラウザのTUICに設定をコピーしたりできます。",
     "export-intro-step1": "1. 「設定をエクスポート」をクリックします。",
@@ -208,7 +186,6 @@
     "export-settingTitle": "エクスポート",
     "export-exportButton": "設定をエクスポート",
     "export-exportButtonCopy": "エクスポートした設定をコピー",
-
     "import-intro": "エクスポートした設定をお持ちの場合は、このTUICで読み込むことができます。",
     "import-intro-step1": "1. 以下のテキストボックスに、エクスポートした設定をペーストします。",
     "import-intro-step2": "2. 設定をインポートします。",
@@ -219,13 +196,10 @@
     "import-importReplace": "インポートして置き換える",
     "import-select-explain": "「追記する」の場合は、インポート元に含まれている項目のみがインポートされます。「置き換える」の場合は、すべての設定を削除してから、設定がインポートされます。この場合、インポート元に含まれない設定はデフォルト値になります。",
     "import-error": "構文解析に失敗しました。インポート元のデータが破損している可能性があります。",
-
     "addonInfo-aboutTUIC": "Twitter UI Customizerについて",
     "addonInfo-TUICOfficialTwitter": "公式アカウント(@TUIC_Official)",
     "addonInfo-github": "GitHub",
-
     "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
-
     "common-yes": "はい",
     "common-no": "いいえ",
     "common-close": "閉じる",
@@ -239,13 +213,10 @@
     "common-copy": "コピー",
     "common-cancel": "キャンセル",
     "common-go-and-openNewTab": "進む (外部ページを開きます)",
-
     "rescuePref-ButtonLabel": "twitter.comのTUICの設定を救出する",
     "rescuePref-dialog": "まだ利用できるtwitter.comのホームページを利用して救出します。\rtwitter.comが開くので、TUICの表示設定に進み、下の方にある「エクスポート/インポート」から設定をエクスポートしてください。\rボタンを押すと外部ページを新しいタブで開きます。\rこのタブに戻ると設定のインポート画面が表示されます",
     "rescuePref-detail": "エクスポートされた設定、CSSの順で表示されます。それぞれコピーしてx.comでインポート/保存してください。",
     "rescuePref-complete": "これで救出完了です。それぞれx.comのTUICで読み込んでください。カスタムアイコンに関しては、申し訳ございませんが対応しておりません。",
-
     "inportExportOptions.includingCustomCSS": "エクスポート内容にカスタムCSSを含める",
-
     "temp-notice-hideDMSheetOnBottomRight": "現在、画面右下に存在するDMの欄は、「その他の設定」から非表示にできます。"
 }

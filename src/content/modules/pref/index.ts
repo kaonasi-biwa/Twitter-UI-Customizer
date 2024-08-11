@@ -556,9 +556,11 @@ const ids = {
         values: [
             { id: "subscribe-profile", i18n: "invisibleItems-subscribeProfile", default: false },
             { id: "profileHighlights", i18n: "invisibleItems-profileHighlights", default: false },
+            { id: "profileArticles", i18n: "invisibleItems-profileArticles", default: false },
             { id: "profileAffiliates", i18n: "invisibleItems-profileAffiliates", default: false },
             { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab", default: false },
             { id: "followersYouFollowTab", i18n: "invisibleItems-followersYouFollowTab", default: false },
+            { id: "profilePagePremium", i18n: "invisibleItems-profilePagePremium", default: false },
         ],
     },
     "profileSetting.followersListButtons": {

@@ -81,10 +81,24 @@ function profile() {
         }
     }
 
+    if (getPref("profileSetting.invisible.profileArticles")) {
+        const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/articles"]`);
+        for (const elem of tabs) {
+            hideElement(elem.parentElement);
+        }
+    }
+
     if (getPref("profileSetting.invisible.profileAffiliates")) {
         const tabs = document.querySelectorAll(`:not(.TUIC_DISPNONE) > [role="tab"][href$="/affiliates"]`);
         for (const elem of tabs) {
             hideElement(elem.parentElement);
+        }
+    }
+
+    if (getPref("profileSetting.invisible.profilePagePremium")) {
+        const tabs = document.querySelectorAll(`[data-testid="primaryColumn"] :not(.TUIC_DISPNONE) > * [role="link"][href="/i/premium_sign_up"]`);
+        for (const elem of tabs) {
+            hideElement(elem.parentElement.parentElement);
         }
     }
 
