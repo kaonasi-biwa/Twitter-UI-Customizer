@@ -3,6 +3,7 @@ import globals from "globals";
 
 import stylistic from "@stylistic/eslint-plugin";
 import unusedimports from "eslint-plugin-unused-imports";
+import importx from "eslint-plugin-import-x";
 
 import tseslint from "typescript-eslint";
 import solideslint from "eslint-plugin-solid";
@@ -35,10 +36,16 @@ export default tseslint.config(
         ],
         plugins: {
             "unused-imports": unusedimports,
+            import: importx,
         },
         rules: {
             "no-unused-vars": 0,
             "unused-imports/no-unused-imports": "error",
+            "import/first": "error",
+            "import/no-duplicates": "error",
+            "import/no-named-default": "error",
+            "import/no-self-import": "error",
+            "import/newline-after-import": "error",
             "unocss/order": 0,
             "style/spaced-comment": 0,
             "style/lines-between-class-members": 0,

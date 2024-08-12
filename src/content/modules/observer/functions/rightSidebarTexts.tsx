@@ -4,6 +4,7 @@ import { TUICI18N } from "@content/modules/i18n";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
+
 const elem = (): JSX.Element => {
     return (
         <a

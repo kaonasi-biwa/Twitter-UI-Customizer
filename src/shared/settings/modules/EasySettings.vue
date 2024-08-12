@@ -19,6 +19,7 @@ import { getPref, setPref, savePref, mergePref } from "@modules/pref";
 import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 import { updateClasses } from "@content/modules/htmlClass/classManager";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
+
 // copied from old component; @shared/options/modules/SettingsHeader.vue
 const buttonList = [
     {

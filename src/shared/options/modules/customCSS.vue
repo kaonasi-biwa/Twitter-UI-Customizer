@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import { applyCustomCss } from "@content/applyCSS";
 import { TUICI18N } from "@modules/i18n";
+
 const CustomCSSBox = defineModel<HTMLTextAreaElement>();
 
 function changeCustomCSS() {

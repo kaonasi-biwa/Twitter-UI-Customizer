@@ -12,6 +12,7 @@ import { TUICI18N } from "@modules/i18n";
 import { getPref, setPref, savePref } from "@modules/pref";
 import { titleObserverFunction } from "@modules/observer/titleObserver";
 import { updateClasses } from "@modules/htmlClass/classManager";
+
 defineProps<{
     name: string;
     value: string;

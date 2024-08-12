@@ -22,8 +22,7 @@ import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
 import { Component } from "vue";
-import { twIconsRadioListProps } from "./twIconRadioList.vue";
-import twIconRadioList from "./twIconRadioList.vue";
+import twIconRadioList, { twIconsRadioListProps } from "./twIconRadioList.vue";
 import UploadImageFile from "@shared/options/components/UploadImageFile.vue";
 
 const iconsList: Component[] = [ICON_HOME_X, ICON_HOME_TWITTER, ICON_HOME_TUIC];

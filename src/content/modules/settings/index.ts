@@ -1,3 +1,6 @@
+import { waitForElement } from "@modules/utils/controlElements";
+import { displaySetting } from "@modules/settings/display";
+
 let DisplaySettingObserver: MutationObserver = null;
 
 let target = document.querySelector("body") ?? undefined;
@@ -5,8 +8,6 @@ const config = {
     childList: true,
     subtree: true,
 };
-import { waitForElement } from "@modules/utils/controlElements";
-import { displaySetting } from "@modules/settings/display";
 
 export function placeSettingObserver() {
     if (DisplaySettingObserver) DisplaySettingObserver.disconnect();
