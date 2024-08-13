@@ -18,9 +18,8 @@ defineProps<{
     value: string;
 }>();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const changePref = (path: string, event: any) => {
-    setPref(path, event.target.checked);
+const changePref = (path: string, event: Event) => {
+    setPref(path, (event.target as HTMLInputElement).checked);
     savePref();
     updateClasses();
     titleObserverFunction();
