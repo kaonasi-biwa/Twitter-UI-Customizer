@@ -64,7 +64,7 @@
             <IconButton i18n="addonInfo-github" :icon="ICON_GITHUB" @click="openGithub" />
         </div>
         <a class="TUIC_setting_bottom_copyright" href="https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE">
-            <span style="color: rgb(113, 118, 124); font-size: 15px; text-align: center">&copy; 2022 kaonasi-biwa</span>
+            <span style=" font-size: 15px;color: rgb(113 118 124); text-align: center">&copy; 2022 kaonasi-biwa</span>
         </a>
     </div>
 </template>

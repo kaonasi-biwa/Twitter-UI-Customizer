@@ -8,7 +8,7 @@
             <CheckBoxList id="sidebarSetting.buttonConfig" />
         </div>
 
-        <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center">
+        <div style=" display: flex; align-items: center; justify-content: space-between;margin-top: 30px">
             <settingSubTitleNomargin i18n="sidebarButton-homeIcon-settingTitle" />
             <div class="TUIC_settings_settingsSidebar_IconRadioBtnList_container">
                 <IconRadioButtonList id="sidebarSetting.homeIcon" :icons-list="iconsList" />

@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex; justify-content: space-between; align-items: center">
+    <div style="display: flex; align-items: center; justify-content: space-between">
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
         <div style="display: flex; gap: 8px; align-items: center">
             <p style="color: rgb(113 118 124)" class="TUIC_setting_text">

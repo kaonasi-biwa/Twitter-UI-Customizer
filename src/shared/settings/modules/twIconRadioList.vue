@@ -2,7 +2,7 @@
     <!-- defaultRadioBtnがテキストか否かで変える(一応) -->
     <RadioButton style="gap: 15px" v-if="defaultRadioBtn.isText" id="twitterIcon.icon" :valueName="defaultRadioBtn.radioName" :name="getSettingI18n('twitterIcon.icon', 'nomal')" />
     <IconRadioButton v-if="!defaultRadioBtn.isText" id="twitterIcon.icon" :valueName="defaultRadioBtn.radioName" :name="getSettingI18n('twitterIcon.icon', 'nomal')" :icon="defaultRadioBtn.svgComponent" />
-    <div style="display: flex; justify-content: space-between; align-items: center">
+    <div style="display: flex; align-items: center; justify-content: space-between">
         <span style="margin-left: 28px">{{ TUICI18N.get("twitterIcon-preset") }}</span>
         <div>
             <div style="display: flex; gap: 10px">
@@ -13,7 +13,7 @@
             </div>
             <!-- アイコンが利用不可なものがあるならdetailsboxメニューに追いやる -->
             <details v-if="presetsRadioButtonsText.length !== 0">
-                <summary style="list-style-type: revert; list-style: revert; height: fit-content; margin-top: 6px">
+                <summary style=" height: fit-content; margin-top: 6px; list-style: revert;list-style-type: revert">
                     {{ TUICI18N.get("twitterIcon-other") }}
                 </summary>
                 <RadioButton v-for="i in presetsRadioButtonsText" :key="i.radioName" id="twitterIcon.icon" :valueName="i.radioName" :name="getSettingI18n('twitterIcon.icon', i.radioName)" />

@@ -33,8 +33,18 @@
     "css.validate": false,
     "scss.validate": false,
     "stylelint.packageManager": "pnpm",
-    "stylelint.snippet": ["css", "scss", "pcss"],
-    "stylelint.validate": ["css", "scss", "pcss"],
+    "stylelint.snippet": [
+        "css",
+        "scss",
+        "postcss",
+        "vue"
+    ],
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "postcss",
+        "vue"
+    ],
     // eslint
     "eslint.validate": [
         "javascript",
