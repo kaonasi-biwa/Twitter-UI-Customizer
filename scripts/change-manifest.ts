@@ -15,14 +15,15 @@ export async function changeManifest(target: string) {
         process.exit(1);
     }
 
+    type ExcludeAll<T> = { [P in keyof T]?: never };
     type Firefox = typeof manifest.common & typeof manifest.firefox;
-    type Chromium = typeof manifest.common & typeof manifest.chromium & { update_url?: string };
-    type ChromiumCRX = Chromium & typeof manifest.chromiumCRX;
+    type Chromium = typeof manifest.common & typeof manifest.chromium & ExcludeAll<typeof manifest.chromiumCRX>;
+    type ChromiumCRX = typeof manifest.common & typeof manifest.chromium & typeof manifest.chromiumCRX;
     let output: Firefox | Chromium | ChromiumCRX;
     if (target == "chromiumCRX") {
         output = Object.assign(config.common, config.chromium, config.chromiumCRX);
         const repo = process.env["GITHUB_REPO"];
-        output.update_url = output.update_url.replace("${github.repository}", repo);
+        output.update_url = output.update_url.replace("$(github.repository)", repo);
     } else {
         output = Object.assign(config.common, config[target]);
     }

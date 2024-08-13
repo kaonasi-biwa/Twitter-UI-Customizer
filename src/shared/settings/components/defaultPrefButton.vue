@@ -15,9 +15,6 @@ import ICON_RESET from "@content/icons/common/reset.svg?component";
 import IconButton from "@shared/settings/components/IconButton.vue";
 
 const ICON = ICON_RESET;
-const props = defineProps<{
-    classList?: string[];
-}>();
 
 const setDefault = async () => {
     await waitForElement("#layers");

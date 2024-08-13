@@ -82,6 +82,6 @@ export default {
     },
     // chromiumCRX設定
     chromiumCRX: {
-        update_url: "https://github.com/${github.repository}/releases/latest/download/crxupdate.xml",
+        update_url: "https://github.com/$(github.repository)/releases/latest/download/crxupdate.xml",
     },
 };

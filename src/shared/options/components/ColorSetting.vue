@@ -9,7 +9,7 @@
             </template>
             <template v-else>
                 <ColorResetButton :btn-id="`${id}-${type}-default`" :btn-title="TUICI18N.get('settingUI-colorPicker-restoreDefault')" @clicked-btn="resetBtnClicked" />
-                <RoundedColorPicker :input-id="`${id}-${type}`" :input-color-value="TUICColor1" @valueChanged="colorChanged" ref="rColorPicker" />
+                <RoundedColorPicker :input-id="`${id}-${type}`" :input-color-value="TUICColor1" @value-changed="colorChanged" ref="rColorPicker" />
                 <TransparentToggleButton :btn-id="`${id}-${type}`" :is-checked="TUIC_color[3] == '0'" @btn-clicked="TransparentToggleButtonClicked" :title-string="TUICI18N.get(`settingUI-colorPicker-transparent`)" ref="transparentButton" />
             </template>
         </div>
@@ -30,15 +30,15 @@ import { useStore } from "../store";
 import { ColorData } from "@shared/sharedData";
 import { getColorFromPref, hex2rgb, rgb2hex } from "@content/modules/utils/color";
 
-const transparentButton = ref(null);
-const colorRoot = ref(null);
-const rColorPicker = ref(null);
-
 const props = defineProps<{
     id: string;
     type: string;
     text: string;
 }>();
+
+const transparentButton = ref(null);
+const colorRoot = ref(null);
+const rColorPicker = ref(null);
 
 const store = useStore();
 
@@ -81,6 +81,7 @@ function defaultColor(colorAttr, colorType, colorKind) {
 
     applySystemCss();
 }
+
 function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
     const colorValue = hex2rgb(colorPickerVal);
     const isChecked = transparentButton.value.checked;

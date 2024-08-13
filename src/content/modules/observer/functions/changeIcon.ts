@@ -24,6 +24,7 @@ const iconObserverFunc = (elem: Element) => {
         });
     }
 };
+
 function changeIconProcess(elem: Element, base: Element) {
     const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
     const changeFavicon = getPref("twitterIcon.options.faviconSet");

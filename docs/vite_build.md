@@ -2,13 +2,13 @@
 
 ビルドツール Vite の導入により、TypeScriptやSCSSなどコンパイルが必要なソースを使用できるようになりました。  
 また、ビルド方法が変わりました。
-READMEにも記載されているように、`pnpm debug`でパッケージ、及びデバッグが実行されます。
+[CONTRIBUTING.md](../CONTRIBUTING.md)にも記載されているように、`pnpm debug`でパッケージ、及びデバッグが実行されます。
 
 参照：[PR #73](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/pull/73) （2023年9月2日）
 
 ## ビルドコマンド一覧
 
-### pnpm debug系
+### `pnpm debug` 系
 
 コードが変更されたときに自動反映されます。
 リソース及びbackground.tsの変更には対応していません。
@@ -39,7 +39,7 @@ Firefox (Stable)で実行される時、Dev Editionより旧バージョンな�
 デフォルトではデバッグは、元のプロファイルをコピーして行われるので、変更点が保存されません。  
 予め "development"プロファイルでTwitterにログインして置くことをおすすめします。
 
-### pnpm build系
+### `pnpm build` 系
 
 自動反映はされません。
 zipファイルが生成されます。

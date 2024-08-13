@@ -126,6 +126,7 @@ export function applySystemCss() {
         rs.setProperty("--TUIC-pinnedTab-top", `${fontSizeClass("47", "49", "52", "57", "63")}px`);
     }
 }
+
 export function applyCustomCss() {
     document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS");
 }

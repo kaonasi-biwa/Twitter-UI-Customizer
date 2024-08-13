@@ -8,14 +8,15 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-const colorPicker = ref(null);
 
 defineProps<{
     inputId: string;
     inputColorValue: string;
 }>();
-const emit = defineEmits<{ (e: "valueChanged", value: unknown): void }>();
+const emit = defineEmits<(e: "valueChanged", value: unknown) => void>();
 defineExpose({ setInputValue });
+
+const colorPicker = ref(null);
 
 const onValueChanged = ($event: Event) => {
     console.log("called onValueChanged");

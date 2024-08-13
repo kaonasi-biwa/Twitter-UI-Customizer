@@ -13,7 +13,7 @@ defineProps<{
     btnId: string;
     btnTitle: string;
 }>();
-const emit = defineEmits<{ (e: "clickedBtn") }>();
+const emit = defineEmits<(e: "clickedBtn") => void>();
 
 const clickedBtn = () => {
     emit("clickedBtn");

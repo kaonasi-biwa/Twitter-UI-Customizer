@@ -20,14 +20,16 @@ export function titleObserverFunction() {
                 if (!titleInfo || titleInfo.length <= 1) {
                     document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
                 } else {
-                    document.title =
-                        (document.title.startsWith("(") ? document.title.match(/\(\d*\)/) + " " : "") +
-                        i18nRes
-                            .replaceAll("&quot;", '"')
-                            .replace(`{fullName}`, titleInfo[1])
-                            .replace("{screenName}", titleInfo[2])
-                            .replace("{tweetText}", titleInfo[2]) //locPath.includes("/status/")
-                            .replace(/(.*)\/ X(」|")/, "$1 / Twitter");
+                    document.title
+                        = (
+                            (document.title.startsWith("(") ? document.title.match(/\(\d*\)/) + " " : "")
+                            + i18nRes
+                                .replaceAll("&quot;", '"')
+                                .replace("{fullName}", titleInfo[1])
+                                .replace("{screenName}", titleInfo[2])
+                                .replace("{tweetText}", titleInfo[2]) //locPath.includes("/status/")
+                                .replace(/(.*)\/ X(」|")/, "$1 / Twitter")
+                        );
                 }
             };
 

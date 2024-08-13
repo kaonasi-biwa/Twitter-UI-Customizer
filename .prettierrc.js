@@ -5,12 +5,4 @@ export default {
     singleQuote: false,
     endOfLine: "auto",
     printWidth: 300,
-    overrides: [
-        {
-            files: ["**/*.yml", "**/*.md"],
-            options: {
-                tabWidth: 2,
-            },
-        },
-    ],
 };

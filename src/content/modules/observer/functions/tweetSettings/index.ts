@@ -9,7 +9,8 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
-let buttonUnderTweetRunning: boolean = false;
+let buttonUnderTweetRunning = false;
+
 const _data = {
     all: getSettingIDs("visibleButtons"),
     selectors: { ...ButtonUnderTweetSelectors },
@@ -87,7 +88,7 @@ export function tweetSettings() {
                         const buttonBarBase = hasClosest<HTMLDivElement>(articleBase.querySelector(_data.selectors["reply-button"]), _data.selectors["like-button"]);
                         buttonBarBase.parentElement.classList.add("TUICTweetButtomBarBase");
                         // ボタンたち
-                        const underTweetButtons: { [key: string]: Element } = {};
+                        const underTweetButtons: Record<string, Element> = {};
                         for (const sel in _data.selectors) {
                             const elem = buttonBarBase.querySelector<Element>(_data.selectors[sel])?.closest(`.TUICTweetButtomBarBase > * > *`);
                             if (elem) {

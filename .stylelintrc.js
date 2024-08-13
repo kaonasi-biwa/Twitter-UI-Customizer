@@ -1,6 +1,10 @@
 /** @type {import("stylelint").Config} */
 export default {
-    extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
+    extends: [
+        "stylelint-config-standard",
+        "stylelint-config-recommended-vue",
+        "stylelint-config-recess-order",
+    ],
     rules: {
         // https://stylelint.io/user-guide/rules
         "at-rule-no-unknown": null,
@@ -9,6 +13,7 @@ export default {
         "rule-empty-line-before": null,
         "no-descending-specificity": null,
         "declaration-empty-line-before": null,
+        "no-empty-source": null,
 
         // kebab-case
         "custom-property-pattern": null,

@@ -90,7 +90,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                         process.exit(-1);
                     }
 
-                    child = spawn(`web-ext`, [`run -s "./dist" -t chromium -u twitter.com ${com_args}`], { shell: true });
+                    child = spawn("web-ext", [`run -s "./dist" -t chromium -u twitter.com ${com_args}`], { shell: true });
                     child.stdout.on("data", (data) => {
                         console.log(decodeURIComponent(data));
                     });

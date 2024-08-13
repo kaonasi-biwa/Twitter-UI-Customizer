@@ -1,15 +1,15 @@
-# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg"> Twitter UI Customizer
+# <img width="32" height="32" src="./public/icon/newIcon_TUIC_C_Blue.svg" /> Twitter UI Customizer
 
-[English Translation](./README_EN.md)
+日本語 | [English](./README_EN.md)
 
-![ヘッダー](./public/icon/header.png)
+![Header Image](./public/icon/header.png)
 [![Github Actions](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/packaging.yml)
 [![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
 [![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)
 [![License](https://img.shields.io/github/license/kaonasi-biwa/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE)  
-<a href="https://addons.mozilla.org/ja/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser ADD-ONS" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png"></a>
-<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh?hl=ja"><img alt="Chrome WebStore" width="191.8" height="58" src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png"></a>
-<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png"></a>
+<a href="https://addons.mozilla.org/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser ADD-ONS" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" /></a>
+<a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh"><img alt="Chrome WebStore" width="191.8" height="58" src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" /></a>
+<a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png" /></a>
 
 [crxファイルでのインストール方法はこちら](https://gist.github.com/Hibi-10000/54d283e5e5deabc3c491ce16556b4390)  
 [情報・設定・CSS集(TwitterのUIの色を公式Twitterに近くすることも出来ます！)](https://github.com/kaonasi-biwa/TUIC-Information-Prefs-and-CSSs/blob/main/README.md)
@@ -27,14 +27,6 @@ Chromiumの場合は、
 ## 貢献者様へ
 
 詳しくは[CONTRIBUTING.md](./CONTRIBUTING.md)を御覧ください。
-
-**パッケージマネージャーをpnpmに変更しました！**  
-yarnを使用していた方は、pnpmをインストールして`node_modules`を削除した上で  
-`pnpm i --frozen-lockfile`を実行してください。
-
-**ビルドツール Vite導入により、デバッグ方法が変わりました！**  
-ビルド及びデバッグ方法については、[docs/vite_build](./docs/vite_build.md)を御覧ください。  
-この変更は2023年9月2日からの適用です。
 
 ## 実装されている機能
 
@@ -110,10 +102,11 @@ Crowdin:
 - @lafixier (英語の翻訳)
 - @cutterknife (英語の翻訳)
 - @deflecta (ロシア語の翻訳)
+- @GrapeApple0 (英語の翻訳)
 
 その他:
 
-- @CutterKnife\_ / Twitter **(アイコン・ロゴの作成者)**
+- @CutterKnife_ / Twitter **(アイコン・ロゴの作成者)**
 - @PianoCat1010 / Twitter **(「いいねとリツイート」のアイコンの作成者)**
 
 ## アイコン画像の提供元

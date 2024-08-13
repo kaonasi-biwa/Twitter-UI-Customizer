@@ -2,7 +2,6 @@ import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyl
 import { catchError } from "./errorDialog";
 import { placeDisplayButton } from "./functions/rightSidebarTexts";
 import { followersList } from "./functions/followersList";
-import { throwTestError } from "@shared/testError";
 import { getPref } from "../pref/index";
 import { hideElement } from "../utils/controlElements";
 

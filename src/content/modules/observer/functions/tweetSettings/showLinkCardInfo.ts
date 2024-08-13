@@ -2,6 +2,7 @@ import { hideElement, parseHtml } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
+
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): Element => {
     return parseHtml(
         `<div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">

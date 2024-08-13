@@ -1,32 +1,66 @@
 {
     "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript][json][css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
-    },
-    "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": "explicit"
-    },
-    "editor.quickSuggestions": {
-        "strings": true
-    },
-    "css.validate": false,
-    "scss.validate": false,
-    "files.autoSave": "onFocusChange",
-    "json.schemaDownload.enable": true,
-    "eslint.useFlatConfig": true,
-    "prettier.tabWidth": 4,
-    "prettier.semi": true,
-    "prettier.singleQuote": false,
-    "prettier.endOfLine": "auto",
-    "prettier.printWidth": 300,
-    "stylelint.packageManager": "pnpm",
-    "stylelint.snippet": ["css", "scss"],
-    "stylelint.validate": ["css", "scss"],
     "[markdown][yaml]": {
         "editor.tabSize": 2,
-        "prettier.tabWidth": 2
-    }
+    },
+    "editor.formatOnSave": false,
+    "[javascript][json]": {
+        "editor.formatOnSave": false,
+    },
+    "editor.quickSuggestions": {
+        "strings": true,
+    },
+    "files.autoSave": "onFocusChange",
+    "json.schemaDownload.enable": true,
+    // linter
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit",
+        "source.organizeImports": "never",
+    },
+    // prettier
+    "prettier.enable": true,
+    "[css][scss][postcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "prettier.tabWidth": 4,
+        "prettier.semi": true,
+        "prettier.singleQuote": false,
+        "prettier.endOfLine": "auto",
+        "prettier.printWidth": 300,
+    },
+    // stylelint
+    "css.validate": false,
+    "scss.validate": false,
+    "stylelint.packageManager": "pnpm",
+    "stylelint.snippet": [
+        "css",
+        "scss",
+        "postcss",
+        "vue"
+    ],
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "postcss",
+        "vue"
+    ],
+    // eslint
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "vue",
+    ],
+    "eslint.rules.customizations": [
+        { "rule":   "style/*", "severity": "off", "fixable": true },
+        { "rule": "*-indent" , "severity": "off", "fixable": true },
+        { "rule": "*-spacing", "severity": "off", "fixable": true },
+        { "rule": "*-spaces" , "severity": "off", "fixable": true },
+        { "rule": "*-order"  , "severity": "off", "fixable": true },
+        { "rule": "*-dangle" , "severity": "off", "fixable": true },
+        { "rule": "*-newline", "severity": "off", "fixable": true },
+        { "rule": "*quotes"  , "severity": "off", "fixable": true },
+        { "rule": "*semi"    , "severity": "off", "fixable": true },
+    ],
 }

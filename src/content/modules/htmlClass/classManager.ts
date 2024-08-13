@@ -26,13 +26,16 @@ const ClassList = [
     "TUICFollowerListButtons",
     ProcessedClass,
 ];
+
 const AttrList = { processedArticle: "processed-article", tuicDiscoverMore: "tuic-discover-more", tuicSettings: "tuic-settings" };
-export const updateClasses = (isInit: boolean = false) => {
+
+export const updateClasses = (isInit = false) => {
     if (!isInit) TUICObserver.unbind();
     deleteClasses();
     applySystemCss();
     if (!isInit) TUICObserver.callback();
 };
+
 const deleteClasses = () => {
     for (const id of ClassList) {
         document.querySelectorAll(`.${id}`).forEach((elem) => {

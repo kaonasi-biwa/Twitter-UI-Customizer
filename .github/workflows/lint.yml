@@ -21,8 +21,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Get pnpm version from package.json
+        id: pnpm-version
+        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).engines.pnpm')" >> $GITHUB_OUTPUT
+
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -56,6 +62,8 @@ jobs:
       - name: Run format
         if: github.event_name != 'pull_request'
         run: |
+          git reset --hard
+          git pull
           pnpm format:eslint
           pnpm format:prettier
           pnpm format:stylelint

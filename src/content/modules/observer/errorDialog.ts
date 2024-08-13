@@ -1,5 +1,5 @@
 import { TUICI18N } from "@modules/i18n";
-import { getSourceMap, NRStack, parseErrorStringCH, parseErrorStringFF } from "@shared/sourcemap";
+import { getSourceMap, NRStack, parseErrorStringFF } from "@shared/sourcemap";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";
@@ -7,7 +7,7 @@ import { TextboxComponent } from "@shared/tlui/components/TextboxComponent";
 const errors = [];
 
 /** エラーダイアログを表示します。 */
-export async function catchError(e: Error, callback: (() => unknown) | null = null, callbackTime: number = 5000) {
+export async function catchError(e: Error, callback: (() => unknown) | null = null, callbackTime = 5000) {
     console.error(e);
 
     // (async () => {

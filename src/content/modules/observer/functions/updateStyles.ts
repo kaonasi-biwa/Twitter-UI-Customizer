@@ -6,7 +6,7 @@ import { SidebarButtonSelectors } from "./sidebarBtn";
 import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
 import { hasClosest, processElement } from "@content/modules/utils/controlElements";
 
-let fontSize1: string = "";
+let fontSize1 = "";
 let fontSize2: boolean | null = null;
 
 export function updateStyles() {
@@ -20,12 +20,12 @@ export function updateStyles() {
         fontSize2 = document.querySelector(`h1[role="heading"] > a[href="/home"]`)?.className.includes("r-116um31");
     }
 
-    if (document.querySelector(`.TUICSidebarButton .r-mbgqwd`) != null) document.querySelector(`.TUICSidebarButton .r-mbgqwd`)?.classList?.remove("r-mbgqwd");
+    if (document.querySelector(".TUICSidebarButton .r-mbgqwd") != null) document.querySelector(".TUICSidebarButton .r-mbgqwd")?.classList?.remove("r-mbgqwd");
 }
 
 const tuicButtonUrl = {
-    topics: `/topics`,
-    lists: `/lists`,
+    topics: "/topics",
+    lists: "/lists",
     communities: "/communities",
     connect: "/i/connect_people",
     drafts: "/compose/tweet/unsent/",
@@ -36,13 +36,14 @@ const tuicButtonUrl = {
     jobs: "/jobs",
     spaces: "/i/spaces/start",
 };
+
 function sidebarButtons() {
     // TUIC独自のサイドバーボタン(太線かどうかを変更)
     for (const i of document.querySelectorAll(".TUICSidebarButton")) {
         const itemId = i.id.replace("TUICSidebar_", "");
 
         let locationBool = false;
-        const includesCheck = (buttonUrl: string = "") => {
+        const includesCheck = (buttonUrl = "") => {
             if (buttonUrl.endsWith("/")) {
                 locationBool = location.pathname.includes(buttonUrl) ? true : locationBool;
             } else {

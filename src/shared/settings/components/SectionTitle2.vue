@@ -1,5 +1,7 @@
 <template>
-    <h3 class="TUIC_setting_section_title_2">{{ TUICI18N.get(titleI18N) }}</h3>
+    <h3 class="TUIC_setting_section_title_2">
+        {{ TUICI18N.get(titleI18N) }}
+    </h3>
 </template>
 
 <script setup lang="ts">

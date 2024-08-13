@@ -14,7 +14,7 @@ export function profileInitialTab() {
     for (const elem of document.querySelectorAll(`[data-testid^="UserAvatar-"] a:not([href$="/photo"]):not(.${ProcessedClass})`)) {
         processElement(elem);
 
-        const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute(`data-testid`).replace(`UserAvatar-Container-`, "");
+        const userName = elem.closest(`[data-testid^="UserAvatar-"]`).getAttribute("data-testid").replace("UserAvatar-Container-", "");
         elem.addEventListener("click", profileInitialTabRedirect(userName));
     }
     for (const elem of document.querySelectorAll(`[data-testid="tweet"] a[style*="color"]:not(.${ProcessedClass})`)) {
