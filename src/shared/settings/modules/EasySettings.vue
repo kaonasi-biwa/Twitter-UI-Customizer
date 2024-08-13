@@ -84,6 +84,7 @@ const buttonList = [
         changePref: structuredClone(ColorData.defaultXColors),
     },
 ];
+
 const clickEv = (index) => {
     setPref("", mergePref(getPref(""), buttonList[index].changePref ?? {}));
     buttonList[index]?.changeFunc?.();

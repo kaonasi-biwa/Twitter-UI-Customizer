@@ -126,6 +126,7 @@ function openGithub() {
 function openInNewTab(url: string) {
     window.open(url, "_blank");
 }
+
 function rescuePref() {
     const dialog = new Dialog(TUICI18N.get("rescuePref-ButtonLabel"));
     dialog

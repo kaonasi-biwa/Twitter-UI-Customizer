@@ -10,6 +10,7 @@ import { getPref } from "../pref";
 export function rgb2hex(rgb: [number, number, number]) {
     return `#${rgb.map((value) => ("0" + value.toString(16)).slice(-2)).join("")}`;
 }
+
 /**
  * #XXXXXX表記をRGB配列に変換します。
  *
@@ -22,6 +23,7 @@ export function hex2rgb(hex: string): [number, number, number] {
         return parseInt(str, 16);
     }) as [number, number, number];
 }
+
 /**
  * TUICのPrefから色を取得します。
  * 色の指定がされていない場合は、ColorDataにあるデフォルト値を参照します。

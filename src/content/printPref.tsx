@@ -56,6 +56,7 @@ const elem = (): JSX.Element => {
         </li>
     );
 };
+
 export async function placePrintPrefButton() {
     const baseELement = (await waitForElement(".u01b-01__desktop-primary-links"))[0];
     render(elem, baseELement);

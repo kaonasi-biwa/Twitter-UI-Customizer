@@ -106,6 +106,7 @@ function displayPref() {
         exportText.value.value = exportPref();
     }
 }
+
 function exportPrefCopy() {
     navigator.clipboard.writeText(exportText.value.value);
 }

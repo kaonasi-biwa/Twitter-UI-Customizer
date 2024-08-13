@@ -8,6 +8,7 @@ import { getPrimitiveOrFunction } from "@modules/utils/getValues";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
 let sidebarButtonsCount = -1;
+
 export const SidebarButtonSelectors = {
     home: '[href="/home"]',
     explore: '[href="/explore"]',
@@ -31,6 +32,7 @@ export const SidebarButtonSelectors = {
     spaces: "#TUICSidebar_spaces",
     grok: '[href="/i/grok"]',
 };
+
 const _data = {
     selectors: SidebarButtonSelectors,
     html: {

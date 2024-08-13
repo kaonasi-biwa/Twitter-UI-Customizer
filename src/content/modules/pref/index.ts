@@ -90,6 +90,7 @@ export function mergePref(source: object, target: object) {
     }
     return target;
 }
+
 /**
  * boolean 値の設定キーを変更します。
  *
@@ -663,6 +664,7 @@ export function getSettingIDs<T extends TUICSettingIDs>(id: T): (typeof ids)[T][
 export function getSettingData<T extends TUICSettingIDs>(id: T): (typeof ids)[T]["values"] {
     return ids[id].values;
 }
+
 /**
  * 指定した設定のi18nのIDを出力します。
  *

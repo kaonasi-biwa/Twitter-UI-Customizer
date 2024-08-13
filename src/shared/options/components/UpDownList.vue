@@ -158,6 +158,7 @@ const UpdownButtonFuncs = [
         nextHr: false,
     },
 ];
+
 const UDALL = getSettingIDs(props.id);
 let _contentCount = 5;
 if (UDALL.length > 5) {

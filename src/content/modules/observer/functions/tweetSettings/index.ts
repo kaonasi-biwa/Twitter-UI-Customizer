@@ -10,6 +10,7 @@ import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
 let buttonUnderTweetRunning = false;
+
 const _data = {
     all: getSettingIDs("visibleButtons"),
     selectors: { ...ButtonUnderTweetSelectors },

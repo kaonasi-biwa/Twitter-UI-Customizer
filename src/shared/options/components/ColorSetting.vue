@@ -81,6 +81,7 @@ function defaultColor(colorAttr, colorType, colorKind) {
 
     applySystemCss();
 }
+
 function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
     const colorValue = hex2rgb(colorPickerVal);
     const isChecked = transparentButton.value.checked;

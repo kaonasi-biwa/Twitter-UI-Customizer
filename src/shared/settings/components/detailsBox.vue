@@ -26,6 +26,7 @@ defineProps<{
 }>();
 
 const opened = ref(false);
+
 function toggled($event: ToggleEvent) {
     if (($event.currentTarget as HTMLDetailsElement).open) {
         opened.value = true;

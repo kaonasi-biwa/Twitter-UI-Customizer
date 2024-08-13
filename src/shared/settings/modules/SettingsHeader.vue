@@ -24,4 +24,4 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 
-<!-- <style scoped></style> -->
+<style scoped></style>

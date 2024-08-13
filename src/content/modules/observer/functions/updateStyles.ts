@@ -36,6 +36,7 @@ const tuicButtonUrl = {
     jobs: "/jobs",
     spaces: "/i/spaces/start",
 };
+
 function sidebarButtons() {
     // TUIC独自のサイドバーボタン(太線かどうかを変更)
     for (const i of document.querySelectorAll(".TUICSidebarButton")) {
