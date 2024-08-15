@@ -4,8 +4,8 @@ type TUICSetting =
     |   {
             type: "color"; // 色設定
             i18n: string;
-            default?: number; // 0は変更なし、1はTwitter時代の色、3はカスタム、4はライトとダークのカスタム
-            values: { type:"background" | "border" | "color" }[];
+            default?: number; // 0は変更なし、1はTwitter時代の色、3はカスタム、4はライトとダークのカスタム。デフォルトは0。実際の設定のcolorTypeに相当
+            values: { type:"background" | "border" | "color" }[]; //色の種類の順番。実際には配列の中身のtypeがそのままkeyになる (changeButtonsColor.unsent-tweetのcolorならchangeButtonsColor.unsent-tweet.colorでアクセス)
         }
     |   {
             type: "colorTemplate"; // 色設定 type:"color"でvaluesを[{type: "background"},{type: "border"},{type: "color"}]としたときと同じ
