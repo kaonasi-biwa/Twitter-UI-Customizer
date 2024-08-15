@@ -4,7 +4,7 @@
             {{ TUICI18N.get(text) }}
         </h4>
         <div class="TUIC_setting_input_container">
-            <template v-if="ColorData.defaultTUICColor.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
+            <template v-if="ColorData.defaultTUICColor.colors[id]?.ldColor && store.editingColorType == 'normal'">
                 <label class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
             </template>
             <template v-else>
@@ -59,18 +59,18 @@ const isDefault = computed(() => {
 // Prefから設定された色を取得(配列で[R: string, G: string, B: string]の形式)
 // このコンポーネントを呼び出すときのpropsから取得する色の場所などが決定される
 const TUIC_color = computed(() => {
-    return getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
+    return getColorFromPref(props.id, props.type, store.editingColorType,true);
 });
 // TUIC_colorで取得した色をhex形式に変換して返す
 const TUICColor1 = computed(() => {
-    return rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)));
+    return rgb2hex(TUIC_color.value.slice(0, 3));
 });
 
 function defaultColor(colorAttr, colorType, colorKind) {
-    if (getPref(`${colorKind}.${colorAttr}`) && getPref(`${colorKind}.${colorAttr}.${colorType}`)) deletePref(`${colorKind}.${colorAttr}.${colorType}`);
+    deletePref(`changeButtonsColor.${colorAttr}.${colorType}.${colorKind}`);
 
-    const TUIC_color = getColorFromPref(colorAttr, colorType, colorKind).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
-    const TUICColor1 = rgb2hex([Number(TUIC_color[0]), Number(TUIC_color[1]), Number(TUIC_color[2])]);
+    const TUIC_color = getColorFromPref(colorAttr, colorType, colorKind,true);
+    const TUICColor1 = rgb2hex([TUIC_color[0], TUIC_color[1], TUIC_color[2]]);
 
     // 各子コンポーネントの関数を呼び出し、デフォルトに設定した色を反映します
     rColorPicker.value.setInputValue(TUICColor1);
@@ -86,7 +86,7 @@ function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
     const colorValue = hex2rgb(colorPickerVal);
     const isChecked = transparentButton.value.checked;
 
-    setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
+    setPref(`changeButtonsColor.${colorAttr}.${colorType}.${colorKind}`, [...colorValue, isChecked ? 0 : 1]);
 
     // CHECKの出現？
     colorRoot.value.classList.remove("TUIC_ISNOTDEFAULT");
@@ -97,9 +97,9 @@ function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
 }
 
 function changeColorCheck(colorAttr, colorType, colorKind, isChecked) {
-    const colorValue = getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
+    const colorValue = getColorFromPref(props.id, props.type, store.editingColorType,true);
 
-    setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
+    setPref(`changeButtonsColor.${colorAttr}.${colorType}.${colorKind}`, [...colorValue, isChecked ? 0 : 1]);
     colorRoot.value.classList.remove("TUIC_ISNOTDEFAULT");
 
     savePref();

@@ -28,17 +28,24 @@ export function hex2rgb(hex: string): [number, number, number] {
  * TUICのPrefから色を取得します。
  * 色の指定がされていない場合は、ColorDataにあるデフォルト値を参照します。
  * modeが指定されていない場合は、実際に使われている背景色を取得します。
- * modeがbuttonColorLight/buttonColorDarkの場合でも、指定されていない場合はbuttonColorとして色を取得します。
- * buttonColorは設定画面上の「ベース」です。
+ * modeがlight/darkの場合でも、指定されていない場合はnormalとして色を取得します。
+ * normalは設定画面上の「ベース」です。
  *
  * @param {string} name 色の設定ID
  * @param {string} type 色の種類(基本的にはbackground,border,color)
- * @return {"buttonColor" | "buttonColorLight" | "buttonColorDark" | null} 色の取得に使用する背景色
+ * @return {"normal" | "light" | "dark" | null} 色の取得に使用する背景色
  */
-export function getColorFromPref(name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) {
+export function getColorFromPref(name: string, type: string, mode: "normal" | "light" | "dark" | null, isSetting: boolean) {
+    const colorPref = getPref(`changeButtonsColor.${name}`);
     let _mode = "";
-    _mode = mode ? mode : backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-    return getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
+    _mode = mode ? mode : backgroundColorCheck() == "light" ? "light" : "dark";
+    if (colorPref.colorType === 3 || isSetting) {
+        return getPref(`changeButtonsColor.${name}.${type}.${_mode}`) ?? ColorData.defaultTUICColor.colors[name][type]?.[_mode] ?? getPref(`changeButtonsColor.${name}.${type}.normal`) ?? ColorData.defaultTUICColor.colors[name][type]["normal"];
+    } else if (colorPref.colorType === 0 || colorPref.colorType === 1) {
+        return ColorData.defaultTUICColor.colors[name][type]?.[_mode] ?? ColorData.defaultTUICColor.colors[name][type]["normal"];
+    } else if (colorPref.colorType === 2) {
+        return getPref(`changeButtonsColor.${name}.${type}.normal`) ?? ColorData.defaultTUICColor.colors[name][type]["normal"];
+    }
 }
 
 /**

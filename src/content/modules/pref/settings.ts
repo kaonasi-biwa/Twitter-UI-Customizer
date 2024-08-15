@@ -6,25 +6,6 @@ type TUICSetting =
     | { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] }; //チェックボックスなどの一つ一つがboolean型の設定になるもの
 /* eslint-enable style/indent, style/indent-binary-ops, style/no-multi-spaces */
 export const TUICSettings = {
-    // 色の設定
-    buttonColor: {
-        type: "color",
-        values: [
-            { id: "unsent-tweet", i18n: "settingColors-editUnsetTweet" },
-            { id: "not-following", i18n: "settingColors-notFollowingButton" },
-            { id: "willFollow", i18n: "settingColors-willFollowButton" },
-            { id: "following", i18n: "settingColors-followingButton" },
-            { id: "un-following", i18n: "settingColors-unfollowButton" },
-            { id: "blocking", i18n: "settingColors-blocking" },
-            { id: "blocking-unlock", i18n: "settingColors-blockingUnlock" },
-            { id: "profile", i18n: "settingColors-editProfile" },
-            { id: "profile-save", i18n: "settingColors-saveProfile" },
-            { id: "birthday", i18n: "settingColors-finalDecideButton" },
-            { id: "twitterIcon", i18n: "settingColors-twitterIcon" },
-            { id: "twitterIconFavicon", i18n: "settingColors-twitterIconFavicon" },
-        ],
-    },
-
     // ツイート関連の設定
     visibleButtons: {
         type: "order",

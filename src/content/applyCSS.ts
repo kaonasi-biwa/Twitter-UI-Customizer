@@ -5,7 +5,7 @@ import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.pcss?url";
 import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
-import { getPref, getSettingIDs } from "@modules/pref";
+import { getColorIDs, getColorTypes, getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
 export function applyDefaultStyle() {
@@ -97,17 +97,22 @@ export function applySystemCss() {
     if (!getPref("sidebarButtons").includes("verified-choose")) {
         settingsOutput += "sidebarButtons.style.verifiedChoose" + "|";
     }
+
+    for (const color of getColorIDs()) {
+        if (getPref(`changeButtonsColor.${color}.colorType`) !== 0) {
+            settingsOutput += `changeButtonsColor.${color}|`;
+        }
+    }
     document.documentElement.dataset.tuicSettings = settingsOutput;
 
     const r = document.querySelector(":root");
     if (r instanceof HTMLElement) {
         const rs = r.style;
 
-        for (const elem of getSettingIDs("buttonColor")) {
-            for (const el of ["background", "border", "color"]) {
-                if (ColorData.defaultTUICColor.colors[elem][el]) {
-                    rs.setProperty(`--twitter-${elem}-${el}`, getColorFromPref(elem, el, null));
-                }
+        for (const elem of getColorIDs()) {
+            for (const el of getColorTypes(elem)) {
+                const gotColor = getColorFromPref(elem, el, null);
+                rs.setProperty(`--twitter-${elem}-${el}`, `rgba(${gotColor[0]}, ${gotColor[1]}, ${gotColor[2]}, ${gotColor[3]})`);
             }
         }
         rs.setProperty("--twitter-TUIC-color", ColorData.TUICFixedColor[backgroundColor].textColor);

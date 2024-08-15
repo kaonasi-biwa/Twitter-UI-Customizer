@@ -32,14 +32,14 @@ export const ColorData = {
             detailBorder: "rgba(0, 0, 0, 0.08)",
         },
         blue: {
-            textColor: "rgba(255, 255, 255, 1)",
+            textColor: "rgba(255, 255, 255,1)",
             containerBackground: "rgb(30, 39, 50)",
             containerBackground2: "rgb(40, 49, 60)",
             colorHover: "#ffffff30",
             detailBorder: "rgba(255, 255, 255, 0.08)",
         },
         dark: {
-            textColor: "rgba(255, 255, 255, 1)",
+            textColor: "rgba(255, 255, 255,1)",
             containerBackground: "rgb(22, 24, 28)",
             containerBackground2: "rgb(28, 34, 38)",
             colorHover: "#ffffff40",
@@ -47,75 +47,126 @@ export const ColorData = {
         },
     },
     defaultTUICColor: {
-        "colors-buttonColorDark": {
-            twitterIcon: {
-                color: "rgba(255, 255, 255, 1)",
-            },
-        },
-        "colors-buttonColorLight": {
-            twitterIcon: {
-                color: "rgba(29, 161, 242, 1)",
-            },
-        },
         colors: {
             "unsent-tweet": {
-                background: "rgba(29, 161, 242, 1)",
-                border: "rgba(29, 161, 242, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [29, 161, 242, 1],
+                },
+                border: {
+                    normal: [29, 161, 242, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             "not-following": {
-                background: "rgba(255, 255, 255, 0)",
-                border: "rgba(29, 161, 242, 1)",
-                color: "rgba(29, 161, 242, 1)",
+                background: {
+                    normal: [255, 255, 255, 0],
+                },
+                border: {
+                    normal: [29, 161, 242, 1],
+                },
+                color: {
+                    normal: [29, 161, 242, 1],
+                },
             },
             willFollow: {
-                background: "rgba(29, 161, 242, 1)",
-                border: "rgba(29, 161, 242, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [29, 161, 242, 1],
+                },
+                border: {
+                    normal: [29, 161, 242, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             following: {
-                background: "rgba(29, 161, 242, 1)",
-                border: "rgba(29, 161, 242, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [29, 161, 242, 1],
+                },
+                border: {
+                    normal: [29, 161, 242, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             "un-following": {
-                background: "rgba(255, 0, 0, 1)",
-                border: "rgba(255, 0, 0, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [255, 0, 0, 1],
+                },
+                border: {
+                    normal: [255, 0, 0, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             profile: {
-                background: "rgba(255,255,255, 0)",
-                border: "rgba(29, 161, 242, 1)",
-                color: "rgba(29, 161, 242, 1)",
+                background: {
+                    normal: [255, 255, 255, 0],
+                },
+                border: {
+                    normal: [29, 161, 242, 1],
+                },
+                color: {
+                    normal: [29, 161, 242, 1],
+                },
             },
             "profile-save": {
-                background: "rgba(29, 161, 242, 1)",
-                border: "rgba(29, 161, 242, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [29, 161, 242, 1],
+                },
+                border: {
+                    normal: [29, 161, 242, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             birthday: {
-                background: "rgba(255, 0, 0, 1)",
-                border: "rgba(255, 0, 0, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [255, 0, 0, 1],
+                },
+                border: {
+                    normal: [255, 0, 0, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             blocking: {
-                background: "rgba(244, 33, 46, 1)",
-                border: "rgba(244, 33, 46, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [244, 33, 46, 1],
+                },
+                border: {
+                    normal: [244, 33, 46, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             "blocking-unlock": {
-                background: "rgba(220, 30, 41, 1)",
-                border: "rgba(220, 30, 41, 1)",
-                color: "rgba(255, 255, 255, 1)",
+                background: {
+                    normal: [220, 30, 41, 1],
+                },
+                border: {
+                    normal: [220, 30, 41, 1],
+                },
+                color: {
+                    normal: [255, 255, 255, 1],
+                },
             },
             twitterIcon: {
-                color: "rgba(29, 161, 242, 1)",
-                typeColor: "imageColor",
-                ldColor: true,
-            },
-            twitterIconFavicon: {
-                color: "rgba(29, 161, 242, 1)",
-                typeColor: "imageColor",
+                sidebar: {
+                    normal: [29, 161, 242, 1],
+                    dark: [255, 255, 255, 1],
+                    light: [29, 161, 242, 1],
+                },
+                favicon: {
+                    normal: [29, 161, 242, 1],
+                },
             },
         },
     },

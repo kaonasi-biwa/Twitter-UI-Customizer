@@ -17,10 +17,11 @@
     "settingUI-upDownList-invisible": "非表示",
     "settingUI-colorPicker-transparent": "透明色にする",
     "settingUI-colorPicker-restoreDefault": "デフォルトに戻す",
-    "settingUI-colorPicker-textColor": "文字色",
+    "settingUI-colorPicker-color": "文字色",
     "settingUI-colorPicker-background": "背景色",
     "settingUI-colorPicker-border": "枠色",
-    "settingUI-colorPicker-svgColor": "画像色",
+    "settingUI-colorPicker-sidebar": "サイドバーの色",
+    "settingUI-colorPicker-favicon": "タブの色",
 
     "easySetting-restoreIcon": "Xなんて嫌！アイコンも名前もTwitterがいいんだ！！",
     "easySetting-deleteVerified": "「認証しろ」ってうるさい？全部非表示にしよう！",

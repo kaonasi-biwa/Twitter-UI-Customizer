@@ -243,7 +243,7 @@ export function mergeDefaultPref(source) {
             switch (prefData.type) {
                 case "color": {
                     for (const elem of prefData.values) {
-                        returnObject[elem] = {};
+                        returnObject[elem.type] = {};
                     }
                     break;
                 }
@@ -254,30 +254,24 @@ export function mergeDefaultPref(source) {
                     break;
                 }
             }
-            setPref(elem, structuredClone(returnObject), defaultData);
+            setPref(`changeButtonsColor.${elem}`, structuredClone(returnObject), defaultData);
         }
         for (const elem in TUICSettings) {
-            if (elem == "buttonColor") {
-                defaultData.buttonColor = {};
-                defaultData.buttonColorLight = {};
-                defaultData.buttonColorDark = {};
-            } else {
-                const defaultReturn = getDefaultPref(elem);
-                switch (defaultReturn.type) {
-                    case "boolean": {
-                        for (const data in defaultReturn.data) {
-                            setPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
-                        }
-                        break;
+            const defaultReturn = getDefaultPref(elem);
+            switch (defaultReturn.type) {
+                case "boolean": {
+                    for (const data in defaultReturn.data) {
+                        setPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
                     }
-                    case "select": {
-                        setPref(elem, defaultReturn.data, defaultData);
-                        break;
-                    }
-                    case "order": {
-                        setPref(elem, structuredClone(defaultReturn.data), defaultData);
-                        break;
-                    }
+                    break;
+                }
+                case "select": {
+                    setPref(elem, defaultReturn.data, defaultData);
+                    break;
+                }
+                case "order": {
+                    setPref(elem, structuredClone(defaultReturn.data), defaultData);
+                    break;
                 }
             }
         }
@@ -306,6 +300,7 @@ export function getDefaultPref(id: string) {
 
 const prefVersion = 3;
 export type TUICSettingIDs = keyof typeof TUICSettings;
+export type TUICColorIDs = keyof typeof TUICColorSettings;
 
 /**
  * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します
@@ -336,6 +331,39 @@ export function getSettingData<T extends TUICSettingIDs>(id: T): (typeof TUICSet
  */
 export function getSettingI18n<T extends TUICSettingIDs>(id: T, itemValue: (typeof TUICSettings)[T]["values"][number]["id"]): string {
     return TUICSettings[id].values.filter((elem) => elem.id == itemValue)[0]?.i18n ?? undefined;
+}
+
+/**
+ * 色のIDの一覧を出力します。
+ *
+ * @return {string[]} 色のID一覧
+ */
+export function getColorIDs(): TUICColorIDs[] {
+    return Object.keys(TUICColorSettings) as TUICColorIDs[];
+}
+
+/**
+ * 色のIDの一覧を出力します。
+ *
+ * @return {string[]} 色のID一覧
+ */
+export function getColorTypes(id: TUICColorIDs) {
+    if (TUICColorSettings[id]["type"] === "colorTemplate") {
+        return ["background", "border", "color"];
+    } else {
+        return TUICColorSettings[id].values.map((elem) => elem.type);
+    }
+}
+
+/**
+ * 指定した設定のi18nのIDを出力します。
+ *
+ * @param {string} id 設定カテゴリーID
+ * @param {string} id 設定自体のID(設定カテゴリーIDを除く)
+ * @return {string} i18nのID
+ */
+export function getColorI18n<T extends TUICColorIDs>(id: T): string {
+    return TUICColorSettings[id].i18n ?? undefined;
 }
 
 config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(mergeDefaultPref({})));

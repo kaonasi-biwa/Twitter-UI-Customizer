@@ -38,7 +38,8 @@ function changeIconProcess(elem: Element, base: Element) {
             break;
         case "twitter":
             if (favicon && changeFavicon) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                const gotColor = getColorFromPref("twitterIcon", "favicon", null);
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", `rgba(${gotColor[0]},${gotColor[1]},${gotColor[2]},${gotColor[3]})`));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`)
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
@@ -59,7 +60,8 @@ function changeIconProcess(elem: Element, base: Element) {
         case "twitterIcon-X":
             if (favicon && changeFavicon) {
                 //console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null))));
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                const gotColor = getColorFromPref("twitterIcon", "favicon", null);
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", `rgba(${gotColor[0]},${gotColor[1]},${gotColor[2]},${gotColor[3]})`));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
             elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_X");

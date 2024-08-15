@@ -61,13 +61,13 @@
 }
 
 .TUICTwitterIcon_Twitter {
-    background-color: var(--twitter-twitterIcon-color);
+    background-color: var(--twitter-twitterIcon-sidebar);
     -webkit-mask-image: var(--TUIC-twitter-icon) !important;
     mask-image: var(--TUIC-twitter-icon) !important;
 }
 
 .TUICTwitterIcon_X {
-    background-color: var(--twitter-twitterIcon-color);
+    background-color: var(--twitter-twitterIcon-sidebar);
     -webkit-mask-image: var(--TUIC-twitter-icon) !important;
     mask-image: var(--TUIC-twitter-icon) !important;
 }
