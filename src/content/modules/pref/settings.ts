@@ -2,8 +2,15 @@
 type TUICSetting =
     /* eslint-disable style/indent, style/indent-binary-ops, style/no-multi-spaces */
     |   {
-            type: "color"; // 色設定 あとから変更する予定です
-            values: { id: string; i18n: string }[];
+            type: "color"; // 色設定
+            i18n: string;
+            default?: number; // 0は変更なし、1はTwitter時代の色、3はカスタム、4はライトとダークのカスタム
+            values: { type:"background" | "border" | "color" }[];
+        }
+    |   {
+            type: "colorTemplate"; // 色設定 type:"color"でvaluesを[{type: "background"},{type: "border"},{type: "color"}]としたときと同じ
+            i18n: string;
+            default?: number ;
         }
     |   { type: "order"; default: string[]; values: { id: string; i18n: string }[] } // 並び替え
     |   { type: "select"; default: string; values: { id: string; i18n: string }[] } //ラジオボタンなどの一つのみ設定するやつ
@@ -28,6 +35,56 @@ export const TUICSettings = {
             { id: "twitterIconFavicon", i18n: "settingColors-twitterIconFavicon" },
         ],
     },
+    /*
+    "changeButtonsColor.unsent-tweet":{
+        type:"colorTemplate"
+        i18n: "settingColors-editUnsetTweet"
+    },
+    "changeButtonsColor.not-following":{
+        type:"colorTemplate"
+        i18n: "settingColors-notFollowingButton"
+    },
+    "changeButtonsColor.willFollow":{
+        type:"colorTemplate"
+        i18n: "settingColors-willFollowButton"
+    },
+    "changeButtonsColor.following":{
+        type:"colorTemplate"
+        i18n: "settingColors-followingButton"
+    },
+    "changeButtonsColor.un-following":{
+        type:"colorTemplate"
+        i18n: "settingColors-unfollowButton"
+    },
+    "changeButtonsColor.blocking":{
+        type:"colorTemplate"
+        i18n: "settingColors-blocking"
+    },
+    "changeButtonsColor.blocking-unlock":{
+        type:"colorTemplate"
+        i18n: "settingColors-blockingUnlock"
+    },
+    "changeButtonsColor.profile":{
+        type:"colorTemplate"
+        i18n: "settingColors-editProfile"
+    },
+    "changeButtonsColor.profile-save":{
+        type:"colorTemplate"
+        i18n: "settingColors-saveProfile"
+    },
+    "changeButtonsColor.birthday":{
+        type:"colorTemplate"
+        i18n: "settingColors-finalDecideButton"
+    },
+    "changeIconsColor.twitterIcon":{
+        type:"color"
+        i18n: "settingColors-twitterIcon"
+        values: [
+            { type: "sidebar" },
+            { type: "favicon" },
+        ]
+    },
+    */
     // ツイート関連の設定
     visibleButtons: {
         type: "order",
