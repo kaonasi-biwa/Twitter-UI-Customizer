@@ -1,4 +1,5 @@
 import { TUICSettings } from "./settings";
+
 let config = null;
 
 const getPointerFromKey = (object: object, key: string) => {
