@@ -5,7 +5,7 @@ import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.pcss?url";
 import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
-import { getColorIDs, getColorTypes, getPref, getSettingIDs } from "@modules/pref";
+import { getColorIDs, getColorTypes, getPref } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
 export function applyDefaultStyle() {

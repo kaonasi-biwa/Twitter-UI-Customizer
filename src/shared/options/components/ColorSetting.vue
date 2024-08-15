@@ -59,7 +59,7 @@ const isDefault = computed(() => {
 // Prefから設定された色を取得(配列で[R: string, G: string, B: string]の形式)
 // このコンポーネントを呼び出すときのpropsから取得する色の場所などが決定される
 const TUIC_color = computed(() => {
-    return getColorFromPref(props.id, props.type, store.editingColorType,true);
+    return getColorFromPref(props.id, props.type, store.editingColorType, true);
 });
 // TUIC_colorで取得した色をhex形式に変換して返す
 const TUICColor1 = computed(() => {
@@ -69,7 +69,7 @@ const TUICColor1 = computed(() => {
 function defaultColor(colorAttr, colorType, colorKind) {
     deletePref(`changeButtonsColor.${colorAttr}.${colorType}.${colorKind}`);
 
-    const TUIC_color = getColorFromPref(colorAttr, colorType, colorKind,true);
+    const TUIC_color = getColorFromPref(colorAttr, colorType, colorKind, true);
     const TUICColor1 = rgb2hex([TUIC_color[0], TUIC_color[1], TUIC_color[2]]);
 
     // 各子コンポーネントの関数を呼び出し、デフォルトに設定した色を反映します
@@ -97,7 +97,7 @@ function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
 }
 
 function changeColorCheck(colorAttr, colorType, colorKind, isChecked) {
-    const colorValue = getColorFromPref(props.id, props.type, store.editingColorType,true);
+    const colorValue = getColorFromPref(props.id, props.type, store.editingColorType, true);
 
     setPref(`changeButtonsColor.${colorAttr}.${colorType}.${colorKind}`, [...colorValue, isChecked ? 0 : 1]);
     colorRoot.value.classList.remove("TUIC_ISNOTDEFAULT");
