@@ -3,7 +3,7 @@
     "[markdown][yaml]": {
         "editor.tabSize": 2,
     },
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "[javascript][json]": {
         "editor.formatOnSave": false,
     },

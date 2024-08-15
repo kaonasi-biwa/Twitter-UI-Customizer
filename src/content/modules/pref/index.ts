@@ -1,3 +1,4 @@
+import { TUICColorSettings } from "./colorSettings";
 import { TUICSettings } from "./settings";
 
 let config = null;
@@ -236,6 +237,25 @@ let defaultData = null;
 export function mergeDefaultPref(source) {
     if (defaultData == null) {
         defaultData = {};
+        for (const elem in TUICColorSettings) {
+            const prefData = TUICColorSettings[elem];
+            const returnObject = { colorType: prefData.default ?? 0 };
+            switch (prefData.type) {
+                case "color": {
+                    for (const elem of prefData.values) {
+                        returnObject[elem] = {};
+                    }
+                    break;
+                }
+                case "colorTemplate": {
+                    for (const elem of ["background", "border", "color"]) {
+                        returnObject[elem] = {};
+                    }
+                    break;
+                }
+            }
+            setPref(elem, structuredClone(returnObject), defaultData);
+        }
         for (const elem in TUICSettings) {
             if (elem == "buttonColor") {
                 defaultData.buttonColor = {};
