@@ -35,7 +35,7 @@ export function hex2rgb(hex: string): [number, number, number] {
  * @param {string} type 色の種類(基本的にはbackground,border,color)
  * @return {"normal" | "light" | "dark" | null} 色の取得に使用する背景色
  */
-export function getColorFromPref(name: string, type: string, mode: "normal" | "light" | "dark" | null, isSetting: boolean) {
+export function getColorFromPref(name: string, type: string, mode: "normal" | "light" | "dark" | null, isSetting?: boolean) {
     const colorPref = getPref(`changeButtonsColor.${name}`);
     let _mode = "";
     _mode = mode ? mode : backgroundColorCheck() == "light" ? "light" : "dark";
