@@ -1,23 +1,16 @@
 <template>
-    <template v-if="_color['background']">
-        <ColorSetting :id="id" type="background" text="settingUI-colorPicker-background" />
-    </template>
-    <template v-if="_color['border']">
-        <ColorSetting :id="id" type="border" text="settingUI-colorPicker-border" />
-    </template>
-    <template v-if="_color['color']">
-        <ColorSetting :id="id" type="color" :text="typeColor" />
+    <template v-for="colorType in colorTypeList" :key="colorType">
+        <ColorSetting :id="id" :type="colorType" :text="`settingUI-colorPicker-${colorType}`" />
     </template>
 </template>
 
 <script setup lang="ts">
+import { getColorTypes, TUICColorIDs } from "@content/modules/pref";
 import ColorSetting from "./ColorSetting.vue";
-import { ColorData } from "@shared/sharedData";
 
-const props = defineProps<{ id: string }>();
+const props = defineProps<{ id: TUICColorIDs }>();
 
-const _color = ColorData.defaultTUICColor.colors[props.id];
-const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";
+const colorTypeList = getColorTypes(props.id);
 </script>
 
 <style scoped></style>
