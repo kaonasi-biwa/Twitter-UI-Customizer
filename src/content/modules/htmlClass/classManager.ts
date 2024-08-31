@@ -27,7 +27,7 @@ const ClassList = [
     ProcessedClass,
 ];
 
-const AttrList = { processedArticle: "processed-article", tuicDiscoverMore: "tuic-discover-more", tuicSettings: "tuic-settings" };
+const AttrList = { processedArticle: "processed-article", tuicDiscoverMore: "tuic-discover-more", tuicSettings: "tuic-settings",tuicEventHandled:"tuic-event-handled" };
 
 export const updateClasses = (isInit = false) => {
     if (!isInit) TUICObserver.unbind();

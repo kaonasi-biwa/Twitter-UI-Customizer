@@ -18,11 +18,13 @@ const _data = {
         "retweet-button": async () => {
             if (getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 // TODO: wait 関数を作って置き換えるべきか？
-                if (!willClickRT) {
-                    window.setTimeout(async () => {
+                window.setTimeout(async () => {
+                    if (willClickRT.data) {
+                        willClickRT.data = false;
+                    } else {
                         (await waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();
-                    }, 100);
-                }
+                    }
+                }, 100);
             }
         },
         "share-button": function (elem: HTMLAnchorElement) {
@@ -88,9 +90,9 @@ export function tweetSettings() {
                         const buttonBarBase = hasClosest<HTMLDivElement>(articleBase.querySelector(_data.selectors["reply-button"]), _data.selectors["like-button"]);
                         buttonBarBase.parentElement.classList.add("TUICTweetButtomBarBase");
                         // ボタンたち
-                        const underTweetButtons: Record<string, Element> = {};
+                        const underTweetButtons: Record<string, HTMLElement> = {};
                         for (const sel in _data.selectors) {
-                            const elem = buttonBarBase.querySelector<Element>(_data.selectors[sel])?.closest(`.TUICTweetButtomBarBase > * > *`);
+                            const elem = buttonBarBase.querySelector<HTMLElement>(_data.selectors[sel])?.closest<HTMLElement>(`.TUICTweetButtomBarBase > * > *`);
                             if (elem) {
                                 underTweetButtons[sel] = elem;
                             }
@@ -112,12 +114,17 @@ export function tweetSettings() {
 
                         if (!articleInfo.option.cannotRT) {
                             // リツイートボタンのイベントハンドラ(メニューを出さないなどの実装のため)
-                            _data.buttonElement._handleEvent(underTweetButtons["retweet-button"], _data.buttonFunction["retweet-button"]);
-                            if (!articleInfo.option.isLockedAccount && underTweetButtons["share-button"]) {
+                            if(underTweetButtons["retweet-button"].dataset?.tuicEventHandled !== ""){
+                                _data.buttonElement._handleEvent(underTweetButtons["retweet-button"], _data.buttonFunction["retweet-button"]);
+                            }
+                            underTweetButtons["retweet-button"].dataset.tuicEventHandled = ""
+
+                            if (!articleInfo.option.isLockedAccount && underTweetButtons["share-button"] && underTweetButtons["share-button"].dataset?.tuicEventHandled !== "") {
                                 // 共有ボタンのイベントハンドラ(URLをコピーのドメイン変更のため)
                                 _data.buttonElement._handleEvent(underTweetButtons["share-button"], () => {
                                     _data.buttonFunction["share-button"](statusButton);
                                 });
+                                underTweetButtons["share-button"].dataset.tuicEventHandled = ""
                             }
                         }
 
