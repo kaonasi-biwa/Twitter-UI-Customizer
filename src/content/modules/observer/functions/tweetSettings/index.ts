@@ -114,17 +114,17 @@ export function tweetSettings() {
 
                         if (!articleInfo.option.cannotRT) {
                             // リツイートボタンのイベントハンドラ(メニューを出さないなどの実装のため)
-                            if(underTweetButtons["retweet-button"].dataset?.tuicEventHandled !== ""){
+                            if (underTweetButtons["retweet-button"].dataset?.tuicEventHandled !== "") {
                                 _data.buttonElement._handleEvent(underTweetButtons["retweet-button"], _data.buttonFunction["retweet-button"]);
                             }
-                            underTweetButtons["retweet-button"].dataset.tuicEventHandled = ""
+                            underTweetButtons["retweet-button"].dataset.tuicEventHandled = "";
 
                             if (!articleInfo.option.isLockedAccount && underTweetButtons["share-button"] && underTweetButtons["share-button"].dataset?.tuicEventHandled !== "") {
                                 // 共有ボタンのイベントハンドラ(URLをコピーのドメイン変更のため)
                                 _data.buttonElement._handleEvent(underTweetButtons["share-button"], () => {
                                     _data.buttonFunction["share-button"](statusButton);
                                 });
-                                underTweetButtons["share-button"].dataset.tuicEventHandled = ""
+                                underTweetButtons["share-button"].dataset.tuicEventHandled = "";
                             }
                         }
 

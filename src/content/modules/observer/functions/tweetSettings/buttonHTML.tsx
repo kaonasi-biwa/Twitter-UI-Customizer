@@ -7,7 +7,7 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { backgroundColorClass } from "@modules/utils/color";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
-export const willClickRT = {data:false};
+export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
@@ -136,7 +136,7 @@ export const tweetButtonData: Record<string, {
             return <path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z" class="TUIC_QuoteTweet"></path>;
         },
         clickEvent: async (data: ArticleInfomation) => {
-            if(getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")){
+            if (getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 willClickRT.data = true;
             }
             data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]).click();
