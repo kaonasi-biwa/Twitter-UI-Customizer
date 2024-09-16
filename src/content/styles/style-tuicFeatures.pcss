@@ -1,3 +1,5 @@
+@import url("./features/style-discoverMore.pcss");
+
 .TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;
 }
@@ -60,13 +62,7 @@
     mask-size: cover !important;
 }
 
-.TUICTwitterIcon_Twitter {
-    background-color: var(--twitter-twitterIcon-color);
-    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
-    mask-image: var(--TUIC-twitter-icon) !important;
-}
-
-.TUICTwitterIcon_X {
+:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X) {
     background-color: var(--twitter-twitterIcon-color);
     -webkit-mask-image: var(--TUIC-twitter-icon) !important;
     mask-image: var(--TUIC-twitter-icon) !important;
