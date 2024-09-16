@@ -1,4 +1,5 @@
 @import url("./features/style-discoverMore.pcss");
+@import url("./features/style-iconSettings.pcss");
 
 .TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;
@@ -21,62 +22,6 @@
 
 :is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
     height: 8px;
-}
-
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *, [role="img"] > * > *) {
-    margin: 8px;
-}
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
-    background-size: cover;
-}
-
-#placeholder > :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
-    position: absolute;
-    margin: auto;
-}
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *, [role="img"] > * > *) {
-    height: inherit !important;
-}
-
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] .TUICTwitterIcon_IconImg {
-    width: 40px;
-    height: 40px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain !important;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-size: contain !important;
-    mask-size: contain !important;
-}
-
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
-    -webkit-mask-size: cover !important;
-    mask-size: cover !important;
-}
-
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X) {
-    background-color: var(--twitter-twitterIcon-color);
-    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
-    mask-image: var(--TUIC-twitter-icon) !important;
-}
-
-#layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
-    width: auto !important;
-    background-repeat: no-repeat !important;
-    background-position: center;
-    background-size: contain !important;
-}
-
-.TUIC_SVGDISPNONE > * {
-    display: none !important;
 }
 
 .TUIC_DISPNONE_PARENT > [data-testid="ScrollSnap-prevButtonWrapper"] {
@@ -217,10 +162,6 @@
 .TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-}
-
-:root[data-tuic-settings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
-    border-radius: 9999px !important;
 }
 
 :is(

@@ -64,20 +64,20 @@ export function tweetSettings() {
     if (!buttonUnderTweetRunning) {
         buttonUnderTweetRunning = true;
         {
-            const getElement = () => document.querySelector<HTMLElement>(`article[data-processed-article] [data-testid="caret"]:not(${ProcessedClass})`);
+            const getElement = () => document.querySelector<HTMLElement>(`article[data-tuic-processed-article] [data-testid="caret"]:not(${ProcessedClass})`);
             for (let elem = getElement(); elem; elem = getElement()) {
-                delete elem.closest<HTMLElement>("[data-processed-article]").dataset.processedArticle;
+                delete elem.closest<HTMLElement>("[data-tuic-processed-article]").dataset.tuicProcessedArticle;
             }
         }
 
         {
-            const getElement = () => document.querySelector(`article[data-processed-article] .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
+            const getElement = () => document.querySelector(`article[data-tuic-processed-article] .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
             for (let elem = getElement(); elem; elem = getElement()) {
-                delete elem.closest<HTMLElement>("[data-processed-article]").dataset.processedArticle;
+                delete elem.closest<HTMLElement>("[data-tuic-processed-article]").dataset.tuicProcessedArticle;
             }
         }
 
-        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-processed-article]):not([data-testid="tweet"] *)`);
+        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-tuic-processed-article]):not([data-testid="tweet"] *)`);
         if (articles.length != 0) {
             for (const articleBase of articles) {
                 (async () => {
@@ -199,7 +199,7 @@ export function tweetSettings() {
 
                         tweetTopButtons(articleInfo);
                     }
-                    articleBase.dataset.processedArticle = "";
+                    articleBase.dataset.tuicProcessedArticle = "";
                 })();
             }
         }

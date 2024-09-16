@@ -8,7 +8,7 @@ import { hideElement, processElement } from "@modules/utils/controlElements";
 
 let iconObserver: MutationObserver | null = null;
 
-const iconObserverFunc = (elem: Element) => {
+const iconObserverFunc = (elem: HTMLElement) => {
     if (elem) {
         if (iconObserver) iconObserver.disconnect();
         else {
@@ -25,7 +25,7 @@ const iconObserverFunc = (elem: Element) => {
     }
 };
 
-function changeIconProcess(elem: Element, base: Element) {
+function changeIconProcess(elem: HTMLElement, base: Element) {
     const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
     const changeFavicon = getPref("twitterIcon.options.faviconSet");
     switch (getPref("twitterIcon.icon")) {
@@ -33,7 +33,8 @@ function changeIconProcess(elem: Element, base: Element) {
             if (favicon && changeFavicon) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
             }
-            elem.classList.add("TUIC_SVGDISPNONE");
+            //elem.classList.add("TUIC_SVGDISPNONE");
+            elem.dataset.tuicIconType = "invisible";
             hideElement(base);
             break;
         case "twitter":
@@ -41,20 +42,23 @@ function changeIconProcess(elem: Element, base: Element) {
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`)
             }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
+            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
+            elem.dataset.tuicIconType = "officialLogo-twitter";
             break;
         case "dog":
             if (favicon && changeFavicon) {
                 favicon.href = chrome.runtime.getURL(DOG);
             }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Dog");
+            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Dog");
+            elem.dataset.tuicIconType = "dog";
             break;
         case "custom":
             if (favicon && changeFavicon) {
                 const imageURL = localStorage.getItem(getPref("twitterIcon.options.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                 favicon.href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");
+            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");
+            elem.dataset.tuicIconType = "custom";
             break;
         case "twitterIcon-X":
             if (favicon && changeFavicon) {
@@ -62,13 +66,15 @@ function changeIconProcess(elem: Element, base: Element) {
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
-            elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_X");
+            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_X");
+            elem.dataset.tuicIconType = "officialLogo-X";
             break;
         default:
             if (favicon) {
                 favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
             }
-            elem.classList.add("TUIC_NOTSVGDISPNONE");
+            //elem.classList.add("TUIC_NOTSVGDISPNONE");
+            elem.dataset.tuicIconType = "default";
             break;
     }
     processElement(elem);
@@ -79,9 +85,9 @@ function changeIconProcess(elem: Element, base: Element) {
 
 //* setup icon observer
 export function changeIcon() {
-    const notProcessed = `:not(.TUIC_SVGDISPNONE):not(.TUIC_NOTSVGDISPNONE)`;
+    const notProcessed = `:not([tuic-icon-type])`;
     {
-        const elem = document.querySelector(`header h1 a > div > svg${notProcessed}`);
+        const elem = document.querySelector<HTMLElement>(`header h1 a > div > svg${notProcessed}`);
         if (elem) {
             iconObserverFunc(elem);
         }
@@ -91,30 +97,30 @@ export function changeIcon() {
     }
 
     {
-        const elem = document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg${notProcessed}`);
+        const elem = document.querySelector<HTMLElement>(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] > svg${notProcessed}`);
         if (elem) {
             changeIconProcess(elem, document.querySelector(`[role="alertdialog"] [data-testid="confirmationSheetDialog"] [role="heading"]`));
         }
     }
 
     {
-        const elem = document.querySelector(`[data-testid="interstitialGraphic"] > svg${notProcessed}`);
+        const elem = document.querySelector<HTMLElement>(`[data-testid="interstitialGraphic"] > svg${notProcessed}`);
         if (elem) {
             changeIconProcess(elem, elem.parentElement);
         }
     }
 
     {
-        const elem = document.querySelector(`#layers [data-testid="TopNavBar"] div+svg${notProcessed}`);
+        const elem = document.querySelector<HTMLElement>(`#layers [data-testid="TopNavBar"] div+svg${notProcessed}`);
         if (elem) {
             changeIconProcess(elem, elem.parentElement);
         }
     }
 
     {
-        const elem = document.querySelector(`article svg${notProcessed} > * > path[d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"]`);
+        const elem = document.querySelector<HTMLElement>(`article svg${notProcessed} > * > path[d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"]`);
         if (elem) {
-            changeIconProcess(elem.closest("svg"), elem.closest("svg").parentElement);
+            changeIconProcess(elem.closest<HTMLElement>("svg"), elem.closest("svg").parentElement);
         }
     }
 }
