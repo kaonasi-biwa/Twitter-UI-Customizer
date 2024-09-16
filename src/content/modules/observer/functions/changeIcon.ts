@@ -77,7 +77,6 @@ function changeIconProcess(elem: HTMLElement, base: Element) {
             elem.dataset.tuicIconType = "default";
             break;
     }
-    processElement(elem);
     if (favicon && !changeFavicon) {
         favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
     }
