@@ -49,8 +49,8 @@ export function showLinkCardInfo(articleInfo: ArticleInfomation) {
             const card = articleBase.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 
             if (card.querySelector(".TUIC_LinkCardInfo") == null) {
-                hideElement(card.children[1]);
-                hideElement(card.parentElement.children[1]);
+                hideElement(card.children[1] as HTMLElement);
+                hideElement(card.parentElement.children[1] as HTMLElement);
                 hideElement(card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div'));
 
                 const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;
