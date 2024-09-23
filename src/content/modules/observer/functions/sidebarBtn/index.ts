@@ -234,14 +234,14 @@ const _data = {
 export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`)
-        const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`)
-        if(vanillaBookmark && tuicBookmark){
-            tuicBookmark.remove()
+        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`);
+        const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`);
+        if (vanillaBookmark && tuicBookmark) {
+            tuicBookmark.remove();
             sidebarButtonProcess(bannerRoot);
-        }else if(getPref("sidebarButtons").includes("bookmarks") && !(vanillaBookmark || tuicBookmark)){
+        } else if (getPref("sidebarButtons").includes("bookmarks") && !(vanillaBookmark || tuicBookmark)) {
             sidebarButtonProcess(bannerRoot);
-        }else if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
+        } else if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
             sidebarButtonProcess(bannerRoot);
         } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not([data-tuic-hide="false"])`).length) {
             let changeElem = false;
@@ -271,7 +271,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
             let moveElem = bannerRoot.querySelector<HTMLElement>(_data.selectors[i]);
             if (moveElem != null) {
                 bannerRoot.appendChild(moveElem);
-                moveElem.dataset.tuicHide = "false"
+                moveElem.dataset.tuicHide = "false";
                 if (i == "moremenu") {
                     moveElem.onclick = moreMenuContent;
                     moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -284,7 +284,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 sidebarButtonsCount += 1;
             } else if (i in _data.html) {
                 moveElem = parseHtml(_data.html[i]()).item(0) as HTMLElement;
-                moveElem.dataset.tuicHide = "false"
+                moveElem.dataset.tuicHide = "false";
                 moveElem.onclick = _data.buttonFunctions[i];
                 moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
                     if (e.key === "Enter") {

@@ -98,7 +98,7 @@ export function hasClosestSelector<T extends Element>(elem: Element, selector: s
  * @param {HTMLElement} elem 対象のElement
  */
 export function hideElement(elem: HTMLElement) {
-    if(elem) elem.dataset.tuicHide = "true"
+    if (elem) elem.dataset.tuicHide = "true";
 }
 
 /**
@@ -107,7 +107,7 @@ export function hideElement(elem: HTMLElement) {
  * @param {HTMLElement} elem 対象のElement
  */
 export function showElement(elem: HTMLElement) {
-    if(elem) delete elem.dataset.tuicHide
+    if (elem) delete elem.dataset.tuicHide;
 }
 
 /**

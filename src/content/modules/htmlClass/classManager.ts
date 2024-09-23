@@ -16,15 +16,15 @@ const ClassList = [
 const AttrList = {
     tuicProcessedArticle: "tuic-processed-article",
     tuicDiscoverMore: "tuic-discover-more",
-    tuicDiscoverMoreTweet:"tuic-discover-more-tweet",
+    tuicDiscoverMoreTweet: "tuic-discover-more-tweet",
 
     tuicSettings: "tuic-settings",
     tuicEventHandled: "tuic-event-handled",
-    tuicIconType:"tuic-icon-type",
-    tuicHide:"tuic-hide",
-    tuicHideChildScrollSnap:"tuic-hide-child-scroll-snap",
+    tuicIconType: "tuic-icon-type",
+    tuicHide: "tuic-hide",
+    tuicHideChildScrollSnap: "tuic-hide-child-scroll-snap",
 
-    tuicZoomingTweet:"tuic-zooming-tweet"
+    tuicZoomingTweet: "tuic-zooming-tweet",
 };
 
 export const updateClasses = (isInit = false) => {
