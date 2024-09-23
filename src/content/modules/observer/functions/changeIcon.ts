@@ -4,7 +4,7 @@ import X from "@content/icons/logo/x.svg?raw";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 import { getColorFromPref } from "@content/modules/utils/color";
 import { getPref } from "@modules/pref";
-import { hideElement, processElement } from "@modules/utils/controlElements";
+import { hideElement } from "@modules/utils/controlElements";
 
 let iconObserver: MutationObserver | null = null;
 
@@ -25,7 +25,7 @@ const iconObserverFunc = (elem: HTMLElement) => {
     }
 };
 
-function changeIconProcess(elem: HTMLElement, base: Element) {
+function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
     const favicon = document.querySelector<HTMLLinkElement>(`[rel="shortcut icon"]`);
     const changeFavicon = getPref("twitterIcon.options.faviconSet");
     switch (getPref("twitterIcon.icon")) {
@@ -33,7 +33,6 @@ function changeIconProcess(elem: HTMLElement, base: Element) {
             if (favicon && changeFavicon) {
                 favicon.href = chrome.runtime.getURL(EMPTY);
             }
-            //elem.classList.add("TUIC_SVGDISPNONE");
             elem.dataset.tuicIconType = "invisible";
             hideElement(base);
             break;
@@ -42,14 +41,12 @@ function changeIconProcess(elem: HTMLElement, base: Element) {
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`)
             }
-            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Twitter");
             elem.dataset.tuicIconType = "officialLogo-twitter";
             break;
         case "dog":
             if (favicon && changeFavicon) {
                 favicon.href = chrome.runtime.getURL(DOG);
             }
-            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_Dog");
             elem.dataset.tuicIconType = "dog";
             break;
         case "custom":
@@ -57,7 +54,6 @@ function changeIconProcess(elem: HTMLElement, base: Element) {
                 const imageURL = localStorage.getItem(getPref("twitterIcon.options.roundIcon") ? "TUIC_IconImg_Favicon" : "TUIC_IconImg");
                 favicon.href = imageURL ?? chrome.runtime.getURL(EMPTY);
             }
-            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_IconImg");
             elem.dataset.tuicIconType = "custom";
             break;
         case "twitterIcon-X":
@@ -66,14 +62,12 @@ function changeIconProcess(elem: HTMLElement, base: Element) {
                 favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
-            //elem.classList.add("TUIC_SVGDISPNONE", "TUICTwitterIcon_X");
             elem.dataset.tuicIconType = "officialLogo-X";
             break;
         default:
             if (favicon) {
                 favicon.href = "//abs.twimg.com/favicons/twitter.3.ico";
             }
-            //elem.classList.add("TUIC_NOTSVGDISPNONE");
             elem.dataset.tuicIconType = "default";
             break;
     }
@@ -131,7 +125,7 @@ export const initIconObserverFunction = () => {
     if (initIconObserver) initIconObserver.disconnect();
     else initIconObserver = new MutationObserver(initIconObserverFunction);
 
-    changeIconProcess(document.querySelector(`#placeholder > svg:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE`), document.querySelector(`#placeholder`));
+    changeIconProcess(document.querySelector(`#placeholder > svg:not([data-tuic-icon-type])`), document.querySelector(`#placeholder`));
 
     initIconObserver.observe(document.querySelector(`#placeholder > svg`), {
         attributes: true,

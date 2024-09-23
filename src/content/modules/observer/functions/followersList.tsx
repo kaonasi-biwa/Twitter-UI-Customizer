@@ -96,7 +96,7 @@ export function followersList() {
                     baseElement.classList.add("TUICFollowerListButtons");
                     let elementCounter = 0;
                     for (const id of getPref("profileSetting.followersListButtons")) {
-                        const buttonElement = baseElement.querySelector(data[id].selector);
+                        const buttonElement = baseElement.querySelector<HTMLElement>(data[id].selector);
                         if (buttonElement) {
                             showElement(buttonElement);
                             baseElement.appendChild(buttonElement.closest(".TUICFollowerListButtons > *"));
@@ -116,7 +116,7 @@ export function followersList() {
                     const baseElementChildren = baseElement.children.length;
                     if (elementCounter != baseElementChildren) {
                         for (let i = 0; elementCounter + i < baseElementChildren; i++) {
-                            hideElement(baseElement.children[i]);
+                            hideElement(baseElement.children[i] as HTMLElement);
                         }
                     }
                 }

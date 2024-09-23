@@ -130,10 +130,10 @@ export function tweetSettings() {
 
                         if (articleInfo.option.isBigArticle) {
                             // Class付け
-                            articleBase.classList.add("TUICItIsBigArticle");
+                            articleBase.dataset.tuicZoomingTweet = ""
                             // 画像を拡大表示しているときの共有ボタンに対応
                             if (location.pathname.includes("/photo/") || location.pathname.includes("/video/")) {
-                                articleBase.classList.add("TUICItIsBigArticlePhoto");
+                                articleBase.dataset.tuicZoomingTweet = "openingImage"
 
                                 if (!articleInfo.option.cannotRT && !articleInfo.option.isLockedAccount) {
                                     const shareButtom = document.querySelector<HTMLElement>(`[aria-labelledby="modal-header"] > div > div:not([aria-expanded="true"]) [aria-haspopup="menu"]:not([data-testid="retweet"]):not([data-testid="unretweet"])`);
@@ -155,16 +155,16 @@ export function tweetSettings() {
                         showLinkCardInfo(articleInfo);
 
                         // ツイート下ボタンの並び替え
-                        let lastButton: Element | null = null;
+                        let lastButton: HTMLElement | null = null;
                         for (const i of getPref("visibleButtons")) {
-                            let processingButton: Element | null = null;
+                            let processingButton: HTMLElement | null = null;
                             if (i in underTweetButtons) {
                                 processingButton = underTweetButtons[i];
                                 processingButton.classList.add("TUIC_UnderTweetButton");
                                 showElement(processingButton);
                             } else if (i in tweetButtonData) {
                                 render(TweetUnderButtonsHTML(i, articleInfo), buttonBarBase);
-                                processingButton = Array.from(buttonBarBase.children).at(-1);
+                                processingButton = Array.from(buttonBarBase.children).at(-1) as HTMLElement;
                             }
                             // Twitterのボタンと同化させるためにClassとかごにょごにょしてる
                             if (processingButton) {

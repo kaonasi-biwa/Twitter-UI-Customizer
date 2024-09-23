@@ -15,20 +15,20 @@
 }
 
 .TUICScrollBottom,
-.TUICItIsBigArticlePhoto .TUICScrollBottom > div {
+[data-tuic-zooming-tweet="openingImage"] .TUICScrollBottom > div {
     overflow-x: auto;
     scrollbar-width: thin;
 }
 
-:is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
+:is([data-tuic-zooming-tweet="openingImage"] .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
     height: 8px;
 }
 
-.TUIC_DISPNONE_PARENT > [data-testid="ScrollSnap-prevButtonWrapper"] {
+[data-tuic-hide-child-scroll-snap] > [data-testid="ScrollSnap-prevButtonWrapper"] {
     display: none !important;
 }
 
-.TUIC_DISPNONE {
+[data-tuic-hide="true"] {
     display: none !important;
 }
 
@@ -159,7 +159,7 @@
     text-decoration-thickness: 1px;
 }
 
-.TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
+.TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] [data-tuic-hide="false"] {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
@@ -167,7 +167,7 @@
 :is(
         :root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
         :root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-        :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] [data-tuic-zooming-tweet] [data-testid="app-text-transition-container"],
         :root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
         :root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
         :root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,

@@ -234,9 +234,9 @@ const _data = {
 export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`)) {
+        if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
             sidebarButtonProcess(bannerRoot);
-        } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not(.NOT_TUIC_DISPNONE)`).length) {
+        } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not([data-tuic-hide="false"])`).length) {
             let changeElem = false;
             for (const selector of getPref("sidebarButtons")) {
                 const elems = bannerRoot.querySelectorAll(_data.selectors[selector]);
@@ -264,7 +264,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
             let moveElem = bannerRoot.querySelector<HTMLElement>(_data.selectors[i]);
             if (moveElem != null) {
                 bannerRoot.appendChild(moveElem);
-                moveElem.classList.add("NOT_TUIC_DISPNONE");
+                moveElem.dataset.tuicHide = "false"
                 if (i == "moremenu") {
                     moveElem.onclick = moreMenuContent;
                     moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -277,7 +277,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 sidebarButtonsCount += 1;
             } else if (i in _data.html) {
                 moveElem = parseHtml(_data.html[i]()).item(0) as HTMLElement;
-                moveElem.classList.add("NOT_TUIC_DISPNONE");
+                moveElem.dataset.tuicHide = "false"
                 moveElem.onclick = _data.buttonFunctions[i];
                 moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
                     if (e.key === "Enter") {
@@ -289,7 +289,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 sidebarButtonsCount += 1;
             }
         }
-        for (const i of bannerRoot.querySelectorAll(`:is(a,div[role="button"],button,[type="button"]):not(.NOT_TUIC_DISPNONE)`)) {
+        for (const i of bannerRoot.querySelectorAll<HTMLElement>(`:is(a,div[role="button"],button,[type="button"]):not([data-tuic-hide="false"])`)) {
             hideElement(i);
         }
     }

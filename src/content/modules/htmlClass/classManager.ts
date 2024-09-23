@@ -3,24 +3,10 @@ import { TUICObserver } from "../observer";
 import { applySystemCss } from "@content/applyCSS";
 
 const ClassList = [
-    "NOT_TUIC_DISPNONE",
-    "TUIC_DISPNONE",
-    "TUIC_DISPNONE_PARENT",
-    "TUIC_SVGDISPNONE",
-    "TUIC_NOTSVGDISPNONE",
-    "TUIC_DISCOVERMORE",
-    "TUIC_ISNOTDEFAULT",
     "TUIC_NONE_SPACE_BOTTOM_TWEET",
     "TUIC_TWEETREPLACE",
     "TUIC_UnderTweetButton",
-    "TUICDidInfoArticle",
-    "TUICItIsBigArticle",
-    "TUICItIsBigArticlePhoto",
     "TUICTweetButtomBarBase",
-    "TUICTwitterIcon_Twitter",
-    "TUICTwitterIcon_X",
-    "TUICTwitterIcon_Dog",
-    "TUICTwitterIcon_IconImg",
     "TUICScrollBottom",
     "TUICDMIcon",
     "TUICFollowerListButtons",
@@ -30,9 +16,15 @@ const ClassList = [
 const AttrList = {
     tuicProcessedArticle: "tuic-processed-article",
     tuicDiscoverMore: "tuic-discover-more",
+    tuicDiscoverMoreTweet:"tuic-discover-more-tweet",
+
     tuicSettings: "tuic-settings",
     tuicEventHandled: "tuic-event-handled",
-    tuicIconType:"tuic-icon-type"
+    tuicIconType:"tuic-icon-type",
+    tuicHide:"tuic-hide",
+    tuicHideChildScrollSnap:"tuic-hide-child-scroll-snap",
+
+    tuicZoomingTweet:"tuic-zooming-tweet"
 };
 
 export const updateClasses = (isInit = false) => {
