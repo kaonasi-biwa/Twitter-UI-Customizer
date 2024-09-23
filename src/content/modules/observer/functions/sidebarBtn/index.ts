@@ -207,34 +207,41 @@ const _data = {
         },
         topics: () => {
             return _data.tuicButtonGoToUrl.__setURL("topics", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
-                return `https://twitter.com/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/topics`;
+                return `/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/topics`;
             });
         },
         lists: () => {
             return _data.tuicButtonGoToUrl.__setURL("lists", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
-                return `https://twitter.com/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/lists`;
+                return `/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/lists`;
             });
         },
         communities: () => {
             return _data.tuicButtonGoToUrl.__setURL("communities", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
-                return `https://twitter.com/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/communities`;
+                return `/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/communities`;
             });
         },
-        connect: "https://twitter.com/i/connect_people",
-        drafts: "https://twitter.com/compose/tweet/unsent/drafts",
-        display: "https://twitter.com/i/display",
-        muteAndBlock: "https://twitter.com/settings/mute_and_block",
-        bookmarks: "https://twitter.com/i/bookmarks",
-        settings: "https://twitter.com/settings/",
-        jobs: "https://twitter.com/jobs/",
-        spaces: "https://twitter.com/i/spaces/start/",
+        connect: "/i/connect_people",
+        drafts: "/compose/tweet/unsent/drafts",
+        display: "/i/display",
+        muteAndBlock: "/settings/mute_and_block",
+        bookmarks: "/i/bookmarks",
+        settings: "/settings/",
+        jobs: "/jobs/",
+        spaces: "/i/spaces/start/",
     },
 };
 
 export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
+        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`)
+        const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`)
+        if(vanillaBookmark && tuicBookmark){
+            tuicBookmark.remove()
+            sidebarButtonProcess(bannerRoot);
+        }else if(getPref("sidebarButtons").includes("bookmarks") && !(vanillaBookmark || tuicBookmark)){
+            sidebarButtonProcess(bannerRoot);
+        }else if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
             sidebarButtonProcess(bannerRoot);
         } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not([data-tuic-hide="false"])`).length) {
             let changeElem = false;
