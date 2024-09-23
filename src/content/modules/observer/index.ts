@@ -36,7 +36,7 @@ export const TUICObserver = new (class TUICObserver {
                 const removedElements = mutations.filter((m) => (Array.from(m.removedNodes) as Element[]).some((e) => (e as HTMLElement)?.tagName === "ARTICLE" && (e as HTMLElement)?.dataset.tuicProcessedArticle === ""));
                 if (removedElements.length !== 0) {
                     for (const elem of removedElements) {
-                        const removeElement = (elem.target as Element)?.closest(`[data-testid="cellInnerDiv"]`);
+                        const removeElement = (elem.target as Element)?.closest<HTMLElement>(`[data-testid="cellInnerDiv"]`);
                         if (removeElement.nextElementSibling && !removeElement.nextElementSibling.querySelector("article")) {
                             removeElement.nextElementSibling.remove();
                             hideElement(removeElement);
