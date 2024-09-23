@@ -35,7 +35,7 @@ export function hideOsusumeTweets() {
             if (elem.querySelector("article") == null && elem.querySelector("h2") != null && (elem.children?.[0]?.children?.[0]?.children?.[0]?.children?.[1]?.getAttribute("style") ?? "").includes("-webkit-line-clamp: 2;")) {
                 let elem2 = elem.nextElementSibling as HTMLElement;
                 while (elem2 != null && elem2 != undefined && elem2?.[0]?.children?.[0]?.childElementCount != 0) {
-                    elem2.dataset.tuicDiscoverMoreTweet = ""
+                    elem2.dataset.tuicDiscoverMoreTweet = "";
                     elem2 = elem2.nextElementSibling as HTMLElement;
                 }
             }
