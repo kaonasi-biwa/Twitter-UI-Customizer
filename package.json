@@ -41,7 +41,6 @@
         "eslint-plugin-unused-imports": "^4.1.4",
         "eslint-plugin-vue": "^9.30.0",
         "globals": "^15.12.0",
-        "node-fetch": "^3.3.2",
         "postcss-import": "^16.1.0",
         "postcss-nesting": "^12.1.5",
         "postcss-sort-media-queries": "^5.2.0",
@@ -60,7 +59,7 @@
         "web-ext": "^7.12.0"
     },
     "engines": {
-        "node": ">=20.9",
+        "node": ">=22.11",
         "pnpm": ">=9"
     }
 }

@@ -1,6 +1,5 @@
 import { UserConfig, defineConfig } from "vite";
 
-import url from "node:url";
 import path from "node:path";
 import * as fs from "node:fs/promises";
 
@@ -14,11 +13,8 @@ import solidPlugin from "vite-plugin-solid";
 
 import { changeManifest } from "./scripts/change-manifest";
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const r = (str: string): string => {
-    return path.resolve(__dirname, str);
+    return path.resolve(import.meta.dirname, str);
 };
 
 const rl = (str: string): URL => {
@@ -93,7 +89,7 @@ export default defineConfig(({ command, mode }) => {
                     console.log(new Date().toLocaleString());
                 },
             },
-            vitePluginWebExt(__dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
+            vitePluginWebExt(import.meta.dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
             UnoCSS(),
             solidPlugin(),
             // Vue Plugins
