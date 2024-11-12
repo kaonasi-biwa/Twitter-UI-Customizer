@@ -22,4 +22,3 @@ const changePref = (path, valueName) => {
     TUICObserver.callback();
 };
 </script>
-@modules/observer/observer @modules/i18n/i18n
