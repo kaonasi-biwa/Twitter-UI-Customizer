@@ -129,7 +129,7 @@ details {
             background: var(--tuic-popup-item-active);
         }
     }
-    div#notifySettings {
+    #notifySettings {
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -137,14 +137,30 @@ details {
         overflow-x: scroll;
         background: rgb(255 255 255 / 8%);
         label {
+            @apply relative block select-none;
             input {
                 @apply appearance-none relative w-4 h-4 bg-gray-700 border-gray-600 rounded;
                 &:is(:hover, :focus-visible) {
-                    @apply ring-2 ring-offset-2 ring-blue-500 ring-offset-slate-900;
+                    @apply bg-gray-600;
                 }
-            }
-            i {
-                @apply absolute left-0 -top-0.5 opacity-0;
+                &:active {
+                    @apply bg-gray-500;
+                }
+                &:checked {
+                    @apply bg-blue-600;
+                    &:is(:hover, :focus-visible) {
+                        @apply bg-blue-500;
+                    }
+                    &:active {
+                        @apply bg-blue-400;
+                    }
+                    &::before {
+                        @apply opacity-100;
+                    }
+                }
+                &::before {
+                    @apply font-size-4 mt-px opacity-0;
+                }
             }
         }
     }
