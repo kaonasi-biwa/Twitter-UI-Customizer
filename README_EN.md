@@ -98,6 +98,7 @@ Crowdin:
 - @cutterknife (For translating to English)
 - @deflecta (For translating to Russian)
 - @GrapeApple0 (For translating to English)
+- @ch-love (For translating to English)
 
 Others:
 

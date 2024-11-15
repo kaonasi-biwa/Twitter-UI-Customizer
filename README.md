@@ -78,7 +78,7 @@ GitHub:
 - @irhdevel (すばらしきデザイン)
 - @GrapeApple0 (クライアント名表示)
 - @Taka005 (ソースコードの整理)
-- @Hibi-10000 (アメリカ英語の翻訳・CRXリリース)
+- @Hibi-10000 (アメリカ英語の翻訳・CRXリリースなど)
 - @KotoneFami (機能追加やソースコードの整理など)
 - @nakasyou (デザインの改良・機能追加)
 - @surapunoyousei (デバッグしやすく)
@@ -103,6 +103,7 @@ Crowdin:
 - @cutterknife (英語の翻訳)
 - @deflecta (ロシア語の翻訳)
 - @GrapeApple0 (英語の翻訳)
+- @ch-love (英語の翻訳)
 
 その他:
 
