@@ -74,7 +74,7 @@
 .TUIC_col_setting_container input[type="color"] {
     width: 200%;
     height: 200%;
-    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -666,7 +666,7 @@ textarea#css_textarea {
 .TUIC_RoundedColorPicker_input {
     width: 200%;
     height: 200%;
-    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -849,8 +849,7 @@ textarea#css_textarea {
 .TUICSelectImg {
     font-size: 15px;
 }
-.TUICSelectImg::file-selector-button,
-.TUICSelectImg::-webkit-file-upload-button {
+.TUICSelectImg::file-selector-button {
     padding: 10px 20px;
     margin-right: 12px;
     background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
