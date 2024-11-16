@@ -461,11 +461,44 @@ textarea#css_textarea {
     padding-top: 10px;
 }
 
-:is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
+.TUICCheckBoxParent > div {
     display: inline-block;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 0.25em;
+}
+
+.TUICCheckBoxParent > input[type="checkbox"] {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    appearance: none;
+    background-color: rgb(55 65 81);
+    border-color: rgb(75 85 99);
+    border-radius: 0.25rem;
+    &:is(:hover, :focus-visible) {
+        background-color: rgb(75 85 99);
+    }
+    &:active {
+        background-color: rgb(107 114 128);
+    }
+    &:checked {
+        background-color: rgb(37 99 235);
+        &:is(:hover, :focus-visible) {
+            background-color: rgb(59 130 246);
+        }
+        &:active {
+            background-color: rgb(96 165 250);
+        }
+        &::before {
+            opacity: 1;
+        }
+    }
+    &::before {
+        margin-top: 1px;
+        font-size: 1rem;
+        opacity: 0;
+    }
 }
 
 #TUIC_setting :is(label, span, button, h2) {
