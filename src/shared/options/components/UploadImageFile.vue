@@ -54,4 +54,3 @@ async function changeCustomCSS() {
 </script>
 
 <style scoped></style>
-@modules/i18n/i18n

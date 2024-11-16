@@ -94,10 +94,10 @@
     color: var(--tlui-button-background);
     background-color: var(--tlui-button-text);
 }
-.tlui-dialog button:hover {
+.tlui-dialog button:is(:hover, :focus-visible) {
     background-color: var(--tlui-button-background-hover);
 }
-.tlui-dialog button.invert-color:hover {
+.tlui-dialog button.invert-color:is(:hover, :focus-visible) {
     background-color: var(--tlui-button-background-invert-hover);
 }
 

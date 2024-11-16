@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import fsSync from "node:fs";
-import url from "node:url";
 import manifest from "../manifest.config";
 
 export async function changeManifest(target: string) {
@@ -35,7 +34,7 @@ export async function changeManifest(target: string) {
     await fs.writeFile("./dist/manifest.json", JSON.stringify(output, undefined, 4));
 }
 
-if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+if (process.argv[1] === import.meta.filename) {
     const target = process.argv[2];
     if (target === "firefox" || target === "chromium" || target === "chromiumCRX") {
         changeManifest(target);

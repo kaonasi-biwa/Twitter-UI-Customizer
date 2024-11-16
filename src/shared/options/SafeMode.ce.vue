@@ -97,4 +97,3 @@ nav {
     display: none;
 }
 </style>
-@modules/i18n/i18n

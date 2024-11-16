@@ -20,4 +20,3 @@ function changeCustomCSS() {
 
 const customCSS = localStorage.getItem("TUIC_CSS");
 </script>
-@modules/i18n/i18n

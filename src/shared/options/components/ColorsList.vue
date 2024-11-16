@@ -20,4 +20,3 @@ import { getSettingData } from "@modules/pref";
 </script>
 
 <style scoped></style>
-@modules/i18n/i18n

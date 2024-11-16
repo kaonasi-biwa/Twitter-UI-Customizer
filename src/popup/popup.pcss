@@ -59,7 +59,7 @@ body {
         color: var(--tuic-popup-white);
         text-decoration: none;
         background: transparent;
-        &:hover {
+        &:is(:hover, :focus-visible) {
             background: var(--tuic-popup-item-hover);
         }
         &:active {
@@ -100,7 +100,7 @@ a.license {
     font-size: 0.8rem;
     color: var(--tuic-popup-gray-bright);
     text-decoration: none;
-    &:hover {
+    &:is(:hover, :focus-visible) {
         text-decoration: underline;
     }
 }
@@ -122,14 +122,14 @@ details {
             font-size: 20px;
             color: rgb(255 255 255 / 55%);
         }
-        &:hover {
+        &:is(:hover, :focus-visible) {
             background: var(--tuic-popup-item-hover);
         }
         &:active {
             background: var(--tuic-popup-item-active);
         }
     }
-    div#notifySettings {
+    #notifySettings {
         display: flex;
         flex-direction: column;
         gap: 15px;
@@ -137,15 +137,40 @@ details {
         overflow-x: scroll;
         background: rgb(255 255 255 / 8%);
         label {
+            position: relative;
+            display: block;
+            user-select: none;
             input {
-                @apply appearance-none relative w-4 h-4 bg-gray-700 border-gray-600 rounded;
-                &:hover,
-                &:focus {
-                    @apply ring-2 ring-offset-2 ring-blue-500 ring-offset-slate-900;
+                position: relative;
+                width: 1rem;
+                height: 1rem;
+                appearance: none;
+                background-color: rgb(55 65 81);
+                border-color: rgb(75 85 99);
+                border-radius: 0.25rem;
+                &:is(:hover, :focus-visible) {
+                    background-color: rgb(75 85 99);
                 }
-            }
-            i {
-                @apply absolute left-0 -top-0.5 opacity-0;
+                &:active {
+                    background-color: rgb(107 114 128);
+                }
+                &:checked {
+                    background-color: rgb(37 99 235);
+                    &:is(:hover, :focus-visible) {
+                        background-color: rgb(59 130 246);
+                    }
+                    &:active {
+                        background-color: rgb(96 165 250);
+                    }
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+                &::before {
+                    margin-top: 1px;
+                    font-size: 1rem;
+                    opacity: 0;
+                }
             }
         }
     }

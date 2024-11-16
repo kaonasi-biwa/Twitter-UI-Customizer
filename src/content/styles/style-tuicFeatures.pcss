@@ -47,7 +47,7 @@
 }
 */
 
-.TUICSidebarButton:hover > div {
+.TUICSidebarButton:is(:hover, :focus-visible) > div {
     background-color: var(--TUIC-sidebar-hover-color);
 }
 
@@ -80,11 +80,11 @@
     transition: border-bottom 0.2s;
 }
 
-.TUICEngagementsBox > div > span:hover {
+.TUICEngagementsBox > div > span:is(:hover, :focus-visible) {
     border-bottom: solid 0.05px;
 }
 
-[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div {
+[tabindex="0"] > .TUIC_ButtonHover2:is(:hover, :focus-visible) > .TUIC_ButtonHover > div {
     background-color: rgb(29 155 240 / 10%);
 }
 
@@ -92,7 +92,7 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
-[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg {
+[tabindex="0"] > .TUIC_ButtonHover2:is(:hover, :focus-visible) > .TUIC_ButtonHover > svg {
     color: rgb(29 155 240);
 }
 
@@ -117,18 +117,13 @@
     text-decoration: none;
 }
 
-.TUICTweetTopButton.css-18t94o4:hover .TUIC_ButtonHover {
+.TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 10%);
 }
-.TUICTweetTopButton.css-18t94o4:hover svg {
-    color: rgb(29 155 240);
-}
-
 .TUICTweetTopButton.css-18t94o4:focus-visible .TUIC_ButtonHover {
-    background-color: rgb(29 155 240 / 10%);
     box-shadow: rgba(142 204 258) 0 0 0 2px inset;
 }
-.TUICTweetTopButton.css-18t94o4:focus-visible svg {
+.TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
 }
 
@@ -136,18 +131,13 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
-[data-tuic-follower-list-button]:hover .TUIC_ButtonHover {
+[data-tuic-follower-list-button]:is(:hover, :focus-visible) .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 10%);
 }
-[data-tuic-follower-list-button]:hover svg {
-    color: rgb(29 155 240);
-}
-
 [data-tuic-follower-list-button]:focus-visible .TUIC_ButtonHover {
-    background-color: rgb(29 155 240 / 10%);
     box-shadow: rgba(142 204 258) 0 0 0 2px inset;
 }
-[data-tuic-follower-list-button]:focus-visible svg {
+[data-tuic-follower-list-button]:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
 }
 
@@ -155,7 +145,7 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
-#TUICDisplayRightSidebar:hover {
+#TUICDisplayRightSidebar:is(:hover, :focus-visible) {
     text-decoration-thickness: 1px;
 }
 
@@ -197,15 +187,15 @@
     backdrop-filter: none !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:is(:hover, :focus-visible)) > div > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
 }
 
@@ -222,7 +212,7 @@
     fill: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) path {
     fill: rgb(255 212 0) !important;
 }
 

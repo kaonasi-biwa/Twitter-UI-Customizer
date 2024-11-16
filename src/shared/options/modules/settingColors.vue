@@ -62,4 +62,3 @@ const setDefaultTwitterColor = () => {
 </script>
 
 <style scoped></style>
-@modules/settings/safemode/safemode @modules/i18n/i18n
