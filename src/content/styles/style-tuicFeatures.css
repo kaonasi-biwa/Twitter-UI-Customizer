@@ -1,5 +1,5 @@
-@import url("./features/style-discoverMore.pcss");
-@import url("./features/style-iconSettings.pcss");
+@import url("./features/style-discoverMore.css");
+@import url("./features/style-iconSettings.css");
 
 .TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;

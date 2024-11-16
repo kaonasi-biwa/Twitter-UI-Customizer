@@ -3,7 +3,7 @@ import { isSafemode } from "@modules/settings/safemode/isSafemode";
 import { DOG, TWITTER, X } from "./icons/index";
 import { ColorData } from "@shared/sharedData";
 
-import styleUrl from "./styles/index.pcss?url";
+import styleUrl from "./styles/index.css?url";
 import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize";

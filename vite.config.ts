@@ -57,6 +57,15 @@ export default defineConfig(({ command, mode }) => {
             },
             minify: false,
         },
+        css: {
+            transformer: "lightningcss",
+            lightningcss: {
+                // https://lightningcss.dev/transpilation.html#feature-flags
+                nonStandard: {
+                    deepSelectorCombinator: true,
+                },
+            },
+        },
         plugins: [
             {
                 name: "copyResources",
