@@ -1,4 +1,5 @@
 <template>
+    <link rel="stylesheet" :href="BootstrapIconsURL" />
     <div id="TUIC_setting" class="css-175oi2r r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
         <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
             <hr v-if="!isSafemode" class="TUIC_setting_divider TUIC_setting_divider_m35" />
@@ -109,10 +110,13 @@ import settingLogo from "./modules/settingLogo.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
 import TUICLogo from "@content/icons/branding/tuic_unilogo.svg?component";
+import BootstrapIcons from "bootstrap-icons/font/bootstrap-icons.css?url";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
 import { TUICI18N } from "@content/modules/i18n";
+
+const BootstrapIconsURL = chrome.runtime.getURL(BootstrapIcons);
 
 function openReadme() {
     openInNewTab("https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/README.md");
