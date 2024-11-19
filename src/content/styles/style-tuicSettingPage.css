@@ -473,14 +473,13 @@ textarea#css_textarea {
     width: 1rem;
     height: 1rem;
     appearance: none;
-    background-color: rgb(55 65 81);
-    border-color: rgb(75 85 99);
+    background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) var(--TUIC-checkbox-opacity, 7%));
     border-radius: 0.25rem;
     &:is(:hover, :focus-visible) {
-        background-color: rgb(75 85 99);
+        --TUIC-checkbox-opacity: 12%;
     }
     &:active {
-        background-color: rgb(107 114 128);
+        --TUIC-checkbox-opacity: 17%;
     }
     &:checked {
         background-color: rgb(37 99 235);
@@ -497,6 +496,7 @@ textarea#css_textarea {
     &::before {
         margin-top: 1px;
         font-size: 1rem;
+        color: #fff;
         opacity: 0;
     }
 }
