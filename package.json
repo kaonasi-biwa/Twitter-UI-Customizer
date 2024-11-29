@@ -11,26 +11,25 @@
         "lint": "pnpm lint:tsc & pnpm lint:eslint & pnpm lint:stylelint & pnpm lint:prettier",
         "lint:tsc": "vue-tsc --noEmit",
         "lint:eslint": "eslint .",
-        "lint:stylelint": "stylelint **/*.{css,pcss,vue}",
-        "lint:prettier": "prettier --check **/*.pcss",
+        "lint:stylelint": "stylelint **/*.{css,vue}",
+        "lint:prettier": "prettier --check **/*.css",
         "format": "pnpm format:eslint & pnpm format:stylelint & pnpm format:prettier",
         "format:eslint": "eslint --fix .",
-        "format:stylelint": "stylelint --fix **/*.{css,pcss,vue}",
-        "format:prettier": "prettier --write **/*.pcss"
+        "format:stylelint": "stylelint --fix **/*.{css,vue}",
+        "format:prettier": "prettier --write **/*.css"
     },
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
         "pinia": "^2.2.6",
         "solid-js": "^1.9.3",
-        "vue": "^3.5.12"
+        "vue": "^3.5.13"
     },
     "devDependencies": {
         "@eslint/js": "^9.14.0",
         "@stylistic/eslint-plugin": "^2.10.1",
-        "@types/chrome": "^0.0.281",
+        "@types/chrome": "^0.0.283",
         "@unocss/eslint-plugin": "^0.64.1",
         "@vitejs/plugin-vue": "^5.2.0",
-        "autoprefixer": "^10.4.20",
         "crx": "^5.0.1",
         "dependency-cruiser": "^16.6.0",
         "dotenv": "^16.4.5",
@@ -41,9 +40,7 @@
         "eslint-plugin-unused-imports": "^4.1.4",
         "eslint-plugin-vue": "^9.31.0",
         "globals": "^15.12.0",
-        "postcss-import": "^16.1.0",
-        "postcss-load-config": "^6.0.1",
-        "postcss-nesting": "^13.0.1",
+        "lightningcss": "^1.28.1",
         "prettier": "^3.3.3",
         "stylelint": "^16.10.0",
         "stylelint-config-recess-order": "^5.1.1",

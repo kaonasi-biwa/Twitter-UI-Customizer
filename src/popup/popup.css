@@ -135,7 +135,7 @@ details {
         gap: 15px;
         padding: 20px 22px;
         overflow-x: scroll;
-        background: rgb(255 255 255 / 8%);
+        background: var(--tuic-popup-item-hover);
         label {
             position: relative;
             display: block;
@@ -145,14 +145,13 @@ details {
                 width: 1rem;
                 height: 1rem;
                 appearance: none;
-                background-color: rgb(55 65 81);
-                border-color: rgb(75 85 99);
+                background-color: #ffffff15;
                 border-radius: 0.25rem;
                 &:is(:hover, :focus-visible) {
-                    background-color: rgb(75 85 99);
+                    background-color: #ffffff30;
                 }
                 &:active {
-                    background-color: rgb(107 114 128);
+                    background-color: #ffffff40;
                 }
                 &:checked {
                     background-color: rgb(37 99 235);
@@ -169,6 +168,7 @@ details {
                 &::before {
                     margin-top: 1px;
                     font-size: 1rem;
+                    color: #fff;
                     opacity: 0;
                 }
             }
