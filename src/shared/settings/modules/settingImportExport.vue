@@ -78,7 +78,7 @@
 
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
-import { getPref, setPref, savePref, updatePref, mergePref, mergeDefaultPref, exportPref } from "@modules/pref";
+import { getPref, setPref, savePref, mergePref, mergeDefaultPref, exportPref } from "@modules/pref";
 import { waitForElement } from "@modules/utils/controlElements";
 import { applySystemCss } from "@content/applyCSS";
 import { Dialog } from "@shared/tlui/components/Dialog";
@@ -93,6 +93,8 @@ import { titleObserverFunction } from "@content/modules/observer/titleObserver";
 import { updateClasses } from "@content/modules/htmlClass/classManager";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
+import { updatePref } from "@content/modules/pref/prefController";
+
 
 // EXPORT LOGIC
 const exportText = ref<HTMLInputElement>();

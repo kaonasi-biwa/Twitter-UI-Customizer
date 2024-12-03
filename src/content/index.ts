@@ -14,8 +14,9 @@ import { titleObserverFunction } from "@modules/observer/titleObserver";
 import { updateClasses } from "./modules/htmlClass/classManager";
 import { placeSettingObserver } from "./modules/settings";
 import { placePrintPrefButton } from "./printPref";
-import { getPref, mergeDefaultPref, setPref, updatePref } from "@modules/pref";
+import { getPref, mergeDefaultPref, setPref } from "@modules/pref";
 import { waitForElement } from "@modules/utils/controlElements";
+import { updatePref } from "./modules/pref/prefController";
 
 (async () => {
     if (location.href === "https://twitter.com/ja/tos") {

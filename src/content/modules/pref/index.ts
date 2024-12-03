@@ -1,25 +1,5 @@
+import { deleteRawPref, getRawPref, setRawPref } from "./prefController";
 import { TUICSettings } from "./settings";
-
-let config = null;
-
-const getPointerFromKey = (object: object, key: string) => {
-    const keys = ["o", ...key.split(".").filter((k) => k !== "")];
-    let pointer = { o: object };
-    for (let i = 0; i < keys.length; i++) {
-        const k = keys[i];
-        if (i === keys.length - 1) {
-            return {
-                object: pointer,
-                key: k,
-            };
-        } else {
-            if (!(k in pointer)) {
-                pointer[k] = {};
-            }
-            pointer = pointer[k];
-        }
-    }
-};
 
 /**
  * TUICのPrefの値を取得します。
@@ -28,9 +8,8 @@ const getPointerFromKey = (object: object, key: string) => {
  * @param {object} source 使用するPrefのObject。
  * @return {unknown} 取得した値(identifierが空文字ならTUICのPref全体)
  */
-export function getPref(identifier: string, source = config) {
-    const { object, key } = getPointerFromKey(source, identifier);
-    return object[key];
+export function getPref(identifier: string, source?) {
+    return getRawPref(identifier,source);
 }
 
 /**
@@ -41,13 +20,8 @@ export function getPref(identifier: string, source = config) {
  * @param {string} value 設定する値
  * @param {object} source 使用するPrefのObject。
  */
-export function setPref(identifier: string, value: unknown, source = config) {
-    if (identifier == "") {
-        config = value;
-    } else {
-        const { object, key } = getPointerFromKey(source, identifier);
-        object[key] = value;
-    }
+export function setPref(identifier: string, value: unknown, source?) {
+    setRawPref(identifier,value,source)
 }
 
 /**
@@ -56,16 +30,15 @@ export function setPref(identifier: string, value: unknown, source = config) {
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
  * @param {object} source 使用するPrefのObject。
  */
-export function deletePref(identifier: string, source = config) {
-    const { object, key } = getPointerFromKey(source, identifier);
-    delete object[key];
+export function deletePref(identifier: string, source?) {
+    deleteRawPref(identifier,source)
 }
 
 /**
  * 変更が加えられたTUICのPrefをlocalStorageへ保存します。
  */
 export function savePref() {
-    localStorage.setItem("TUIC", JSON.stringify(config));
+    localStorage.setItem("TUIC", exportPref());
 }
 
 /**
@@ -74,7 +47,7 @@ export function savePref() {
  * @return {string} TUICのPrefをJSON.stringify()で文字列にしたもの
  */
 export function exportPref(): string {
-    return JSON.stringify(config);
+    return JSON.stringify(getRawPref(""));
 }
 
 /**
@@ -93,143 +66,6 @@ export function mergePref(source: object, target: object) {
     return target;
 }
 
-/**
- * boolean 値の設定キーを変更します。
- *
- * 値が truthy であれば `replaceValue` に、値が falsy であればキーを変更せず古いキーの削除だけを行います。
- * @param {string} previousKey 変更元のキー
- * @param {string} nextKey 変更先のキー
- * @param {any} replaceValue 置き換える値
- */
-const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceValue: string | boolean = true) => {
-    if (getPref(previousKey, source) === true) setPref(nextKey, replaceValue, source);
-    deletePref(previousKey, source);
-};
-
-export async function updatePref(source = config) {
-    const prefVersion_ = getPref("prefVersion", source) ?? 0;
-    setPref("prefVersion", prefVersion);
-    switch (prefVersion_) {
-        case 0: {
-            /*
-            if (localStorage.getItem("unsent-tweet-background")) {
-                parallelToSerialPref();
-            }*/
-
-            if (typeof getPref("timeline", source) != "object") setPref("timeline", {}, source);
-
-            if (typeof getPref("rightSidebar", source) != "object") setPref("rightSidebar", {}, source);
-
-            if (typeof getPref("XToTwitter", source) != "object") setPref("XToTwitter", {}, source);
-
-            if (typeof getPref("twitterIcon", source) == "string") {
-                const twitterIconPref = getPref("twitterIcon", source);
-                setPref("twitterIcon", {}, source);
-                setPref("twitterIcon.icon", twitterIconPref, source);
-            }
-
-            if (typeof getPref("clientInfo", source) == "object") deletePref("clientInfo", source);
-
-            const boolKeys = {
-                "invisibleItems.osusume-user-timeline": "timeline.osusume-user-timeline",
-                "invisibleItems.hideOhterRTTL": "timeline.hideOhterRTTL",
-                "invisibleItems.verified-rSidebar": "rightSidebar.verified",
-                "otherBoolSetting.XtoTwitter": "XToTwitter.XToTwitter",
-                "otherBoolSetting.PostToTweet": "XToTwitter.PostToTweet",
-                "invisibleItems.twitter-pro-promotion-btn": "tweetDisplaySetting.twitter-pro-promotion-btn",
-                "invisibleItems.subscribe-tweets": "tweetDisplaySetting.subscribe-tweets",
-                "otherBoolSetting.bottomScroll": "tweetDisplaySetting.bottomScroll",
-                "otherBoolSetting.bottomSpace": "tweetDisplaySetting.bottomSpace",
-                "otherBoolSetting.RTNotQuote": "tweetDisplaySetting.RTNotQuote",
-                "otherBoolSetting.noModalbottomTweetButtons": "tweetDisplaySetting.noModalbottomTweetButtons",
-                "otherBoolSetting.noNumberBottomTweetButtons": "tweetDisplaySetting.noNumberBottomTweetButtons",
-                "invisibleItems.subscribe-profile": "profileSetting.invisible.subscribe-profile",
-                "invisibleItems.profileHighlights": "profileSetting.invisible.profileHighlights",
-                "invisibleItems.profileAffiliates": "profileSetting.invisible.profileAffiliates",
-                "invisibleItems.verifiedFollowerTab": "profileSetting.invisible.verifiedFollowerTab",
-                "otherBoolSetting.smallerSidebarContent": "sidebarSetting.buttonConfig.smallerSidebarContent",
-                "otherBoolSetting.sidebarNoneScrollbar": "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
-                "otherBoolSetting.faviconSet": "twitterIcon.options.faviconSet",
-                "otherBoolSetting.roundIcon": "twitterIcon.options.roundIcon",
-            };
-            for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey], source);
-            }
-
-            changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", source, "discoverMore_invisible");
-            changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", source, "invisible");
-            changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", source, "birdGoBack");
-
-            if (getPref("CSS", source)) localStorage.setItem("TUIC_CSS", getPref("CSS"));
-            deletePref("CSS", source);
-
-            if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
-                await new Promise((resolve, reject) => {
-                    const element = document.createElement("canvas");
-                    element.height = 200;
-                    element.width = 200;
-                    const context = element.getContext("2d");
-                    context.beginPath();
-                    context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
-                    context.clip();
-                    const image = new Image();
-                    image.onload = function () {
-                        context.beginPath();
-                        context.drawImage(image, 0, 0, image.naturalHeight, image.naturalWidth, 0, 0, 200, 200);
-                        localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
-                        resolve(null);
-                    };
-                    image.src = localStorage.getItem("TUIC_IconImg");
-                });
-            }
-
-            if (typeof getPref("visibleButtons", source) == "object" && ~getPref("visibleButtons", source).indexOf("downvote-button")) {
-                setPref(
-                    "visibleButtons",
-                    getPref("visibleButtons", source).filter((elem: string) => elem != "downvote-button"),
-                    source,
-                );
-            }
-            if (typeof getPref("sidebarButtons", source) == "object" && (~getPref("sidebarButtons", source).indexOf("verified-orgs-signup") || ~getPref("sidebarButtons", source).indexOf("twiter-blue") || ~getPref("sidebarButtons", source).indexOf("circles"))) {
-                setPref(
-                    "sidebarButtons",
-                    getPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup" && elem != "circles"),
-                    source,
-                );
-            }
-            // fall through
-        }
-        case 1: {
-            const boolKeys = {
-                "tweetDisplaySetting.twitter-pro-promotion-btn": "tweetDisplaySetting.invisible.twitter-pro-promotion-btn",
-                "tweetDisplaySetting.subscribe-tweets": "tweetDisplaySetting.invisible.subscribe-tweets",
-                "tweetDisplaySetting.bottomSpace": "tweetDisplaySetting.invisible.bottomSpace",
-                "tweetDisplaySetting.bottomScroll": "tweetDisplaySetting.option.bottomScroll",
-                "tweetDisplaySetting.RTNotQuote": "tweetDisplaySetting.buttonsInvisible.RTNotQuote",
-                "tweetDisplaySetting.noModalbottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons",
-                "tweetDisplaySetting.noNumberBottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
-                "tweetDisplaySetting.likeToFavo": "tweetDisplaySetting.option.likeToFavo",
-                "otherBoolSetting.placeEngagementsLink": "engagementsLink.option.placeEngagementsLink",
-                "otherBoolSetting.placeEngagementsLinkShort": "engagementsLink.option.placeEngagementsLinkShort",
-                "otherBoolSetting.showLinkCardInfo": "showLinkCardInfo.showLinkCardInfo",
-            };
-            for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey], source);
-            }
-            // falls through
-        }
-        case 2: {
-            const boolKeys = {
-                "tweetDisplaySetting.option.RTNotQuote": "tweetDisplaySetting.buttonsInvisible.RTNotQuote",
-                "tweetDisplaySetting.option.noModalbottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons",
-                "tweetDisplaySetting.option.noNumberBottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
-            };
-            for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey], source);
-            }
-        }
-    }
-}
 
 let defaultData = null;
 
@@ -246,16 +82,16 @@ export function mergeDefaultPref(source) {
                 switch (defaultReturn.type) {
                     case "boolean": {
                         for (const data in defaultReturn.data) {
-                            setPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
+                            setRawPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
                         }
                         break;
                     }
                     case "select": {
-                        setPref(elem, defaultReturn.data, defaultData);
+                        setRawPref(elem, defaultReturn.data, defaultData);
                         break;
                     }
                     case "order": {
-                        setPref(elem, structuredClone(defaultReturn.data), defaultData);
+                        setRawPref(elem, structuredClone(defaultReturn.data), defaultData);
                         break;
                     }
                 }
@@ -283,7 +119,3 @@ export function getDefaultPref(id: string) {
         }
     }
 }
-
-const prefVersion = 3;
-
-config = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(mergeDefaultPref({})));

@@ -61,21 +61,6 @@ export function deleteRawPref(identifier: string, source = config) {
     delete object[key];
 }
 
-/**
- * 変更が加えられたTUICのPrefをlocalStorageへ保存します。
- */
-export function savePref() {
-    localStorage.setItem("TUIC", JSON.stringify(config));
-}
-
-/**
- * TUICのPrefのすべての値を文字列として出力します。
- *
- * @return {string} TUICのPrefをJSON.stringify()で文字列にしたもの
- */
-export function exportPref(): string {
-    return JSON.stringify(config);
-}
 
 /**
  * `target` に `source` をマージします。 `target` オブジェクトは上書きされます。
