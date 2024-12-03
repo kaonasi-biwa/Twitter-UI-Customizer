@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { getSettingData, TUICSettingIDs } from "@modules/pref";
+import { getSettingData, TUICSettingIDs } from "@modules/pref/settings";
 import CheckBox from "./CheckBox.vue";
 
 defineProps<{ id: TUICSettingIDs }>();

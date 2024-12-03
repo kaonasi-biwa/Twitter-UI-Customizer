@@ -356,3 +356,38 @@ export const TUICSettings = {
     // インポート・エクスポートのオプション
     inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
 } as const;
+
+
+
+export type TUICSettingIDs = keyof typeof TUICSettings;
+
+/**
+ * 指定した設定カテゴリーIDに基づいて値の一覧(CheckboxならCheckboxの全てのID、RadioBox/ListBoxなら値になりうるすべての値)を出力します
+ *
+ * @param {string} id 設定カテゴリーID
+ * @return {string[]} 取得した値一覧
+ */
+export function getSettingIDs<T extends TUICSettingIDs>(id: T): (typeof TUICSettings)[T]["values"][number]["id"][] {
+    return TUICSettings[id].values.map((elem) => elem.id);
+}
+
+/**
+ * 指定した設定カテゴリーIDのデータ(全ての値についてのidとi18nをObjectとして羅列するArray)を出力します。
+ *
+ * @param {string} id 設定カテゴリーID
+ * @return {{id:string,i18n:string}[]} 取得したデータ
+ */
+export function getSettingData<T extends TUICSettingIDs>(id: T): (typeof TUICSettings)[T]["values"] {
+    return TUICSettings[id].values;
+}
+
+/**
+ * 指定した設定のi18nのIDを出力します。
+ *
+ * @param {string} id 設定カテゴリーID
+ * @param {string} id 設定自体のID(設定カテゴリーIDを除く)
+ * @return {string} i18nのID
+ */
+export function getSettingI18n<T extends TUICSettingIDs>(id: T, itemValue: (typeof TUICSettings)[T]["values"][number]["id"]): string {
+    return TUICSettings[id].values.filter((elem) => elem.id == itemValue)[0]?.i18n ?? undefined;
+}

@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { Component } from "vue";
 import IconRadioButton from "./IconRadioButton.vue";
-import { getSettingData, TUICSettingIDs } from "@modules/pref";
+import { getSettingData, TUICSettingIDs } from "@modules/pref/settings";
 
 const props = defineProps<{
     id: TUICSettingIDs;

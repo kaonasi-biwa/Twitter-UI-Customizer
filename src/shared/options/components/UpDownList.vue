@@ -57,7 +57,8 @@ import RESET from "@content/icons/common/reset.svg?component";
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
 import { TUICI18N } from "@modules/i18n";
-import { getPref, setPref, savePref, getSettingI18n, TUICSettingIDs, getSettingIDs, getDefaultPref } from "@modules/pref";
+import { getPref, setPref, savePref, getDefaultPref } from "@modules/pref";
+import { TUICSettingIDs,getSettingI18n,getSettingIDs} from "@modules/pref/settings";
 
 import { updateClasses } from "@modules/htmlClass/classManager";
 

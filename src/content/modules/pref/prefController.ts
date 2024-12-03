@@ -28,7 +28,7 @@ const getPointerFromKey = (object: object, key: string) => {
  * @param {object} source 使用するPrefのObject。
  * @return {unknown} 取得した値(identifierが空文字ならTUICのPref全体)
  */
-export function getPref(identifier: string, source = config) {
+export function getRawPref(identifier: string, source = config) {
     const { object, key } = getPointerFromKey(source, identifier);
     return object[key];
 }
@@ -41,7 +41,7 @@ export function getPref(identifier: string, source = config) {
  * @param {string} value 設定する値
  * @param {object} source 使用するPrefのObject。
  */
-export function setPref(identifier: string, value: unknown, source = config) {
+export function setRawPref(identifier: string, value: unknown, source = config) {
     if (identifier == "") {
         config = value;
     } else {
@@ -56,7 +56,7 @@ export function setPref(identifier: string, value: unknown, source = config) {
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
  * @param {object} source 使用するPrefのObject。
  */
-export function deletePref(identifier: string, source = config) {
+export function deleteRawPref(identifier: string, source = config) {
     const { object, key } = getPointerFromKey(source, identifier);
     delete object[key];
 }
@@ -102,13 +102,13 @@ export function mergePref(source: object, target: object) {
  * @param {any} replaceValue 置き換える値
  */
 const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceValue: string | boolean = true) => {
-    if (getPref(previousKey, source) === true) setPref(nextKey, replaceValue, source);
-    deletePref(previousKey, source);
+    if (getRawPref(previousKey, source) === true) setRawPref(nextKey, replaceValue, source);
+    deleteRawPref(previousKey, source);
 };
 
 export async function updatePref(source = config) {
-    const prefVersion_ = getPref("prefVersion", source) ?? 0;
-    setPref("prefVersion", prefVersion);
+    const prefVersion_ = getRawPref("prefVersion", source) ?? 0;
+    setRawPref("prefVersion", prefVersion);
     switch (prefVersion_) {
         case 0: {
             /*
@@ -116,19 +116,19 @@ export async function updatePref(source = config) {
                 parallelToSerialPref();
             }*/
 
-            if (typeof getPref("timeline", source) != "object") setPref("timeline", {}, source);
+            if (typeof getRawPref("timeline", source) != "object") setRawPref("timeline", {}, source);
 
-            if (typeof getPref("rightSidebar", source) != "object") setPref("rightSidebar", {}, source);
+            if (typeof getRawPref("rightSidebar", source) != "object") setRawPref("rightSidebar", {}, source);
 
-            if (typeof getPref("XToTwitter", source) != "object") setPref("XToTwitter", {}, source);
+            if (typeof getRawPref("XToTwitter", source) != "object") setRawPref("XToTwitter", {}, source);
 
-            if (typeof getPref("twitterIcon", source) == "string") {
-                const twitterIconPref = getPref("twitterIcon", source);
-                setPref("twitterIcon", {}, source);
-                setPref("twitterIcon.icon", twitterIconPref, source);
+            if (typeof getRawPref("twitterIcon", source) == "string") {
+                const twitterIconPref = getRawPref("twitterIcon", source);
+                setRawPref("twitterIcon", {}, source);
+                setRawPref("twitterIcon.icon", twitterIconPref, source);
             }
 
-            if (typeof getPref("clientInfo", source) == "object") deletePref("clientInfo", source);
+            if (typeof getRawPref("clientInfo", source) == "object") deleteRawPref("clientInfo", source);
 
             const boolKeys = {
                 "invisibleItems.osusume-user-timeline": "timeline.osusume-user-timeline",
@@ -160,8 +160,8 @@ export async function updatePref(source = config) {
             changeBooleanKey("otherBoolSetting.invisibleTwitterLogo", "twitterIcon", source, "invisible");
             changeBooleanKey("sidebarSetting.buttonConfig.birdGoBackHome", "sidebarSetting.homeIcon", source, "birdGoBack");
 
-            if (getPref("CSS", source)) localStorage.setItem("TUIC_CSS", getPref("CSS"));
-            deletePref("CSS", source);
+            if (getRawPref("CSS", source)) localStorage.setItem("TUIC_CSS", getRawPref("CSS"));
+            deleteRawPref("CSS", source);
 
             if (localStorage.getItem("TUIC_IconImg") != null && localStorage.getItem("TUIC_IconImg_Favicon") == null) {
                 await new Promise((resolve, reject) => {
@@ -183,17 +183,17 @@ export async function updatePref(source = config) {
                 });
             }
 
-            if (typeof getPref("visibleButtons", source) == "object" && ~getPref("visibleButtons", source).indexOf("downvote-button")) {
-                setPref(
+            if (typeof getRawPref("visibleButtons", source) == "object" && ~getRawPref("visibleButtons", source).indexOf("downvote-button")) {
+                setRawPref(
                     "visibleButtons",
-                    getPref("visibleButtons", source).filter((elem: string) => elem != "downvote-button"),
+                    getRawPref("visibleButtons", source).filter((elem: string) => elem != "downvote-button"),
                     source,
                 );
             }
-            if (typeof getPref("sidebarButtons", source) == "object" && (~getPref("sidebarButtons", source).indexOf("verified-orgs-signup") || ~getPref("sidebarButtons", source).indexOf("twiter-blue") || ~getPref("sidebarButtons", source).indexOf("circles"))) {
-                setPref(
+            if (typeof getRawPref("sidebarButtons", source) == "object" && (~getRawPref("sidebarButtons", source).indexOf("verified-orgs-signup") || ~getRawPref("sidebarButtons", source).indexOf("twiter-blue") || ~getRawPref("sidebarButtons", source).indexOf("circles"))) {
+                setRawPref(
                     "sidebarButtons",
-                    getPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup" && elem != "circles"),
+                    getRawPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup" && elem != "circles"),
                     source,
                 );
             }
@@ -246,16 +246,16 @@ export function mergeDefaultPref(source) {
                 switch (defaultReturn.type) {
                     case "boolean": {
                         for (const data in defaultReturn.data) {
-                            setPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
+                            setRawPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
                         }
                         break;
                     }
                     case "select": {
-                        setPref(elem, defaultReturn.data, defaultData);
+                        setRawPref(elem, defaultReturn.data, defaultData);
                         break;
                     }
                     case "order": {
-                        setPref(elem, structuredClone(defaultReturn.data), defaultData);
+                        setRawPref(elem, structuredClone(defaultReturn.data), defaultData);
                         break;
                     }
                 }
