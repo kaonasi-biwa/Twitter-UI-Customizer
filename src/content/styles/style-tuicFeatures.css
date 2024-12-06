@@ -155,15 +155,15 @@
 }
 
 :is(
-        :root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
-        :root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-        :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] [data-tuic-zooming-tweet] [data-testid="app-text-transition-container"],
-        :root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
-        :root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
-        :root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
-        :root[data-tuic-settings*="|composetweet.hideDraft|"] [data-testid="unsentButton"],
+    :root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
+    :root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
+    :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] [data-tuic-zooming-tweet] [data-testid="app-text-transition-container"],
+    :root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
+    :root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
+    :root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
+    :root[data-tuic-settings*="|composetweet.hideDraft|"] [data-testid="unsentButton"],
 
-    ) {
+) {
     display: none !important;
 }
 

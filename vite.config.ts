@@ -54,7 +54,7 @@ export default defineConfig(({ command, mode }) => {
                     entryFileNames: "[name].js",
                     manualChunks(id) {
                         if (id.includes("node_modules")) {
-                            const arr_module_name =id.toString().split("node_modules/")[1].split("/");
+                            const arr_module_name = id.toString().split("node_modules/")[1].split("/");
                             if (arr_module_name[0] === ".pnpm") {
                                 return arr_module_name[1].toString();
                             }
@@ -65,20 +65,20 @@ export default defineConfig(({ command, mode }) => {
                         }
                     },
                     assetFileNames(assetInfo) {
-                        if (assetInfo.originalFileNames.some((v)=>v.endsWith(".css"))) {
-                            return 'assets/css/[name][extname]';
+                        if (assetInfo.originalFileNames.some((v) => v.endsWith(".css"))) {
+                            return "assets/css/[name][extname]";
                         }
-                        if (assetInfo.originalFileNames.some((v)=>v.endsWith(".svg"))) {
-                            return 'assets/svg/[name][extname]';
+                        if (assetInfo.originalFileNames.some((v) => v.endsWith(".svg"))) {
+                            return "assets/svg/[name][extname]";
                         }
-                        return 'assets/[name][extname]';
+                        return "assets/[name][extname]";
                     },
                     chunkFileNames(chunkInfo) {
                         if (chunkInfo.name.includes("i18n")) {
-                            return "assets/i18n/[name].js"
+                            return "assets/i18n/[name].js";
                         }
-                        return "assets/js/[name].js"
-                    }
+                        return "assets/js/[name].js";
+                    },
                 },
                 plugins: [],
             },

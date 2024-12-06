@@ -69,7 +69,6 @@ export default tseslint.config(
         ],
         rules: {
             "@typescript-eslint/no-unused-vars": 0,
-            "solid/self-closing-comp": ["warn", { html: "void" }],
             "vue/html-indent": ["warn", 4],
             "vue/html-self-closing": ["warn", {
                 html: {
