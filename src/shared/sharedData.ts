@@ -123,7 +123,7 @@ export const ColorData = {
                 background: "rgba(29, 161, 242, 1)",
                 border: "rgba(29, 161, 242, 1)",
                 color: "rgba(255, 255, 255, 1)",
-            }
+            },
         },
     },
 };
