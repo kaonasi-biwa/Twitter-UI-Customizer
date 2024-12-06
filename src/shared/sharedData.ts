@@ -11,6 +11,7 @@ export const ColorData = {
             birthday: { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
             "profile-save": { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
             "unsent-tweet": { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
+            tweetButton: { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
         },
         buttonColorDark: {
             "not-following": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(10,20,25,1)" },
@@ -21,6 +22,7 @@ export const ColorData = {
             birthday: { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
             "profile-save": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
             "unsent-tweet": { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
+            tweetButton: { background: "rgba(239,243,244,1)", border: "rgba(239,243,244,1)", color: "rgba(15,20,25,1)" },
         },
     },
     TUICFixedColor: {
@@ -117,6 +119,11 @@ export const ColorData = {
                 color: "rgba(29, 161, 242, 1)",
                 typeColor: "imageColor",
             },
+            tweetButton: {
+                background: "rgba(29, 161, 242, 1)",
+                border: "rgba(29, 161, 242, 1)",
+                color: "rgba(255, 255, 255, 1)",
+            }
         },
     },
 };

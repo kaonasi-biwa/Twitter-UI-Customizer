@@ -7,6 +7,17 @@
     }
 }
 
+/* ツイートボタン */
+[data-testid="SideNav_NewTweet_Button"],
+[data-testid="tweetButtonInline"],
+[data-testid="tweetButton"] {
+    background-color: var(--twitter-tweetButton-background) !important;
+    border-color: var(--twitter-tweetButton-border) !important;
+    & > .r-b88u0q {
+        color: var(--twitter-tweetButton-color) !important;
+    }
+}
+
 /* フォローしていない人をフォロー */
 [data-testid$="-follow"] {
     &:not(:hover, :focus-visible) {

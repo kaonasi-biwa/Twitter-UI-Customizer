@@ -26,6 +26,7 @@ export const TUICSettings = {
             { id: "birthday", i18n: "settingColors-finalDecideButton" },
             { id: "twitterIcon", i18n: "settingColors-twitterIcon" },
             { id: "twitterIconFavicon", i18n: "settingColors-twitterIconFavicon" },
+            { id: "tweetButton", i18n: "settingColors-tweetButton" },
         ],
     },
     // ツイート関連の設定
