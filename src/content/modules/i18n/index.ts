@@ -1,14 +1,17 @@
-const langRes = import.meta.glob<string>(["@i18nData/*.json", "@i18nData/ti18n/*.json"], { query: "?raw", import: "default", eager: true });
+const langRes = import.meta.glob(["@i18nData/*.json", "@i18nData/ti18n/*.json"]);
 const i18nData = { en: {}, ja: {} };
 
 export const TUICI18N = {
     fetch: async () => {
-        const langList = JSON.parse(langRes["../i18n/_langList.json"]);
-        for (const elem of langList) {
+        const langList = (await langRes["../i18n/_langList.json"]()) as {default: Array<string>};
+        for (const elem of langList.default) {
             i18nData[elem] = Object.assign(
-                JSON.parse(langRes[`../i18n/${elem}.json`]), //
-                JSON.parse(langRes[`../i18n/ti18n/${elem}.json`]),
+                (await langRes[`../i18n/${elem}.json`]() as {default: object}).default,
+                (await langRes[`../i18n/ti18n/${elem}.json`]() as {default: object}).default
             );
+            if (elem.includes("ja")) {
+                console.log(i18nData[elem])
+            }
         }
         return true;
     },
@@ -20,6 +23,6 @@ export const TUICI18N = {
             }
         }
 
-        return "404";
+        return `TUIC 404: ${key}`;
     },
 };
