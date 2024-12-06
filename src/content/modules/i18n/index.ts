@@ -3,14 +3,14 @@ const i18nData = { en: {}, ja: {} };
 
 export const TUICI18N = {
     fetch: async () => {
-        const langList = (await langRes["../i18n/_langList.json"]()) as {default: Array<string>};
+        const langList = (await langRes["../i18n/_langList.json"]()) as { default: string[] };
         for (const elem of langList.default) {
             i18nData[elem] = Object.assign(
-                (await langRes[`../i18n/${elem}.json`]() as {default: object}).default,
-                (await langRes[`../i18n/ti18n/${elem}.json`]() as {default: object}).default
+                (await langRes[`../i18n/${elem}.json`]() as { default: object }).default,
+                (await langRes[`../i18n/ti18n/${elem}.json`]() as { default: object }).default,
             );
             if (elem.includes("ja")) {
-                console.log(i18nData[elem])
+                console.log(i18nData[elem]);
             }
         }
         return true;
