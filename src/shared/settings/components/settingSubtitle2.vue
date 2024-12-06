@@ -1,5 +1,7 @@
 <template>
-    <h4 class="TUIC_settings_subtitle2">{{ TUICI18N.get(titleI18N) }}</h4>
+    <h4 class="TUIC_settings_subtitle2">
+        {{ TUICI18N.get(titleI18N) }}
+    </h4>
 </template>
 
 <script setup lang="ts">

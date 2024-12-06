@@ -17,15 +17,14 @@
     border-color: #71767b !important;
 }
 
-.TUICDefaultColor:hover {
+.TUICDefaultColor:is(:hover, :focus-visible) {
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
 }
 .TUICDefaultColor:active {
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
 }
 
-.TUIC_ISNOTDEFAULT .TUICDefaultColor:hover,
-.TUIC_ISNOTDEFAULT .TUICDefaultColor:active {
+.TUIC_ISNOTDEFAULT .TUICDefaultColor:is(:hover, :focus-visible, :active) {
     background: transparent;
 }
 .TUICButtonRest_innersvg__container svg {
@@ -75,7 +74,7 @@
 .TUIC_col_setting_container input[type="color"] {
     width: 200%;
     height: 200%;
-    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -103,7 +102,7 @@
     transition: none;
 }
 
-.TUIC_input_color_rounded__container:hover {
+.TUIC_input_color_rounded__container:is(:hover, :focus-visible) {
     background: var(--TUIC-color-hover-efect);
 }
 
@@ -152,10 +151,10 @@
     padding-bottom: 5px;
     margin-top: 10px;
     overflow-x: auto;
+    scrollbar-width: thin;
     background: black;
     border: solid 1px #71767b;
     border-radius: 6px;
-    scrollbar-width: thin;
 }
 
 .TUIC_selectbox::-webkit-scrollbar {
@@ -213,7 +212,7 @@
     stroke-width: 0.5px;
 }
 
-.TUIC_icon_button_con:hover {
+.TUIC_icon_button_con:is(:hover, :focus-visible) {
     background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
     transition: none;
 }
@@ -235,7 +234,7 @@
     transition: none;
 }
 
-.TUIC_setting_button:hover {
+.TUIC_setting_button:is(:hover, :focus-visible) {
     /* background: var(--TUIC-container-background); */
 }
 
@@ -285,8 +284,8 @@
     font-size: 15px;
 }
 
-#TUIC_invisible > div:hover,
-#TUIC_visible > div:hover {
+#TUIC_invisible > div:is(:hover, :focus-visible),
+#TUIC_visible > div:is(:hover, :focus-visible) {
     background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
 }
 div[tuicudbox="sidebarButtons"] > .UpDownButtons,
@@ -312,7 +311,7 @@ div[tuicudbox="profileSetting.followersListButtons"] > .UpDownButtons {
 }
 
 [TUICSelectedUpDownContent="true"],
-[TUICSelectedUpDownContent="true"]:hover {
+[TUICSelectedUpDownContent="true"]:is(:hover, :focus-visible) {
     background-color: #1da1f2 !important;
 }
 
@@ -437,6 +436,13 @@ textarea#css_textarea {
     letter-spacing: 1px;
 }
 
+.TUICUploadedImg {
+    background-size: cover;
+}
+:root[data-tuic-settings*="|twitterIcon.options.roundIcon|"] #TUICIcon_IconImg {
+    border-radius: 9999px !important;
+}
+
 .TUICUploadedImg:not([data-testid="interstitialGraphic"] > svg) {
     display: inline-block;
     width: 64px;
@@ -455,11 +461,44 @@ textarea#css_textarea {
     padding-top: 10px;
 }
 
-:is(.TUICCheckBoxParent, .TUICCheckBoxParent) > div {
+.TUICCheckBoxParent > div {
     display: inline-block;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 0.25em;
+}
+
+.TUICCheckBoxParent > input[type="checkbox"] {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    appearance: none;
+    background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) var(--TUIC-checkbox-opacity, 7%));
+    border-radius: 0.25rem;
+    &:is(:hover, :focus-visible) {
+        --TUIC-checkbox-opacity: 12%;
+    }
+    &:active {
+        --TUIC-checkbox-opacity: 17%;
+    }
+    &:checked {
+        background-color: rgb(37 99 235);
+        &:is(:hover, :focus-visible) {
+            background-color: rgb(59 130 246);
+        }
+        &:active {
+            background-color: rgb(96 165 250);
+        }
+        &::before {
+            opacity: 1;
+        }
+    }
+    &::before {
+        margin-top: 1px;
+        font-size: 1rem;
+        color: #fff;
+        opacity: 0;
+    }
 }
 
 #TUIC_setting :is(label, span, button, h2) {
@@ -570,7 +609,7 @@ textarea#css_textarea {
     transition: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.TUIC_setting_iconbutton:hover {
+.TUIC_setting_iconbutton:is(:hover, :focus-visible) {
     background: var(--TUIC-container-background);
     transition: none;
 }
@@ -627,7 +666,7 @@ textarea#css_textarea {
 .TUIC_RoundedColorPicker_input {
     width: 200%;
     height: 200%;
-    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     background: transparent;
     border: none;
@@ -639,7 +678,7 @@ textarea#css_textarea {
     transition: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.TUIC_setting_detailsbox summary:hover {
+.TUIC_setting_detailsbox summary:is(:hover, :focus-visible) {
     background: var(--TUIC-container-background);
     transition: none;
 }
@@ -732,7 +771,7 @@ textarea#css_textarea {
     --twitter-TUIC-color: white;
 }
 
-.TUICIconRadioButton input[type="radio"]:not(:checked):hover ~ div > label {
+.TUICIconRadioButton input[type="radio"]:not(:checked):is(:hover, :focus-visible) ~ div > label {
     background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
 }
 
@@ -810,8 +849,7 @@ textarea#css_textarea {
 .TUICSelectImg {
     font-size: 15px;
 }
-.TUICSelectImg::file-selector-button,
-.TUICSelectImg::-webkit-file-upload-button {
+.TUICSelectImg::file-selector-button {
     padding: 10px 20px;
     margin-right: 12px;
     background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
@@ -824,7 +862,7 @@ textarea#css_textarea {
     text-decoration-line: none;
     text-decoration-color: rgb(113 118 124) !important;
 }
-.TUIC_setting_bottom_copyright:hover {
+.TUIC_setting_bottom_copyright:is(:hover, :focus-visible) {
     text-decoration: underline;
 }
 .TUIC_setting_bottom_copyright:active {

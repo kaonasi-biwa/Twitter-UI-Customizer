@@ -6,7 +6,8 @@ import { render } from "solid-js/web";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { backgroundColorClass } from "@modules/utils/color";
 import { fontSizeClass } from "@modules/utils/fontSize";
-export let willClickRT = false;
+
+export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
@@ -24,7 +25,7 @@ const copiedURLMessage = (): JSX.Element => {
                                 "r-1slz7xr",
                             )}`}
                             data-testid="toast"
-                            style="transform: translate3d(0px, 0px, 0px) translateY(0px);"
+                            style={{ transform: "translate3d(0px, 0px, 0px) translateY(0px)" }}
                         >
                             <div
                                 dir="ltr"
@@ -52,14 +53,12 @@ export const placeCopiedURLMessage = () => {
 };
 
 // ツイートのボタンを作るためのデータたち
-export const tweetButtonData: {
-    [key: string]: {
-        svg: () => JSX.Element;
-        clickEvent: (data: ArticleInfomation) => void;
-        redButton?: boolean;
-        enable: (articleInfomation: ArticleInfomation) => boolean;
-    };
-} = {
+export const tweetButtonData: Record<string, {
+    svg: () => JSX.Element;
+    clickEvent: (data: ArticleInfomation) => void;
+    redButton?: boolean;
+    enable: (articleInfomation: ArticleInfomation) => boolean;
+}> = {
     "url-copy": {
         svg: (): JSX.Element => {
             return (
@@ -137,10 +136,11 @@ export const tweetButtonData: {
             return <path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z" class="TUIC_QuoteTweet"></path>;
         },
         clickEvent: async (data: ArticleInfomation) => {
-            willClickRT = true;
+            if (getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
+                willClickRT.data = true;
+            }
             data.elements.buttonBarBase.querySelector<HTMLButtonElement>(ButtonUnderTweetSelectors["retweet-button"]).click();
             (await waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="unretweetConfirm"],[data-testid="retweetConfirm"])+[role="menuitem"]`))[0].click();
-            willClickRT = false;
         },
         enable: (articleInfomation: ArticleInfomation): boolean => {
             return !articleInfomation.option.cannotRT;
@@ -233,19 +233,19 @@ export const tweetButtonData: {
 export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfomation): (() => JSX.Element) => {
     const enable = tweetButtonData[id].enable(articleInfomation);
     return (): JSX.Element => (
-        <div class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent" style="display: inline-grid; justify-content: inherit; transform: rotate(0deg) scale(1) translate3d(0px, 0px, 0px); -moz-box-pack: inherit">
+        <div class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent" style={{ display: "inline-grid", "justify-content": "inherit", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)", "-moz-box-pack": "inherit" }}>
             <div class="css-175oi2r r-18u37iz r-1h0z5md">
                 <div
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
                     class={`css-175oi2r r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
-                    onkeydown={(e: KeyboardEvent) => {
+                    onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
                         }
                     }}
-                    onclick={() => {
+                    onClick={() => {
                         if (enable) tweetButtonData[id].clickEvent(articleInfomation);
                     }}
                 >
@@ -271,7 +271,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
 export const EmptyButtonHTML = (): JSX.Element => {
     return (
         <div class="css-175oi2r r-xoduu5 r-1udh08x">
-            <span data-testid="app-text-transition-container" style="transition-property: transform; transition-duration: 0.3s; transform: translate3d(0px, 0px, 0px);">
+            <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 r-1ttztb7 r-qvutc0 r-1tl8opc ${fontSizeClass("r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd", "r-1enofrn r-fxxt2n r-cxdvbh r-n7gxbd", "r-n6v787 r-1cwl3u0 r-1k6nrdp r-n7gxbd", "r-1b43r93 r-14yzgew r-1buqboj r-n7gxbd", "r-ubezar r-hjklzo r-e157gu r-1ntr0p")}`}></span>
             </span>
         </div>

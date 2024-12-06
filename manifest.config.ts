@@ -3,7 +3,7 @@ export default {
     common: {
         name: "__MSG_extensionName__",
         description: "__MSG_extensionDescription__",
-        version: "5.0.4",
+        version: "5.1.1",
         default_locale: "ja",
         content_scripts: [
             {
@@ -82,6 +82,6 @@ export default {
     },
     // chromiumCRX設定
     chromiumCRX: {
-        update_url: "https://github.com/${github.repository}/releases/latest/download/crxupdate.xml",
+        update_url: "https://github.com/$(github.repository)/releases/latest/download/crxupdate.xml",
     },
 };

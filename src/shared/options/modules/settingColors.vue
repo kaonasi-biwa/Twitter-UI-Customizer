@@ -2,19 +2,19 @@
     <div>
         <div id="TUICSelectedColorType">
             <input type="radio" name="TUICColorType" value="buttonColor" id="TUICColorType-Base" class="TUICColorSettingRadio" @change="ColorSettingRadio" checked />
-            <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Base" style="background: linear-gradient(200deg, #ffffff 0%, #ffffff 50%, #d9d9d9 50%, #d9d9d9 100%)">
+            <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Base" style="background: linear-gradient(200deg, #fff 0%, #fff 50%, #d9d9d9 50%, #d9d9d9 100%)">
                 <span>
                     <span>{{ TUICI18N.get("settingColors-select-base") }}</span>
                 </span>
             </label>
             <input type="radio" name="TUICColorType" value="buttonColorLight" id="TUICColorType-Light" class="TUICColorSettingRadio" @change="ColorSettingRadio" />
-            <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Light" style="background-color: rgb(255, 255, 255)">
+            <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Light" style="background-color: rgb(255 255 255)">
                 <span>
                     <span>{{ TUICI18N.get("settingColors-select-light") }}</span>
                 </span>
             </label>
             <input type="radio" name="TUICColorType" value="buttonColorDark" id="TUICColorType-Dark" class="TUICColorSettingRadio" @change="ColorSettingRadio" />
-            <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Dark" style="background-color: rgb(0, 0, 0)">
+            <label class="TUIC_setting_button TUIC_setting_button_width TUICSettingRadioTypeBigButton" for="TUICColorType-Dark" style="background-color: rgb(0 0 0)">
                 <span>
                     <span>{{ TUICI18N.get("settingColors-select-dark") }} </span>
                 </span>
@@ -62,4 +62,3 @@ const setDefaultTwitterColor = () => {
 </script>
 
 <style scoped></style>
-@modules/settings/safemode/safemode @modules/i18n/i18n

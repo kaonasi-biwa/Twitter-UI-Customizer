@@ -2,6 +2,7 @@ import { hideElement, parseHtml } from "@modules/utils/controlElements";
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
+
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): Element => {
     return parseHtml(
         `<div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
@@ -48,8 +49,8 @@ export function showLinkCardInfo(articleInfo: ArticleInfomation) {
             const card = articleBase.querySelector('[data-testid="card.wrapper"] [data-testid="card.layoutLarge.media"]').parentElement;
 
             if (card.querySelector(".TUIC_LinkCardInfo") == null) {
-                hideElement(card.children[1]);
-                hideElement(card.parentElement.children[1]);
+                hideElement(card.children[1] as HTMLElement);
+                hideElement(card.parentElement.children[1] as HTMLElement);
                 hideElement(card.querySelector('[data-testid="card.layoutLarge.media"] a > div+div'));
 
                 const link = card.querySelector<HTMLAnchorElement>('[data-testid="card.layoutLarge.media"] a').href;

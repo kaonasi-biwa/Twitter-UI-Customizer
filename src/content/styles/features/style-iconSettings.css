@@ -1,0 +1,58 @@
+[data-tuic-icon-type="dog"],
+[data-tuic-icon-type^="officialLogo"],
+[data-tuic-icon-type="custom"] {
+    &:not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+        &:not([role="img"] > * > *) {
+            height: inherit !important;
+            margin: 8px;
+        }
+        background-size: cover;
+    }
+
+    & > * {
+        display: none !important;
+    }
+}
+
+#placeholder > :is([data-tuic-icon-type="dog"], [data-tuic-icon-type^="officialLogo"], [data-tuic-icon-type="custom"]) {
+    position: absolute;
+    margin: auto;
+}
+
+[role="alertdialog"] [data-testid="confirmationSheetDialog"] {
+    &[data-tuic-icon-type="custom"] {
+        width: 40px;
+        height: 40px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &:is([data-tuic-icon-type="dog"], [data-tuic-icon-type=^"officialLogo"], [data-tuic-icon-type="custom"]) {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain !important;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain !important;
+    }
+}
+
+[data-tuic-icon-type^="officialLogo"] {
+    background-color: var(--twitter-twitterIcon-color);
+    mask-image: var(--TUIC-twitter-icon) !important;
+
+    &:not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
+        mask-size: cover !important;
+    }
+}
+
+#layers [data-testid="TopNavBar"] div + [data-tuic-icon-type="custom"] {
+    width: auto !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    background-size: contain !important;
+}
+
+:root[data-tuic-settings*="|twitterIcon.options.roundIcon|"] [data-tuic-icon-type="custom"] {
+    border-radius: 9999px !important;
+}

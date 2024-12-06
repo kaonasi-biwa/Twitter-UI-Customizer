@@ -36,19 +36,10 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 
 import OptionMain from "../settings/SettingMain.ce.vue";
-
-export default defineComponent({
-    components: { OptionMain },
-    setup() {
-        return { TUICI18N };
-    },
-});
 </script>
 
 <style scoped>
@@ -58,34 +49,34 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1da1f2;
     font-family:
         system-ui,
         -apple-system,
         sans-serif,
         monospace;
     font-weight: bold;
+    color: #1da1f2;
     text-decoration: none;
 }
 nav {
     position: sticky;
-    top: 0px;
-    justify-content: space-between;
-    border-bottom: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
-    background-color: var(--TUIC-container-background);
+    top: 0;
     z-index: 1;
+    justify-content: space-between;
     padding: 12px 0;
+    background-color: var(--TUIC-container-background);
+    border-bottom: 1px solid color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
 
     div {
         width: 100%;
     }
     svg {
-        height: 1.7em;
-        fill: currentColor;
         width: unset;
+        height: 1.7em;
+        fill: currentcolor;
         &.icon-tabler {
             fill: none;
-            stroke: currentColor;
+            stroke: currentcolor;
         }
     }
     span {
@@ -93,10 +84,11 @@ nav {
     }
 }
 .spacer {
-    height: 20px;
     width: 100%;
+    height: 20px;
 }
-@media (max-width: 600px) {
+
+@media (width <= 600px) {
     nav a span {
         display: none;
     }
@@ -105,4 +97,3 @@ nav {
     display: none;
 }
 </style>
-@modules/i18n/i18n

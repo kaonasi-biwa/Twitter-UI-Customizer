@@ -46,7 +46,7 @@
         <p class="TUIC_setting_intro_paragraph">
             {{ TUICI18N.get("import-intro-step2") }}
         </p>
-        <div style="display: flex; gap: 10px; flex-direction: column">
+        <div style="display: flex; flex-direction: column; gap: 10px">
             <button class="TUIC_setting_button_new TUIC_setting_text TUIC_setting_button TUIC_setting_button_width" @click="importFunc(1)">
                 {{ TUICI18N.get("import-importAppend") }}
             </button>
@@ -56,7 +56,7 @@
         </div>
 
         <!--EXPLAIN APPEND/REPLACE-->
-        <div style="margin: 35px 0 20px 0; display: flex; flex-direction: column; gap: 35px">
+        <div style=" display: flex; flex-direction: column; gap: 35px;margin: 35px 0 20px">
             <div>
                 <SettingSubTitle i18n="import-importAppend" />
                 <FIGURE_IMPORTAPPEND height="87px" />
@@ -106,6 +106,7 @@ function displayPref() {
         exportText.value.value = exportPref();
     }
 }
+
 function exportPrefCopy() {
     navigator.clipboard.writeText(exportText.value.value);
 }

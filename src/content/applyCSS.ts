@@ -3,7 +3,7 @@ import { isSafemode } from "@modules/settings/safemode/isSafemode";
 import { DOG, TWITTER, X } from "./icons/index";
 import { ColorData } from "@shared/sharedData";
 
-import styleUrl from "./styles/index.pcss?url";
+import styleUrl from "./styles/index.css?url";
 import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize";
@@ -44,13 +44,13 @@ export function applyDataCss() {
     elemDataCSS.id = "twitter_ui_customizer_cssData";
     twitterHead.appendChild(elemDataCSS);
     elemDataCSS.textContent = `
-    .TUICTwitterIcon_Dog {
+    [data-tuic-icon-type="dog"] {
         background-image: url('${chrome.runtime.getURL(DOG)}');
     }
-    .TUICTwitterIcon_Twitter {
+    [data-tuic-icon-type="officialLogo-twitter"] {
         --TUIC-twitter-icon: url('${chrome.runtime.getURL(TWITTER)}') !important;
     }
-    .TUICTwitterIcon_X {
+    [data-tuic-icon-type="officialLogo-X"] {
         --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
     }`;
 }
@@ -63,7 +63,7 @@ export function applyCustomIcon() {
     dataCssElement.id = "twitter_ui_customizer_cssCustomIcon";
     twitterHead.appendChild(dataCssElement);
     dataCssElement.textContent = `
-    .TUICTwitterIcon_IconImg,
+    [data-tuic-icon-type="custom"],
     #TUICIcon_IconImg {
         background-image: url('${localStorage.getItem("TUIC_IconImg") ?? ""}');
     }`;
@@ -126,6 +126,7 @@ export function applySystemCss() {
         rs.setProperty("--TUIC-pinnedTab-top", `${fontSizeClass("47", "49", "52", "57", "63")}px`);
     }
 }
+
 export function applyCustomCss() {
     document.querySelector("#twitter_ui_customizer_css").textContent = localStorage.getItem("TUIC_CSS");
 }

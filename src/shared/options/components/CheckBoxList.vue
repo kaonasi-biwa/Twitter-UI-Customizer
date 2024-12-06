@@ -1,5 +1,5 @@
 <template>
-    <template v-for="i of getSettingData(id)" :key="i.id">
+    <template v-for="i in getSettingData(id)" :key="i.id">
         <CheckBox :value="`${id}.${i.id}`" :name="i.i18n" />
     </template>
 </template>
@@ -8,7 +8,7 @@
 import { getSettingData, TUICSettingIDs } from "@modules/pref";
 import CheckBox from "./CheckBox.vue";
 
-const props = defineProps<{ id: TUICSettingIDs }>();
+defineProps<{ id: TUICSettingIDs }>();
 </script>
 
 <style scoped></style>

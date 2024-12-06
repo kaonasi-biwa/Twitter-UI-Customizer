@@ -95,19 +95,19 @@ export function hasClosestSelector<T extends Element>(elem: Element, selector: s
 /**
  * elemで指定された要素を非表示にします。
  *
- * @param {Element} elem 対象のElement
+ * @param {HTMLElement} elem 対象のElement
  */
-export function hideElement(elem: Element) {
-    elem?.classList.add("TUIC_DISPNONE");
+export function hideElement(elem: HTMLElement) {
+    if (elem) elem.dataset.tuicHide = "true";
 }
 
 /**
  * hide()で非表示にした要素のうち、elemで指定された要素を再び表示します。
  *
- * @param {Element} elem 対象のElement
+ * @param {HTMLElement} elem 対象のElement
  */
-export function showElement(elem: Element) {
-    elem?.classList.remove("TUIC_DISPNONE");
+export function showElement(elem: HTMLElement) {
+    if (elem) delete elem.dataset.tuicHide;
 }
 
 /**

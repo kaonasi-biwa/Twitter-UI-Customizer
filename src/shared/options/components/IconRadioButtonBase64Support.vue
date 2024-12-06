@@ -14,7 +14,7 @@ import { TUICI18N } from "@modules/i18n";
 import { getPref, setPref, savePref } from "@modules/pref";
 import { updateClasses } from "@content/modules/htmlClass/classManager";
 
-const props = defineProps<{ id: string; valueName: string; name: string; base64Img: string }>();
+defineProps<{ id: string; valueName: string; name: string; base64Img: string }>();
 
 const changePref = (path, valueName) => {
     setPref(path, valueName);

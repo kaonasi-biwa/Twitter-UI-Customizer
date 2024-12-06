@@ -18,8 +18,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Get pnpm version from package.json
+        id: pnpm-version
+        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).engines.pnpm')" >> $GITHUB_OUTPUT
+
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,10 +35,8 @@ jobs:
 
       - name: Update
         run: |
-          git config --global user.name  "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           pnpm install
+          git reset --hard
           git pull
           pnpm dlx tsx ./scripts/update-i18n.ts
 
@@ -41,6 +45,8 @@ jobs:
             exit 0
           fi
 
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Update twitter i18n"
           git push

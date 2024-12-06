@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import url from "node:url";
 
 import ChromeExtenson from "crx";
 
@@ -23,6 +22,6 @@ function generateCRX() {
         .catch(console.error);
 }
 
-if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+if (process.argv[1] === import.meta.filename) {
     generateCRX();
 }

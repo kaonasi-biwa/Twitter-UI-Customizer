@@ -1,3 +1,6 @@
+@import url("./features/style-discoverMore.css");
+@import url("./features/style-iconSettings.css");
+
 .TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;
 }
@@ -12,82 +15,20 @@
 }
 
 .TUICScrollBottom,
-.TUICItIsBigArticlePhoto .TUICScrollBottom > div {
+[data-tuic-zooming-tweet="openingImage"] .TUICScrollBottom > div {
     overflow-x: auto;
     scrollbar-width: thin;
 }
 
-:is(.TUICItIsBigArticlePhoto .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
+:is([data-tuic-zooming-tweet="openingImage"] .TUICScrollBottom > div, .TUICScrollBottom)::-webkit-scrollbar {
     height: 8px;
 }
 
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *, [role="img"] > * > *) {
-    margin: 8px;
-}
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X, .TUICUploadedImg):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
-    background-size: cover;
-}
-
-#placeholder > :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
-    position: absolute;
-    margin: auto;
-}
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *, [role="img"] > * > *) {
-    height: inherit !important;
-}
-
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] .TUICTwitterIcon_IconImg {
-    width: 40px;
-    height: 40px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-[role="alertdialog"] [data-testid="confirmationSheetDialog"] :is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_Dog, .TUICTwitterIcon_IconImg, .TUICTwitterIcon_X) {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain !important;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-size: contain !important;
-    mask-size: contain !important;
-}
-
-:is(.TUICTwitterIcon_Twitter, .TUICTwitterIcon_X):not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
-    -webkit-mask-size: cover !important;
-    mask-size: cover !important;
-}
-
-.TUICTwitterIcon_Twitter {
-    background-color: var(--twitter-twitterIcon-color);
-    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
-    mask-image: var(--TUIC-twitter-icon) !important;
-}
-
-.TUICTwitterIcon_X {
-    background-color: var(--twitter-twitterIcon-color);
-    -webkit-mask-image: var(--TUIC-twitter-icon) !important;
-    mask-image: var(--TUIC-twitter-icon) !important;
-}
-
-#layers [data-testid="TopNavBar"] div + .TUICTwitterIcon_IconImg {
-    width: auto !important;
-    background-repeat: no-repeat !important;
-    background-position: center;
-    background-size: contain !important;
-}
-
-.TUIC_SVGDISPNONE > * {
+[data-tuic-hide-child-scroll-snap] > [data-testid="ScrollSnap-prevButtonWrapper"] {
     display: none !important;
 }
 
-.TUIC_DISPNONE_PARENT > [data-testid="ScrollSnap-prevButtonWrapper"] {
-    display: none !important;
-}
-
-.TUIC_DISPNONE {
+[data-tuic-hide="true"] {
     display: none !important;
 }
 
@@ -106,7 +47,7 @@
 }
 */
 
-.TUICSidebarButton:hover > div {
+.TUICSidebarButton:is(:hover, :focus-visible) > div {
     background-color: var(--TUIC-sidebar-hover-color);
 }
 
@@ -139,11 +80,11 @@
     transition: border-bottom 0.2s;
 }
 
-.TUICEngagementsBox > div > span:hover {
+.TUICEngagementsBox > div > span:is(:hover, :focus-visible) {
     border-bottom: solid 0.05px;
 }
 
-[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > div {
+[tabindex="0"] > .TUIC_ButtonHover2:is(:hover, :focus-visible) > .TUIC_ButtonHover > div {
     background-color: rgb(29 155 240 / 10%);
 }
 
@@ -151,7 +92,7 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
-[tabindex="0"] > .TUIC_ButtonHover2:hover > .TUIC_ButtonHover > svg {
+[tabindex="0"] > .TUIC_ButtonHover2:is(:hover, :focus-visible) > .TUIC_ButtonHover > svg {
     color: rgb(29 155 240);
 }
 
@@ -176,18 +117,13 @@
     text-decoration: none;
 }
 
-.TUICTweetTopButton.css-18t94o4:hover .TUIC_ButtonHover {
+.TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 10%);
 }
-.TUICTweetTopButton.css-18t94o4:hover svg {
-    color: rgb(29 155 240);
-}
-
 .TUICTweetTopButton.css-18t94o4:focus-visible .TUIC_ButtonHover {
-    background-color: rgb(29 155 240 / 10%);
     box-shadow: rgba(142 204 258) 0 0 0 2px inset;
 }
-.TUICTweetTopButton.css-18t94o4:focus-visible svg {
+.TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
 }
 
@@ -195,42 +131,33 @@
     background-color: rgb(29 155 240 / 20%);
 }
 
-[data-TUICFollowerListButton]:hover .TUIC_ButtonHover {
+[data-tuic-follower-list-button]:is(:hover, :focus-visible) .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 10%);
 }
-[data-TUICFollowerListButton]:hover svg {
-    color: rgb(29 155 240);
-}
-
-[data-TUICFollowerListButton]:focus-visible .TUIC_ButtonHover {
-    background-color: rgb(29 155 240 / 10%);
+[data-tuic-follower-list-button]:focus-visible .TUIC_ButtonHover {
     box-shadow: rgba(142 204 258) 0 0 0 2px inset;
 }
-[data-TUICFollowerListButton]:focus-visible svg {
+[data-tuic-follower-list-button]:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
 }
 
-[data-TUICFollowerListButton]:active .TUIC_ButtonHover {
+[data-tuic-follower-list-button]:active .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 20%);
 }
 
-#TUICDisplayRightSidebar:hover {
+#TUICDisplayRightSidebar:is(:hover, :focus-visible) {
     text-decoration-thickness: 1px;
 }
 
-.TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] .NOT_TUIC_DISPNONE {
+.TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] [data-tuic-hide="false"] {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-}
-
-:root[data-tuic-settings*="|twitterIcon.options.roundIcon|"] :is(.TUICTwitterIcon_IconImg, #TUICIcon_IconImg) {
-    border-radius: 9999px !important;
 }
 
 :is(
         :root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
         :root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-        :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] .TUICItIsBigArticle [data-testid="app-text-transition-container"],
+        :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] [data-tuic-zooming-tweet] [data-testid="app-text-transition-container"],
         :root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
         :root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
         :root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
@@ -260,15 +187,15 @@
     backdrop-filter: none !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:hover) > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] :is([data-testid="unlike"], [data-testid="like"][data-focusvisible-polyfill], [data-testid="like"]:is(:hover, :focus-visible)) > div > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) > div {
     color: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover > div > div {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
 }
 
@@ -285,7 +212,7 @@
     fill: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:hover path {
+:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) path {
     fill: rgb(255 212 0) !important;
 }
 

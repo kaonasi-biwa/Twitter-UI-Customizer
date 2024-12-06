@@ -1,5 +1,13 @@
 # Contributing
 
+**パッケージマネージャーをpnpmに変更しました！**  
+yarnを使用していた方は、pnpmをインストールして`node_modules`を削除した上で  
+`pnpm i --frozen-lockfile`を実行してください。
+
+**ビルドツール Vite導入により、デバッグ方法が変わりました！**  
+ビルド及びデバッグ方法については、[docs/vite_build](./docs/vite_build.md)を御覧ください。  
+この変更は[`41dff7b`](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/commit/41dff7b4e8c01c33ef04d05b8ff5e9e649f2719d) (2023年9月2日)からの適用です。
+
 ## いるかもわからぬ翻訳者の方へ
 
 Crowdinで試験的にやってみています！  
@@ -25,7 +33,7 @@ Crowdinで試験的にやってみています！
 manifest.jsonなどのデバッグ・ソースコードの情報は[`docs/manifest_build`](./docs/manifest_build.md)を見てください！
 
 **重要**: Firefox ブラウザーが事前にインストールされている必要があります。  
-また、新しいプロファイルを "about:profiles" で "development" という名前で作成する必要があります。  
+また、新しいプロファイルを "about:profiles" で "development" といった名前で作成する必要があります。  
 プロファイルや環境によるバグを防ぐためにプロファイルは分けられます。
 
 ```bash
@@ -38,7 +46,7 @@ pnpm debug
 # or
 pnpm debug:firefox
 
-## Chrome でデバッグする場合
+## Chrome または Chromium 系ブラウザー でデバッグする場合
 pnpm debug:chromium
 
 ## Firefox または Firefox 系ブラウザーでデバッグする場合
@@ -54,4 +62,4 @@ pnpm debug:firefox
 
 ```
 
-デバッグでは web-ext を使用しているためデバッグ中に加えた変更はリロードしなくても反映されます。
+デバッグでは web-ext を使用しているためデバッグ中に加えた変更はブラウザーをリロードしなくても反映されます。

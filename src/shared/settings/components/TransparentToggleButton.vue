@@ -10,14 +10,15 @@
 import ICON_TRANSPARENT from "@content/icons/common/transparent.svg?component";
 import { ref } from "vue";
 
-const transparentButton = ref(null);
 defineProps<{
     btnId: string;
     isChecked: boolean;
     titleString: string;
 }>();
-const emit = defineEmits<{ (e: "btnClicked", value: boolean): void }>();
+const emit = defineEmits<(e: "btnClicked", value: boolean) => void>();
 defineExpose({ setCheckedValue });
+
+const transparentButton = ref(null);
 
 const btnClicked = ($event: Event) => {
     // チェックを反転させて

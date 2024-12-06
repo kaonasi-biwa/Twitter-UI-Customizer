@@ -1,9 +1,7 @@
-interface I18n {
-    [key: string]: string;
-}
+type I18n = Record<string, string>;
 
 interface I18nAndAllContent {
-    all: Array<string>;
+    all: string[];
     i18n: I18n;
     [key: string]: unknown;
 }

@@ -8,29 +8,31 @@ import { getPrimitiveOrFunction } from "@modules/utils/getValues";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
 let sidebarButtonsCount = -1;
+
 export const SidebarButtonSelectors = {
-    home: `[href="/home"]`,
-    explore: `[href="/explore"]`,
-    communities: `[href$="/communities"],#TUICSidebar_communities`,
-    notifications: `[href*="/notifications"]`,
-    messages: `[href^="/messages"]`,
-    bookmarks: `[href="/i/bookmarks"],#TUICSidebar_bookmarks`,
-    profile: `[data-testid="AppTabBar_Profile_Link"]`,
-    moremenu: `[data-testid="AppTabBar_More_Menu"]`,
-    topics: `#TUICSidebar_topics`,
-    lists: `#TUICSidebar_lists,[href$="/lists"]`,
+    home: '[href="/home"]',
+    explore: '[href="/explore"]',
+    communities: '[href$="/communities"],#TUICSidebar_communities',
+    notifications: '[href*="/notifications"]',
+    messages: '[href^="/messages"]',
+    bookmarks: '[href="/i/bookmarks"],#TUICSidebar_bookmarks',
+    profile: '[data-testid="AppTabBar_Profile_Link"]',
+    moremenu: '[data-testid="AppTabBar_More_Menu"]',
+    topics: "#TUICSidebar_topics",
+    lists: '#TUICSidebar_lists,[href$="/lists"]',
     drafts: "#TUICSidebar_drafts",
     connect: "#TUICSidebar_connect",
-    communitynotes: `[href="/i/communitynotes"]`,
-    "verified-choose": `[href="/i/verified-choose"],[href="/i/verified-orgs-signup"],[href="/i/premium_sign_up"]`,
+    communitynotes: '[href="/i/communitynotes"]',
+    "verified-choose": '[href="/i/verified-choose"],[href="/i/verified-orgs-signup"],[href="/i/premium_sign_up"]',
     display: "#TUICSidebar_display",
     muteAndBlock: "#TUICSidebar_muteAndBlock",
     settings: "#TUICSidebar_settings",
-    premiumTierSwitch: `[href="/i/premium_tier_switch"]`,
+    premiumTierSwitch: '[href="/i/premium_tier_switch"]',
     jobs: "#TUICSidebar_jobs",
     spaces: "#TUICSidebar_spaces",
-    grok: `[href="/i/grok"]`,
+    grok: '[href="/i/grok"]',
 };
+
 const _data = {
     selectors: SidebarButtonSelectors,
     html: {
@@ -205,36 +207,43 @@ const _data = {
         },
         topics: () => {
             return _data.tuicButtonGoToUrl.__setURL("topics", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
-                return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/topics`;
+                return `/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/topics`;
             });
         },
         lists: () => {
             return _data.tuicButtonGoToUrl.__setURL("lists", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
-                return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/lists`;
+                return `/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/lists`;
             });
         },
         communities: () => {
             return _data.tuicButtonGoToUrl.__setURL("communities", `[data-testid="SideNav_AccountSwitcher_Button"] [data-testid^="UserAvatar-Container-"]`, (elem) => {
-                return `https://twitter.com/${elem.getAttribute("data-testid").replace(`UserAvatar-Container-`, "")}/communities`;
+                return `/${elem.getAttribute("data-testid").replace("UserAvatar-Container-", "")}/communities`;
             });
         },
-        connect: "https://twitter.com/i/connect_people",
-        drafts: "https://twitter.com/compose/tweet/unsent/drafts",
-        display: "https://twitter.com/i/display",
-        muteAndBlock: "https://twitter.com/settings/mute_and_block",
-        bookmarks: "https://twitter.com/i/bookmarks",
-        settings: "https://twitter.com/settings/",
-        jobs: "https://twitter.com/jobs/",
-        spaces: "https://twitter.com/i/spaces/start/",
+        connect: "/i/connect_people",
+        drafts: "/compose/tweet/unsent/drafts",
+        display: "/i/display",
+        muteAndBlock: "/settings/mute_and_block",
+        bookmarks: "/i/bookmarks",
+        settings: "/settings/",
+        jobs: "/jobs/",
+        spaces: "/i/spaces/start/",
     },
 };
 
 export function sidebarButtons() {
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        if (bannerRoot.querySelector(`a:not(.NOT_TUIC_DISPNONE):not(.TUIC_DISPNONE)`)) {
+        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`);
+        const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`);
+        if (vanillaBookmark && tuicBookmark) {
+            tuicBookmark.remove();
             sidebarButtonProcess(bannerRoot);
-        } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not(.NOT_TUIC_DISPNONE)`).length) {
+        } else if (getPref("sidebarButtons").includes("bookmarks") && !(vanillaBookmark || tuicBookmark)) {
+            sidebarButtonProcess(bannerRoot);
+        } else if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
+            sidebarButtonProcess(bannerRoot);
+        } else if (sidebarButtonsCount != bannerRoot.querySelectorAll(`a:not([data-tuic-hide="false"])`).length) {
             let changeElem = false;
             for (const selector of getPref("sidebarButtons")) {
                 const elems = bannerRoot.querySelectorAll(_data.selectors[selector]);
@@ -262,7 +271,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
             let moveElem = bannerRoot.querySelector<HTMLElement>(_data.selectors[i]);
             if (moveElem != null) {
                 bannerRoot.appendChild(moveElem);
-                moveElem.classList.add("NOT_TUIC_DISPNONE");
+                moveElem.dataset.tuicHide = "false";
                 if (i == "moremenu") {
                     moveElem.onclick = moreMenuContent;
                     moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -275,7 +284,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 sidebarButtonsCount += 1;
             } else if (i in _data.html) {
                 moveElem = parseHtml(_data.html[i]()).item(0) as HTMLElement;
-                moveElem.classList.add("NOT_TUIC_DISPNONE");
+                moveElem.dataset.tuicHide = "false";
                 moveElem.onclick = _data.buttonFunctions[i];
                 moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
                     if (e.key === "Enter") {
@@ -287,7 +296,7 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 sidebarButtonsCount += 1;
             }
         }
-        for (const i of bannerRoot.querySelectorAll(`:is(a,div[role="button"],button,[type="button"]):not(.NOT_TUIC_DISPNONE)`)) {
+        for (const i of bannerRoot.querySelectorAll<HTMLElement>(`:is(a,div[role="button"],button,[type="button"]):not([data-tuic-hide="false"])`)) {
             hideElement(i);
         }
     }

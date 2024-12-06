@@ -9,7 +9,8 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
-let buttonUnderTweetRunning: boolean = false;
+let buttonUnderTweetRunning = false;
+
 const _data = {
     all: getSettingIDs("visibleButtons"),
     selectors: { ...ButtonUnderTweetSelectors },
@@ -17,11 +18,13 @@ const _data = {
         "retweet-button": async () => {
             if (getPref("tweetDisplaySetting.buttonsInvisible.RTNotQuote")) {
                 // TODO: wait 関数を作って置き換えるべきか？
-                if (!willClickRT) {
-                    window.setTimeout(async () => {
+                window.setTimeout(async () => {
+                    if (willClickRT.data) {
+                        willClickRT.data = false;
+                    } else {
                         (await waitForElement<HTMLButtonElement>(`[role="menuitem"]:is([data-testid="retweetConfirm"],[data-testid="unretweetConfirm"])`))[0].click();
-                    }, 100);
-                }
+                    }
+                }, 100);
             }
         },
         "share-button": function (elem: HTMLAnchorElement) {
@@ -61,20 +64,20 @@ export function tweetSettings() {
     if (!buttonUnderTweetRunning) {
         buttonUnderTweetRunning = true;
         {
-            const getElement = () => document.querySelector<HTMLElement>(`article[data-processed-article] [data-testid="caret"]:not(${ProcessedClass})`);
+            const getElement = () => document.querySelector<HTMLElement>(`article[data-tuic-processed-article] [data-testid="caret"]:not(${ProcessedClass})`);
             for (let elem = getElement(); elem; elem = getElement()) {
-                delete elem.closest<HTMLElement>("[data-processed-article]").dataset.processedArticle;
+                delete elem.closest<HTMLElement>("[data-tuic-processed-article]").dataset.tuicProcessedArticle;
             }
         }
 
         {
-            const getElement = () => document.querySelector(`article[data-processed-article] .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
+            const getElement = () => document.querySelector(`article[data-tuic-processed-article] .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
             for (let elem = getElement(); elem; elem = getElement()) {
-                delete elem.closest<HTMLElement>("[data-processed-article]").dataset.processedArticle;
+                delete elem.closest<HTMLElement>("[data-tuic-processed-article]").dataset.tuicProcessedArticle;
             }
         }
 
-        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-processed-article]):not([data-testid="tweet"] *)`);
+        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-tuic-processed-article]):not([data-testid="tweet"] *)`);
         if (articles.length != 0) {
             for (const articleBase of articles) {
                 (async () => {
@@ -87,9 +90,9 @@ export function tweetSettings() {
                         const buttonBarBase = hasClosest<HTMLDivElement>(articleBase.querySelector(_data.selectors["reply-button"]), _data.selectors["like-button"]);
                         buttonBarBase.parentElement.classList.add("TUICTweetButtomBarBase");
                         // ボタンたち
-                        const underTweetButtons: { [key: string]: Element } = {};
+                        const underTweetButtons: Record<string, HTMLElement> = {};
                         for (const sel in _data.selectors) {
-                            const elem = buttonBarBase.querySelector<Element>(_data.selectors[sel])?.closest(`.TUICTweetButtomBarBase > * > *`);
+                            const elem = buttonBarBase.querySelector<HTMLElement>(_data.selectors[sel])?.closest<HTMLElement>(`.TUICTweetButtomBarBase > * > *`);
                             if (elem) {
                                 underTweetButtons[sel] = elem;
                             }
@@ -111,21 +114,26 @@ export function tweetSettings() {
 
                         if (!articleInfo.option.cannotRT) {
                             // リツイートボタンのイベントハンドラ(メニューを出さないなどの実装のため)
-                            _data.buttonElement._handleEvent(underTweetButtons["retweet-button"], _data.buttonFunction["retweet-button"]);
-                            if (!articleInfo.option.isLockedAccount && underTweetButtons["share-button"]) {
+                            if (underTweetButtons["retweet-button"].dataset?.tuicEventHandled !== "") {
+                                _data.buttonElement._handleEvent(underTweetButtons["retweet-button"], _data.buttonFunction["retweet-button"]);
+                            }
+                            underTweetButtons["retweet-button"].dataset.tuicEventHandled = "";
+
+                            if (!articleInfo.option.isLockedAccount && underTweetButtons["share-button"] && underTweetButtons["share-button"].dataset?.tuicEventHandled !== "") {
                                 // 共有ボタンのイベントハンドラ(URLをコピーのドメイン変更のため)
                                 _data.buttonElement._handleEvent(underTweetButtons["share-button"], () => {
                                     _data.buttonFunction["share-button"](statusButton);
                                 });
+                                underTweetButtons["share-button"].dataset.tuicEventHandled = "";
                             }
                         }
 
                         if (articleInfo.option.isBigArticle) {
                             // Class付け
-                            articleBase.classList.add("TUICItIsBigArticle");
+                            articleBase.dataset.tuicZoomingTweet = "";
                             // 画像を拡大表示しているときの共有ボタンに対応
                             if (location.pathname.includes("/photo/") || location.pathname.includes("/video/")) {
-                                articleBase.classList.add("TUICItIsBigArticlePhoto");
+                                articleBase.dataset.tuicZoomingTweet = "openingImage";
 
                                 if (!articleInfo.option.cannotRT && !articleInfo.option.isLockedAccount) {
                                     const shareButtom = document.querySelector<HTMLElement>(`[aria-labelledby="modal-header"] > div > div:not([aria-expanded="true"]) [aria-haspopup="menu"]:not([data-testid="retweet"]):not([data-testid="unretweet"])`);
@@ -147,16 +155,16 @@ export function tweetSettings() {
                         showLinkCardInfo(articleInfo);
 
                         // ツイート下ボタンの並び替え
-                        let lastButton: Element | null = null;
+                        let lastButton: HTMLElement | null = null;
                         for (const i of getPref("visibleButtons")) {
-                            let processingButton: Element | null = null;
+                            let processingButton: HTMLElement | null = null;
                             if (i in underTweetButtons) {
                                 processingButton = underTweetButtons[i];
                                 processingButton.classList.add("TUIC_UnderTweetButton");
                                 showElement(processingButton);
                             } else if (i in tweetButtonData) {
                                 render(TweetUnderButtonsHTML(i, articleInfo), buttonBarBase);
-                                processingButton = Array.from(buttonBarBase.children).at(-1);
+                                processingButton = Array.from(buttonBarBase.children).at(-1) as HTMLElement;
                             }
                             // Twitterのボタンと同化させるためにClassとかごにょごにょしてる
                             if (processingButton) {
@@ -191,7 +199,7 @@ export function tweetSettings() {
 
                         tweetTopButtons(articleInfo);
                     }
-                    articleBase.dataset.processedArticle = "";
+                    articleBase.dataset.tuicProcessedArticle = "";
                 })();
             }
         }

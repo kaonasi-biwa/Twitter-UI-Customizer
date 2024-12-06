@@ -23,6 +23,6 @@
     display: none !important;
 }
 
-:is([data-tuic-discover-more="close"], [data-tuic-discover-more="invisible"]) ~ .TUIC_DISCOVERMORE {
+:is([data-tuic-discover-more="close"], [data-tuic-discover-more="invisible"]) ~ [data-tuic-discover-more-tweet] {
     display: none !important;
 }

@@ -13,7 +13,7 @@ import { TUICObserver } from "@modules/observer/index";
 import { getPref, setPref, savePref } from "@modules/pref";
 import { updateClasses } from "@modules/htmlClass/classManager";
 
-const props = defineProps<{ id: string; valueName: string; name: string }>();
+defineProps<{ id: string; valueName: string; name: string }>();
 
 const changePref = (path, valueName) => {
     setPref(path, valueName);
@@ -22,4 +22,3 @@ const changePref = (path, valueName) => {
     TUICObserver.callback();
 };
 </script>
-@modules/observer/observer @modules/i18n/i18n

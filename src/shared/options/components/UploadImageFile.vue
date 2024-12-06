@@ -1,8 +1,10 @@
 <template>
-    <div style="display: flex; justify-content: space-between; align-items: center">
+    <div style="display: flex; align-items: center; justify-content: space-between">
         <input type="file" accept="image/*" class="TUIC_setting_text TUICSelectImg" @change="changeCustomCSS()" ref="twitterIcon" />
         <div style="display: flex; gap: 8px; align-items: center">
-            <p style="color: rgb(113 118 124)" class="TUIC_setting_text">{{ TUICI18N.get("twitterIcon-nowIcon") }}</p>
+            <p style="color: rgb(113 118 124)" class="TUIC_setting_text">
+                {{ TUICI18N.get("twitterIcon-nowIcon") }}
+            </p>
             <span id="TUICIcon_IconImg" class="TUICUploadedImg"></span>
         </div>
     </div>
@@ -20,7 +22,7 @@ async function changeCustomCSS() {
         await new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
-                localStorage.setItem(`TUIC_IconImg`, reader.result as string);
+                localStorage.setItem("TUIC_IconImg", reader.result as string);
                 const element = document.createElement("canvas");
                 element.height = 200;
                 element.width = 200;
@@ -33,7 +35,7 @@ async function changeCustomCSS() {
                     context.beginPath();
                     //@ts-expect-error idk
                     context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
-                    localStorage.setItem(`TUIC_IconImg_Favicon`, element.toDataURL());
+                    localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                     resolve(null);
                 };
 
@@ -42,8 +44,8 @@ async function changeCustomCSS() {
             reader.readAsDataURL(twitterIcon.value.files[0]);
         });
     } else {
-        localStorage.setItem(`TUIC_IconImg`, "");
-        localStorage.setItem(`TUIC_IconImg_Favicon`, "");
+        localStorage.setItem("TUIC_IconImg", "");
+        localStorage.setItem("TUIC_IconImg_Favicon", "");
     }
 
     applySystemCss();
@@ -52,4 +54,3 @@ async function changeCustomCSS() {
 </script>
 
 <style scoped></style>
-@modules/i18n/i18n

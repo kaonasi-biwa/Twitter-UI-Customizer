@@ -83,7 +83,8 @@ import { waitForElement } from "@modules/utils/controlElements";
         startTluiObserver();
 
         // メインのObserver
-        (TUICObserver.target = document.querySelector("body")), TUICObserver.bind();
+        TUICObserver.target = document.querySelector("body");
+        TUICObserver.bind();
         TUICObserver.callback();
         placeSettingObserver();
 

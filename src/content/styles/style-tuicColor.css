@@ -7,16 +7,27 @@
     }
 }
 
+/* ツイートボタン */
+[data-testid="SideNav_NewTweet_Button"],
+[data-testid="tweetButtonInline"],
+[data-testid="tweetButton"] {
+    background-color: var(--twitter-tweetButton-background) !important;
+    border-color: var(--twitter-tweetButton-border) !important;
+    & > .r-b88u0q {
+        color: var(--twitter-tweetButton-color) !important;
+    }
+}
+
 /* フォローしていない人をフォロー */
 [data-testid$="-follow"] {
-    &:not(:hover) {
+    &:not(:hover, :focus-visible) {
         background-color: var(--twitter-not-following-background) !important;
         border-color: var(--twitter-not-following-border) !important;
         & > :is(div, span) {
             color: var(--twitter-not-following-color) !important;
         }
     }
-    &:hover {
+    &:is(:hover, :focus-visible) {
         background-color: var(--twitter-willFollow-background) !important;
         border-color: var(--twitter-willFollow-border) !important;
         & > :is(div, span) {
@@ -27,14 +38,14 @@
 
 /* フォロー中 */
 [data-testid$="-unfollow"] {
-    &:not(:hover) {
+    &:not(:hover, :focus-visible) {
         background-color: var(--twitter-following-background) !important;
         border-color: var(--twitter-following-border) !important;
         & > :is(div, span) {
             color: var(--twitter-following-color) !important;
         }
     }
-    &:hover {
+    &:is(:hover, :focus-visible) {
         background-color: var(--twitter-un-following-background) !important;
         border-color: var(--twitter-un-following-border) !important;
         & > :is(div, span) {
@@ -45,7 +56,7 @@
 
 [data-testid$="-unblock"] {
     /* ブロック中 */
-    &:not(:hover) {
+    &:not(:hover, :focus-visible) {
         background-color: var(--twitter-blocking-background) !important;
         border-color: var(--twitter-blocking-border) !important;
         & > :is(div, span) {
@@ -53,7 +64,7 @@
         }
     }
     /* ブロック解除時 */
-    &:hover {
+    &:is(:hover, :focus-visible) {
         background-color: var(--twitter-blocking-unlock-background) !important;
         border-color: var(--twitter-blocking-unlock-border) !important;
         & > :is(div, span) {

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 
-const props = defineProps<{
+defineProps<{
     btnAction: string;
     tooltiptag: string;
     src: string;
@@ -15,4 +15,3 @@ const props = defineProps<{
 </script>
 
 <style scoped></style>
-@modules/i18n/i18n
