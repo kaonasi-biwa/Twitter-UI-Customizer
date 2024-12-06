@@ -3,7 +3,7 @@
         "jsx": "preserve",
         "jsxImportSource": "solid-js",
         "esModuleInterop": true,
-        "module": "ES2022",
+        "module": "ESNext",
         "moduleResolution": "Bundler",
         "isolatedModules": true,
         "skipLibCheck": true,

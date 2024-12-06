@@ -6,7 +6,6 @@ import unusedimports from "eslint-plugin-unused-imports";
 import importx from "eslint-plugin-import-x";
 
 import tseslint from "typescript-eslint";
-import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
 import unocsseslint from "@unocss/eslint-plugin";
 
@@ -66,7 +65,6 @@ export default tseslint.config(
             ...tseslint.configs.recommended,
             //...tseslint.configs.strict,
             ...tseslint.configs.stylistic, //TypeChecked
-            solideslint.configs["flat/typescript"],
             ...vueeslint.configs["flat/recommended"],
         ],
         rules: {
