@@ -58,7 +58,7 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |settings||sidebarButtons-settings|「設定」|
 |spaces||sidebarButton-moreMenuItems-spaces|「スペースを作成」|
 |jobs||sidebarButton-moreMenuItems-jobs|「求人」|
-|grok||sidebarButtons-grok"|「Grok」|
+|grok||sidebarButtons-grok|「Grok」|
 
 ### リストボックス直下の設定
 |現在|変更後|旧i18n|説明|
@@ -78,23 +78,23 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 ### 非表示設定 / 「もっと見る」メニュー
 |現在|変更後|旧i18n|説明|
 |---|---|---|---|
-|sidebarSetting.moreMenuItems.premium||sidebarButton-moreMenuItems-premium"|「プレミアム」|
-|sidebarSetting.moreMenuItems.bookmarks||sidebarButtons-bookmarks"|「ブックマーク」|
-|sidebarSetting.moreMenuItems.communities||sidebarButtons-communities"|「コミュニティ」|
-|sidebarSetting.moreMenuItems.monetization||sidebarButton-moreMenuItems-monetization"|「収益化」|
-|sidebarSetting.moreMenuItems.verifiedOrgsSignup||sidebarButton-moreMenuItems-verifiedOrgsSignup"|「認証済み組織」|
-|sidebarSetting.moreMenuItems.ads||sidebarButton-moreMenuItems-ads"|「広告」|
-|sidebarSetting.moreMenuItems.jobs||sidebarButton-moreMenuItems-jobs"|「求人」|
-|sidebarSetting.moreMenuItems.spaces||sidebarButton-moreMenuItems-spaces"|「スペースを作成」|
-|sidebarSetting.moreMenuItems.settings||sidebarButton-moreMenuItems-settings"|「設定とプライバシー」|
-|sidebarSetting.moreMenuItems.followerRequests||sidebarButton-moreMenuItems-followerRequests"|「フォローリクエスト」|
+|sidebarSetting.moreMenuItems.premium||sidebarButton-moreMenuItems-premium|「プレミアム」|
+|sidebarSetting.moreMenuItems.bookmarks||sidebarButtons-bookmarks|「ブックマーク」|
+|sidebarSetting.moreMenuItems.communities||sidebarButtons-communities|「コミュニティ」|
+|sidebarSetting.moreMenuItems.monetization||sidebarButton-moreMenuItems-monetization|「収益化」|
+|sidebarSetting.moreMenuItems.verifiedOrgsSignup||sidebarButton-moreMenuItems-verifiedOrgsSignup|「認証済み組織」|
+|sidebarSetting.moreMenuItems.ads||sidebarButton-moreMenuItems-ads|「広告」|
+|sidebarSetting.moreMenuItems.jobs||sidebarButton-moreMenuItems-jobs|「求人」|
+|sidebarSetting.moreMenuItems.spaces||sidebarButton-moreMenuItems-spaces|「スペースを作成」|
+|sidebarSetting.moreMenuItems.settings||sidebarButton-moreMenuItems-settings|「設定とプライバシー」|
+|sidebarSetting.moreMenuItems.followerRequests||sidebarButton-moreMenuItems-followerRequests|「フォローリクエスト」|
 
 ### 非表示設定 / 左下のアカウントメニュー
 |現在|変更後|旧i18n|説明|
 |---|---|---|---|
-|accountSwitcher.icon||sidebarButton-accountSwitcher-Icon"|アイコン|
-|accountSwitcher.nameID||sidebarButton-accountSwitcher-NameID"|名前・ID|
-|accountSwitcher.moreMenu||sidebarButton-accountSwitcher-MoreMenu"|三点|
+|accountSwitcher.icon||sidebarButton-accountSwitcher-Icon|アイコン|
+|accountSwitcher.nameID||sidebarButton-accountSwitcher-NameID|名前・ID|
+|accountSwitcher.moreMenu||sidebarButton-accountSwitcher-MoreMenu|三点|
 
 ## 右サイドバー
 |現在|変更後|旧i18n|説明|
