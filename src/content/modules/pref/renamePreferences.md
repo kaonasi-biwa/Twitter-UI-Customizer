@@ -138,3 +138,13 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |現在|変更後|旧i18n|説明|
 |---|---|---|---|
 |uncategorizedSettings.disableBackdropFilter||uncategorizedSettings-disableBackdropFilter|ぼかし効果を解除|
+
+# タイムライン
+## 非表示設定
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|timeline.osusume-user-timeline||timeline-osusumeUsersOnTL|おすすめユーザーを非表示|
+|timeline.hideOhterRTTL||timeline-hideOhterRTTL|リツイートを非表示|
+|timeline.hideReply||timeline-hideReply|ツイートの返信以降を非表示|
+|timeline.hideLockedTweet||timeline-hideLockedTweet|鍵垢のツイートを非表示|
+|timeline.accountStart||timeline-accountStart|アカウント作成時の「設定しましょう」を非表示|
