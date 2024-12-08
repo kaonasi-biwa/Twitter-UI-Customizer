@@ -56,8 +56,8 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |muteAndBlock||sidebarButtons-muteAndBlock|「ミュートとブロック」|
 |premiumTierSwitch||sidebarButtons-premiumTierSwitch|「認証済み組織」消滅？|
 |settings||sidebarButtons-settings|「設定」|
-|spaces||sidebarButton-moreMenuItems-spaces|「スペースを作成」|
-|jobs||sidebarButton-moreMenuItems-jobs|「求人」|
+|spaces||sidebarButton-moreMenuItems-spacesu (使いまわし)|「スペースを作成」|
+|jobs||sidebarButton-moreMenuItems-jobsu (使いまわし)|「求人」|
 |grok||sidebarButtons-grok|「Grok」|
 
 ### リストボックス直下の設定
@@ -79,8 +79,8 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |現在|変更後|旧i18n|説明|
 |---|---|---|---|
 |sidebarSetting.moreMenuItems.premium||sidebarButton-moreMenuItems-premium|「プレミアム」|
-|sidebarSetting.moreMenuItems.bookmarks||sidebarButtons-bookmarks|「ブックマーク」|
-|sidebarSetting.moreMenuItems.communities||sidebarButtons-communities|「コミュニティ」|
+|sidebarSetting.moreMenuItems.bookmarks||sidebarButtons-bookmarksu (使いまわし)|「ブックマーク」|
+|sidebarSetting.moreMenuItems.communities||sidebarButtons-communitiesu (使いまわし)|「コミュニティ」|
 |sidebarSetting.moreMenuItems.monetization||sidebarButton-moreMenuItems-monetization|「収益化」|
 |sidebarSetting.moreMenuItems.verifiedOrgsSignup||sidebarButton-moreMenuItems-verifiedOrgsSignup|「認証済み組織」|
 |sidebarSetting.moreMenuItems.ads||sidebarButton-moreMenuItems-ads|「広告」|
@@ -112,7 +112,7 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 ## Twitterのアイコン
 |現在|変更後|旧i18n|説明|
 |---|---|---|---|
-|twitterIcon.icon||(twitterIcon-settingTitle)|Xロゴの置き換え(以下項目)|
+|twitterIcon.icon|iconType|(twitterIcon-settingTitle)|Xロゴの置き換え(以下項目)|
 |||||
 |nomal||twitterIcon-normal|デフォルトのアイコン|
 |invisible||(twitterIcon-invisible)|非表示|
@@ -148,3 +148,71 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |timeline.hideReply||timeline-hideReply|ツイートの返信以降を非表示|
 |timeline.hideLockedTweet||timeline-hideLockedTweet|鍵垢のツイートを非表示|
 |timeline.accountStart||timeline-accountStart|アカウント作成時の「設定しましょう」を非表示|
+
+# ツイート
+量が多いため後回し
+
+# ダイレクトメッセージ
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|dmPage.showIcon||dmPage-showIcon|DMのアイコンを表示|
+
+# プロフィール
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|profileSetting.pinnedTab||profileSetting-tabs-pinnedTab|タブを上部に固定|
+
+## 初期表示のタブ
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|profileSetting.profileInitialTab||(profileSetting-profileInitialTab-settingTitle)|プロフィールページで最初に開くタブ|
+|||||
+|tweets||profileSetting-profileInitialTab-tweet|「ツイート」|
+|replies||profileSetting-profileInitialTab-reply|「返信」|
+|media||profileSetting-profileInitialTab-media|「メディア」|
+|likes||profileSetting-profileInitialTab-likes|「いいね」|
+
+## 非表示設定
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|profileSetting.invisible.subscribe-profile||invisibleItems-subscribeProfile|サブスクリプションボタン|
+|profileSetting.invisible.profileHighlights||invisibleItems-profileHighlights|ハイライトタブ|
+|profileSetting.invisible.profileArticles||invisibleItems-profileArticles|記事タブ|
+|profileSetting.invisible.profileAffiliates||invisibleItems-profileAffiliates|関連アカウントタブ|
+|profileSetting.invisible.verifiedFollowerTab||invisibleItems-verifiedFollowerTab|フォロワー一覧の「認証済みフォロワー」|
+|profileSetting.invisible.followersYouFollowTab||invisibleItems-followersYouFollowTab|フォロワー一覧の「知り合いのフォロワー」|
+|profileSetting.invisible.profilePagePremium||invisibleItems-profilePagePremium|「認証される」ボタン|
+
+## フォロワー一覧のボタン設定
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|profileSetting.followersListButtons||(profileSetting-followersListButtons-settingTitle)|フォロワー一覧の各ユーザーに表示するボタン(以下項目)|
+|||||
+|followButton||profileSetting-followersListButtons-followButton|フォローボタン|
+|moremenuButton||sidebarButtons-moremenu (使いまわし)|もっと見る|
+|blockButton||bottomTweetButtons-userBlocku (使いまわし)|ブロック|
+|muteButton||bottomTweetButtons-userMuteu (使いまわし)|ミュート|
+|reportButton||profileSetting-followersListButtons-reportButton|ユーザーを報告|
+|removeFollowerButton||profileSetting-followersListButtons-removeFollowerButton|フォロワーを削除|
+
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|profileSetting.followersListButtonsOptions.noModalbottomTweetButtons||bottomTweetButtons-setting-noModal|ブロックなどで確認モーダルを出さない|
+
+# エクスポート
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|inportExportOptions.includingCustomCSS||inportExportOptions.includingCustomCSS|エクスポートにCSSを含める|
+
+# エクスポート
+## 非表示設定
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|invisibleItemsconfig-premium||invisibleItems-configPremium|設定画面のプレミアム関連の項目|
+|invisibleItemshideBelowDM||invisibleItems-hideBelowDM|画面右下のDM|
+|invisibleItemsverifiedNotifications||invisibleItems-verifiedNotifications|通知の「認証済み」タブ|
+
+## パフォーマンス
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|performanceSettings.removeDeletedTweets||performanceSettings-removeDeletedTweets|削除したツイートのElementも削除|
