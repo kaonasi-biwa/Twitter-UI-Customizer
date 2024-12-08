@@ -106,3 +106,35 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |rightSidebar.trend||rightSidebar-trend|「いまどうしてる？」|
 |rightSidebar.osusumeUser||rightSidebar-osusumeUser|おすすめユーザー|
 |rightSidebar.links||rightSidebar-links|リンク集|
+
+# ロゴ
+可能であれば「ロゴ」と「アイコン」を統一したいが...できるかなぁ...
+## Twitterのアイコン
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|twitterIcon.icon||(twitterIcon-settingTitle)|Xロゴの置き換え(以下項目)|
+|||||
+|nomal||twitterIcon-normal|デフォルトのアイコン|
+|invisible||(twitterIcon-invisible)|非表示|
+|dog||(twitterIcon-dog)|犬のアイコン|
+|twitter||(twitterIcon-twitter)|Twitterロゴ|
+|twitterIcon-X||(twitterIcon-X)|Xロゴ|
+|custom||(twitterIcon-custom)|カスタムアイコン|
+
+## その他設定
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|twitterIcon.options.faviconSet||twitterIcon-favicon|Faviconも変更する|
+|twitterIcon.options.roundIcon||twitterIcon-roundIcon|アイコンを円形にする|
+
+# 画面表示とテキスト
+## Twitterの帰還
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|XToTwitter.XToTwitter||XtoTwitter-XtoTwitter|タブのタイトルをXからTwitterに変更|
+|XToTwitter.PostToTweet||XtoTwitter-PostToTweet|「投稿」を「ツイート」に変更|
+
+## パフォーマンス
+|現在|変更後|旧i18n|説明|
+|---|---|---|---|
+|uncategorizedSettings.disableBackdropFilter||uncategorizedSettings-disableBackdropFilter|ぼかし効果を解除|
