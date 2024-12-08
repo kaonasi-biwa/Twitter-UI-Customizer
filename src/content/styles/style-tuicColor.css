@@ -13,7 +13,7 @@
 [data-testid="tweetButton"] {
     background-color: var(--twitter-tweetButton-background) !important;
     border-color: var(--twitter-tweetButton-border) !important;
-    & > .r-b88u0q {
+    & > .r-b88u0q & > .r-b88u0q > svg {
         color: var(--twitter-tweetButton-color) !important;
     }
 }
