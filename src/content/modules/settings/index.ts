@@ -67,7 +67,7 @@ function rewriteTweet() {
             const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
             const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
 
-            tweetElement.dataset.tuicProcessed = "true"
+            tweetElement.dataset.tuicProcessed = "true";
 
             const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
                 {
@@ -102,14 +102,13 @@ function rewriteTweet() {
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
             // メンションのユーザー
-            if(tweetLinkElement){
+            if (tweetLinkElement) {
                 tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
                 tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
-    
+
                 // テキストに設定
                 tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
             }
-
         })();
     }
 }
