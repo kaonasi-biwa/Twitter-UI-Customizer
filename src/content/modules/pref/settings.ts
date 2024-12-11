@@ -47,6 +47,7 @@ export const TUICSettings = {
             { id: "deleteButton", i18n: "bottomTweetButtons-deleteButton" },
             { id: "sendDM", i18n: "bottomTweetButtons-sendDM" },
             { id: "likeAndRT", i18n: "bottomTweetButtons-likeAndRT" },
+            { id: "grok", i18n: "bottomTweetButtons-grok" },
         ],
     },
     "tweetDisplaySetting.option": {
