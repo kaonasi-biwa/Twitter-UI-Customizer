@@ -49,7 +49,7 @@ export function placeSettingPage() {
 }
 
 function rewriteTweet() {
-    if (document.querySelector("#TUIC_setting") == null && document.querySelector('[role="slider"]:not(article *)') != null) {
+    if (document.querySelector(`article[data-testid="tweet"][data-tuic-processed="true"]`) == null && document.querySelector('[role="slider"]:not(article *)') != null) {
         const displayRootElement = document.querySelector('[role="slider"]:not(article *)').closest<HTMLElement>(`:is([data-viewportview="true"],[aria-labelledby="detail-header"],main>div>div>div>div)`).querySelector<HTMLElement>(`:scope > div+div`);
         // displayRootElementについてるモーダル全体に適用された余白を削除
         // すべてに余白がついていると端まで線を伸ばしたいときに不都合
@@ -63,9 +63,11 @@ function rewriteTweet() {
         }
 
         (async () => {
-            const tweetElement = displayRootElement.querySelector(`article[data-testid="tweet"]`);
+            const tweetElement = displayRootElement.querySelector<HTMLElement>(`article[data-testid="tweet"]`);
             const tweetTextElement = tweetElement.querySelector(`[data-testid="tweetText"] > span`);
             const tweetLinkElement = tweetElement.querySelector(`[data-testid="tweetText"] > div`);
+
+            tweetElement.dataset.tuicProcessed = "true"
 
             const tweet = ((a) => a[Math.floor(Math.random() * a.length)])([
                 {
@@ -88,7 +90,7 @@ function rewriteTweet() {
             // ツイートのテキストとして使用する、最初のspan要素以外を削除
             tweetElement.querySelectorAll(`[data-testid="tweetText"] span:not(:first-child)`).forEach((e) => e.remove());
             // メンションを任意の場所に持っていけるよう削除
-            tweetLinkElement.remove();
+            tweetLinkElement?.remove();
 
             // img要素がそもそも存在しない場合があるので、待機
             await waitForElement("img", tweetElement);
@@ -100,11 +102,14 @@ function rewriteTweet() {
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
             // メンションのユーザー
-            tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
-            tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
+            if(tweetLinkElement){
+                tweetLinkElement.querySelector("a").href = "/" + tweetMentionUserId;
+                tweetLinkElement.querySelector("a").textContent = "@" + tweetMentionUserId;
+    
+                // テキストに設定
+                tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
+            }
 
-            // テキストに設定
-            tweetTextElement.innerHTML = tweetText.replace("{mention}", tweetLinkElement.outerHTML);
         })();
     }
 }
