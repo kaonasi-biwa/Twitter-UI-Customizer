@@ -49,7 +49,7 @@ function rightSidebar() {
         hideElement(hasClosest(document.querySelector(`*:not([data-tuic-hide="true"]) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"], [href="/i/premium_sign_up"])`), `[role="complementary"]`));
     }
     if (getPref("rightSidebar.trend")) {
-        hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="trend"]`), ":scope > * >  section"));
+        hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="trend"]`), ":scope >  section"));
     }
     if (getPref("rightSidebar.osusumeUser") && document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null) {
         hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="UserCell"]:not([role="search"] *)`), ":scope > * > aside"));
