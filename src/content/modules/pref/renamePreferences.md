@@ -71,9 +71,9 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |---|---|---|---|
 |sidebarSetting.homeIcon||(sidebarButton-homeIcon-settingTitle)|左サイドバーの「ホーム」のアイコン(以下項目)|
 |||||
-|normal||sidebarButton-homeIcon-normal|デフォルト|
-|birdGoBack||sidebarButton-homeIcon-birdGoBack|Twitterの頃のアイコン|
-|TUIC||sidebarButton-homeIcon-TUIC|TUICのアイコン|
+|normal|normal|sidebarButton-homeIcon-normal|デフォルト|
+|birdGoBack|birdHouse|sidebarButton-homeIcon-birdGoBack|Twitterの頃のアイコン|
+|TUIC|TUIC|sidebarButton-homeIcon-TUIC|TUICのアイコン|
 
 ### 非表示設定 / 「もっと見る」メニュー
 |現在|変更後|旧i18n|説明|
@@ -114,12 +114,12 @@ https://github.com/kaonasi-biwa/Twitter-UI-Customizer/issues/186
 |---|---|---|---|
 |twitterIcon.icon|iconType|(twitterIcon-settingTitle)|Xロゴの置き換え(以下項目)|
 |||||
-|nomal||twitterIcon-normal|デフォルトのアイコン|
-|invisible||(twitterIcon-invisible)|非表示|
-|dog||(twitterIcon-dog)|犬のアイコン|
-|twitter||(twitterIcon-twitter)|Twitterロゴ|
-|twitterIcon-X||(twitterIcon-X)|Xロゴ|
-|custom||(twitterIcon-custom)|カスタムアイコン|
+|nomal|normal|twitterIcon-normal|デフォルトのアイコン|
+|invisible|hidden|(twitterIcon-invisible)|非表示|
+|dog|dog|(twitterIcon-dog)|犬のアイコン|
+|twitter|twitter|(twitterIcon-twitter)|Twitterロゴ|
+|twitterIcon-X|X|(twitterIcon-X)|Xロゴ|
+|custom|custom|(twitterIcon-custom)|カスタムアイコン|
 
 ## その他設定
 |現在|変更後|旧i18n|説明|
