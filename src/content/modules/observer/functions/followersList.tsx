@@ -54,7 +54,6 @@ const data: Record<string, { selector: string; clickEvent?: (baseElement: HTMLEl
                     });
                 }
             });
-
         },
     },
     muteButton: {
@@ -65,7 +64,6 @@ const data: Record<string, { selector: string; clickEvent?: (baseElement: HTMLEl
             waitForElement<HTMLButtonElement>(`[data-testid="Dropdown"] > [role="menuitem"]`).then((elem) => {
                 document.querySelector<HTMLButtonElement>(`[data-testid="mute"]`).click();
             });
-            
         },
     },
     reportButton: {
@@ -76,7 +74,6 @@ const data: Record<string, { selector: string; clickEvent?: (baseElement: HTMLEl
             waitForElement<HTMLButtonElement>(`[data-testid="Dropdown"] > [role="menuitem"]`).then((elem) => {
                 document.querySelector<HTMLButtonElement>(`[data-testid="report"]`).click();
             });
-            
         },
     },
     removeFollowerButton: {
@@ -92,7 +89,6 @@ const data: Record<string, { selector: string; clickEvent?: (baseElement: HTMLEl
                     });
                 }
             });
-
         },
     },
 };
