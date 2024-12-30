@@ -30,7 +30,7 @@
         <CheckBox value="tweetTopButtonBool.noModalbottomTweetButtons" name="bottomTweetButtons-setting-noModal" />
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
-    <div>
+    <div> 
         <SectionTitle2 title-i18-n="tweetMoreMenuItems-settingTitle" />
 
         <settingSubtitle2 title-i18-n="common-hidebelow" />
@@ -57,7 +57,7 @@
         <CheckBoxList id="showLinkCardInfo" />
 
         <settingSubtitle2 title-i18-n="common-hidebelow" />
-        <CheckBoxList id="tweetDisplaySetting.option" />
+        <CheckBoxList id="tweetDisplaySetting.invisible" />
     </div>
 </template>
 

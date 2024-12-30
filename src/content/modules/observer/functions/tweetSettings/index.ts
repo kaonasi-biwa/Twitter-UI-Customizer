@@ -226,6 +226,11 @@ function tweetStyle(articleInfo: ArticleInfomation) {
         hideElement(articleBase);
     }
 
+    if (getPref("tweetDisplaySetting.invisible.askGrok")) {
+        const askGrokElement = articleBase.querySelector(`button defs > clipPath > rect`).closest<HTMLElement>(`button`);
+        if(askGrokElement) hideElement(askGrokElement);
+    }
+
     // リツイートを非表示
     if (getPref("timeline.hideReply") && articleInfo.option.isBigArticle) {
         articleBase.closest(`[data-testid="cellInnerDiv"]`).classList.add("TUIC_HideNextElements");
