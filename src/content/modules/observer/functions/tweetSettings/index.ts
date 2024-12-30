@@ -227,7 +227,7 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
 
     if (getPref("tweetDisplaySetting.invisible.askGrok")) {
-        const askGrokElement = articleBase.querySelector(`button defs > clipPath > rect`).closest<HTMLElement>(`button`);
+        const askGrokElement = articleBase.querySelector(`button defs > clipPath > rect`)?.closest<HTMLElement>(`button`);
         if (askGrokElement) hideElement(askGrokElement);
     }
 
