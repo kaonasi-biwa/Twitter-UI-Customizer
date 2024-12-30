@@ -97,8 +97,8 @@ const _data = {
         (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
         const foundElem = (await waitForElement<HTMLAnchorElement>(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`))[0];
         foundElem.click();
+        (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
         if (!foundElem) {
-            (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
             return false;
         }
         return true;
@@ -115,6 +115,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/content_you_see"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`main [href$="/topics"]`))[0].click();
+                    if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 }, 150);
             }
         },
@@ -148,6 +149,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
+                    moreMenu.click();
                 }, 150);
             }
         },
@@ -161,6 +163,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/mute_and_block"]`))[0].click();
+                    moreMenu.click();
                 }, 150);
             }
         },
@@ -176,6 +179,7 @@ const _data = {
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
+                    moreMenu.click();
                 }, 150);
             }
         },
