@@ -329,12 +329,12 @@ export function replacePost() {
             const personRetweetedText = Array.from(container.childNodes)
                 .filter((e) => e.nodeType === Node.TEXT_NODE)
                 .at(-1);
-            if (personRetweetedText) {
+            if (container.querySelector("span")) {
                 // 「{user}さんがリツイートしました」のユーザー名の後の部分
                 personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-isRetweeted");
             } else {
                 // 「リツイート済み」
-                container.querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted");
+                personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted");
             }
         }
 
