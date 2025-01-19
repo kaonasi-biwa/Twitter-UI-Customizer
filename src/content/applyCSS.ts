@@ -77,6 +77,7 @@ export function applySystemCss() {
         "twitterIcon.options.roundIcon",
         "invisibleItems.subscribe-profile",
         "invisibleItems.hideBelowDM",
+        "invisibleItems.hideBelowGrok",
         "tweetDisplaySetting.invisible.bottomSpace",
         "sidebarSetting.buttonConfig.sidebarNoneScrollbar",
         "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",

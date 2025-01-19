@@ -305,6 +305,7 @@ export const TUICSettings = {
         values: [
             { id: "config-premium", i18n: "invisibleItems-configPremium", default: false },
             { id: "hideBelowDM", i18n: "invisibleItems-hideBelowDM", default: false },
+            { id: "hideBelowGrok", i18n: "invisibleItems-hideBelowGrok", default: false },
             { id: "verifiedNotifications", i18n: "invisibleItems-verifiedNotifications", default: false },
         ],
     },
