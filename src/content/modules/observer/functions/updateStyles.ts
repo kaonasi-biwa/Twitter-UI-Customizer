@@ -21,6 +21,14 @@ export function updateStyles() {
     }
 
     if (document.querySelector(".TUICSidebarButton .r-mbgqwd") != null) document.querySelector(".TUICSidebarButton .r-mbgqwd")?.classList?.remove("r-mbgqwd");
+
+    // プロフィールのタブを画面上部に固定 (:has()無使用のためJSに移行)
+    if(getPref("profileSetting.tabs.pinnedTab")){
+        const tabsElement = document.querySelector<HTMLElement>(`[data-testid="primaryColumn"] > div > div > div > div > div:not([data-tuic-tabs-pinned]) > nav[role="navigation"]`)
+        if(tabsElement){
+            tabsElement.parentElement.dataset.tuicTabsPinned = "";
+        }
+    }
 }
 
 const tuicButtonUrl = {

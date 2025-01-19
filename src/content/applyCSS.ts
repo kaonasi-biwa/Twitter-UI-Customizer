@@ -83,7 +83,7 @@ export function applySystemCss() {
         "accountSwitcher.icon",
         "accountSwitcher.nameID",
         "accountSwitcher.moreMenu",
-        "profileSetting.tabs.pinnedTab",
+        //"profileSetting.tabs.pinnedTab",
         "uncategorizedSettings.disableBackdropFilter",
         "composetweet.hideDraft",
         "tweetDisplaySetting.option.likeToFavo",
