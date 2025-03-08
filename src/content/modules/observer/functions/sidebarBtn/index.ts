@@ -100,7 +100,7 @@ const _data = {
         (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
         setTimeout(() => {
             if (document.querySelector(`[role="menu"]`)) document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`)?.click();
-        },500)
+        }, 500);
         if (!foundElem) {
             return false;
         }
@@ -120,7 +120,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`main [href$="/topics"]`))[0].click();
                     setTimeout(() => {
                         if (document.querySelector(`[role="menu"]`)) moreMenu.click();
-                    },500)
+                    }, 500);
                 }, 150);
             }
         },
@@ -156,7 +156,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
                     setTimeout(() => {
                         if (document.querySelector(`[role="menu"]`)) moreMenu.click();
-                    },500)
+                    }, 500);
                 }, 150);
             }
         },
@@ -172,7 +172,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/mute_and_block"]`))[0].click();
                     setTimeout(() => {
                         if (document.querySelector(`[role="menu"]`)) moreMenu.click();
-                    },500)
+                    }, 500);
                 }, 150);
             }
         },
@@ -190,7 +190,7 @@ const _data = {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
                     setTimeout(() => {
                         if (document.querySelector(`[role="menu"]`)) moreMenu.click();
-                    },500)
+                    }, 500);
                 }, 150);
             }
         },
