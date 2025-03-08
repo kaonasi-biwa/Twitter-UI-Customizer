@@ -193,7 +193,7 @@ export function replacePost() {
         //     elem.closest(`[role="menuitem"]`)querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
         // ツイートその他ポップアップの「ツイートを埋め込み」ボタン
         for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]')){
-            const replaceElement = elem.closest(`[role="menuitem"]`).querySelector("span")
+            const replaceElement = elem?.closest(`[role="menuitem"]`)?.querySelector("span")
             if(replaceElement.textContent){
                 replaceElement.textContent = TUICI18N.get("XtoTwitter-PostToTweet-menu-embed");
             }
