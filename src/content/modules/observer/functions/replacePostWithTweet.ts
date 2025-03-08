@@ -87,7 +87,7 @@ export function replacePost() {
         }
 
         // トレンドの「n件のツイート」
-        for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent = elem.textContent.split(" ")[0] + TUICI18N.get("XtoTwitter-PostToTweet-tweetCount");
+        for (const elem of getNotReplacedElements(`[data-testid="trend"] > div > div:nth-of-type(3) > span`)) elem.textContent = elem.textContent.replace(TUICI18N.get("XtoTwitter-PostToTweet-postCount"), TUICI18N.get("XtoTwitter-PostToTweet-tweetCount"));
 
         // 予約ツイート関連
         if (isUnsentPage) {
@@ -192,8 +192,12 @@ export function replacePost() {
         // for (const elem of getNotReplacedElements('path[d="M9.5 7c.828 0 1.5 1.119 1.5 2.5S10.328 12 9.5 12 8 10.881 8 9.5 8.672 7 9.5 7zm5 0c.828 0 1.5 1.119 1.5 2.5s-.672 2.5-1.5 2.5S13 10.881 13 9.5 13.672 7 14.5 7zM12 22.25C6.348 22.25 1.75 17.652 1.75 12S6.348 1.75 12 1.75 22.25 6.348 22.25 12 17.652 22.25 12 22.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25S16.549 3.75 12 3.75zM8.947 17.322l-1.896-.638C7.101 16.534 8.322 13 12 13s4.898 3.533 4.949 3.684l-1.897.633c-.031-.09-.828-2.316-3.051-2.316s-3.021 2.227-3.053 2.322z"]'))
         //     elem.closest(`[role="menuitem"]`)querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-quote");
         // ツイートその他ポップアップの「ツイートを埋め込み」ボタン
-        for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]'))
-            elem.closest(`[role="menuitem"]`).querySelector("span").textContent = TUICI18N.get("XtoTwitter-PostToTweet-menu-embed");
+        for (const elem of getNotReplacedElements('path[d="M15.24 4.31l-4.55 15.93-1.93-.55 4.55-15.93 1.93.55zm-8.33 3.6L3.33 12l3.58 4.09-1.5 1.32L.67 12l4.74-5.41 1.5 1.32zm11.68-1.32L23.33 12l-4.74 5.41-1.5-1.32L20.67 12l-3.58-4.09 1.5-1.32z"]')){
+            const replaceElement = elem.closest(`[role="menuitem"]`).querySelector("span")
+            if(replaceElement.textContent){
+                replaceElement.textContent = TUICI18N.get("XtoTwitter-PostToTweet-menu-embed");
+            }
+        }
         // ツイートその他ポップアップの「ツイートを報告」ボタン
         if (!isFollowersList) {
             for (const elem of getNotReplacedElements('path[d="M3 2h18.61l-3.5 7 3.5 7H5v6H3V2zm2 12h13.38l-2.5-5 2.5-5H5v10z"]')) {
@@ -329,13 +333,16 @@ export function replacePost() {
             const personRetweetedText = Array.from(container.childNodes)
                 .filter((e) => e.nodeType === Node.TEXT_NODE)
                 .at(-1);
-            if (container.querySelector("span")) {
-                // 「{user}さんがリツイートしました」のユーザー名の後の部分
-                personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-isRetweeted");
-            } else {
-                // 「リツイート済み」
-                personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted");
+            if(personRetweetedText){
+                if (container.querySelector("span")) {
+                    // 「{user}さんがリツイートしました」のユーザー名の後の部分
+                    personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-isRetweeted");
+                } else {
+                    // 「リツイート済み」
+                    personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted");
+                }
             }
+            
         }
 
         // TODO: ポスト系には関係ないが、おすすめクリエイターを削除したい。固有プロパティが見つからないので、[data-testid$="-subscribe"]が含まれる[data-testid="cellInnerDiv"]を削除し、その塊の一つ前のやつを消せばよさそう（難しそう）
