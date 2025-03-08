@@ -333,7 +333,7 @@ export function replacePost() {
             const personRetweetedText = Array.from(container.childNodes)
                 .filter((e) => e.nodeType === Node.TEXT_NODE)
                 .at(-1);
-            if(personRetweetedText){
+            if (personRetweetedText) {
                 if (container.querySelector("span")) {
                     // 「{user}さんがリツイートしました」のユーザー名の後の部分
                     personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-isRetweeted");
@@ -342,7 +342,6 @@ export function replacePost() {
                     personRetweetedText.textContent = TUICI18N.get("XtoTwitter-PostToTweet-retweeted");
                 }
             }
-            
         }
 
         // TODO: ポスト系には関係ないが、おすすめクリエイターを削除したい。固有プロパティが見つからないので、[data-testid$="-subscribe"]が含まれる[data-testid="cellInnerDiv"]を削除し、その塊の一つ前のやつを消せばよさそう（難しそう）
