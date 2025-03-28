@@ -1,7 +1,7 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions";
 import { catchError } from "./errorDialog";
 import { placeDisplayButton } from "./functions/rightSidebarTexts";
-import { followersList } from "./functions/followersList";
+import { followersList } from "./functions/profile/followersList";
 import { getPref } from "../pref/index";
 import { hideElement } from "../utils/controlElements";
 
