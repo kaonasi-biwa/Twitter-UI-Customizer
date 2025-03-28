@@ -51,6 +51,11 @@
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
+        <SectionTitle2 style="margin-bottom: 15px" titleI18N="postingDialog-toolbar-settingTitle" />
+        <UpDownList style="margin-top: 20px" id="postingDialog.toolbar" />
+    </div>
+    <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
+    <div>
         <SectionTitle2 titleI18N="tweetViewSettings-other" />
 
         <settingSubtitle2 titleI18N="bottomTweetButtons-settingTitle-linkCard" />

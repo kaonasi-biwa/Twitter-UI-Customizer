@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "位置情報を追加",
+    "postingDialog-toolbar-items-scheduleOption": "ツイートを予約",
+    "postingDialog-toolbar-items-addEmoji": "絵文字を追加",
+    "postingDialog-toolbar-items-createPollButton": "投票を追加",
+    "postingDialog-toolbar-items-grokImgGen": "Grokでポストをブラッシュアップする",
+    "postingDialog-toolbar-items-gitSearchButton": "GIF画像を追加",
+    "postingDialog-toolbar-items-fileInput": "画像や動画を追加",
     "profileSetting-changeName-replies-oldName": "ツイートと返信",
     "profileSetting-profileInitialTab-tweet": "ツイート",
     "profileSetting-profileInitialTab-reply": "返信",
