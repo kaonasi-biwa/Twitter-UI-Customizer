@@ -260,7 +260,7 @@ export const TUICSettings = {
     // プロフィールの設定
     "profileSetting.tabs": { type: "boolean", values: [
         { id: "pinnedTab", i18n: "profileSetting-tabs-pinnedTab", default: false },
-        {id: "changeNameReplies", i18n: "profileSetting-changeName-replies", default: false}
+        { id: "changeNameReplies", i18n: "profileSetting-changeName-replies", default: false },
     ] },
     "profileSetting.profileInitialTab": {
         type: "select",

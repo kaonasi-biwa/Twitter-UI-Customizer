@@ -81,7 +81,7 @@ export const TUICObserver = new (class TUICObserver {
             replacePost();
 
             // 要素を非表示に
-            hideElements()
+            hideElements();
 
             // 様々な要素のCSSを適切なものに変更
             updateStyles();
