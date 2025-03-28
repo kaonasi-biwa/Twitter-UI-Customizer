@@ -1,9 +1,10 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions";
 import { catchError } from "./errorDialog";
 import { placeDisplayButton } from "./functions/rightSidebarTexts";
-import { followersList } from "./functions/profile/followersList";
+import { followersList } from "./functions/profile/followersListButton";
 import { getPref } from "../pref/index";
 import { hideElement } from "../utils/controlElements";
+import { profileModify } from "./functions/profile";
 
 //let time = 0;
 
@@ -75,9 +76,6 @@ export const TUICObserver = new (class TUICObserver {
             // おすすめユーザーを非表示 (かなり処理が特殊なので他の非表示から分離)
             hideOsusumeTweets();
 
-            // フォロワー一覧にボタンを追加
-            followersList();
-
             // DMに関する設定
             dmPage();
 
@@ -85,7 +83,7 @@ export const TUICObserver = new (class TUICObserver {
             replacePost();
 
             // 要素を非表示に
-            hideElements();
+            profileModify()
 
             // 様々な要素のCSSを適切なものに変更
             updateStyles();
