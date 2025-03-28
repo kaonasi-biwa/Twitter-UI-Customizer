@@ -22,6 +22,8 @@
     "settingUI-colorPicker-border": "枠色",
     "settingUI-colorPicker-svgColor": "画像色",
 
+    "settingUI-reloadCSS": "TUICのCSSをリロードする",
+
     "easySetting-restoreIcon": "Xなんて嫌！アイコンも名前もTwitterがいいんだ！！",
     "easySetting-deleteVerified": "「認証しろ」ってうるさい？全部非表示にしよう！",
     "easySetting-discoverMoreDelete": "「もっと見つける」が邪魔？消しちゃえ！",
