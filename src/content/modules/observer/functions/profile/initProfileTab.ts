@@ -37,17 +37,17 @@ function profileInitialTabRedirect(userName: string) {
                 await waitForElement(`nav [role="presentation"]`);
 
                 for (let i = 0; i <= 25; i++) {
-                    const re = await new Promise((resolve2) => {
+                    const re = await new Promise((resolve) => {
                         if (window.scrollY == 0) {
                             document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[getPref("profileSetting.profileInitialTab")]}`).click();
-                            resolve2("ok");
+                            resolve(true);
                         }
-                        resolve2("bb");
+                        resolve(false);
                     });
-                    if (re == "ok") return true;
-                    await new Promise((resolve2) => {
+                    if (re) return true;
+                    await new Promise((resolve) => {
                         window.setTimeout(() => {
-                            resolve2("");
+                            resolve(null);
                         }, 100);
                     });
                 }
