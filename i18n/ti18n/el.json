@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Tweet με απαντήσεις",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Απαντήσεις",
     "profileSetting-profileInitialTab-media": "Πολυμέσα",
@@ -119,6 +120,7 @@
     "tweetMoreMenuItems-leaveTalk": "Αποχώρηση από αυτή τη συζήτηση",
     "tweetMoreMenuItems-whoCanReply": "Αλλάξτε τη ρύθμιση για το ποιοι μπορούν να απαντήσουν",
     "tweetMoreMenuItems-highlightUpsell": "Προσθέστε στα Κορυφαία στο προφίλ σας",
+    "bottomTweetButtons-grok": "Δράσεις Grok",
     "bottomTweetButtons-sendDM": "Αποστολή μέσω προσωπικού μηνύματος",
     "bottomTweetButtons-urlCopy-layer": "Αντιγράφηκε στο πρόχειρο",
     "bottomTweetButtons-quoteTweet": "Παράθεση Tweet",

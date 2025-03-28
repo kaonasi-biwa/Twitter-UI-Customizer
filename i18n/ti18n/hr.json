@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Tweetovi s odgovorima",
     "profileSetting-profileInitialTab-tweet": "Tweetovi",
     "profileSetting-profileInitialTab-reply": "Odgovori",
     "profileSetting-profileInitialTab-media": "Medijski sadržaj",
@@ -114,6 +115,7 @@
     "tweetMoreMenuItems-leaveTalk": "Zatvori taj razgovor",
     "tweetMoreMenuItems-whoCanReply": "Promijenite tko može odgovoriti",
     "tweetMoreMenuItems-highlightUpsell": "Istaknuto na vašem profilu",
+    "bottomTweetButtons-grok": "Grokove radnje",
     "bottomTweetButtons-sendDM": "Pošalji u privatnoj poruci",
     "bottomTweetButtons-urlCopy-layer": "Kopirano u međuspremnik",
     "bottomTweetButtons-quoteTweet": "Citiraj Tweet",

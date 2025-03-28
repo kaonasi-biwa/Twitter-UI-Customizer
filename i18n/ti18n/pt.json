@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Tweets com respostas",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Respostas",
     "profileSetting-profileInitialTab-media": "Mídia",
@@ -121,6 +122,7 @@
     "tweetMoreMenuItems-leaveTalk": "Sair desta conversa",
     "tweetMoreMenuItems-whoCanReply": "Altere quem pode responder",
     "tweetMoreMenuItems-highlightUpsell": "Destaque no seu perfil",
+    "bottomTweetButtons-grok": "Ações do Grok",
     "bottomTweetButtons-sendDM": "Enviar por Mensagem Direta",
     "bottomTweetButtons-urlCopy-layer": "Copiado para a área de transferência",
     "bottomTweetButtons-quoteTweet": "Comentar o Tweet",

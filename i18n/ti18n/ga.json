@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Tvuít agus freagraí",
     "profileSetting-profileInitialTab-tweet": "Tweetanna",
     "profileSetting-profileInitialTab-reply": "Freagraí",
     "profileSetting-profileInitialTab-media": "Meáin",
@@ -110,6 +111,7 @@
     "tweetMoreMenuItems-leaveTalk": "Fág an comhrá seo",
     "tweetMoreMenuItems-whoCanReply": "Athraigh iad siúd ar féidir leo freagra a thabhairt",
     "tweetMoreMenuItems-highlightUpsell": "Highlight on your profile",
+    "bottomTweetButtons-grok": "Grok actions",
     "bottomTweetButtons-sendDM": "Roinn trí Theachtaireacht Dhíreach",
     "bottomTweetButtons-urlCopy-layer": "Cóipeáilte chuig an ngearrthaisce",
     "bottomTweetButtons-quoteTweet": "Cuir Ráiteas Leis",

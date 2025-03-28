@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "التغريدة والردود",
     "profileSetting-profileInitialTab-tweet": "التغريدات",
     "profileSetting-profileInitialTab-reply": "الردود",
     "profileSetting-profileInitialTab-media": "الوسائط",
@@ -120,6 +121,7 @@
     "tweetMoreMenuItems-leaveTalk": "مغادرة هذه المحادثة",
     "tweetMoreMenuItems-whoCanReply": "تغيير من يمكنه الرد",
     "tweetMoreMenuItems-highlightUpsell": "إبراز في ملفك الشخصيّ",
+    "bottomTweetButtons-grok": "إجراءات Grok",
     "bottomTweetButtons-sendDM": "الإرسال عبر رسالة خاصة",
     "bottomTweetButtons-urlCopy-layer": "تمّ النسخ إلى الحافظة",
     "bottomTweetButtons-quoteTweet": "اقتباس التغريدة",

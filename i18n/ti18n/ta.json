@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "பதில்களுடன் கூடிய கீச்சுகள்",
     "profileSetting-profileInitialTab-tweet": "கீச்சுகள்",
     "profileSetting-profileInitialTab-reply": "பதில்கள்",
     "profileSetting-profileInitialTab-media": "ஊடகம்",
@@ -121,6 +122,7 @@
     "tweetMoreMenuItems-leaveTalk": "இந்த உரையாடலை விட்டு வெளியேறு",
     "tweetMoreMenuItems-whoCanReply": "யார் பதிலளிக்கலாம் என்பதை மாற்றவும்",
     "tweetMoreMenuItems-highlightUpsell": "உங்கள் சுயவிவரத்தில் சிறப்பித்துக் காட்டவும்",
+    "bottomTweetButtons-grok": "Grok செயல்கள்",
     "bottomTweetButtons-sendDM": "நேரடிச்செய்தி மூலம் அனுப்பு",
     "bottomTweetButtons-urlCopy-layer": "நகலகத்திற்கு நகலெடுக்கப்பட்டது",
     "bottomTweetButtons-quoteTweet": "ட்விட்டை மேற்கோள் காட்டு",

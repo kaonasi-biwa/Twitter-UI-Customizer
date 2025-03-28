@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Tweet với trả lời",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Các phản hồi",
     "profileSetting-profileInitialTab-media": "Phương tiện",
@@ -105,6 +106,7 @@
     "tweetMoreMenuItems-leaveTalk": "Rời cuộc trò chuyện này",
     "tweetMoreMenuItems-whoCanReply": "Thay đổi người có thể trả lời",
     "tweetMoreMenuItems-highlightUpsell": "Thêm vào Sự kiện nổi bật trên hồ sơ của bạn",
+    "bottomTweetButtons-grok": "Hành động của Grok",
     "bottomTweetButtons-sendDM": "Gửi qua Tin nhắn trực tiếp",
     "bottomTweetButtons-urlCopy-layer": "Đã sao chép vào bảng tạm",
     "bottomTweetButtons-quoteTweet": "Trích dẫn Tweet",

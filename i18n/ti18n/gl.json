@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Chío con respostas",
     "profileSetting-profileInitialTab-tweet": "Chíos",
     "profileSetting-profileInitialTab-reply": "Respostas",
     "profileSetting-profileInitialTab-media": "Multimedia",
@@ -121,6 +122,7 @@
     "tweetMoreMenuItems-leaveTalk": "Abandonar esta conversa",
     "tweetMoreMenuItems-whoCanReply": "Cambiar quen pode responder",
     "tweetMoreMenuItems-highlightUpsell": "Highlight on your profile",
+    "bottomTweetButtons-grok": "Grok actions",
     "bottomTweetButtons-sendDM": "Enviar mediante mensaxe directa",
     "bottomTweetButtons-urlCopy-layer": "Copiado no portapapeis",
     "bottomTweetButtons-quoteTweet": "Citar chío",

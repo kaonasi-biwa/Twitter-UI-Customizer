@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "Tweet dengan balasan",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Balasan",
     "profileSetting-profileInitialTab-media": "Media",
@@ -105,6 +106,7 @@
     "tweetMoreMenuItems-leaveTalk": "Tinggalkan perbualan ini",
     "tweetMoreMenuItems-whoCanReply": "Ubah orang yang boleh membalas",
     "tweetMoreMenuItems-highlightUpsell": "Sorotan pada profil anda",
+    "bottomTweetButtons-grok": "Tindakan Grok",
     "bottomTweetButtons-sendDM": "Hantar melalui Mesej Langsung",
     "bottomTweetButtons-urlCopy-layer": "Disalin ke papan klip",
     "bottomTweetButtons-quoteTweet": "Petik Tweet",

@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "有回复的推文",
     "profileSetting-profileInitialTab-tweet": "推文",
     "profileSetting-profileInitialTab-reply": "回复",
     "profileSetting-profileInitialTab-media": "媒体",
@@ -121,6 +122,7 @@
     "tweetMoreMenuItems-leaveTalk": "离开这个对话",
     "tweetMoreMenuItems-whoCanReply": "更改谁可以回复",
     "tweetMoreMenuItems-highlightUpsell": "在个人资料中设为亮点",
+    "bottomTweetButtons-grok": "Grok 操作",
     "bottomTweetButtons-sendDM": "通过私信发送",
     "bottomTweetButtons-urlCopy-layer": "已复制到剪贴板",
     "bottomTweetButtons-quoteTweet": "引用推文",

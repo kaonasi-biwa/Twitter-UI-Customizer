@@ -1,4 +1,5 @@
 {
+    "profileSetting-changeName-replies-oldName": "উত্তরের সঙ্গে টুইটগুলো",
     "profileSetting-profileInitialTab-tweet": "টুইটগুলি",
     "profileSetting-profileInitialTab-reply": "উত্তরগুলি",
     "profileSetting-profileInitialTab-media": "মিডিয়া",
@@ -121,6 +122,7 @@
     "tweetMoreMenuItems-leaveTalk": "এই কথা-বার্তা ছেড়ে যান",
     "tweetMoreMenuItems-whoCanReply": "কে উত্তর দিতে পারবে তা পরিবর্তন করুন",
     "tweetMoreMenuItems-highlightUpsell": "আপনার প্রোফাইলের হাইলাইট",
+    "bottomTweetButtons-grok": "Grok কার্যকলাপ",
     "bottomTweetButtons-sendDM": "সরাসরি বার্তার মাধ্যমে পাঠান",
     "bottomTweetButtons-urlCopy-layer": "ক্লিপবোর্ডে অনুলিপি করা হয়েছে",
     "bottomTweetButtons-quoteTweet": "টুইট উদ্ধৃত করুন",
