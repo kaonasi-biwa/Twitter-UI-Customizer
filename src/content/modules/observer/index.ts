@@ -1,10 +1,8 @@
-import { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, profileInitialTab, sidebarButtons, dmPage, fixTwittersBugs, changeIcon } from "./functions";
+import { tweetSettings, hideOsusumeTweets, replacePost, updateStyles, profileModify, sidebarButtons, dmPage, fixTwittersBugs, changeIcon, hideElements } from "./functions";
 import { catchError } from "./errorDialog";
 import { placeDisplayButton } from "./functions/rightSidebarTexts";
-import { followersList } from "./functions/profile/followersListButton";
 import { getPref } from "../pref/index";
 import { hideElement } from "../utils/controlElements";
-import { profileModify } from "./functions/profile";
 
 //let time = 0;
 
@@ -83,13 +81,13 @@ export const TUICObserver = new (class TUICObserver {
             replacePost();
 
             // 要素を非表示に
-            profileModify()
+            hideElements()
 
             // 様々な要素のCSSを適切なものに変更
             updateStyles();
 
-            // プロフィールページの初期タブの設定
-            profileInitialTab();
+            // プロフィール周りの処理
+            profileModify();
 
             // 右サイドバーに「表示」を配置
             placeDisplayButton();
