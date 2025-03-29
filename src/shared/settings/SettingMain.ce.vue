@@ -111,7 +111,7 @@ import settingLogo from "./modules/settingLogo.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
 import TUICLogo from "@content/icons/branding/tuic_unilogo.svg?component";
-import TUICUNILOGO_GRAY from "@content/icons/branding/tuic_unilogo_gray.svg?component"
+import TUICUNILOGO_GRAY from "@content/icons/branding/tuic_unilogo_gray.svg?component";
 import BootstrapIcons from "bootstrap-icons/font/bootstrap-icons.css?url";
 import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
@@ -133,11 +133,11 @@ function openInNewTab(url: string) {
     window.open(url, "_blank");
 }
 
-function reloadCSS(){
-    const cssLinkElem = document.querySelector<HTMLLinkElement>(`#tuicDefaultStyle`)
-    if(cssLinkElem.href.includes("?")) {
-        cssLinkElem.href += "0"
-    }else{
+function reloadCSS() {
+    const cssLinkElem = document.querySelector<HTMLLinkElement>(`#tuicDefaultStyle`);
+    if (cssLinkElem.href.includes("?")) {
+        cssLinkElem.href += "0";
+    } else {
         cssLinkElem.href = cssLinkElem.href + "?" + Date.now();
     }
 }
