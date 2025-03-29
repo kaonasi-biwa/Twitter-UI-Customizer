@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Konumu etiketle",
+    "postingDialog-toolbar-items-scheduleOption": "Tweet programla",
+    "postingDialog-toolbar-items-addEmoji": "Emoji ekle",
+    "postingDialog-toolbar-items-createPollButton": "Anket ekle",
+    "postingDialog-toolbar-items-grokImgGen": "Gönderini Grok ile geliştir",
+    "postingDialog-toolbar-items-gitSearchButton": "GIF Ekle",
+    "postingDialog-toolbar-items-fileInput": "Fotoğraf veya video ekle",
     "profileSetting-changeName-replies-oldName": "Yanıtlarla birlikte Tweetle",
     "profileSetting-profileInitialTab-tweet": "Tweetler",
     "profileSetting-profileInitialTab-reply": "Yanıtlar",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Означи локацију",
+    "postingDialog-toolbar-items-scheduleOption": "Закажи твит",
+    "postingDialog-toolbar-items-addEmoji": "Додај емотикон",
+    "postingDialog-toolbar-items-createPollButton": "Додај анкету",
+    "postingDialog-toolbar-items-grokImgGen": "Побољшај објаву уз Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Додај GIF",
+    "postingDialog-toolbar-items-fileInput": "Додај фотографије или видео",
     "profileSetting-changeName-replies-oldName": "Твит са одговорима",
     "profileSetting-profileInitialTab-tweet": "Твитови",
     "profileSetting-profileInitialTab-reply": "Одговори",

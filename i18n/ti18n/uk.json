@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Позначити місцезнаходження",
+    "postingDialog-toolbar-items-scheduleOption": "Запланувати твіт",
+    "postingDialog-toolbar-items-addEmoji": "Додати емодзі",
+    "postingDialog-toolbar-items-createPollButton": "Додати опитування",
+    "postingDialog-toolbar-items-grokImgGen": "Покращте свій пост за допомогою Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Додати GIF-файл",
+    "postingDialog-toolbar-items-fileInput": "Додати фото або відео",
     "profileSetting-changeName-replies-oldName": "Твіти з відповідями",
     "profileSetting-profileInitialTab-tweet": "Твіти",
     "profileSetting-profileInitialTab-reply": "Відповіді",

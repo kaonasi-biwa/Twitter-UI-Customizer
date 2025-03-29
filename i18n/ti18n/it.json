@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tagga la posizione",
+    "postingDialog-toolbar-items-scheduleOption": "Programma Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Aggiungi emoji",
+    "postingDialog-toolbar-items-createPollButton": "Aggiungi sondaggio",
+    "postingDialog-toolbar-items-grokImgGen": "Migliora il tuo post con Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Aggiungi una GIF",
+    "postingDialog-toolbar-items-fileInput": "Aggiungi foto o video",
     "profileSetting-changeName-replies-oldName": "Tweet con risposte",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Risposte",

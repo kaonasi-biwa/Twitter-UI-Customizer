@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "I-tag ang lokasyon",
+    "postingDialog-toolbar-items-scheduleOption": "Iiskedyul ang Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Magdagdag ng emoji",
+    "postingDialog-toolbar-items-createPollButton": "Magdagdag ng poll",
+    "postingDialog-toolbar-items-grokImgGen": "Pagandahin ang post mo gamit ang Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Magdagdag ng GIF",
+    "postingDialog-toolbar-items-fileInput": "Magdagdag ng mga larawan o video",
     "profileSetting-changeName-replies-oldName": "Tweet na may mga sagot",
     "profileSetting-profileInitialTab-tweet": "Mga Tweet",
     "profileSetting-profileInitialTab-reply": "Mga Sagot",

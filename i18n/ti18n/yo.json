@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Táàgì ibùdó",
+    "postingDialog-toolbar-items-scheduleOption": "Pín Twíìtì Sípò",
+    "postingDialog-toolbar-items-addEmoji": "Fi emoji kún",
+    "postingDialog-toolbar-items-createPollButton": "Fi ìbò kun",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Fi GIF kan kun u",
+    "postingDialog-toolbar-items-fileInput": "Ṣàfikún àwòrán àbí fídíò",
     "profileSetting-changeName-replies-oldName": "Twíìtì pẹ̀lú àwọn èsì",
     "profileSetting-profileInitialTab-tweet": "Àwọn Twíìtì",
     "profileSetting-profileInitialTab-reply": "Àwọn èsì",

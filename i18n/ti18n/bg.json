@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Отбелязване на местоположението",
+    "postingDialog-toolbar-items-scheduleOption": "Насрочване на туит",
+    "postingDialog-toolbar-items-addEmoji": "Добавяне на емоджи",
+    "postingDialog-toolbar-items-createPollButton": "Добавяне на анкета",
+    "postingDialog-toolbar-items-grokImgGen": "Подобряване на публикацията ти с Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Добавяне на GIF файл",
+    "postingDialog-toolbar-items-fileInput": "Добавяне на снимки или видеоклипове",
     "profileSetting-changeName-replies-oldName": "Туит с отговори",
     "profileSetting-profileInitialTab-tweet": "Туитове",
     "profileSetting-profileInitialTab-reply": "Отговори",

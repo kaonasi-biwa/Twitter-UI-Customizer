@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Označiť polohu",
+    "postingDialog-toolbar-items-scheduleOption": "Naplánovať Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Pridať emoji",
+    "postingDialog-toolbar-items-createPollButton": "Pridať hlasovanie",
+    "postingDialog-toolbar-items-grokImgGen": "Vylepšite svoj príspevok s Grokom",
+    "postingDialog-toolbar-items-gitSearchButton": "Pridať GIF",
+    "postingDialog-toolbar-items-fileInput": "Pridať fotky alebo video",
     "profileSetting-changeName-replies-oldName": "Tweet s odpoveďami",
     "profileSetting-profileInitialTab-tweet": "Tweety",
     "profileSetting-profileInitialTab-reply": "Odpovede",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Etiqueta una ubicació",
+    "postingDialog-toolbar-items-scheduleOption": "Programa el tuit",
+    "postingDialog-toolbar-items-addEmoji": "Afegeix un emoji",
+    "postingDialog-toolbar-items-createPollButton": "Afegeix una enquesta",
+    "postingDialog-toolbar-items-grokImgGen": "Millora la publicació amb Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Afegeix un GIF",
+    "postingDialog-toolbar-items-fileInput": "Afegeix fotos o vídeo",
     "profileSetting-changeName-replies-oldName": "Tuits amb respostes",
     "profileSetting-profileInitialTab-tweet": "Tuits",
     "profileSetting-profileInitialTab-reply": "Respostes",

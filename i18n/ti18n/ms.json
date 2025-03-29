@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Teg lokasi",
+    "postingDialog-toolbar-items-scheduleOption": "Jadualkan Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Tambah emoji",
+    "postingDialog-toolbar-items-createPollButton": "Tambah undian",
+    "postingDialog-toolbar-items-grokImgGen": "Tingkatkan siaran anda dengan Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Tambahkan GIF",
+    "postingDialog-toolbar-items-fileInput": "Tambah foto atau video",
     "profileSetting-changeName-replies-oldName": "Tweet dengan balasan",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Balasan",

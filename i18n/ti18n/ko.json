@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "위치 태그하기",
+    "postingDialog-toolbar-items-scheduleOption": "트윗 예약하기",
+    "postingDialog-toolbar-items-addEmoji": "이모티콘 추가하기",
+    "postingDialog-toolbar-items-createPollButton": "투표 추가",
+    "postingDialog-toolbar-items-grokImgGen": "Grok으로 게시물 개선하기",
+    "postingDialog-toolbar-items-gitSearchButton": "GIF 추가",
+    "postingDialog-toolbar-items-fileInput": "사진 또는 동영상 추가",
     "profileSetting-changeName-replies-oldName": "답글이 있는 트윗",
     "profileSetting-profileInitialTab-tweet": "트윗",
     "profileSetting-profileInitialTab-reply": "답글",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "標記位置",
+    "postingDialog-toolbar-items-scheduleOption": "排定推文",
+    "postingDialog-toolbar-items-addEmoji": "加入表情符號",
+    "postingDialog-toolbar-items-createPollButton": "加入投票",
+    "postingDialog-toolbar-items-grokImgGen": "使用 Grok 增強你的貼文",
+    "postingDialog-toolbar-items-gitSearchButton": "加入 GIF",
+    "postingDialog-toolbar-items-fileInput": "加入相片或影片",
     "profileSetting-changeName-replies-oldName": "推文和回覆",
     "profileSetting-profileInitialTab-tweet": "推文",
     "profileSetting-profileInitialTab-reply": "回覆",

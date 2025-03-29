@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "الإشارة إلى الموقع الجغرافيّ",
+    "postingDialog-toolbar-items-scheduleOption": "جدولة التغريدة",
+    "postingDialog-toolbar-items-addEmoji": "إضافة رمز تعبيري",
+    "postingDialog-toolbar-items-createPollButton": "إضافة استطلاع",
+    "postingDialog-toolbar-items-grokImgGen": "تحسين منشورك باستخدام Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "إضافة ملف GIF",
+    "postingDialog-toolbar-items-fileInput": "إضافة صور أو فيديو",
     "profileSetting-changeName-replies-oldName": "التغريدة والردود",
     "profileSetting-profileInitialTab-tweet": "التغريدات",
     "profileSetting-profileInitialTab-reply": "الردود",

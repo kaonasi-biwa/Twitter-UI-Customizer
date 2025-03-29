@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tagg posisjon",
+    "postingDialog-toolbar-items-scheduleOption": "Planlegg en Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Legg til emoji",
+    "postingDialog-toolbar-items-createPollButton": "Legg til avstemning",
+    "postingDialog-toolbar-items-grokImgGen": "Forbedre innlegget ditt med Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Legg til en GIF",
+    "postingDialog-toolbar-items-fileInput": "Legg til bilder eller video",
     "profileSetting-changeName-replies-oldName": "Tweet med svar",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Svar",

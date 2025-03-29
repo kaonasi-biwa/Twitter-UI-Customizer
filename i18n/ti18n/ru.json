@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Отметить местоположение",
+    "postingDialog-toolbar-items-scheduleOption": "Добавить твит в расписание",
+    "postingDialog-toolbar-items-addEmoji": "Добавить эмодзи",
+    "postingDialog-toolbar-items-createPollButton": "Добавить опрос",
+    "postingDialog-toolbar-items-grokImgGen": "Улучшите свой пост с помощью Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Добавить GIF-файл",
+    "postingDialog-toolbar-items-fileInput": "Добавить фото или видео",
     "profileSetting-changeName-replies-oldName": "Твит с ответами",
     "profileSetting-profileInitialTab-tweet": "Твиты",
     "profileSetting-profileInitialTab-reply": "Ответы",

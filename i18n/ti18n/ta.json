@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "அமைவிடத்தை இணை",
+    "postingDialog-toolbar-items-scheduleOption": "ட்விட்டை திட்டமிடவும்",
+    "postingDialog-toolbar-items-addEmoji": "எமோஜியைச் சேர்",
+    "postingDialog-toolbar-items-createPollButton": "வாக்கெடுப்பைச் சேர்",
+    "postingDialog-toolbar-items-grokImgGen": "Grok உடன் உங்கள் இடுகையை மேம்படுத்தவும்",
+    "postingDialog-toolbar-items-gitSearchButton": "GIF -ஐ சேர்",
+    "postingDialog-toolbar-items-fileInput": "புகைப்படங்கள் அல்லது வீடியோவைச் சேர்",
     "profileSetting-changeName-replies-oldName": "பதில்களுடன் கூடிய கீச்சுகள்",
     "profileSetting-profileInitialTab-tweet": "கீச்சுகள்",
     "profileSetting-profileInitialTab-reply": "பதில்கள்",

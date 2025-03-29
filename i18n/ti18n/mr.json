@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "टॅगची जागा",
+    "postingDialog-toolbar-items-scheduleOption": "ट्विट नियोजित करा",
+    "postingDialog-toolbar-items-addEmoji": "ईमोजी समाविष्ट करा",
+    "postingDialog-toolbar-items-createPollButton": "सर्वेक्षण सामील करा",
+    "postingDialog-toolbar-items-grokImgGen": "Grok सह आपली पोस्ट वर्धित करा",
+    "postingDialog-toolbar-items-gitSearchButton": "एक GIF जोडा",
+    "postingDialog-toolbar-items-fileInput": "छायाचित्र किंवा व्हिडिओ समाविष्ट करा",
     "profileSetting-changeName-replies-oldName": "प्रत्युत्तरे असलेले ट्विट",
     "profileSetting-profileInitialTab-tweet": "ट्विट्स",
     "profileSetting-profileInitialTab-reply": "प्रत्युत्तरे",

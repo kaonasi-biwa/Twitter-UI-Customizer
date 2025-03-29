@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "תייג מיקום",
+    "postingDialog-toolbar-items-scheduleOption": "תזמן ציוץ",
+    "postingDialog-toolbar-items-addEmoji": "הוסף אמוג'י",
+    "postingDialog-toolbar-items-createPollButton": "הוסף סקר",
+    "postingDialog-toolbar-items-grokImgGen": "שיפור הפוסטים שלך עם Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "הוסף קובץ GIF",
+    "postingDialog-toolbar-items-fileInput": "הוסף תמונות או סרטון",
     "profileSetting-changeName-replies-oldName": "ציוצים עם תשובות",
     "profileSetting-profileInitialTab-tweet": "ציוצים",
     "profileSetting-profileInitialTab-reply": "תשובות",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "แท็กตําแหน่ง",
+    "postingDialog-toolbar-items-scheduleOption": "ตั้งเวลาทวีต",
+    "postingDialog-toolbar-items-addEmoji": "เพิ่มอีโมจิ",
+    "postingDialog-toolbar-items-createPollButton": "เพิ่มโพล",
+    "postingDialog-toolbar-items-grokImgGen": "ปรับปรุงโพสต์ของคุณด้วย Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "เพิ่ม GIF",
+    "postingDialog-toolbar-items-fileInput": "เพิ่มรูปภาพหรือวิดีโอ",
     "profileSetting-changeName-replies-oldName": "ทวีตที่มีการตอบกลับ",
     "profileSetting-profileInitialTab-tweet": "ทวีต",
     "profileSetting-profileInitialTab-reply": "การตอบกลับ",

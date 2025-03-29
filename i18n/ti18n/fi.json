@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Merkitse sijainti",
+    "postingDialog-toolbar-items-scheduleOption": "Ajasta twiitti",
+    "postingDialog-toolbar-items-addEmoji": "Lisää emoji",
+    "postingDialog-toolbar-items-createPollButton": "Lisää kysely",
+    "postingDialog-toolbar-items-grokImgGen": "Parantele julkaisua Grokin avulla",
+    "postingDialog-toolbar-items-gitSearchButton": "Lisää GIF-kuva",
+    "postingDialog-toolbar-items-fileInput": "Lisää kuvia tai video",
     "profileSetting-changeName-replies-oldName": "Twiitit ja vastaukset",
     "profileSetting-profileInitialTab-tweet": "Twiitit",
     "profileSetting-profileInitialTab-reply": "Vastaukset",

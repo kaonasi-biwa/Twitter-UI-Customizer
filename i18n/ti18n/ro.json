@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Etichetează locația",
+    "postingDialog-toolbar-items-scheduleOption": "Planifică Tweetul",
+    "postingDialog-toolbar-items-addEmoji": "Adaugă emoji",
+    "postingDialog-toolbar-items-createPollButton": "Adaugă sondajul",
+    "postingDialog-toolbar-items-grokImgGen": "Îmbunătățește-ți postarea cu Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Adaugă un GIF",
+    "postingDialog-toolbar-items-fileInput": "Adaugă fotografii sau un videoclip",
     "profileSetting-changeName-replies-oldName": "Tweet cu răspunsuri",
     "profileSetting-profileInitialTab-tweet": "Tweeturi",
     "profileSetting-profileInitialTab-reply": "Răspunsuri",

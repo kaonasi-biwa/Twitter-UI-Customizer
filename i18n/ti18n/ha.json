@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Sa alama a wuri",
+    "postingDialog-toolbar-items-scheduleOption": "Tweet da aka tsara lokaci",
+    "postingDialog-toolbar-items-addEmoji": "Ƙara imoji",
+    "postingDialog-toolbar-items-createPollButton": "Ƙara zaɓe",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Ƙara GIF",
+    "postingDialog-toolbar-items-fileInput": "Ƙara hotuna ko bidiyo",
     "profileSetting-changeName-replies-oldName": "Tweet da amsoshi",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Amsoshi",

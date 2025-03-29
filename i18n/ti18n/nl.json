@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Locatie taggen",
+    "postingDialog-toolbar-items-scheduleOption": "Tweet plannen",
+    "postingDialog-toolbar-items-addEmoji": "Emoji toevoegen",
+    "postingDialog-toolbar-items-createPollButton": "Poll toevoegen",
+    "postingDialog-toolbar-items-grokImgGen": "Verbeter je post met Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Een gif toevoegen",
+    "postingDialog-toolbar-items-fileInput": "Foto's of video toevoegen",
     "profileSetting-changeName-replies-oldName": "Tweet met antwoorden",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Antwoorden",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Hely megjelölése",
+    "postingDialog-toolbar-items-scheduleOption": "Tweet ütemezése",
+    "postingDialog-toolbar-items-addEmoji": "Hangulatjelek hozzáadása",
+    "postingDialog-toolbar-items-createPollButton": "Felmérés hozzáadása",
+    "postingDialog-toolbar-items-grokImgGen": "Fokozd a bejegyzésedet a Grokkal",
+    "postingDialog-toolbar-items-gitSearchButton": "GIF hozzáadása",
+    "postingDialog-toolbar-items-fileInput": "Fényképek vagy videó hozzáadása",
     "profileSetting-changeName-replies-oldName": "Tweet válasszal",
     "profileSetting-profileInitialTab-tweet": "Tweetek",
     "profileSetting-profileInitialTab-reply": "Válaszok",

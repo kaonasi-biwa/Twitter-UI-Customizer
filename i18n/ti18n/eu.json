@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tag location",
+    "postingDialog-toolbar-items-scheduleOption": "Programatu txioa",
+    "postingDialog-toolbar-items-addEmoji": "Gehitu emotikonoa",
+    "postingDialog-toolbar-items-createPollButton": "Gehitu galdeketa",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Gehitu GIF fitxategia",
+    "postingDialog-toolbar-items-fileInput": "Gehitu argazkiak edo bideoak",
     "profileSetting-changeName-replies-oldName": "Erantzunak dituen txioa",
     "profileSetting-profileInitialTab-tweet": "Txioak",
     "profileSetting-profileInitialTab-reply": "Erantzunak",

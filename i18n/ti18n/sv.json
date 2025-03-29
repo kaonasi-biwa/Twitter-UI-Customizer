@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tagga platsen",
+    "postingDialog-toolbar-items-scheduleOption": "Planera tweeten",
+    "postingDialog-toolbar-items-addEmoji": "Lägg till en emoji",
+    "postingDialog-toolbar-items-createPollButton": "Lägg till en omröstning",
+    "postingDialog-toolbar-items-grokImgGen": "Förbättra inlägget med Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Lägg till en GIF",
+    "postingDialog-toolbar-items-fileInput": "Lägg till foton eller video",
     "profileSetting-changeName-replies-oldName": "Tweet med svar",
     "profileSetting-profileInitialTab-tweet": "Tweets",
     "profileSetting-profileInitialTab-reply": "Svar",

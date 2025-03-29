@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "સ્થાનને ટેગ કરો",
+    "postingDialog-toolbar-items-scheduleOption": "ટ્વીટ શેડ્યૂલ કરો",
+    "postingDialog-toolbar-items-addEmoji": "ઈમોજી ઉમેરો",
+    "postingDialog-toolbar-items-createPollButton": "મતદાન ઉમેરો",
+    "postingDialog-toolbar-items-grokImgGen": "Grok વડે તમારી પોસ્ટને બહેતર બનાવો",
+    "postingDialog-toolbar-items-gitSearchButton": "એક GIF ઉમેરો",
+    "postingDialog-toolbar-items-fileInput": "ફોટા અથવા વિડિયો ઉમેરો",
     "profileSetting-changeName-replies-oldName": "પ્રત્યુતરો સાથે ટ્વીટ કરો",
     "profileSetting-profileInitialTab-tweet": "ટ્વીટ્સ",
     "profileSetting-profileInitialTab-reply": "પ્રત્યુતરો",

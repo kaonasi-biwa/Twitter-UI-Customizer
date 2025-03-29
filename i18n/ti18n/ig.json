@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tinye ọnọdụ",
+    "postingDialog-toolbar-items-scheduleOption": "Hazieoge Twiit",
+    "postingDialog-toolbar-items-addEmoji": "Tinye emoji",
+    "postingDialog-toolbar-items-createPollButton": "Tinye ntuli aka",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Tinye otu GIF",
+    "postingDialog-toolbar-items-fileInput": "Tinye foto ma ọ bụ vidiyo",
     "profileSetting-changeName-replies-oldName": "Twiit na azịza",
     "profileSetting-profileInitialTab-tweet": "Twiit ",
     "profileSetting-profileInitialTab-reply": "Nzaghachi ",

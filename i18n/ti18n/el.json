@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Προσθήκη ετικέτας τοποθεσίας",
+    "postingDialog-toolbar-items-scheduleOption": "Προγραμματισμός Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Προσθήκη emoji",
+    "postingDialog-toolbar-items-createPollButton": "Προσθήκη ψηφοφορίας",
+    "postingDialog-toolbar-items-grokImgGen": "Βελτιώστε την ανάρτησή σας με το Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Προσθήκη GIF",
+    "postingDialog-toolbar-items-fileInput": "Προσθήκη φωτογραφιών ή βίντεο",
     "profileSetting-changeName-replies-oldName": "Tweet με απαντήσεις",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Απαντήσεις",

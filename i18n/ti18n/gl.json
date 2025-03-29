@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tag location",
+    "postingDialog-toolbar-items-scheduleOption": "Chío programado",
+    "postingDialog-toolbar-items-addEmoji": "Engadir emoji",
+    "postingDialog-toolbar-items-createPollButton": "Engadir enquisa",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Engadir un GIF",
+    "postingDialog-toolbar-items-fileInput": "Engadir fotos ou un vídeo",
     "profileSetting-changeName-replies-oldName": "Chío con respostas",
     "profileSetting-profileInitialTab-tweet": "Chíos",
     "profileSetting-profileInitialTab-reply": "Respostas",

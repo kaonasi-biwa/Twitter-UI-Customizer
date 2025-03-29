@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "स्थान टैग करें",
+    "postingDialog-toolbar-items-scheduleOption": "ट्वीट शेड्यूल करें",
+    "postingDialog-toolbar-items-addEmoji": "इमोजी जोड़ें",
+    "postingDialog-toolbar-items-createPollButton": "जनमत जोड़ें",
+    "postingDialog-toolbar-items-grokImgGen": "Grok से अपनी पोस्ट को बेहतर बनाएं",
+    "postingDialog-toolbar-items-gitSearchButton": "एक GIF जोड़ें",
+    "postingDialog-toolbar-items-fileInput": "फ़ोटो या वीडियो जोड़ें",
     "profileSetting-changeName-replies-oldName": "जवाब वाला ट्वीट",
     "profileSetting-profileInitialTab-tweet": "ट्वीट",
     "profileSetting-profileInitialTab-reply": "जवाब",

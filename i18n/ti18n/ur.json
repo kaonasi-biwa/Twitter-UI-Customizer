@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "لوکیشن ٹیگ کریں",
+    "postingDialog-toolbar-items-scheduleOption": "ٹویٹ شیڈول کریں",
+    "postingDialog-toolbar-items-addEmoji": "ایموجی شامل کریں",
+    "postingDialog-toolbar-items-createPollButton": "رائے شماری شامل کریں",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "ایک GIF شامل کریں",
+    "postingDialog-toolbar-items-fileInput": "تصاویر یا ویڈیو شامل کریں",
     "profileSetting-changeName-replies-oldName": "جوابات کے ساتھ ٹویٹ",
     "profileSetting-profileInitialTab-tweet": "ٹویٹس",
     "profileSetting-profileInitialTab-reply": "جوابات",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Tag location",
+    "postingDialog-toolbar-items-scheduleOption": "Sceidealaigh Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Cuir emoji leis",
+    "postingDialog-toolbar-items-createPollButton": "Cuir vótáil leis",
+    "postingDialog-toolbar-items-grokImgGen": "Enhance your post with Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Cuir GIF leis",
+    "postingDialog-toolbar-items-fileInput": "Cuir grianghraif nó físeán leis",
     "profileSetting-changeName-replies-oldName": "Tvuít agus freagraí",
     "profileSetting-profileInitialTab-tweet": "Tweetanna",
     "profileSetting-profileInitialTab-reply": "Freagraí",

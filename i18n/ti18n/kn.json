@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "ಟ್ಯಾಗ್ ಸ್ಥಳ",
+    "postingDialog-toolbar-items-scheduleOption": "ಟ್ವೀಟ್ ನಿಗದಿಪಡಿಸಿ",
+    "postingDialog-toolbar-items-addEmoji": "ಎಮೋಜಿ ಸೇರಿಸಿ",
+    "postingDialog-toolbar-items-createPollButton": "ಸಮೀಕ್ಷೆ ಸೇರಿಸಿ",
+    "postingDialog-toolbar-items-grokImgGen": "Grok ಜೊತೆಗೆ ನಿಮ್ಮ ಪೋಸ್ಟ್ ಅನ್ನು ವರ್ಧಿಸಿ",
+    "postingDialog-toolbar-items-gitSearchButton": "GIF ಸೇರಿಸಿ",
+    "postingDialog-toolbar-items-fileInput": "ಫೋಟೋಗಳು ಅಥವಾ ವೀಡಿಯೋ ಸೇರಿಸಿ",
     "profileSetting-changeName-replies-oldName": "ಪ್ರತಿಕ್ರಿಯೆಗಳೊಂದಿಗೆ ಟ್ವೀಟ್‌",
     "profileSetting-profileInitialTab-tweet": "ಟ್ವೀಟ್‌ಗಳು",
     "profileSetting-profileInitialTab-reply": "ಪ್ರತಿಕ್ರಿಯೆಗಳು",

@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "Gắn thẻ vị trí",
+    "postingDialog-toolbar-items-scheduleOption": "Lên lịch Tweet",
+    "postingDialog-toolbar-items-addEmoji": "Thêm biểu tượng cảm xúc",
+    "postingDialog-toolbar-items-createPollButton": "Thêm thăm dò",
+    "postingDialog-toolbar-items-grokImgGen": "Nâng cao bài đăng của bạn bằng Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "Thêm một ảnh GIF",
+    "postingDialog-toolbar-items-fileInput": "Thêm ảnh hoặc video",
     "profileSetting-changeName-replies-oldName": "Tweet với trả lời",
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Các phản hồi",

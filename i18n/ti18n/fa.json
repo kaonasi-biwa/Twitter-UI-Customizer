@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "برچسب زدن مکان",
+    "postingDialog-toolbar-items-scheduleOption": "زمان‌بندی توییت",
+    "postingDialog-toolbar-items-addEmoji": "افزودن صورتک",
+    "postingDialog-toolbar-items-createPollButton": "افزودن نظرسنجی",
+    "postingDialog-toolbar-items-grokImgGen": "بهبود پست شما با Grok",
+    "postingDialog-toolbar-items-gitSearchButton": "افزودن GIF",
+    "postingDialog-toolbar-items-fileInput": "افزودن عکس یا ویدئو",
     "profileSetting-changeName-replies-oldName": "توییت‌های دارای پاسخ",
     "profileSetting-profileInitialTab-tweet": "توييت‌ها",
     "profileSetting-profileInitialTab-reply": "پاسخ‌ها",

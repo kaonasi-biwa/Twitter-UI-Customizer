@@ -1,4 +1,11 @@
 {
+    "postingDialog-toolbar-items-geoButton": "অবস্থান ট্যাগ করুন",
+    "postingDialog-toolbar-items-scheduleOption": "টুইটের সময় নির্ধারণ করুন",
+    "postingDialog-toolbar-items-addEmoji": "ইমোজি যোগ করুন",
+    "postingDialog-toolbar-items-createPollButton": "পোল যোগ করুন",
+    "postingDialog-toolbar-items-grokImgGen": "Grok-এর সাহায্যে আপনার পোস্ট উন্নত করুন",
+    "postingDialog-toolbar-items-gitSearchButton": "একটি GIF যোগ করুন",
+    "postingDialog-toolbar-items-fileInput": "ফটো অথবা ভিডিও যোগ করুন",
     "profileSetting-changeName-replies-oldName": "উত্তরের সঙ্গে টুইটগুলো",
     "profileSetting-profileInitialTab-tweet": "টুইটগুলি",
     "profileSetting-profileInitialTab-reply": "উত্তরগুলি",
