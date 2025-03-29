@@ -165,6 +165,19 @@ export const TUICSettings = {
             { id: "askGrok", i18n: "bottomTweetButtons-setting-askGrok", default: false },
         ],
     },
+    "postingDialog.toolbar": {
+        type: "order",
+        default: ["fileInput", "gitSearchButton", "grokImgGen", "createPollButton", "addEmoji", "scheduleOption", "geoButton"],
+        values: [
+            { id: "fileInput", i18n: "postingDialog-toolbar-items-fileInput" },
+            { id: "gitSearchButton", i18n: "postingDialog-toolbar-items-gitSearchButton" },
+            { id: "grokImgGen", i18n: "postingDialog-toolbar-items-grokImgGen" },
+            { id: "createPollButton", i18n: "postingDialog-toolbar-items-createPollButton" },
+            { id: "addEmoji", i18n: "postingDialog-toolbar-items-addEmoji" },
+            { id: "scheduleOption", i18n: "postingDialog-toolbar-items-scheduleOption" },
+            { id: "geoButton", i18n: "postingDialog-toolbar-items-geoButton" },
+        ],
+    },
 
     // Twitterアイコンの設定
     "twitterIcon.icon": {

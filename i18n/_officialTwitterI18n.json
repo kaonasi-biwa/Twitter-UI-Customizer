@@ -136,5 +136,12 @@
     "profileSetting-profileInitialTab-media": "i5450bec",
     "profileSetting-profileInitialTab-reply": "jdceda60",
     "profileSetting-profileInitialTab-tweet": "bab1f8b0",
-    "profileSetting-changeName-replies-oldName": "ea831526"
+    "profileSetting-changeName-replies-oldName": "ea831526",
+    "postingDialog-toolbar-items-fileInput": "b9960f32",
+    "postingDialog-toolbar-items-gitSearchButton": "a4993fa2",
+    "postingDialog-toolbar-items-grokImgGen": "b85f402a",
+    "postingDialog-toolbar-items-createPollButton": "f0afcc0e",
+    "postingDialog-toolbar-items-addEmoji": "d4a4842e",
+    "postingDialog-toolbar-items-scheduleOption": "ha5e2e7a",
+    "postingDialog-toolbar-items-geoButton": "cce30dcc"
 }

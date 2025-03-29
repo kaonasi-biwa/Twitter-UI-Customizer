@@ -288,18 +288,10 @@
 #TUIC_visible > div:is(:hover, :focus-visible) {
     background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
 }
-div[tuicudbox="sidebarButtons"] > .UpDownButtons,
-div[tuicudbox="visibleButtons"] > .UpDownButtons,
-div[tuicudbox="fixEngagements"] > .UpDownButtons,
-div[tuicudbox="tweetTopButton"] > .UpDownButtons,
-div[tuicudbox="profileSetting.followersListButtons"] > .UpDownButtons {
+div[tuicudbox] > .UpDownButtons {
     padding: 0 7px;
 }
-.TUIC_setting_detailsbox_content_container div[tuicudbox="tweetTopButton"],
-.TUIC_setting_detailsbox_content_container div[tuicudbox="sidebarButtons"],
-.TUIC_setting_detailsbox_content_container div[tuicudbox="fixEngagements"],
-.TUIC_setting_detailsbox_content_container div[tuicudbox="visibleButtons"],
-.TUIC_setting_detailsbox_content_container div[tuicudbox="profileSetting.followersListButtons"] {
+.TUIC_setting_detailsbox_content_container div[tuicudbox] {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
 }

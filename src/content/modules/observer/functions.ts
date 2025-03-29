@@ -8,5 +8,6 @@ import { hideOsusumeTweets } from "./functions/hideOsusumeTweets";
 import { changeIcon } from "./functions/changeIcon";
 import { tweetSettings } from "./functions/tweetSettings";
 import { profileModify } from "./functions/profile";
+import { sortPostingDialogButtons } from "./functions/postingDialog";
 
-export { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, sidebarButtons, dmPage, fixTwittersBugs, changeIcon, profileModify };
+export { tweetSettings, hideOsusumeTweets, replacePost, hideElements, updateStyles, sidebarButtons, dmPage, fixTwittersBugs, changeIcon, profileModify, sortPostingDialogButtons };
