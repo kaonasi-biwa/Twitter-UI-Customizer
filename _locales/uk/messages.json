@@ -4,11 +4,11 @@
         "description": "拡張機能の名前"
     },
     "extensionDescription": {
-        "message": "Улучшите гибкость настройки пользовательского интерфейса Twitter",
+        "message": "Ми покращуємо можливості налаштування інтерфейсу Twitter!",
         "description": "拡張機能の説明"
     },
     "notificationMessage": {
-        "message": "Новая версия уже доступна.\nПожалуйста, обновитесь.\n$V1$→$V2$",
+        "message": "Нова версія вже доступна.\nБудь ласка, оновіться.\n$V1$→$V2$",
         "description": "アップデート通知",
         "placeholders": {
             "V1": {
@@ -22,199 +22,175 @@
         }
     },
     "popupTitle": {
-        "message": "Спасибо!",
+        "message": "Дякуємо!",
         "description": "ポップアップのタイトル"
     },
     "popupContent1": {
-        "message": "Спасибо за использование!",
+        "message": "Дякуємо за використання!",
         "description": "ポップアップの文章"
     },
     "popupContent2": {
-        "message": "Пожалуйста, сообщайте об ошибках и",
+        "message": "Будь ласка, повідомляйте про помилки, та ",
         "description": "ポップアップの文章"
     },
     "popupContent3": {
-        "message": "Привет от Twitter!",
+        "message": "Привіт від Twitter!",
         "description": "ポップアップの文章"
     },
     "popupButton1": {
-        "message": "Настроить Twitter UI Customizer",
+        "message": "Налаштування Twitter UI Customizer",
         "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton2": {
-        "message": "Изменить настройки в безопасном режиме",
+        "message": "Змінити налаштування в безпечному режимі",
         "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton3": {
-        "message": "Обновить настройки уведомлений",
+        "message": "Оновити налаштування повідомлень",
         "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton4": {
-        "message": "Автор (kaonasi_biwa) в Twitter",
+        "message": "Автор (kaonasi_biwa) у Twitter",
         "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton5": {
-        "message": "Установите последнюю версию с GitHub",
-        "description": "ポップアップのボタンのツールチップ"
-    },
-    "popupButton7": {
-        "message": "Извлечь настройки из twitter.com, которые были утеряны из-за изменения домена.",
+        "message": "Встановити останню версію з GitHub",
         "description": "ポップアップのボタンのツールチップ"
     },
     "pSettings": {
-        "message": "Настройки",
+        "message": "Налаштування\n",
         "description": "ポップアップの設定ボタン"
     },
     "pSettingsInSafemode": {
-        "message": "Безопасный режим",
+        "message": "Безпечний режим",
         "description": "ポップアップのセーフモードボタン"
     },
     "pSettingsUpdateNotification": {
-        "message": "Уведомления об обновлении",
+        "message": "Сповіщення про оновлення",
         "description": "ポップアップのアップデート通知設定ボタン"
     },
     "pTwitterOfAuthor": {
         "message": "Автор (kaonasi_biwa)",
         "description": "ポップアップの作者ボタン"
     },
-    "pInstallFromGH": {
-        "message": "Установить последнюю версию",
-        "description": "ポップアップのGitHubから最新版をインストールするボタン"
-    },
     "pUpdateOnBrowserLaunch": {
-        "message": "Когда браузер запускается",
+        "message": "Коли браузер запускається",
         "description": "ポップアップのアップデート通知設定"
     },
     "pUpdateOnClickIcon": {
-        "message": "Когда вы нажимаете на значок расширения",
+        "message": "Коли ви натискаєте на значок розширення",
         "description": "ポップアップのアップデート通知設定"
     },
     "pUpdateOnOpenTwitter": {
-        "message": "Когда вы открываете Twitter",
+        "message": "Коли ви відкриваєте Twitter",
         "description": "ポップアップのアップデート通知設定"
     },
     "optionTitle": {
-        "message": "Настройки и метод работы (Twitter UI Customizer)",
+        "message": "Налаштування та спосіб роботи (Twitter UI Customizer)",
         "description": "設定画面のタイトル"
     },
     "optionHeading1": {
-        "message": "Настройки Twitter UI Customizer",
+        "message": "Налаштування Twitter UI Customizer",
         "description": "設定画面の見出し"
     },
     "optionHeading1_1": {
-        "message": "Настройка Twitter:",
+        "message": "Налаштування Twitter",
         "description": "設定画面の見出し"
     },
-    "optionContent1_1_1": {
-        "message": "(Настройки Twitter→Специальные возможности, Оформление и языки→Оформление)",
-        "description": "設定画面の文章"
-    },
-    "optionContent1_1_2": {
-        "message": "Открыть настройки Twitter!",
-        "description": "設定画面の文章"
-    },
     "optionHeading1_2": {
-        "message": "Обновить настройки уведомлений:",
+        "message": "Оновити налаштування повідомлень:",
         "description": "設定画面の見出し"
     },
     "optionContent1_2_1": {
-        "message": "Уведомлять об обновлениях при запуске браузера",
+        "message": "Повідомляти про оновлення під час запуску браузера",
         "description": "設定画面の文章"
     },
     "optionContent1_2_2": {
-        "message": "Уведомлять об обновлениях при нажатии на иконку расширения",
+        "message": "Повідомляти про оновлення при натисканні на іконку розширення",
         "description": "設定画面の文章"
     },
     "optionContent1_2_3": {
-        "message": "Уведомлять об обновлениях при открытии Twitter",
+        "message": "Повідомляти про оновлення під час відкриття Twitter",
         "description": "設定画面の文章"
     },
     "optionHeading2": {
-        "message": "Как использовать Twitter UI Customizer",
+        "message": "Як використовувати Twitter UI Customizer",
         "description": "設定画面の見出し"
     },
     "optionContent2_1": {
-        "message": "Использовать настройки из указанного выше URL.",
+        "message": "Використовувати налаштування із зазначеного вище URL",
         "description": "設定画面の文章"
     },
     "optionContent2_2": {
-        "message": "Перезагрузка не требуется.",
+        "message": "Перезавантаження не потрібне.",
         "description": "設定画面の文章"
     },
     "optionContent2_3": {
-        "message": "Кнопка \"Восстановить значения по умолчанию\" позволяет восстановить настройки по умолчанию для данного расширения.",
+        "message": "Кнопка 'Відновити значення за замовчуванням' дозволяє відновити налаштування за замовчуванням для цього розширення",
         "description": "設定画面の文章"
     },
     "optionContent2_4": {
-        "message": "По умолчанию для данного расширения используется дизайн, основанный на версии до изменений дизайна от 11 августа 2021 года.",
+        "message": "Для цього розширення використовується дизайн, що базується на версії до змін дизайну від 11 серпня 2021 року.",
         "description": "設定画面の文章"
     },
     "optionSpecialThanks": {
-        "message": "Особая благодарность",
+        "message": "Особлива подяка",
         "description": "設定画面のSpecial thanks"
     },
     "optionSpecialThanksGitHub": {
-        "message": "GitHub:",
+        "message": "GitHub",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanksCrowdin": {
-        "message": "Crowdin:",
+        "message": "Crowdin",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanksOther": {
-        "message": "Другие:",
+        "message": "Інші:",
         "description": "設定画面のSpecial thanksのサービス名"
-    },
-    "optionSpecialThanksOtherID": {
-        "message": "ID:",
-        "description": "設定画面のSpecial thanksのサービス名用タイトル"
     },
     "optionSpecialThanksOtherTwitter": {
         "message": "Twitter",
         "description": "設定画面のSpecial thanksのサービス名"
     },
     "optionSpecialThanks_GrapeApple0": {
-        "message": "Отображение имени клиента / Владельца API Twitter",
+        "message": "Відображення назви клієнта / Власника Twitter API",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
     },
     "optionSpecialThanks_irhdevel": {
-        "message": "Замечательный дизайн",
+        "message": "Чудовий дизайн",
         "description": "設定画面のSpecial thanks(irhdevelさん)"
     },
     "optionSpecialThanks_Taka005": {
-        "message": "Организация исходного кода",
+        "message": "Організація початкового коду",
         "description": "設定画面のSpecial thanks(Taka005さん)"
     },
     "optionSpecialThanks_Hibi_10000": {
-        "message": "Переводчик на Американский английский",
+        "message": "Перекладач на американську англійську ",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
     "optionSpecialThanks_loading_yt": {
-        "message": "Переводчик на Упрощенный китайский и Традиционный китайский языки",
+        "message": "Перекладач на спрощену та традиційну китайську мову",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
-        "message": "Создатель иконки и логотипа",
+        "message": "Автор іконки та логотипу",
         "description": "設定画面のSpecial thanks(CutterKnife_さん)"
     },
     "optionSpecialThanks_enthropyreg": {
-        "message": "Переводчик на Русский",
+        "message": "Перекладач на Російську",
         "description": "設定画面のSpecial thanks(enthropyregさん)"
     },
     "optionSpecialThanks_nakasyou": {
-        "message": "Улучшенный дизайн",
+        "message": "Удосконалений дизайн",
         "description": "設定画面のSpecial thanks(nakasyouさん)"
     },
     "optionSpecialThanks_typeling1578": {
-        "message": "Организация исходного кода",
+        "message": "Організація початкового коду",
         "description": "設定画面のSpecial thanks(typeling1578さん)"
     },
     "optionSpecialThanks_PianoCat1010": {
-        "message": "Автор иконок 'Нравится' и 'Ретвит'",
+        "message": "Автор іконок 'Лайк' та 'Ретвіт'",
         "description": "設定画面のSpecial thanks(PianoCat1010さん)"
-    },
-    "optionSpecialThanks_GreenDotBlue99": {
-        "message": "Исправление функции вкладки",
-        "description": "設定画面のSpecial thanks(GreenDotBlue99さん)"
     }
 }
