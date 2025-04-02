@@ -1,0 +1,128 @@
+{
+    "extensionName": {
+        "message": "Twitter Arayüz Kişiselleştirici",
+        "description": "拡張機能の名前"
+    },
+    "notificationMessage": {
+        "message": "Yeni bir sürüm yayınlandı.\nLütfen güncelleme yapın.\n$V1$→$V2$",
+        "description": "アップデート通知",
+        "placeholders": {
+            "V1": {
+                "content": "$1",
+                "example": "x.x.x (Extension)"
+            },
+            "V2": {
+                "content": "$2",
+                "example": "x.x.x (GitHub)"
+            }
+        }
+    },
+    "popupTitle": {
+        "message": "Teşekkürler!",
+        "description": "ポップアップのタイトル"
+    },
+    "popupContent1": {
+        "message": "Kullandığınız için teşekkürler!",
+        "description": "ポップアップの文章"
+    },
+    "popupContent2": {
+        "message": "Lütfen hataları raporlayın ve",
+        "description": "ポップアップの文章"
+    },
+    "popupButton2": {
+        "message": "Güvenli modda ayarları değiştirin",
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "popupButton3": {
+        "message": "Bildirim Ayarlarını Güncelle",
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "popupButton5": {
+        "message": "GitHub'dan en son sürümü indir",
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "pSettings": {
+        "message": "Ayarlar",
+        "description": "ポップアップの設定ボタン"
+    },
+    "pUpdateOnBrowserLaunch": {
+        "message": "Tarayıcı başlatıldığında",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnClickIcon": {
+        "message": "Uzantı simgesine tıkladığında",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "pUpdateOnOpenTwitter": {
+        "message": "Twitter'ı açtığında",
+        "description": "ポップアップのアップデート通知設定"
+    },
+    "optionHeading1_1": {
+        "message": "Twitter Ayarı:",
+        "description": "設定画面の見出し"
+    },
+    "optionContent1_1_1": {
+        "message": "(Twitter Ayarları→Erişilebilirlik, ekran ve diller→Görünüm)",
+        "description": "設定画面の文章"
+    },
+    "optionContent1_2_1": {
+        "message": "Tarayıcı başlatıldığında güncellemeyi bildir",
+        "description": "設定画面の文章"
+    },
+    "optionContent1_2_2": {
+        "message": "Uzantı simgesine tıklandığında güncellemeyi bildir",
+        "description": "設定画面の文章"
+    },
+    "optionContent1_2_3": {
+        "message": "Twitter açıldığında güncellemeyi bildir",
+        "description": "設定画面の文章"
+    },
+    "optionContent2_2": {
+        "message": "Yeniden başlatma gerekmez.",
+        "description": "設定画面の文章"
+    },
+    "optionSpecialThanksGitHub": {
+        "message": "Github:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksCrowdin": {
+        "message": "Crowdin:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOther": {
+        "message": "Diğer:",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanksOtherTwitter": {
+        "message": "Twitter",
+        "description": "設定画面のSpecial thanksのサービス名"
+    },
+    "optionSpecialThanks_GrapeApple0": {
+        "message": "İstemci Adını Göster / Twitter API Sahibi",
+        "description": "設定画面のSpecial thanks(GrapeApple0さん)"
+    },
+    "optionSpecialThanks_irhdevel": {
+        "message": "Harika tasarım",
+        "description": "設定画面のSpecial thanks(irhdevelさん)"
+    },
+    "optionSpecialThanks_Taka005": {
+        "message": "Kaynak kodunu düzenleyin",
+        "description": "設定画面のSpecial thanks(Taka005さん)"
+    },
+    "optionSpecialThanks_Hibi_10000": {
+        "message": "Amerikan İngilizcesi Çevirmen",
+        "description": "設定画面のSpecial thanks(Hibi-10000さん)"
+    },
+    "optionSpecialThanks_loading_yt": {
+        "message": "Basitleştirilmiş Çince ve Geleneksel Çince Çevirmen",
+        "description": "設定画面のSpecial thanks(loading_ytさん)"
+    },
+    "optionSpecialThanks_enthropyreg": {
+        "message": "Rusça Çevirmen",
+        "description": "設定画面のSpecial thanks(enthropyregさん)"
+    },
+    "optionSpecialThanks_nakasyou": {
+        "message": "Geliştirilmiş tasarım",
+        "description": "設定画面のSpecial thanks(nakasyouさん)"
+    }
+}
