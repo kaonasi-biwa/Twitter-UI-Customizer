@@ -57,6 +57,10 @@
         "message": "Установите последнюю версию с GitHub",
         "description": "ポップアップのボタンのツールチップ"
     },
+    "popupButton7": {
+        "message": "Извлечь настройки из twitter.com, которые были утеряны из-за изменения домена.",
+        "description": "ポップアップのボタンのツールチップ"
+    },
     "pSettings": {
         "message": "Настройки",
         "description": "ポップアップの設定ボタン"
@@ -103,6 +107,10 @@
     },
     "optionContent1_1_1": {
         "message": "(Настройки Twitter→Специальные возможности, Оформление и языки→Оформление)",
+        "description": "設定画面の文章"
+    },
+    "optionContent1_1_2": {
+        "message": "Открыть настройки Twitter!",
         "description": "設定画面の文章"
     },
     "optionHeading1_2": {
@@ -157,6 +165,10 @@
         "message": "Другие:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
+    "optionSpecialThanksOtherID": {
+        "message": "ID:",
+        "description": "設定画面のSpecial thanksのサービス名用タイトル"
+    },
     "optionSpecialThanksOtherTwitter": {
         "message": "Twitter",
         "description": "設定画面のSpecial thanksのサービス名"
@@ -177,17 +189,9 @@
         "message": "Переводчик на Американский английский",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
-    "optionSpecialThanks_KotoneFami": {
-        "message": "Добавление функции",
-        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
-    },
     "optionSpecialThanks_loading_yt": {
         "message": "Переводчик на Упрощенный китайский и Традиционный китайский языки",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
-    },
-    "optionSpecialThanks_nyanrus": {
-        "message": "Переводчик на Корейский",
-        "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
         "message": "Создатель иконки и логотипа",
