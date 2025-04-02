@@ -1,1 +1,10 @@
-{}
+{
+    "extensionName": {
+        "message": "Twitter UI Customizer",
+        "description": "拡張機能の名前"
+    },
+    "extensionDescription": {
+        "message": "Improve the customizability of your Twitter UI",
+        "description": "拡張機能の説明"
+    }
+}
