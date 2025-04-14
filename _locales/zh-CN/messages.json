@@ -39,23 +39,23 @@
     },
     "popupButton1": {
         "message": "Twitter UI Customizer的设置",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton2": {
         "message": "在安全模式下改变设置",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton3": {
         "message": "设置更新通知",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton4": {
         "message": "作者的Twitter(@kaonasi_biwa)",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton5": {
         "message": "从 Github 安装最新版本",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "optionTitle": {
         "message": "设置和操作说明(Twitter UI Customizer)",
@@ -145,17 +145,9 @@
         "message": "美国英语翻译员",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
-    "optionSpecialThanks_KotoneFami": {
-        "message": "他们参与了增加功能",
-        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
-    },
     "optionSpecialThanks_loading_yt": {
         "message": "中文翻译员",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
-    },
-    "optionSpecialThanks_nyanrus": {
-        "message": "韩语翻译员",
-        "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
         "message": "图标和标志创建者",

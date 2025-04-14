@@ -39,19 +39,27 @@
     },
     "popupButton1": {
         "message": "Twitter UI Customizer 的設定",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton2": {
         "message": "在安全模式下修改設定",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton3": {
         "message": "更新通知設定",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
     },
     "popupButton4": {
         "message": "作者的 Twitter（@kaonasi_biwa）",
-        "description": "ポップアップのボタン"
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "popupButton5": {
+        "message": "從GitHub安裝最新版本",
+        "description": "ポップアップのボタンのツールチップ"
+    },
+    "pSettingsInSafemode": {
+        "message": "安全模式",
+        "description": "ポップアップのセーフモードボタン"
     },
     "optionTitle": {
         "message": "設定與操作說明（Twitter UI Customizer）",
@@ -121,10 +129,6 @@
         "message": "Other:",
         "description": "設定画面のSpecial thanksのサービス名"
     },
-    "optionSpecialThanksTwitter": {
-        "message": "(Twitter)",
-        "description": "設定画面のSpecial thanksのサービス名"
-    },
     "optionSpecialThanks_GrapeApple0": {
         "message": "顯示客戶端名稱、Twitter API 的擁有者",
         "description": "設定画面のSpecial thanks(GrapeApple0さん)"
@@ -141,17 +145,9 @@
         "message": "英文（美國）翻譯者",
         "description": "設定画面のSpecial thanks(Hibi-10000さん)"
     },
-    "optionSpecialThanks_KotoneFami": {
-        "message": "功能追加",
-        "description": "設定画面のSpecial thanks(KotoneFamiさん)"
-    },
     "optionSpecialThanks_loading_yt": {
         "message": "中文翻譯者",
         "description": "設定画面のSpecial thanks(loading_ytさん)"
-    },
-    "optionSpecialThanks_nyanrus": {
-        "message": "韓文翻譯者",
-        "description": "設定画面のSpecial thanks(nyanrusさん)"
     },
     "optionSpecialThanks_CutterKnife_": {
         "message": "圖示、標誌的製作者",
