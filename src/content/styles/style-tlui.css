@@ -51,7 +51,7 @@
     padding: 0;
 }
 .tlui-dialog:not(.fit-content-width) > .tlui-container {
-    width: 380px;
+    width: var(--tuic-dialog-width, 380px);
 }
 /* ダイアログ > 外枠 > コンテナ > ヘッダー */
 .tlui-dialog h1 {

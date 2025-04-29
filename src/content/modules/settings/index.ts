@@ -24,6 +24,11 @@ export function placeSettingPage() {
     switch (window.location.pathname) {
         case "/tuic/safemode":
             break;
+        case "/settings/delegate": {
+            if(document.querySelector("#TUICOriginalDisplaySetting"))
+                displaySetting(document.querySelector("#TUICOriginalDisplaySetting"));
+            break
+        }
         case "/settings/display": {
             waitForElement(`main div[role="slider"]`).then((elems) => {
                 const _large = elems[0].closest<HTMLElement>(`section[aria-labelledby="detail-header"] > div.r-qocrb3`);

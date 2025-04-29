@@ -9,6 +9,10 @@ export interface DialogInit {
      * ダイアログの幅をコンテンツの幅に合わせるかどうか（初期値: `false`）
      */
     fitContentWidth?: boolean;
+    /**
+     * ダイアログの幅（初期値: `380px`）
+     */
+    contentWidth?: string;
 }
 
 /**
@@ -18,7 +22,7 @@ export class Dialog {
     /**
      * ダイアログ要素
      */
-    public element: Element;
+    public element: HTMLElement;
 
     /**
      * 要素を追加するためのコンテナ
@@ -39,7 +43,7 @@ export class Dialog {
             </div>
             `,
             "text/html",
-        ).body.children[0];
+        ).body.children[0] as HTMLElement;
         this.container = this.element.querySelector("div");
 
         for (const [key, value] of Object.entries(Object.assign({}, options))) {
@@ -52,6 +56,20 @@ export class Dialog {
             document.documentElement.classList.add("tlui-has-dialog");
         } else {
             document.documentElement.classList.remove("tlui-has-dialog");
+        }
+    }
+
+    /**
+     * ダイアログの幅をコンテンツの幅に合わせるかどうか（初期値: `false`）
+     */
+    public get contentWidth(): boolean {
+        return this.element.classList.contains("fit-content-width");
+    }
+    public set contentWidth(value: string) {
+        if (value) {
+            this.element.style.setProperty("--tuic-dialog-width", value)
+        } else {
+            this.element.style.removeProperty("--tuic-dialog-width")
         }
     }
 

@@ -6,6 +6,9 @@ import { SIDEBAR_BUTTON_ICON } from "@content/icons";
 import { backgroundColorCheck } from "@modules/utils/color";
 import { getPrimitiveOrFunction } from "@modules/utils/getValues";
 import { fontSizeClass } from "@modules/utils/fontSize";
+import { Dialog } from "@shared/tlui/components/Dialog";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
+import { DivBoxComponent } from "@shared/tlui/components/DivBox";
 
 let sidebarButtonsCount = -1;
 
@@ -152,11 +155,29 @@ const _data = {
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
-                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
-                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
-                    setTimeout(() => {
-                        if (document.querySelector(`[role="menu"]`)) moreMenu.click();
-                    }, 500);
+                    await waitForElement(`[data-testid="accountAccessLink"]`);
+                    if (location.href.endsWith("/settings/delegate")) {
+                        await waitForElement("#layers");
+                        const dialog = new Dialog(TUICI18N.get("common-displaySetting"));
+                        dialog.contentWidth = "50vw"
+                        //dialog.fitContentWidth = true;
+                        dialog
+                            .addComponents([
+                                new ButtonComponent(TUICI18N.get("common-close"), () => {
+                                    dialog.close();
+                                }),
+                                new DivBoxComponent({id:"TUICOriginalDisplaySetting"}),
+                                new ButtonComponent(TUICI18N.get("common-close"), () => {
+                                    dialog.close();
+                                }),
+                            ]).open();
+                    } else {
+                        (await waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
+                        (await waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
+                        setTimeout(() => {
+                            if (document.querySelector(`[role="menu"]`)) moreMenu.click();
+                        }, 500);
+                    }
                 }, 150);
             }
         },
@@ -168,11 +189,14 @@ const _data = {
                 setTimeout(async () => {
                     //document.querySelector<HTMLElement>(`:is([role="group"],[data-testid="Dropdown"]) [data-testid="settingsAndSupport"]`).click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
-                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
-                    (await waitForElement<HTMLAnchorElement>(`[href="/settings/mute_and_block"]`))[0].click();
-                    setTimeout(() => {
-                        if (document.querySelector(`[role="menu"]`)) moreMenu.click();
-                    }, 500);
+                    await waitForElement(`[data-testid="accountAccessLink"]`);
+                    if (!location.href.endsWith("/settings/delegate")) {
+                        (await waitForElement<HTMLAnchorElement>(`[href="/settings/privacy_and_safety"]`))[0].click();
+                        (await waitForElement<HTMLAnchorElement>(`[href="/settings/mute_and_block"]`))[0].click();
+                        setTimeout(() => {
+                            if (document.querySelector(`[role="menu"]`)) moreMenu.click();
+                        }, 500);
+                    }
                 }, 150);
             }
         },
