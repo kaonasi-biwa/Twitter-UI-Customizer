@@ -159,14 +159,14 @@ const _data = {
                     if (location.href.endsWith("/settings/delegate")) {
                         await waitForElement("#layers");
                         const dialog = new Dialog(TUICI18N.get("common-displaySetting"));
-                        dialog.contentWidth = "50vw"
+                        dialog.contentWidth = "50vw";
                         //dialog.fitContentWidth = true;
                         dialog
                             .addComponents([
                                 new ButtonComponent(TUICI18N.get("common-close"), () => {
                                     dialog.close();
                                 }),
-                                new DivBoxComponent({id:"TUICOriginalDisplaySetting"}),
+                                new DivBoxComponent({ id: "TUICOriginalDisplaySetting" }),
                                 new ButtonComponent(TUICI18N.get("common-close"), () => {
                                     dialog.close();
                                 }),

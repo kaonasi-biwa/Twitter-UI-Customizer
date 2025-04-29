@@ -67,9 +67,9 @@ export class Dialog {
     }
     public set contentWidth(value: string) {
         if (value) {
-            this.element.style.setProperty("--tuic-dialog-width", value)
+            this.element.style.setProperty("--tuic-dialog-width", value);
         } else {
-            this.element.style.removeProperty("--tuic-dialog-width")
+            this.element.style.removeProperty("--tuic-dialog-width");
         }
     }
 

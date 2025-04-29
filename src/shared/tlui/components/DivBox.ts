@@ -7,7 +7,6 @@ export interface DivBoxComponentInit {
     id?: string;
 }
 
-
 /**
  * Twitterのボタン風要素
  */
@@ -25,7 +24,7 @@ export class DivBoxComponent implements Component {
             "text/html",
         ).body.children[0] as HTMLDivElement;
 
-        if(options.id){
+        if (options.id) {
             this.element.id = options.id;
         }
     }
@@ -43,5 +42,4 @@ export class DivBoxComponent implements Component {
             this.element.removeAttribute("id");
         }
     }
-
 }

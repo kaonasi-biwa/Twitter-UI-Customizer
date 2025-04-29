@@ -25,9 +25,9 @@ export function placeSettingPage() {
         case "/tuic/safemode":
             break;
         case "/settings/delegate": {
-            if(document.querySelector("#TUICOriginalDisplaySetting"))
+            if (document.querySelector("#TUICOriginalDisplaySetting"))
                 displaySetting(document.querySelector("#TUICOriginalDisplaySetting"));
-            break
+            break;
         }
         case "/settings/display": {
             waitForElement(`main div[role="slider"]`).then((elems) => {
