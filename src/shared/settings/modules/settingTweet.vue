@@ -46,6 +46,11 @@
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
+        <SectionTitle2 style="margin-bottom: 15px" titleI18N="tweetSettings-showMore" />
+        <RadioButtonList id="tweetDisplaySetting.showMore" />
+    </div>
+    <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
+    <div>
         <SectionTitle2 style="margin-bottom: 15px" titleI18N="timeline-discoverMore" />
         <RadioButtonList id="timeline-discoverMore" />
     </div>

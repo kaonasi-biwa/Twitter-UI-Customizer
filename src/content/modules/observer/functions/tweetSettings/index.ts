@@ -235,4 +235,18 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     if (getPref("timeline.hideReply") && articleInfo.option.isBigArticle) {
         articleBase.closest(`[data-testid="cellInnerDiv"]`).classList.add("TUIC_HideNextElements");
     }
+
+    // さらに表示ボタン
+    switch(getPref("tweetDisplaySetting.showMore")){
+        case "hide":{
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
+            hideElement(showMoreLink)
+            break;
+        }
+        case "open":{
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
+            showMoreLink.click()
+            break;
+        }
+    }
 }

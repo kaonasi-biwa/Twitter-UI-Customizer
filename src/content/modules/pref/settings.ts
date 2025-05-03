@@ -85,6 +85,15 @@ export const TUICSettings = {
             { id: "linkShareCopyURL_fxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-fxTwitter" },
         ],
     },
+    "tweetDisplaySetting.showMore": {
+        type: "select",
+        default: "open",
+        values: [
+            { id: "visible", i18n: "tweetSettings-showMore-visible" },
+            { id: "open", i18n: "tweetSettings-showMore-open" },
+            { id: "hide", i18n: "tweetSettings-showMore-hide" },
+        ],
+    },
     "timeline-discoverMore": {
         type: "select",
         default: "discoverMore_nomal",
