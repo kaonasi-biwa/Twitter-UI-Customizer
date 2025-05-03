@@ -92,6 +92,7 @@
     "sidebarButton-setting-LeftSidebar": "左サイドバー",
     "sidebarButton-setting-narrowBetweenButtons": "ボタン同士の幅を狭くする (広くなっている場合のみ)",
     "sidebarButton-setting-sidebarNoneScrollbar": "サイドバーのスクロールバーを非表示にする",
+    "sidebarButton-setting-autoDelegate": "自動で委任アカウントへ切り替える",
     "sidebarButton-accountSwitcher-settingTitle": "左下のアカウントメニュー",
     "sidebarButton-accountSwitcher-Icon": "アイコン",
     "sidebarButton-accountSwitcher-NameID": "ユーザー名とID",
@@ -100,6 +101,9 @@
     "sidebarButton-homeIcon-normal": "家のアイコン",
     "sidebarButton-homeIcon-birdGoBack": "巣箱のアイコン",
     "sidebarButton-homeIcon-TUIC": "Twitter UI Customizerのアイコン",
+    "sidebarButton-setting-hideHomeBadge": "「ホーム」のバッジ",
+    "sidebarButton-setting-hideNotificationsBadge": "「通知」のバッジ",
+    "sidebarButton-setting-hideDmBadge": "「メッセージ」のバッジ",
 
     "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニュー",
     "sidebarButton-moreMenuItems-separator": "分離線",
