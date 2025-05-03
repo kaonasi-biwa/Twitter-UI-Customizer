@@ -233,6 +233,7 @@ export const TUICSettings = {
         values: [
             { id: "smallerSidebarContent", i18n: "sidebarButton-setting-narrowBetweenButtons", default: true },
             { id: "sidebarNoneScrollbar", i18n: "sidebarButton-setting-sidebarNoneScrollbar", default: false },
+            { id: "autoDelegate", i18n: "sidebarButton-setting-autoDelegate", default: false },
         ],
     },
     "sidebarSetting.hideBadge": {
