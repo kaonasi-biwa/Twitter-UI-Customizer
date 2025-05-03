@@ -90,7 +90,7 @@ export function applySystemCss() {
         "tweetDisplaySetting.option.likeToFavo",
         "sidebarSetting.hideBadge.homeBadge",
         "sidebarSetting.hideBadge.notificationsBadge",
-        "sidebarSetting.hideBadge.dmBadge"
+        "sidebarSetting.hideBadge.dmBadge",
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
