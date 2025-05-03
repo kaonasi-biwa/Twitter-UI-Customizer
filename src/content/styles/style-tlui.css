@@ -70,7 +70,7 @@
     color: rgb(113 118 123);
 }
 /* ダイアログ > 外枠 > コンテナ > ボタン */
-.tlui-dialog button {
+.tlui-dialog button:not(#TUICOriginalDisplaySetting *) {
     height: 45px;
     padding-inline: 16px;
     margin-inline: auto;
