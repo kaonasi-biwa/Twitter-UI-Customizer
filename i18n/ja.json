@@ -100,6 +100,9 @@
     "sidebarButton-homeIcon-normal": "家のアイコン",
     "sidebarButton-homeIcon-birdGoBack": "巣箱のアイコン",
     "sidebarButton-homeIcon-TUIC": "Twitter UI Customizerのアイコン",
+    "sidebarButton-setting-hideHomeBadge": "「ホーム」のバッジ",
+    "sidebarButton-setting-hideNotificationsBadge": "「通知」のバッジ",
+    "sidebarButton-setting-hideDmBadge": "「メッセージ」のバッジ",
 
     "sidebarButton-moreMenuItems-settingTitle": "「もっと見る」メニュー",
     "sidebarButton-moreMenuItems-separator": "分離線",

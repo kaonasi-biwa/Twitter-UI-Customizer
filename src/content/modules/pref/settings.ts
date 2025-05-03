@@ -235,6 +235,14 @@ export const TUICSettings = {
             { id: "sidebarNoneScrollbar", i18n: "sidebarButton-setting-sidebarNoneScrollbar", default: false },
         ],
     },
+    "sidebarSetting.hideBadge": {
+        type: "boolean",
+        values: [
+            { id: "homeBadge", i18n: "sidebarButton-setting-hideHomeBadge", default: false },
+            { id: "notificationsBadge", i18n: "sidebarButton-setting-hideNotificationsBadge", default: false },
+            { id: "dmBadge", i18n: "sidebarButton-setting-hideDmBadge", default: false },
+        ],
+    },
     "sidebarSetting.homeIcon": {
         type: "select",
         default: "normal",

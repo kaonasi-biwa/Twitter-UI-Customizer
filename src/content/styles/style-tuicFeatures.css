@@ -220,3 +220,15 @@
 :root[data-tuic-settings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
     display: none !important;
 }
+
+:root[data-tuic-settings*="|sidebarSetting.hideBadge.homeBadge|"] [data-testid="AppTabBar_Home_Link"] svg + div {
+    display: none !important;
+}
+
+:root[data-tuic-settings*="|sidebarSetting.hideBadge.notificationsBadge|"] [data-testid="AppTabBar_Notifications_Link"] svg + div {
+    display: none !important;
+}
+
+:root[data-tuic-settings*="|sidebarSetting.hideBadge.dmBadge|"] [data-testid="AppTabBar_DirectMessage_Link"] svg + div {
+    display: none !important;
+}

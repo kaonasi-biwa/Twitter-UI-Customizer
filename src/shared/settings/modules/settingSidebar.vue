@@ -17,6 +17,7 @@
 
         <div style="margin-top: 35px">
             <settingSubTitle i18n="common-hidebelow" />
+            <CheckBoxList id="sidebarSetting.hideBadge" />
             <settingSubtitle2 title-i18-n="sidebarButton-moreMenuItems-settingTitle" />
             <CheckBoxList id="sidebarSetting.moreMenuItems" />
 

@@ -88,6 +88,9 @@ export function applySystemCss() {
         "uncategorizedSettings.disableBackdropFilter",
         "composetweet.hideDraft",
         "tweetDisplaySetting.option.likeToFavo",
+        "sidebarSetting.hideBadge.homeBadge",
+        "sidebarSetting.hideBadge.notificationsBadge",
+        "sidebarSetting.hideBadge.dmBadge"
     ];
     let settingsOutput = "|";
     for (const elem of settingsArr) {
