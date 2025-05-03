@@ -22,7 +22,7 @@ window.onload = async () => {
         chrome.tabs.create({ url: "https://twitter.com/settings/display" });
     };
     document.getElementById("link2").onclick = () => {
-        chrome.tabs.create({ url: "https://twitter.com/kaonasi_biwa_ar" });
+        chrome.tabs.create({ url: "https://twitter.com/kaonasi_biwa" });
     };
     // document.getElementById("link3").onclick = () => {
     //     chrome.runtime.openOptionsPage();
