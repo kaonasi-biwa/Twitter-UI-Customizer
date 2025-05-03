@@ -240,12 +240,12 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     switch(getPref("tweetDisplaySetting.showMore")){
         case "hide":{
             const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
-            hideElement(showMoreLink)
+            if(showMoreLink) hideElement(showMoreLink)
             break;
         }
         case "open":{
             const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
-            showMoreLink.click()
+            if(showMoreLink) showMoreLink.click()
             break;
         }
     }
