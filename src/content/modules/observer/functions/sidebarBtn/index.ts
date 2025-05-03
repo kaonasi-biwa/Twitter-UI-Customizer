@@ -271,10 +271,10 @@ const _data = {
 };
 
 export function sidebarButtons() {
-    if(location.pathname == "/i/delegate/switch" && getPref("sidebarSetting.buttonConfig.autoDelegate")) {
-        document.querySelector<HTMLButtonElement>(`[role="dialog"] button[type="button"]:not([data-testid="app-bar-close"]):not(button+button)`)?.click()
+    if (location.pathname == "/i/delegate/switch" && getPref("sidebarSetting.buttonConfig.autoDelegate")) {
+        document.querySelector<HTMLButtonElement>(`[role="dialog"] button[type="button"]:not([data-testid="app-bar-close"]):not(button+button)`)?.click();
     }
-    
+
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
         const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`);
