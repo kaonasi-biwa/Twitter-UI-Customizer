@@ -81,6 +81,11 @@
 
     "tweetTopButton-settingTitle": "ツイート上ボタン",
 
+    "tweetSettings-showMore": "長文ツイートの「さらに表示」",
+    "tweetSettings-showMore-hide": "リンクを非表示にする",
+    "tweetSettings-showMore-visible": "リンクを表示する",
+    "tweetSettings-showMore-open": "自動で全文を表示する",
+
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
