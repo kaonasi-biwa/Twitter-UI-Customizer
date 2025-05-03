@@ -239,13 +239,13 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     // さらに表示ボタン
     switch (getPref("tweetDisplaySetting.showMore")) {
         case "hide":{
-            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
-            if(showMoreLink) hideElement(showMoreLink)
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`);
+            if (showMoreLink) hideElement(showMoreLink);
             break;
         }
         case "open":{
-            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
-            if(showMoreLink) showMoreLink.click()
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`);
+            if (showMoreLink) showMoreLink.click();
             break;
         }
     }
