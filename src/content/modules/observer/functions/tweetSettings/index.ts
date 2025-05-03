@@ -237,15 +237,15 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
 
     // さらに表示ボタン
-    switch(getPref("tweetDisplaySetting.showMore")){
+    switch (getPref("tweetDisplaySetting.showMore")) {
         case "hide":{
-            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
-            hideElement(showMoreLink)
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`);
+            hideElement(showMoreLink);
             break;
         }
         case "open":{
-            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`)
-            showMoreLink.click()
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`[data-testid="tweet-text-show-more-link"]`);
+            showMoreLink.click();
             break;
         }
     }
