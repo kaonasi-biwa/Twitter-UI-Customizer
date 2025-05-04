@@ -19,23 +19,23 @@ const elem = (): JSX.Element => {
             style={{ "text-overflow": "unset", color: `rgb(${backgroundColorClass<string>("113, 118, 123", "139, 152, 165", "83, 100, 113")})`, "padding-top": "1.5px" }}
             onClick={(e) => {
                 e.preventDefault();
-                    setTimeout(async () => {
-                        await waitForElement("#layers");
-                        const dialog = new Dialog(TUICI18N.get("common-displaySetting"));
-                        dialog.contentWidth = "50vw";
-                        //dialog.fitContentWidth = true;
-                        dialog
-                            .addComponents([
-                                new ButtonComponent(TUICI18N.get("common-close"), () => {
-                                    dialog.close();
-                                }),
-                                new DivBoxComponent({ id: "TUICOriginalDisplaySetting" }),
-                                new ButtonComponent(TUICI18N.get("common-close"), () => {
-                                    dialog.close();
-                                }),
-                            ])
-                            .open();
-                    }, 150);
+                setTimeout(async () => {
+                    await waitForElement("#layers");
+                    const dialog = new Dialog(TUICI18N.get("common-displaySetting"));
+                    dialog.contentWidth = "50vw";
+                    //dialog.fitContentWidth = true;
+                    dialog
+                        .addComponents([
+                            new ButtonComponent(TUICI18N.get("common-close"), () => {
+                                dialog.close();
+                            }),
+                            new DivBoxComponent({ id: "TUICOriginalDisplaySetting" }),
+                            new ButtonComponent(TUICI18N.get("common-close"), () => {
+                                dialog.close();
+                            }),
+                        ])
+                        .open();
+                }, 150);
                 /*
                 const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();

@@ -21,10 +21,10 @@ export function placeSettingObserver() {
 }
 
 export function placeSettingPage() {
-            if (document.querySelector("#TUICOriginalDisplaySetting")){
-                displaySetting(document.querySelector("#TUICOriginalDisplaySetting"));
-                return;
-            }
+    if (document.querySelector("#TUICOriginalDisplaySetting")) {
+        displaySetting(document.querySelector("#TUICOriginalDisplaySetting"));
+        return;
+    }
     switch (window.location.pathname) {
         case "/tuic/safemode":
             break;
