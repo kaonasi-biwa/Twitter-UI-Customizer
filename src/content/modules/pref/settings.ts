@@ -313,6 +313,7 @@ export const TUICSettings = {
             { id: "verifiedFollowerTab", i18n: "invisibleItems-verifiedFollowerTab", default: false },
             { id: "followersYouFollowTab", i18n: "invisibleItems-followersYouFollowTab", default: false },
             { id: "profilePagePremium", i18n: "invisibleItems-profilePagePremium", default: false },
+            { id: "profileSummary", i18n: "invisibleItems-profileSummary", default: false },
         ],
     },
     "profileSetting.followersListButtons": {
