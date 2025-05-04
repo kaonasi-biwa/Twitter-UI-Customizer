@@ -4,6 +4,9 @@ import { TUICI18N } from "@content/modules/i18n";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { JSX } from "solid-js";
 import { render } from "solid-js/web";
+import { Dialog } from "@shared/tlui/components/Dialog";
+import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
+import { DivBoxComponent } from "@shared/tlui/components/DivBox";
 
 const elem = (): JSX.Element => {
     return (
@@ -16,6 +19,24 @@ const elem = (): JSX.Element => {
             style={{ "text-overflow": "unset", color: `rgb(${backgroundColorClass<string>("113, 118, 123", "139, 152, 165", "83, 100, 113")})`, "padding-top": "1.5px" }}
             onClick={(e) => {
                 e.preventDefault();
+                    setTimeout(async () => {
+                        await waitForElement("#layers");
+                        const dialog = new Dialog(TUICI18N.get("common-displaySetting"));
+                        dialog.contentWidth = "50vw";
+                        //dialog.fitContentWidth = true;
+                        dialog
+                            .addComponents([
+                                new ButtonComponent(TUICI18N.get("common-close"), () => {
+                                    dialog.close();
+                                }),
+                                new DivBoxComponent({ id: "TUICOriginalDisplaySetting" }),
+                                new ButtonComponent(TUICI18N.get("common-close"), () => {
+                                    dialog.close();
+                                }),
+                            ])
+                            .open();
+                    }, 150);
+                /*
                 const moreMenu = document.querySelector<HTMLElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`);
                 if (document.querySelector(`[role="menu"]`) == null) moreMenu.click();
                 setTimeout(async () => {
@@ -23,7 +44,7 @@ const elem = (): JSX.Element => {
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/accessibility_display_and_languages"]`))[0].click();
                     (await waitForElement<HTMLAnchorElement>(`[href="/settings/display"]`))[0].click();
-                }, 150);
+                }, 150);*/
             }}
         >
             <span class="css-1qaijid r-bcqeeo r-qvutc0 r-1tl8opc" style={{ "text-overflow": "unset" }}>
