@@ -6,6 +6,7 @@ import unusedimports from "eslint-plugin-unused-imports";
 import importx from "eslint-plugin-import-x";
 
 import tseslint from "typescript-eslint";
+import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
 import unocsseslint from "@unocss/eslint-plugin";
 
@@ -45,12 +46,14 @@ export default tseslint.config(
             "import-x/no-named-default": "error",
             "import-x/no-self-import": "error",
             "import-x/newline-after-import": "error",
+            "import-x/no-cycle": "warn",
             "import-x/no-named-as-default-member": 0,
             "unocss/order": 0,
             "style/spaced-comment": 0,
             "style/lines-between-class-members": 0,
             "style/jsx-closing-tag-location": 0,
             "style/arrow-parens": ["error", "always"],
+            "style/switch-colon-spacing": ["error", { after: true, before: false }],
             "style/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }],
         },
     },
@@ -65,10 +68,12 @@ export default tseslint.config(
             ...tseslint.configs.recommended,
             //...tseslint.configs.strict,
             ...tseslint.configs.stylistic, //TypeChecked
+            solideslint.configs["flat/typescript"],
             ...vueeslint.configs["flat/recommended"],
         ],
         rules: {
             "@typescript-eslint/no-unused-vars": 0,
+            "solid/self-closing-comp": ["warn", { html: "void" }],
             "vue/html-indent": ["warn", 4],
             "vue/html-self-closing": ["warn", {
                 html: {
