@@ -87,7 +87,7 @@ export const TUICSettings = {
     },
     "tweetDisplaySetting.showMore": {
         type: "select",
-        default: "open",
+        default: "visible",
         values: [
             { id: "visible", i18n: "tweetSettings-showMore-visible" },
             { id: "open", i18n: "tweetSettings-showMore-open" },
