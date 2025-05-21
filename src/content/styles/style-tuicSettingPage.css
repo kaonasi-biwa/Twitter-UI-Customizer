@@ -486,9 +486,9 @@ textarea#css_textarea {
         }
     }
     &::before {
-        margin-top: 1px;
         font-size: 1rem;
         color: #fff;
+        vertical-align: 0.05rem;
         opacity: 0;
     }
 }
