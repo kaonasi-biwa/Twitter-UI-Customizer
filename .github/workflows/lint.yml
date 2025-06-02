@@ -80,6 +80,9 @@ jobs:
           git commit -m "Format"
           git push
 
-      - name: Run typecheck
+      - name: Re-Run lint
         run: |
           pnpm lint:tsc
+          pnpm lint:eslint
+          pnpm lint:stylelint
+          pnpm lint:prettier
