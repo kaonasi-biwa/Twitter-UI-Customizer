@@ -239,7 +239,7 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     // さらに表示ボタン
     switch (getPref("tweetDisplaySetting.showMore")) {
         case "hide": {
-            const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`button[data-testid="tweet-text-show-more-link"]`);
+            const showMoreLink = articleBase.querySelector<HTMLButtonElement | HTMLAnchorElement>(`[data-testid="tweet-text-show-more-link"]:is(button,a)`);
             if (showMoreLink) hideElement(showMoreLink);
             break;
         }
