@@ -61,7 +61,7 @@ jobs:
 
       - name: Run format
         run: |
-          git reset --hard
+          git checkout -- .
           git pull
           pnpm format:eslint
           pnpm format:prettier
