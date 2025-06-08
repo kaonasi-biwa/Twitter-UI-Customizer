@@ -62,7 +62,7 @@ jobs:
       - name: Run format
         if: github.event_name != 'pull_request'
         run: |
-          git reset --hard
+          git checkout -- .
           git pull
           pnpm format:eslint
           pnpm format:prettier
@@ -82,7 +82,10 @@ jobs:
           git commit -m "Format"
           git push
 
-      - name: Run typecheck
+      - name: Re-Run lint
         if: github.event_name != 'pull_request'
         run: |
           pnpm lint:tsc
+          pnpm lint:eslint
+          pnpm lint:stylelint
+          pnpm lint:prettier

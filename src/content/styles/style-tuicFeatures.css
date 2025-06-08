@@ -102,7 +102,7 @@
 
 .TUICButtonUnderTweet [tabindex="0"][data-focusvisible-polyfill] .TUIC_ButtonHover > div {
     background-color: rgb(29 155 240 / 10%);
-    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+    box-shadow: rgb(142 204 258) 0 0 0 2px inset;
 }
 
 .TUICButtonUnderTweet > div {
@@ -121,7 +121,7 @@
     background-color: rgb(29 155 240 / 10%);
 }
 .TUICTweetTopButton.css-18t94o4:focus-visible .TUIC_ButtonHover {
-    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+    box-shadow: rgb(142 204 258) 0 0 0 2px inset;
 }
 .TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
@@ -135,7 +135,7 @@
     background-color: rgb(29 155 240 / 10%);
 }
 [data-tuic-follower-list-button]:focus-visible .TUIC_ButtonHover {
-    box-shadow: rgba(142 204 258) 0 0 0 2px inset;
+    box-shadow: rgb(142 204 258) 0 0 0 2px inset;
 }
 [data-tuic-follower-list-button]:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
@@ -202,7 +202,7 @@
 
 :root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
     background-color: rgb(255 212 0 / 10%) !important;
-    box-shadow: rgba(142 204 258) 0 0 0 2px inset !important;
+    box-shadow: rgb(142 204 258) 0 0 0 2px inset !important;
 }
 
 :root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:active > div > div {

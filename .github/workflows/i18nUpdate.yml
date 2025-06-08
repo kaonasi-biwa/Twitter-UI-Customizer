@@ -36,7 +36,7 @@ jobs:
       - name: Update
         run: |
           pnpm install
-          git reset --hard
+          git checkout -- .
           git pull
           pnpm dlx tsx ./scripts/update-i18n.ts
 

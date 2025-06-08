@@ -55,7 +55,7 @@ export function replacePost() {
             localizeElemText('[data-testid="analyticsButton"] span', TUICI18N.get("XtoTwitter-PostToTweet-tweetAnalytics"));
 
             // ツイート画面の翻訳の表示ボタン
-            localizeElemText('[data-testid="tweetText"] + [role="button"]', TUICI18N.get("XtoTwitter-PostToTweet-translateTweet"));
+            localizeElemText('[data-testid="tweetText"] + [role="button"]:not([data-testid="tweet-text-show-more-link"]) > span', TUICI18N.get("XtoTwitter-PostToTweet-translateTweet"));
 
             // ツイートを追加
             localizeElemText('[data-testid="cellInnerDiv"] a[href="/compose/tweet"] [role="presentation"] > div > span > span', TUICI18N.get("XtoTwitter-PostToTweet-addTweet"));
