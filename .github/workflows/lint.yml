@@ -57,9 +57,10 @@ jobs:
           pnpm lint:eslint
           pnpm lint:stylelint
           pnpm lint:prettier
-        continue-on-error: ${{ github.repository_owner == 'kaonasi-biwa' || github.event_name == 'workflow_dispatch' }}
+        continue-on-error: ${{ (github.repository_owner == 'kaonasi-biwa' && github.event_name != 'pull_request' ) || github.event_name == 'workflow_dispatch' }}
 
       - name: Run format
+        if: github.event_name != 'pull_request'
         run: |
           git checkout -- .
           git pull
@@ -68,6 +69,7 @@ jobs:
           pnpm format:stylelint
 
       - name: Commit
+        if: github.event_name != 'pull_request'
         run: |
           if [ -z "$(git status --porcelain)" ]; then
             echo "No format changes"
@@ -81,6 +83,7 @@ jobs:
           git push
 
       - name: Re-Run lint
+        if: github.event_name != 'pull_request'
         run: |
           pnpm lint:tsc
           pnpm lint:eslint
