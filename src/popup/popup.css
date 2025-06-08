@@ -112,8 +112,8 @@ details {
         gap: 25px;
         padding: 15px var(--tuic-popup-left-margin);
         font-size: 0.95rem;
-        list-style-type: none;
         cursor: pointer;
+        list-style-type: none;
         * {
             user-select: none;
         }
