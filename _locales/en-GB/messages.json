@@ -6,5 +6,19 @@
     "extensionDescription": {
         "message": "Improve the customizability of your Twitter UI",
         "description": "拡張機能の説明"
+    },
+    "notificationMessage": {
+        "message": "A new version is now available. Please update.",
+        "description": "アップデート通知",
+        "placeholders": {
+            "V1": {
+                "content": "$1",
+                "example": "x.x.x (Extension)"
+            },
+            "V2": {
+                "content": "$2",
+                "example": "x.x.x (GitHub)"
+            }
+        }
     }
 }
