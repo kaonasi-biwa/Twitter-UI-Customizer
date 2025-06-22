@@ -411,6 +411,7 @@ export const TUICSettings = {
         values: [
             { id: "second", i18n: "dateAndTime.options.second", default: false },
             { id: "hour12", i18n: "dateAndTime.options.hour12", default: true },
+            { id: "absolutelyTime", i18n: "dateAndTime.options.absolutelyTime", default: false },
         ]
     },
 } as const;

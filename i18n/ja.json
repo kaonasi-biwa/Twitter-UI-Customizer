@@ -216,6 +216,7 @@
     "settingDateAndTime-settingTitle": "日付と時刻の表記",
     "dateAndTime.options.hour12": "午前/午後で時刻を表記する",
     "dateAndTime.options.second": "時刻を秒まで表記する",
+    "dateAndTime.options.absolutelyTime": "投稿時刻を絶対時刻で表記する",
     "dateAndTime.hide.notificationsDate":"通知の時刻表示",
     "dateAndTime.hide.tweetAboveDate":"ツイート上部の投稿時刻表示",
     "dateAndTime.hide.tweetDateInformation":"ツイート詳細の投稿時刻表示",
