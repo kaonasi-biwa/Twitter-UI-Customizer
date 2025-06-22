@@ -39,8 +39,18 @@ export function hideElements() {
         }
     });
 
-    if (getPref("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
-        hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
+    if(location.pathname.includes("/notifications")){
+
+        if (getPref("invisibleItems.verifiedNotifications")) {
+            hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
+        }
+
+        if(getPref("dateAndTime.hide.notificationsDate")){
+            for(const elem of document.querySelectorAll<HTMLElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)){
+                hideElement(elem)
+                hideElement(elem.closest("div+div"))
+            }
+        }
     }
 }
 

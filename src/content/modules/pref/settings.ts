@@ -396,4 +396,14 @@ export const TUICSettings = {
 
     // インポート・エクスポートのオプション
     inportExportOptions: { type: "boolean", values: [{ id: "includingCustomCSS", i18n: "inportExportOptions.includingCustomCSS", default: false }] },
+
+    // 時刻・日付のオプション
+    "dateAndTime.hide": { 
+        type: "boolean", 
+        values: [
+            { id: "notificationsDate", i18n: "dateAndTime.hide.notificationsDate", default: false },
+            { id: "tweetAboveDate", i18n: "dateAndTime.hide.tweetAboveDate", default: false },
+            { id: "tweetDateInformation", i18n: "dateAndTime.hide.tweetDateInformation", default: false }
+        ]
+    },
 } as const;

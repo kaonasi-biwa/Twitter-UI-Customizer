@@ -77,7 +77,7 @@ export function tweetSettings() {
             }
         }
 
-        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-tuic-processed-article]):not([data-testid="tweet"] *)`);
+        const articles = document.querySelectorAll<HTMLElement>(`article:not([data-testid="notification"]):not([data-tuic-processed-article]):not([data-testid="tweet"] *)`);
         if (articles.length != 0) {
             for (const articleBase of articles) {
                 (async () => {
@@ -247,6 +247,22 @@ function tweetStyle(articleInfo: ArticleInfomation) {
             const showMoreLink = articleBase.querySelector<HTMLButtonElement>(`button[data-testid="tweet-text-show-more-link"]`);
             if (showMoreLink) showMoreLink.click();
             break;
+        }
+    }
+
+    // ツイート時間
+    if (getPref("dateAndTime.hide.tweetDateInformation")) {
+        const dateElement = articleBase.querySelector<HTMLElement>("a > time").parentElement.parentElement;
+        hideElement(dateElement)
+        if(!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)){
+            hideElement(dateElement.nextElementSibling as HTMLElement)
+        }
+    }
+    if (getPref("dateAndTime.hide.tweetAboveDate")) {
+        const dateElement = articleBase.querySelector<HTMLElement>(`[data-testid="User-Name"] a > time`).parentElement.parentElement;
+        hideElement(dateElement)
+        if(!dateElement.previousElementSibling?.querySelector(`a`)){
+            hideElement(dateElement.previousElementSibling as HTMLElement)
         }
     }
 }

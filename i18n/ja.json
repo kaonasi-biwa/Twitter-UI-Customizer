@@ -213,6 +213,11 @@
 
     "performanceSettings-removeDeletedTweets": "削除したツイートの残骸を消去する",
 
+    "settingDateAndTime-settingTitle": "日付と時刻の表記",
+    "dateAndTime.hide.notificationsDate":"通知の時刻表示",
+    "dateAndTime.hide.tweetAboveDate":"ツイート上部の投稿時刻表示",
+    "dateAndTime.hide.tweetDateInformation":"ツイート詳細の投稿時刻表示",
+
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
 
@@ -266,6 +271,8 @@
     "rescuePref-complete": "これで救出完了です。それぞれx.comのTUICで読み込んでください。カスタムアイコンに関しては、申し訳ございませんが対応しておりません。",
 
     "inportExportOptions.includingCustomCSS": "エクスポート内容にカスタムCSSを含める",
+
+
 
     "temp-notice-hideDMSheetOnBottomRight": "現在、画面右下に存在するDMの欄は、「その他の設定」から非表示にできます。"
 }
