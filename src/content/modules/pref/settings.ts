@@ -73,6 +73,7 @@ export const TUICSettings = {
             { id: "linkCopyURL_X", i18n: "bottomTweetButtons-setting-linkCopyURL-X" },
             { id: "linkCopyURL_vxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-vxTwitter" },
             { id: "linkCopyURL_fxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-fxTwitter" },
+            { id: "linkCopyURL_fixupx", i18n: "bottomTweetButtons-setting-linkCopyURL-fixupx" },
         ],
     },
     "tweetDisplaySetting.linkShareCopyURL": {
@@ -83,6 +84,7 @@ export const TUICSettings = {
             { id: "linkShareCopyURL_X", i18n: "bottomTweetButtons-setting-linkCopyURL-X" },
             { id: "linkShareCopyURL_vxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-vxTwitter" },
             { id: "linkShareCopyURL_fxTwitter", i18n: "bottomTweetButtons-setting-linkCopyURL-fxTwitter" },
+            { id: "linkShareCopyURL_fixupx", i18n: "bottomTweetButtons-setting-linkCopyURL-fixupx" },
         ],
     },
     "tweetDisplaySetting.showMore": {
