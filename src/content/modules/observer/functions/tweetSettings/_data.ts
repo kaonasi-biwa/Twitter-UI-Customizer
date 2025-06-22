@@ -4,7 +4,7 @@ export const TweetUnderButtonsData = {
         linkCopyURL_X: "x.com",
         linkCopyURL_vxTwitter: "vxtwitter.com",
         linkCopyURL_fxTwitter: "fxtwitter.com",
-        linkCopyURL_fixupx: "fixupx.com"
+        linkCopyURL_fixupx: "fixupx.com",
     },
 };
 
