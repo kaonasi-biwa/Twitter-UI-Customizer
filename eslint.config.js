@@ -89,6 +89,7 @@ export default tseslint.config(
             "vue/attribute-hyphenation": 0,
             "vue/attributes-order": 0,
             "vue/require-default-prop": 0,
+            "vue/no-required-prop-with-default": 0,
         },
     },
     {
@@ -104,7 +105,15 @@ export default tseslint.config(
         languageOptions: {
             globals: {
                 ...globals.browser,
-                chrome: false,
+                chrome: "readonly",
+            },
+        },
+    },
+    {
+        files: ["src/background.ts"],
+        languageOptions: {
+            globals: {
+                ...globals.serviceworker,
             },
         },
     },
