@@ -406,4 +406,11 @@ export const TUICSettings = {
             { id: "tweetDateInformation", i18n: "dateAndTime.hide.tweetDateInformation", default: false }
         ]
     },
+    "dateAndTime.options": { 
+        type: "boolean", 
+        values: [
+            { id: "second", i18n: "dateAndTime.options.second", default: false },
+            { id: "hour12", i18n: "dateAndTime.options.hour12", default: true },
+        ]
+    },
 } as const;

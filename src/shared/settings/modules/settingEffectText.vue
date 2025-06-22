@@ -17,6 +17,7 @@
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
         <SectionTitle2 style="margin-bottom: 15px" titleI18N="settingDateAndTime-settingTitle" />
+        <CheckBoxList id="dateAndTime.options" />
         <settingSubtitle2 title-i18-n="common-hidebelow" />
         <CheckBoxList id="dateAndTime.hide" />
     </div>
