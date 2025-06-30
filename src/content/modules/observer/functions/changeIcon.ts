@@ -1,7 +1,7 @@
 import DOG from "@content/icons/logo/dog.png?url";
 import TWITTER from "@content/icons/logo/twitter.svg?raw";
 import X from "@content/icons/logo/x.svg?raw";
-import XDaruma from "@content/icons/logo/xdaruma.svg?raw";
+import { XDaruma } from "@content/icons/index";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 import { getColorFromPref } from "@content/modules/utils/color";
 import { getPref } from "@modules/pref";

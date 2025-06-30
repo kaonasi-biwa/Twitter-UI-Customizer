@@ -1,7 +1,6 @@
 import { isSafemode } from "@modules/settings/safemode/isSafemode";
 
-import { DOG, TWITTER, X } from "./icons/index";
-import XDaruma from "@content/icons/logo/xdaruma.svg?raw";
+import { DOG, TWITTER, X, XDaruma } from "./icons/index";
 import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.css?url";
