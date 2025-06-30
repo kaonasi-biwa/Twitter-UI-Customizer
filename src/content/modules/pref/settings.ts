@@ -200,6 +200,7 @@ export const TUICSettings = {
             { id: "dog", i18n: "twitterIcon-dog" },
             { id: "twitter", i18n: "twitterIcon-twitter" },
             { id: "twitterIcon-X", i18n: "twitterIcon-X" },
+            { id: "twitterIcon-XDaruma", i18n: "twitterIcon-XDaruma" },
             { id: "custom", i18n: "twitterIcon-custom" },
         ],
     },
