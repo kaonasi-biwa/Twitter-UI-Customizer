@@ -19,7 +19,7 @@ import ICON_COMMON_NONE from "@content/icons/common/none.svg?component";
 import ICON_BRAND_TWITTER from "@content/icons/brand/twitter.svg?component";
 import ICON_BRAND_X from "@content/icons/brand/x.svg?component";
 import ICON_X_DARUMA from "@content/icons/brand/xdaruma.svg?component";
-import ICON_DOG from "@content/icons/logo/dog.png?url";
+import { DOG as ICON_DOG } from "@content/icons/index";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
