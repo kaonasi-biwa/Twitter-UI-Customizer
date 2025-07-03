@@ -54,7 +54,7 @@ export function applyDataCss() {
         --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
     }
     [data-tuic-icon-type="x-daruma"] {
-        background-image: url('data:image/svg+xml,${encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)))}') !important;
+        background-image: url('data:image/svg+xml,${encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIcon", "color", null)))}') !important;
     }`;
 }
 
