@@ -33,7 +33,7 @@ export const SidebarButtonSelectors = {
     muteAndBlock: "#TUICSidebar_muteAndBlock",
     settings: "#TUICSidebar_settings",
     premiumTierSwitch: '[href="/i/premium_tier_switch"],[href="/i/verified-orgs-signup"]',
-    jobs: "#TUICSidebar_jobs",
+    jobs: '[href="/jobs"],#TUICSidebar_jobs',
     spaces: "#TUICSidebar_spaces",
     grok: '[href="/i/grok"]',
 };
