@@ -1,14 +1,19 @@
 import type { JSX } from "solid-js";
+import { For } from "solid-js";
 import { render } from "solid-js/web";
 import { TUICI18N } from "@modules/i18n";
-import { waitForElement, parseHtml, hasClosest } from "@modules/utils/controlElements";
+import { waitForElement, hasClosest } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { backgroundColorClass } from "@content/modules/utils/color";
 import { fontSizeClass } from "@modules/utils/fontSize";
 
 const _data = {
-    engagementsBox: (): Element => {
-        return parseHtml(`<div class="TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}"></div>`).item(0);
+    engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
+        return () => (
+            <div class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}`}>
+                <For each={ids}>{(id) => _data.links(id, article, isShort)}</For>
+            </div>
+        );
     },
     links: (id: string, article: Element, isShort: boolean): JSX.Element => {
         return (
@@ -68,11 +73,11 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
             engageFixListFunc(1);
         }
         for (const engageList of engagementsFixList) {
-            const engagementsBox = _data.engagementsBox();
-            for (const engagementsID of engageList) {
-                render(() => _data.links(engagementsID, articleBase, shortName), engagementsBox);
-            }
-            hasClosest(buttonBarBase, `:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBox, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
+            const engagementsBox = _data.engagementsBox(engageList, articleBase, shortName);
+            const engagementsBoxBase = document.createElement("div");
+            engagementsBoxBase.className = "css-175oi2r TUICEngagementsBoxBase";
+            hasClosest(buttonBarBase, `:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBoxBase, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
+            render(engagementsBox, engagementsBoxBase);
         }
     }
 }
