@@ -161,7 +161,8 @@ const _data = {
         },
         connect: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
+            //_data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
+            document.querySelector<HTMLAnchorElement>(`[data-testid="sidebarColumn"] [role="complementary"] [href^="/i/connect_people"][role="link"]`).click();
         },
         display: async (e: Event) => {
             e?.preventDefault?.();
