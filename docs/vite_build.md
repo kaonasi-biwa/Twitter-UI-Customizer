@@ -37,8 +37,8 @@ Firefox (Stable)で実行される時、Dev Editionより旧バージョンな�
 デバッグの時実行されるFirefoxでプロファイルを作成してください。
 
 Chromium系ブラウザでは、Chrome136からデフォルトのUser Dataディレクトリで実行する際、
-セキュリティ上の理由から`--remote-debugging-port`オプションが無視されるため、
-別のUser Dataディレクトリを作成し指定する(かChrome for Testingを使用する)必要があります。  
+セキュリティ上の理由から`--remote-debugging-pipe`オプションが無視されるため、
+別のUser Dataディレクトリを作成し指定する(かChrome for Testingを使用する?)必要があります。  
 Chromeを`--user-data-dir="<User Data Dir Path>"`オプションでパスを指定して起動することで
 新しいUser Dataディレクトリを作成できます。
 
