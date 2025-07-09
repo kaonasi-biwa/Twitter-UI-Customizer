@@ -156,7 +156,7 @@ const _data = {
         drafts: async (e: Event) => {
             e?.preventDefault?.();
             //_data.buttonClickInMoreMenu( `[href="/compose/tweet/unsent/drafts"]`);
-            document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
+            document.querySelector<HTMLElement>(`[href="/compose/tweet"],[href="/compose/post"]`).click();
             (await waitForElement<HTMLButtonElement>(`[data-testid="unsentButton"]`))[0].click();
         },
         connect: (e: Event) => {
