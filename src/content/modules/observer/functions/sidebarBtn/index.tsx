@@ -68,14 +68,18 @@ const _data = {
                                 <g>{svg()}</g>
                             </svg>
                         </div>
-                        <div dir="ltr" class={`css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
-                            "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
-                            "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
-                            "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
-                            "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
-                            "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
-                        )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`} style="margin-right: 15px; text-overflow: unset;" >
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">{TUICI18N.get("sidebarButtons-" + id)}</span>
+                        <div
+                            dir="ltr"
+                            class={`css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
+                                "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
+                                "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
+                                "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
+                                "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
+                                "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
+                            )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}
+                            style={{ "margin-right": "15px", "text-overflow": "unset" }}
+                        >
+                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style={{ "text-overflow": "unset" }}>{TUICI18N.get("sidebarButtons-" + id)}</span>
                         </div>
                     </div>
                 </a>
@@ -97,7 +101,12 @@ const _data = {
             return _data.html.__base("connect", () => <path d={SIDEBAR_BUTTON_ICON.connect.unselected}></path>);
         },
         display: () => {
-            return _data.html.__base("display", () => <><path d={SIDEBAR_BUTTON_ICON.display.unselected}></path><path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path></>);
+            return _data.html.__base("display", () => (
+                <>
+                    <path d={SIDEBAR_BUTTON_ICON.display.unselected}></path>
+                    <path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>
+                </>
+            ));
         },
         muteAndBlock: () => {
             return _data.html.__base("muteAndBlock", () => <path d={SIDEBAR_BUTTON_ICON.muteAndBlock.unselected}></path>);

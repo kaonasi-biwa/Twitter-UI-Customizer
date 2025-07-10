@@ -22,7 +22,7 @@ const _data = {
                 class={`css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${
                     fontSizeClass("r-1ml3abn", "r-1d7mnkm", "r-w7s2jr", "r-1la3zjv", "r-lgtrmy")
                 }`}
-                style="cursor: pointer;margin-right:1em;"
+                style={{ cursor: "pointer", "margin-right": "1em" }}
                 onClick={async () => {
                     article.querySelector<HTMLInputElement>(`[data-testid="caret"]`).click();
                     await waitForElement(`[data-testid="tweetEngagements"]`);
