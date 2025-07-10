@@ -10,7 +10,11 @@ import { fontSizeClass } from "@modules/utils/fontSize";
 const _data = {
     engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
         return () => (
-            <div class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")}`}>
+            <div
+                class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${
+                    backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")
+                }`}
+            >
                 <For each={ids}>{(id) => _data.links(id, article, isShort)}</For>
             </div>
         );
@@ -31,8 +35,14 @@ const _data = {
                     document.querySelector<HTMLAnchorElement>(`[role="tab"][href$="/${id}"]`).click();
                 }}
             >
-                <span class={`css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}>
-                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}</span>
+                <span
+                    class={`css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${
+                        fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
+                    } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
+                >
+                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
+                        {TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}
+                    </span>
                 </span>
             </div>
         );

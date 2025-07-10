@@ -62,9 +62,19 @@ const _data = {
                         }
                     }}
                 >
-                    <div class={`css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}`}>
+                    <div
+                        class={`css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${
+                            fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")
+                        }`}
+                    >
                         <div class="css-175oi2r">
-                            <svg viewBox="0 0 24 24" aria-hidden="true" class={`r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}>
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                                class={`r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${
+                                    backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"
+                                }`}
+                            >
                                 <g>{svg()}</g>
                             </svg>
                         </div>
@@ -79,7 +89,9 @@ const _data = {
                             )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}
                             style={{ "margin-right": "15px", "text-overflow": "unset" }}
                         >
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style={{ "text-overflow": "unset" }}>{TUICI18N.get("sidebarButtons-" + id)}</span>
+                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style={{ "text-overflow": "unset" }}>
+                                {TUICI18N.get("sidebarButtons-" + id)}
+                            </span>
                         </div>
                     </div>
                 </a>
