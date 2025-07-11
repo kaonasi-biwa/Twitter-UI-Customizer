@@ -22,12 +22,12 @@ const _data = {
     all: getSettingIDs("tweetTopButton"),
     selector: {
         moreMenu: `[data-testid="caret"]`,
-        block: `[TUICTweetTopButton="block"]`,
-        mute: `[TUICTweetTopButton="mute"]`,
-        delete: `[TUICTweetTopButton="delete"]`,
-        list: `[TUICTweetTopButton="list"]`,
-        report: `[TUICTweetTopButton="report"]`,
-        notInterested: `[TUICTweetTopButton="notInterested"]`,
+        block: `[data-tuic-tweet-top-button="block"]`,
+        mute: `[data-tuic-tweet-top-button="mute"]`,
+        delete: `[data-tuic-tweet-top-button="delete"]`,
+        list: `[data-tuic-tweet-top-button="list"]`,
+        report: `[data-tuic-tweet-top-button="report"]`,
+        notInterested: `[data-tuic-tweet-top-button="notInterested"]`,
     },
     buttonElement: {
         /**
@@ -44,7 +44,7 @@ const _data = {
                     class={`css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr${
                         disable ? "" : " r-1loqt21"
                     } r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}`}
-                    {...{ TUICTweetTopButton: type }}
+                    data-tuic-tweet-top-button={type}
                     onKeyDown={
                         eventFunc !== undefined
                             ? (e: KeyboardEvent) => {
@@ -250,7 +250,7 @@ function placeTweetTopButtons(articleInfo: ArticleInfomation) {
         } else if (i in _data.buttonElement) {
             const newdiv = _data.buttonElement[i](articleBase.querySelector(_data.selector.moreMenu), articleInfo);
             render(newdiv, tweetTopParent);
-            div = tweetTopParent.querySelector<HTMLDivElement>(`[TUICTweetTopButton]`);
+            div = tweetTopParent.querySelector<HTMLDivElement>(`[data-tuic-tweet-top-button]`);
             tweetTopButtons[i] = div;
         }
         if (!isFirst) {
