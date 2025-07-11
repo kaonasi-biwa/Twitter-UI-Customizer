@@ -44,8 +44,7 @@ const _data = {
                     class={`css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr${
                         disable ? "" : " r-1loqt21"
                     } r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}`}
-                    //@ts-expect-error TUICTweetTopButton
-                    TUICTweetTopButton={type}
+                    {...{ TUICTweetTopButton: type }}
                     onKeyDown={
                         eventFunc !== undefined
                             ? (e: KeyboardEvent) => {
