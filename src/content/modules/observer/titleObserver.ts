@@ -2,6 +2,9 @@ import { TUICI18N } from "@modules/i18n";
 import { isSafemode } from "@modules/settings/safemode/isSafemode";
 import { getPref } from "../pref";
 
+
+const notificationsRegexp = /^(\([0-9]+\))[0-9() ]+([^0-9() ])/
+
 const headObserver: MutationObserver = new MutationObserver(titleObserverFunction);
 export function titleObserverFunction() {
     let stoppedObserver = false;
@@ -71,6 +74,12 @@ export function titleObserverFunction() {
             } else if (document.title.endsWith(" / X")) {
                 document.title = document.title.replace(/(.*)\/ X/, "$1/ Twitter");
             }
+
+        }
+        if(notificationsRegexp.test(document.title)){
+            headObserver.disconnect();
+            stoppedObserver = true;
+            document.title = document.title.replace(notificationsRegexp,"$1 $2")
         }
     } /* else if (document.title.endsWith(" / Twitter")) {
         headObserver.disconnect();
