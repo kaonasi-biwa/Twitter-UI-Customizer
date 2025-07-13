@@ -3,13 +3,13 @@ import { getPref } from "@modules/pref";
 
 // NOTE: 条件分岐とClass付与を一行にまとめる場合は、.? をつけるのを忘れないようにしましょう
 export function hideElements() {
-    document.querySelectorAll<HTMLElement>('a[href$="quick_promote_web/intro"]').forEach((e) => {
+    /*document.querySelectorAll<HTMLElement>('a[href$="quick_promote_web/intro"]').forEach((e) => {
         if (getPref("tweetDisplaySetting.invisible.twitter-pro-promotion-btn")) {
             hideElement(e);
         } else {
             showElement(e);
         }
-    });
+    });*/
 
     rightSidebar();
     profile();

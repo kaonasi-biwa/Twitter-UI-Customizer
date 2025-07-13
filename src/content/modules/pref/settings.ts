@@ -171,7 +171,7 @@ export const TUICSettings = {
         type: "boolean",
         values: [
             { id: "bottomSpace", i18n: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", default: false },
-            { id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn", default: false },
+            //{ id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn", default: false },
             { id: "subscribe-tweets", i18n: "invisibleItems-subscribeTweets", default: false },
             { id: "askGrok", i18n: "bottomTweetButtons-setting-askGrok", default: false },
         ],

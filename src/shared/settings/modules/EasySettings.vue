@@ -57,7 +57,7 @@ const buttonList = [
             },
             tweetDisplaySetting: {
                 invisible: {
-                    "twitter-pro-promotion-btn": true,
+                    //"twitter-pro-promotion-btn": true,
                     "subscribe-tweets": true,
                 },
             },
