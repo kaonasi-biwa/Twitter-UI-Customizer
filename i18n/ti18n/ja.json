@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "前",
     "postingDialog-toolbar-items-geoButton": "位置情報を追加",
     "postingDialog-toolbar-items-scheduleOption": "ツイートを予約",
     "postingDialog-toolbar-items-addEmoji": "絵文字を追加",
@@ -25,7 +26,6 @@
     "XtoTwitter-PostToTweet-blocked-none-button": "ツイートを表示",
     "XtoTwitter-PostToTweet-blocked-none-body-old": "ツイートを表示してもよろしいですか？ツイートを表示しても、@{screenName}さんのブロックは解除されません。",
     "XtoTwitter-PostToTweet-blocked-none-body-latest": "このポストを表示してもよろしいですか？これによって@{screenName}さんのブロックが解除されることはありません。",
-    "XtoTwitter-PostToTweet-block-dialogBody-latest": "このアカウントは、あなたをフォローできなくなり、あなたのポストも表示できなくなります。また、@{screenName}からのポストや通知は表示されなくなります。",
     "XtoTwitter-PostToTweet-block-dialogBody-old": "@{screenName}さんをブロックすると、@{screenName}さんはあなたをフォローしたりあなたにメッセージを送信したりできなくなります。また、@{screenName}さんからの通知は表示されなくなります。",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-latest": "この操作は取り消せません。プロフィール、あなたをフォローしているアカウントのタイムライン、検索結果からポストが削除されます。",
     "XtoTwitter-PostToTweet-deleteTweet-dialogBody-old": "この操作は取り消せません。プロフィール、あなたをフォローしているアカウントのタイムライン、Twitterの検索結果からツイートが削除されます。",
