@@ -53,6 +53,7 @@ export class WebExtRun {
                 if (this.args.mode === "firefox") {
                     this.webExtRunner = await this.webExt.cmd.run(
                         {
+                            target: "firefox-desktop",
                             sourceDir: this.args.sourceDir,
                             noReload: true,
                             startUrl: "twitter.com",
@@ -66,19 +67,32 @@ export class WebExtRun {
                         process.exit(0);
                     });
                 } else if (this.args.mode === "chromium") {
-                    console.error("Currently Chromium is not supported.");
-                    // this.webExtRunner = await this.webExt.cmd.run(
-                    //     {
-                    //         sourceDir: this.args.sourceDir,
-                    //         noReload: true,
-                    //         startUrl: "twitter.com",
-                    //         target: "chromium",
-                    //         chromium: this.args.chromium.executable,
-                    //         chromiumProfile: this.args.chromium.profile,
-                    //         keepProfileChanges: this.args.chromium.keep_profile_changes,
-                    //     },
-                    //     {},
-                    // );
+                    if (!this.args.chromium.keep_profile_changes) {
+                        console.warn("Chromiumで実行の場合、.env.localや環境変数にkeepProfileChangesを指定することをおすすめします。");
+                        console.warn("このオプションを有効にしない場合、プロファイルをコピーして実行されますが、");
+                        console.warn("ログイン情報が利用できません。詳細は.env.local.exampleファイルを参照してください。");
+                    }
+                    if (!this.args.chromium.profile) {
+                        console.error("Chromiumで実行の場合、.env.localや環境変数にプロファイルを指定してください。");
+                        console.error("defaultプロファイルで実行した場合、設定の汚染が起こるおそれがあります。");
+                        console.error("詳しくは.env.local.exampleファイルを参照してください。");
+                        process.exit(-1);
+                    }
+                    this.webExtRunner = await this.webExt.cmd.run(
+                        {
+                            target: "chromium",
+                            sourceDir: this.args.sourceDir,
+                            //noReload: true,
+                            startUrl: "twitter.com",
+                            chromiumBinary: this.args.chromium.executable,
+                            chromiumProfile: this.args.chromium.profile,
+                            keepProfileChanges: this.args.chromium.keep_profile_changes,
+                        },
+                        {},
+                    );
+                    this.webExtRunner.registerCleanup(() => {
+                        process.exit(0);
+                    });
                 }
             } else {
                 await this.webExt.cmd.build(

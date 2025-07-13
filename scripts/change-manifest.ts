@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import fsSync from "node:fs";
+import type { Manifest } from "webextension-polyfill";
 import manifest from "../manifest.config";
 
 export async function changeManifest(target: string) {
@@ -14,17 +15,13 @@ export async function changeManifest(target: string) {
         process.exit(1);
     }
 
-    type ExcludeAll<T> = { [P in keyof T]?: never };
-    type Firefox = typeof manifest.common & typeof manifest.firefox;
-    type Chromium = typeof manifest.common & typeof manifest.chromium & ExcludeAll<typeof manifest.chromiumCRX>;
-    type ChromiumCRX = typeof manifest.common & typeof manifest.chromium & typeof manifest.chromiumCRX;
-    let output: Firefox | Chromium | ChromiumCRX;
+    let output: Manifest.WebExtensionManifest & { update_url?: string };
     if (target == "chromiumCRX") {
-        output = Object.assign(config.common, config.chromium, config.chromiumCRX);
+        output = Object.assign(config.common, config.chromium, config.chromiumCRX) as Manifest.WebExtensionManifest & { update_url: string };
         const repo = process.env["GITHUB_REPO"];
         output.update_url = output.update_url.replace("$(github.repository)", repo);
     } else {
-        output = Object.assign(config.common, config[target]);
+        output = Object.assign(config.common, config[target]) as Manifest.WebExtensionManifest;
     }
 
     if (!fsSync.existsSync("./dist")) {

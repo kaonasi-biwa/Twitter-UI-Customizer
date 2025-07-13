@@ -13,7 +13,7 @@ const updateCheck = async () => {
         .then((json) => json.tag_name);
     const extensionVersion = chrome.runtime.getManifest().version;
     if (!chrome.notifications.onClicked.hasListener(updateNotification) && githubVersion && extensionVersion && githubVersion.replace(/\r?\n/g, "") != extensionVersion.replace(/\r?\n/g, "")) {
-        chrome.notifications.create(`aaa${Math.floor(Math.random() * 9007199254740992) + 1}`, {
+        chrome.notifications.create(`Twitter-UI-Customizer-${Math.floor(Math.random() * 900719925474099) + 1}`, {
             type: "basic",
             title: chrome.i18n.getMessage("extensionName"),
             message: chrome.i18n.getMessage("notificationMessage", [extensionVersion.replace(/\r?\n/g, ""), githubVersion.replace(/\r?\n/g, "")]),

@@ -2,6 +2,7 @@ import DOG from "./logo/dog.png?url";
 import EMPTY from "./logo/empty.svg?url";
 import TWITTER from "./logo/twitter.svg?url";
 import X from "./logo/x.svg?url";
+import XDaruma from "./logo/xdaruma.svg?raw";
 
 import ARROW_DOWN from "./arrow/arrow_down.svg?url";
 import ARROW_LEFT from "./arrow/arrow_left.svg?url";
@@ -9,7 +10,7 @@ import ARROW_RIGHT from "./arrow/arrow_right.svg?url";
 import ARROW_UP from "./arrow/arrow_up.svg?url";
 import RESET from "./arrow/reset.svg?url";
 
-export { DOG, EMPTY, TWITTER, X, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, ARROW_UP, RESET };
+export { DOG, EMPTY, TWITTER, X, XDaruma, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, ARROW_UP, RESET };
 
 type SelectedIcons = Record<string, {
     unselected: string;

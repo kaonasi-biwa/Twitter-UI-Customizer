@@ -1,6 +1,6 @@
 // Objectの中身はこれに従ってください
+/* eslint-disable style/indent, style/indent-binary-ops, style/no-multi-spaces, style/operator-linebreak */
 type TUICSetting =
-    /* eslint-disable style/indent, style/indent-binary-ops, style/no-multi-spaces */
     |   {
             type: "color"; // 色設定 あとから変更する予定です
             values: { id: string; i18n: string }[];
@@ -8,7 +8,7 @@ type TUICSetting =
     |   { type: "order"; default: string[]; values: { id: string; i18n: string }[] } // 並び替え
     |   { type: "select"; default: string; values: { id: string; i18n: string }[] } //ラジオボタンなどの一つのみ設定するやつ
     |   { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] }; //チェックボックスなどの一つ一つがboolean型の設定になるもの
-    /* eslint-enable style/indent, style/indent-binary-ops, style/no-multi-spaces */
+/* eslint-enable style/indent, style/indent-binary-ops, style/no-multi-spaces, style/operator-linebreak */
 export const TUICSettings = {
     // 色の設定
     buttonColor: {
@@ -171,7 +171,7 @@ export const TUICSettings = {
         type: "boolean",
         values: [
             { id: "bottomSpace", i18n: "bottomTweetButtons-setting-removeSpaceBottomTweet-v2", default: false },
-            { id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn", default: false },
+            //{ id: "twitter-pro-promotion-btn", i18n: "invisibleItems-twitterProPromotionBtn", default: false },
             { id: "subscribe-tweets", i18n: "invisibleItems-subscribeTweets", default: false },
             { id: "askGrok", i18n: "bottomTweetButtons-setting-askGrok", default: false },
         ],
@@ -200,6 +200,7 @@ export const TUICSettings = {
             { id: "dog", i18n: "twitterIcon-dog" },
             { id: "twitter", i18n: "twitterIcon-twitter" },
             { id: "twitterIcon-X", i18n: "twitterIcon-X" },
+            { id: "twitterIcon-XDaruma", i18n: "twitterIcon-XDaruma" },
             { id: "custom", i18n: "twitterIcon-custom" },
         ],
     },

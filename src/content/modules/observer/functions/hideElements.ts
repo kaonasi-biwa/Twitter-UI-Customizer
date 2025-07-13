@@ -5,13 +5,13 @@ import { TUICI18N } from "@content/modules/i18n";
 
 // NOTE: 条件分岐とClass付与を一行にまとめる場合は、.? をつけるのを忘れないようにしましょう
 export function hideElements() {
-    document.querySelectorAll<HTMLElement>('a[href$="quick_promote_web/intro"]').forEach((e) => {
+    /*document.querySelectorAll<HTMLElement>('a[href$="quick_promote_web/intro"]').forEach((e) => {
         if (getPref("tweetDisplaySetting.invisible.twitter-pro-promotion-btn")) {
             hideElement(e);
         } else {
             showElement(e);
         }
-    });
+    });*/
 
     rightSidebar();
     profile();
@@ -33,7 +33,7 @@ export function hideElements() {
         hideElement(hasClosest(document.querySelector(`:not([data-tuic-hide="true"]) > * > [data-testid="SideNav_AccountSwitcher_Button"]`), `:scope > * > [data-testid="SideNav_AccountSwitcher_Button"]`));
     }
 
-    document.querySelectorAll<HTMLElement>('[href="/settings/monetization"], [href="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
+    document.querySelectorAll<HTMLElement>('[href="/settings/monetization"], :not(nav[role="navigation"]) > [href^="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]').forEach((e) => {
         if (getPref("invisibleItems.config-premium")) {
             hideElement(e);
         } else {
@@ -65,7 +65,7 @@ export function hideElements() {
 
 function rightSidebar() {
     if (getPref("rightSidebar.verified")) {
-        hideElement(hasClosest(document.querySelector(`*:not([data-tuic-hide="true"]) > [role="complementary"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"], [href="/i/premium_sign_up"])`), `[role="complementary"]`));
+        hideElement(hasClosest(document.querySelector(`*:not([data-tuic-hide="true"]) > div > [data-testid="super-upsell-UpsellCardRenderProperties"] :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"], [href="/i/premium_sign_up"])`), `[data-testid="super-upsell-UpsellCardRenderProperties"]`)?.closest(`div+div`));
     }
     if (getPref("rightSidebar.trend")) {
         hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="trend"]`), ":scope >  section"));
