@@ -38,12 +38,12 @@ export const SidebarButtonSelectors = {
     grok: '[href="/i/grok"]',
 };
 
-const _data:Record<string, {
+const _data: Record<string, {
     html: () => () => JSX.Element;
     onclick: (e?: Event) => void;
-    url: string | (() => string)
+    url: string | (() => string);
 }> = {
-    topics:{
+    topics: {
         html: () => {
             return createSidebarButton("topics", () => <path d={SIDEBAR_BUTTON_ICON.topics.unselected}></path>);
         },
@@ -71,7 +71,7 @@ const _data:Record<string, {
         },
     },
     lists: {
-        html : () => {
+        html: () => {
             return createSidebarButton("lists", () => <path d={SIDEBAR_BUTTON_ICON.lists.unselected}></path>);
         },
         onclick: (e: Event) => {
@@ -107,7 +107,7 @@ const _data:Record<string, {
             document.querySelector<HTMLElement>(`[href="/compose/tweet"],[href="/compose/post"]`).click();
             (await waitForElement<HTMLButtonElement>(`[data-testid="unsentButton"]`))[0].click();
         },
-        url: "/compose/tweet/unsent/drafts"
+        url: "/compose/tweet/unsent/drafts",
     },
     connect: {
         html: () => {
@@ -118,7 +118,7 @@ const _data:Record<string, {
             //buttonClickInMoreMenu(`[href="/i/connect_people"]`);
             document.querySelector<HTMLAnchorElement>(`[data-testid="sidebarColumn"] [role="complementary"] [href^="/i/connect_people"][role="link"]`).click();
         },
-        url: "/i/connect_people"
+        url: "/i/connect_people",
     },
     display: {
         html: () => {
@@ -166,9 +166,9 @@ const _data:Record<string, {
                 }, 150);
             }
         },
-        url:  "/i/display"
+        url: "/i/display",
     },
-    muteAndBlock:{
+    muteAndBlock: {
         html: () => {
             return createSidebarButton("muteAndBlock", () => <path d={SIDEBAR_BUTTON_ICON.muteAndBlock.unselected}></path>);
         },
@@ -191,9 +191,9 @@ const _data:Record<string, {
                 }, 150);
             }
         },
-        url: "/settings/mute_and_block"
+        url: "/settings/mute_and_block",
     },
-    bookmarks:{
+    bookmarks: {
         html: () => {
             return createSidebarButton("bookmarks", () => <path d={SIDEBAR_BUTTON_ICON.bookmarks.unselected}></path>);
         },
@@ -201,9 +201,9 @@ const _data:Record<string, {
             e?.preventDefault?.();
             buttonClickInMoreMenu(`[href="/i/bookmarks"]`);
         },
-        url: "/i/bookmarks"
+        url: "/i/bookmarks",
     },
-    settings:{
+    settings: {
         html: () => {
             return createSidebarButton("settings", () => <path d={SIDEBAR_BUTTON_ICON.settings.unselected}></path>);
         },
@@ -221,7 +221,7 @@ const _data:Record<string, {
                 }, 150);
             }
         },
-        url: "/settings/"
+        url: "/settings/",
     },
     jobs: {
         html: () => {
@@ -231,7 +231,7 @@ const _data:Record<string, {
             e?.preventDefault?.();
             buttonClickInMoreMenu(`[href="/jobs"]`);
         },
-        url: "/jobs/"
+        url: "/jobs/",
     },
     spaces: {
         html: () => {
@@ -241,12 +241,11 @@ const _data:Record<string, {
             e?.preventDefault?.();
             buttonClickInMoreMenu(`[href="/i/spaces/start"]`);
         },
-        url: "/i/spaces/start/"
-    }
-}
+        url: "/i/spaces/start/",
+    },
+};
 
-
-function createSidebarButton(id: string, svg: () => JSX.Element) : () => JSX.Element{
+function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Element {
     return () => (
         <a
             id={`TUICSidebar_${id}`}
@@ -255,7 +254,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element) : () => JSX.Ele
             )}
             role="link"
             tabindex="0"
-            class={`css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton`}
+            class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton"
             data-tuic-hide="false"
             onClick={_data[id].onclick}
             onKeyDown={(e: KeyboardEvent) => {
@@ -329,7 +328,7 @@ const setDynamicUrl = (id: string, selector: string, setURLWay: (arg0: HTMLEleme
         })();
         return "";
     }
-}
+};
 
 export function sidebarButtons() {
     if (location.pathname == "/i/delegate/switch" && getPref("sidebarSetting.buttonConfig.autoDelegate")) {
