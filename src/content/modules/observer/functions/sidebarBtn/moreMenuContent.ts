@@ -6,7 +6,7 @@ const _data = {
     all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
-        monetization: `[data-testid="Dropdown"] [href="/settings/monetization"]`,
+        monetization: `[data-testid="Dropdown"] :is([href="/settings/monetization"],[href="/i/monetization"])`,
         separator: `[data-testid="Dropdown"] [role="separator"]`,
         creatorStudio: `[data-testid="Dropdown"] [aria-controls$="_0_content"]`,
         professionalTool: `[data-testid="Dropdown"] [aria-controls$="_1_content"]`,

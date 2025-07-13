@@ -1,5 +1,6 @@
 [data-tuic-icon-type="dog"],
 [data-tuic-icon-type^="officialLogo"],
+[data-tuic-icon-type="x-daruma"],
 [data-tuic-icon-type="custom"] {
     &:not([role="alertdialog"] [data-testid="confirmationSheetDialog"] *) {
         &:not([role="img"] > * > *) {
@@ -14,7 +15,7 @@
     }
 }
 
-#placeholder > :is([data-tuic-icon-type="dog"], [data-tuic-icon-type^="officialLogo"], [data-tuic-icon-type="custom"]) {
+#placeholder > :is([data-tuic-icon-type="dog"], [data-tuic-icon-type^="officialLogo"], [data-tuic-icon-type="x-daruma"], [data-tuic-icon-type="custom"]) {
     position: absolute;
     margin: auto;
 }
@@ -27,7 +28,7 @@
         margin-left: auto;
     }
 
-    &:is([data-tuic-icon-type="dog"], [data-tuic-icon-type=^"officialLogo"], [data-tuic-icon-type="custom"]) {
+    &:is([data-tuic-icon-type="dog"], [data-tuic-icon-type=^"officialLogo"], [data-tuic-icon-type="x-daruma"], [data-tuic-icon-type="custom"]) {
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain !important;

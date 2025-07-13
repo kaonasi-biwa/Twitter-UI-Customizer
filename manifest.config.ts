@@ -1,4 +1,11 @@
-export default {
+import type { Manifest } from "webextension-polyfill";
+
+const manifest: {
+    common: Partial<Manifest.WebExtensionManifest>;
+    firefox: Partial<Manifest.WebExtensionManifest>;
+    chromium: Partial<Manifest.WebExtensionManifest>;
+    chromiumCRX: Partial<Manifest.WebExtensionManifest> & { update_url: string };
+} = {
     // 共通設定
     common: {
         name: "__MSG_extensionName__",
@@ -86,3 +93,5 @@ export default {
         update_url: "https://github.com/$(github.repository)/releases/latest/download/crxupdate.xml",
     },
 };
+
+export default manifest;

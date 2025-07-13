@@ -46,7 +46,7 @@ export default tseslint.config(
             "import-x/no-named-default": "error",
             "import-x/no-self-import": "error",
             "import-x/newline-after-import": "error",
-            "import-x/no-cycle": "warn",
+            "import-x/no-cycle": "error",
             "import-x/no-named-as-default-member": 0,
             "unocss/order": 0,
             "style/spaced-comment": 0,

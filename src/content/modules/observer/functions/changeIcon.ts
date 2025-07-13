@@ -1,6 +1,7 @@
 import DOG from "@content/icons/logo/dog.png?url";
 import TWITTER from "@content/icons/logo/twitter.svg?raw";
 import X from "@content/icons/logo/x.svg?raw";
+import { XDaruma } from "@content/icons/index";
 import EMPTY from "@content/icons/logo/empty.svg?url";
 import { getColorFromPref } from "@content/modules/utils/color";
 import { getPref } from "@modules/pref";
@@ -63,6 +64,12 @@ function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
             elem.dataset.tuicIconType = "officialLogo-X";
+            break;
+        case "twitterIcon-XDaruma":
+            if (favicon && changeFavicon) {
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+            }
+            elem.dataset.tuicIconType = "x-daruma";
             break;
         default:
             if (favicon) {

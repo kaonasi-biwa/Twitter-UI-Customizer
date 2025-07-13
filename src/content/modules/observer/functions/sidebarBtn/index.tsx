@@ -1,4 +1,6 @@
-import { waitForElement, parseHtml, hideElement } from "@modules/utils/controlElements";
+import type { JSX } from "solid-js";
+import { render } from "solid-js/web";
+import { waitForElement, hideElement } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
 import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
@@ -26,12 +28,12 @@ export const SidebarButtonSelectors = {
     drafts: "#TUICSidebar_drafts",
     connect: "#TUICSidebar_connect",
     communitynotes: '[href="/i/communitynotes"]',
-    "verified-choose": '[href="/i/verified-choose"],[href="/i/verified-orgs-signup"],[href="/i/premium_sign_up"]',
+    "verified-choose": '[href="/i/verified-choose"],[href="/i/premium_sign_up"]',
     display: "#TUICSidebar_display",
     muteAndBlock: "#TUICSidebar_muteAndBlock",
     settings: "#TUICSidebar_settings",
-    premiumTierSwitch: '[href="/i/premium_tier_switch"]',
-    jobs: "#TUICSidebar_jobs",
+    premiumTierSwitch: '[href="/i/premium_tier_switch"],[href="/i/verified-orgs-signup"]',
+    jobs: '[href="/jobs"],#TUICSidebar_jobs',
     spaces: "#TUICSidebar_spaces",
     grok: '[href="/i/grok"]',
 };
@@ -39,61 +41,99 @@ export const SidebarButtonSelectors = {
 const _data = {
     selectors: SidebarButtonSelectors,
     html: {
-        __base: (id: string, svg: string): string => {
-            return `
-            <a id="TUICSidebar_${id}" href="${getPrimitiveOrFunction<string>(
-                _data.tuicButtonGoToUrl[id],
-            )}" role="link" tabindex="0" class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton ${location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""}">
-                <div class="css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}">
-                    <div class="css-175oi2r">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}">
-                            <g>${svg}</g>
-                        </svg>
+        __base: (id: string, svg: () => JSX.Element): () => JSX.Element => {
+            return () => (
+                <a
+                    id={`TUICSidebar_${id}`}
+                    href={getPrimitiveOrFunction<string>(
+                        _data.tuicButtonGoToUrl[id],
+                    )}
+                    role="link"
+                    tabindex="0"
+                    class={`css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton ${
+                        location.pathname.endsWith("/topics") ? "TUICSidebarSelected" : ""
+                    }`}
+                    data-tuic-hide="false"
+                    onClick={_data.buttonFunctions[id]}
+                    onKeyDown={(e: KeyboardEvent) => {
+                        if (e.key === "Enter") {
+                            e.preventDefault();
+                            _data.buttonFunctions[id]();
+                        }
+                    }}
+                >
+                    <div
+                        class={`css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${
+                            fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")
+                        }`}
+                    >
+                        <div class="css-175oi2r">
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                                class={`r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${
+                                    backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"
+                                }`}
+                            >
+                                <g>{svg()}</g>
+                            </svg>
+                        </div>
+                        <div
+                            dir="ltr"
+                            class={`css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
+                                "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
+                                "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
+                                "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
+                                "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
+                                "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
+                            )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}
+                            style={{ "margin-right": "15px", "text-overflow": "unset" }}
+                        >
+                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style={{ "text-overflow": "unset" }}>
+                                {TUICI18N.get("sidebarButtons-" + id)}
+                            </span>
+                        </div>
                     </div>
-                    <div dir="ltr" class="css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
-                        "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
-                        "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
-                        "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
-                        "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
-                        "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
-                    )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}" style="margin-right: 15px; text-overflow: unset;" >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style="text-overflow: unset;">${TUICI18N.get("sidebarButtons-" + id)}</span>
-                    </div>
-                </div>
-            </a>`;
+                </a>
+            );
         },
-        topics: (): string => {
-            return _data.html.__base("topics", `<path d="${SIDEBAR_BUTTON_ICON.topics.unselected}"></path>`);
+        topics: () => {
+            return _data.html.__base("topics", () => <path d={SIDEBAR_BUTTON_ICON.topics.unselected}></path>);
         },
         lists: () => {
-            return _data.html.__base("lists", `<path d="${SIDEBAR_BUTTON_ICON.lists.unselected}"></path>`);
+            return _data.html.__base("lists", () => <path d={SIDEBAR_BUTTON_ICON.lists.unselected}></path>);
         },
         /*"communities": () => {
-            return _data.html.__base("communities",`<path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"></path>`)
+            return _data.html.__base("communities", () => <path d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z"></path>);
         },*/
-        drafts: (): string => {
-            return _data.html.__base("drafts", `<path d="${SIDEBAR_BUTTON_ICON.drafts.unselected}">`);
+        drafts: () => {
+            return _data.html.__base("drafts", () => <path d={SIDEBAR_BUTTON_ICON.drafts.unselected}></path>);
         },
-        connect: (): string => {
-            return _data.html.__base("connect", `<path d="${SIDEBAR_BUTTON_ICON.connect.unselected}"></path>`);
+        connect: () => {
+            return _data.html.__base("connect", () => <path d={SIDEBAR_BUTTON_ICON.connect.unselected}></path>);
         },
-        display: (): string => {
-            return _data.html.__base("display", `<path d="${SIDEBAR_BUTTON_ICON.display.unselected}"></path><path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>`);
+        display: () => {
+            return _data.html.__base("display", () => (
+                <>
+                    <path d={SIDEBAR_BUTTON_ICON.display.unselected}></path>
+                    <path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>
+                </>
+            ));
         },
-        muteAndBlock: (): string => {
-            return _data.html.__base("muteAndBlock", `<path d="${SIDEBAR_BUTTON_ICON.muteAndBlock.unselected}"></path>`);
+        muteAndBlock: () => {
+            return _data.html.__base("muteAndBlock", () => <path d={SIDEBAR_BUTTON_ICON.muteAndBlock.unselected}></path>);
         },
-        bookmarks: (): string => {
-            return _data.html.__base("bookmarks", `<path d="${SIDEBAR_BUTTON_ICON.bookmarks.unselected}"></path>`);
+        bookmarks: () => {
+            return _data.html.__base("bookmarks", () => <path d={SIDEBAR_BUTTON_ICON.bookmarks.unselected}></path>);
         },
-        settings: (): string => {
-            return _data.html.__base("settings", `<path d="${SIDEBAR_BUTTON_ICON.settings.unselected}"></path>`);
+        settings: () => {
+            return _data.html.__base("settings", () => <path d={SIDEBAR_BUTTON_ICON.settings.unselected}></path>);
         },
-        jobs: (): string => {
-            return _data.html.__base("jobs", `<path d="${SIDEBAR_BUTTON_ICON.jobs.unselected}"></path>`);
+        jobs: () => {
+            return _data.html.__base("jobs", () => <path d={SIDEBAR_BUTTON_ICON.jobs.unselected}></path>);
         },
-        spaces: (): string => {
-            return _data.html.__base("spaces", `<path d="${SIDEBAR_BUTTON_ICON.spaces.unselected}"></path>`);
+        spaces: () => {
+            return _data.html.__base("spaces", () => <path d={SIDEBAR_BUTTON_ICON.spaces.unselected}></path>);
         },
     },
     buttonClickInMoreMenu: async (selector: string) => {
@@ -137,12 +177,13 @@ const _data = {
         drafts: async (e: Event) => {
             e?.preventDefault?.();
             //_data.buttonClickInMoreMenu( `[href="/compose/tweet/unsent/drafts"]`);
-            document.querySelector<HTMLElement>(`[href="/compose/tweet"]`).click();
+            document.querySelector<HTMLElement>(`[href="/compose/tweet"],[href="/compose/post"]`).click();
             (await waitForElement<HTMLButtonElement>(`[data-testid="unsentButton"]`))[0].click();
         },
         connect: (e: Event) => {
             e?.preventDefault?.();
-            _data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
+            //_data.buttonClickInMoreMenu(`[href="/i/connect_people"]`);
+            document.querySelector<HTMLAnchorElement>(`[data-testid="sidebarColumn"] [role="complementary"] [href^="/i/connect_people"][role="link"]`).click();
         },
         display: async (e: Event) => {
             e?.preventDefault?.();
@@ -326,16 +367,8 @@ function sidebarButtonProcess(bannerRoot: HTMLElement) {
                 }
                 sidebarButtonsCount += 1;
             } else if (i in _data.html) {
-                moveElem = parseHtml(_data.html[i]()).item(0) as HTMLElement;
-                moveElem.dataset.tuicHide = "false";
-                moveElem.onclick = _data.buttonFunctions[i];
-                moveElem.addEventListener("keydown", (e: KeyboardEvent) => {
-                    if (e.key === "Enter") {
-                        e.preventDefault();
-                        _data.buttonFunctions[i]();
-                    }
-                });
-                bannerRoot.appendChild(moveElem);
+                render(_data.html[i](), bannerRoot);
+                moveElem = bannerRoot.querySelector<HTMLAnchorElement>(`#TUICSidebar_${i}`);
                 sidebarButtonsCount += 1;
             }
         }

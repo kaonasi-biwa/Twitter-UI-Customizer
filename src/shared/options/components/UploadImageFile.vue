@@ -31,9 +31,8 @@ async function changeCustomCSS() {
                 context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
                 context.clip();
                 const image = new Image();
-                image.onload = function () {
+                image.onload = function (this: HTMLImageElement) {
                     context.beginPath();
-                    //@ts-expect-error idk
                     context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
                     localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                     resolve(null);

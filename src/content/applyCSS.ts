@@ -1,6 +1,6 @@
 import { isSafemode } from "@modules/settings/safemode/isSafemode";
 
-import { DOG, TWITTER, X } from "./icons/index";
+import { DOG, TWITTER, X, XDaruma } from "./icons/index";
 import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.css?url";
@@ -52,6 +52,9 @@ export function applyDataCss() {
     }
     [data-tuic-icon-type="officialLogo-X"] {
         --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
+    }
+    [data-tuic-icon-type="x-daruma"] {
+        background-image: url('data:image/svg+xml,${encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIcon", "color", null)))}') !important;
     }`;
 }
 

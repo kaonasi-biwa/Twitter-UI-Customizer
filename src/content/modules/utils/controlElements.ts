@@ -14,9 +14,9 @@ export function parseHtml(elem: string): HTMLCollection {
  * HTMLで用いるために&'`"<>=;を&を用いた表記にエスケープします。
  *
  * @param {string} text エスケープ前の文字列
- * @return {text} エスケープ後の文字列
+ * @return {string} エスケープ後の文字列
  */
-export function escapeToUseHTML(text) {
+export function escapeToUseHTML(text: string): string {
     return text
         .replace(/[&'`"<>=;]/g, (match) => {
             return {
