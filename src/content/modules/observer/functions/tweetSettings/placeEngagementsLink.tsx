@@ -57,12 +57,12 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
     }
 
     if (getPref("engagementsLink.option.placeEngagementsLink")) {
-        const engageentsTypeList = getPref("fixEngagements");
+        const engageentsTypeList: string[] = getPref("fixEngagements");
         const shortName = getPref("engagementsLink.option.placeEngagementsLinkShort");
 
-        const engagementsFixList = [];
+        const engagementsFixList: string[][][] = [];
         const engageFixListFunc = (count: number) => {
-            let tempArr = [];
+            let tempArr: string[][] = [];
             for (const engageentsType of engageentsTypeList) {
                 tempArr.push([engageentsType]);
                 if (tempArr.length == count) {
