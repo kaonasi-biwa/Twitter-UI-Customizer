@@ -15,7 +15,7 @@ export const vitePluginUnoCSS = async (configOrPath?: string | UserConfig): Prom
                 postcssUnocss({
                     configOrPath: configOrPath,
                 }),
-            ]).process("@unocss;", { from: "src/content/styles/unocss.css" });
+            ]).process("@unocss;", { from: "src/content/styles/uno.css" });
             //unoResult.messages.map((message) => console.log("[vitePluginUnocss]", message.file));
         },
     };
@@ -27,7 +27,7 @@ const visitor: Visitor<CustomAtRules> = {
             unocss(rule): ReturnedRule[] {
                 let rules: ReturnedRule[];
                 transform({
-                    filename: "unocss.css",
+                    filename: "uno.css",
                     code: Buffer.from(unoResult.css),
                     visitor: {
                         StyleSheet(stylesheet) {
