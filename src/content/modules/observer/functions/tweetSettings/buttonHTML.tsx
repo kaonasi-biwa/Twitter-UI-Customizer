@@ -281,7 +281,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
 // ツイート下ボタンの空白調整のためのElement
 export const EmptyButtonHTML = (): JSX.Element => {
     return (
-        <div class="css-175oi2r r-xoduu5 r-1udh08x">
+        <div class="css-175oi2r r-xoduu5 r-1udh08x TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 r-1ttztb7 r-qvutc0 r-1tl8opc ${fontSizeClass(
                     "r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd",
