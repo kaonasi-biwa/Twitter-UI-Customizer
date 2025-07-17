@@ -7,7 +7,6 @@ import * as fs from "node:fs/promises";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
-import { presetWind3 } from "unocss";
 import { composeVisitors } from "lightningcss";
 import { lightningcssPluginUnoCSS, vitePluginUnoCSS } from "./scripts/vite-plugin/unocss";
 import solidPlugin from "vite-plugin-solid";
@@ -134,16 +133,7 @@ export default defineConfig(({ command, mode }) => {
                 },
             },
             vitePluginWebExt(import.meta.dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
-            vitePluginUnoCSS({
-                content: {
-                    filesystem: [
-                        "src/{content,shared}/**/*.{ts,tsx,vue}",
-                    ],
-                },
-                presets: [
-                    presetWind3(),
-                ],
-            }),
+            vitePluginUnoCSS(),
             solidPlugin(),
             // Vue Plugins
             vue(),
