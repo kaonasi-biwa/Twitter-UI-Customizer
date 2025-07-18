@@ -59,12 +59,12 @@ const _data = {
                         dir="ltr"
                         class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr ${
                             fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
-                        } r-rjixqe r-16dba41 r-1awozwy r-6koalj r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q`}
+                        } r-rjixqe r-16dba41 r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q`}
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >
-                        <div class="css-175oi2r r-xoduu5">
-                            <div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
+                        <div class="css-175oi2r inline-flex">
+                            <div class="css-175oi2r inline-flex r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 class={`r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${

@@ -254,7 +254,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             )}
             role="link"
             tabindex="0"
-            class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton"
+            class="css-175oi2r r-1habvwh r-1loqt21 flex flex-col grow r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton"
             data-tuic-hide="false"
             onClick={_data[id].onclick}
             onKeyDown={(e: KeyboardEvent) => {
@@ -265,7 +265,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             }}
         >
             <div
-                class={`css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${
+                class={`css-175oi2r r-1awozwy r-sdzlij flex-row r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${
                     fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")
                 }`}
             >

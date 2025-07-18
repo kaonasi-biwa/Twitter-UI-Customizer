@@ -11,7 +11,7 @@ const _data = {
     engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
         return () => (
             <div
-                class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d r-18u37iz ${
+                class={`TUICEngagementsBox css-175oi2r r-1awozwy r-1efd50x r-5kkj8d flex-row ${
                     backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")
                 }`}
             >
