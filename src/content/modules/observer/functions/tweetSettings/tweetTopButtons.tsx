@@ -67,7 +67,7 @@ const _data = {
                             <div class="css-175oi2r inline-flex r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
-                                class={`r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${
+                                class={`inline-block r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${
                                     backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")
                                 } ${redButton ? "TUIC_DeleteButton" : ""}`}
                             >

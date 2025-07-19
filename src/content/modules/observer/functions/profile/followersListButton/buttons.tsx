@@ -27,7 +27,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"
-                            class={`r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${
+                            class={`inline-block r-yyyyoo r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${
                                 backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")
                             }`}
                         >

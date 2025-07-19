@@ -264,7 +264,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${
+                                class={`inline-block r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${
                                     articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"
                                 }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >
