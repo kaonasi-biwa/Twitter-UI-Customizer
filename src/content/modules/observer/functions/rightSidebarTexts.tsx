@@ -18,7 +18,7 @@ const elem = (): JSX.Element => {
             class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc r-16dba41 r-hrzydr r-1loqt21 ${fontSizeClass(
                 "r-1enofrn r-1f529hi r-mszm1p",
                 "r-1enofrn r-fxxt2n r-mszm1p",
-                "r-n6v787 r-1cwl3u0 r-j2kj52",
+                "r-n6v787 leading-[16px] r-j2kj52",
                 "r-1b43r93 r-14yzgew r-1ba89he",
                 "r-ubezar r-hjklzo r-n3sdqm",
             )}`}

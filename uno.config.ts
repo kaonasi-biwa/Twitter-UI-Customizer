@@ -1,5 +1,16 @@
-import { defineConfig, presetWind3 } from "unocss";
+import { defineConfig, presetWind4 } from "unocss";
 
 export default defineConfig({
-    presets: [presetWind3()],
+    content: {
+        filesystem: [
+            "src/{content,shared}/**/*.{ts,tsx,vue}",
+        ],
+    },
+    presets: [
+        presetWind4({
+            preflights: {
+                reset: false,
+            },
+        }),
+    ],
 });

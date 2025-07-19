@@ -7,16 +7,16 @@ import { backgroundColorClass } from "@content/modules/utils/color";
 
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): () => JSX.Element => {
     return () => (
-        <div class="css-175oi2r r-16y2uox r-1wbh5a2 r-1777fci TUIC_LinkCardInfo">
+        <div class="css-175oi2r grow shrink r-1777fci TUIC_LinkCardInfo">
             <a
                 href={link}
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 css-18t94o4 css-175oi2r r-1loqt21 r-18u37iz r-16y2uox r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg"
+                class="css-4rbku5 css-18t94o4 css-175oi2r r-1loqt21 flex-row grow r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg"
             >
                 <div
-                    class={`css-175oi2r r-16y2uox r-1wbh5a2 r-z5qs1h r-1777fci ${fontSizeClass(
+                    class={`css-175oi2r grow shrink r-z5qs1h r-1777fci ${fontSizeClass(
                         "r-1t982j2 r-1qfz7tf r-1b3ntt7",
                         "r-1t982j2 r-1qfz7tf r-1b3ntt7",
                         "r-kzbkwu r-1e081e0 r-ttdzmv",
@@ -32,9 +32,9 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
                             "r-1b43r93 r-14yzgew",
                             "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
+                            "r-a023e6 leading-[20px]",
                             "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
+                            "r-1i10wst leading-[24px]",
                         )} r-16dba41 r-bcqeeo r-qvutc0`}
                     >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
@@ -46,9 +46,9 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${fontSizeClass(
                             "r-1b43r93 r-14yzgew",
                             "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
+                            "r-a023e6 leading-[20px]",
                             "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
+                            "r-1i10wst leading-[24px]",
                         )} r-16dba41 r-bcqeeo r-qvutc0`}
                     >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
@@ -60,9 +60,9 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         class={`css-901oao css-cens5h ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
                             "r-1b43r93 r-14yzgew",
                             "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
+                            "r-a023e6 leading-[20px]",
                             "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
+                            "r-1i10wst leading-[24px]",
                         )} r-16dba41 r-bcqeeo r-qvutc0`}
                         style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
                     >
