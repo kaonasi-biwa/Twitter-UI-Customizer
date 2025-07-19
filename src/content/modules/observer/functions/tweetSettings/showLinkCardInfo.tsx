@@ -32,9 +32,9 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
                             "r-1b43r93 r-14yzgew",
                             "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
+                            "r-a023e6 leading-[20px]",
                             "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
+                            "r-1i10wst leading-[24px]",
                         )} r-16dba41 r-bcqeeo r-qvutc0`}
                     >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
@@ -46,9 +46,9 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${fontSizeClass(
                             "r-1b43r93 r-14yzgew",
                             "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
+                            "r-a023e6 leading-[20px]",
                             "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
+                            "r-1i10wst leading-[24px]",
                         )} r-16dba41 r-bcqeeo r-qvutc0`}
                     >
                         <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
@@ -60,9 +60,9 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         class={`css-901oao css-cens5h ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
                             "r-1b43r93 r-14yzgew",
                             "r-1b43r93 r-hjklzo",
-                            "r-a023e6 r-rjixqe",
+                            "r-a023e6 leading-[20px]",
                             "r-1inkyih r-hbpseb",
-                            "r-1i10wst r-135wba7",
+                            "r-1i10wst leading-[24px]",
                         )} r-16dba41 r-bcqeeo r-qvutc0`}
                         style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
                     >

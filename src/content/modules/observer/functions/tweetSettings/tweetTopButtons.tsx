@@ -59,7 +59,7 @@ const _data = {
                         dir="ltr"
                         class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr ${
                             fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
-                        } r-rjixqe r-16dba41 r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q`}
+                        } leading-[20px] r-16dba41 r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q`}
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >

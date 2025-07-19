@@ -25,7 +25,7 @@ const copiedURLMessage = (): JSX.Element => {
                         >
                             <div
                                 dir="ltr"
-                                class={`css-901oao r-jwli3a shrink r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-1e081e0 r-qvutc0 ${fontSizeClass(
+                                class={`css-901oao r-jwli3a shrink r-1tl8opc r-a023e6 r-16dba41 leading-[20px] r-bcqeeo r-1e081e0 r-qvutc0 ${fontSizeClass(
                                     "r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst",
                                 )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
                             >
@@ -256,7 +256,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     <div
                         dir="ltr"
                         class={`css-901oao r-1awozwy flex r-37j5jr r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2 ${
-                            fontSizeClass("r-1b43r93", "r-1b43r93", "r-rjixqe", "r-1inkyih", "r-1i10wst")
+                            fontSizeClass("r-1b43r93", "r-1b43r93", "leading-[20px]", "r-1inkyih", "r-1i10wst")
                         }`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
@@ -286,7 +286,7 @@ export const EmptyButtonHTML = (): JSX.Element => {
                 <span class={`css-1jxf684 r-1ttztb7 r-qvutc0 r-1tl8opc ${fontSizeClass(
                     "r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd",
                     "r-1enofrn r-fxxt2n r-cxdvbh r-n7gxbd",
-                    "r-n6v787 r-1cwl3u0 r-1k6nrdp r-n7gxbd",
+                    "r-n6v787 leading-[16px] r-1k6nrdp r-n7gxbd",
                     "r-1b43r93 r-14yzgew r-1buqboj r-n7gxbd",
                     "r-ubezar r-hjklzo r-e157gu r-1ntr0p",
                 )}`}

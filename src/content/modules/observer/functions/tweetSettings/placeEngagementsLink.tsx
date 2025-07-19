@@ -23,7 +23,7 @@ const _data = {
         return (
             <div
                 dir="ltr"
-                class={`css-901oao r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-qvutc0 ${
+                class={`css-901oao r-1tl8opc r-a023e6 r-16dba41 leading-[20px] r-bcqeeo r-qvutc0 ${
                     fontSizeClass("r-1ml3abn", "r-1d7mnkm", "r-w7s2jr", "r-1la3zjv", "r-lgtrmy")
                 }`}
                 style={{ cursor: "pointer", "margin-right": "1em" }}
@@ -36,7 +36,7 @@ const _data = {
                 }}
             >
                 <span
-                    class={`css-901oao css-16my406 r-1tl8opc r-1cwl3u0 r-bcqeeo r-qvutc0 ${
+                    class={`css-901oao css-16my406 r-1tl8opc leading-[16px] r-bcqeeo r-qvutc0 ${
                         fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
                     } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                 >

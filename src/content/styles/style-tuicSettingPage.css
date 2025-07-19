@@ -4,9 +4,10 @@
     margin: 2em auto;
 }
 
+/* 効いてないのでコメントアウト
 #TUIC_safemode > .r-135wba7 {
     line-height: 1em;
-}
+} */
 
 .TUICDefaultColor {
     display: flex;
