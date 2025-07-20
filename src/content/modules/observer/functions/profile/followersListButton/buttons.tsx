@@ -18,8 +18,8 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             <div role="button" tabindex="0" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l">
                 <div
                     dir="ltr"
-                    class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr leading-[20px] r-16dba41 r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${
-                        fontSizeClass("r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst")
+                    class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr leading-[20px] font-normal r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${
+                        fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst")
                     }`}
                 >
                     <div class="css-175oi2r inline-flex">

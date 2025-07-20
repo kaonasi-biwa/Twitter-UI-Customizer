@@ -15,11 +15,11 @@ const elem = (): JSX.Element => {
             id="TUICDisplayRightSidebar"
             dir="ltr"
             role="link"
-            class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc r-16dba41 r-hrzydr r-1loqt21 ${fontSizeClass(
+            class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc font-normal r-hrzydr r-1loqt21 ${fontSizeClass(
                 "r-1enofrn r-1f529hi r-mszm1p",
                 "r-1enofrn r-fxxt2n r-mszm1p",
-                "r-n6v787 leading-[16px] r-j2kj52",
-                "r-1b43r93 r-14yzgew r-1ba89he",
+                "text-[13px] leading-[16px] r-j2kj52",
+                "text-[14px] r-14yzgew r-1ba89he",
                 "r-ubezar r-hjklzo r-n3sdqm",
             )}`}
             style={{
