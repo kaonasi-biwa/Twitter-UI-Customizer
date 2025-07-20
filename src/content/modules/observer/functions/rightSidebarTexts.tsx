@@ -15,7 +15,7 @@ const elem = (): JSX.Element => {
             id="TUICDisplayRightSidebar"
             dir="ltr"
             role="link"
-            class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc font-normal r-hrzydr r-1loqt21 ${fontSizeClass(
+            class={`TUICOriginalContent css-1rynq56 r-bcqeeo r-qvutc0 r-1tl8opc font-normal r-hrzydr cursor-pointer ${fontSizeClass(
                 "r-1enofrn r-1f529hi r-mszm1p",
                 "r-1enofrn r-fxxt2n r-mszm1p",
                 "text-[13px] leading-[16px] r-j2kj52",

@@ -15,7 +15,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             }}
             onClick={() => data[id].clickEvent(baseElement)}
         >
-            <div role="button" tabindex="0" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr r-1loqt21 r-1ny4l3l">
+            <div role="button" tabindex="0" class="css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr cursor-pointer r-1ny4l3l">
                 <div
                     dir="ltr"
                     class={`css-1rynq56 r-bcqeeo r-qvutc0 r-37j5jr leading-[20px] font-normal r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${

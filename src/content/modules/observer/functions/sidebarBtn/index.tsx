@@ -254,7 +254,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             )}
             role="link"
             tabindex="0"
-            class="css-175oi2r r-1habvwh r-1loqt21 flex flex-col grow r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton"
+            class="css-175oi2r r-1habvwh cursor-pointer flex flex-col grow r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton"
             data-tuic-hide="false"
             onClick={_data[id].onclick}
             onKeyDown={(e: KeyboardEvent) => {

@@ -42,7 +42,7 @@ const _data = {
                     role="button"
                     tabindex={disable ? -1 : 0}
                     class={`css-175oi2r r-1777fci r-bt1l66 r-bztko3 r-lrvibr${
-                        disable ? "" : " r-1loqt21"
+                        disable ? "" : " cursor-pointer"
                     } r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}`}
                     data-tuic-tweet-top-button={type}
                     onKeyDown={
