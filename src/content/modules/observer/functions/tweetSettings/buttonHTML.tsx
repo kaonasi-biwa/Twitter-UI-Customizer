@@ -11,9 +11,9 @@ export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
-        <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 pointer-events-none! *:pointer-events-auto r-1xcajam r-zchlnj TUICURLCopyLayer">
-            <div class="css-175oi2r pointer-events-none! *:pointer-events-auto">
-                <div class="css-175oi2r pointer-events-none! *:pointer-events-auto">
+        <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 pointer-events-none! r-1xcajam r-zchlnj TUICURLCopyLayer">
+            <div class="css-175oi2r pointer-events-none!">
+                <div class="css-175oi2r pointer-events-none!">
                     <div class="css-175oi2r r-1jgb5lz pointer-events-none! r-13qz1uu">
                         <div
                             role="alert"
