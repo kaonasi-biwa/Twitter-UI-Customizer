@@ -23,11 +23,11 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                     }`}
                 >
                     <div class="css-175oi2r inline-flex">
-                        <div class="css-175oi2r inline-flex r-1p0dtai r-1d2f490 absolute r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
+                        <div class="css-175oi2r inline-flex r-1p0dtai r-1d2f490 absolute r-zchlnj r-ipm5af bg-transparent r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"
-                            class={`inline-block r-yyyyoo r-dnmrzs relative r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${
+                            class={`inline-block fill-current r-dnmrzs relative r-1plcrui r-lrvibr r-1xvli5t r-1hdv0qi ${
                                 backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")
                             }`}
                         >

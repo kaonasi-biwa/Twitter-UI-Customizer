@@ -273,7 +273,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                     <svg
                         viewBox="0 0 24 24"
                         aria-hidden="true"
-                        class={`inline-block r-yyyyoo r-lwhw9o r-dnmrzs relative r-1plcrui r-lrvibr r-cnnz9e ${
+                        class={`inline-block fill-current r-lwhw9o r-dnmrzs relative r-1plcrui r-lrvibr r-cnnz9e ${
                             backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"
                         }`}
                     >

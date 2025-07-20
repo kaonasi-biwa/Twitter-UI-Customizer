@@ -25,7 +25,7 @@ const copiedURLMessage = (): JSX.Element => {
                         >
                             <div
                                 dir="ltr"
-                                class={`css-901oao r-jwli3a shrink r-1tl8opc text-[15px] font-normal leading-[20px] r-bcqeeo r-1e081e0 r-qvutc0 ${fontSizeClass(
+                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] r-bcqeeo r-1e081e0 r-qvutc0 ${fontSizeClass(
                                     "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst",
                                 )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
                             >
@@ -260,11 +260,11 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                         }`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
-                            <div class="css-175oi2r r-1niwhzg r-sdzlij r-1p0dtai inline-flex r-1d2f490 r-xf4iuw r-1ny4l3l absolute r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
+                            <div class="css-175oi2r bg-transparent r-sdzlij r-1p0dtai inline-flex r-1d2f490 r-xf4iuw r-1ny4l3l absolute r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`inline-block r-yyyyoo r-1q142lx r-dnmrzs relative r-1plcrui r-lrvibr ${
+                                class={`inline-block fill-current r-1q142lx r-dnmrzs relative r-1plcrui r-lrvibr ${
                                     articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"
                                 }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >
