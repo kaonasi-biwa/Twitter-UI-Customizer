@@ -64,7 +64,7 @@ const _data = {
                         onClick={eventFunc}
                     >
                         <div class="css-175oi2r inline-flex">
-                            <div class="css-175oi2r inline-flex r-1p0dtai r-1d2f490 absolute r-zchlnj r-ipm5af bg-transparent r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
+                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 class={`inline-block fill-current max-w-full relative r-1plcrui r-lrvibr h-[1.25em] r-1hdv0qi ${

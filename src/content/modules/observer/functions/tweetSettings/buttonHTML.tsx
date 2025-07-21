@@ -11,7 +11,7 @@ export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
-        <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 pointer-events-none! fixed r-zchlnj TUICURLCopyLayer">
+        <div class="css-175oi2r r-aqfbo4 bottom-[0px] left-[0px] pointer-events-none! fixed right-[0px] TUICURLCopyLayer">
             <div class="css-175oi2r pointer-events-none!">
                 <div class="css-175oi2r pointer-events-none!">
                     <div class="css-175oi2r r-1jgb5lz pointer-events-none! w-full">
@@ -260,7 +260,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                         }`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
-                            <div class="css-175oi2r bg-transparent r-sdzlij r-1p0dtai inline-flex r-1d2f490 r-xf4iuw r-1ny4l3l absolute r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
+                            <div class="css-175oi2r bg-transparent r-sdzlij bottom-[0px] inline-flex left-[0px] r-xf4iuw r-1ny4l3l absolute right-[0px] top-[0px] r-o7ynqc r-6416eg"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
