@@ -265,7 +265,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             }}
         >
             <div
-                class={`css-175oi2r r-1awozwy r-sdzlij flex-row r-1777fci max-w-full r-o7ynqc r-6416eg ${
+                class={`css-175oi2r items-center r-sdzlij flex-row justify-center max-w-full r-o7ynqc r-6416eg ${
                     fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")
                 }`}
             >

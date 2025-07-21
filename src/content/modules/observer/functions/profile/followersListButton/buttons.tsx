@@ -6,7 +6,7 @@ import { data } from "./data";
 export function followersListButton(id: string, baseElement: HTMLElement): () => JSX.Element {
     return (): JSX.Element => (
         <div
-            class="css-175oi2r flex-row r-1h0z5md r-1cwvpvk TUICOriginalContent"
+            class="css-175oi2r flex-row justify-start r-1cwvpvk TUICOriginalContent"
             data-tuic-follower-list-button={id}
             onKeyDown={(e: KeyboardEvent) => {
                 if (e.key === "Enter") {
@@ -15,10 +15,10 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             }}
             onClick={() => data[id].clickEvent(baseElement)}
         >
-            <div role="button" tabindex="0" class="css-175oi2r r-1777fci min-h-[20px] r-bztko3 r-lrvibr cursor-pointer r-1ny4l3l">
+            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] r-bztko3 r-lrvibr cursor-pointer r-1ny4l3l">
                 <div
                     dir="ltr"
-                    class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr leading-[20px] font-normal r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q ${
+                    class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr leading-[20px] font-normal items-center flex justify-start r-o7ynqc r-clp7b1 r-3s2u2q ${
                         fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst")
                     }`}
                 >

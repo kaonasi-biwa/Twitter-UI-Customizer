@@ -7,7 +7,7 @@ import { backgroundColorClass } from "@content/modules/utils/color";
 
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): () => JSX.Element => {
     return () => (
-        <div class="css-175oi2r grow shrink r-1777fci TUIC_LinkCardInfo">
+        <div class="css-175oi2r grow shrink justify-center TUIC_LinkCardInfo">
             <a
                 href={link}
                 rel="noopener noreferrer nofollow"
@@ -16,7 +16,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow r-1wtj0ep r-1ny4l3l r-o7ynqc r-6416eg"
             >
                 <div
-                    class={`css-175oi2r grow shrink r-z5qs1h r-1777fci ${fontSizeClass(
+                    class={`css-175oi2r grow shrink r-z5qs1h justify-center ${fontSizeClass(
                         "r-1t982j2 r-1qfz7tf r-1b3ntt7",
                         "r-1t982j2 r-1qfz7tf r-1b3ntt7",
                         "r-kzbkwu r-1e081e0 r-ttdzmv",

@@ -17,7 +17,7 @@ const copiedURLMessage = (): JSX.Element => {
                     <div class="css-175oi2r r-1jgb5lz pointer-events-none! w-full">
                         <div
                             role="alert"
-                            class={`css-175oi2r r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
+                            class={`css-175oi2r items-center self-center r-l5o3uw r-z2wwpe flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
                                 "r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au",
                             )} ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}`}
                             data-testid="toast"
@@ -238,12 +238,12 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 display: "inline-grid", "justify-content": "inherit", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)", "-moz-box-pack": "inherit",
             }}
         >
-            <div class="css-175oi2r flex-row r-1h0z5md">
+            <div class="css-175oi2r flex-row justify-start">
                 <div
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r r-1777fci min-h-[20px] r-1ny4l3l r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
+                    class={`css-175oi2r justify-center min-h-[20px] r-1ny4l3l r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -255,7 +255,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`css-901oao r-1awozwy flex r-37j5jr font-normal r-1h0z5md min-w-[0px] r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2 ${
+                        class={`css-901oao items-center flex r-37j5jr font-normal justify-start min-w-[0px] r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2 ${
                             fontSizeClass("text-[14px]", "text-[14px]", "leading-[20px]", "text-[17px]", "r-1i10wst")
                         }`}
                     >

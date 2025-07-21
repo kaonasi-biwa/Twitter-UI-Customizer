@@ -41,7 +41,7 @@ const _data = {
                 <div
                     role="button"
                     tabindex={disable ? -1 : 0}
-                    class={`css-175oi2r r-1777fci min-h-[20px] r-bztko3 r-lrvibr${
+                    class={`css-175oi2r justify-center min-h-[20px] r-bztko3 r-lrvibr${
                         disable ? "" : " cursor-pointer"
                     } r-1ny4l3l TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}`}
                     data-tuic-tweet-top-button={type}
@@ -59,7 +59,7 @@ const _data = {
                         dir="ltr"
                         class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr ${
                             fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst")
-                        } leading-[20px] font-normal r-1awozwy flex r-1h0z5md r-o7ynqc r-clp7b1 r-3s2u2q`}
+                        } leading-[20px] font-normal items-center flex justify-start r-o7ynqc r-clp7b1 r-3s2u2q`}
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >
