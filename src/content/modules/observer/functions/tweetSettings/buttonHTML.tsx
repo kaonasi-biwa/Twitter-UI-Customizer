@@ -14,7 +14,7 @@ const copiedURLMessage = (): JSX.Element => {
         <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 pointer-events-none! fixed r-zchlnj TUICURLCopyLayer">
             <div class="css-175oi2r pointer-events-none!">
                 <div class="css-175oi2r pointer-events-none!">
-                    <div class="css-175oi2r r-1jgb5lz pointer-events-none! r-13qz1uu">
+                    <div class="css-175oi2r r-1jgb5lz pointer-events-none! w-full">
                         <div
                             role="alert"
                             class={`css-175oi2r r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
@@ -25,11 +25,11 @@ const copiedURLMessage = (): JSX.Element => {
                         >
                             <div
                                 dir="ltr"
-                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] r-bcqeeo r-1e081e0 r-qvutc0 ${fontSizeClass(
+                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] r-1e081e0 r-qvutc0 ${fontSizeClass(
                                     "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst",
                                 )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
                             >
-                                <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
+                                <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
                             </div>
                             <div aria-hidden="true" class="css-175oi2r flex-row"></div>
                         </div>
@@ -243,7 +243,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
+                    class={`css-175oi2r r-1777fci min-h-[20px] r-1ny4l3l r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -255,7 +255,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`css-901oao r-1awozwy flex r-37j5jr font-normal r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2 ${
+                        class={`css-901oao r-1awozwy flex r-37j5jr font-normal r-1h0z5md min-w-[0px] r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2 ${
                             fontSizeClass("text-[14px]", "text-[14px]", "leading-[20px]", "text-[17px]", "r-1i10wst")
                         }`}
                     >
@@ -264,8 +264,8 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`inline-block fill-current r-1q142lx r-dnmrzs relative r-1plcrui r-lrvibr ${
-                                    articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"
+                                class={`inline-block fill-current r-1q142lx max-w-full relative r-1plcrui r-lrvibr ${
+                                    articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "h-[1.25em]"
                                 }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >
                                 <g>{tweetButtonData[id].svg()}</g>

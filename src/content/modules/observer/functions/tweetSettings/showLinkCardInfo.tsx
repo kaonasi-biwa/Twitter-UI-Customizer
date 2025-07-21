@@ -35,10 +35,10 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[15px] leading-[20px]",
                             "text-[17px] r-hbpseb",
                             "r-1i10wst leading-[24px]",
-                        )} font-normal r-bcqeeo r-qvutc0`}
+                        )} font-normal min-w-[0px] r-qvutc0`}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{domain}</span>
+                        <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">
+                            <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">{domain}</span>
                         </span>
                     </div>
                     <div
@@ -49,10 +49,10 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[15px] leading-[20px]",
                             "text-[17px] r-hbpseb",
                             "r-1i10wst leading-[24px]",
-                        )} font-normal r-bcqeeo r-qvutc0`}
+                        )} font-normal min-w-[0px] r-qvutc0`}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{title}</span>
+                        <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">
+                            <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">{title}</span>
                         </span>
                     </div>
                     <div
@@ -63,11 +63,11 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[15px] leading-[20px]",
                             "text-[17px] r-hbpseb",
                             "r-1i10wst leading-[24px]",
-                        )} font-normal r-bcqeeo r-qvutc0`}
+                        )} font-normal min-w-[0px] r-qvutc0`}
                         style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">
-                            <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{description}</span>
+                        <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">
+                            <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">{description}</span>
                         </span>
                     </div>
                 </div>

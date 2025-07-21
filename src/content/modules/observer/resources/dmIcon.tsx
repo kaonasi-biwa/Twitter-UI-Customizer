@@ -11,15 +11,15 @@ export const IconElement = (): JSX.Element => {
                     style={{ width: `${fontSizeClass("36", "38", "40", "44", "48")}px`, height: `${fontSizeClass("36", "38", "40", "44", "48")}px` }}
                     data-testid="UserAvatar-Container-unknown"
                 >
-                    <div class="block r-13qz1uu" style={{ "padding-bottom": "100%" }}></div>
-                    <div class="r-1p0dtai r-1pi2tsx absolute r-1d2f490 r-ipm5af r-13qz1uu">
-                        <div class="css-175oi2r block r-1pi2tsx r-13qz1uu absolute r-1wyvozj r-desppf r-bztko3">
-                            <div class="r-1p0dtai r-1pi2tsx absolute r-1d2f490 r-ipm5af r-13qz1uu">
+                    <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
+                    <div class="r-1p0dtai h-full absolute r-1d2f490 r-ipm5af w-full">
+                        <div class="css-175oi2r block h-full w-full absolute r-1wyvozj r-desppf r-bztko3">
+                            <div class="r-1p0dtai h-full absolute r-1d2f490 r-ipm5af w-full">
                                 <div class="css-175oi2r r-sdzlij r-1udh08x absolute r-ggadg3 r-8jfcpp" style={{ width: "calc(100% + 4px)", height: "calc(100% + 4px)" }}>
                                     <a
                                         href={document.querySelector<HTMLAnchorElement>(`[data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *)`)?.href ?? ""}
                                         role="link"
-                                        class="css-175oi2r r-1pi2tsx r-13qz1uu r-o7ynqc r-6416eg r-1ny4l3l cursor-pointer"
+                                        class="css-175oi2r h-full w-full r-o7ynqc r-6416eg r-1ny4l3l cursor-pointer"
                                         style={{ "background-color": "rgba(0, 0, 0, 0)" }}
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -35,11 +35,11 @@ export const IconElement = (): JSX.Element => {
                                             style={{ "background-color": "rgb(21, 32, 43)", width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
                                             <div class="css-175oi2r block r-1udh08x">
-                                                <div class="block r-13qz1uu" style={{ "padding-bottom": "100%" }}></div>
-                                                <div class="r-1p0dtai r-1pi2tsx absolute r-1d2f490 r-ipm5af r-13qz1uu">
+                                                <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
+                                                <div class="r-1p0dtai h-full absolute r-1d2f490 r-ipm5af w-full">
                                                     <div aria-label="julieta ferreri" class="css-175oi2r basis-auto r-1udh08x r-417010" style={{ position: "absolute", inset: "0px" }}>
                                                         <div
-                                                            class="css-175oi2r bg-transparent bg-center bg-no-repeat r-1p0dtai r-1pi2tsx r-1d2f490 absolute r-zchlnj r-ipm5af r-13qz1uu r-1wyyakw bg-cover TUICDMIconDisplay"
+                                                            class="css-175oi2r bg-transparent bg-center bg-no-repeat r-1p0dtai h-full r-1d2f490 absolute r-zchlnj r-ipm5af w-full r-1wyyakw bg-cover TUICDMIconDisplay"
                                                             style={{
                                                                 "background-image": document.querySelector<HTMLElement>(
                                                                     `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > div,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) [style*="background-image:"])`,

@@ -1,5 +1,5 @@
 <template>
-    <h2 class="text-white r-1tl8opc r-qvutc0 r-bcqeeo TUIC_setting_title TUICSettingSubTitle">
+    <h2 class="text-white r-1tl8opc r-qvutc0 min-w-[0px] TUIC_setting_title TUICSettingSubTitle">
         {{ TUICI18N.get(i18n) }}
     </h2>
 </template>
