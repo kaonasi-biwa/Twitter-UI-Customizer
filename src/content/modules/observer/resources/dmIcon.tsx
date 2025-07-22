@@ -19,7 +19,7 @@ export const IconElement = (): JSX.Element => {
                                     <a
                                         href={document.querySelector<HTMLAnchorElement>(`[data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *)`)?.href ?? ""}
                                         role="link"
-                                        class="css-175oi2r h-full w-full r-o7ynqc r-6416eg r-1ny4l3l cursor-pointer"
+                                        class="css-175oi2r h-full w-full duration-200 r-6416eg outline-none cursor-pointer"
                                         style={{ "background-color": "rgba(0, 0, 0, 0)" }}
                                         onClick={(e) => {
                                             e.preventDefault();

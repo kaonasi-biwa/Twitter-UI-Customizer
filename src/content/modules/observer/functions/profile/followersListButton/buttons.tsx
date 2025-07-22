@@ -15,15 +15,15 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             }}
             onClick={() => data[id].clickEvent(baseElement)}
         >
-            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] r-bztko3 r-lrvibr cursor-pointer r-1ny4l3l">
+            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] r-bztko3 r-lrvibr cursor-pointer outline-none">
                 <div
                     dir="ltr"
-                    class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr leading-[20px] font-normal items-center flex justify-start r-o7ynqc r-clp7b1 r-3s2u2q ${
+                    class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr leading-[20px] font-normal items-center flex justify-start duration-200 r-clp7b1 whitespace-nowrap ${
                         fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst")
                     }`}
                 >
                     <div class="css-175oi2r inline-flex">
-                        <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
+                        <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent r-sdzlij r-xf4iuw duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"

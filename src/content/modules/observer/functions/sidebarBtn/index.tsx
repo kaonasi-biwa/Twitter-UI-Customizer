@@ -254,7 +254,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             )}
             role="link"
             tabindex="0"
-            class="css-175oi2r r-1habvwh cursor-pointer flex flex-col grow r-1ny4l3l w-full r-cnw61z TUICOriginalContent TUICSidebarButton"
+            class="css-175oi2r r-1habvwh cursor-pointer flex flex-col grow outline-none w-full r-cnw61z TUICOriginalContent TUICSidebarButton"
             data-tuic-hide="false"
             onClick={_data[id].onclick}
             onKeyDown={(e: KeyboardEvent) => {
@@ -265,7 +265,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             }}
         >
             <div
-                class={`css-175oi2r items-center r-sdzlij flex-row justify-center max-w-full r-o7ynqc r-6416eg ${
+                class={`css-175oi2r items-center r-sdzlij flex-row justify-center max-w-full duration-200 r-6416eg ${
                     fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")
                 }`}
             >
@@ -282,7 +282,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                 </div>
                 <div
                     dir="ltr"
-                    class={`css-146c3p1 max-w-full r-1udh08x r-3s2u2q min-w-[0px] r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
+                    class={`css-146c3p1 max-w-full r-1udh08x whitespace-nowrap min-w-[0px] r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
                         "r-1i10wst r-hbpseb font-normal r-b8s2zf r-1nbxd40 r-fv9tdh",
                         "r-1b6yd1w r-7ptqe7 font-normal r-1b4jfhh r-egpt5t r-1tfrt9a",
                         "text-[20px] leading-[24px] r-dlybji r-nazi8o",
