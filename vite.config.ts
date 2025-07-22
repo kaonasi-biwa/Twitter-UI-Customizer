@@ -37,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
             emptyOutDir: false,
             sourcemap: true,
             // outDir,
-            target: "es2022",
+            target: "es2023",
             assetsInlineLimit: 0,
             reportCompressedSize: false,
 
