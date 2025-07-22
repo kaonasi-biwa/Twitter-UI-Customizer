@@ -88,6 +88,9 @@ export default defineConfig(({ command, mode }) => {
         css: {
             transformer: "lightningcss",
             lightningcss: {
+                targets: {
+                    firefox: 115,
+                },
                 // https://lightningcss.dev/transpilation.html#feature-flags
                 nonStandard: {
                     deepSelectorCombinator: true,
