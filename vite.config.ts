@@ -7,7 +7,7 @@ import * as fs from "node:fs/promises";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
-import { composeVisitors } from "lightningcss";
+import { browserslistToTargets, composeVisitors } from "lightningcss";
 import { lightningcssPluginUnoCSS, vitePluginUnoCSS } from "./scripts/vite-plugin/unocss";
 import solidPlugin from "vite-plugin-solid";
 //
@@ -88,9 +88,9 @@ export default defineConfig(({ command, mode }) => {
         css: {
             transformer: "lightningcss",
             lightningcss: {
-                targets: {
-                    firefox: 115,
-                },
+                targets: browserslistToTargets([
+                    "firefox 115",
+                ]),
                 // https://lightningcss.dev/transpilation.html#feature-flags
                 nonStandard: {
                     deepSelectorCombinator: true,
