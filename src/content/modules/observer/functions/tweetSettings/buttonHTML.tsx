@@ -17,8 +17,8 @@ const copiedURLMessage = (): JSX.Element => {
                     <div class="css-175oi2r r-1jgb5lz pointer-events-none! w-full">
                         <div
                             role="alert"
-                            class={`css-175oi2r items-center self-center r-l5o3uw r-z2wwpe flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
-                                "r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au",
+                            class={`css-175oi2r items-center self-center r-l5o3uw rounded-[4px] flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
+                                "mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]",
                             )} ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}`}
                             data-testid="toast"
                             style={{ transform: "translate3d(0px, 0px, 0px) translateY(0px)" }}
