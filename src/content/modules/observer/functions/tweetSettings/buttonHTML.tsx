@@ -243,7 +243,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r justify-center min-h-[20px] outline-none r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
+                    class={`css-175oi2r justify-center min-h-[20px] outline-none r-bztko3 select-none ${enable ? "css-18t94o4" : "r-icoktb"}`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -264,7 +264,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`inline-block fill-current r-1q142lx max-w-full relative r-1plcrui r-lrvibr ${
+                                class={`inline-block fill-current r-1q142lx max-w-full relative r-1plcrui select-none ${
                                     articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "h-[1.25em]"
                                 }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >

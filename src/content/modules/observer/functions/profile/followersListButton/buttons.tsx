@@ -15,7 +15,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             }}
             onClick={() => data[id].clickEvent(baseElement)}
         >
-            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] r-bztko3 r-lrvibr cursor-pointer outline-none">
+            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] r-bztko3 select-none cursor-pointer outline-none">
                 <div
                     dir="ltr"
                     class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr leading-[20px] font-normal items-center flex justify-start duration-200 r-clp7b1 whitespace-nowrap ${
@@ -27,7 +27,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"
-                            class={`inline-block fill-current max-w-full relative r-1plcrui r-lrvibr h-[1.25em] r-1hdv0qi ${
+                            class={`inline-block fill-current max-w-full relative r-1plcrui select-none h-[1.25em] r-1hdv0qi ${
                                 backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")
                             }`}
                         >
