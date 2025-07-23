@@ -37,7 +37,11 @@ export const IconElement = (): JSX.Element => {
                                             <div class="css-175oi2r block r-1udh08x">
                                                 <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
                                                 <div class="bottom-[0px] h-full absolute left-[0px] top-[0px] w-full">
-                                                    <div aria-label="julieta ferreri" class="css-175oi2r basis-auto r-1udh08x z-0" style={{ position: "absolute", inset: "0px" }}>
+                                                    <div
+                                                        class="css-175oi2r basis-auto r-1udh08x z-0"
+                                                        style={{ position: "absolute", inset: "0px" }}
+                                                        aria-label={document.querySelector<HTMLSpanElement>(`#detail-header div > span:nth-child(1) > span > span:nth-child(1)`).textContent}
+                                                    >
                                                         <div
                                                             class="css-175oi2r bg-transparent bg-center bg-no-repeat bottom-[0px] h-full left-[0px] absolute right-[0px] top-[0px] w-full -z-1 bg-cover TUICDMIconDisplay"
                                                             style={{
