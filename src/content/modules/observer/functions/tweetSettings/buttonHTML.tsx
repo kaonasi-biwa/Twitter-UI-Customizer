@@ -25,11 +25,11 @@ const copiedURLMessage = (): JSX.Element => {
                         >
                             <div
                                 dir="ltr"
-                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] r-1e081e0 r-qvutc0 ${fontSizeClass(
+                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] r-1e081e0 wrap-break-word ${fontSizeClass(
                                     "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst",
                                 )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
                             >
-                                <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] r-qvutc0">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
+                                <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
                             </div>
                             <div aria-hidden="true" class="css-175oi2r flex-row"></div>
                         </div>
@@ -255,7 +255,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`css-901oao items-center flex r-37j5jr font-normal justify-start min-w-[0px] duration-200 r-clp7b1 whitespace-nowrap r-qvutc0 TUIC_ButtonHover2 ${
+                        class={`css-901oao items-center flex r-37j5jr font-normal justify-start min-w-[0px] duration-200 r-clp7b1 whitespace-nowrap wrap-break-word TUIC_ButtonHover2 ${
                             fontSizeClass("text-[14px]", "text-[14px]", "leading-[20px]", "text-[17px]", "r-1i10wst")
                         }`}
                     >
@@ -283,7 +283,7 @@ export const EmptyButtonHTML = (): JSX.Element => {
     return (
         <div class="css-175oi2r inline-flex r-1udh08x TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
-                <span class={`css-1jxf684 r-1ttztb7 r-qvutc0 r-1tl8opc ${fontSizeClass(
+                <span class={`css-1jxf684 r-1ttztb7 wrap-break-word r-1tl8opc ${fontSizeClass(
                     "r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd",
                     "r-1enofrn r-fxxt2n r-cxdvbh r-n7gxbd",
                     "text-[13px] leading-[16px] r-1k6nrdp r-n7gxbd",

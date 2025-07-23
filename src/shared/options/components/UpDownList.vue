@@ -1,7 +1,7 @@
 <template>
     <div :TUICUDBox="id">
         <div class="TUIC_setting_UpdownList_listContainer">
-            <h2 style="font-size: 15px" class="text-white r-1tl8opc r-qvutc0 min-w-[0px] css-901oao TUIC_setting_text TUICUpDownTitle">
+            <h2 style="font-size: 15px" class="text-white r-1tl8opc wrap-break-word min-w-[0px] css-901oao TUIC_setting_text TUICUpDownTitle">
                 {{ TUICI18N.get("settingUI-upDownList-visible") }}
             </h2>
             <div id="TUIC_visible" class="TUIC_selectbox TUICSelectBox-left" :style="{ '--contentCount': _contentCount }">
@@ -21,7 +21,7 @@
             </template>
         </div>
         <div class="TUIC_setting_UpdownList_listContainer">
-            <h2 style="font-size: 15px" class="text-white r-1tl8opc r-qvutc0 min-w-[0px] css-901oao TUIC_setting_text TUICUpDownTitle">
+            <h2 style="font-size: 15px" class="text-white r-1tl8opc wrap-break-word min-w-[0px] css-901oao TUIC_setting_text TUICUpDownTitle">
                 {{ TUICI18N.get("settingUI-upDownList-invisible") }}
             </h2>
             <div id="TUIC_invisible" class="TUIC_selectbox TUICSelectBox-right" :style="{ '--contentCount': _contentCount }">

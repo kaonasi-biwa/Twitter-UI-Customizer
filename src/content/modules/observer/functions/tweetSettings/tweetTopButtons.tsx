@@ -57,7 +57,7 @@ const _data = {
                 >
                     <div
                         dir="ltr"
-                        class={`css-1rynq56 min-w-[0px] r-qvutc0 r-37j5jr ${
+                        class={`css-1rynq56 min-w-[0px] wrap-break-word r-37j5jr ${
                             fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst")
                         } leading-[20px] font-normal items-center flex justify-start duration-200 r-clp7b1 whitespace-nowrap`}
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}

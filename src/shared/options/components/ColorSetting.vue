@@ -1,11 +1,11 @@
 <template>
     <div :class="['TUIC_setting_color_colmn', !isDefault ? 'TUIC_ISNOTDEFAULT' : '', `TUICColorBoxRoot`]" ref="colorRoot">
-        <h4 class="text-white r-qvutc0 min-w-[0px] css-901oao TUIC_setting_text">
+        <h4 class="text-white wrap-break-word min-w-[0px] css-901oao TUIC_setting_text">
             {{ TUICI18N.get(text) }}
         </h4>
         <div class="TUIC_setting_input_container">
             <template v-if="ColorData.defaultTUICColor.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
-                <label class="text-white r-1tl8opc r-qvutc0 min-w-[0px] css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
+                <label class="text-white r-1tl8opc wrap-break-word min-w-[0px] css-901oao TUIC_setting_text" style="font-size: 10px"> {{ TUICI18N.get("settingColors-pleaseLD") }} </label><br />
             </template>
             <template v-else>
                 <ColorResetButton :btn-id="`${id}-${type}-default`" :btn-title="TUICI18N.get('settingUI-colorPicker-restoreDefault')" @clicked-btn="resetBtnClicked" />
