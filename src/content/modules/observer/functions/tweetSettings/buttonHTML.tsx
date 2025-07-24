@@ -243,7 +243,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r justify-center min-h-[20px] outline-none overflow-visible select-none ${enable ? "css-18t94o4" : "r-icoktb"}`}
+                    class={`css-175oi2r justify-center min-h-[20px] outline-none overflow-visible select-none ${enable ? "css-18t94o4" : "opacity-[0.5]"}`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);

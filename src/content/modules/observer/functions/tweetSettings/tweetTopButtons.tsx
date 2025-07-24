@@ -43,7 +43,7 @@ const _data = {
                     tabindex={disable ? -1 : 0}
                     class={`css-175oi2r justify-center min-h-[20px] overflow-visible select-none${
                         disable ? "" : " cursor-pointer"
-                    } outline-none TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}`}
+                    } outline-none TUICTweetTopButton TUICOriginalContent ${disable ? "opacity-[0.5]" : "css-18t94o4"}`}
                     data-tuic-tweet-top-button={type}
                     onKeyDown={
                         eventFunc !== undefined
