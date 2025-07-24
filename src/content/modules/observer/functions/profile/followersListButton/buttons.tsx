@@ -15,7 +15,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             }}
             onClick={() => data[id].clickEvent(baseElement)}
         >
-            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] r-bztko3 select-none cursor-pointer outline-none">
+            <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] overflow-visible select-none cursor-pointer outline-none">
                 <div
                     dir="ltr"
                     class={`css-1rynq56 min-w-[0px] wrap-break-word r-37j5jr leading-[20px] font-normal items-center flex justify-start duration-200 r-clp7b1 whitespace-nowrap ${
@@ -23,7 +23,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                     }`}
                 >
                     <div class="css-175oi2r inline-flex">
-                        <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent r-sdzlij r-xf4iuw duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
+                        <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full r-xf4iuw duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"

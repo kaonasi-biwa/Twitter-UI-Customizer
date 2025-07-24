@@ -41,7 +41,7 @@ const _data = {
                 <div
                     role="button"
                     tabindex={disable ? -1 : 0}
-                    class={`css-175oi2r justify-center min-h-[20px] r-bztko3 select-none${
+                    class={`css-175oi2r justify-center min-h-[20px] overflow-visible select-none${
                         disable ? "" : " cursor-pointer"
                     } outline-none TUICTweetTopButton TUICOriginalContent ${disable ? "r-icoktb" : "css-18t94o4"}`}
                     data-tuic-tweet-top-button={type}
@@ -64,7 +64,7 @@ const _data = {
                         onClick={eventFunc}
                     >
                         <div class="css-175oi2r inline-flex">
-                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent r-sdzlij r-xf4iuw duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
+                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full r-xf4iuw duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 class={`inline-block fill-current max-w-full relative r-1plcrui select-none h-[1.25em] r-1hdv0qi ${

@@ -7,15 +7,15 @@ export const IconElement = (): JSX.Element => {
             <div class="css-175oi2r" style={{ width: `${fontSizeClass("47", "49", "52", "57", "62")}px` }}></div>
             <div class="css-175oi2r absolute left-[0px]">
                 <div
-                    class="css-175oi2r block r-bztko3"
+                    class="css-175oi2r block overflow-visible"
                     style={{ width: `${fontSizeClass("36", "38", "40", "44", "48")}px`, height: `${fontSizeClass("36", "38", "40", "44", "48")}px` }}
                     data-testid="UserAvatar-Container-unknown"
                 >
                     <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
                     <div class="bottom-[0px] h-full absolute left-[0px] top-[0px] w-full">
-                        <div class="css-175oi2r block h-full w-full absolute r-1wyvozj r-desppf r-bztko3">
+                        <div class="css-175oi2r block h-full w-full absolute r-1wyvozj r-desppf overflow-visible">
                             <div class="bottom-[0px] h-full absolute left-[0px] top-[0px] w-full">
-                                <div class="css-175oi2r r-sdzlij r-1udh08x absolute r-ggadg3 top-[-2px]" style={{ width: "calc(100% + 4px)", height: "calc(100% + 4px)" }}>
+                                <div class="css-175oi2r rounded-full overflow-hidden absolute r-ggadg3 top-[-2px]" style={{ width: "calc(100% + 4px)", height: "calc(100% + 4px)" }}>
                                     <a
                                         href={document.querySelector<HTMLAnchorElement>(`[data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *)`)?.href ?? ""}
                                         role="link"
@@ -31,14 +31,14 @@ export const IconElement = (): JSX.Element => {
                                         }}
                                     >
                                         <div
-                                            class="css-175oi2r r-sdzlij r-1udh08x pointer-events-none! absolute r-1wyvozj r-desppf"
+                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! absolute r-1wyvozj r-desppf"
                                             style={{ "background-color": "rgb(21, 32, 43)", width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
-                                            <div class="css-175oi2r block r-1udh08x">
+                                            <div class="css-175oi2r block overflow-hidden">
                                                 <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
                                                 <div class="bottom-[0px] h-full absolute left-[0px] top-[0px] w-full">
                                                     <div
-                                                        class="css-175oi2r basis-auto r-1udh08x z-0"
+                                                        class="css-175oi2r basis-auto overflow-hidden z-0"
                                                         style={{ position: "absolute", inset: "0px" }}
                                                         aria-label={document.querySelector<HTMLSpanElement>(`#detail-header div > span:nth-child(1) > span > span:nth-child(1)`).textContent}
                                                     >

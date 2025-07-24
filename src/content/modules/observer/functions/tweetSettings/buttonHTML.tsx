@@ -243,7 +243,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r justify-center min-h-[20px] outline-none r-bztko3 select-none ${enable ? "css-18t94o4" : "r-icoktb"}`}
+                    class={`css-175oi2r justify-center min-h-[20px] outline-none overflow-visible select-none ${enable ? "css-18t94o4" : "r-icoktb"}`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -260,7 +260,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                         }`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
-                            <div class="css-175oi2r bg-transparent r-sdzlij bottom-[0px] inline-flex left-[0px] r-xf4iuw outline-none absolute right-[0px] top-[0px] duration-200 r-6416eg"></div>
+                            <div class="css-175oi2r bg-transparent rounded-full bottom-[0px] inline-flex left-[0px] r-xf4iuw outline-none absolute right-[0px] top-[0px] duration-200 r-6416eg"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
@@ -281,7 +281,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
 // ツイート下ボタンの空白調整のためのElement
 export const EmptyButtonHTML = (): JSX.Element => {
     return (
-        <div class="css-175oi2r inline-flex r-1udh08x TUIC_UnderTweetButtonSpace">
+        <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 r-1ttztb7 wrap-break-word r-1tl8opc ${fontSizeClass(
                     "r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd",
