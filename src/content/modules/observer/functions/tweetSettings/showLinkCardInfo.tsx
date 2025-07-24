@@ -34,7 +34,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[14px] r-hjklzo",
                             "text-[15px] leading-[20px]",
                             "text-[17px] r-hbpseb",
-                            "r-1i10wst leading-[24px]",
+                            "text-[18px] leading-[24px]",
                         )} font-normal min-w-[0px] wrap-break-word`}
                     >
                         <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
@@ -48,7 +48,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[14px] r-hjklzo",
                             "text-[15px] leading-[20px]",
                             "text-[17px] r-hbpseb",
-                            "r-1i10wst leading-[24px]",
+                            "text-[18px] leading-[24px]",
                         )} font-normal min-w-[0px] wrap-break-word`}
                     >
                         <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
@@ -62,7 +62,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[14px] r-hjklzo",
                             "text-[15px] leading-[20px]",
                             "text-[17px] r-hbpseb",
-                            "r-1i10wst leading-[24px]",
+                            "text-[18px] leading-[24px]",
                         )} font-normal min-w-[0px] wrap-break-word`}
                         style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
                     >

@@ -16,11 +16,11 @@ const elem = (): JSX.Element => {
             dir="ltr"
             role="link"
             class={`TUICOriginalContent css-1rynq56 min-w-[0px] wrap-break-word r-1tl8opc font-normal r-hrzydr cursor-pointer ${fontSizeClass(
-                "r-1enofrn r-1f529hi r-mszm1p",
-                "r-1enofrn r-fxxt2n r-mszm1p",
+                "text-[12px] r-1f529hi r-mszm1p",
+                "text-[12px] r-fxxt2n r-mszm1p",
                 "text-[13px] leading-[16px] r-j2kj52",
                 "text-[14px] r-14yzgew r-1ba89he",
-                "r-ubezar r-hjklzo r-n3sdqm",
+                "text-[16px] r-hjklzo r-n3sdqm",
             )}`}
             style={{
                 "text-overflow": "unset",

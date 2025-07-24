@@ -26,7 +26,7 @@ const copiedURLMessage = (): JSX.Element => {
                             <div
                                 dir="ltr"
                                 class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] r-1e081e0 wrap-break-word ${fontSizeClass(
-                                    "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "r-1i10wst",
+                                    "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]",
                                 )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
                             >
                                 <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
@@ -256,7 +256,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     <div
                         dir="ltr"
                         class={`css-901oao items-center flex r-37j5jr font-normal justify-start min-w-[0px] duration-200 r-clp7b1 whitespace-nowrap wrap-break-word TUIC_ButtonHover2 ${
-                            fontSizeClass("text-[14px]", "text-[14px]", "leading-[20px]", "text-[17px]", "r-1i10wst")
+                            fontSizeClass("text-[14px]", "text-[14px]", "leading-[20px]", "text-[17px]", "text-[18px]")
                         }`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
@@ -284,11 +284,11 @@ export const EmptyButtonHTML = (): JSX.Element => {
         <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 [text-align:inherit] wrap-break-word r-1tl8opc ${fontSizeClass(
-                    "r-1enofrn r-1f529hi r-cxdvbh px-[4px]",
-                    "r-1enofrn r-fxxt2n r-cxdvbh px-[4px]",
+                    "text-[12px] r-1f529hi r-cxdvbh px-[4px]",
+                    "text-[12px] r-fxxt2n r-cxdvbh px-[4px]",
                     "text-[13px] leading-[16px] r-1k6nrdp px-[4px]",
                     "text-[14px] r-14yzgew r-1buqboj px-[4px]",
-                    "r-ubezar r-hjklzo r-e157gu r-1ntr0p",
+                    "text-[16px] r-hjklzo r-e157gu r-1ntr0p",
                 )}`}
                 ></span>
             </span>

@@ -283,11 +283,11 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                 <div
                     dir="ltr"
                     class={`css-146c3p1 max-w-full overflow-hidden whitespace-nowrap min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc r-9p5ork ${fontSizeClass(
-                        "r-1i10wst r-hbpseb font-normal r-b8s2zf r-1nbxd40 r-fv9tdh",
-                        "r-1b6yd1w r-7ptqe7 font-normal r-1b4jfhh r-egpt5t r-1tfrt9a",
+                        "text-[18px] r-hbpseb font-normal r-b8s2zf r-1nbxd40 r-fv9tdh",
+                        "text-[19px] r-7ptqe7 font-normal r-1b4jfhh r-egpt5t r-1tfrt9a",
                         "text-[20px] leading-[24px] r-dlybji r-nazi8o",
-                        "r-evnaw r-eaezby font-normal r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
-                        "r-1x35g6 r-1h1c4di font-normal r-ikuq2u r-1ck5maq",
+                        "text-[22px] r-eaezby font-normal r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
+                        "text-[24px] r-1h1c4di font-normal r-ikuq2u r-1ck5maq",
                     )} ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}
                     style={{ "margin-right": "15px", "text-overflow": "unset" }}
                 >
