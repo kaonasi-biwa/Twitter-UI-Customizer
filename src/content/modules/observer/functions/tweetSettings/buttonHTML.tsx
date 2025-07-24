@@ -284,10 +284,10 @@ export const EmptyButtonHTML = (): JSX.Element => {
         <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 r-1ttztb7 wrap-break-word r-1tl8opc ${fontSizeClass(
-                    "r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd",
-                    "r-1enofrn r-fxxt2n r-cxdvbh r-n7gxbd",
-                    "text-[13px] leading-[16px] r-1k6nrdp r-n7gxbd",
-                    "text-[14px] r-14yzgew r-1buqboj r-n7gxbd",
+                    "r-1enofrn r-1f529hi r-cxdvbh px-[4px]",
+                    "r-1enofrn r-fxxt2n r-cxdvbh px-[4px]",
+                    "text-[13px] leading-[16px] r-1k6nrdp px-[4px]",
+                    "text-[14px] r-14yzgew r-1buqboj px-[4px]",
                     "r-ubezar r-hjklzo r-e157gu r-1ntr0p",
                 )}`}
                 ></span>
