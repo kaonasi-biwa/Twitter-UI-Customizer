@@ -19,7 +19,7 @@ const copiedURLMessage = (): JSX.Element => {
                             role="alert"
                             class={`css-175oi2r items-center self-center r-l5o3uw rounded-[4px] flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
                                 "mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]",
-                            )} ${fontSizeClass("r-q81ovl", "r-q81ovl", "p-[12px]", "p-[13px]", "p-[14px]")}`}
+                            )} ${fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")}`}
                             data-testid="toast"
                             style={{ transform: "translate3d(0px, 0px, 0px) translateY(0px)" }}
                         >
@@ -264,7 +264,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`inline-block fill-current r-1q142lx max-w-full relative r-1plcrui select-none ${
+                                class={`inline-block fill-current r-1q142lx max-w-full relative align-text-bottom select-none ${
                                     articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "h-[1.25em]"
                                 }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >

@@ -5,7 +5,7 @@ import { getPref } from "@modules/pref";
 import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
-import { backgroundColorCheck } from "@modules/utils/color";
+import { backgroundColorClass } from "@modules/utils/color";
 import { getPrimitiveOrFunction } from "@modules/utils/getValues";
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { Dialog } from "@shared/tlui/components/Dialog";
@@ -254,7 +254,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             )}
             role="link"
             tabindex="0"
-            class="css-175oi2r r-1habvwh cursor-pointer flex flex-col grow outline-none w-full r-cnw61z TUICOriginalContent TUICSidebarButton"
+            class="css-175oi2r items-start cursor-pointer flex flex-col grow outline-none w-full py-[4px] TUICOriginalContent TUICSidebarButton"
             data-tuic-hide="false"
             onClick={_data[id].onclick}
             onKeyDown={(e: KeyboardEvent) => {
@@ -266,15 +266,15 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
         >
             <div
                 class={`css-175oi2r items-center rounded-full flex-row justify-center max-w-full duration-200 r-6416eg ${
-                    fontSizeClass("r-q81ovl", "r-q81ovl", "p-[12px]", "p-[13px]", "p-[14px]")
+                    fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
                 }`}
             >
                 <div class="css-175oi2r">
                     <svg
                         viewBox="0 0 24 24"
                         aria-hidden="true"
-                        class={`inline-block fill-current r-lwhw9o max-w-full relative r-1plcrui select-none r-cnnz9e ${
-                            backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"
+                        class={`inline-block fill-current h-[1.75rem] max-w-full relative align-text-bottom select-none w-[1.75rem] ${
+                            backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")
                         }`}
                     >
                         <g>{svg()}</g>
@@ -282,16 +282,15 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                 </div>
                 <div
                     dir="ltr"
-                    class={`css-146c3p1 max-w-full overflow-hidden whitespace-nowrap min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc r-9p5ork ${fontSizeClass(
-                        "text-[18px] leading-[22px] font-normal r-b8s2zf r-1nbxd40 r-fv9tdh",
-                        "text-[19px] leading-[23px] font-normal r-1b4jfhh r-egpt5t r-1tfrt9a",
+                    class={`css-146c3p1 max-w-full overflow-hidden whitespace-nowrap min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc text-ellipsis ${fontSizeClass(
+                        "text-[18px] leading-[22px] mr-[14px] ml-[18px]",
+                        "text-[19px] leading-[23px] mr-[15px] ml-[19px]",
                         "text-[20px] leading-[24px] mr-[16px] ml-[20px]",
-                        "text-[22px] leading-[26px] font-normal r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
-                        "text-[24px] leading-[29px] font-normal r-ikuq2u ml-[24px]",
-                    )} ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}
-                    style={{ "margin-right": "15px", "text-overflow": "unset" }}
+                        "text-[22px] leading-[26px] mr-[18px] ml-[22px]",
+                        "text-[24px] leading-[29px] mr-[19px] ml-[24px]",
+                    )} font-normal ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")}`}
                 >
-                    <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word" style={{ "text-overflow": "unset" }}>
+                    <span class="css-1jxf684 r-1tl8opc min-w-[0px] [text-align:inherit] wrap-break-word">
                         {TUICI18N.get("sidebarButtons-" + id)}
                     </span>
                 </div>
