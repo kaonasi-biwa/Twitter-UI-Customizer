@@ -19,15 +19,15 @@ const copiedURLMessage = (): JSX.Element => {
                             role="alert"
                             class={`css-175oi2r items-center self-center r-l5o3uw rounded-[4px] flex-row r-1wtj0ep pointer-events-auto! r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
                                 "mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]",
-                            )} ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}`}
+                            )} ${fontSizeClass("r-q81ovl", "r-q81ovl", "p-[12px]", "p-[13px]", "p-[14px]")}`}
                             data-testid="toast"
                             style={{ transform: "translate3d(0px, 0px, 0px) translateY(0px)" }}
                         >
                             <div
                                 dir="ltr"
-                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] r-1e081e0 wrap-break-word ${fontSizeClass(
+                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] wrap-break-word ${fontSizeClass(
                                     "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]",
-                                )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
+                                )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "px-[12px]", "px-[13px]", "px-[14px]")}`}
                             >
                                 <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
                             </div>
@@ -286,9 +286,9 @@ export const EmptyButtonHTML = (): JSX.Element => {
                 <span class={`css-1jxf684 [text-align:inherit] wrap-break-word r-1tl8opc ${fontSizeClass(
                     "text-[12px] leading-[14px] r-cxdvbh px-[4px]",
                     "text-[12px] leading-[15px] r-cxdvbh px-[4px]",
-                    "text-[13px] leading-[16px] r-1k6nrdp px-[4px]",
+                    "text-[13px] leading-[16px] min-w-[calc(1em+2*12px)] px-[4px]",
                     "text-[14px] leading-[18px] r-1buqboj px-[4px]",
-                    "text-[16px] leading-[19px] r-e157gu r-1ntr0p",
+                    "text-[16px] leading-[19px] r-e157gu px-[5px]",
                 )}`}
                 ></span>
             </span>

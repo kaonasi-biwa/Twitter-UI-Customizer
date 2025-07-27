@@ -172,7 +172,7 @@ export function tweetSettings() {
                                     render(EmptyButtonHTML, processingButton.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`));
                                 }
                                 processingButton.classList.remove("r-1rq6c10", "r-1b7u577", "r-1wron08", "r-ogg1b9", "r-uzdrn4", "r-1l8l4mf");
-                                processingButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                processingButton.classList.add(fontSizeClass("mr-[7px]", "mr-[8px]", "mr-[8px]", "mr-[9px]", "mr-[10px]"));
                                 lastButton = processingButton;
                                 buttonBarBase.appendChild(processingButton);
                             }
@@ -182,7 +182,7 @@ export function tweetSettings() {
                             const lastButtonSpace = lastButton.querySelector(".TUIC_UnderTweetButtonSpace");
                             if (lastButtonSpace != null && lastButtonSpace.children[0].children[0].childElementCount == 0) {
                                 lastButtonSpace.remove();
-                                lastButton.classList.add(fontSizeClass("r-12zb1j4", "r-1kb76zh", "r-1kb76zh", "r-19einr3", "r-zso239"));
+                                lastButton.classList.add(fontSizeClass("mr-[7px]", "mr-[8px]", "mr-[8px]", "mr-[9px]", "mr-[10px]"));
                             }
                             lastButton.classList.add("r-1rq6c10", "r-1b7u577");
                             buttonBarBase.style.minHeight = "";

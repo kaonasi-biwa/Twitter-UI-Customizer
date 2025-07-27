@@ -17,11 +17,11 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
             >
                 <div
                     class={`css-175oi2r grow shrink r-z5qs1h justify-center ${fontSizeClass(
-                        "r-1t982j2 r-1qfz7tf r-1b3ntt7",
-                        "r-1t982j2 r-1qfz7tf r-1b3ntt7",
-                        "r-kzbkwu r-1e081e0 r-ttdzmv",
-                        "r-ig955 r-1orpq53 r-19urhcx",
-                        "r-i03k3n r-779j7e r-5t7p9m",
+                        "pb-[11px] r-1qfz7tf r-1b3ntt7",
+                        "pb-[11px] r-1qfz7tf r-1b3ntt7",
+                        "pb-[12px] px-[12px] pt-[12px]",
+                        "pb-[13px] px-[13px] pt-[13px]",
+                        "pb-[14px] px-[14px] pt-[14px]",
                     )}`}
                     id="id__7fpkgwkoke8"
                     data-testid="card.layoutSmall.detail"
