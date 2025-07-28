@@ -5,7 +5,10 @@ import { hasClosestSelector } from "@modules/utils/controlElements";
 let tweetCount = -1;
 
 // NOTE: まだ置き換えられていない要素を取得し、置き換え済みクラスを追加する関数
-function getNotReplacedElements(selector: string, base: ParentNode = document) {
+function getNotReplacedElements(selector: string): NodeListOf<Element>;
+function getNotReplacedElements(selector: string, base: ParentNode): NodeListOf<Element>;
+function getNotReplacedElements(selector: string, base?: ParentNode) {
+    if (base === undefined) base = document;
     const replaceMarkClass = "TUIC_TWEETREPLACE";
 
     // NOTE: セレクタで選択された要素の中から、すでに置き換え済みの要素を除外
@@ -58,11 +61,14 @@ export function replacePost() {
             localizeElemText('[data-testid="tweetText"] + [role="button"]:not([data-testid="tweet-text-show-more-link"]) > span', TUICI18N.get("XtoTwitter-PostToTweet-translateTweet"));
 
             // ツイート画面のGrokによる翻訳の表示ボタン
-            for (const elem of getNotReplacedElements(
-                '[role="button"]:not([data-testid="tweet-text-show-more-link"]) > span > span > span',
-                document.querySelector('[data-testid="tweet"]').parentElement,
-            )) {
-                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-translateTweet");
+            const tweetText = document.querySelector('[data-testid="tweetText"]');
+            if (tweetText) {
+                for (const elem of getNotReplacedElements(
+                    '[role="button"]:not([data-testid="tweet-text-show-more-link"]) > span > span > span',
+                    tweetText.parentElement,
+                )) {
+                    elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-translateTweet");
+                }
             }
 
             // ツイートを追加
