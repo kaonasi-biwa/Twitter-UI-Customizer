@@ -13,12 +13,12 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow r-1wtj0ep outline-none duration-200 r-6416eg"
+                class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 r-6416eg"
             >
                 <div
                     class={`css-175oi2r grow shrink r-z5qs1h justify-center ${fontSizeClass(
-                        "pb-[11px] r-1qfz7tf r-1b3ntt7",
-                        "pb-[11px] r-1qfz7tf r-1b3ntt7",
+                        "pb-[11px] px-[11px] r-1b3ntt7",
+                        "pb-[11px] px-[11px] r-1b3ntt7",
                         "pb-[12px] px-[12px] pt-[12px]",
                         "pb-[13px] px-[13px] pt-[13px]",
                         "pb-[14px] px-[14px] pt-[14px]",

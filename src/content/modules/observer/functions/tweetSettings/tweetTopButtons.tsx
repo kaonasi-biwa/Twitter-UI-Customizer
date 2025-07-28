@@ -59,12 +59,12 @@ const _data = {
                         dir="ltr"
                         class={`css-1rynq56 min-w-[0px] wrap-break-word r-37j5jr ${
                             fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
-                        } leading-[20px] font-normal items-center flex justify-start duration-200 r-clp7b1 whitespace-nowrap`}
+                        } leading-[20px] font-normal items-center flex justify-start duration-200 [transition-property:color] whitespace-nowrap`}
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >
                         <div class="css-175oi2r inline-flex">
-                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full r-xf4iuw duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
+                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full m-[-8px] duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] r-1hdv0qi ${
