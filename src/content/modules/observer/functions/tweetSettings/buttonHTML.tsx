@@ -11,25 +11,34 @@ export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
-        <div class="css-175oi2r backface-hidden bottom-[0px] left-[0px] pointer-events-none! fixed right-[0px] TUICURLCopyLayer">
+        <div class="css-175oi2r backface-hidden right-[0px] left-[0px] fixed bottom-[0px] pointer-events-none! TUICURLCopyLayer">
             <div class="css-175oi2r pointer-events-none!">
                 <div class="css-175oi2r pointer-events-none!">
-                    <div class="css-175oi2r mx-auto pointer-events-none! w-full max-w-[600px]">
+                    <div class="css-175oi2r pointer-events-none! mx-auto w-full max-w-[600px]">
                         <div
                             role="alert"
-                            class={`css-175oi2r items-center self-center r-l5o3uw rounded-[4px] flex-row justify-between pointer-events-auto! duration-350 [transition-property:transform] ease-[cubic-bezier(0,0,0,1)] ${fontSizeClass(
-                                "mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]",
-                            )} ${fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")}`}
+                            class={`css-175oi2r items-center r-l5o3uw flex-row justify-between ${
+                                fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
+                            } pointer-events-auto! self-center rounded-[4px] ${
+                                fontSizeClass("mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]")
+                            } [transition-property:opacity] duration-170 ease-linear opacity-[1]`}
                             data-testid="toast"
-                            style={{ transform: "translate3d(0px, 0px, 0px) translateY(0px)" }}
                         >
                             <div
                                 dir="ltr"
-                                class={`css-901oao text-white shrink r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] wrap-break-word ${fontSizeClass(
-                                    "text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]",
-                                )} ${fontSizeClass("px-[11px]", "px-[11px]", "px-[12px]", "px-[13px]", "px-[14px]")}`}
+                                class={`css-146c3p1 min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc ${fontSizeClass(
+                                    "text-[14px] leading-[18px]",
+                                    "text-[14px] leading-[19px]",
+                                    "text-[15px] leading-[20px]",
+                                    "text-[17px] leading-[22px]",
+                                    "text-[18px] leading-[24px]",
+                                )} font-normal shrink ${fontSizeClass(
+                                    "px-[11px]", "px-[11px]", "px-[12px]", "px-[13px]", "px-[14px]",
+                                )} text-white`}
                             >
-                                <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
+                                <span class="css-1jxf684 min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc">
+                                    {TUICI18N.get("bottomTweetButtons-urlCopy-layer")}
+                                </span>
                             </div>
                             <div aria-hidden="true" class="css-175oi2r flex-row"></div>
                         </div>
@@ -235,7 +244,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
         <div
             class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent"
             style={{
-                display: "inline-grid", "justify-content": "inherit", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)", "-moz-box-pack": "inherit",
+                "justify-content": "inherit", display: "inline-grid", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)",
             }}
         >
             <div class="css-175oi2r flex-row justify-start">
@@ -243,7 +252,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r justify-center min-h-[20px] outline-none overflow-visible select-none ${enable ? "css-18t94o4" : "opacity-[0.5]"}`}
+                    class={`css-175oi2r justify-center min-h-[20px] overflow-visible select-none ${enable ? "cursor-pointer" : "opacity-[0.5]"} outline-none`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -255,17 +264,21 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`css-901oao items-center flex r-37j5jr font-normal justify-start min-w-[0px] duration-200 [transition-property:color] whitespace-nowrap wrap-break-word TUIC_ButtonHover2 ${
-                            fontSizeClass("text-[14px]", "text-[14px]", "leading-[20px]", "text-[17px]", "text-[18px]")
-                        }`}
+                        class={`css-146c3p1 min-w-[0px] [text-align:inherit] wrap-break-word r-37j5jr ${fontSizeClass(
+                            "text-[14px] leading-[18px]",
+                            "text-[14px] leading-[19px]",
+                            "text-[15px] leading-[20px]",
+                            "text-[17px] leading-[22px]",
+                            "text-[18px] leading-[24px]",
+                        )} font-normal items-center flex justify-start duration-200 [transition-property:color] whitespace-nowrap TUIC_ButtonHover2`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
-                            <div class="css-175oi2r bg-transparent rounded-full bottom-[0px] inline-flex left-[0px] m-[-8px] outline-none absolute right-[0px] top-[0px] duration-200 r-6416eg"></div>
+                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 r-6416eg outline-none"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`inline-block fill-current shrink-0 max-w-full relative align-text-bottom select-none ${
-                                    articleInfomation.option.isBigArticle ? "w-[1.5em] h-[1.5em]" : "h-[1.25em]"
+                                class={`inline-block fill-current max-w-full relative select-none align-text-bottom ${
+                                    articleInfomation.option.isBigArticle ? "h-[1.5em] w-[1.5em]" : "h-[1.25em] w-[1.25em]"
                                 }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >
                                 <g>{tweetButtonData[id].svg()}</g>
@@ -284,11 +297,11 @@ export const EmptyButtonHTML = (): JSX.Element => {
         <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 [text-align:inherit] wrap-break-word r-1tl8opc ${fontSizeClass(
-                    "text-[12px] leading-[14px] min-w-[calc(1em+2*11px)] px-[4px]",
-                    "text-[12px] leading-[15px] min-w-[calc(1em+2*11px)] px-[4px]",
-                    "text-[13px] leading-[16px] min-w-[calc(1em+2*12px)] px-[4px]",
-                    "text-[14px] leading-[18px] min-w-[calc(1em+2*13px)] px-[4px]",
-                    "text-[16px] leading-[19px] min-w-[calc(1em+2*14px)] px-[5px]",
+                    "text-[12px] leading-[14px] min-w-[calc(1em+22px)] px-[4px]",
+                    "text-[12px] leading-[15px] min-w-[calc(1em+22px)] px-[4px]",
+                    "text-[13px] leading-[16px] min-w-[calc(1em+24px)] px-[4px]",
+                    "text-[14px] leading-[18px] min-w-[calc(1em+26px)] px-[4px]",
+                    "text-[16px] leading-[19px] min-w-[calc(1em+28px)] px-[5px]",
                 )}`}
                 ></span>
             </span>
