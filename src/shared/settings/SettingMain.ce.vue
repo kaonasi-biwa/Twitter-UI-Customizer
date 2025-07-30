@@ -1,6 +1,6 @@
 <template>
     <link rel="stylesheet" :href="BootstrapIconsURL" />
-    <div id="TUIC_setting" class="css-175oi2r justify-between r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
+    <div id="TUIC_setting" class="css-175oi2r justify-between px-[16px] py-[12px] px-[12px] TUICOriginalContent">
         <div class="css-901oao css-cens5h text-white r-1tl8opc text-[20px] font-extrabold leading-[24px] min-w-[0px] wrap-break-word">
             <hr v-if="!isSafemode" class="TUIC_setting_divider TUIC_setting_divider_m35" />
             <div class="TUIC_setting_toplogo_container">

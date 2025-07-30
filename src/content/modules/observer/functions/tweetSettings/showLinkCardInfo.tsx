@@ -16,7 +16,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 r-6416eg"
             >
                 <div
-                    class={`css-175oi2r grow shrink r-z5qs1h justify-center ${fontSizeClass(
+                    class={`css-175oi2r grow shrink gap-[2px] justify-center ${fontSizeClass(
                         "pb-[11px] px-[11px] r-1b3ntt7",
                         "pb-[11px] px-[11px] r-1b3ntt7",
                         "pb-[12px] px-[12px] pt-[12px]",

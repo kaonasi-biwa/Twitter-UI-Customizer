@@ -3,7 +3,7 @@ import { JSX } from "solid-js";
 
 export const IconElement = (): JSX.Element => {
     return (
-        <div class="css-175oi2r r-obd0qt flex-row TUICOriginalContent TUICDMIconBox">
+        <div class="css-175oi2r items-end flex-row TUICOriginalContent TUICDMIconBox">
             <div class="css-175oi2r" style={{ width: `${fontSizeClass("47", "49", "52", "57", "62")}px` }}></div>
             <div class="css-175oi2r absolute left-[0px]">
                 <div
@@ -13,9 +13,9 @@ export const IconElement = (): JSX.Element => {
                 >
                     <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
                     <div class="bottom-[0px] h-full absolute left-[0px] top-[0px] w-full">
-                        <div class="css-175oi2r block h-full w-full absolute r-1wyvozj r-desppf overflow-visible">
+                        <div class="css-175oi2r block h-full w-full absolute left-1/2 r-desppf overflow-visible">
                             <div class="bottom-[0px] h-full absolute left-[0px] top-[0px] w-full">
-                                <div class="css-175oi2r rounded-full overflow-hidden absolute r-ggadg3 top-[-2px]" style={{ width: "calc(100% + 4px)", height: "calc(100% + 4px)" }}>
+                                <div class="css-175oi2r rounded-full overflow-hidden absolute left-[-2px] top-[-2px]" style={{ width: "calc(100% + 4px)", height: "calc(100% + 4px)" }}>
                                     <a
                                         href={document.querySelector<HTMLAnchorElement>(`[data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *)`)?.href ?? ""}
                                         role="link"
@@ -31,7 +31,7 @@ export const IconElement = (): JSX.Element => {
                                         }}
                                     >
                                         <div
-                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! absolute r-1wyvozj r-desppf"
+                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! absolute left-1/2 r-desppf"
                                             style={{ "background-color": "rgb(21, 32, 43)", width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
                                             <div class="css-175oi2r block overflow-hidden">
