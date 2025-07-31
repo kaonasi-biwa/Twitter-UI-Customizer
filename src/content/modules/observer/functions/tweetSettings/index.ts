@@ -172,8 +172,8 @@ export function tweetSettings() {
                                     render(EmptyButtonHTML, processingButton.querySelector("svg").closest(`:is([role="button"],[role="link"]) > div`));
                                 }
                                 processingButton.classList.remove(
-                                    "r-1rq6c10", //mr-[8px]かもしれない basis-[40px]かもしれない
-                                    "mr-[12px]", //r-1b7u577
+                                    //"r-1rq6c10", //mr-[8px]かもしれない basis-[40px]かもしれない
+                                    //"mr-[12px]", //r-1b7u577
                                     // ブックマークに元から付いているClass
                                     "r-ogg1b9", //  mr-[7px]  x1
                                     "r-1wron08", // mr-[8px]  x2,x3
@@ -192,7 +192,7 @@ export function tweetSettings() {
                                 lastButtonSpace.remove();
                                 lastButton.classList.add(fontSizeClass("mr-[7px]", "mr-[8px]", "mr-[8px]", "mr-[9px]", "mr-[10px]"));
                             }
-                            lastButton.classList.add("r-1rq6c10", "mr-[12px]");
+                            //lastButton.classList.add("r-1rq6c10", "mr-[12px]");
                             buttonBarBase.style.minHeight = "";
                             buttonBarBase.style.height = "";
                         } else {
