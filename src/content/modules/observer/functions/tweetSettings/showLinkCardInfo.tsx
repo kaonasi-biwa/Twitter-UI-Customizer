@@ -17,15 +17,15 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
             >
                 <div
                     class={`css-175oi2r grow shrink gap-[2px] justify-center ${fontSizeClass(
-                        "pb-[11px] px-[11px] r-1b3ntt7",
-                        "pb-[11px] px-[11px] r-1b3ntt7",
+                        "pb-[11px] px-[11px] pt-[11px]",
+                        "pb-[11px] px-[11px] pt-[11px]",
                         "pb-[12px] px-[12px] pt-[12px]",
                         "pb-[13px] px-[13px] pt-[13px]",
                         "pb-[14px] px-[14px] pt-[14px]",
                     )}`}
                     id="id__7fpkgwkoke8"
                     data-testid="card.layoutSmall.detail"
-                    style={{ padding: "12px 15px" }}
+                    //style={{ padding: "12px 15px" }}
                 >
                     <div
                         dir="auto"
