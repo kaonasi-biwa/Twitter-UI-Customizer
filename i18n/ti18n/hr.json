@@ -33,6 +33,8 @@
     "XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer": "Odabrane neposlane objave su izbrisane.",
     "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "Tweet je uklonjen iz knjižnih oznaka",
     "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "Objava je uklonjena iz knjižnih oznaka",
+    "XtoTwitter-PostToTweet-addBookmark-old-layer": "Tweet je dodan u knjižne oznake",
+    "XtoTwitter-PostToTweet-addBookmark-latest-layer": "Objava je dodana u knjižne oznake",
     "XtoTwitter-PostToTweet-profile-likes-old": "Tweetovi koje je {fullName} (@{screenName}) označio/la oznakom „sviđa mi se”",
     "XtoTwitter-PostToTweet-profile-media-old": "Tweetovi s medijskim sadržajem korisnika/ce {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweetovi s odgovorima korisnika/ce {fullName} (@{screenName})",

@@ -32,6 +32,8 @@
     "XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer": "Valitsemasi lähettämättömät julkaisut poistettiin.",
     "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "Twiitti poistettiin kirjanmerkeistäsi",
     "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "Julkaisu poistettu kirjanmerkeistä",
+    "XtoTwitter-PostToTweet-addBookmark-old-layer": "Twiitti lisättiin kirjanmerkkeihisi",
+    "XtoTwitter-PostToTweet-addBookmark-latest-layer": "Julkaisu lisättiin kirjanmerkkeihisi",
     "XtoTwitter-PostToTweet-addTweet": "Lisää twiitti",
     "XtoTwitter-PostToTweet-liked-none-body": "Kun joku (vaikka sinä itse) napauttaa sydäntä tämän twiitin kohdalla, se näkyy täällä.",
     "XtoTwitter-PostToTweet-liked-none-header": "Twiitistä ei vielä ole tykätty",

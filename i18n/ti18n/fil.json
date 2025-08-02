@@ -32,6 +32,8 @@
     "XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer": "Na-delete ang mga napili mong hindi napadalang post.",
     "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "Tinanggal na ang Tweet mula sa Mga Bookmark mo",
     "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "Tinanggal ang post mula sa Mga Bookmark mo",
+    "XtoTwitter-PostToTweet-addBookmark-old-layer": "Idinagdag na ang Tweet sa iyong Mga Bookmark",
+    "XtoTwitter-PostToTweet-addBookmark-latest-layer": "Idinagdag ang post sa Mga Bookmark mo",
     "XtoTwitter-PostToTweet-addTweet": "Magdagdag ng Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Kapag may nag-tap ng puso para I-like ang Tweet na ito (kahit ikaw), lalabas iyon dito.",
     "XtoTwitter-PostToTweet-liked-none-header": "Wala pang Like ang Tweet",
