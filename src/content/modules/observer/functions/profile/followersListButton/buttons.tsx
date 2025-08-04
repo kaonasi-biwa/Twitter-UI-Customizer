@@ -28,7 +28,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                             viewBox="0 0 24 24"
                             aria-hidden="true"
                             class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] r-1hdv0qi ${
-                                backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")
+                                backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")
                             }`}
                         >
                             <g>

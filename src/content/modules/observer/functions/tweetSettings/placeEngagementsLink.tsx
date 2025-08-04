@@ -38,7 +38,7 @@ const _data = {
                 <span
                     class={`css-901oao css-16my406 r-1tl8opc leading-[16px] min-w-[0px] wrap-break-word ${
                         fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
-                    } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
+                    } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")}`}
                 >
                     <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
                         {TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}

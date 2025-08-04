@@ -279,7 +279,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                                 aria-hidden="true"
                                 class={`inline-block fill-current max-w-full relative select-none align-text-bottom ${
                                     articleInfomation.option.isBigArticle ? "h-[1.5em] w-[1.5em]" : "h-[1.25em] w-[1.25em]"
-                                }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
+                                }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")}`}
                             >
                                 <g>{tweetButtonData[id].svg()}</g>
                             </svg>

@@ -29,7 +29,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 >
                     <div
                         dir="auto"
-                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
+                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")} r-37j5jr ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
@@ -43,7 +43,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                     </div>
                     <div
                         dir="auto"
-                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")} r-37j5jr ${fontSizeClass(
+                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")} r-37j5jr ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
@@ -57,7 +57,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                     </div>
                     <div
                         dir="auto"
-                        class={`css-901oao css-cens5h ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")} r-37j5jr ${fontSizeClass(
+                        class={`css-901oao css-cens5h ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")} r-37j5jr ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",

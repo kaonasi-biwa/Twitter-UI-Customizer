@@ -274,7 +274,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                         viewBox="0 0 24 24"
                         aria-hidden="true"
                         class={`inline-block fill-current h-[1.75rem] max-w-full relative align-text-bottom select-none w-[1.75rem] ${
-                            backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")
+                            backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")
                         }`}
                     >
                         <g>{svg()}</g>
@@ -288,7 +288,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                         "text-[20px] leading-[24px] mr-[16px] ml-[20px]",
                         "text-[22px] leading-[26px] mr-[18px] ml-[22px]",
                         "text-[24px] leading-[29px] mr-[19px] ml-[24px]",
-                    )} font-normal ${backgroundColorClass("r-1nao33i", "r-vlxjld", "r-18jsvk2")}`}
+                    )} font-normal ${backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")}`}
                 >
                     <span class="css-1jxf684 r-1tl8opc min-w-[0px] [text-align:inherit] wrap-break-word">
                         {TUICI18N.get("sidebarButtons-" + id)}

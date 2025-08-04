@@ -68,7 +68,7 @@ const _data = {
                             <svg
                                 viewBox="0 0 24 24"
                                 class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] w-[1.25em] ${
-                                    backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")
+                                    backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")
                                 } ${redButton ? "TUIC_DeleteButton" : ""}`}
                             >
                                 <g>
