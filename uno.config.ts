@@ -19,9 +19,11 @@ export default defineConfig({
                 },
                 darkblue: {
                     text: "rgba(247,249,249,1.00)",
+                    text2: "rgba(139,152,165,1.00)",
                 },
                 dark: {
                     text: "rgba(231,233,234,1.00)",
+                    text2: "rgba(113,118,123,1.00)",
                 },
             },
         },
