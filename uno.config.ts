@@ -6,6 +6,10 @@ export default defineConfig({
             "src/{content,shared}/**/*.{ts,tsx,vue}",
         ],
     },
+    rules: [
+        ["font-tw", { "font-family": '"Segoe UI",Meiryo,system-ui,-apple-system,BlinkMacSystemFont,sans-serif' }],
+        ["transition-bgcolor-shadow", { "transition-property": "background-color, box-shadow" }],
+    ],
     theme: {
         colors: {
             tw: {

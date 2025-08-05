@@ -15,7 +15,7 @@ const elem = (): JSX.Element => {
             id="TUICDisplayRightSidebar"
             dir="ltr"
             role="link"
-            class={`TUICOriginalContent css-1rynq56 min-w-[0px] wrap-break-word r-1tl8opc font-normal r-hrzydr cursor-pointer ${fontSizeClass(
+            class={`TUICOriginalContent css-1rynq56 min-w-[0px] wrap-break-word font-tw font-normal r-hrzydr cursor-pointer ${fontSizeClass(
                 "text-[12px] leading-[14px] pr-[11px]",
                 "text-[12px] leading-[15px] pr-[11px]",
                 "text-[13px] leading-[16px] pr-[12px]",
@@ -57,7 +57,7 @@ const elem = (): JSX.Element => {
                 }, 150);*/
             }}
         >
-            <span class="css-1qaijid min-w-[0px] wrap-break-word r-1tl8opc" style={{ "text-overflow": "unset" }}>
+            <span class="css-1qaijid min-w-[0px] wrap-break-word font-tw" style={{ "text-overflow": "unset" }}>
                 {TUICI18N.get("common-displaySetting")}
             </span>
         </a>

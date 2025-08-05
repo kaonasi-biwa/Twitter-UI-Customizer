@@ -265,7 +265,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             }}
         >
             <div
-                class={`css-175oi2r items-center rounded-full flex-row justify-center max-w-full duration-200 r-6416eg ${
+                class={`css-175oi2r items-center rounded-full flex-row justify-center max-w-full duration-200 transition-bgcolor-shadow ${
                     fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
                 }`}
             >
@@ -282,7 +282,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                 </div>
                 <div
                     dir="ltr"
-                    class={`css-146c3p1 max-w-full overflow-hidden whitespace-nowrap min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc text-ellipsis ${fontSizeClass(
+                    class={`css-146c3p1 max-w-full overflow-hidden whitespace-nowrap min-w-[0px] [text-align:inherit] wrap-break-word font-tw text-ellipsis ${fontSizeClass(
                         "text-[18px] leading-[22px] mr-[14px] ml-[18px]",
                         "text-[19px] leading-[23px] mr-[15px] ml-[19px]",
                         "text-[20px] leading-[24px] mr-[16px] ml-[20px]",
@@ -290,7 +290,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                         "text-[24px] leading-[29px] mr-[19px] ml-[24px]",
                     )} font-normal ${backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")}`}
                 >
-                    <span class="css-1jxf684 r-1tl8opc min-w-[0px] [text-align:inherit] wrap-break-word">
+                    <span class="css-1jxf684 font-tw min-w-[0px] [text-align:inherit] wrap-break-word">
                         {TUICI18N.get("sidebarButtons-" + id)}
                     </span>
                 </div>

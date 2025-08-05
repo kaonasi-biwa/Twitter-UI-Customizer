@@ -23,7 +23,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                     }`}
                 >
                     <div class="css-175oi2r inline-flex">
-                        <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full m-[-8px] duration-200 r-6416eg outline-none TUIC_ButtonHover"></div>
+                        <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full m-[-8px] duration-200 transition-bgcolor-shadow outline-none TUIC_ButtonHover"></div>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"

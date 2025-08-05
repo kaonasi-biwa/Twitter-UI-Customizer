@@ -13,7 +13,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 r-6416eg"
+                class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 transition-bgcolor-shadow"
             >
                 <div
                     class={`css-175oi2r grow shrink gap-[2px] justify-center ${fontSizeClass(
@@ -37,8 +37,8 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[18px] leading-[24px]",
                         )} font-normal min-w-[0px] wrap-break-word`}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
-                            <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{domain}</span>
+                        <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
+                            <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">{domain}</span>
                         </span>
                     </div>
                     <div
@@ -51,8 +51,8 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-[18px] leading-[24px]",
                         )} font-normal min-w-[0px] wrap-break-word`}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
-                            <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{title}</span>
+                        <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
+                            <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">{title}</span>
                         </span>
                     </div>
                     <div
@@ -66,8 +66,8 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         )} font-normal min-w-[0px] wrap-break-word`}
                         style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
                     >
-                        <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
-                            <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">{description}</span>
+                        <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
+                            <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">{description}</span>
                         </span>
                     </div>
                 </div>

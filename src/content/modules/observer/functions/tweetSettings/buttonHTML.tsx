@@ -26,7 +26,7 @@ const copiedURLMessage = (): JSX.Element => {
                         >
                             <div
                                 dir="ltr"
-                                class={`css-146c3p1 min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc ${fontSizeClass(
+                                class={`css-146c3p1 min-w-[0px] [text-align:inherit] wrap-break-word font-tw ${fontSizeClass(
                                     "text-[14px] leading-[18px]",
                                     "text-[14px] leading-[19px]",
                                     "text-[15px] leading-[20px]",
@@ -36,7 +36,7 @@ const copiedURLMessage = (): JSX.Element => {
                                     "px-[11px]", "px-[11px]", "px-[12px]", "px-[13px]", "px-[14px]",
                                 )} text-white`}
                             >
-                                <span class="css-1jxf684 min-w-[0px] [text-align:inherit] wrap-break-word r-1tl8opc">
+                                <span class="css-1jxf684 min-w-[0px] [text-align:inherit] wrap-break-word font-tw">
                                     {TUICI18N.get("bottomTweetButtons-urlCopy-layer")}
                                 </span>
                             </div>
@@ -273,7 +273,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                         )} font-normal items-center flex justify-start duration-200 [transition-property:color] whitespace-nowrap TUIC_ButtonHover2`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
-                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 r-6416eg outline-none"></div>
+                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 transition-bgcolor-shadow outline-none"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
@@ -296,7 +296,7 @@ export const EmptyButtonHTML = (): JSX.Element => {
     return (
         <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
-                <span class={`css-1jxf684 [text-align:inherit] wrap-break-word r-1tl8opc ${fontSizeClass(
+                <span class={`css-1jxf684 [text-align:inherit] wrap-break-word font-tw ${fontSizeClass(
                     "text-[12px] leading-[14px] min-w-[calc(1em+22px)] px-[4px]",
                     "text-[12px] leading-[15px] min-w-[calc(1em+22px)] px-[4px]",
                     "text-[13px] leading-[16px] min-w-[calc(1em+24px)] px-[4px]",

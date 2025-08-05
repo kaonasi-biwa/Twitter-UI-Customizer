@@ -20,7 +20,7 @@ export const IconElement = (): JSX.Element => {
                                     <a
                                         href={document.querySelector<HTMLAnchorElement>(`[data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *)`)?.href ?? ""}
                                         role="link"
-                                        class="css-175oi2r h-full w-full duration-200 r-6416eg outline-none cursor-pointer"
+                                        class="css-175oi2r h-full w-full duration-200 transition-bgcolor-shadow outline-none cursor-pointer"
                                         style={{ "background-color": "rgba(0, 0, 0, 0)" }}
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -80,7 +80,7 @@ export const IconElement = (): JSX.Element => {
                                             class="css-175oi2r rounded-full overflow-hidden left-1/2 absolute top-1/2 r-176fswd"
                                             style={{ width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
-                                            <div class="css-175oi2r r-172uzmj h-full w-full duration-200 r-6416eg outline-none"></div>
+                                            <div class="css-175oi2r r-172uzmj h-full w-full duration-200 transition-bgcolor-shadow outline-none"></div>
                                         </div>
                                     </a>
                                 </div>

@@ -23,7 +23,7 @@ const _data = {
         return (
             <div
                 dir="ltr"
-                class={`css-901oao r-1tl8opc text-[15px] font-normal leading-[20px] min-w-[0px] wrap-break-word ${
+                class={`css-901oao font-tw text-[15px] font-normal leading-[20px] min-w-[0px] wrap-break-word ${
                     fontSizeClass("py-[14px]", "py-[15px]", "py-[16px]", "py-[18px]", "py-[19px]")
                 }`}
                 style={{ cursor: "pointer", "margin-right": "1em" }}
@@ -36,11 +36,11 @@ const _data = {
                 }}
             >
                 <span
-                    class={`css-901oao css-16my406 r-1tl8opc leading-[16px] min-w-[0px] wrap-break-word ${
+                    class={`css-901oao css-16my406 font-tw leading-[16px] min-w-[0px] wrap-break-word ${
                         fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
                     } ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "text-tw-light-text2")}`}
                 >
-                    <span class="css-901oao css-16my406 r-1tl8opc min-w-[0px] wrap-break-word">
+                    <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
                         {TUICI18N.get("bottomTweetButtons-setting-placeEngagementsLink-" + id + (isShort ? "-short" : ""))}
                     </span>
                 </span>
