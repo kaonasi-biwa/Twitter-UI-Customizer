@@ -1,5 +1,6 @@
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { JSX } from "solid-js";
+import { backgroundColorClass } from "@content/modules/utils/color";
 
 export const IconElement = (): JSX.Element => {
     return (
@@ -80,7 +81,10 @@ export const IconElement = (): JSX.Element => {
                                             class="css-175oi2r rounded-full overflow-hidden left-1/2 absolute top-1/2 translate-negativehalf"
                                             style={{ width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
-                                            <div class="css-175oi2r r-172uzmj h-full w-full duration-200 transition-bgcolor-shadow outline-none"></div>
+                                            <div class={`css-175oi2r ${
+                                                backgroundColorClass("inset-shadow-dark-tw", "inset-shadow-dark-tw", "inset-shadow-light-tw")
+                                            } h-full w-full duration-200 transition-bgcolor-shadow outline-none`}
+                                            ></div>
                                         </div>
                                     </a>
                                 </div>
