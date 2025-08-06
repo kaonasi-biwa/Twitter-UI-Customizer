@@ -12,7 +12,7 @@ const _data = {
         return () => (
             <div
                 class={`TUICEngagementsBox css-175oi2r items-center r-1efd50x r-5kkj8d flex-row ${
-                    backgroundColorClass("r-2sztyj", "r-1kfrmmb", "r-1dgieki")
+                    backgroundColorClass("border-t-tw-dark-border", "border-t-tw-darkblue-border", "border-t-tw-light-border")
                 }`}
             >
                 <For each={ids}>{(id) => _data.links(id, article, isShort)}</For>
