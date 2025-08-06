@@ -21,12 +21,12 @@ const copiedURLMessage = (): JSX.Element => {
                                 fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
                             } pointer-events-auto! self-center rounded-[4px] ${
                                 fontSizeClass("mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]")
-                            } [transition-property:opacity] duration-170 ease-linear opacity-[1]`}
+                            } transition-property-opacity duration-170 ease-linear opacity-[1]`}
                             data-testid="toast"
                         >
                             <div
                                 dir="ltr"
-                                class={`css-146c3p1 min-w-[0px] [text-align:inherit] wrap-break-word font-tw ${fontSizeClass(
+                                class={`css-146c3p1 min-w-[0px] text-align-inherit wrap-break-word font-tw ${fontSizeClass(
                                     "text-[14px] leading-[18px]",
                                     "text-[14px] leading-[19px]",
                                     "text-[15px] leading-[20px]",
@@ -36,7 +36,7 @@ const copiedURLMessage = (): JSX.Element => {
                                     "px-[11px]", "px-[11px]", "px-[12px]", "px-[13px]", "px-[14px]",
                                 )} text-white`}
                             >
-                                <span class="css-1jxf684 min-w-[0px] [text-align:inherit] wrap-break-word font-tw">
+                                <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
                                     {TUICI18N.get("bottomTweetButtons-urlCopy-layer")}
                                 </span>
                             </div>
@@ -264,13 +264,13 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`css-146c3p1 min-w-[0px] [text-align:inherit] wrap-break-word font-tw2 ${fontSizeClass(
+                        class={`css-146c3p1 min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
                             "text-[17px] leading-[22px]",
                             "text-[18px] leading-[24px]",
-                        )} font-normal items-center flex justify-start duration-200 [transition-property:color] whitespace-nowrap TUIC_ButtonHover2`}
+                        )} font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap TUIC_ButtonHover2`}
                     >
                         <div class="css-175oi2r inline-flex TUIC_ButtonHover">
                             <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 transition-bgcolor-shadow outline-none"></div>
@@ -296,7 +296,7 @@ export const EmptyButtonHTML = (): JSX.Element => {
     return (
         <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
-                <span class={`css-1jxf684 [text-align:inherit] wrap-break-word font-tw ${fontSizeClass(
+                <span class={`css-1jxf684 text-align-inherit wrap-break-word font-tw ${fontSizeClass(
                     "text-[12px] leading-[14px] min-w-[calc(1em+22px)] px-[4px]",
                     "text-[12px] leading-[15px] min-w-[calc(1em+22px)] px-[4px]",
                     "text-[13px] leading-[16px] min-w-[calc(1em+24px)] px-[4px]",

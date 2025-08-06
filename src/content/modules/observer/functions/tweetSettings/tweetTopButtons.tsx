@@ -59,7 +59,7 @@ const _data = {
                         dir="ltr"
                         class={`css-1rynq56 min-w-[0px] wrap-break-word font-tw2 ${
                             fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
-                        } leading-[20px] font-normal items-center flex justify-start duration-200 [transition-property:color] whitespace-nowrap`}
+                        } leading-[20px] font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap`}
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >

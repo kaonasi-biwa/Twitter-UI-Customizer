@@ -6,6 +6,13 @@ export default defineConfig({
             "src/{content,shared}/**/*.{ts,tsx,vue}",
         ],
     },
+    presets: [
+        presetWind4({
+            preflights: {
+                reset: false,
+            },
+        }),
+    ],
     rules: [
         ["font-tw", { "font-family": '"Segoe UI",Meiryo,system-ui,-apple-system,BlinkMacSystemFont,sans-serif' }],
         ["font-tw2", { "font-family": '"TwitterChirp",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif' }],
@@ -39,11 +46,4 @@ export default defineConfig({
             },
         },
     },
-    presets: [
-        presetWind4({
-            preflights: {
-                reset: false,
-            },
-        }),
-    ],
 });

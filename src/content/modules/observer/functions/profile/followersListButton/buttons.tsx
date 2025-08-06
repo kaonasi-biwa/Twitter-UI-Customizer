@@ -18,7 +18,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             <div role="button" tabindex="0" class="css-175oi2r justify-center min-h-[20px] overflow-visible select-none cursor-pointer outline-none">
                 <div
                     dir="ltr"
-                    class={`css-1rynq56 min-w-[0px] wrap-break-word font-tw2 leading-[20px] font-normal items-center flex justify-start duration-200 [transition-property:color] whitespace-nowrap ${
+                    class={`css-1rynq56 min-w-[0px] wrap-break-word font-tw2 leading-[20px] font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap ${
                         fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
                     }`}
                 >
