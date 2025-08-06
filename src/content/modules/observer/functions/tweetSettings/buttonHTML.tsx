@@ -17,7 +17,7 @@ const copiedURLMessage = (): JSX.Element => {
                     <div class="css-175oi2r pointer-events-none! mx-auto w-full max-w-[600px]">
                         <div
                             role="alert"
-                            class={`css-175oi2r items-center r-l5o3uw flex-row justify-between ${
+                            class={`css-175oi2r items-center bg-tw-accsent-blue flex-row justify-between ${
                                 fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
                             } pointer-events-auto! self-center rounded-[4px] ${
                                 fontSizeClass("mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]")
@@ -279,7 +279,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                                 aria-hidden="true"
                                 class={`inline-block fill-current max-w-full relative select-none align-text-bottom ${
                                     articleInfomation.option.isBigArticle ? "h-[1.5em] w-[1.5em]" : "h-[1.25em] w-[1.25em]"
-                                }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")}`}
+                                }${tweetButtonData[id].redButton ? " text-tw-red" : ""} ${backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")}`}
                             >
                                 <g>{tweetButtonData[id].svg()}</g>
                             </svg>
