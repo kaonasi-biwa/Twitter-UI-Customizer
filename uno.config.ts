@@ -10,6 +10,7 @@ export default defineConfig({
         ["font-tw", { "font-family": '"Segoe UI",Meiryo,system-ui,-apple-system,BlinkMacSystemFont,sans-serif' }],
         ["font-tw2", { "font-family": '"TwitterChirp",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif' }],
         ["transition-bgcolor-shadow", { "transition-property": "background-color, box-shadow" }],
+        ["translate-negativehalf", { transform: "translateX(-50%) translateY(-50%)" }],
     ],
     theme: {
         colors: {

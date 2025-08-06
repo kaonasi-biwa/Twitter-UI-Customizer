@@ -13,7 +13,7 @@ export const IconElement = (): JSX.Element => {
                 >
                     <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
                     <div class="bottom-[0px] h-full left-[0px] absolute top-[0px] w-full">
-                        <div class="css-175oi2r block h-full w-full left-1/2 absolute top-1/2 r-176fswd overflow-visible">
+                        <div class="css-175oi2r block h-full w-full left-1/2 absolute top-1/2 translate-negativehalf overflow-visible">
                             <div class="block w-full" style={{ "padding-bottom": "100%" }}></div>
                             <div class="bottom-[0px] h-full left-[0px] absolute top-[0px] w-full">
                                 <div class="css-175oi2r rounded-full overflow-hidden left-[-2px] absolute top-[-2px]" style={{ width: "calc(100% + 4px)", height: "calc(100% + 4px)" }}>
@@ -32,19 +32,19 @@ export const IconElement = (): JSX.Element => {
                                         }}
                                     >
                                         <div
-                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! left-1/2 absolute top-1/2 r-176fswd"
+                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! left-1/2 absolute top-1/2 translate-negativehalf"
                                             style={{ width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
                                             <div class="css-175oi2r h-full w-full" style={{ "background-color": "rgba(0, 0, 0, 0)" }}></div>
                                         </div>
                                         <div
-                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! left-1/2 absolute top-1/2 r-176fswd"
+                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! left-1/2 absolute top-1/2 translate-negativehalf"
                                             style={{ width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
                                             <div class="css-175oi2r h-full w-full bg-black"></div>
                                         </div>
                                         <div
-                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! left-1/2 absolute top-1/2 r-176fswd"
+                                            class="css-175oi2r rounded-full overflow-hidden pointer-events-none! left-1/2 absolute top-1/2 translate-negativehalf"
                                             style={{ "background-color": "rgb(21, 32, 43)", width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
                                             <div class="css-175oi2r block overflow-hidden">
@@ -77,7 +77,7 @@ export const IconElement = (): JSX.Element => {
                                             </div>
                                         </div>
                                         <div
-                                            class="css-175oi2r rounded-full overflow-hidden left-1/2 absolute top-1/2 r-176fswd"
+                                            class="css-175oi2r rounded-full overflow-hidden left-1/2 absolute top-1/2 translate-negativehalf"
                                             style={{ width: "calc(100% - 4px)", height: "calc(100% - 4px)" }}
                                         >
                                             <div class="css-175oi2r r-172uzmj h-full w-full duration-200 transition-bgcolor-shadow outline-none"></div>
