@@ -11,7 +11,7 @@ const _data = {
     engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
         return () => (
             <div
-                class={`TUICEngagementsBox css-175oi2r items-center r-1efd50x r-5kkj8d flex-row ${
+                class={`TUICEngagementsBox css-175oi2r items-center border-t-solid border-t-[1px] flex-row ${
                     backgroundColorClass("border-t-tw-dark-border", "border-t-tw-darkblue-border", "border-t-tw-light-border")
                 }`}
             >

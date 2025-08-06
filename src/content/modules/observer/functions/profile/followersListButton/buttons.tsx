@@ -6,7 +6,7 @@ import { data } from "./data";
 export function followersListButton(id: string, baseElement: HTMLElement): () => JSX.Element {
     return (): JSX.Element => (
         <div
-            class="css-175oi2r flex-row justify-start r-1cwvpvk TUICOriginalContent"
+            class="css-175oi2r flex-row justify-start ml-[12px] TUICOriginalContent"
             data-tuic-follower-list-button={id}
             onKeyDown={(e: KeyboardEvent) => {
                 if (e.key === "Enter") {
@@ -27,7 +27,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"
-                            class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] r-1hdv0qi ${
+                            class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] w-[1.25em] ${
                                 backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
                             }`}
                         >
