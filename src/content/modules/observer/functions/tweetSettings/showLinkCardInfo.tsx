@@ -13,7 +13,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 css-18t94o4 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 transition-bgcolor-shadow"
+                class="css-4rbku5 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 transition-bgcolor-shadow"
             >
                 <div
                     class={`css-175oi2r grow shrink gap-[2px] justify-center ${fontSizeClass(

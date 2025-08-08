@@ -117,17 +117,17 @@
     text-decoration: none;
 }
 
-.TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) .TUIC_ButtonHover {
+.TUICTweetTopButton[tabindex="0"]:is(:hover, :focus-visible) .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 10%);
 }
-.TUICTweetTopButton.css-18t94o4:focus-visible .TUIC_ButtonHover {
+.TUICTweetTopButton[tabindex="0"]:focus-visible .TUIC_ButtonHover {
     box-shadow: rgb(142 204 258) 0 0 0 2px inset;
 }
-.TUICTweetTopButton.css-18t94o4:is(:hover, :focus-visible) svg {
+.TUICTweetTopButton[tabindex="0"]:is(:hover, :focus-visible) svg {
     color: rgb(29 155 240);
 }
 
-.TUICTweetTopButton.css-18t94o4:active .TUIC_ButtonHover {
+.TUICTweetTopButton[tabindex="0"]:active .TUIC_ButtonHover {
     background-color: rgb(29 155 240 / 20%);
 }
 
