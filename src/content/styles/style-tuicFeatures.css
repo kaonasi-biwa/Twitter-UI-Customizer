@@ -146,7 +146,10 @@
 }
 
 #TUICDisplayRightSidebar:is(:hover, :focus-visible) {
+    text-decoration-line: underline;
     text-decoration-thickness: 1px;
+    cursor: pointer;
+    outline-style: none;
 }
 
 .TUICTweetTopButton :root[data-tuic-settings*="|sidebarSetting.buttonConfigsmallerSidebarContent|"] [role="navigation"] [data-tuic-hide="false"] {
