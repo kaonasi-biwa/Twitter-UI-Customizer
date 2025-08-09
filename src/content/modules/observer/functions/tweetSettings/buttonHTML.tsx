@@ -235,6 +235,24 @@ export const tweetButtonData: Record<string, {
             return !(articleInfomation.option.cannotRT || articleInfomation.option.cannotShare || articleInfomation.option.isLockedAccount);
         },
     },
+    showQuotes: {
+        svg: (): JSX.Element => {
+            return (
+                <path
+                    d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"
+                    class="TUIC_ShowQuotes"
+                ></path>
+            );
+        },
+        clickEvent: async (data: ArticleInfomation) => {
+            data.elements.articleBase.querySelector<HTMLElement>(`[data-testid="caret"]`).click();
+            await waitForElement(`[data-testid="Dropdown"]`);
+            document.querySelector<HTMLElement>(`[data-testid="tweetEngagements"]`)?.click();
+        },
+        enable: (articleInfomation: ArticleInfomation): boolean => {
+            return true;
+        },
+    },
 };
 
 // ツイートのボタン

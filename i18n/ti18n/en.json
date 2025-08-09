@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": " ago",
     "postingDialog-toolbar-items-geoButton": "Tag location",
     "postingDialog-toolbar-items-scheduleOption": "Schedule Tweet",
     "postingDialog-toolbar-items-addEmoji": "Add emoji",
@@ -131,6 +132,7 @@
     "tweetMoreMenuItems-leaveTalk": "Leave this conversation",
     "tweetMoreMenuItems-whoCanReply": "Change who can reply",
     "tweetMoreMenuItems-highlightUpsell": "Highlight on your profile",
+    "bottomTweetButtons-showQuotes": "View Quote Tweets",
     "bottomTweetButtons-grok": "Grok actions",
     "bottomTweetButtons-sendDM": "Send via Direct Message",
     "bottomTweetButtons-urlCopy-layer": "Copied to clipboard",
