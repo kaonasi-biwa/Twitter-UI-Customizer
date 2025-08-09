@@ -9,7 +9,6 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { getAbsolutelyTime, getTimeFormat, isRelativeTime } from "@content/modules/utils/dateAndTime";
-import { TUICI18N } from "@content/modules/i18n";
 
 let buttonUnderTweetRunning = false;
 
