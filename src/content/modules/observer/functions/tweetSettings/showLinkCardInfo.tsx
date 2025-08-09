@@ -7,16 +7,16 @@ import { backgroundColorClass } from "@content/modules/utils/color";
 
 const showLinkCardInfoElement = (link: string, domain: string, title: string, description: string): () => JSX.Element => {
     return () => (
-        <div class="css-175oi2r grow shrink justify-center TUIC_LinkCardInfo">
+        <div class="twcss-flex grow shrink justify-center TUIC_LinkCardInfo">
             <a
                 href={link}
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 css-175oi2r cursor-pointer flex-row grow justify-between outline-none duration-200 transition-bgcolor-shadow"
+                class="css-4rbku5 twcss-flex cursor-pointer flex-row grow justify-between outline-none duration-200 transition-bgcolor-shadow"
             >
                 <div
-                    class={`css-175oi2r grow shrink gap-[2px] justify-center ${fontSizeClass(
+                    class={`twcss-flex grow shrink gap-[2px] justify-center ${fontSizeClass(
                         "pb-[11px] px-[11px] pt-[11px]",
                         "pb-[11px] px-[11px] pt-[11px]",
                         "pb-[12px] px-[12px] pt-[12px]",

@@ -11,13 +11,13 @@ export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
-        <div class="css-175oi2r backface-hidden right-[0px] left-[0px] fixed bottom-[0px] pointer-events-none! TUICURLCopyLayer">
-            <div class="css-175oi2r pointer-events-none!">
-                <div class="css-175oi2r pointer-events-none!">
-                    <div class="css-175oi2r pointer-events-none! mx-auto w-full max-w-[600px]">
+        <div class="twcss-flex backface-hidden right-[0px] left-[0px] fixed bottom-[0px] pointer-events-none! TUICURLCopyLayer">
+            <div class="twcss-flex pointer-events-none!">
+                <div class="twcss-flex pointer-events-none!">
+                    <div class="twcss-flex pointer-events-none! mx-auto w-full max-w-[600px]">
                         <div
                             role="alert"
-                            class={`css-175oi2r items-center bg-tw-accsent-blue flex-row justify-between ${
+                            class={`twcss-flex items-center bg-tw-accsent-blue flex-row justify-between ${
                                 fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
                             } pointer-events-auto! self-center rounded-[4px] ${
                                 fontSizeClass("mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]")
@@ -40,7 +40,7 @@ const copiedURLMessage = (): JSX.Element => {
                                     {TUICI18N.get("bottomTweetButtons-urlCopy-layer")}
                                 </span>
                             </div>
-                            <div aria-hidden="true" class="css-175oi2r flex-row"></div>
+                            <div aria-hidden="true" class="twcss-flex flex-row"></div>
                         </div>
                     </div>
                 </div>
@@ -242,17 +242,17 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
     const enable = tweetButtonData[id].enable(articleInfomation);
     return (): JSX.Element => (
         <div
-            class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent"
+            class="twcss-flex TUICButtonUnderTweet TUICOriginalContent"
             style={{
                 "justify-content": "inherit", display: "inline-grid", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)",
             }}
         >
-            <div class="css-175oi2r flex-row justify-start">
+            <div class="twcss-flex flex-row justify-start">
                 <div
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`css-175oi2r justify-center min-h-[20px] overflow-visible select-none ${enable ? "cursor-pointer" : "opacity-[0.5]"} outline-none`}
+                    class={`twcss-flex justify-center min-h-[20px] overflow-visible select-none ${enable ? "cursor-pointer" : "opacity-[0.5]"} outline-none`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -272,8 +272,8 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             "text-[18px] leading-[24px]",
                         )} font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap TUIC_ButtonHover2`}
                     >
-                        <div class="css-175oi2r inline-flex TUIC_ButtonHover">
-                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 transition-bgcolor-shadow outline-none"></div>
+                        <div class="twcss-flex inline-flex TUIC_ButtonHover">
+                            <div class="twcss-flex inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 transition-bgcolor-shadow outline-none"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
@@ -294,7 +294,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
 // ツイート下ボタンの空白調整のためのElement
 export const EmptyButtonHTML = (): JSX.Element => {
     return (
-        <div class="css-175oi2r inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
+        <div class="twcss-flex inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
                 <span class={`css-1jxf684 text-align-inherit wrap-break-word font-tw ${fontSizeClass(
                     "text-[12px] leading-[14px] min-w-[calc(1em+22px)] px-[4px]",

@@ -11,7 +11,7 @@ const _data = {
     engagementsBox: (ids: string[], article: Element, isShort: boolean): () => JSX.Element => {
         return () => (
             <div
-                class={`TUICEngagementsBox css-175oi2r items-center border-t-solid border-t-[1px] flex-row ${
+                class={`TUICEngagementsBox twcss-flex items-center border-t-solid border-t-[1px] flex-row ${
                     backgroundColorClass("border-t-tw-dark-border", "border-t-tw-darkblue-border", "border-t-tw-light-border")
                 }`}
             >
@@ -85,7 +85,7 @@ export function placeEngagementsLink(articleInfo: ArticleInfomation) {
         for (const engageList of engagementsFixList) {
             const engagementsBox = _data.engagementsBox(engageList, articleBase, shortName);
             const engagementsBoxBase = document.createElement("div");
-            engagementsBoxBase.className = "css-175oi2r TUICEngagementsBoxBase";
+            engagementsBoxBase.className = "twcss-flex TUICEngagementsBoxBase";
             hasClosest(buttonBarBase, `:scope > .TUICTweetButtomBarBase`).insertBefore(engagementsBoxBase, buttonBarBase.closest(`.TUICTweetButtomBarBase`));
             render(engagementsBox, engagementsBoxBase);
         }

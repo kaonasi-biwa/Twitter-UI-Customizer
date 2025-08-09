@@ -11,7 +11,7 @@ import { DivBoxComponent } from "@shared/tlui/components/DivBox";
 const elem = (): JSX.Element => {
     return (
         <div
-            class={`css-175oi2r cursor-pointer self-center my-[2px] ${fontSizeClass(
+            class={`twcss-flex cursor-pointer self-center my-[2px] ${fontSizeClass(
                 "pr-[11px]", "pr-[11px]", "pr-[12px]", "pr-[13px]", "pr-[14px]",
             )} TUICOriginalContent`}
         >

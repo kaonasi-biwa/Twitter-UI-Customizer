@@ -41,7 +41,7 @@ const _data = {
                 <div
                     role="button"
                     tabindex={disable ? -1 : 0}
-                    class={`css-175oi2r justify-center min-h-[20px] overflow-visible select-none ${
+                    class={`twcss-flex justify-center min-h-[20px] overflow-visible select-none ${
                         disable ? "opacity-[0.5]" : "cursor-pointer"
                     } outline-none TUICTweetTopButton TUICOriginalContent`}
                     data-tuic-tweet-top-button={type}
@@ -63,8 +63,8 @@ const _data = {
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >
-                        <div class="css-175oi2r inline-flex">
-                            <div class="css-175oi2r inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full m-[-8px] duration-200 transition-bgcolor-shadow outline-none TUIC_ButtonHover"></div>
+                        <div class="twcss-flex inline-flex">
+                            <div class="twcss-flex inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full m-[-8px] duration-200 transition-bgcolor-shadow outline-none TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] w-[1.25em] ${
