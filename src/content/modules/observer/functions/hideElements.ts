@@ -1,5 +1,7 @@
 import { hideElement, showElement, hasClosest } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
+import { getAbsolutelyTime } from "@content/modules/utils/dateAndTime";
+import { TUICI18N } from "@content/modules/i18n";
 
 // NOTE: 条件分岐とClass付与を一行にまとめる場合は、.? をつけるのを忘れないようにしましょう
 export function hideElements() {
@@ -39,8 +41,25 @@ export function hideElements() {
         }
     });
 
-    if (getPref("invisibleItems.verifiedNotifications") && location.pathname.includes("/notifications")) {
-        hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
+    if(location.pathname.includes("/notifications")){
+
+        if (getPref("invisibleItems.verifiedNotifications")) {
+            hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
+        }
+
+        if (getPref("dateAndTime.options.absolutelyTime")) {
+            for(const elem of document.querySelectorAll<HTMLTimeElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)){
+                if(elem.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))){
+                    elem.textContent = getAbsolutelyTime(elem.dateTime)
+                }
+            }
+        }
+        if(getPref("dateAndTime.hide.notificationsDate")){
+            for(const elem of document.querySelectorAll<HTMLElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)){
+                hideElement(elem)
+                hideElement(elem.closest("div+div"))
+            }
+        }
     }
 }
 

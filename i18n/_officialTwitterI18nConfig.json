@@ -38,7 +38,8 @@
         "e2eef3c2",
         "e3eceda6",
         "d9025c46",
-        "b85f402a"
+        "b85f402a",
+        "abfcce0d"
     ],
     "fixPlural": [
         "c42234da",
@@ -79,6 +80,9 @@
         ],
         "d9025c46":[
             "{matches}"
+        ],
+        "abfcce0d":[
+            "{amountOfTime}"
         ]
     }
 }
