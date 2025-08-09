@@ -13,61 +13,65 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 rel="noopener noreferrer nofollow"
                 target="_blank"
                 role="link"
-                class="css-4rbku5 twcss-flex cursor-pointer flex-row grow justify-between outline-none duration-200 transition-bgcolor-shadow"
+                class="twcss-flex flex-row grow justify-between duration-200 transition-bgcolor-shadow outline-none cursor-pointer"
             >
                 <div
                     class={`twcss-flex grow shrink gap-[2px] justify-center ${fontSizeClass(
-                        "pb-[11px] px-[11px] pt-[11px]",
-                        "pb-[11px] px-[11px] pt-[11px]",
-                        "pb-[12px] px-[12px] pt-[12px]",
-                        "pb-[13px] px-[13px] pt-[13px]",
-                        "pb-[14px] px-[14px] pt-[14px]",
+                        "px-[11px] pt-[11px] pb-[11px]",
+                        "px-[11px] pt-[11px] pb-[11px]",
+                        "px-[12px] pt-[12px] pb-[12px]",
+                        "px-[13px] pt-[13px] pb-[13px]",
+                        "px-[14px] pt-[14px] pb-[14px]",
                     )}`}
-                    id="id__7fpkgwkoke8"
                     data-testid="card.layoutSmall.detail"
-                    //style={{ padding: "12px 15px" }}
                 >
                     <div
                         dir="auto"
-                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")} font-tw2 ${fontSizeClass(
+                        class={`css-146c3p1 max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
                             "text-[17px] leading-[22px]",
                             "text-[18px] leading-[24px]",
-                        )} font-normal min-w-[0px] wrap-break-word`}
+                        )} font-normal ${backgroundColorClass(
+                            "text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2",
+                        )}`}
                     >
-                        <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
-                            <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">{domain}</span>
+                        <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">{domain}</span>
                         </span>
                     </div>
                     <div
                         dir="auto"
-                        class={`css-901oao css-1hf3ou5 ${backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")} font-tw2 ${fontSizeClass(
+                        class={`css-146c3p1 max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
                             "text-[17px] leading-[22px]",
                             "text-[18px] leading-[24px]",
-                        )} font-normal min-w-[0px] wrap-break-word`}
+                        )} font-normal ${backgroundColorClass(
+                            "text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text",
+                        )}`}
                     >
-                        <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
-                            <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">{title}</span>
+                        <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">{title}</span>
                         </span>
                     </div>
                     <div
                         dir="auto"
-                        class={`css-901oao css-cens5h ${backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")} font-tw2 ${fontSizeClass(
+                        class={`css-146c3p1 box-orient-vertical webkit-box max-w-full overflow-hidden text-ellipsis min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
                             "text-[17px] leading-[22px]",
                             "text-[18px] leading-[24px]",
-                        )} font-normal min-w-[0px] wrap-break-word`}
-                        style={{ "-webkit-line-clamp": "2", "white-space": "normal" }}
+                        )} font-normal ${backgroundColorClass(
+                            "text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2",
+                        )}`}
+                        style={{ "-webkit-line-clamp": "2" }}
                     >
-                        <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">
-                            <span class="css-901oao css-16my406 font-tw min-w-[0px] wrap-break-word">{description}</span>
+                        <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">{description}</span>
                         </span>
                     </div>
                 </div>

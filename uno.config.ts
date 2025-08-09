@@ -36,6 +36,8 @@ export default defineConfig({
         ["font-tw2", { "font-family": '"TwitterChirp",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif' }],
         ["transition-bgcolor-shadow", { "transition-property": "background-color, box-shadow" }],
         ["translate-negativehalf", { transform: "translateX(-50%) translateY(-50%)" }],
+        ["webkit-box", { display: "-webkit-box" }],
+        ["box-orient-vertical", { "-webkit-box-orient": "vertical" }],
         ["inset-shadow-light-tw", { "box-shadow": "0 0 2px rgba(0,0,0,0.03) inset" }],
         ["inset-shadow-dark-tw", { "box-shadow": "rgba(255,255,255,0.03) 0px 0px 2px inset" }],
     ],
