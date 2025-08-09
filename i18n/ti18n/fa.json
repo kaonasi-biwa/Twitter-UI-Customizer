@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} پیش",
     "postingDialog-toolbar-items-geoButton": "برچسب زدن مکان",
     "postingDialog-toolbar-items-scheduleOption": "زمان‌بندی توییت",
     "postingDialog-toolbar-items-addEmoji": "افزودن صورتک",

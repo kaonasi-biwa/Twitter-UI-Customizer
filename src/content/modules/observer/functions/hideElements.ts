@@ -1,7 +1,6 @@
 import { hideElement, showElement, hasClosest } from "@modules/utils/controlElements";
 import { getPref } from "@modules/pref";
-import { getAbsolutelyTime } from "@content/modules/utils/dateAndTime";
-import { TUICI18N } from "@content/modules/i18n";
+import { getAbsolutelyTime, isRelativeTime } from "@content/modules/utils/dateAndTime";
 
 // NOTE: 条件分岐とClass付与を一行にまとめる場合は、.? をつけるのを忘れないようにしましょう
 export function hideElements() {
@@ -48,7 +47,7 @@ export function hideElements() {
 
         if (getPref("dateAndTime.options.absolutelyTime")) {
             for (const elem of document.querySelectorAll<HTMLTimeElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)) {
-                if (elem.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))) {
+                if (isRelativeTime(elem.parentElement.ariaLabel)) {
                     elem.textContent = getAbsolutelyTime(elem.dateTime);
                 }
             }

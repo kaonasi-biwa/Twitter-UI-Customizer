@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} trước",
     "postingDialog-toolbar-items-geoButton": "Gắn thẻ vị trí",
     "postingDialog-toolbar-items-scheduleOption": "Lên lịch Tweet",
     "postingDialog-toolbar-items-addEmoji": "Thêm biểu tượng cảm xúc",

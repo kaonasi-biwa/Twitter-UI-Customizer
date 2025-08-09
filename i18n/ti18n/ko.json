@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} 전",
     "postingDialog-toolbar-items-geoButton": "위치 태그하기",
     "postingDialog-toolbar-items-scheduleOption": "트윗 예약하기",
     "postingDialog-toolbar-items-addEmoji": "이모티콘 추가하기",

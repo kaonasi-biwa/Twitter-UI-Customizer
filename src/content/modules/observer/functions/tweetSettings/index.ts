@@ -8,7 +8,7 @@ import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetBut
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
-import { getAbsolutelyTime, getTimeFormat } from "@content/modules/utils/dateAndTime";
+import { getAbsolutelyTime, getTimeFormat, isRelativeTime } from "@content/modules/utils/dateAndTime";
 import { TUICI18N } from "@content/modules/i18n";
 
 let buttonUnderTweetRunning = false;
@@ -273,7 +273,7 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
     if (getPref("dateAndTime.options.absolutelyTime") && !articleInfo.option.isBigArticle) {
         const dateElement = articleBase.querySelector<HTMLTimeElement>(`[data-testid="User-Name"] a > time`);
-        if (dateElement.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))) {
+        if (isRelativeTime(dateElement.parentElement.ariaLabel)) {
             dateElement.textContent = getAbsolutelyTime(dateElement.dateTime);
         }
     }

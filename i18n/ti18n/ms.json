@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} yang lalu",
     "postingDialog-toolbar-items-geoButton": "Teg lokasi",
     "postingDialog-toolbar-items-scheduleOption": "Jadualkan Tweet",
     "postingDialog-toolbar-items-addEmoji": "Tambah emoji",

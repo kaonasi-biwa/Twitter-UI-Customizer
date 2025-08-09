@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "Πριν από ",
     "postingDialog-toolbar-items-geoButton": "Προσθήκη ετικέτας τοποθεσίας",
     "postingDialog-toolbar-items-scheduleOption": "Προγραμματισμός Tweet",
     "postingDialog-toolbar-items-addEmoji": "Προσθήκη emoji",

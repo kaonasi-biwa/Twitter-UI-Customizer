@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} temu",
     "postingDialog-toolbar-items-geoButton": "Oznacz lokalizację",
     "postingDialog-toolbar-items-scheduleOption": "Zaplanuj Tweeta",
     "postingDialog-toolbar-items-addEmoji": "Dodaj emoji",

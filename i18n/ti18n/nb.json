@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "For {0} siden",
     "postingDialog-toolbar-items-geoButton": "Tagg posisjon",
     "postingDialog-toolbar-items-scheduleOption": "Planlegg en Tweet",
     "postingDialog-toolbar-items-addEmoji": "Legg til emoji",

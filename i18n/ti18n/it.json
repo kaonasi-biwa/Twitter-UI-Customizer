@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} fa",
     "postingDialog-toolbar-items-geoButton": "Tagga la posizione",
     "postingDialog-toolbar-items-scheduleOption": "Programma Tweet",
     "postingDialog-toolbar-items-addEmoji": "Aggiungi emoji",

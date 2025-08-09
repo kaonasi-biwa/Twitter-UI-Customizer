@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} पहले",
     "postingDialog-toolbar-items-geoButton": "स्थान टैग करें",
     "postingDialog-toolbar-items-scheduleOption": "ट्वीट शेड्यूल करें",
     "postingDialog-toolbar-items-addEmoji": "इमोजी जोड़ें",

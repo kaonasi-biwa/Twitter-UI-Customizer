@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} ที่แล้ว",
     "postingDialog-toolbar-items-geoButton": "แท็กตําแหน่ง",
     "postingDialog-toolbar-items-scheduleOption": "ตั้งเวลาทวีต",
     "postingDialog-toolbar-items-addEmoji": "เพิ่มอีโมจิ",
