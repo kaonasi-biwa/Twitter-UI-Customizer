@@ -34,7 +34,7 @@ export function getAbsolutelyTime(dateTime: string): string {
 
 export function isRelativeTime(dateText: string): boolean {
     const timeTempleteText: string = TUICI18N.get("dateAndTime.options.absolutelyTime.ago");
-    const timeTempleteReg = new RegExp(`^${timeTempleteText.replace("{0}",".*")}$`,"i");
-    const timeTempleteReg2 = new RegExp(`^${timeTempleteText}`,"i");
+    const timeTempleteReg = new RegExp(`^${timeTempleteText.replace("{0}", ".*")}$`, "i");
+    const timeTempleteReg2 = new RegExp(`^${timeTempleteText}`, "i");
     return timeTempleteReg.test(dateText) || timeTempleteReg2.test(dateText);
 }
