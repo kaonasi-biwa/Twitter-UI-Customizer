@@ -41,23 +41,22 @@ export function hideElements() {
         }
     });
 
-    if(location.pathname.includes("/notifications")){
-
+    if (location.pathname.includes("/notifications")) {
         if (getPref("invisibleItems.verifiedNotifications")) {
             hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
         }
 
         if (getPref("dateAndTime.options.absolutelyTime")) {
-            for(const elem of document.querySelectorAll<HTMLTimeElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)){
-                if(elem.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))){
-                    elem.textContent = getAbsolutelyTime(elem.dateTime)
+            for (const elem of document.querySelectorAll<HTMLTimeElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)) {
+                if (elem.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))) {
+                    elem.textContent = getAbsolutelyTime(elem.dateTime);
                 }
             }
         }
-        if(getPref("dateAndTime.hide.notificationsDate")){
-            for(const elem of document.querySelectorAll<HTMLElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)){
-                hideElement(elem)
-                hideElement(elem.closest("div+div"))
+        if (getPref("dateAndTime.hide.notificationsDate")) {
+            for (const elem of document.querySelectorAll<HTMLElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)) {
+                hideElement(elem);
+                hideElement(elem.closest("div+div"));
             }
         }
     }

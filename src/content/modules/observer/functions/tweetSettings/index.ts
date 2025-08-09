@@ -255,26 +255,26 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     // ツイート時間
     if (getPref("dateAndTime.hide.tweetDateInformation") && articleInfo.option.isBigArticle) {
         const dateElement = articleBase.querySelector<HTMLElement>("a > time").parentElement.parentElement;
-        hideElement(dateElement)
-        if(!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)){
-            hideElement(dateElement.nextElementSibling as HTMLElement)
+        hideElement(dateElement);
+        if (!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)) {
+            hideElement(dateElement.nextElementSibling as HTMLElement);
         }
     }
     if (articleInfo.option.isBigArticle && (!getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second"))) {
         const dateElement = articleBase.querySelector<HTMLTimeElement>("a > time");
-        dateElement.textContent = getTimeFormat().format(Date.parse(dateElement.dateTime)) +  / · .*$/g.exec(dateElement.textContent)[0]
+        dateElement.textContent = getTimeFormat().format(Date.parse(dateElement.dateTime)) + / · .*$/g.exec(dateElement.textContent)[0];
     }
     if (getPref("dateAndTime.hide.tweetAboveDate") && !articleInfo.option.isBigArticle) {
         const dateElement = articleBase.querySelector<HTMLElement>(`[data-testid="User-Name"] a > time`).parentElement.parentElement;
-        hideElement(dateElement)
-        if(!dateElement.previousElementSibling?.querySelector(`a`)){
-            hideElement(dateElement.previousElementSibling as HTMLElement)
+        hideElement(dateElement);
+        if (!dateElement.previousElementSibling?.querySelector(`a`)) {
+            hideElement(dateElement.previousElementSibling as HTMLElement);
         }
     }
     if (getPref("dateAndTime.options.absolutelyTime") && !articleInfo.option.isBigArticle) {
         const dateElement = articleBase.querySelector<HTMLTimeElement>(`[data-testid="User-Name"] a > time`);
-        if(dateElement.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))){
-            dateElement.textContent = getAbsolutelyTime(dateElement.dateTime)
+        if (dateElement.parentElement.ariaLabel.endsWith(TUICI18N.get("dateAndTime.options.absolutelyTime.ago"))) {
+            dateElement.textContent = getAbsolutelyTime(dateElement.dateTime);
         }
     }
 }
