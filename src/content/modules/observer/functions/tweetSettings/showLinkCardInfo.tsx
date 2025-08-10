@@ -27,7 +27,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                 >
                     <div
                         dir="auto"
-                        class={`css-146c3p1 max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                        class={`twcss-text-explicit max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
@@ -43,7 +43,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                     </div>
                     <div
                         dir="auto"
-                        class={`css-146c3p1 max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                        class={`twcss-text-explicit max-w-full overflow-hidden text-ellipsis whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",
@@ -59,7 +59,7 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                     </div>
                     <div
                         dir="auto"
-                        class={`css-146c3p1 box-orient-vertical webkit-box max-w-full overflow-hidden text-ellipsis min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                        class={`twcss-text-explicit box-orient-vertical webkit-box max-w-full overflow-hidden text-ellipsis min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",

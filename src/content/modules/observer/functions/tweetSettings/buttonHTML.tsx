@@ -26,7 +26,7 @@ const copiedURLMessage = (): JSX.Element => {
                         >
                             <div
                                 dir="ltr"
-                                class={`css-146c3p1 min-w-[0px] text-align-inherit wrap-break-word font-tw ${fontSizeClass(
+                                class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw ${fontSizeClass(
                                     "text-[14px] leading-[18px]",
                                     "text-[14px] leading-[19px]",
                                     "text-[15px] leading-[20px]",
@@ -282,7 +282,7 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`css-146c3p1 min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                        class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                             "text-[14px] leading-[18px]",
                             "text-[14px] leading-[19px]",
                             "text-[15px] leading-[20px]",

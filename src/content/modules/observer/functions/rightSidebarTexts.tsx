@@ -20,7 +20,7 @@ const elem = (): JSX.Element => {
                 id="TUICDisplayRightSidebar"
                 dir="ltr"
                 role="link"
-                class={`css-146c3p1 min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
                     "text-[12px] leading-[14px]",
                     "text-[12px] leading-[15px]",
                     "text-[13px] leading-[16px]",

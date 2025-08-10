@@ -282,7 +282,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                 </div>
                 <div
                     dir="ltr"
-                    class={`css-146c3p1 max-w-full overflow-hidden whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw text-ellipsis ${fontSizeClass(
+                    class={`twcss-text-explicit max-w-full overflow-hidden whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw text-ellipsis ${fontSizeClass(
                         "text-[18px] leading-[22px] mr-[14px] ml-[18px]",
                         "text-[19px] leading-[23px] mr-[15px] ml-[19px]",
                         "text-[20px] leading-[24px] mr-[16px] ml-[20px]",
