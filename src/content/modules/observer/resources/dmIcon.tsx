@@ -71,7 +71,7 @@ export const IconElement = (): JSX.Element => {
                                                                     `:is([data-testid="DM_Conversation_Avatar"]:not([data-testid="conversation"] *) [data-testid="UserAvatar-Container-unknown"] [role="presentation"] > div+div+div > div > div > div > img,[data-testid="DmScrollerContainer"] [data-testid="UserAvatar-Container-unknown"]:not([href$="/followers_you_follow"] *) img)`,
                                                                 ).src
                                                             }
-                                                            class="css-9pa8cd"
+                                                            class="twcss-cover-hidden"
                                                         />
                                                     </div>
                                                 </div>
