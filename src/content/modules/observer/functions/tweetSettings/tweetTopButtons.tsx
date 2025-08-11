@@ -57,19 +57,18 @@ const _data = {
                 >
                     <div
                         dir="ltr"
-                        class={`css-1rynq56 min-w-[0px] wrap-break-word font-tw2 ${
+                        class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${
                             fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
-                        } leading-[20px] font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap`}
-                        style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
+                        } leading-[20px] font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap ${
+                            backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
+                        }`}
                         onClick={eventFunc}
                     >
                         <div class="twcss-flex inline-flex">
                             <div class="twcss-flex inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] bg-transparent rounded-full m-[-8px] duration-200 transition-bgcolor-shadow outline-none TUIC_ButtonHover"></div>
                             <svg
                                 viewBox="0 0 24 24"
-                                class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] w-[1.25em] ${
-                                    backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
-                                } ${redButton ? "TUIC_DeleteButton" : ""}`}
+                                class={`inline-block fill-current max-w-full relative select-none align-text-bottom h-[1.25em] w-[1.25em] ${redButton ? "text-tw-red" : ""}`}
                             >
                                 <g>
                                     {svg()}
