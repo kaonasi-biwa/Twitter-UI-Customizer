@@ -60,7 +60,7 @@ const elem = (): JSX.Element => {
                     }, 150);*/
                 }}
             >
-                <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-inherit">
+                <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-inherit">
                     {TUICI18N.get("common-displaySetting")}
                 </span>
             </a>

@@ -37,8 +37,8 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2",
                         )}`}
                     >
-                        <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
-                            <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">{domain}</span>
+                        <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{domain}</span>
                         </span>
                     </div>
                     <div
@@ -53,8 +53,8 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                             "text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text",
                         )}`}
                     >
-                        <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
-                            <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">{title}</span>
+                        <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{title}</span>
                         </span>
                     </div>
                     <div
@@ -70,8 +70,8 @@ const showLinkCardInfoElement = (link: string, domain: string, title: string, de
                         )}`}
                         style={{ "-webkit-line-clamp": "2" }}
                     >
-                        <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
-                            <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">{description}</span>
+                        <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                            <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">{description}</span>
                         </span>
                     </div>
                 </div>

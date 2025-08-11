@@ -290,7 +290,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                         "text-[24px] leading-[29px] mr-[19px] ml-[24px]",
                     )} font-normal ${backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")}`}
                 >
-                    <span class="css-1jxf684 font-tw min-w-[0px] text-align-inherit wrap-break-word">
+                    <span class="twcss-text-inherit font-tw min-w-[0px] text-align-inherit wrap-break-word">
                         {TUICI18N.get("sidebarButtons-" + id)}
                     </span>
                 </div>

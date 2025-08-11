@@ -36,7 +36,7 @@ const copiedURLMessage = (): JSX.Element => {
                                     "px-[11px]", "px-[11px]", "px-[12px]", "px-[13px]", "px-[14px]",
                                 )} text-white`}
                             >
-                                <span class="css-1jxf684 min-w-[0px] text-align-inherit wrap-break-word font-tw">
+                                <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
                                     {TUICI18N.get("bottomTweetButtons-urlCopy-layer")}
                                 </span>
                             </div>
@@ -332,7 +332,7 @@ export const EmptyButtonHTML = (): JSX.Element => {
     return (
         <div class="twcss-flex inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
-                <span class={`css-1jxf684 text-align-inherit wrap-break-word font-tw ${fontSizeClass(
+                <span class={`twcss-text-inherit text-align-inherit wrap-break-word font-tw ${fontSizeClass(
                     "text-[12px] leading-[14px] min-w-[calc(1em+22px)] px-[4px]",
                     "text-[12px] leading-[15px] min-w-[calc(1em+22px)] px-[4px]",
                     "text-[13px] leading-[16px] min-w-[calc(1em+24px)] px-[4px]",
