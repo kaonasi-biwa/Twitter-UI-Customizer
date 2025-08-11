@@ -6,7 +6,9 @@ import { data } from "./data";
 export function followersListButton(id: string, baseElement: HTMLElement): () => JSX.Element {
     return (): JSX.Element => (
         <div
-            class="twcss-flex flex-row justify-start ml-[12px] TUICOriginalContent"
+            class={`twcss-flex flex-row justify-start ${
+                fontSizeClass("ml-[11px]", "ml-[11px]", "ml-[12px]", "ml-[13px]", "ml-[14px]")
+            } TUICOriginalContent`}
             data-tuic-follower-list-button={id}
             onKeyDown={(e: KeyboardEvent) => {
                 if (e.key === "Enter") {
@@ -15,11 +17,23 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
             }}
             onClick={() => data[id].clickEvent(baseElement)}
         >
-            <div role="button" tabindex="0" class="twcss-flex justify-center min-h-[20px] overflow-visible select-none cursor-pointer outline-none">
+            <div
+                role="button"
+                tabindex="0"
+                class={`twcss-flex justify-center ${
+                    fontSizeClass("min-h-[18px]", "min-h-[19px]", "min-h-[20px]", "min-h-[22px]", "min-h-[24px]")
+                } overflow-visible select-none cursor-pointer outline-none`}
+            >
                 <div
                     dir="ltr"
-                    class={`css-1rynq56 min-w-[0px] wrap-break-word font-tw2 leading-[20px] font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap ${
-                        fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
+                    class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                        "text-[14px] leading-[18px]",
+                        "text-[14px] leading-[19px]",
+                        "text-[15px] leading-[20px]",
+                        "text-[17px] leading-[22px]",
+                        "text-[18px] leading-[24px]",
+                    )} font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap ${
+                        backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
                     }`}
                 >
                     <div class="twcss-flex inline-flex">
@@ -27,9 +41,7 @@ export function followersListButton(id: string, baseElement: HTMLElement): () =>
                         <svg
                             viewBox="0 0 24 24"
                             aria-hidden="true"
-                            class={`inline-block fill-current max-w-full relative align-text-bottom select-none h-[1.25em] w-[1.25em] ${
-                                backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
-                            }`}
+                            class="inline-block fill-current max-w-full relative select-none align-text-bottom h-[1.25em] w-[1.25em]"
                         >
                             <g>
                                 <path d={data[id].svg}></path>
