@@ -1,5 +1,5 @@
 {
-    "dateAndTime.options.absolutelyTime.ago": " ago",
+    "dateAndTime.options.absolutelyTime.ago": "{0} ago",
     "postingDialog-toolbar-items-geoButton": "Tag location",
     "postingDialog-toolbar-items-scheduleOption": "Schedule Tweet",
     "postingDialog-toolbar-items-addEmoji": "Add emoji",

@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} önce",
     "postingDialog-toolbar-items-geoButton": "Konumu etiketle",
     "postingDialog-toolbar-items-scheduleOption": "Tweet programla",
     "postingDialog-toolbar-items-addEmoji": "Emoji ekle",

@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "преди ",
     "postingDialog-toolbar-items-geoButton": "Отбелязване на местоположението",
     "postingDialog-toolbar-items-scheduleOption": "Насрочване на туит",
     "postingDialog-toolbar-items-addEmoji": "Добавяне на емоджи",

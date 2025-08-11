@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} আগে",
     "postingDialog-toolbar-items-geoButton": "অবস্থান ট্যাগ করুন",
     "postingDialog-toolbar-items-scheduleOption": "টুইটের সময় নির্ধারণ করুন",
     "postingDialog-toolbar-items-addEmoji": "ইমোজি যোগ করুন",

@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} тому",
     "postingDialog-toolbar-items-geoButton": "Позначити місцезнаходження",
     "postingDialog-toolbar-items-scheduleOption": "Запланувати твіт",
     "postingDialog-toolbar-items-addEmoji": "Додати емодзі",

@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} ang nakalipas",
     "postingDialog-toolbar-items-geoButton": "I-tag ang lokasyon",
     "postingDialog-toolbar-items-scheduleOption": "Iiskedyul ang Tweet",
     "postingDialog-toolbar-items-addEmoji": "Magdagdag ng emoji",

@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "Ennyivel ezelőtt: ",
     "postingDialog-toolbar-items-geoButton": "Hely megjelölése",
     "postingDialog-toolbar-items-scheduleOption": "Tweet ütemezése",
     "postingDialog-toolbar-items-addEmoji": "Hangulatjelek hozzáadása",

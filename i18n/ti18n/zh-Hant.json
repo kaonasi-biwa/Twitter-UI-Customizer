@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0}前",
     "postingDialog-toolbar-items-geoButton": "標記位置",
     "postingDialog-toolbar-items-scheduleOption": "排定推文",
     "postingDialog-toolbar-items-addEmoji": "加入表情符號",

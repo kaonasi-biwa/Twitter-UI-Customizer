@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} geleden",
     "postingDialog-toolbar-items-geoButton": "Locatie taggen",
     "postingDialog-toolbar-items-scheduleOption": "Tweet plannen",
     "postingDialog-toolbar-items-addEmoji": "Emoji toevoegen",

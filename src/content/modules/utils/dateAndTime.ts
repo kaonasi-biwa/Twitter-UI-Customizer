@@ -1,3 +1,4 @@
+import { TUICI18N } from "../i18n";
 import { getPref } from "../pref";
 
 let TimeFormat: Intl.DateTimeFormat;
@@ -29,4 +30,11 @@ export function getAbsolutelyTime(dateTime: string): string {
     } else {
         return getTimeFormat().format(date);
     }
+}
+
+export function isRelativeTime(dateText: string): boolean {
+    const timeTempleteText: string = TUICI18N.get("dateAndTime.options.absolutelyTime.ago");
+    const timeTempleteReg = new RegExp(`^${timeTempleteText.replace("{0}", ".*")}$`, "i");
+    const timeTempleteReg2 = new RegExp(`^${timeTempleteText.replaceAll("{", "\\{").replaceAll("}", "\\}")}`, "i");
+    return timeTempleteReg.test(dateText) || timeTempleteReg2.test(dateText);
 }

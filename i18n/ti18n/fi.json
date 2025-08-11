@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} sitten",
     "postingDialog-toolbar-items-geoButton": "Merkitse sijainti",
     "postingDialog-toolbar-items-scheduleOption": "Ajasta twiitti",
     "postingDialog-toolbar-items-addEmoji": "Lisää emoji",

@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} -க்கு முன்பு",
     "postingDialog-toolbar-items-geoButton": "அமைவிடத்தை இணை",
     "postingDialog-toolbar-items-scheduleOption": "ட்விட்டை திட்டமிடவும்",
     "postingDialog-toolbar-items-addEmoji": "எமோஜியைச் சேர்",

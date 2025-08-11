@@ -1,4 +1,5 @@
 {
+    "dateAndTime.options.absolutelyTime.ago": "{0} назад",
     "postingDialog-toolbar-items-geoButton": "Отметить местоположение",
     "postingDialog-toolbar-items-scheduleOption": "Добавить твит в расписание",
     "postingDialog-toolbar-items-addEmoji": "Добавить эмодзи",
