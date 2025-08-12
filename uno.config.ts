@@ -29,7 +29,7 @@ export default defineConfig({
             "text-decoration": "none",
             "white-space": "pre-wrap",
             "word-wrap": "break-word",
-        }],
+        }, { layer: "base" }],
         ["twcss-flex", {
             "align-items": "stretch",
             "background-color": "rgba(0,0,0,0.00)",
@@ -47,7 +47,7 @@ export default defineConfig({
             position: "relative",
             "text-decoration": "none",
             "z-index": 0,
-        }],
+        }, { layer: "base" }],
         ["twcss-text-inherit", {
             "background-color": "rgba(0,0,0,0.00)",
             border: "0 solid black",
@@ -63,7 +63,7 @@ export default defineConfig({
             "text-decoration": "none",
             "white-space": "inherit",
             "word-wrap": "break-word",
-        }],
+        }, { layer: "base" }],
         ["twcss-cover-hidden", {
             bottom: "0px",
             height: "100%",
@@ -74,7 +74,7 @@ export default defineConfig({
             top: "0px",
             width: "100%",
             "z-index": -1,
-        }],
+        }, { layer: "base" }],
         ["font-tw", { "font-family": '"Segoe UI",Meiryo,system-ui,-apple-system,BlinkMacSystemFont,sans-serif' }],
         ["font-tw2", { "font-family": '"TwitterChirp",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif' }],
         ["transition-bgcolor-shadow", { "transition-property": "background-color, box-shadow" }],
