@@ -57,9 +57,13 @@ const _data = {
                 >
                     <div
                         dir="ltr"
-                        class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${
-                            fontSizeClass("text-[14px]", "text-[14px]", "text-[15px]", "text-[17px]", "text-[18px]")
-                        } leading-[20px] font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap ${
+                        class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
+                            "text-[14px] leading-[18px]",
+                            "text-[14px] leading-[19px]",
+                            "text-[15px] leading-[20px]",
+                            "text-[17px] leading-[22px]",
+                            "text-[18px] leading-[24px]",
+                        )} font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap ${
                             backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")
                         }`}
                         onClick={eventFunc}
