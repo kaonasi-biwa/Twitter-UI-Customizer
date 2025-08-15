@@ -5,7 +5,7 @@ import { getPref } from "@modules/pref";
 import { moreMenuContent } from "./moreMenuContent";
 import { TUICI18N } from "@modules/i18n";
 import { SIDEBAR_BUTTON_ICON } from "@content/icons";
-import { backgroundColorClass } from "@modules/utils/color";
+import { backgroundColorCheck } from "@modules/utils/color";
 import { getPrimitiveOrFunction } from "@modules/utils/getValues";
 import { fontSizeClass } from "@modules/utils/fontSize";
 import { Dialog } from "@shared/tlui/components/Dialog";
@@ -125,7 +125,7 @@ const _data: Record<string, {
             return createSidebarButton("display", () => (
                 <>
                     <path d={SIDEBAR_BUTTON_ICON.display.unselected}></path>
-                    <path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="text-tw-accsent-blue"></path>
+                    <path d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z" class="r-1cvl2hr"></path>
                 </>
             ));
         },
@@ -254,7 +254,7 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             )}
             role="link"
             tabindex="0"
-            class="twcss-flex items-start cursor-pointer flex flex-col grow outline-none w-full py-[4px] TUICOriginalContent TUICSidebarButton"
+            class="css-175oi2r r-1habvwh r-1loqt21 r-6koalj r-eqz5dr r-16y2uox r-1ny4l3l r-13qz1uu r-cnw61z TUICOriginalContent TUICSidebarButton"
             data-tuic-hide="false"
             onClick={_data[id].onclick}
             onKeyDown={(e: KeyboardEvent) => {
@@ -265,16 +265,16 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
             }}
         >
             <div
-                class={`twcss-flex items-center rounded-full flex-row justify-center max-w-full duration-200 transition-bgcolor-shadow ${
-                    fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
+                class={`css-175oi2r r-1awozwy r-sdzlij r-18u37iz r-1777fci r-dnmrzs r-o7ynqc r-6416eg ${
+                    fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")
                 }`}
             >
-                <div class="twcss-flex">
+                <div class="css-175oi2r">
                     <svg
                         viewBox="0 0 24 24"
                         aria-hidden="true"
-                        class={`inline-block fill-current h-[1.75rem] max-w-full relative align-text-bottom select-none w-[1.75rem] ${
-                            backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")
+                        class={`r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e ${
+                            backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"
                         }`}
                     >
                         <g>{svg()}</g>
@@ -282,15 +282,16 @@ function createSidebarButton(id: string, svg: () => JSX.Element): () => JSX.Elem
                 </div>
                 <div
                     dir="ltr"
-                    class={`twcss-text-explicit max-w-full overflow-hidden whitespace-nowrap min-w-[0px] text-align-inherit wrap-break-word font-tw text-ellipsis ${fontSizeClass(
-                        "text-[18px] leading-[22px] mr-[14px] ml-[18px]",
-                        "text-[19px] leading-[23px] mr-[15px] ml-[19px]",
-                        "text-[20px] leading-[24px] mr-[16px] ml-[20px]",
-                        "text-[22px] leading-[26px] mr-[18px] ml-[22px]",
-                        "text-[24px] leading-[29px] mr-[19px] ml-[24px]",
-                    )} font-normal ${backgroundColorClass("text-tw-dark-text", "text-tw-darkblue-text", "text-tw-light-text")}`}
+                    class={`css-146c3p1 r-dnmrzs r-1udh08x r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-9p5ork ${fontSizeClass(
+                        "r-1i10wst r-hbpseb r-16dba41 r-b8s2zf r-1nbxd40 r-fv9tdh",
+                        "r-1b6yd1w r-7ptqe7 r-16dba41 r-1b4jfhh r-egpt5t r-1tfrt9a",
+                        "r-adyw6z r-135wba7 r-dlybji r-nazi8o",
+                        "r-evnaw r-eaezby r-16dba41 r-1fqalh9 r-k1rd3f r-i0ley5 r-19o66xi",
+                        "r-1x35g6 r-1h1c4di r-16dba41 r-ikuq2u r-1ck5maq",
+                    )} r-bcqeeo r-qvutc0 ${backgroundColorCheck() == "light" ? "r-18jsvk2" : "r-vlxjld r-1nao33i"}`}
+                    style={{ "margin-right": "15px", "text-overflow": "unset" }}
                 >
-                    <span class="twcss-text-inherit font-tw min-w-[0px] text-align-inherit wrap-break-word">
+                    <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0" style={{ "text-overflow": "unset" }}>
                         {TUICI18N.get("sidebarButtons-" + id)}
                     </span>
                 </div>

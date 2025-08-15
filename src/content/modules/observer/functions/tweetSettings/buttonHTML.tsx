@@ -11,36 +11,27 @@ export const willClickRT = { data: false };
 
 const copiedURLMessage = (): JSX.Element => {
     return (
-        <div class="twcss-flex backface-hidden right-[0px] left-[0px] fixed bottom-[0px] pointer-events-none! TUICURLCopyLayer">
-            <div class="twcss-flex pointer-events-none!">
-                <div class="twcss-flex pointer-events-none!">
-                    <div class="twcss-flex pointer-events-none! mx-auto w-full max-w-[600px]">
+        <div class="css-175oi2r r-aqfbo4 r-1p0dtai r-1d2f490 r-12vffkv r-1xcajam r-zchlnj TUICURLCopyLayer">
+            <div class="css-175oi2r r-12vffkv">
+                <div class="css-175oi2r r-12vffkv">
+                    <div class="css-175oi2r r-1jgb5lz r-633pao r-13qz1uu">
                         <div
                             role="alert"
-                            class={`twcss-flex items-center bg-tw-accsent-blue flex-row justify-between ${
-                                fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
-                            } pointer-events-auto! self-center rounded-[4px] ${
-                                fontSizeClass("mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]")
-                            } transition-property-opacity duration-170 ease-linear opacity-[1]`}
+                            class={`css-175oi2r r-1awozwy r-1kihuf0 r-l5o3uw r-z2wwpe r-18u37iz r-1wtj0ep r-105ug2t r-dkhcqf r-axxi2z r-18jm5s1 ${fontSizeClass(
+                                "r-1vxqurs", "r-1yflyrw", "r-zd98yo", "r-1v456y7", "r-sr82au",
+                            )} ${fontSizeClass("r-q81ovl", "r-q81ovl", "r-xyw6el", "r-kq9wsh", "r-1slz7xr")}`}
                             data-testid="toast"
+                            style={{ transform: "translate3d(0px, 0px, 0px) translateY(0px)" }}
                         >
                             <div
                                 dir="ltr"
-                                class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw ${fontSizeClass(
-                                    "text-[14px] leading-[18px]",
-                                    "text-[14px] leading-[19px]",
-                                    "text-[15px] leading-[20px]",
-                                    "text-[17px] leading-[22px]",
-                                    "text-[18px] leading-[24px]",
-                                )} font-normal shrink ${fontSizeClass(
-                                    "px-[11px]", "px-[11px]", "px-[12px]", "px-[13px]", "px-[14px]",
-                                )} text-white`}
+                                class={`css-901oao r-jwli3a r-1wbh5a2 r-1tl8opc r-a023e6 r-16dba41 r-rjixqe r-bcqeeo r-1e081e0 r-qvutc0 ${fontSizeClass(
+                                    "r-1b43r93", "r-1b43r93", "r-a023e6", "r-1inkyih", "r-1i10wst",
+                                )} ${fontSizeClass("r-1qfz7tf", "r-1qfz7tf", "r-1e081e0", "r-1orpq53", "r-779j7e")}`}
                             >
-                                <span class="twcss-text-inherit min-w-[0px] text-align-inherit wrap-break-word font-tw">
-                                    {TUICI18N.get("bottomTweetButtons-urlCopy-layer")}
-                                </span>
+                                <span class="css-901oao css-16my406 r-1tl8opc r-bcqeeo r-qvutc0">{TUICI18N.get("bottomTweetButtons-urlCopy-layer")}</span>
                             </div>
-                            <div aria-hidden="true" class="twcss-flex flex-row"></div>
+                            <div aria-hidden="true" class="css-175oi2r r-18u37iz"></div>
                         </div>
                     </div>
                 </div>
@@ -278,17 +269,17 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
     const enable = tweetButtonData[id].enable(articleInfomation);
     return (): JSX.Element => (
         <div
-            class="twcss-flex TUICButtonUnderTweet TUICOriginalContent"
+            class="css-175oi2r TUICButtonUnderTweet TUICOriginalContent"
             style={{
-                "justify-content": "inherit", display: "inline-grid", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)",
+                display: "inline-grid", "justify-content": "inherit", transform: "rotate(0deg) scale(1) translate3d(0px, 0px, 0px)", "-moz-box-pack": "inherit",
             }}
         >
-            <div class="twcss-flex flex-row justify-start">
+            <div class="css-175oi2r r-18u37iz r-1h0z5md">
                 <div
                     data-TUICButton={id}
                     role="button"
                     tabindex={enable ? "0" : "-1"}
-                    class={`twcss-flex justify-center min-h-[20px] overflow-visible select-none ${enable ? "cursor-pointer" : "opacity-[0.5]"} outline-none`}
+                    class={`css-175oi2r r-1777fci r-bt1l66 r-1ny4l3l r-bztko3 r-lrvibr ${enable ? "css-18t94o4" : "r-icoktb"}`}
                     onKeyDown={(e: KeyboardEvent) => {
                         if (enable && e.key === "Enter") {
                             tweetButtonData[id].clickEvent(articleInfomation);
@@ -300,22 +291,18 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                 >
                     <div
                         dir="ltr"
-                        class={`twcss-text-explicit min-w-[0px] text-align-inherit wrap-break-word font-tw2 ${fontSizeClass(
-                            "text-[14px] leading-[18px]",
-                            "text-[14px] leading-[19px]",
-                            "text-[15px] leading-[20px]",
-                            "text-[17px] leading-[22px]",
-                            "text-[18px] leading-[24px]",
-                        )} font-normal items-center flex justify-start duration-200 transition-property-color whitespace-nowrap TUIC_ButtonHover2`}
+                        class={`css-901oao r-1awozwy r-6koalj r-37j5jr r-16dba41 r-1h0z5md r-bcqeeo r-o7ynqc r-clp7b1 r-3s2u2q r-qvutc0 TUIC_ButtonHover2 ${
+                            fontSizeClass("r-1b43r93", "r-1b43r93", "r-rjixqe", "r-1inkyih", "r-1i10wst")
+                        }`}
                     >
-                        <div class="twcss-flex inline-flex TUIC_ButtonHover">
-                            <div class="twcss-flex inline-flex bottom-[0px] left-[0px] absolute right-[0px] top-[0px] rounded-full m-[-8px] bg-transparent duration-200 transition-bgcolor-shadow outline-none"></div>
+                        <div class="css-175oi2r r-xoduu5 TUIC_ButtonHover">
+                            <div class="css-175oi2r r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                class={`inline-block fill-current max-w-full relative select-none align-text-bottom ${
-                                    articleInfomation.option.isBigArticle ? "h-[1.5em] w-[1.5em]" : "h-[1.25em] w-[1.25em]"
-                                }${tweetButtonData[id].redButton ? " text-tw-red" : ""} ${backgroundColorClass("text-tw-dark-text2", "text-tw-darkblue-text2", "text-tw-light-text2")}`}
+                                class={`r-4qtqp9 r-yyyyoo r-1q142lx r-dnmrzs r-bnwqim r-1plcrui r-lrvibr ${
+                                    articleInfomation.option.isBigArticle ? "r-1srniue r-50lct3" : "r-1xvli5t"
+                                }${tweetButtonData[id].redButton ? " r-9l7dzd" : ""} ${backgroundColorClass("r-1bwzh9t", "r-115tad6", "r-14j79pv")}`}
                             >
                                 {tweetButtonData[id].svg()}
                             </svg>
@@ -330,14 +317,14 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
 // ツイート下ボタンの空白調整のためのElement
 export const EmptyButtonHTML = (): JSX.Element => {
     return (
-        <div class="twcss-flex inline-flex overflow-hidden TUIC_UnderTweetButtonSpace">
+        <div class="css-175oi2r r-xoduu5 r-1udh08x TUIC_UnderTweetButtonSpace">
             <span data-testid="app-text-transition-container" style={{ "transition-property": "transform", "transition-duration": "0.3s", transform: "translate3d(0px, 0px, 0px)" }}>
-                <span class={`twcss-text-inherit text-align-inherit wrap-break-word font-tw ${fontSizeClass(
-                    "text-[12px] leading-[14px] min-w-[calc(1em+22px)] px-[4px]",
-                    "text-[12px] leading-[15px] min-w-[calc(1em+22px)] px-[4px]",
-                    "text-[13px] leading-[16px] min-w-[calc(1em+24px)] px-[4px]",
-                    "text-[14px] leading-[18px] min-w-[calc(1em+26px)] px-[4px]",
-                    "text-[16px] leading-[19px] min-w-[calc(1em+28px)] px-[5px]",
+                <span class={`css-1jxf684 r-1ttztb7 r-qvutc0 r-1tl8opc ${fontSizeClass(
+                    "r-1enofrn r-1f529hi r-cxdvbh r-n7gxbd",
+                    "r-1enofrn r-fxxt2n r-cxdvbh r-n7gxbd",
+                    "r-n6v787 r-1cwl3u0 r-1k6nrdp r-n7gxbd",
+                    "r-1b43r93 r-14yzgew r-1buqboj r-n7gxbd",
+                    "r-ubezar r-hjklzo r-e157gu r-1ntr0p",
                 )}`}
                 ></span>
             </span>
