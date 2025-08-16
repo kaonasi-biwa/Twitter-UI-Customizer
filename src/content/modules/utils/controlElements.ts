@@ -1,37 +1,37 @@
 import { ProcessedClass } from "@shared/sharedData";
 
-/**
- * HTMLとしてパースします。
- *
- * @param {string} elem パースするHTMLを表す文字列
- * @return {HTMLCollection} パースされた後のHTML(複数の可能性もあり)
- */
-export function parseHtml(elem: string): HTMLCollection {
-    return new DOMParser().parseFromString(elem, "text/html").body.children;
-}
-
-/**
- * HTMLで用いるために&'`"<>=;を&を用いた表記にエスケープします。
- *
- * @param {string} text エスケープ前の文字列
- * @return {string} エスケープ後の文字列
- */
-export function escapeToUseHTML(text: string): string {
-    return text
-        .replace(/[&'`"<>=;]/g, (match) => {
-            return {
-                "&": "&amp;",
-                "'": "&#x27;",
-                "`": "&#x60;",
-                '"': "&quot;",
-                "<": "&lt;",
-                ">": "&gt;",
-                "=": "&equals;",
-                ";": "&semi;",
-            }[match];
-        })
-        .replaceAll("\\r", "\r");
-}
+// /**
+//  * HTMLとしてパースします。
+//  *
+//  * @param {string} elem パースするHTMLを表す文字列
+//  * @return {HTMLCollection} パースされた後のHTML(複数の可能性もあり)
+//  */
+// export function parseHtml(elem: string): HTMLCollection {
+//     return new DOMParser().parseFromString(elem, "text/html").body.children;
+// }
+//
+// /**
+//  * HTMLで用いるために&'`"<>=;を&を用いた表記にエスケープします。
+//  *
+//  * @param {string} text エスケープ前の文字列
+//  * @return {string} エスケープ後の文字列
+//  */
+// export function escapeToUseHTML(text: string): string {
+//     return text
+//         .replace(/[&'`"<>=;]/g, (match) => {
+//             return {
+//                 "&": "&amp;",
+//                 "'": "&#x27;",
+//                 "`": "&#x60;",
+//                 '"': "&quot;",
+//                 "<": "&lt;",
+//                 ">": "&gt;",
+//                 "=": "&equals;",
+//                 ";": "&semi;",
+//             }[match];
+//         })
+//         .replaceAll("\\r", "\r");
+// }
 
 /**
  * parentElementで指定されたElementの子孫ノードにselectorに合致するElementが生えてくるまで待ちます。

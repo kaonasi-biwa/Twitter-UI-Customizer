@@ -37,7 +37,11 @@ export const IconElement = (): JSX.Element => {
                                             <div class="css-175oi2r r-1adg3ll r-1udh08x">
                                                 <div class="r-1adg3ll r-13qz1uu" style={{ "padding-bottom": "100%" }}></div>
                                                 <div class="r-1p0dtai r-1pi2tsx r-u8s1d r-1d2f490 r-ipm5af r-13qz1uu">
-                                                    <div aria-label="julieta ferreri" class="css-175oi2r r-1mlwlqe r-1udh08x r-417010" style={{ position: "absolute", inset: "0px" }}>
+                                                    <div
+                                                        class="css-175oi2r r-1mlwlqe r-1udh08x r-417010"
+                                                        style={{ position: "absolute", inset: "0px" }}
+                                                        aria-label={document.querySelector<HTMLSpanElement>(`#detail-header div > span:nth-child(1) > span > span:nth-child(1)`).textContent}
+                                                    >
                                                         <div
                                                             class="css-175oi2r r-1niwhzg r-vvn4in r-u6sd8q r-1p0dtai r-1pi2tsx r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-13qz1uu r-1wyyakw r-4gszlv TUICDMIconDisplay"
                                                             style={{

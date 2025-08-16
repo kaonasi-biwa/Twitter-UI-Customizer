@@ -21,7 +21,7 @@
             </label>
         </div>
         <div>
-            <span class="r-jwli3a r-1tl8opc r-qvutc0 r-bcqeeo css-901oao TUIC_setting_text TUIC_setting_color_select_info">{{ TUICI18N.get("settingColors-select-explain") }} </span>
+            <span class="text-white font-tw wrap-break-word min-w-[0px] twcss-text-explicit TUIC_setting_text TUIC_setting_color_select_info">{{ TUICI18N.get("settingColors-select-explain") }} </span>
         </div>
         <br />
         <button class="TUIC_setting_text TUIC_setting_button TUICEasySettingButtons TUIC_resetOnly_colorSettings" style="margin-top: 10px; margin-bottom: 10px" @click="setDefaultTwitterColor">

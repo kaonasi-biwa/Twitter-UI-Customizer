@@ -54,7 +54,7 @@ export default tseslint.config(
             "style/jsx-closing-tag-location": 0,
             "style/arrow-parens": ["error", "always"],
             "style/switch-colon-spacing": ["error", { after: true, before: false }],
-            "style/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }],
+            "style/quotes": ["error", "double", { avoidEscape: true, allowTemplateLiterals: "always" }],
         },
     },
     {
