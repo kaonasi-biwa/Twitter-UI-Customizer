@@ -4,6 +4,7 @@ import { DOG, TWITTER, X, XDaruma } from "./icons/index";
 import { ColorData } from "@shared/sharedData";
 
 import styleUrl from "./styles/index.css?url";
+import unoStyleUrl from "./styles/uno.css?url";
 import { backgroundColorCheck, backgroundColorClass, getColorFromPref } from "@modules/utils/color";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize";
@@ -14,6 +15,16 @@ export function applyDefaultStyle() {
     link.id = "tuicDefaultStyle";
     link.rel = "stylesheet";
     link.href = chrome.runtime.getURL(styleUrl);
+    document.head.appendChild(link);
+    applyUnocssStyle();
+}
+
+function applyUnocssStyle() {
+    document.querySelector("#tuicUnocssStyle")?.remove();
+    const link = document.createElement("link");
+    link.id = "tuicUnocssStyle";
+    link.rel = "stylesheet";
+    link.href = chrome.runtime.getURL(unoStyleUrl);
     document.head.appendChild(link);
 }
 

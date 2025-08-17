@@ -277,9 +277,11 @@ export const TUICSettings = {
     "sidebarSetting.moreMenuItems": {
         type: "boolean",
         values: [
+            { id: "lists", i18n: "sidebarButtons-lists", default: false },
             { id: "premium", i18n: "sidebarButton-moreMenuItems-premium", default: false },
             { id: "bookmarks", i18n: "sidebarButtons-bookmarks", default: false },
             { id: "communities", i18n: "sidebarButtons-communities", default: false },
+            { id: "communitynotes", i18n: "sidebarButtons-communitynotes", default: false },
             { id: "monetization", i18n: "sidebarButton-moreMenuItems-monetization", default: false },
             //{ id: "pro", i18n: "sidebarButton-moreMenuItems-pro", default: false },
             { id: "verifiedOrgsSignup", i18n: "sidebarButton-moreMenuItems-verifiedOrgsSignup", default: false },

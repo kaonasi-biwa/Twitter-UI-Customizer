@@ -7,7 +7,8 @@ import * as fs from "node:fs/promises";
 import svgLoader from "vite-svg-loader";
 import vitePluginWebExt from "./scripts/vite-plugin/vite-plugin-web-ext";
 import vue from "@vitejs/plugin-vue";
-import UnoCSS from "unocss/vite";
+import { browserslistToTargets, composeVisitors } from "lightningcss";
+import { lightningcssPluginUnoCSS, vitePluginUnoCSS } from "./scripts/vite-plugin/unocss";
 import solidPlugin from "vite-plugin-solid";
 //
 
@@ -36,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
             emptyOutDir: false,
             sourcemap: true,
             // outDir,
-            target: "es2022",
+            target: "es2023",
             assetsInlineLimit: 0,
             reportCompressedSize: false,
 
@@ -87,10 +88,21 @@ export default defineConfig(({ command, mode }) => {
         css: {
             transformer: "lightningcss",
             lightningcss: {
+                targets: browserslistToTargets([
+                    "chrome 111",
+                    "firefox 115",
+                    //"safari 16.2",
+                ]),
                 // https://lightningcss.dev/transpilation.html#feature-flags
                 nonStandard: {
                     deepSelectorCombinator: true,
                 },
+                customAtRules: {
+                    unocss: lightningcssPluginUnoCSS.customAtRules.unocss,
+                },
+                visitor: composeVisitors([
+                    lightningcssPluginUnoCSS.visitor,
+                ]),
             },
         },
         plugins: [
@@ -126,7 +138,7 @@ export default defineConfig(({ command, mode }) => {
                 },
             },
             vitePluginWebExt(import.meta.dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
-            UnoCSS(),
+            vitePluginUnoCSS(),
             solidPlugin(),
             // Vue Plugins
             vue(),

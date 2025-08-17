@@ -60,7 +60,7 @@
     font-size: 20px;
     font-weight: 700;
     line-height: 24px;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 /* ダイアログ > 外枠 > コンテナ > 本文 */
 .tlui-dialog p {

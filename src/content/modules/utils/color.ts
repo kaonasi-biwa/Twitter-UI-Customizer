@@ -44,7 +44,7 @@ export function getColorFromPref(name: string, type: string, mode: "buttonColor"
 /**
  * 現在の画面での背景色を取得します。
  *
- * @return {"dark" | "blue" | "light" } 背景色
+ * @return {"dark" | "blue" | "light"} 背景色
  */
 export function backgroundColorCheck(): "dark" | "blue" | "light" {
     const bodyStyle = document.querySelector("body").style.backgroundColor.toString();

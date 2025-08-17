@@ -5,6 +5,7 @@ import { getPref, getSettingIDs } from "@modules/pref";
 const _data = {
     all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
+        lists: `[data-testid="Dropdown"] [href$="/lists"]`,
         bookmarks: `[data-testid="Dropdown"] [href="/i/bookmarks"]`,
         monetization: `[data-testid="Dropdown"] :is([href="/settings/monetization"],[href="/i/monetization"])`,
         separator: `[data-testid="Dropdown"] [role="separator"]`,
@@ -12,6 +13,7 @@ const _data = {
         professionalTool: `[data-testid="Dropdown"] [aria-controls$="_1_content"]`,
         settingsAndSupport: `[data-testid="Dropdown"] [aria-controls$="_2_content"][data-testid="settingsAndSupport"]`,
         communities: `[data-testid="Dropdown"] [href$="/communities"]`,
+        communitynotes: `[data-testid="Dropdown"] [href="/i/communitynotes"]`,
         settings: `[data-testid="Dropdown"] [href="/settings"]`,
         pro: `[data-testid="Dropdown"] [href="https://tweetdeck.twitter.com"]`,
         ads: `[data-testid="Dropdown"] :is([href*="ads.twitter.com"],[href*="ads.x.com"])`,

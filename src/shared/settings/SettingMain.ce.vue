@@ -1,7 +1,7 @@
 <template>
     <link rel="stylesheet" :href="BootstrapIconsURL" />
-    <div id="TUIC_setting" class="css-175oi2r r-1wtj0ep r-ymttw5 r-1f1sjgu r-1e081e0 TUICOriginalContent">
-        <div class="css-901oao css-cens5h r-jwli3a r-1tl8opc r-adyw6z r-1vr29t4 r-135wba7 r-bcqeeo r-qvutc0">
+    <div id="TUIC_setting" class="twcss-flex justify-between TUICOriginalContent">
+        <div class="twcss-text-explicit text-white font-tw text-[20px] font-extrabold leading-[24px] min-w-[0px] wrap-break-word">
             <hr v-if="!isSafemode" class="TUIC_setting_divider TUIC_setting_divider_m35" />
             <div class="TUIC_setting_toplogo_container">
                 <TUICLOGO_GRAY class="TUIC_setting_toplogo" />
