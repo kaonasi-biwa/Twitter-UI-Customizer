@@ -1,9 +1,16 @@
-{
-    "oldTranslate": [
+export type TranslateKey = string;
+export const config: {
+    oldTranslate: TranslateKey[];
+    latestTranslate: TranslateKey[];
+    fixPlural: TranslateKey[];
+    fixSingular: TranslateKey[];
+    deleteString: Record<TranslateKey, string[]>;
+} = {
+    oldTranslate: [
         "e2414185",
-        "ea831526"
+        "ea831526",
     ],
-    "latestTranslate": [
+    latestTranslate: [
         "a4d3eb67",
         "df34a454",
         "g062295e",
@@ -39,50 +46,52 @@
         "e3eceda6",
         "d9025c46",
         "b85f402a",
-        "f0e84609"
+        "f0e84609",
     ],
-    "fixPlural": [
+    fixPlural: [
         "c42234da",
         "e2414185",
-        "e74e9bb7"
+        "e74e9bb7",
     ],
-    "fixSingular": [],
-    "deleteString": {
-        "g132f681": [
-            "@{screenName}"
+    fixSingular: [],
+    deleteString: {
+        g132f681: [
+            "@{screenName}",
         ],
-        "e74e9bb7": [
+        e74e9bb7: [
             ".",
             "。",
             "{tweetCount}",
             "(de)",
-            "uri"
+            "uri",
         ],
-        "fdc023d7": [
+        fdc023d7: [
             "{formattedCount}",
-            "{count}"
-        ],
-        "c42234da": [
             "{count}",
-            "uri"
         ],
-        "h99e9c95": [
-            "{0}"
+        c42234da: [
+            "{count}",
+            "uri",
         ],
-        "ee69d769": [
-            "{verb}"
+        h99e9c95: [
+            "{0}",
         ],
-        "cf5af90c": [
-            "!"
+        ee69d769: [
+            "{verb}",
         ],
-        "d29edd5a": [
-            "!"
+        cf5af90c: [
+            "!",
         ],
-        "d9025c46":[
-            "{matches}"
+        d29edd5a: [
+            "!",
         ],
-        "abfcce0d":[
-            "{amountOfTime}"
-        ]
-    }
-}
+        d9025c46: [
+            "{matches}",
+        ],
+        abfcce0d: [
+            "{amountOfTime}",
+        ],
+    },
+};
+
+export default config;

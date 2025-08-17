@@ -9,8 +9,8 @@
     "bottomTweetButtons-quoteTweet": "c9d7235e",
     "bottomTweetButtons-urlCopy-layer": "f88553c8",
     "bottomTweetButtons-sendDM": "f61c4bb0",
-    "bottomTweetButtons-grok":"e3eceda6",
-    "bottomTweetButtons-showQuotes":"fd80ffb0",
+    "bottomTweetButtons-grok": "e3eceda6",
+    "bottomTweetButtons-showQuotes": "fd80ffb0",
     "tweetMoreMenuItems-highlightUpsell": "h8a3525e",
     "tweetMoreMenuItems-whoCanReply": "bae0cbc0",
     "tweetMoreMenuItems-editWithTwitterBlue": "j11cb650",
@@ -145,5 +145,5 @@
     "postingDialog-toolbar-items-addEmoji": "d4a4842e",
     "postingDialog-toolbar-items-scheduleOption": "ha5e2e7a",
     "postingDialog-toolbar-items-geoButton": "cce30dcc",
-    "dateAndTime.options.absolutelyTime.ago":"f0e84609"
+    "dateAndTime.options.absolutelyTime.ago": "f0e84609"
 }

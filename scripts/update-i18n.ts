@@ -1,5 +1,7 @@
 import fs from "node:fs/promises";
 
+import { config, TranslateKey } from "../i18n/_officialTwitterI18nConfig";
+
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
     if (process.argv[2] == "getURL") {
@@ -18,15 +20,15 @@ import fs from "node:fs/promises";
         type Locale = string;
         const locales: Locale[] = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
 
-        type TranslteKey = string;
-        // 設定をロード
-        const config: {
-            oldTranslate: TranslteKey[];
-            latestTranslate: TranslteKey[];
-            fixPlural: TranslteKey[];
-            fixSingular: TranslteKey[];
-            deleteString: Record<TranslteKey, string[]>;
-        } = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18nConfig.json", "utf8"));
+        // type TranslateKey = string;
+        // // 設定をロード
+        // const config: {
+        //     oldTranslate: TranslateKey[];
+        //     latestTranslate: TranslateKey[];
+        //     fixPlural: TranslateKey[];
+        //     fixSingular: TranslateKey[];
+        //     deleteString: Record<TranslateKey, string[]>;
+        // } = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18nConfig.json", "utf8"));
 
         // i18nデータを格納するオブジェクト
         const i18nObjectNew: Partial<Record<Locale, Record<string, string>>> = {};
@@ -46,7 +48,7 @@ import fs from "node:fs/promises";
         );
 
         // 翻訳IDをロード
-        const TUICI18ns: Record<string, TranslteKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
+        const TUICI18ns: Record<string, TranslateKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
 
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json
@@ -57,7 +59,7 @@ import fs from "node:fs/promises";
         await Promise.all(
             locales.map(async (elem) => {
                 let tmpObj: Record<string, string> = {};
-                for (const [elem2, translateID] of Object.entries<TranslteKey>(TUICI18ns)) {
+                for (const [elem2, translateID] of Object.entries<TranslateKey>(TUICI18ns)) {
                     if (i18nObject[elem][translateID] || i18nObjectOld[elem][translateID] || i18nObjectNew[elem][translateID]) {
                         let translatedText = "";
                         if (config.oldTranslate.includes(translateID)) {

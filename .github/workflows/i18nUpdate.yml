@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "i18n/_officialTwitterI18n.json"
-      - "i18n/_officialTwitterI18nConfig.json"
+      - "i18n/_officialTwitterI18nConfig.ts"
   workflow_dispatch:
 
 jobs:
