@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "i18n/_officialTwitterI18n.json"
+      - "i18n/_officialTwitterI18n.ts"
       - "i18n/_officialTwitterI18nConfig.ts"
   workflow_dispatch:
 

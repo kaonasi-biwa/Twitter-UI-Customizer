@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 
+import { TUICI18ns } from "../i18n/_officialTwitterI18n";
 import { config, TranslateKey } from "../i18n/_officialTwitterI18nConfig";
 
 (async () => {
@@ -47,8 +48,8 @@ import { config, TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                 .flat(),
         );
 
-        // 翻訳IDをロード
-        const TUICI18ns: Record<string, TranslateKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
+        // // 翻訳IDをロード
+        // const TUICI18ns: Record<string, TranslateKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
 
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json

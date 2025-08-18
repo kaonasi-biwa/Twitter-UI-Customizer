@@ -1,4 +1,7 @@
-{
+import { TranslateKey } from "./_officialTwitterI18nConfig";
+
+export type TUICI18nKey = string;
+export const TUICI18ns: Record<string, TranslateKey> = {
     "bottomTweetButtons-reply": "hdf7226a",
     "bottomTweetButtons-retweet": "d6c8514a",
     "bottomTweetButtons-like": "d636ebc6",
@@ -145,5 +148,7 @@
     "postingDialog-toolbar-items-addEmoji": "d4a4842e",
     "postingDialog-toolbar-items-scheduleOption": "ha5e2e7a",
     "postingDialog-toolbar-items-geoButton": "cce30dcc",
-    "dateAndTime.options.absolutelyTime.ago": "f0e84609"
-}
+    "dateAndTime.options.absolutelyTime.ago": "f0e84609",
+};
+
+export default TUICI18ns;
