@@ -1,4 +1,5 @@
-[
+export type Locale = string;
+export const langList: Locale[] = [
     "de",
     "en-GB",
     "en",
@@ -48,5 +49,7 @@
     "th",
     "ur",
     "vi",
-    "yo"
-]
+    "yo",
+];
+
+export default langList;

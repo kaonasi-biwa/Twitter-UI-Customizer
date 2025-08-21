@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
 
+import { langList, type Locale } from "../i18n/_langList";
 import { TUICI18ns } from "../i18n/_officialTwitterI18n";
-import { config, TranslateKey } from "../i18n/_officialTwitterI18nConfig";
+import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
 
 (async () => {
     // CLI引数または_langList.jsonファイルからロケールを取得
@@ -18,8 +19,9 @@ import { config, TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                 break;
         }
     } else {
-        type Locale = string;
-        const locales: Locale[] = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+        // type Locale = string;
+        // const locales: Locale[] = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+        const locales: Locale[] = process.argv.length == 2 ? langList : process.argv.slice(2);
 
         // type TranslateKey = string;
         // // 設定をロード
