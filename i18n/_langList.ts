@@ -25,6 +25,7 @@ export const langList: Locale[] = [
     "hi",
     "hr",
     "hu",
+    "id",
     "ig",
     "it",
     "ja",
