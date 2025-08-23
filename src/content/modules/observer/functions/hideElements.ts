@@ -68,6 +68,9 @@ function rightSidebar() {
     if (getPref("rightSidebar.trend")) {
         hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="trend"]`), ":scope >  section"));
     }
+    if (getPref("rightSidebar.news")) {
+        hideElement(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="news_sidebar"]`)?.parentElement);
+    }
     if (getPref("rightSidebar.osusumeUser") && document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null) {
         hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="UserCell"]:not([role="search"] *)`), ":scope > * > aside"));
     }

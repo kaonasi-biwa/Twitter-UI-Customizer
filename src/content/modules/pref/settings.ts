@@ -381,6 +381,7 @@ export const TUICSettings = {
             { id: "space", i18n: "rightSidebar-space", default: false },
             { id: "relevantPeople", i18n: "rightSidebar-relevantPeople", default: false },
             { id: "trend", i18n: "rightSidebar-trend", default: false },
+            { id: "news", i18n: "rightSidebar-news", default: false },
             { id: "osusumeUser", i18n: "rightSidebar-osusumeUser", default: false },
             { id: "links", i18n: "rightSidebar-links", default: false },
         ],
