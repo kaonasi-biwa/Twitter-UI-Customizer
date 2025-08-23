@@ -5,7 +5,7 @@ import { TUICI18ns } from "../i18n/_officialTwitterI18n";
 import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
 
 (async () => {
-    // CLI引数または_langList.jsonファイルからロケールを取得
+    // CLI引数または_langList.tsファイルからロケールを取得
     if (process.argv[2] == "getURL") {
         switch (process.argv[3]) {
             case "latest":

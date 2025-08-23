@@ -1,9 +1,9 @@
-const langRes = import.meta.glob(["@i18nData/*.json", "@i18nData/ti18n/*.json"]);
+const langRes = import.meta.glob(["@i18nData/_langList.ts", "@i18nData/*.json", "@i18nData/ti18n/*.json"]);
 const i18nData = { en: {}, ja: {} };
 
 export const TUICI18N = {
     fetch: async () => {
-        const langList = (await langRes["../i18n/_langList.json"]()) as { default: string[] };
+        const langList = (await langRes["../i18n/_langList.ts"]()) as { default: string[] };
         for (const elem of langList.default) {
             i18nData[elem] = Object.assign(
                 (await langRes[`../i18n/${elem}.json`]() as { default: object }).default,
