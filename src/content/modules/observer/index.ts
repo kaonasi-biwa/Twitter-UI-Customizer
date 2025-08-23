@@ -98,7 +98,7 @@ export const TUICObserver = new (class TUICObserver {
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
 
-            //throwTestError();
+            //throw new Error("エラー時のダイアログのテスト用です。");
 
             this.bind();
         } catch (e) {
