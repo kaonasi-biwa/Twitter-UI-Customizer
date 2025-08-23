@@ -1,6 +1,6 @@
 import { tweetSettings, hideOsusumeTweets, replacePost, updateStyles, profileModify, sidebarButtons, dmPage, fixTwittersBugs, changeIcon, hideElements, sortPostingDialogButtons } from "./functions";
 import { catchError } from "./errorDialog";
-import { placeDisplayButton } from "./functions/rightSidebarTexts";
+import { placeDisplayButton } from "@content/modules/observer/functions/sidebarBtn/rightSidebarTexts";
 import { getPref } from "../pref/index";
 import { hideElement } from "../utils/controlElements";
 
