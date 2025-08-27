@@ -15,7 +15,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                 console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json");
                 break;
             default:
-                console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json");
+                console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/legacy-twitter/docs/json/i18n/ja.json");
                 break;
         }
     } else {
@@ -44,7 +44,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
             locales
                 .map((lang) => [
                     (async () => (i18nObjectNew[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/${lang}.json`)).json()))(),
-                    (async () => (i18nObject[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/${lang}.json`)).json()))(),
+                    (async () => (i18nObject[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/legacy-twitter/docs/json/i18n/${lang}.json`)).json()))(),
                     (async () => (i18nObjectOld[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/${lang}.json`)).json()))(),
                 ])
                 .flat(),
@@ -54,7 +54,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
         // const TUICI18ns: Record<string, TranslateKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
 
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
-        //https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json
+        //https://github.com/fa0311/TwitterInternalAPIDocument/blob/legacy-twitter/docs/json/i18n/ja.json
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json
 
         // 並列でi18nファイルを生成
