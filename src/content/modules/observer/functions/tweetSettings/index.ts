@@ -277,21 +277,18 @@ function tweetStyle(articleInfo: ArticleInfomation) {
 }
 
 function modifyDateAboveTweet(articleBase: HTMLElement) {
-    const [hideDate, rewriteDate] = [
-        getPref("dateAndTime.hide.tweetAboveDate"),
-        getPref("dateAndTime.options.absolutelyTime")
-    ]
-    if(hideDate || rewriteDate){
+    const timePref = getPref("dateAndTime.dateAboveTweet")
+    if(timePref !== "normal"){
         const dateElements = articleBase.querySelectorAll<HTMLTimeElement>(`[data-testid="User-Name"] :is(a, div)[aria-label] > time`);
         for(const elem of dateElements){
-            if(hideDate){
+            if(timePref === "hide"){
                 const dateElement = elem.closest<HTMLElement>("div+div");
                 hideElement(dateElement)
                 if (dateElement.previousElementSibling?.getAttribute("aria-hidden")) {
                     hideElement(dateElement.previousElementSibling as HTMLElement);
                 }
             }else{
-                if (isRelativeTime(elem.parentElement.ariaLabel)) {
+                if (timePref === "absolutely" || isRelativeTime(elem.parentElement.ariaLabel)) {
                     elem.textContent = getAbsolutelyTime(elem.dateTime);
                 }
             }

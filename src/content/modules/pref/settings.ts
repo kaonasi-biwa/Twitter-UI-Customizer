@@ -407,9 +407,18 @@ export const TUICSettings = {
         type: "boolean",
         values: [
             { id: "notificationsDate", i18n: "dateAndTime.hide.notificationsDate", default: false },
-            { id: "tweetAboveDate", i18n: "dateAndTime.hide.tweetAboveDate", default: false },
             { id: "tweetDateInformation", i18n: "dateAndTime.hide.tweetDateInformation", default: false },
         ],
+    },
+    "dateAndTime.dateAboveTweet":{
+        type: "select",
+        default: "normal",
+        values: [
+            {id: "absolutely", i18n: "dateAndTime.dateAboveTweet.absolutely"},
+            {id: "absolutelyToday", i18n: "dateAndTime.dateAboveTweet.absolutelyToday"},
+            {id: "normal", i18n: "dateAndTime.dateAboveTweet.normal"},
+            {id: "hide", i18n: "common-hide"},
+        ]
     },
     "dateAndTime.options": {
         type: "boolean",

@@ -223,6 +223,11 @@
     "dateAndTime.hide.tweetAboveDate":"ツイート上部の投稿時刻表示",
     "dateAndTime.hide.tweetDateInformation":"ツイート詳細の投稿時刻表示",
 
+    "dateAndTime.dateAboveTweet": "ツイート上部の投稿時刻の表記",
+    "dateAndTime.dateAboveTweet.normal": "通常の表記を維持する",
+    "dateAndTime.dateAboveTweet.absolutely": "日付と時刻を表記する",
+    "dateAndTime.dateAboveTweet.absolutelyToday": "当日のみ日付を表記する",
+
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
 
@@ -263,6 +268,7 @@
     "common-error": "エラー",
     "common-confirm": "確認",
     "common-hidebelow": "以下を非表示",
+    "common-hide": "非表示にする",
     "common-displaySetting": "表示設定",
     "common-copy-and-close": "コピーして閉じる",
     "common-copy-and-go": "コピーして進む",
