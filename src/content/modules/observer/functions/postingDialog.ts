@@ -20,7 +20,7 @@ export async function sortPostingDialogButtons() {
         const buttons: Record<string, HTMLElement> = {};
         const visibleButtons: string[] = getPref(`postingDialog.toolbar`);
         for (const buttonID of _data.all) {
-            const toolbarButton = document.querySelector<HTMLElement>(`[data-testid="toolBar"] [role="tablist"] ${_data.selectors[buttonID]}`).closest<HTMLElement>(`[role="presentation"]`);
+            const toolbarButton = document.querySelector<HTMLElement>(`[data-testid="toolBar"] [role="tablist"] ${_data.selectors[buttonID]}`)?.closest<HTMLElement>(`[role="presentation"]`);
             if (toolbarButton) {
                 buttons[buttonID] = toolbarButton;
                 processElement(toolbarButton);
