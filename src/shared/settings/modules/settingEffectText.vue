@@ -18,7 +18,7 @@
     <div>
         <SectionTitle2 style="margin-bottom: 15px" titleI18N="settingDateAndTime-settingTitle" />
         <CheckBoxList id="dateAndTime.options" />
-        <SectionTitle2 style="margin-bottom: 15px" titleI18N="dateAndTime.dateAboveTweet" />
+        <settingSubtitle2 title-i18-n="dateAndTime.dateAboveTweet" />
         <RadioButtonList id="dateAndTime.dateAboveTweet" />
         <settingSubtitle2 title-i18-n="common-hidebelow" />
         <CheckBoxList id="dateAndTime.hide" />
