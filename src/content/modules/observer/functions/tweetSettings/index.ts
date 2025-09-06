@@ -277,11 +277,11 @@ function tweetStyle(articleInfo: ArticleInfomation) {
 }
 
 function modifyDateAboveTweet(articleBase: HTMLElement) {
-    const [hideDate,timePref] = [
+    const [hideDate, timePref] = [
         getPref("dateAndTime.dateAboveTweet"),
-        getPref("dateAndTime.hide.tweetAboveDate")
-    ]
-    if(hideDate || timePref !== "normal"){
+        getPref("dateAndTime.hide.tweetAboveDate"),
+    ];
+    if (hideDate || timePref !== "normal") {
         const dateElements = articleBase.querySelectorAll<HTMLTimeElement>(`[data-testid="User-Name"] :is(a, div)[aria-label] > time`);
         for (const elem of dateElements) {
             if (hideDate) {

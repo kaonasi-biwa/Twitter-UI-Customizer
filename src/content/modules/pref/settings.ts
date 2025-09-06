@@ -415,10 +415,10 @@ export const TUICSettings = {
         type: "select",
         default: "normal",
         values: [
-            {id: "absolutely", i18n: "dateAndTime.dateAboveTweet.absolutely"},
-            {id: "absolutelyToday", i18n: "dateAndTime.dateAboveTweet.absolutelyToday"},
-            {id: "normal", i18n: "dateAndTime.dateAboveTweet.normal"},
-        ]
+            { id: "absolutely", i18n: "dateAndTime.dateAboveTweet.absolutely" },
+            { id: "absolutelyToday", i18n: "dateAndTime.dateAboveTweet.absolutelyToday" },
+            { id: "normal", i18n: "dateAndTime.dateAboveTweet.normal" },
+        ],
     },
     "dateAndTime.options": {
         type: "boolean",
