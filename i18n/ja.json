@@ -223,7 +223,7 @@
     "dateAndTime.hide.tweetAboveDate":"ツイート上部の投稿時刻表示",
     "dateAndTime.hide.tweetDateInformation":"ツイート詳細の投稿時刻表示",
 
-    "dateAndTime.dateAboveTweet": "ツイート上部の投稿時刻の表記",
+    "dateAndTime.dateAboveTweet": "ツイート上部及び通知の時刻の表記",
     "dateAndTime.dateAboveTweet.normal": "通常の表記を維持する",
     "dateAndTime.dateAboveTweet.absolutely": "日付と時刻を表記する",
     "dateAndTime.dateAboveTweet.absolutelyToday": "当日のみ日付を表記する",
