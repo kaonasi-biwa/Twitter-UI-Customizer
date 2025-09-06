@@ -45,6 +45,7 @@
     "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "المنشورات التي تتضمن ردودًا من {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "عرض {count} تغريد{count}ات",
     "XtoTwitter-PostToTweet-addTweet": "إضافة تغريدة",
+    "XtoTwitter-PostToTweet-liked-none-body": "عندما يضغط شخصٌ ما \"بما في ذلك أنت\" على القلب لتسجيل إعجابه بهذه التغريدة، سيظهر هنا.",
     "XtoTwitter-PostToTweet-liked-none-header": "لم يتم تسجيل الإعجاب بالتغريدة حتى الآن",
     "XtoTwitter-PostToTweet-retweeted-none-header": "وسّع نطاق التغريدات التي تعجبك",
     "XtoTwitter-PostToTweet-retweeted-none-body": "يمكنك مشاركة تغريدة شخص آخر على يومياتك من خلال إعادة تغريدها. وعندما تقوم بذلك، ستظهر هنا.",
