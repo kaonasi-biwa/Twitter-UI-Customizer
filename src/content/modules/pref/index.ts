@@ -230,10 +230,10 @@ export async function updatePref(source = config) {
             // falls through
         }
         case 3: {
-            if(getPref("dateAndTime.options.absolutelyTime"), source){
+            if (getPref("dateAndTime.options.absolutelyTime"), source) {
                 setPref("dateAndTime.dateAboveTweet", "absolutelyToday", source);
             }
-            deletePref("dateAndTime.options.absolutelyTime", source)
+            deletePref("dateAndTime.options.absolutelyTime", source);
         }
     }
 }
