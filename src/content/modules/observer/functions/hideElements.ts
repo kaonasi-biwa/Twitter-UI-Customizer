@@ -45,9 +45,9 @@ export function hideElements() {
             hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
         }
 
-        if (getPref("dateAndTime.options.absolutelyTime")) {
+        if (getPref("dateAndTime.dateAboveTweet") == "absolutely" || getPref("dateAndTime.dateAboveTweet") == "absolutelyToday") {
             for (const elem of document.querySelectorAll<HTMLTimeElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)) {
-                if (isRelativeTime(elem.parentElement.ariaLabel)) {
+                if (getPref("dateAndTime.dateAboveTweet") === "absolutely" || isRelativeTime(elem.parentElement.ariaLabel)) {
                     elem.textContent = getAbsolutelyTime(elem.dateTime);
                 }
             }
