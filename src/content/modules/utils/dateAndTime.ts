@@ -9,6 +9,8 @@ let prefHour12: boolean;
 export function getTimeFormat(changedLang = false): Intl.DateTimeFormat {
     const [second, hour12] = [getPref("dateAndTime.options.second"), getPref("dateAndTime.options.hour12")];
     if (changedLang || !TimeFormat || prefHour12 !== hour12 || prefSecond !== second) {
+        if (!language) 
+            language = document.querySelector("html").lang;
         TimeFormat = new Intl.DateTimeFormat(language, { timeStyle: second ? "medium" : "short", hour12: hour12 });
         [prefHour12, prefSecond] = [hour12, second];
     }

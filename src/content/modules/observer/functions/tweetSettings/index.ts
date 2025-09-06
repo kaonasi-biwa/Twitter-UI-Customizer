@@ -253,28 +253,48 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
 
     // ツイート時間
-    if (getPref("dateAndTime.hide.tweetDateInformation") && articleInfo.option.isBigArticle) {
-        const dateElement = articleBase.querySelector<HTMLElement>("a > time").parentElement.parentElement;
-        hideElement(dateElement);
-        if (!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)) {
-            hideElement(dateElement.nextElementSibling as HTMLElement);
+    if(articleInfo.option.isBigArticle){
+        const [hideDate, rewriteDate] = [
+            getPref("dateAndTime.hide.tweetDateInformation"),
+            !getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second")
+        ]
+        if(hideDate || rewriteDate){
+            const dateElement = articleBase.querySelector<HTMLTimeElement>("a > time");
+            if(hideDate){
+                hideElement(dateElement);
+                if (!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)) {
+                    hideElement(dateElement.nextElementSibling as HTMLElement);
+                }
+            }else if (rewriteDate){
+                dateElement.textContent = getTimeFormat().format(Date.parse(dateElement.dateTime)) + / · .*$/g.exec(dateElement.textContent)[0];
+            }
         }
+        const quoteTweet = articleBase.querySelector(`[id] > [id] [data-testid="Tweet-User-Avatar"]`);
+        if(quoteTweet) modifyDateAboveTweet(articleBase)
+    } else {
+        modifyDateAboveTweet(articleBase);
     }
-    if (articleInfo.option.isBigArticle && (!getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second"))) {
-        const dateElement = articleBase.querySelector<HTMLTimeElement>("a > time");
-        dateElement.textContent = getTimeFormat().format(Date.parse(dateElement.dateTime)) + / · .*$/g.exec(dateElement.textContent)[0];
-    }
-    if (getPref("dateAndTime.hide.tweetAboveDate") && !articleInfo.option.isBigArticle) {
-        const dateElement = articleBase.querySelector<HTMLElement>(`[data-testid="User-Name"] a > time`).parentElement.parentElement;
-        hideElement(dateElement);
-        if (!dateElement.previousElementSibling?.querySelector(`a`)) {
-            hideElement(dateElement.previousElementSibling as HTMLElement);
-        }
-    }
-    if (getPref("dateAndTime.options.absolutelyTime") && !articleInfo.option.isBigArticle) {
-        const dateElement = articleBase.querySelector<HTMLTimeElement>(`[data-testid="User-Name"] a > time`);
-        if (isRelativeTime(dateElement.parentElement.ariaLabel)) {
-            dateElement.textContent = getAbsolutelyTime(dateElement.dateTime);
+}
+
+function modifyDateAboveTweet(articleBase: HTMLElement) {
+    const [hideDate, rewriteDate] = [
+        getPref("dateAndTime.hide.tweetAboveDate"),
+        getPref("dateAndTime.options.absolutelyTime")
+    ]
+    if(hideDate || rewriteDate){
+        const dateElements = articleBase.querySelectorAll<HTMLTimeElement>(`[data-testid="User-Name"] :is(a, div)[aria-label] > time`);
+        for(const elem of dateElements){
+            if(hideDate){
+                const dateElement = elem.closest<HTMLElement>("div+div");
+                hideElement(dateElement)
+                if (dateElement.previousElementSibling?.getAttribute("aria-hidden")) {
+                    hideElement(dateElement.previousElementSibling as HTMLElement);
+                }
+            }else{
+                if (isRelativeTime(elem.parentElement.ariaLabel)) {
+                    elem.textContent = getAbsolutelyTime(elem.dateTime);
+                }
+            }
         }
     }
 }
