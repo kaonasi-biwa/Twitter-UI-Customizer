@@ -230,10 +230,10 @@ export async function updatePref(source = config) {
             // falls through
         }
         case 3: {
-            if(getPref("dateAndTime.hide.tweetAboveDate", source)){
-                setPref("dateAndTime.dateAboveTweet", "hide", source)
+            if (getPref("dateAndTime.hide.tweetAboveDate", source)) {
+                setPref("dateAndTime.dateAboveTweet", "hide", source);
             }
-            deletePref("dateAndTime.hide.tweetAboveDate", source)
+            deletePref("dateAndTime.hide.tweetAboveDate", source);
         }
     }
 }

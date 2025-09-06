@@ -253,41 +253,41 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
 
     // ツイート時間
-    if(articleInfo.option.isBigArticle){
+    if (articleInfo.option.isBigArticle) {
         const [hideDate, rewriteDate] = [
             getPref("dateAndTime.hide.tweetDateInformation"),
-            !getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second")
-        ]
-        if(hideDate || rewriteDate){
+            !getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second"),
+        ];
+        if (hideDate || rewriteDate) {
             const dateElement = articleBase.querySelector<HTMLTimeElement>("a > time");
-            if(hideDate){
+            if (hideDate) {
                 hideElement(dateElement);
                 if (!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)) {
                     hideElement(dateElement.nextElementSibling as HTMLElement);
                 }
-            }else if (rewriteDate){
+            } else if (rewriteDate) {
                 dateElement.textContent = formatTimeText(dateElement.dateTime) + / · .*$/g.exec(dateElement.textContent)[0];
             }
         }
         const quoteTweet = articleBase.querySelector(`[id] > [id] [data-testid="Tweet-User-Avatar"]`);
-        if(quoteTweet) modifyDateAboveTweet(articleBase)
+        if (quoteTweet) modifyDateAboveTweet(articleBase);
     } else {
         modifyDateAboveTweet(articleBase);
     }
 }
 
 function modifyDateAboveTweet(articleBase: HTMLElement) {
-    const timePref = getPref("dateAndTime.dateAboveTweet")
-    if(timePref !== "normal"){
+    const timePref = getPref("dateAndTime.dateAboveTweet");
+    if (timePref !== "normal") {
         const dateElements = articleBase.querySelectorAll<HTMLTimeElement>(`[data-testid="User-Name"] :is(a, div)[aria-label] > time`);
-        for(const elem of dateElements){
-            if(timePref === "hide"){
+        for (const elem of dateElements) {
+            if (timePref === "hide") {
                 const dateElement = elem.closest<HTMLElement>("div+div");
-                hideElement(dateElement)
+                hideElement(dateElement);
                 if (dateElement.previousElementSibling?.getAttribute("aria-hidden")) {
                     hideElement(dateElement.previousElementSibling as HTMLElement);
                 }
-            }else{
+            } else {
                 if (timePref === "absolutely" || isRelativeTime(elem.parentElement.ariaLabel)) {
                     elem.textContent = getAbsolutelyTime(elem.dateTime);
                 }

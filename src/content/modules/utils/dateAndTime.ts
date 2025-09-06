@@ -9,31 +9,31 @@ let second: boolean;
 let hour12: boolean;
 let requireDate: boolean;
 
-function getIntlFormat(){
+function getIntlFormat() {
     const [prefSecond, prefHour12, prefRequireDate] = [
         getPref("dateAndTime.options.second"),
         getPref("dateAndTime.options.hour12"),
         getPref("dateAndTime.dateAboveTweet") === "absolutely",
     ];
-    const changedLang = language !== document.querySelector("html").lang
-    if(changedLang){
+    const changedLang = language !== document.querySelector("html").lang;
+    if (changedLang) {
         language = document.querySelector("html").lang;
         DateFormat = Intl.DateTimeFormat(language, { month: "short", day: "numeric" });
     }
-    if(
-        changedLang ||
-        !TimeFormat ||
-        prefHour12 !== hour12 || 
-        prefSecond !== second || 
-        prefRequireDate !== requireDate
-    ){
+    if (
+        changedLang
+        || !TimeFormat
+        || prefHour12 !== hour12
+        || prefSecond !== second
+        || prefRequireDate !== requireDate
+    ) {
         [hour12, second, requireDate] = [prefHour12, prefSecond, prefRequireDate];
-        TimeFormat = new Intl.DateTimeFormat(language, 
+        TimeFormat = new Intl.DateTimeFormat(language,
             {
                 dateStyle: requireDate ? "medium" : undefined,
                 timeStyle: second ? "medium" : "short",
-                hour12: hour12 
-            }
+                hour12: hour12,
+            },
         );
     }
 }
@@ -44,7 +44,7 @@ export function formatTimeText(dateTime: string): string {
 }
 
 export function getAbsolutelyTime(dateTime: string): string {
-    getIntlFormat()
+    getIntlFormat();
     const date = new Date(dateTime);
     const nowDate = new Date();
     if (requireDate || date.getDate() >= nowDate.getDate()) {
