@@ -8,7 +8,7 @@ import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetBut
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
-import { getAbsolutelyTime, getTimeFormat, isRelativeTime } from "@content/modules/utils/dateAndTime";
+import { formatTimeText, getAbsolutelyTime, isRelativeTime } from "@content/modules/utils/dateAndTime";
 
 let buttonUnderTweetRunning = false;
 
@@ -266,7 +266,7 @@ function tweetStyle(articleInfo: ArticleInfomation) {
                     hideElement(dateElement.nextElementSibling as HTMLElement);
                 }
             }else if (rewriteDate){
-                dateElement.textContent = getTimeFormat().format(Date.parse(dateElement.dateTime)) + / · .*$/g.exec(dateElement.textContent)[0];
+                dateElement.textContent = formatTimeText(dateElement.dateTime) + / · .*$/g.exec(dateElement.textContent)[0];
             }
         }
         const quoteTweet = articleBase.querySelector(`[id] > [id] [data-testid="Tweet-User-Avatar"]`);
