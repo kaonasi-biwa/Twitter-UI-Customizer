@@ -1,3 +1,9 @@
 {
-    "@JapaneseLanguageName": "スペイン語(カスティーリャ語)"
+    "@JapaneseLanguageName": "スペイン語(カスティーリャ語)",
+    "settingUI-goBackButton": "Atrás",
+    "settingUI-easySetting": "Es tu primera vez personalizando?",
+    "settingUI-easySetting-detail": "¡Te preparamos unos ajustes sugeridos!",
+    "settingUI-everythingSetting": "¡Vamos a personalizarlo a tu gusto!",
+    "settingUI-restoreDefaultAll": "Restaurar valores predeterminados",
+    "settingUI-restoreDefaultAll-confirm": "¿Seguro que deseas devolver la configuración a su estado original?"
 }
