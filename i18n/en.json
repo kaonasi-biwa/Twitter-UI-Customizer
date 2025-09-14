@@ -201,6 +201,7 @@
     "dateAndTime.dateAboveTweet": "Date notation above tweets and in notifications",
     "dateAndTime.dateAboveTweet.normal": "No changes",
     "dateAndTime.dateAboveTweet.absolutely": "Display the date and time",
+    "dateAndTime.dateAboveTweet.absolutelyToday": "Display absolute time for today",
     "composetweet-settingTitle": "Posting screen's Settings",
     "composetweet-hideDraft": "Hide Drafts button",
     "dmPage-setting-dm": "Direct Messages",
