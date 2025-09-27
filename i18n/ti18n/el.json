@@ -11,6 +11,7 @@
     "profileSetting-profileInitialTab-tweet": "Tweet",
     "profileSetting-profileInitialTab-reply": "Απαντήσεις",
     "profileSetting-profileInitialTab-media": "Πολυμέσα",
+    "profileSetting-profileInitialTab-likes": "\"Μου αρέσει\"",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "Ακούστε ζωντανά στους Χώρους",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "Retweet",
     "XtoTwitter-PostToTweet-engagementsTitle": "Αλληλεπιδράσεις",
@@ -45,6 +46,7 @@
     "XtoTwitter-PostToTweet-tlShowMoreTweet": "Εμφάνιση {count} Tweet",
     "XtoTwitter-PostToTweet-addTweet": "Προσθήκη Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Όταν κάποιος χρήστης (ακόμα και εσείς) πατήσει την καρδιά για να επισημάνει ότι του αρέσει αυτό το Tweet, θα εμφανιστεί εδώ.",
+    "XtoTwitter-PostToTweet-liked-none-header": "Δεν υπάρχουν επισημάνσεις \"Μου αρέσει\" σε Tweet ακόμα",
     "XtoTwitter-PostToTweet-retweeted-none-header": "Ενισχύστε τα Tweet που σας αρέσουν",
     "XtoTwitter-PostToTweet-retweeted-none-body": "Κάντε κοινή χρήση το Tweet κάποιου άλλου χρήστη στο χρονολόγιό σας κάνοντας Retweet. Όταν το κάνετε, θα εμφανιστεί εδώ.",
     "XtoTwitter-PostToTweet-quoteTweeted-none-body": "Προσθέστε την άποψή σας όταν κοινοποιείτε το Tweet κάποιου άλλου και θα εμφανιστεί εδώ.",
@@ -139,6 +141,7 @@
     "bottomTweetButtons-bookmark": "Προσθήκη στους σελιδοδείκτες",
     "bottomTweetButtons-tweetAnalytics": "Προβολή στοιχείων ανάλυσης Tweet",
     "bottomTweetButtons-share": "Κοινοποίηση",
+    "bottomTweetButtons-like": "Σήμανση \"Μου αρέσει\"",
     "bottomTweetButtons-retweet": "Retweet",
     "bottomTweetButtons-reply": "Απάντηση"
 }

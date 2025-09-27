@@ -1,7 +1,11 @@
 import fs from "node:fs/promises";
 
+import { langList, type Locale } from "../i18n/_langList";
+import { TUICI18ns } from "../i18n/_officialTwitterI18n";
+import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
+
 (async () => {
-    // CLI引数または_langList.jsonファイルからロケールを取得
+    // CLI引数または_langList.tsファイルからロケールを取得
     if (process.argv[2] == "getURL") {
         switch (process.argv[3]) {
             case "latest":
@@ -11,22 +15,23 @@ import fs from "node:fs/promises";
                 console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json");
                 break;
             default:
-                console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json");
+                console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/legacy-twitter/docs/json/i18n/ja.json");
                 break;
         }
     } else {
-        type Locale = string;
-        const locales: Locale[] = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+        // type Locale = string;
+        // const locales: Locale[] = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+        const locales: Locale[] = process.argv.length == 2 ? langList : process.argv.slice(2);
 
-        type TranslteKey = string;
-        // 設定をロード
-        const config: {
-            oldTranslate: TranslteKey[];
-            latestTranslate: TranslteKey[];
-            fixPlural: TranslteKey[];
-            fixSingular: TranslteKey[];
-            deleteString: Record<TranslteKey, string[]>;
-        } = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18nConfig.json", "utf8"));
+        // type TranslateKey = string;
+        // // 設定をロード
+        // const config: {
+        //     oldTranslate: TranslateKey[];
+        //     latestTranslate: TranslateKey[];
+        //     fixPlural: TranslateKey[];
+        //     fixSingular: TranslateKey[];
+        //     deleteString: Record<TranslateKey, string[]>;
+        // } = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18nConfig.json", "utf8"));
 
         // i18nデータを格納するオブジェクト
         const i18nObjectNew: Partial<Record<Locale, Record<string, string>>> = {};
@@ -39,17 +44,17 @@ import fs from "node:fs/promises";
             locales
                 .map((lang) => [
                     (async () => (i18nObjectNew[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/${lang}.json`)).json()))(),
-                    (async () => (i18nObject[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/${lang}.json`)).json()))(),
+                    (async () => (i18nObject[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/legacy-twitter/docs/json/i18n/${lang}.json`)).json()))(),
                     (async () => (i18nObjectOld[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/${lang}.json`)).json()))(),
                 ])
                 .flat(),
         );
 
-        // 翻訳IDをロード
-        const TUICI18ns: Record<string, TranslteKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
+        // // 翻訳IDをロード
+        // const TUICI18ns: Record<string, TranslateKey> = JSON.parse(await fs.readFile("./i18n/_officialTwitterI18n.json", "utf8"));
 
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
-        //https://github.com/fa0311/TwitterInternalAPIDocument/blob/for/kaonasi-biwa/Twitter-UI-Customizer/docs/json/i18n/ja.json
+        //https://github.com/fa0311/TwitterInternalAPIDocument/blob/legacy-twitter/docs/json/i18n/ja.json
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json
 
         // 並列でi18nファイルを生成
@@ -57,7 +62,7 @@ import fs from "node:fs/promises";
         await Promise.all(
             locales.map(async (elem) => {
                 let tmpObj: Record<string, string> = {};
-                for (const [elem2, translateID] of Object.entries<TranslteKey>(TUICI18ns)) {
+                for (const [elem2, translateID] of Object.entries<TranslateKey>(TUICI18ns)) {
                     if (i18nObject[elem][translateID] || i18nObjectOld[elem][translateID] || i18nObjectNew[elem][translateID]) {
                         let translatedText = "";
                         if (config.oldTranslate.includes(translateID)) {
