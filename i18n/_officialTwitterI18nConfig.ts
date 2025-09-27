@@ -50,8 +50,10 @@ export const config: {
     ],
     fixPlural: [
         "c42234da",
+        "d6917e0d",
         "e2414185",
         "e74e9bb7",
+        "fdc023d7",
     ],
     fixSingular: [],
     deleteString: {

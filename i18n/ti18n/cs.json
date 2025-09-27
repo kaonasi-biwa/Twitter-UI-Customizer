@@ -43,7 +43,7 @@
     "XtoTwitter-PostToTweet-profile-media-latest": "Média postovaná uživatelem {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Tweety zahrnující odpovědi od uživatele {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Posty s odpověďmi uživatele {fullName} (@{screenName})",
-    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Ukázat {count} {count}tweety",
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Ukázat {count} tweety",
     "XtoTwitter-PostToTweet-addTweet": "Přidat Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Až někdo (třeba i vy) olajkuje tento Tweet klepnutím na ikonu srdce, zobrazí se to tady.",
     "XtoTwitter-PostToTweet-liked-none-header": "Tweet zatím nemá žádné lajky",
