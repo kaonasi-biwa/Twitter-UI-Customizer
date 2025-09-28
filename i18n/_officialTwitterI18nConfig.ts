@@ -12,7 +12,7 @@ export const config: {
     ],
     latestTranslate: [
         "a4d3eb67",
-        "df34a454",
+        //"df34a454",
         "g062295e",
         "c7999d10",
         "h4dd544e",
@@ -21,8 +21,8 @@ export const config: {
         "h6e91bb1",
         "cce3f116",
         "b593b396",
-        "cf5af90c",
-        "d29edd5a",
+        //"cf5af90c",
+        //"d29edd5a",
         "d9442996",
         "a1e1b748",
         "ee69d769",
@@ -36,7 +36,6 @@ export const config: {
         "j11cb650",
         "c8061958",
         "e0cb0c72",
-        "f75d1806",
         "b007440a",
         "b55d8a78",
         "bb081ea2",
@@ -52,7 +51,7 @@ export const config: {
         "c42234da",
         "d6917e0d",
         "e2414185",
-        "e74e9bb7",
+        //"e74e9bb7",
         "fdc023d7",
     ],
     fixSingular: [],
@@ -60,39 +59,39 @@ export const config: {
         g132f681: [
             "@{screenName}",
         ],
-        e74e9bb7: [
-            ".",
-            "。",
-            "{tweetCount}",
-            "(de)",
-            "uri",
-        ],
+        //e74e9bb7: [
+        //    ".",
+        //    "。",
+        //    "{tweetCount}",
+        //    "(de)",
+        //    "uri",
+        //],
         fdc023d7: [
             "{formattedCount}",
             "{count}",
         ],
-        c42234da: [
-            "{count}",
-            "uri",
-        ],
+        //c42234da: [
+        //    "{count}",
+        //    "uri",
+        //],
         h99e9c95: [
             "{0}",
         ],
         ee69d769: [
             "{verb}",
         ],
-        cf5af90c: [
-            "!",
-        ],
-        d29edd5a: [
-            "!",
-        ],
+        //cf5af90c: [
+        //    "!",
+        //],
+        //d29edd5a: [
+        //    "!",
+        //],
         d9025c46: [
             "{matches}",
         ],
-        abfcce0d: [
-            "{amountOfTime}",
-        ],
+        //abfcce0d: [
+        //    "{amountOfTime}",
+        //],
     },
 };
 
