@@ -12,7 +12,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                 console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json");
                 break;
             case "old":
-                console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json");
+                console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/1f9db55ad6a0243f0d20cf1cb46d3a13fd8d6c39/docs/json/i18n/ja.json");
                 break;
             default:
                 console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/legacy-twitter/docs/json/i18n/ja.json");
@@ -45,7 +45,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                 .map((lang) => [
                     (async () => (i18nObjectNew[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/master/docs/json/i18n/${lang}.json`)).json()))(),
                     (async () => (i18nObject[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/legacy-twitter/docs/json/i18n/${lang}.json`)).json()))(),
-                    (async () => (i18nObjectOld[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/${lang}.json`)).json()))(),
+                    (async () => (i18nObjectOld[lang] = await (await fetch(`https://raw.githubusercontent.com/fa0311/TwitterInternalAPIDocument/1f9db55ad6a0243f0d20cf1cb46d3a13fd8d6c39/docs/json/i18n/${lang}.json`)).json()))(),
                 ])
                 .flat(),
         );
@@ -55,7 +55,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
 
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json
         //https://github.com/fa0311/TwitterInternalAPIDocument/blob/legacy-twitter/docs/json/i18n/ja.json
-        //https://github.com/fa0311/TwitterInternalAPIDocument/blob/d4aa08362ae1ef6ff39e198909c4259292770f41/docs/json/i18n/ja.json
+        //https://github.com/fa0311/TwitterInternalAPIDocument/blob/1f9db55ad6a0243f0d20cf1cb46d3a13fd8d6c39/docs/json/i18n/ja.json
 
         // 並列でi18nファイルを生成
         console.log("Generating i18n...");
