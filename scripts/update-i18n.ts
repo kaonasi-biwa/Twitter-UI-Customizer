@@ -105,6 +105,8 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                             translatedText = translatedText.slice(0, translatedText.indexOf("("));
                         }
                         tmpObj = { [elem2]: translatedText, ...tmpObj };
+                    } else {
+                        console.warn(`${process.env.CI === "true" ? "::warning::" : "Warning: "}Translation not found for key "${elem2}" (ID: ${translateID}) in locale "${elem}"`);
                     }
                 }
                 await fs.writeFile(`./i18n/ti18n/${elem}.json`, JSON.stringify(tmpObj, undefined, 4));
