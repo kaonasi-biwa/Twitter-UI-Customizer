@@ -43,7 +43,7 @@
     "XtoTwitter-PostToTweet-profile-media-latest": "Mga post na media ni {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-profile-postsWithReplies-old": "Mga Tweet na may mga sagot ni {fullName} (@{screenName})",
     "XtoTwitter-PostToTweet-profile-postsWithReplies-latest": "Mga post na may mga reply ni {fullName} (@{screenName})",
-    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Ipakita ang {count} (na )Tweet",
+    "XtoTwitter-PostToTweet-tlShowMoreTweet": "Ipakita ang {count} (na) Tweet",
     "XtoTwitter-PostToTweet-addTweet": "Magdagdag ng Tweet",
     "XtoTwitter-PostToTweet-liked-none-body": "Kapag may nag-tap ng puso para I-like ang Tweet na ito (kahit ikaw), lalabas iyon dito.",
     "XtoTwitter-PostToTweet-liked-none-header": "Wala pang Like ang Tweet",

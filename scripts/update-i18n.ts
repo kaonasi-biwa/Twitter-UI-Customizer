@@ -97,8 +97,12 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                         }
 
                         if (config.fixPlural.includes(translateID) && translatedText.includes("(") && translatedText.includes(")") && translatedText.includes(",")) {
-                            const textBase = translatedText.slice(0, translatedText.indexOf("("));
-                            translatedText = textBase + translatedText.slice(translatedText.indexOf("(")).split(",")[2].replace(")", "");
+                            const openParenIndex = translatedText.indexOf("(");
+                            const closeParenIndex = translatedText.lastIndexOf(")");
+                            const textBase = translatedText.slice(0, openParenIndex);
+                            const textPlural = translatedText.slice(openParenIndex + 1, closeParenIndex).split(",")[2];
+                            const textEnd = translatedText.slice(closeParenIndex + 1);
+                            translatedText = textBase + textPlural + textEnd;
                         }
 
                         if (config.fixSingular.includes(translateID) && translatedText.includes("(")) {
