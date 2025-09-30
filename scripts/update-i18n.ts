@@ -108,7 +108,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                         if (config.fixSingular.includes(translateID) && translatedText.includes("(")) {
                             translatedText = translatedText.slice(0, translatedText.indexOf("("));
                         }
-                        tmpObj = { [elem2]: translatedText, ...tmpObj };
+                        tmpObj = { ...tmpObj, [elem2]: translatedText };
                     } else {
                         console.warn(`${process.env.CI === "true" ? "::warning::" : "Warning: "}Translation not found for key "${elem2}" (ID: ${translateID}) in locale "${elem}"`);
                     }
