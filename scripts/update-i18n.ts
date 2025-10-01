@@ -61,7 +61,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
         console.log("Generating i18n...");
         await Promise.all(
             locales.map(async (elem) => {
-                let tmpObj: Record<string, string> = {};
+                const tmpObj: Record<string, string> = {};
                 for (const [elem2, translateID] of Object.entries<TranslateKey>(TUICI18ns)) {
                     if (i18nObject[elem][translateID] || i18nObjectOld[elem][translateID] || i18nObjectNew[elem][translateID]) {
                         let translatedText = "";
@@ -108,7 +108,8 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                         if (config.fixSingular.includes(translateID) && translatedText.includes("(")) {
                             translatedText = translatedText.slice(0, translatedText.indexOf("("));
                         }
-                        tmpObj = { ...tmpObj, [elem2]: translatedText };
+
+                        tmpObj[elem2] = translatedText;
                     } else {
                         console.warn(`${process.env.CI === "true" ? "::warning::" : "Warning: "}Translation not found for key "${elem2}" (ID: ${translateID}) in locale "${elem}"`);
                     }
