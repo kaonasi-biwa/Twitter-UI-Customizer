@@ -10,6 +10,8 @@ export const langList: Locale[] = [
     "de",
     "el",
     "en-GB",
+    "en-ss",
+    "en-xx",
     "en",
     "es",
     "eu",
