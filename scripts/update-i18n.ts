@@ -6,7 +6,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
 
 (async () => {
     // CLI引数または_langList.tsファイルからロケールを取得
-    if (process.argv[2] == "getURL") {
+    if (process.argv[2] === "getURL") {
         switch (process.argv[3]) {
             case "latest":
                 console.log("https://github.com/fa0311/TwitterInternalAPIDocument/blob/master/docs/json/i18n/ja.json");
@@ -20,8 +20,8 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
         }
     } else {
         // type Locale = string;
-        // const locales: Locale[] = process.argv.length == 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
-        const locales: Locale[] = process.argv.length == 2 ? langList : process.argv.slice(2);
+        // const locales: Locale[] = process.argv.length === 2 ? JSON.parse(await fs.readFile("./i18n/_langList.json", "utf8")) : process.argv.slice(2);
+        const locales: Locale[] = process.argv.length === 2 ? langList : process.argv.slice(2);
 
         // type TranslateKey = string;
         // // 設定をロード
@@ -75,19 +75,18 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
 
                         if (translateID in config.deleteString) {
                             for (const delString of config.deleteString[translateID]) {
-                                if (typeof delString == "string") {
+                                if (typeof delString === "string") {
                                     translatedText = translatedText.replaceAll(delString, "");
-                                } /* else if (typeof delString == "object" && delString.text) {
-                                    console.log("test");
+                                } /* else if (typeof delString === "object" && delString.text && delString.text.flags.includes("g")) {
                                     const index = delString.replaceIndex;
                                     let doingIndex = 1;
-                                    const delSTringCount = translatedText.match(new RegExp(delString.text, "g"));
-                                    translatedText = translatedText.replace(delString, (match) => {
-                                        if (index > 0 && doingIndex == index) {
+                                    const delStringCount = translatedText.match(delString.text).length;
+                                    translatedText = translatedText.replace(delString.text, (match) => {
+                                        if (index > 0 && doingIndex === index) {
                                             return match;
-                                        } else if (index < 0 && doingIndex == delSTringCount - index + 1) {
+                                        } else if (index < 0 && doingIndex === delStringCount - index + 1) {
                                             return match;
-                                        } else if (index == 0) {
+                                        } else if (index === 0) {
                                             return "";
                                         }
                                         doingIndex += 1;

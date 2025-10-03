@@ -4,7 +4,7 @@ export const config: {
     latestTranslate: TranslateKey[];
     fixPlural: TranslateKey[];
     fixSingular: TranslateKey[];
-    deleteString: Record<TranslateKey, string[]>;
+    deleteString: Record<TranslateKey, (string/* | { text: RegExp; replaceIndex: number }*/)[]>;
 } = {
     oldTranslate: [
         "e2414185",
