@@ -77,11 +77,12 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                             for (const delString of config.deleteString[translateID]) {
                                 if (typeof delString === "string") {
                                     translatedText = translatedText.replaceAll(delString, "");
-                                } /* else if (typeof delString === "object" && delString.text && delString.text.flags.includes("g")) {
+                                } /* else if (typeof delString === "object" && delString.text) {
                                     const index = delString.replaceIndex;
                                     let doingIndex = 1;
-                                    const delStringCount = translatedText.match(delString.text).length;
-                                    translatedText = translatedText.replace(delString.text, (match) => {
+                                    const regExp = new RegExp(delString.text.source, "g" + delString.text.flags.replace("g", ""));
+                                    const delStringCount = translatedText.match(regExp).length;
+                                    translatedText = translatedText.replace(regExp, (match) => {
                                         if (index > 0 && doingIndex === index) {
                                             return match;
                                         } else if (index < 0 && doingIndex === delStringCount - index + 1) {
