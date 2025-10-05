@@ -18,7 +18,7 @@ const AttrList = {
     tuicDiscoverMore: "tuic-discover-more",
     tuicDiscoverMoreTweet: "tuic-discover-more-tweet",
     tuicTweetTopButtonParent: "tuic-tweet-top-button-parent",
-    tuicTweetTopButton:"tuic-tweet-top-button",
+    tuicTweetTopButton: "tuic-tweet-top-button",
 
     tuicSettings: "tuic-settings",
     tuicEventHandled: "tuic-event-handled",
