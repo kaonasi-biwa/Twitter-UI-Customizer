@@ -1,12 +1,14 @@
-name: i18n Updater
+name: i18n Update
 
 on:
   push:
     branches:
       - main
     paths:
+      - "i18n/_langList.ts"
       - "i18n/_officialTwitterI18n.ts"
       - "i18n/_officialTwitterI18nConfig.ts"
+      - "scripts/update-i18n.ts"
   workflow_dispatch:
 
 jobs:
