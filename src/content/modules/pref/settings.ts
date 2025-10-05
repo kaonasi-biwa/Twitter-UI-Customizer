@@ -138,6 +138,7 @@ export const TUICSettings = {
             { id: "list", i18n: "tweetMoreMenuItems-addMemberOfList" },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
             { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested" },
+            { id: "grok", i18n: "tweetTopButton-grok" },
         ],
     },
     tweetTopButtonBool: {
