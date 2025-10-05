@@ -45,9 +45,9 @@ export function hideElements() {
             hideElement(document.querySelector(`[href="/notifications/verified"][role="tab"]:not([data-tuic-hide="true"] > *)`)?.parentElement);
         }
 
-        if (getPref("dateAndTime.options.absolutelyTime")) {
+        if (getPref("dateAndTime.dateAboveTweet") == "absolutely" || getPref("dateAndTime.dateAboveTweet") == "absolutelyToday") {
             for (const elem of document.querySelectorAll<HTMLTimeElement>(`article[data-testid="notification"] time:not([data-tuic-hide="true"])`)) {
-                if (isRelativeTime(elem.parentElement.ariaLabel)) {
+                if (getPref("dateAndTime.dateAboveTweet") === "absolutely" || isRelativeTime(elem.parentElement.ariaLabel)) {
                     elem.textContent = getAbsolutelyTime(elem.dateTime);
                 }
             }
@@ -67,6 +67,9 @@ function rightSidebar() {
     }
     if (getPref("rightSidebar.trend")) {
         hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="trend"]`), ":scope >  section"));
+    }
+    if (getPref("rightSidebar.news")) {
+        hideElement(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="news_sidebar"]`)?.parentElement);
     }
     if (getPref("rightSidebar.osusumeUser") && document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="UserCell"] [dir="auto"] > span:not([role="search"] *)`) == null) {
         hideElement(hasClosest(document.querySelector(`[data-testid="sidebarColumn"] *:not([data-tuic-hide="true"]) [data-testid="UserCell"]:not([role="search"] *)`), ":scope > * > aside"));

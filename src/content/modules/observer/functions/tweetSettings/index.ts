@@ -8,7 +8,7 @@ import { EmptyButtonHTML, TweetUnderButtonsHTML, placeCopiedURLMessage, tweetBut
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@modules/utils/fontSize";
-import { getAbsolutelyTime, getTimeFormat, isRelativeTime } from "@content/modules/utils/dateAndTime";
+import { formatTimeText, getAbsolutelyTime, isRelativeTime } from "@content/modules/utils/dateAndTime";
 
 let buttonUnderTweetRunning = false;
 
@@ -73,6 +73,13 @@ export function tweetSettings() {
 
         {
             const getElement = () => document.querySelector(`article[data-tuic-processed-article] .TUICTweetButtomBarBase > div > div:not(.TUIC_UnderTweetButton):not(.TUICButtonUnderTweet)`);
+            for (let elem = getElement(); elem; elem = getElement()) {
+                delete elem.closest<HTMLElement>("[data-tuic-processed-article]").dataset.tuicProcessedArticle;
+            }
+        }
+
+        {
+            const getElement = () => document.querySelector(`article[data-tuic-processed-article] :not([data-tuic-tweet-top-button="grok"]) > button [d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"]`);
             for (let elem = getElement(); elem; elem = getElement()) {
                 delete elem.closest<HTMLElement>("[data-tuic-processed-article]").dataset.tuicProcessedArticle;
             }
@@ -253,28 +260,48 @@ function tweetStyle(articleInfo: ArticleInfomation) {
     }
 
     // ツイート時間
-    if (getPref("dateAndTime.hide.tweetDateInformation") && articleInfo.option.isBigArticle) {
-        const dateElement = articleBase.querySelector<HTMLElement>("a > time").parentElement.parentElement;
-        hideElement(dateElement);
-        if (!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)) {
-            hideElement(dateElement.nextElementSibling as HTMLElement);
+    if (articleInfo.option.isBigArticle) {
+        const [hideDate, rewriteDate] = [
+            getPref("dateAndTime.hide.tweetDateInformation"),
+            !getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second"),
+        ];
+        if (hideDate || rewriteDate) {
+            const dateElement = articleBase.querySelector<HTMLTimeElement>("a > time");
+            if (hideDate) {
+                hideElement(dateElement);
+                if (!dateElement.nextElementSibling?.querySelector(`[data-testid="app-text-transition-container"]`)) {
+                    hideElement(dateElement.nextElementSibling as HTMLElement);
+                }
+            } else if (rewriteDate) {
+                dateElement.textContent = formatTimeText(dateElement.dateTime) + / · .*$/g.exec(dateElement.textContent)[0];
+            }
         }
+        const quoteTweet = articleBase.querySelector(`[id] > [id] [data-testid="Tweet-User-Avatar"]`);
+        if (quoteTweet) modifyDateAboveTweet(articleBase);
+    } else {
+        modifyDateAboveTweet(articleBase);
     }
-    if (articleInfo.option.isBigArticle && (!getPref("dateAndTime.options.hour12") || getPref("dateAndTime.options.second"))) {
-        const dateElement = articleBase.querySelector<HTMLTimeElement>("a > time");
-        dateElement.textContent = getTimeFormat().format(Date.parse(dateElement.dateTime)) + / · .*$/g.exec(dateElement.textContent)[0];
-    }
-    if (getPref("dateAndTime.hide.tweetAboveDate") && !articleInfo.option.isBigArticle) {
-        const dateElement = articleBase.querySelector<HTMLElement>(`[data-testid="User-Name"] a > time`).parentElement.parentElement;
-        hideElement(dateElement);
-        if (!dateElement.previousElementSibling?.querySelector(`a`)) {
-            hideElement(dateElement.previousElementSibling as HTMLElement);
-        }
-    }
-    if (getPref("dateAndTime.options.absolutelyTime") && !articleInfo.option.isBigArticle) {
-        const dateElement = articleBase.querySelector<HTMLTimeElement>(`[data-testid="User-Name"] a > time`);
-        if (isRelativeTime(dateElement.parentElement.ariaLabel)) {
-            dateElement.textContent = getAbsolutelyTime(dateElement.dateTime);
+}
+
+function modifyDateAboveTweet(articleBase: HTMLElement) {
+    const [hideDate, timePref] = [
+        getPref("dateAndTime.hide.tweetAboveDate"),
+        getPref("dateAndTime.dateAboveTweet"),
+    ];
+    if (hideDate || timePref !== "normal") {
+        const dateElements = articleBase.querySelectorAll<HTMLTimeElement>(`[data-testid="User-Name"] :is(a, div)[aria-label] > time`);
+        for (const elem of dateElements) {
+            if (hideDate) {
+                const dateElement = elem.closest<HTMLElement>("div+div");
+                hideElement(dateElement);
+                if (dateElement.previousElementSibling?.getAttribute("aria-hidden")) {
+                    hideElement(dateElement.previousElementSibling as HTMLElement);
+                }
+            } else {
+                if (timePref === "absolutely" || isRelativeTime(elem.parentElement.ariaLabel)) {
+                    elem.textContent = getAbsolutelyTime(elem.dateTime);
+                }
+            }
         }
     }
 }

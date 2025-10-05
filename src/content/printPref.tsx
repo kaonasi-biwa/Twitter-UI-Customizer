@@ -10,7 +10,7 @@ alert(localStorage.getItem("TUIC"));
 alert(localStorage.getItem("TUIC_CSS"));*/
 const elem2 = (): JSX.Element => {
     return (
-        <div id="aiueoaa">
+        <div id="rescurePrefElem">
             <h1>{TUICI18N.get("rescuePref-ButtonLabel")}</h1>
             <h2>{TUICI18N.get("rescuePref-detail")}</h2>
             <textarea class="full-width" value={localStorage.getItem("TUIC")} style={{ width: "100%", border: "solid black" }} readonly rows="8"></textarea>
@@ -43,7 +43,7 @@ const elem = (): JSX.Element => {
                 onClick={async () => {
                     const base = document.querySelector(".u01b__page-padding+div");
                     render(elem2, base);
-                    document.querySelector("body > div").insertBefore(document.querySelector("#aiueoaa"), document.querySelector("main"));
+                    document.querySelector("body > div").insertBefore(document.querySelector("#rescurePrefElem"), document.querySelector("main"));
                 }}
             >
                 <div>

@@ -227,6 +227,13 @@ export async function updatePref(source = config) {
             for (const oldKey in boolKeys) {
                 changeBooleanKey(oldKey, boolKeys[oldKey], source);
             }
+            // falls through
+        }
+        case 3: {
+            if (getPref("dateAndTime.options.absolutelyTime"), source) {
+                setPref("dateAndTime.dateAboveTweet", "absolutelyToday", source);
+            }
+            deletePref("dateAndTime.options.absolutelyTime", source);
         }
     }
 }
@@ -284,7 +291,7 @@ export function getDefaultPref(id: string) {
     }
 }
 
-const prefVersion = 3;
+const prefVersion = 4;
 export type TUICSettingIDs = keyof typeof TUICSettings;
 
 /**

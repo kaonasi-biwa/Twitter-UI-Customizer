@@ -18,6 +18,8 @@
     <div>
         <SectionTitle2 style="margin-bottom: 15px" titleI18N="settingDateAndTime-settingTitle" />
         <CheckBoxList id="dateAndTime.options" />
+        <settingSubtitle2 title-i18-n="dateAndTime.dateAboveTweet" />
+        <RadioButtonList id="dateAndTime.dateAboveTweet" />
         <settingSubtitle2 title-i18-n="common-hidebelow" />
         <CheckBoxList id="dateAndTime.hide" />
     </div>
@@ -29,4 +31,5 @@ import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import { TUICI18N } from "@modules/i18n";
 import { XToTwitterRestoreIcon } from "@shared/options/scripts/changePrefScript";
 import SectionTitle2 from "../components/SectionTitle2.vue";
+import RadioButtonList from "@shared/options/components/RadioButtonList.vue";
 </script>

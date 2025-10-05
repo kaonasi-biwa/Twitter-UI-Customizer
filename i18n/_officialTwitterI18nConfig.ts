@@ -46,6 +46,7 @@ export const config: {
         "d9025c46",
         "b85f402a",
         "f0e84609",
+        "e18cb87c",
     ],
     fixPlural: [
         "c42234da",

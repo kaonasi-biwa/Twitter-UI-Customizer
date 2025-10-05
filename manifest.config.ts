@@ -10,7 +10,7 @@ const manifest: {
     common: {
         name: "__MSG_extensionName__",
         description: "__MSG_extensionDescription__",
-        version: "5.3.1",
+        version: "5.4.1",
         default_locale: "ja",
         content_scripts: [
             {

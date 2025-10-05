@@ -138,6 +138,7 @@ export const TUICSettings = {
             { id: "list", i18n: "tweetMoreMenuItems-addMemberOfList" },
             { id: "report", i18n: "XtoTwitter-PostToTweet-reportTweet" },
             { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested" },
+            { id: "grok", i18n: "tweetTopButton-grok" },
         ],
     },
     tweetTopButtonBool: {
@@ -381,6 +382,7 @@ export const TUICSettings = {
             { id: "space", i18n: "rightSidebar-space", default: false },
             { id: "relevantPeople", i18n: "rightSidebar-relevantPeople", default: false },
             { id: "trend", i18n: "rightSidebar-trend", default: false },
+            { id: "news", i18n: "rightSidebar-news", default: false },
             { id: "osusumeUser", i18n: "rightSidebar-osusumeUser", default: false },
             { id: "links", i18n: "rightSidebar-links", default: false },
         ],
@@ -410,12 +412,20 @@ export const TUICSettings = {
             { id: "tweetDateInformation", i18n: "dateAndTime.hide.tweetDateInformation", default: false },
         ],
     },
+    "dateAndTime.dateAboveTweet": {
+        type: "select",
+        default: "normal",
+        values: [
+            { id: "absolutely", i18n: "dateAndTime.dateAboveTweet.absolutely" },
+            { id: "absolutelyToday", i18n: "dateAndTime.dateAboveTweet.absolutelyToday" },
+            { id: "normal", i18n: "dateAndTime.dateAboveTweet.normal" },
+        ],
+    },
     "dateAndTime.options": {
         type: "boolean",
         values: [
             { id: "second", i18n: "dateAndTime.options.second", default: false },
             { id: "hour12", i18n: "dateAndTime.options.hour12", default: true },
-            { id: "absolutelyTime", i18n: "dateAndTime.options.absolutelyTime", default: false },
         ],
     },
 } as const;
