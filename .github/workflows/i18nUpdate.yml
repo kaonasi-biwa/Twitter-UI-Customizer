@@ -1,12 +1,14 @@
-name: i18n Updater
+name: i18n Update
 
 on:
   push:
     branches:
       - main
     paths:
-      - "i18n/_officialTwitterI18n.json"
-      - "i18n/_officialTwitterI18nConfig.json"
+      - "i18n/_langList.ts"
+      - "i18n/_officialTwitterI18n.ts"
+      - "i18n/_officialTwitterI18nConfig.ts"
+      - "scripts/update-i18n.ts"
   workflow_dispatch:
 
 jobs:
@@ -41,7 +43,7 @@ jobs:
           pnpm dlx tsx ./scripts/update-i18n.ts
 
           if [ -z "$(git status --porcelain)" ]; then
-            echo "No ti18n changes"
+            echo "::notice::No ti18n changes"
             exit 0
           fi
 
@@ -50,3 +52,4 @@ jobs:
           git add .
           git commit -m "Update twitter i18n"
           git push
+          echo "::notice::Committed and pushed ti18n changes"
