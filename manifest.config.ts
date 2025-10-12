@@ -42,6 +42,7 @@ const manifest: {
             "*",
         ],
         permissions: [
+            "declarativeNetRequest",
             "notifications",
             "storage",
             "https://api.github.com/*",
@@ -92,6 +93,7 @@ const manifest: {
             },
         ],
         permissions: [
+            "declarativeNetRequest",
             "notifications",
             "storage",
         ],
