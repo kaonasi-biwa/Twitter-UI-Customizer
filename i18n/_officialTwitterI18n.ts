@@ -1,4 +1,7 @@
-{
+import { TranslateKey } from "./_officialTwitterI18nConfig";
+
+export type TUICI18nKey = string;
+export const TUICI18ns: Record<string, TranslateKey> = {
     "bottomTweetButtons-reply": "hdf7226a",
     "bottomTweetButtons-retweet": "d6c8514a",
     "bottomTweetButtons-like": "d636ebc6",
@@ -9,16 +12,16 @@
     "bottomTweetButtons-quoteTweet": "c9d7235e",
     "bottomTweetButtons-urlCopy-layer": "f88553c8",
     "bottomTweetButtons-sendDM": "f61c4bb0",
-    "bottomTweetButtons-grok":"e3eceda6",
-    "bottomTweetButtons-showQuotes":"fd80ffb0",
+    "bottomTweetButtons-grok": "e3eceda6",
+    "bottomTweetButtons-showQuotes": "fd80ffb0",
     "tweetMoreMenuItems-highlightUpsell": "h8a3525e",
     "tweetMoreMenuItems-whoCanReply": "bae0cbc0",
-    "tweetMoreMenuItems-editWithTwitterBlue": "j11cb650",
+    //"tweetMoreMenuItems-editWithTwitterBlue": "j11cb650",
     "tweetMoreMenuItems-leaveTalk": "bb16cc76",
     "tweetMoreMenuItems-muteTalk": "e2d6c17e",
     "tweetMoreMenuItems-hiddenReply": "f9478972",
     "tweetMoreMenuItems-requestCommunityNote": "h3edf7a6",
-    "tweetTopButton-grok":"e18cb87c",
+    "tweetTopButton-grok": "e18cb87c",
     "sidebarButtons-home": "ha8209bc",
     "sidebarButtons-explore": "fcf3e54c",
     "sidebarButtons-communities": "h02a6fe6",
@@ -45,7 +48,7 @@
     "sidebarButton-moreMenuItems-professionalTool": "ec1ed0cc",
     "sidebarButton-moreMenuItems-settingsAndSupport": "f1e3a258",
     "sidebarButton-moreMenuItems-settings": "fd442790",
-    "sidebarButton-moreMenuItems-pro": "c8061958",
+    //"sidebarButton-moreMenuItems-pro": "c8061958",
     "sidebarButton-moreMenuItems-ads": "e0cb0c72",
     "sidebarButton-moreMenuItems-premium": "f75d1806",
     "sidebarButton-moreMenuItems-jobs": "b007440a",
@@ -109,10 +112,10 @@
     "XtoTwitter-PostToTweet-profile-media-old": "h10bba55",
     "XtoTwitter-PostToTweet-profile-likes-latest": "hbf64b75",
     "XtoTwitter-PostToTweet-profile-likes-old": "d7c03c5d",
-    "XtoTwitter-PostToTweet-addBookmark-latest-layer": "cce3f116",
-    "XtoTwitter-PostToTweet-addBookmark-old-layer": "b59d8d10",
-    "XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "b593b396",
-    "XtoTwitter-PostToTweet-deleteBookmark-old-layer": "h5d6c720",
+    //"XtoTwitter-PostToTweet-addBookmark-latest-layer": "cce3f116",
+    //"XtoTwitter-PostToTweet-addBookmark-old-layer": "b59d8d10",
+    //"XtoTwitter-PostToTweet-deleteBookmark-latest-layer": "b593b396",
+    //"XtoTwitter-PostToTweet-deleteBookmark-old-layer": "h5d6c720",
     "XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer": "a1e1b748",
     "XtoTwitter-PostToTweet-deleteUnsentTweet-old-layer": "i26eed06",
     "XtoTwitter-PostToTweet-deleteTweet-dialogTitle": "dd211108",
@@ -146,5 +149,7 @@
     "postingDialog-toolbar-items-addEmoji": "d4a4842e",
     "postingDialog-toolbar-items-scheduleOption": "ha5e2e7a",
     "postingDialog-toolbar-items-geoButton": "cce30dcc",
-    "dateAndTime.options.absolutelyTime.ago":"f0e84609"
-}
+    "dateAndTime.options.absolutelyTime.ago": "f0e84609",
+};
+
+export default TUICI18ns;

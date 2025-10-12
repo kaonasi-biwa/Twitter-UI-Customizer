@@ -311,10 +311,10 @@ export function replacePost() {
                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted-one-old-layer");
             } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-tweeted-some-latest-layer"))) {
                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-tweeted-some-old-layer");
-            } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-addBookmark-latest-layer"))) {
-                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-addBookmark-old-layer");
-            } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-deleteBookmark-latest-layer"))) {
-                elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteBookmark-old-layer");
+            //} else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-addBookmark-latest-layer"))) {
+            //    elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-addBookmark-old-layer");
+            //} else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-deleteBookmark-latest-layer"))) {
+            //    elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteBookmark-old-layer");
             } else if (elem.textContent.includes(TUICI18N.get("XtoTwitter-PostToTweet-deleteUnsentTweet-latest-layer"))) {
                 elem.textContent = TUICI18N.get("XtoTwitter-PostToTweet-deleteUnsentTweet-old-layer");
             }

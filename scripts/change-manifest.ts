@@ -5,7 +5,6 @@ import manifest from "../manifest.config";
 
 export async function changeManifest(target: string) {
     if (target !== "firefox" && target !== "chromium" && target !== "chromiumCRX") return;
-    // CLI引数または_langList.jsonファイルからロケールを取得
     const config = manifest;
 
     const targets = Object.keys(config).filter((k) => k !== "common");
