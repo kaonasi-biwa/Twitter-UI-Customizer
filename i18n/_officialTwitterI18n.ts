@@ -1,7 +1,7 @@
 import { TranslateKey } from "./_officialTwitterI18nConfig";
 
 export type TUICI18nKey = string;
-export const TUICI18ns: Record<string, TranslateKey> = {
+export const TUICI18ns: Record<TUICI18nKey, TranslateKey> = {
     "bottomTweetButtons-reply": "hdf7226a",
     "bottomTweetButtons-retweet": "d6c8514a",
     "bottomTweetButtons-like": "d636ebc6",

@@ -60,17 +60,17 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
         // 並列でi18nファイルを生成
         console.log("Generating i18n...");
         await Promise.all(
-            locales.map(async (elem) => {
-                const tmpObj: Record<string, string> = {};
-                for (const [elem2, translateID] of Object.entries<TranslateKey>(TUICI18ns)) {
-                    if (i18nObject[elem][translateID] || i18nObjectOld[elem][translateID] || i18nObjectNew[elem][translateID]) {
+            locales.map(async (locale) => {
+                const returnObj: Record<string, string> = {};
+                for (const [tuicKey, translateID] of Object.entries<TranslateKey>(TUICI18ns)) {
+                    if (i18nObject[locale][translateID] || i18nObjectOld[locale][translateID] || i18nObjectNew[locale][translateID]) {
                         let translatedText = "";
                         if (config.oldTranslate.includes(translateID)) {
-                            translatedText = i18nObjectOld[elem][translateID];
+                            translatedText = i18nObjectOld[locale][translateID];
                         } else if (config.latestTranslate.includes(translateID)) {
-                            translatedText = i18nObjectNew[elem][translateID];
+                            translatedText = i18nObjectNew[locale][translateID];
                         } else {
-                            translatedText = i18nObject[elem][translateID];
+                            translatedText = i18nObject[locale][translateID];
                         }
 
                         if (translateID in config.deleteString) {
@@ -109,12 +109,12 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                             translatedText = translatedText.slice(0, translatedText.indexOf("("));
                         }
 
-                        tmpObj[elem2] = translatedText;
+                        returnObj[tuicKey] = translatedText;
                     } else {
-                        console.warn(`${process.env.CI === "true" ? "::warning::" : "Warning: "}Translation not found for key "${elem2}" (ID: ${translateID}) in locale "${elem}"`);
+                        console.warn(`${process.env.CI === "true" ? "::warning::" : "Warning: "}Translation not found for key "${tuicKey}" (ID: ${translateID}) in locale "${locale}"`);
                     }
                 }
-                await fs.writeFile(`./i18n/ti18n/${elem}.json`, JSON.stringify(tmpObj, undefined, 4));
+                await fs.writeFile(`./i18n/ti18n/${locale}.json`, JSON.stringify(returnObj, undefined, 4));
             }),
         );
     }
