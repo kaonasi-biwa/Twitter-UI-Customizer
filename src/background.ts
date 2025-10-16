@@ -25,7 +25,7 @@ const updateCheck = async () => {
 };
 
 const replaceTwitterManifest = async () => {
-    chrome.declarativeNetRequest.updateDynamicRules({
+    await chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [
             1,
         ],

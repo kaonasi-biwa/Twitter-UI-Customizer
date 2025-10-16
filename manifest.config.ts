@@ -15,8 +15,8 @@ const manifest: {
         content_scripts: [
             {
                 matches: [
-                    "*://*.x.com/*",
                     "*://*.twitter.com/*",
+                    "*://*.x.com/*",
                 ],
                 js: [
                     "inject.js",
@@ -47,6 +47,8 @@ const manifest: {
             "storage",
             "https://api.github.com/*",
             "https://abs.twimg.com/*",
+            "*://*.twitter.com/*",
+            "*://*.x.com/*",
         ],
         browser_action: {
             default_icon: {
@@ -113,6 +115,8 @@ const manifest: {
         host_permissions: [
             "https://api.github.com/*",
             "https://abs.twimg.com/*",
+            "*://*.twitter.com/*",
+            "*://*.x.com/*",
         ],
     },
     // chromiumCRX設定
