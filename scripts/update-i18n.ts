@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import { langList, type Locale } from "../i18n/_langList";
 import { TUICI18ns } from "../i18n/_officialTwitterI18n";
 import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
+import { generatePWAManifest } from "./pwa-manifest/generate-manifest";
 
 (async () => {
     // CLI引数または_langList.tsファイルからロケールを取得
@@ -115,6 +116,7 @@ import { config, type TranslateKey } from "../i18n/_officialTwitterI18nConfig";
                     }
                 }
                 await fs.writeFile(`./i18n/ti18n/${locale}.json`, JSON.stringify(returnObj, undefined, 4));
+                await generatePWAManifest(locale, returnObj);
             }),
         );
     }

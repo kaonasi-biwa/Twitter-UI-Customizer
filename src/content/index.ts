@@ -56,6 +56,7 @@ import { waitForElement } from "@modules/utils/controlElements";
         if (getPref("XToTwitter.PostToTweet")) {
             chrome.runtime.sendMessage({
                 type: "replaceTwitterManifest",
+                lang: document.querySelector("html").getAttribute("lang"),
             });
         }
 

@@ -24,7 +24,7 @@ const updateCheck = async () => {
     }
 };
 
-const replaceTwitterManifest = async () => {
+const replaceTwitterManifest = async (lang: string) => {
     await chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [
             1,
@@ -40,7 +40,7 @@ const replaceTwitterManifest = async () => {
                 action: {
                     type: "redirect",
                     redirect: {
-                        extensionPath: "/twitter-manifest.json",
+                        extensionPath: `/pwa-manifests/${lang}.json`,
                     },
                 },
             },
@@ -53,7 +53,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification);
         update1(message.updateType);
     } else if (message.type == "replaceTwitterManifest") {
-        replaceTwitterManifest();
+        replaceTwitterManifest(message.lang);
     }
     return true;
 });

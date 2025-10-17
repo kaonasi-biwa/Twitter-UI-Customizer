@@ -5,7 +5,7 @@
     "news",
     "magazines"
   ],
-  "description": "ニュース速報、政治、音楽トレンド、世界の出来事、スポーツ結果、世界の最新ニュースについての記事を、少ないデータ通信量ですぐに入手できます。",
+  "description": "Get breaking news, politics, trending music, world events, sports scores, and the latest global news stories as they unfold - all with less data.",
   "display": "standalone",
   "gcm_sender_id": "49625052041",
   "gcm_user_visible_only": true,
@@ -75,7 +75,7 @@
   },
   "shortcuts": [
     {
-      "name": "新しいツイート",
+      "name": "New Tweet",
       "url": "/compose/post?utm_source=jumplist&utm_medium=shortcut",
       "icons": [
         {
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "name": "話題を検索",
+      "name": "Explore",
       "url": "/explore?utm_source=jumplist&utm_medium=shortcut",
       "icons": [
         {
@@ -97,7 +97,7 @@
       ]
     },
     {
-      "name": "通知",
+      "name": "Notifications",
       "url": "/notifications?utm_source=jumplist&utm_medium=shortcut",
       "icons": [
         {
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "name": "ダイレクトメッセージ",
+      "name": "Direct Messages",
       "url": "/messages?utm_source=jumplist&utm_medium=shortcut",
       "icons": [
         {
