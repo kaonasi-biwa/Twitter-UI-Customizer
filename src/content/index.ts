@@ -53,6 +53,13 @@ import { waitForElement } from "@modules/utils/controlElements";
             `font-family: system-ui, -apple-system, sans-serif, monospace; margin: 0.5em; color: ${isSafemode ? "#5a9e1b" : "#1da1f2"};`,
         );
 
+        if (getPref("XToTwitter.PostToTweet")) {
+            chrome.runtime.sendMessage({
+                type: "replaceTwitterManifest",
+                lang: document.querySelector("html").getAttribute("lang"),
+            });
+        }
+
         // 前起動時のTUICの要素・Classが残っていればすべて削除
         updateClasses(true);
         for (const elem of document.querySelectorAll(".TUICOriginalContent")) {
