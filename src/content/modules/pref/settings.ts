@@ -370,6 +370,7 @@ export const TUICSettings = {
         values: [
             { id: "XToTwitter", i18n: "XtoTwitter-XtoTwitter", default: false },
             { id: "PostToTweet", i18n: "XtoTwitter-PostToTweet", default: false },
+            { id: "PwaManifest", i18n: "XtoTwitter-PwaManifest", default: false },
         ],
     },
 
