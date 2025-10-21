@@ -24,36 +24,47 @@ const updateCheck = async () => {
     }
 };
 
-const replaceTwitterManifest = async (lang: string) => {
-    await chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [
-            1,
-        ],
-        addRules: [
-            {
-                id: 1,
-                priority: 1,
-                condition: {
-                    urlFilter: "|https://x.com/manifest.json",
-                    domainType: "firstParty",
-                },
-                action: {
-                    type: "redirect",
-                    redirect: {
-                        extensionPath: `/pwa-manifests/${lang}.json`,
+const replaceTwitterManifest = {
+    enable: async (lang: string) => {
+        await chrome.declarativeNetRequest.updateDynamicRules({
+            removeRuleIds: [
+                1,
+            ],
+            addRules: [
+                {
+                    id: 1,
+                    priority: 1,
+                    condition: {
+                        urlFilter: "|https://x.com/manifest.json",
+                        domainType: "firstParty",
+                    },
+                    action: {
+                        type: "redirect",
+                        redirect: {
+                            extensionPath: `/pwa-manifests/${lang}.json`,
+                        },
                     },
                 },
-            },
-        ],
-    });
+            ],
+        });
+    },
+    disable: async () => {
+        await chrome.declarativeNetRequest.updateDynamicRules({
+            removeRuleIds: [
+                1,
+            ],
+        });
+    },
 };
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type == "update") {
         if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification);
         update1(message.updateType);
-    } else if (message.type == "replaceTwitterManifest") {
-        replaceTwitterManifest(message.lang);
+    } else if (message.type == "enableReplaceTwitterManifest") {
+        replaceTwitterManifest.enable(message.lang);
+    } else if (message.type == "disableReplaceTwitterManifest") {
+        replaceTwitterManifest.disable();
     }
     return true;
 });
