@@ -35,8 +35,12 @@ const replaceTwitterManifest = {
                     id: 1,
                     priority: 1,
                     condition: {
-                        urlFilter: "|https://x.com/manifest.json",
+                        urlFilter: "/manifest.json^",
                         domainType: "firstParty",
+                        initiatorDomains: [
+                            "twitter.com",
+                            "x.com",
+                        ],
                     },
                     action: {
                         type: "redirect",
