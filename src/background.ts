@@ -26,6 +26,7 @@ const updateCheck = async () => {
 
 const replaceTwitterManifest = {
     enable: async (lang: string) => {
+        //const isFirefox = "browser" in globalThis;
         await chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: [
                 1,
@@ -41,6 +42,14 @@ const replaceTwitterManifest = {
                             "twitter.com",
                             "x.com",
                         ],
+                        //resourceTypes: isFirefox
+                        //    ? [
+                        //            "web_manifest",
+                        //        ] as never[]
+                        //    : [
+                        //            "xmlhttprequest",
+                        //            "other",
+                        //        ],
                     },
                     action: {
                         type: "redirect",
