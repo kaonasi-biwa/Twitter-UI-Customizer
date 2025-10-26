@@ -82,10 +82,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
 });
 
-const update1 = async (updateType) => {
+const update1 = async (updateType: "iconClick" | "runBrowser" | "openTwitter") => {
     updateID = updateType;
 
-    chrome.storage.sync.get("TUIC", async (settingT) => {
+    chrome.storage.sync.get<{
+        TUIC?: {
+            iconClick: boolean;
+            runBrowser: boolean;
+            openTwitter: boolean;
+        };
+    }>("TUIC", async (settingT) => {
         const updateUrl = chrome.runtime.getManifest().update_url;
         const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
         console.log(`isWebstore : ${isWebstore}`);
