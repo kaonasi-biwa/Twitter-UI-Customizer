@@ -73,6 +73,8 @@ export default tseslint.config(
             ...vueeslint.configs["flat/recommended"],
         ],
         rules: {
+            "no-redeclare": 0,
+            "@typescript-eslint/no-redeclare": ["error", { ignoreDeclarationMerge: false }],
             "@typescript-eslint/no-unused-vars": 0,
             "solid/self-closing-comp": ["warn", { html: "void" }],
             "vue/html-indent": ["warn", 4],
