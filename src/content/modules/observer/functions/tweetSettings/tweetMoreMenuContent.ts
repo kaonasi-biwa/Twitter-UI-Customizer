@@ -72,7 +72,7 @@ const _data: TweetMoreMenuContentData = {
         analytics: `[data-testid="analytics"]`,
         editWithTwitterBlue: `[data-testid="editWithTwitterBlue"]`,
         requestCommunityNote: `[href^="/i/communitynotes/noterequest/"]`,
-        subscribe: `[data-testid="subscribe"]`
+        subscribe: `[data-testid="subscribe"]`,
     },
 };
 
