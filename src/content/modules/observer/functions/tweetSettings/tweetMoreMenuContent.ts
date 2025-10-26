@@ -1,6 +1,7 @@
 import { hideElement, waitForElement } from "@modules/utils/controlElements";
 import { getPref, getSettingIDs } from "@modules/pref";
 import { fontSizeClass } from "@modules/utils/fontSize";
+import { TUICI18N } from "@content/modules/i18n";
 
 interface TweetMoreMenuContentData {
     all: string[];
@@ -39,7 +40,7 @@ const _data: TweetMoreMenuContentData = {
             ).filter((elem) => {
                 const spanElem = elem.closest(`[role="menuitem"]`).querySelector("span");
                 if (spanElem) {
-                    return spanElem.textContent.startsWith("@");
+                    return spanElem.textContent.startsWith("@") || spanElem.textContent === TUICI18N.get("tweetMoreMenuItems-userMute-textContent");
                 } else {
                     return false;
                 }
@@ -53,7 +54,7 @@ const _data: TweetMoreMenuContentData = {
             ).filter((elem) => {
                 const spanElem = elem.closest(`[role="menuitem"]`).querySelector("span");
                 if (spanElem) {
-                    return !spanElem.textContent.startsWith("@");
+                    return !spanElem.textContent.startsWith("@") && spanElem.textContent !== TUICI18N.get("tweetMoreMenuItems-userMute-textContent");
                 } else {
                     return false;
                 }
@@ -71,6 +72,7 @@ const _data: TweetMoreMenuContentData = {
         analytics: `[data-testid="analytics"]`,
         editWithTwitterBlue: `[data-testid="editWithTwitterBlue"]`,
         requestCommunityNote: `[href^="/i/communitynotes/noterequest/"]`,
+        subscribe: `[data-testid="subscribe"]`
     },
 };
 

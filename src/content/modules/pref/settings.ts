@@ -151,6 +151,7 @@ export const TUICSettings = {
             { id: "notHelpful", i18n: "tweetMoreMenuItems-notHelpful", default: false },
             { id: "notInterested", i18n: "tweetMoreMenuItems-notInterested", default: false },
             { id: "follow", i18n: "tweetMoreMenuItems-follow", default: false },
+            { id: "subscribe", i18n: "tweetMoreMenuItems-subscribe", default: false },
             { id: "deleteTweet", i18n: "bottomTweetButtons-deleteButton", default: false },
             { id: "highlighOnPin", i18n: "tweetMoreMenuItems-highlighOnPin", default: false },
             { id: "highlightUpsell", i18n: "tweetMoreMenuItems-highlightUpsell", default: false },

@@ -21,6 +21,8 @@ export const TUICI18ns: Record<string, TranslateKey> = {
     "tweetMoreMenuItems-muteTalk": "e2d6c17e",
     "tweetMoreMenuItems-hiddenReply": "f9478972",
     "tweetMoreMenuItems-requestCommunityNote": "h3edf7a6",
+    "tweetMoreMenuItems-subscribe" : "aeb6f0a0",
+    "tweetMoreMenuItems-userMute-textContent": "hb568af4",
     "tweetTopButton-grok": "e18cb87c",
     "sidebarButtons-home": "ha8209bc",
     "sidebarButtons-explore": "fcf3e54c",
