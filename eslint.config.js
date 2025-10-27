@@ -41,6 +41,7 @@ export default tseslint.config(
         },
         rules: {
             "no-unused-vars": 0,
+            //eqeqeq: ["error", "smart"],
             "no-sequences": ["error", { allowInParentheses: false }],
             "unused-imports/no-unused-imports": "error",
             "import-x/first": "error",
