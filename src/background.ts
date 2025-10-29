@@ -85,24 +85,25 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 const update1 = async (updateType: "iconClick" | "runBrowser" | "openTwitter") => {
     updateID = updateType;
 
-    const settingT = await chrome.storage.sync.get<{
+    chrome.storage.sync.get<{
         TUIC?: {
             iconClick: boolean;
             runBrowser: boolean;
             openTwitter: boolean;
         };
-    }>("TUIC");
-    const updateUrl = chrome.runtime.getManifest().update_url;
-    const isNotWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
-    console.log(`isNotWebstore : ${isNotWebstore}`);
-    const setting = settingT.TUIC ?? {
-        iconClick: isNotWebstore,
-        runBrowser: isNotWebstore,
-        openTwitter: isNotWebstore,
-    };
-    if (setting[updateID]) {
-        updateCheck();
-    }
+    }>("TUIC", (settingT) => {
+        const updateUrl = chrome.runtime.getManifest().update_url;
+        const isNotWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
+        console.log(`isNotWebstore : ${isNotWebstore}`);
+        const setting = settingT.TUIC ?? {
+            iconClick: isNotWebstore,
+            runBrowser: isNotWebstore,
+            openTwitter: isNotWebstore,
+        };
+        if (setting[updateID]) {
+            updateCheck();
+        }
+    });
 };
 
 chrome.notifications.onClicked.removeListener(updateNotification);
