@@ -230,10 +230,16 @@ export async function updatePref(source = config) {
             // falls through
         }
         case 3: {
-            if (getPref("dateAndTime.options.absolutelyTime"), source) {
+            if (getPref("dateAndTime.options.absolutelyTime", source)) {
                 setPref("dateAndTime.dateAboveTweet", "absolutelyToday", source);
             }
             deletePref("dateAndTime.options.absolutelyTime", source);
+            // falls through
+        }
+        case 4: {
+            if (getPref("XToTwitter.XToTwitter", source)) {
+                setPref("XToTwitter.PwaManifest", true, source);
+            }
         }
     }
 }
@@ -291,7 +297,7 @@ export function getDefaultPref(id: string) {
     }
 }
 
-const prefVersion = 4;
+const prefVersion = 5;
 export type TUICSettingIDs = keyof typeof TUICSettings;
 
 /**

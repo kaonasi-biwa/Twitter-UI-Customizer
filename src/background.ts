@@ -1,4 +1,4 @@
-let updateID = "";
+let updateID: "iconClick" | "runBrowser" | "openTwitter";
 
 const updateNotification = () => {
     chrome.tabs.create({
@@ -24,25 +24,81 @@ const updateCheck = async () => {
     }
 };
 
+const replaceTwitterManifest = {
+    enable: async (lang: string) => {
+        //const isFirefox = "browser" in globalThis;
+        await chrome.declarativeNetRequest.updateDynamicRules({
+            removeRuleIds: [
+                1,
+            ],
+            addRules: [
+                {
+                    id: 1,
+                    priority: 1,
+                    condition: {
+                        urlFilter: "/manifest.json^",
+                        domainType: "firstParty",
+                        initiatorDomains: [
+                            "twitter.com",
+                            "x.com",
+                        ],
+                        //resourceTypes: isFirefox
+                        //    ? [
+                        //            "web_manifest",
+                        //        ] as never[]
+                        //    : [
+                        //            "xmlhttprequest",
+                        //            "other",
+                        //        ],
+                    },
+                    action: {
+                        type: "redirect",
+                        redirect: {
+                            extensionPath: `/pwa-manifests/${lang}.json`,
+                        },
+                    },
+                },
+            ],
+        });
+    },
+    disable: async () => {
+        await chrome.declarativeNetRequest.updateDynamicRules({
+            removeRuleIds: [
+                1,
+            ],
+        });
+    },
+};
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type == "update") {
         if (message.updateType == "iconClick") chrome.notifications.onClicked.removeListener(updateNotification);
         update1(message.updateType);
+    } else if (message.type == "enableReplaceTwitterManifest") {
+        replaceTwitterManifest.enable(message.lang);
+    } else if (message.type == "disableReplaceTwitterManifest") {
+        replaceTwitterManifest.disable();
     }
     return true;
 });
 
-const update1 = async (updateType) => {
+const update1 = async (updateType: "iconClick" | "runBrowser" | "openTwitter") => {
     updateID = updateType;
 
-    chrome.storage.sync.get("TUIC", async (settingT) => {
+    chrome.storage.sync.get<{
+        TUIC?: {
+            iconClick: boolean;
+            runBrowser: boolean;
+            openTwitter: boolean;
+        };
+    }>("TUIC", (settingT) => {
         const updateUrl = chrome.runtime.getManifest().update_url;
-        const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
-        console.log(`isWebstore : ${isWebstore}`);
+        const isNotWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
+        console.log(`isNotWebstore : ${isNotWebstore}`);
         const setting = settingT.TUIC ?? {
-            iconClick: isWebstore,
-            runBrowser: isWebstore,
-            openTwitter: isWebstore,
+            iconClick: isNotWebstore,
+            runBrowser: isNotWebstore,
+            openTwitter: isNotWebstore,
         };
         if (setting[updateID]) {
             updateCheck();

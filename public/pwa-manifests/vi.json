@@ -1,0 +1,139 @@
+{
+  "background_color": "#ffffff",
+  "categories": [
+    "social",
+    "news",
+    "magazines"
+  ],
+  "description": "Nhận tin tức mới, chính trị, âm nhạc đang thịnh hành, sự kiện thế giới, tỉ số thể thao và câu chuyện tin tức toàn cầu mới nhất khi chưa được công bố - tất cả với ít dữ liệu hơn.",
+  "display": "standalone",
+  "gcm_sender_id": "49625052041",
+  "gcm_user_visible_only": true,
+  "icons": [
+    {
+      "src": "https://abs.twimg.com/responsive-web/client-web/icon-default.ee534d8a.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://abs.twimg.com/responsive-web/client-web/icon-default-large.8e027b68.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "purpose": "maskable",
+      "src": "https://abs.twimg.com/responsive-web/client-web/icon-default-maskable.2fd29c88.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "purpose": "maskable",
+      "src": "https://abs.twimg.com/responsive-web/client-web/icon-default-maskable-large.ee2b7aa8.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "name": "Twitter",
+  "screenshots": [
+    {
+      "src": "https://abs.twimg.com/responsive-web/client-web/twitter-lite-data-saver-marketing.6805986a.png",
+      "sizes": "586x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "https://abs.twimg.com/responsive-web/client-web/twitter-lite-explore-marketing.fd45b02a.png",
+      "sizes": "586x1041",
+      "type": "image/png"
+    },
+    {
+      "src": "https://abs.twimg.com/responsive-web/client-web/twitter-lite-timeline-marketing.befcdb4a.png",
+      "sizes": "586x1041",
+      "type": "image/png"
+    }
+  ],
+  "share_target": {
+    "action": "compose/tweet",
+    "enctype": "multipart/form-data",
+    "method": "POST",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "externalMedia",
+          "accept": [
+            "image/jpeg",
+            "image/png",
+            "image/gif",
+            "video/quicktime",
+            "video/mp4"
+          ]
+        }
+      ]
+    }
+  },
+  "shortcuts": [
+    {
+      "name": "Tweet Mới",
+      "url": "/compose/post?utm_source=jumplist&utm_medium=shortcut",
+      "icons": [
+        {
+          "src": "https://abs.twimg.com/responsive-web/client-web/icon-compose.1238442a.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Khám phá",
+      "url": "/explore?utm_source=jumplist&utm_medium=shortcut",
+      "icons": [
+        {
+          "src": "https://abs.twimg.com/responsive-web/client-web/icon-search-stroke.5f9aa88a.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Thông báo",
+      "url": "/notifications?utm_source=jumplist&utm_medium=shortcut",
+      "icons": [
+        {
+          "src": "https://abs.twimg.com/responsive-web/client-web/icon-notifications-stroke.429602da.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Tin nhắn Trực tiếp",
+      "url": "/messages?utm_source=jumplist&utm_medium=shortcut",
+      "icons": [
+        {
+          "src": "https://abs.twimg.com/responsive-web/client-web/icon-messages-stroke.5f95edca.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "short_name": "Twitter",
+  "start_url": "https://twitter.com/?utm_source=homescreen&utm_medium=shortcut",
+  "theme_color": "#ffffff",
+  "scope": "/",
+  "android_package_name": "com.twitter.android",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "id": "com.twitter.android",
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.twitter.android"
+    }
+  ],
+  "launch_handler": {
+    "route_to": "existing-client",
+    "navigate_existing_client": "never"
+  }
+}

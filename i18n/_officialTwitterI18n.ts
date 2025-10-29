@@ -1,7 +1,7 @@
 import { TranslateKey } from "./_officialTwitterI18nConfig";
 
 export type TUICI18nKey = string;
-export const TUICI18ns: Record<string, TranslateKey> = {
+export const TUICI18ns: Record<TUICI18nKey, TranslateKey> = {
     "bottomTweetButtons-reply": "hdf7226a",
     "bottomTweetButtons-retweet": "d6c8514a",
     "bottomTweetButtons-like": "d636ebc6",
@@ -139,6 +139,11 @@ export const TUICI18ns: Record<string, TranslateKey> = {
     "XtoTwitter-PostToTweet-engagementsTitle": "dbe9353e",
     "XtoTwitter-PostToTweet-engagements-retweetTitle": "d497b854",
     "XtoTwitter-PostToTweet-rightSidebar-spaceTitle": "f3839580",
+    "XtoTwitter-PostToTweet-pwaManifest-description": "f1a9e3a2",
+    "XtoTwitter-PostToTweet-pwaManifest-newTweet": "b1547096",
+    "XtoTwitter-PostToTweet-pwaManifest-explore": "fcf3e54c",
+    "XtoTwitter-PostToTweet-pwaManifest-notifications": "eb75875e",
+    "XtoTwitter-PostToTweet-pwaManifest-directMessages": "d4986f86",
     "profileSetting-profileInitialTab-likes": "d7b8ebaa",
     "profileSetting-profileInitialTab-media": "i5450bec",
     "profileSetting-profileInitialTab-reply": "jdceda60",

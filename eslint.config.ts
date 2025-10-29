@@ -1,15 +1,20 @@
 import eslint from "@eslint/js";
+//import { defineConfig, type Config } from "eslint/config";
 import globals from "globals";
 
 import stylistic from "@stylistic/eslint-plugin";
 import unusedimports from "eslint-plugin-unused-imports";
 import importx from "eslint-plugin-import-x";
 
-import tseslint from "typescript-eslint";
+import tseslint/*, { type FlatConfig }*/ from "typescript-eslint";
 import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
 import unocsseslint from "@unocss/eslint-plugin";
 
+//const defineLangOpt = (options: FlatConfig.LanguageOptions): Config["languageOptions"] => options as Config["languageOptions"];
+
+// safeguard: https://github.com/typescript-eslint/typescript-eslint/issues/11543
+//export default defineConfig(
 export default tseslint.config(
     {
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
@@ -41,6 +46,8 @@ export default tseslint.config(
         },
         rules: {
             "no-unused-vars": 0,
+            //eqeqeq: ["error", "smart"],
+            "no-sequences": ["error", { allowInParentheses: false }],
             "unused-imports/no-unused-imports": "error",
             "import-x/first": "error",
             "import-x/no-named-default": "error",
@@ -62,6 +69,8 @@ export default tseslint.config(
         languageOptions: {
             parserOptions: {
                 parser: tseslint.parser,
+                //projectService: true,
+                //extraFileExtensions: [".vue"],
             },
         },
         extends: [
@@ -72,6 +81,8 @@ export default tseslint.config(
             ...vueeslint.configs["flat/recommended"],
         ],
         rules: {
+            "no-redeclare": 0,
+            "@typescript-eslint/no-redeclare": ["error", { ignoreDeclarationMerge: false }],
             "@typescript-eslint/no-unused-vars": 0,
             "solid/self-closing-comp": ["warn", { html: "void" }],
             "vue/html-indent": ["warn", 4],

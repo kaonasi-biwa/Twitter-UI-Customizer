@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { TUICI18N } from "@modules/i18n";
 import { waitForElement } from "@modules/utils/controlElements";
-import { getPref, setPref, mergeDefaultPref } from "@modules/pref";
+import { getPref, setPref, mergeDefaultPref, savePref } from "@modules/pref";
 import { isSafemode } from "@modules/settings/safemode/isSafemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
@@ -25,8 +25,8 @@ const setDefault = async () => {
             new ButtonComponent(TUICI18N.get("common-yes"), () => {
                 dialog.close();
                 const defaultPref = mergeDefaultPref({});
-                localStorage.setItem("TUIC", JSON.stringify(defaultPref));
                 setPref("", defaultPref);
+                savePref();
 
                 if (isSafemode) {
                     location.href = `${location.protocol}//${location.hostname}`;

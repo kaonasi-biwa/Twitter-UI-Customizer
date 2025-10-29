@@ -18,7 +18,7 @@ export function rgb2hex(rgb: [number, number, number]) {
  * @return {string} rgbの色を表す配列
  */
 export function hex2rgb(hex: string): [number, number, number] {
-    if (hex.slice(0, 1) == "#") hex = hex.slice(1);
+    if (hex.startsWith("#")) hex = hex.slice(1);
     return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map((str) => {
         return parseInt(str, 16);
     }) as [number, number, number];
