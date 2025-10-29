@@ -1,15 +1,20 @@
 import eslint from "@eslint/js";
+//import { defineConfig, type Config } from "eslint/config";
 import globals from "globals";
 
 import stylistic from "@stylistic/eslint-plugin";
 import unusedimports from "eslint-plugin-unused-imports";
 import importx from "eslint-plugin-import-x";
 
-import tseslint from "typescript-eslint";
+import tseslint/*, { type FlatConfig }*/ from "typescript-eslint";
 import solideslint from "eslint-plugin-solid";
 import vueeslint from "eslint-plugin-vue";
 import unocsseslint from "@unocss/eslint-plugin";
 
+//const defineLangOpt = (options: FlatConfig.LanguageOptions): Config["languageOptions"] => options as Config["languageOptions"];
+
+// safeguard: https://github.com/typescript-eslint/typescript-eslint/issues/11543
+//export default defineConfig(
 export default tseslint.config(
     {
         ignores: ["dist/**", "node_modules/**", "third-party/**"],
