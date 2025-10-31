@@ -186,6 +186,7 @@
     "XToTwitter-settingTitle": "트위터의 귀환",
     "XtoTwitter-XtoTwitter": "브라우저 탭의 타이틀의 \"X\"를 \"Twitter\"로 바꾸기",
     "XtoTwitter-PostToTweet": "\"게시하기\"를 \"트윗\"으로 되돌리기",
+    "XtoTwitter-PwaManifest": "PWA 시 아이콘과 이름을 Twitter로 변경",
     "XtoTwitter-twitterIcon": "아이콘을 파랑새로 되돌리기",
     "uncategorizedSettings-settingTitle": "기타 설정",
     "uncategorizedSettings-disableBackdropFilter": "흐림 효과 등 배경 효과를 끄기",
