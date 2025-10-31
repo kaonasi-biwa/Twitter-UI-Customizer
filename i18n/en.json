@@ -186,6 +186,7 @@
     "XToTwitter-settingTitle": "Return of Twitter",
     "XtoTwitter-XtoTwitter": "Change \"X\" to \"Twitter\" of title of browser tab",
     "XtoTwitter-PostToTweet": "Bring back \"Post\" to \"Tweet\"",
+    "XtoTwitter-PwaManifest": "Change the icon and name to Twitter when using PWA",
     "XtoTwitter-twitterIcon": "Bring Back Icon to Twitter(Blue Bird)",
     "uncategorizedSettings-settingTitle": "Misc Settings",
     "uncategorizedSettings-disableBackdropFilter": "Disable background effects such as blur effects",
