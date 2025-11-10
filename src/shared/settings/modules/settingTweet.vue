@@ -56,8 +56,11 @@
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
-        <SectionTitle2 style="margin-bottom: 15px" titleI18N="postingDialog-toolbar-settingTitle" />
+        <SectionTitle2 style="margin-bottom: 15px" titleI18N="composetweet-settingTitle" />
+        <settingSubtitle2 titleI18N="composetweet-toolbar-settingTitle" />
         <UpDownList style="margin-top: 20px" id="postingDialog.toolbar" />
+        <settingSubtitle2 titleI18N="settingSection-other" />
+        <CheckBoxList id="composetweet" />
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
