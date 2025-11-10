@@ -90,7 +90,6 @@
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
-    "postingDialog-toolbar-settingTitle": "ツイート画面下部のツールバーの並び替え",
 
     "tweetViewSettings-other": " その他",
 
@@ -229,8 +228,10 @@
     "dateAndTime.dateAboveTweet.absolutely": "日付と時刻を表記する",
     "dateAndTime.dateAboveTweet.absolutelyToday": "当日のみ絶対時刻を表記する",
 
+    "composetweet-toolbar-settingTitle": "ツイート画面下部のツールバーの並び替え",
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
+    "composetweet-remainOpened": "ツイート投稿画面を投稿後に自動で再表示する",
 
     "dmPage-setting-dm": "ダイレクトメッセージ",
     "dmPage-settingTitle": "ダイレクトメッセージの設定",
