@@ -395,8 +395,8 @@ export const TUICSettings = {
         type: "boolean",
         values: [
             { id: "hideDraft", i18n: "composetweet-hideDraft", default: false },
-            { id: "remainOpened", i18n: "composetweet-remainOpened", default: false }
-        ]
+            { id: "remainOpened", i18n: "composetweet-remainOpened", default: false },
+        ],
     },
 
     // DMの設定
