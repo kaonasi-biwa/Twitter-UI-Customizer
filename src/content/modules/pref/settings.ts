@@ -391,7 +391,13 @@ export const TUICSettings = {
     },
 
     // ツイート投稿画面の設定
-    composetweet: { type: "boolean", values: [{ id: "hideDraft", i18n: "composetweet-hideDraft", default: false }] },
+    composetweet: {
+        type: "boolean",
+        values: [
+            { id: "hideDraft", i18n: "composetweet-hideDraft", default: false },
+            { id: "remainOpened", i18n: "composetweet-remainOpened", default: false }
+        ]
+    },
 
     // DMの設定
     dmPage: { type: "boolean", values: [{ id: "showIcon", i18n: "dmPage-showIcon", default: false }] },

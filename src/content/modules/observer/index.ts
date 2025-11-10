@@ -1,4 +1,4 @@
-import { tweetSettings, hideOsusumeTweets, replacePost, updateStyles, profileModify, sidebarButtons, dmPage, fixTwittersBugs, changeIcon, hideElements, sortPostingDialogButtons } from "./functions";
+import { tweetSettings, hideOsusumeTweets, replacePost, updateStyles, profileModify, sidebarButtons, dmPage, fixTwittersBugs, changeIcon, hideElements, sortPostingDialogButtons, composetweet } from "./functions";
 import { catchError } from "./errorDialog";
 import { placeDisplayButton } from "@content/modules/observer/functions/sidebarBtn/rightSidebarTexts";
 import { getPref } from "../pref/index";
@@ -108,6 +108,9 @@ export const TUICObserver = new (class TUICObserver {
 
             // Twitterのバグを修正(現在はDMに関するもののみ)
             fixTwittersBugs();
+
+            // ツイート画面関係の設定
+            composetweet();
 
             //throw new Error("エラー時のダイアログのテスト用です。");
 
