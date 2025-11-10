@@ -28,7 +28,7 @@ export const SidebarButtonSelectors = {
     drafts: "#TUICSidebar_drafts",
     connect: "#TUICSidebar_connect",
     communitynotes: '[href="/i/communitynotes"]',
-    "verified-choose": '[href="/i/verified-choose"],[href="/i/premium_sign_up"]',
+    "verified-choose": '[href="/i/verified-choose"],[href="/i/premium_sign_up"],[href^="verified-choose"]',
     display: "#TUICSidebar_display",
     muteAndBlock: "#TUICSidebar_muteAndBlock",
     settings: "#TUICSidebar_settings",
