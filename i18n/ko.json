@@ -205,6 +205,7 @@
     "composetweet-toolbar-settingTitle": "트윗 화면 아래의 툴 바 정렬",
     "composetweet-settingTitle": "트윗 게시 화면 표시",
     "composetweet-hideDraft": "게시물 초안 버튼을 숨기기",
+    "composetweet-remainOpened": "트윗 게시 화면을 게시 후에 자동으로 재표시",
     "dmPage-setting-dm": "다이렉트 메시지",
     "dmPage-settingTitle": "다이렉트 메시지의 설정",
     "dmPage-showIcon": "1대1 다이렉트 메시지에서도 상대방의 아이콘을 표시하기",
