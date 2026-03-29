@@ -1,6 +1,6 @@
 import { waitForElement } from "@content/utils/element";
 import { getPref } from "@content/settings";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { JSX } from "solid-js";
 import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { backgroundColorClass } from "@content/utils/color";

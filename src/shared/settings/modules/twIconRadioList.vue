@@ -28,7 +28,7 @@
 import { Component } from "vue";
 import RadioButton from "@shared/options/components/RadioButton.vue";
 import IconRadioButton from "@shared/options/components/IconRadioButton.vue";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { getSettingI18n } from "@content/settings";
 
 export interface twIconsRadioListProps {

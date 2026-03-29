@@ -116,7 +116,7 @@ import BootstrapIcons from "bootstrap-icons/font/bootstrap-icons.css?url";
 import { isSafemode } from "@content/settings/ui/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 const BootstrapIconsURL = chrome.runtime.getURL(BootstrapIcons);
 

@@ -9,7 +9,7 @@ import { ButtonUnderTweetSelectors, TweetUnderButtonsData } from "./_data";
 import { ProcessedClass } from "@shared/sharedData";
 import { fontSizeClass } from "@content/utils/fontSize";
 import { placeToastMessage } from "@content/utils/toastMessage";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { modifyTweetsStyle } from "./modifyTweetsStyle";
 
 let buttonUnderTweetRunning = false;

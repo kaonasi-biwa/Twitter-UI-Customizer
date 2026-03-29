@@ -1,7 +1,7 @@
 import { hideElement, waitForElement } from "@content/utils/element";
 import { getPref, getSettingIDs } from "@content/settings";
 import { fontSizeClass } from "@content/utils/fontSize";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 interface TweetMoreMenuContentData {
     all: string[];

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 
 interface Props {
     titleI18N: string;

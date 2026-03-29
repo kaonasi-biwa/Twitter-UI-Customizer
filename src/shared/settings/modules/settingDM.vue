@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 </script>
 
 <style scoped>

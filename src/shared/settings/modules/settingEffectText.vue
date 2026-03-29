@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { XToTwitterRestoreIcon } from "@shared/options/scripts/changePrefScript";
 import SectionTitle2 from "../components/SectionTitle2.vue";
 import RadioButtonList from "@shared/options/components/RadioButtonList.vue";

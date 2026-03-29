@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { injectSettingsIconStyle, injectSettingsStyle } from "@content/applyCSS";
-import { translate } from "@content/i18n";
+import { translate } from "@shared/i18n";
 import { ref } from "vue";
 
 const twitterIcon = ref(null);
