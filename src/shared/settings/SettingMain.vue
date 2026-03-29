@@ -9,13 +9,13 @@
         </div>
 
         <div class="TUIC_setting_easysetting_container">
-            <settingsHeader titleI18N="settingUI-easySetting" descI18N="settingUI-easySetting-detail" />
+            <GuideText titleI18N="settingUI-easySetting" descI18N="settingUI-easySetting-detail" />
             <EasySettings />
             <IconButton i18n="rescuePref-ButtonLabel" :icon="TUICLogo" @click="rescuePref" />
         </div>
         <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
         <div>
-            <settingsHeader titleI18N="settingUI-everythingSetting" level="2" />
+            <GuideText titleI18N="settingUI-everythingSetting" />
             <SectionTitle titleI18N="settingSection-general" style="margin-top: 25px" />
             <detailsBox summaryI18N="settingDetailsBox-color" :icon="ICON_BRUSH" :icon-opened="ICON_BRUSH_ENABLED">
                 <settingColors />
@@ -94,7 +94,7 @@ import ICON_ARROW_RIGHT_ENABLED from "@shared/icons/common/arrow_right_enabled.s
 import ICON_INFORMATION from "@shared/icons/common/information.svg?component";
 import ICON_TWITTER from "@shared/icons/common/twitter.svg?component";
 import ICON_GITHUB from "@shared/icons/common/github.svg?component";
-import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
+import GuideText from "@shared/settings/components/GuideText.vue";
 import EasySettings from "./modules/EasySettings.vue";
 import SectionTitle from "./components/GroupHeading.vue";
 import detailsBox from "./components/detailsBox.vue";
