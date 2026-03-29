@@ -1,5 +1,5 @@
 <template>
-    <h2 class="TUIC_setting_section_title">
+    <h2 class="TUIC_setting_group_heading">
         {{ translate(titleI18N) }}
     </h2>
 </template>
@@ -13,7 +13,7 @@ defineProps<{
 </script>
 
 <style scoped>
-.TUIC_setting_section_title {
+.TUIC_setting_group_heading {
     padding: 0 35px 10px;
     margin: 0;
     font-size: 20px;

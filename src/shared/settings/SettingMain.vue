@@ -96,7 +96,7 @@ import ICON_TWITTER from "@shared/icons/common/twitter.svg?component";
 import ICON_GITHUB from "@shared/icons/common/github.svg?component";
 import settingsHeader from "@shared/settings/modules/SettingsHeader.vue";
 import EasySettings from "./modules/EasySettings.vue";
-import SectionTitle from "./components/SectionTitle.vue";
+import SectionTitle from "./components/GroupHeading.vue";
 import detailsBox from "./components/detailsBox.vue";
 import settingColors from "@shared/options/modules/settingColors.vue";
 import settingSidebar from "./modules/settingSidebar.vue";

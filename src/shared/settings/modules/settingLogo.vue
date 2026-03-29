@@ -4,7 +4,7 @@
             <settingSubTitle i18n="twitterIcon-settingTitle" />
             <twIconRadioList :icons-list="twitterLogosList" />
 
-            <settingSubtitle2 style="margin: 0; margin-top: 18px" title-i-18-n="twitterIcon-usedIcon" />
+            <SectionHeadingSecond style="margin: 0; margin-top: 18px" title-i-18-n="twitterIcon-usedIcon" />
             <UploadImageFile />
             <CheckBoxList id="twitterIcon.options" />
         </div>
@@ -22,7 +22,7 @@ import ICON_X_DARUMA from "@shared/icons/brand/xdaruma.svg?component";
 import { DOG as ICON_DOG } from "@shared/icons";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import settingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
-import settingSubtitle2 from "../components/settingSubtitle2.vue";
+import SectionHeadingSecond from "../components/SectionHeadingSecond.vue";
 import { Component } from "vue";
 import twIconRadioList, { twIconsRadioListProps } from "./twIconRadioList.vue";
 import UploadImageFile from "@shared/options/components/UploadImageFile.vue";

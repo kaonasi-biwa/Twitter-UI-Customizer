@@ -1,5 +1,5 @@
 <template>
-    <h4 class="TUIC_settings_subtitle2">
+    <h4 class="TUIC_settings_section_heading_second">
         {{ translate(titleI18N) }}
     </h4>
 </template>
@@ -13,7 +13,7 @@ defineProps<{
 </script>
 
 <style scoped>
-.TUIC_settings_subtitle2 {
+.TUIC_settings_section_heading_second {
     margin: 20px 0 10px;
     font-size: 15px;
     font-feature-settings: "palt";
