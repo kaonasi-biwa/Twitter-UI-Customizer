@@ -33,9 +33,10 @@ async function changeCustomCSS() {
         context.clip();
         context.beginPath();
         context.drawImage(imageBitmap, 0, 0, imageBitmap.height, imageBitmap.width, 0, 0, 200, 200);
+        const croppedImageDataUrl = element.toDataURL();
 
         localStorage.setItem("TUIC_IconImg", imageDataUrl);
-        localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
+        localStorage.setItem("TUIC_IconImg_Favicon", croppedImageDataUrl);
         iconUrlRef.value = imageDataUrl;
     } else {
         localStorage.setItem("TUIC_IconImg", "");
