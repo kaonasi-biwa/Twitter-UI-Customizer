@@ -115,7 +115,7 @@ export function tweetSettings() {
                         const statusButton = articleBase.querySelector(`[href*="/status/"] > time`)?.parentElement as HTMLAnchorElement;
 
                         // ツイートについての情報集
-                        const articleInfo: ArticleInfomation = {
+                        const articleInfo: ArticleInformation = {
                             elements: { buttonBarBase: buttonBarBase, articleBase: articleBase, statusButton: statusButton },
                             option: {
                                 isLockedAccount: !!articleBase.querySelector(`[data-testid="icon-lock"]`),

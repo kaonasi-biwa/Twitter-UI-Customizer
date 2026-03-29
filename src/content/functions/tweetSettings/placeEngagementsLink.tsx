@@ -49,7 +49,7 @@ const _data = {
     },
 };
 
-export function placeEngagementsLink(articleInfo: ArticleInfomation) {
+export function placeEngagementsLink(articleInfo: ArticleInformation) {
     const articleBase = articleInfo.elements.articleBase;
     const buttonBarBase = articleInfo.elements.buttonBarBase;
     for (const boxElem of Array.from(articleBase.querySelectorAll(`.TUICEngagementsBoxBase`))) {
