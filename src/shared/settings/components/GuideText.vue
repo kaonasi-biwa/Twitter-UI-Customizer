@@ -25,8 +25,7 @@ defineProps<{
     align-items: start;
     gap: 2px;
 
-    padding: 35px;
-    padding-bottom: 0px;
+    padding-inline: 35px;
 
     h2 {
         padding: 0;
