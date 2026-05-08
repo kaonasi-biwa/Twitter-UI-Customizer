@@ -22,8 +22,8 @@ defineProps<{
 .TUIC_settings_guide {
     display: flex;
     flex-direction: column;
-    align-items: start;
     gap: 2px;
+    align-items: start;
 
     padding-inline: 35px;
 

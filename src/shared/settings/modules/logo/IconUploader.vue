@@ -59,17 +59,17 @@ async function changeCustomCSS() {
     margin-left: 28px;
 
     /* NOTE: ファイル選択ボタンのスタイル */
-    input[type=file] {
+    input[type="file"] {
         flex: 1;
         cursor: pointer;
     }
     ::file-selector-button {
+        cursor: pointer;
         padding: 5px 20px;
         margin-right: 12px;
         background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 50%);
         border: none;
         border-radius: 5px;
-        cursor: pointer;
     }
 }
 
