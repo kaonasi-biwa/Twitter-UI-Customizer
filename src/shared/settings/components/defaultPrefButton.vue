@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { translate } from "@content/i18n";
 import { waitForElement } from "@content/utils/element";
-import { getPref, setPref, savePref, defaultPref } from "@content/settings";
+import { getPref, setPref, savePref, getDefaultPref } from "@content/settings";
 import { isSafemode } from "@content/settings/ui/safemode";
 import { Dialog } from "@shared/tlui/components/Dialog";
 import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
@@ -24,7 +24,7 @@ const setDefault = async () => {
             translate("settingUI-restoreDefaultAll-confirm"),
             new ButtonComponent(translate("common-yes"), () => {
                 dialog.close();
-                setPref("", defaultPref);
+                setPref("", getDefaultPref());
                 savePref();
 
                 if (isSafemode) {

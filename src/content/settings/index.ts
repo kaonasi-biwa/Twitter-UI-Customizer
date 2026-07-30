@@ -254,7 +254,7 @@ export async function updatePref(source: Settings = settings) {
     }
 }
 
-export const defaultPref = generateDefaultPref();
+const defaultPref = generateDefaultPref();
 function generateDefaultPref() {
     const defaultData = {
         buttonColor: {},
@@ -288,8 +288,13 @@ export function mergeDefaultPref(source: Partial<Settings>): Settings {
     return mergePref(structuredClone(defaultPref), structuredClone(source));
 }
 
-export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id: T) {
-    return getPref<SettingKeyDefault<T>>(id, defaultPref);
+export function getDefaultPref(): Settings;
+export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id: T): SettingKeyDefault<T>;
+export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id?: T) {
+    if (id === undefined) {
+        return structuredClone(defaultPref);
+    }
+    return getPref<SettingKeyDefault<T>>(id, structuredClone(defaultPref));
 }
 
 const prefVersion = 5;
