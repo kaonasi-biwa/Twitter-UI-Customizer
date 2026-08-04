@@ -120,7 +120,7 @@ const importFunc = async (type: number) => {
             localStorage.setItem("TUIC_CSS", importedPref.CustomCSS);
             delete importedPref.CustomCSS;
         }
-        await updatePref(importedPref);
+        await migratePref(importedPref);
         if (type == 1) {
             setPref("", mergePref(getPref(""), importedPref));
         } else if (type == 2) {
