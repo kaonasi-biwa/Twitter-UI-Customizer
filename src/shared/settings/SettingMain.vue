@@ -11,7 +11,6 @@
         <div class="TUIC_setting_easysetting_container">
             <settingsHeader titleI18N="settingUI-easySetting" descI18N="settingUI-easySetting-detail" />
             <EasySettings />
-            <IconButton i18n="rescuePref-ButtonLabel" :icon="TUICLogo" @click="rescuePref" />
         </div>
         <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
         <div>
@@ -110,13 +109,9 @@ import SettingImportExport from "./modules/settingImportExport.vue";
 import settingLogo from "./modules/settingLogo.vue";
 import defaultPrefButton from "./components/defaultPrefButton.vue";
 import IconButton from "./components/IconButton.vue";
-import TUICLogo from "@shared/icons/branding/tuic_unilogo.svg?component";
 import TUICUNILOGO_GRAY from "@shared/icons/branding/tuic_unilogo_gray.svg?component";
 import BootstrapIcons from "bootstrap-icons/font/bootstrap-icons.css?url";
 import { isSafemode } from "@content/settings/ui/safemode";
-import { Dialog } from "@shared/tlui/components/Dialog";
-import { ButtonComponent } from "@shared/tlui/components/ButtonComponent";
-import { translate } from "@content/i18n";
 
 const BootstrapIconsURL = chrome.runtime.getURL(BootstrapIcons);
 
@@ -140,30 +135,6 @@ function reloadCSS() {
     } else {
         cssLinkElem.href = cssLinkElem.href + "?" + Date.now();
     }
-}
-
-function rescuePref() {
-    const dialog = new Dialog(translate("rescuePref-ButtonLabel"));
-    dialog
-        .addComponents([
-            ...translate("rescuePref-dialog").split("\n"),
-            "",
-            /*            new TextboxComponent("", { readonly: false, rows: 5 }),
-            new ButtonComponent(translate("common-copy-and-close"), () => {
-                dialog.close();
-                navigator.clipboard.writeText("");
-            }),*/
-            new ButtonComponent(translate("common-go-and-openNewTab"), () => {
-                openInNewTab("https://twitter.com/?mx=1");
-                document.querySelector("#importSection").setAttribute("open", "true");
-                document.querySelector("#importTitle").scrollIntoView({
-                    behavior: "smooth",
-                });
-                dialog.close();
-            }),
-            new ButtonComponent(translate("common-cancel"), () => dialog.close(), { invertColor: true }),
-        ])
-        .open();
 }
 </script>
 
