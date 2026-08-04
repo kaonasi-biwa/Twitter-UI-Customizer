@@ -113,13 +113,13 @@ export interface MigratableNestedPreferences extends NestedPreferences<DefaultPr
 }
 export class MigratableNestedPreferences extends NestedPreferences<DefaultPreferencesData> {
     /**
-     * `oldKey` の設定が truthy であれば `newKey` に `newValue` を設定し、`oldKey` を削除します。
-     * `oldKey` の設定が falsy であれば `oldKey` の削除だけを行います。
+     * `oldKey` の設定が true であれば `newKey` に `newValue` を設定し、`oldKey` を削除します。
+     * `oldKey` の設定が true でなければ `oldKey` の削除だけを行います。
      *
      * boolean 値の設定キーを変更することを想定しています。
      * @param oldKey 変更元のキー
      * @param newKey 変更先のキー
-     * @param newValue 指定された値が truthy だった場合の置き換え先の値
+     * @param newValue 指定された値が true だった場合の置き換え先の値
      */
     #migrateBoolean<K1 extends string = SettingKeys, K2 extends string = SettingKeys>(oldKey: K1, newKey: K2, newValue: string | boolean = true): void {
         if (this.get(oldKey) === true) this.set(newKey, newValue);
