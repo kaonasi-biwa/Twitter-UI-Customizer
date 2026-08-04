@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const isFirefox = "browser" in window;
+const isFirefox = chrome.runtime.getURL("").startsWith("moz-extension://");
 
 let setting = {} as {
     iconClick: boolean;
