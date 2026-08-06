@@ -148,7 +148,8 @@ div[tuicudbox] > .UpDownButtons {
 }
 
 .TUIC_setting_IconRadioButton {
-    > svg, > img {
+    > svg,
+    > img {
         width: 24px;
         height: 24px;
     }

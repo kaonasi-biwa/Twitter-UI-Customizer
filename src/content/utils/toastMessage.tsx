@@ -19,7 +19,7 @@ const toastMessage = (message: string): (() => JSX.Element) => {
                                     "transition-property": "opacity",
                                     "transition-duration": "170ms",
                                     "transition-timing-function": "cubic-bezier(0, 0, 1, 1)",
-                                    "opacity": "1"
+                                    opacity: "1",
                                 }}
                             >
                                 <div
