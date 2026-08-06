@@ -123,12 +123,13 @@ function rewriteSampleTweet() {
             tweetLinkElement?.remove();
 
             // img要素がそもそも存在しない場合があるので、待機
-            await waitForElement("img", tweetElement);
+            await waitForElement(`[data-testid="Tweet-User-Avatar"] img`, tweetElement);
 
             // ユーザーアイコン
-            tweetElement.querySelector("img").parentElement.querySelector("div").style.backgroundImage = `url(${tweetUserIcon})`;
-            tweetElement.querySelector("img").src = tweetUserIcon;
+            tweetElement.querySelector(`[data-testid="Tweet-User-Avatar"] img`).previousElementSibling.style.backgroundImage = `url(${tweetUserIcon})`;
+            tweetElement.querySelector(`[data-testid="Tweet-User-Avatar"] img`).src = tweetUserIcon;
             // ユーザー名・ユーザーID
+            tweetElement?.querySelectorAll(`[data-testid="User-Name"] img`).forEach((e) => e.remove());
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(2) span`).textContent = "@" + tweetUserId;
             // メンションのユーザー
