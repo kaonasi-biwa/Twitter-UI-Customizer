@@ -250,14 +250,7 @@
     "common-hide": "숨기기",
     "common-displaySetting": "표시 설정",
     "common-copy-and-close": "복사 및 닫기",
-    "common-copy-and-go": "복사하고 다음",
-    "common-copy": "복사",
     "common-cancel": "취소",
-    "common-go-and-openNewTab": "다음 (외부 페이지를 열어요)",
-    "rescuePref-ButtonLabel": "twitter.com의 TUIC 설정을 구출하기",
-    "rescuePref-dialog": "아직 사용할 수 있는 twitter.com의 홈페이지를 이용하여 구출합니다.\ntwitter.com가 열리므로, TUIC의 표시 설정에 가서, 아래 쪽에 있는 \"내보내기/가져오기\"로부터 설정을 내보내 주세요.\n이 탭에 돌아오면 설정의 가져오기 화면이 표시됩니다.",
-    "rescuePref-detail": "내보낸 설정, CSS의 순서로 표시됩니다. 복사하여 x.com에서 각각 가져오기, 저장해 주세요.",
-    "rescuePref-complete": "구출 완료이에요! 각각 x.com의 TUIC에서 가져오기 해 주세요. 커스텀 아이콘에 대해서는 죄송합니다만 지원하지 않아요.",
     "inportExportOptions.includingCustomCSS": "출력 내용에 커스텀 CSS를 포함하기",
     "temp-notice-hideDMSheetOnBottomRight": "현재 화면 오른쪽 아래에 존재하는 DM 항목은 \"그 외 설정\"에서 숨길 수 있어요."
 }

@@ -250,14 +250,7 @@
     "common-hide": "Hide",
     "common-displaySetting": "Display Settings",
     "common-copy-and-close": "Copy and Close",
-    "common-copy-and-go": "Copy and Next",
-    "common-copy": "Copy",
     "common-cancel": "Cancel",
-    "common-go-and-openNewTab": "Proceed (opens external page)",
-    "rescuePref-ButtonLabel": "Rescuing twitter.com's TUIC settings",
-    "rescuePref-dialog": "To recover your settings, access the Twitter homepage on twitter.com, which is still available. \nOnce twitter.com is open, navigate to the TUIC display settings and click on 'Export/Import' at the bottom of the page to export your settings. \nThis will open a new tab with an external page. \nAfter completing this step, return to the original tab, where you will see the settings import screen.",
-    "rescuePref-detail": "You will see the exported settings and CSS. Copy each of them and import/save them in x.com.",
-    "rescuePref-complete": "The rescue is now complete. Please load each one in TUIC at x.com. Sorry, custom icons are not supported.",
     "inportExportOptions.includingCustomCSS": "Include Custom CSS in the export contents",
     "temp-notice-hideDMSheetOnBottomRight": "Currently, the DMs card in the lower right corner can be hidden from \"Misc Settings\"."
 }

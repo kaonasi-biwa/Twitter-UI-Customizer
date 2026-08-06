@@ -216,14 +216,7 @@
     "common-hide": "隐藏",
     "common-displaySetting": "推文显示设置",
     "common-copy-and-close": "复制并关闭",
-    "common-copy-and-go": "复制并继续",
-    "common-copy": "复制",
     "common-cancel": "取消",
-    "common-go-and-openNewTab": "继续（将打开外部页面）",
-    "rescuePref-ButtonLabel": "抢救twitter.com的TUIC设置",
-    "rescuePref-dialog": "将利用仍可访问的twitter.com主页进行设置抢救。\ntwitter.com页面打开后，请进入TUIC显示设置，在底部找到「导出/导入」功能并导出设置。\n点击按钮将在新标签页打开外部页面。\n返回本标签页时将显示设置导入界面。",
-    "rescuePref-detail": "导出的设置将按CSS顺序显示，请分别复制后前往x.com进行导入/保存操作。",
-    "rescuePref-complete": "至此已完成设置抢救，请前往x.com的TUIC界面分别加载各项配置。关于自定义图标功能，我们深表歉意，目前暂不支持该项目的恢复。",
     "inportExportOptions.includingCustomCSS": "将自定义CSS包含在导出内容中",
     "temp-notice-hideDMSheetOnBottomRight": "当前位于画面右下角的私信DM栏目，可通过「其他设置」选项隐藏。"
 }
