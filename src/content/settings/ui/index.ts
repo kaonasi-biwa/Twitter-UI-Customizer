@@ -126,8 +126,8 @@ function rewriteSampleTweet() {
             await waitForElement(`[data-testid="Tweet-User-Avatar"] img`, tweetElement);
 
             // ユーザーアイコン
-            tweetElement.querySelector(`[data-testid="Tweet-User-Avatar"] img`).previousElementSibling.style.backgroundImage = `url(${tweetUserIcon})`;
-            tweetElement.querySelector(`[data-testid="Tweet-User-Avatar"] img`).src = tweetUserIcon;
+            (tweetElement.querySelector(`[data-testid="Tweet-User-Avatar"] img`).previousElementSibling as HTMLElement).style.backgroundImage = `url(${tweetUserIcon})`;
+            tweetElement.querySelector<HTMLImageElement>(`[data-testid="Tweet-User-Avatar"] img`).src = tweetUserIcon;
             // ユーザー名・ユーザーID
             tweetElement?.querySelectorAll(`[data-testid="User-Name"] img`).forEach((e) => e.remove());
             tweetElement.querySelector(`[data-testid="User-Name"] > div:nth-child(1) span > span`).textContent = tweetUserName;
