@@ -12,7 +12,7 @@ export const SidebarButtonSelectors = {
     communities: '[href$="/communities"],#TUICSidebar_communities',
     notifications: '[href*="/notifications"]',
     messages: '[href^="/messages"], #TUICSidebar_chat, [href="/i/chat"]',
-    bookmarks: '[href="/i/bookmarks"],#TUICSidebar_bookmarks',
+    bookmarks: '[href="/i/bookmarks"],[href="/i/history"],#TUICSidebar_bookmarks',
     profile: '[data-testid="AppTabBar_Profile_Link"]',
     moremenu: '[data-testid="AppTabBar_More_Menu"]',
     topics: "#TUICSidebar_topics",
