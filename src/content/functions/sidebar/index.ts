@@ -3,6 +3,7 @@ import { hideElement } from "@content/utils/element";
 import { getPref } from "@content/settings";
 import { processDropdown } from "./extras/dropdown";
 import { sidebarButtonsData } from "./buttons";
+import { SidebarHistory } from "./constants";
 
 let sidebarButtonsCount = -1;
 
@@ -12,7 +13,7 @@ export const SidebarButtonSelectors = {
     communities: '[href$="/communities"],#TUICSidebar_communities',
     notifications: '[href*="/notifications"]',
     messages: '[href^="/messages"], #TUICSidebar_chat, [href="/i/chat"]',
-    bookmarks: '[href="/i/bookmarks"],#TUICSidebar_bookmarks',
+    [SidebarHistory.legacyId]: SidebarHistory.button,
     profile: '[data-testid="AppTabBar_Profile_Link"]',
     moremenu: '[data-testid="AppTabBar_More_Menu"]',
     topics: "#TUICSidebar_topics",
@@ -42,12 +43,12 @@ export function sidebarButtons() {
 
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`);
-        const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`);
-        if (vanillaBookmark && tuicBookmark) {
-            tuicBookmark.remove();
+        const vanillaHistory = bannerRoot.querySelector(SidebarHistory.native);
+        const tuicHistory = bannerRoot.querySelector(SidebarHistory.custom);
+        if (vanillaHistory && tuicHistory) {
+            tuicHistory.remove();
             placeSidebarButtons(bannerRoot);
-        } else if (getPref("sidebarButtons").includes("bookmarks") && !(vanillaBookmark || tuicBookmark)) {
+        } else if (getPref("sidebarButtons").includes(SidebarHistory.legacyId) && !(vanillaHistory || tuicHistory)) {
             placeSidebarButtons(bannerRoot);
         } else if (bannerRoot.querySelector(`a:not([data-tuic-hide])`)) {
             placeSidebarButtons(bannerRoot);

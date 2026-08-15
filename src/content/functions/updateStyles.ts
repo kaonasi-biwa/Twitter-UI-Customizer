@@ -5,6 +5,7 @@ import { ProcessedClass } from "@shared/sharedData";
 import { SidebarButtonSelectors } from "./sidebar";
 import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
 import { hasClosest, processElement } from "@content/utils/element";
+import { SidebarHistory } from "./sidebar/constants";
 
 let fontSize1 = "";
 let fontSize2: boolean | null = null;
@@ -32,7 +33,7 @@ const tuicButtonUrl = {
     drafts: "/compose/tweet/unsent/",
     display: ["/i/display", "/settings/display"],
     muteAndBlock: "/settings/mute_and_block",
-    bookmarks: "/i/bookmarks",
+    [SidebarHistory.legacyId]: SidebarHistory.route,
     settings: ["/settings", "/settings/"],
     jobs: "/jobs",
     spaces: "/i/spaces/start",

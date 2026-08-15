@@ -1,12 +1,13 @@
 import { hideElement, waitForElement } from "@content/utils/element";
 import { fontSizeClass } from "@content/utils/fontSize";
 import { getPref, getSettingIDs } from "@content/settings";
+import { SidebarHistory } from "../constants";
 
 const _data = {
     all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         lists: `[href$="/lists"]`,
-        bookmarks: `[href="/i/bookmarks"]`,
+        [SidebarHistory.legacyId]: SidebarHistory.link,
         monetization: `:is([href="/settings/monetization"],[href="/i/monetization"])`,
         separator: `[role="separator"]`,
         creatorStudio: `:is([aria-controls$="_0_content"], [href="/i/jf/creators/studio"])`,
