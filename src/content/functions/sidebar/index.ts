@@ -42,7 +42,7 @@ export function sidebarButtons() {
 
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`);
+        const vanillaBookmark = document.querySelector(`:is([href="/i/bookmarks"],[href="/i/history"]):not(#TUICSidebar_bookmarks)`);
         const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`);
         if (vanillaBookmark && tuicBookmark) {
             tuicBookmark.remove();
