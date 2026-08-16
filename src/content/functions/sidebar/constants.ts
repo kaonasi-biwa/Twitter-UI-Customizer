@@ -1,9 +1,13 @@
-/** X replaced the Bookmarks destination with History; keep the legacy ID for stored preferences. */
-export class SidebarHistory {
-    static readonly legacyId = "bookmarks";
-    static readonly route = "/i/history";
-    static readonly link = `[href="${SidebarHistory.route}"]`;
-    static readonly custom = `#TUICSidebar_${SidebarHistory.legacyId}`;
-    static readonly button = `${SidebarHistory.link},${SidebarHistory.custom}`;
-    static readonly native = `${SidebarHistory.link}:not(${SidebarHistory.custom})`;
+/** Supports X's current History route and legacy Bookmarks route with one persisted key. */
+export class SidebarBookmarks {
+    static readonly id = "bookmarks";
+    static readonly currentRoute = "/i/history";
+    static readonly legacyRoute = "/i/bookmarks";
+    static readonly routes = [SidebarBookmarks.currentRoute, SidebarBookmarks.legacyRoute] as const;
+    static readonly currentLink = `[href="${SidebarBookmarks.currentRoute}"]`;
+    static readonly legacyLink = `[href="${SidebarBookmarks.legacyRoute}"]`;
+    static readonly link = `:is(${SidebarBookmarks.currentLink},${SidebarBookmarks.legacyLink})`;
+    static readonly custom = `#TUICSidebar_${SidebarBookmarks.id}`;
+    static readonly button = `${SidebarBookmarks.link},${SidebarBookmarks.custom}`;
+    static readonly native = `${SidebarBookmarks.link}:not(${SidebarBookmarks.custom})`;
 }
