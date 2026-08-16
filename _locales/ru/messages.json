@@ -57,10 +57,6 @@
         "message": "Установите последнюю версию с GitHub",
         "description": "ポップアップのボタンのツールチップ"
     },
-    "popupButton7": {
-        "message": "Извлечь настройки из twitter.com, которые были утеряны из-за изменения домена.",
-        "description": "ポップアップのボタンのツールチップ"
-    },
     "pSettings": {
         "message": "Настройки",
         "description": "ポップアップの設定ボタン"

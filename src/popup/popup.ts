@@ -50,11 +50,6 @@ window.onload = async () => {
         chrome.tabs.create({ url: "https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/blob/main/LICENSE" });
     };
 
-    document.getElementById("link7").onclick = () => {
-        chrome.tabs.create({ url: "https://twitter.com/?mx=1" });
-    };
-    // Firefoxの場合のみ有効
-
     chrome.storage.sync.get("TUIC", async (settingT) => {
         const updateUrl = chrome.runtime.getManifest().update_url;
         const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
