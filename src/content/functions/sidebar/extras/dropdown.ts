@@ -10,7 +10,7 @@ const _data: {
     all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         lists: `[href$="/lists"]`,
-        bookmarks: `[href="/i/bookmarks"]`,
+        bookmarks: `:is([href="/i/bookmarks"],[href="/i/history"])`,
         monetization: `:is([href="/settings/monetization"],[href="/i/monetization"])`,
         //separator: `[role="separator"]`,
         creatorStudio: `:is([aria-controls$="_0_content"], [href="/i/jf/creators/studio"])`,

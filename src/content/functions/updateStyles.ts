@@ -32,7 +32,7 @@ const tuicButtonUrl: Partial<Record<SettingGroupChildIds<"sidebarButtons">, stri
     drafts: "/compose/tweet/unsent/",
     display: ["/i/display", "/settings/display"],
     muteAndBlock: "/settings/mute_and_block",
-    bookmarks: "/i/bookmarks",
+    bookmarks: ["/i/bookmarks", "/i/history"],
     settings: ["/settings", "/settings/"],
     jobs: "/jobs",
     spaces: "/i/spaces/start",

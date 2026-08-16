@@ -115,16 +115,16 @@ export const dimBackgroundThemeButton = (bgThemeOption: HTMLElement) => () => {
     return (
         <div
             tabIndex="-1"
-            class="css-175oi2r r-1awozwy r-z2wwpe r-1loqt21 r-13awgt0 r-18u37iz r-1064s9p r-adacv r-u9wvl5 r-1ny4l3l TUIC_setting_backgroundTheme_dim"
+            class="css-g5y9jx r-1awozwy r-z2wwpe r-1loqt21 r-13awgt0 r-18u37iz r-1064s9p r-adacv r-u9wvl5 r-1ny4l3l TUIC_setting_backgroundTheme_dim"
             style={{
                 "background-color": "rgb(21, 32, 43)",
                 "border-color": bgTheme() === "blue" ? "rgb(29, 155, 240)" : "transparent",
                 "border-width": bgTheme() === "blue" ? "2px" : "1px",
             }}
         >
-            <div role="radio" tabindex="-1" class="css-175oi2r r-1awozwy r-sdzlij r-eu3ka r-1777fci r-wxmri3 r-lrvibr r-1aockid r-o7ynqc r-6416eg r-1ny4l3l">
+            <div role="radio" tabindex="-1" class="css-g5y9jx r-1awozwy r-sdzlij r-eu3ka r-1777fci r-wxmri3 r-lrvibr r-1aockid r-o7ynqc r-6416eg r-1ny4l3l">
                 <div
-                    class="css-175oi2r r-1awozwy r-nsiyw1 r-1phboty r-d045u9 r-z80fyv r-1777fci r-19wmn03"
+                    class="css-g5y9jx r-1awozwy r-nsiyw1 r-1phboty r-d045u9 r-z80fyv r-1777fci r-19wmn03"
                     style={{
                         "background-color": bgTheme() === "blue" ? "rgb(29, 155, 240)" : "rgba(0, 0, 0, 0)",
                         "border-color": bgTheme() === "blue" ? "rgb(29, 155, 240)" : "rgb(92, 110, 126)",
@@ -142,7 +142,7 @@ export const dimBackgroundThemeButton = (bgThemeOption: HTMLElement) => () => {
                     </svg>
                 </div>
             </div>
-            <div aria-hidden="true" class="css-175oi2r r-1awozwy r-1loqt21 r-16y2uox r-1777fci r-wizibn r-6e0ovw">
+            <div aria-hidden="true" class="css-g5y9jx r-1awozwy r-1loqt21 r-16y2uox r-1777fci r-wizibn r-6e0ovw">
                 <div
                     dir="ltr"
                     class="css-146c3p1 r-dnmrzs r-1udh08x r-1udbk01 r-3s2u2q r-bcqeeo r-1ttztb7 r-qvutc0 r-1tl8opc r-a023e6 r-rjixqe r-b88u0q"

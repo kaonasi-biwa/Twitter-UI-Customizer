@@ -64,7 +64,7 @@ const _data = {
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >
-                        <div class="css-175oi2r r-xoduu5">
+                        <div class="css-g5y9jx r-xoduu5">
                             <div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
                             <svg
                                 viewBox={`0 0 ${svgHeight} ${svgWidth}`}
