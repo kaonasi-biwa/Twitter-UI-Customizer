@@ -48,7 +48,7 @@
         "stylelint-config-recommended-vue": "^2.0.0",
         "stylelint-config-standard": "^40.0.0",
         "stylelint-use-nesting": "^6.0.2",
-        "typescript": "^5.9.3",
+        "typescript": "npm:@typescript/typescript6@^6.0.2",
         "unocss": "^66.7.5",
         "vite": "^7.3.6",
         "vite-plugin-solid": "^2.11.14",
