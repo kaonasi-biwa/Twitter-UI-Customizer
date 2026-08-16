@@ -9,6 +9,6 @@ export const bookmarks: SidebarButtonDefinition = () => createSidebarButton({
     url: "/i/bookmarks",
     onclick: (e: Event) => {
         e?.preventDefault?.();
-        buttonClickInMoreMenu(`[href="/i/bookmarks"]`);
+        buttonClickInMoreMenu(`[href="/i/bookmarks"],[href="/i/history"]`);
     },
 });

@@ -262,8 +262,8 @@ export const TweetUnderButtonsHTML = (id: string, articleInfomation: ArticleInfo
                             fontSizeClass("r-1b43r93", "r-1b43r93", "r-rjixqe", "r-1inkyih", "r-1i10wst")
                         }`}
                     >
-                        <div class="css-175oi2r r-xoduu5 TUIC_ButtonHover">
-                            <div class="css-175oi2r r-1niwhzg r-sdzlij r-1p0dtai r-xoduu5 r-1d2f490 r-xf4iuw r-1ny4l3l r-u8s1d r-zchlnj r-ipm5af r-o7ynqc r-6416eg"></div>
+                        <div class="css-g5y9jx r-xoduu5 TUIC_ButtonHover">
+                            <div class="css-g5y9jx r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l"></div>
                             <svg
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
