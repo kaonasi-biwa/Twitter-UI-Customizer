@@ -20,7 +20,7 @@ jobs:
           cache: pnpm
       - name: Archive
         run: |
-          pnpm install
+          pnpm ci
           pnpm run build:firefox
           cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
           cp ./dist/index.js ./codeToDebug.js
@@ -46,7 +46,7 @@ jobs:
           cache: pnpm
       - name: Archive
         run: |
-          pnpm install
+          pnpm ci
           pnpm run build:chromium
           cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
       - name: Publish
@@ -66,7 +66,7 @@ jobs:
           cache: pnpm
       - name: Archive
         run: |
-          pnpm install
+          pnpm ci
           pnpm exec vite build --mode chromiumCRX
         env:
           GITHUB_REPO: ${{ github.repository }}

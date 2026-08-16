@@ -34,7 +34,7 @@ jobs:
 
       - name: Update
         run: |
-          pnpm install
+          pnpm ci
           git checkout -- .
           git pull
           node ./scripts/update-i18n.ts

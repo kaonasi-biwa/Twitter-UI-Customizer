@@ -33,7 +33,7 @@ jobs:
 
       - name: Install npm packages
         run: |
-          pnpm install
+          pnpm ci
 
       #- name: Generate SARIF file
       #  run: |
