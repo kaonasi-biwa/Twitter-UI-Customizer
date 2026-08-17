@@ -1,3 +1,5 @@
+import type { SettingGroupChildIds } from "@content/settings";
+
 export const ProcessedClass = "TUICProcessed";
 
 export const ClassList = [
@@ -27,7 +29,26 @@ export const AttrList = [
     "tuic-zooming-tweet",
 ];
 
-export const ColorData = {
+export const ColorData: {
+    defaultXColors: Record<
+        "buttonColorLight" | "buttonColorDark",
+        Partial<Record<SettingGroupChildIds<"buttonColor">, { background: string; border: string; color: string }>>
+    >;
+    TUICFixedColor: Record<
+        "light" | "blue" | "dark",
+        Record<"textColor" | "containerBackground" | "containerBackground2" | "colorHover" | "detailBorder", string>
+    >;
+    defaultTUICColor: Record<
+        "colors-buttonColorLight" | "colors-buttonColorDark" | "colors",
+        Partial<Record<SettingGroupChildIds<"buttonColor">, {
+            background?: string;
+            border?: string;
+            color: string;
+            typeColor?: "imageColor";
+            ldColor?: true;
+        }>>
+    >;
+} = {
     defaultXColors: {
         buttonColorLight: {
             "not-following": { background: "rgba(15,20,25,1)", border: "rgba(15,20,25,1)", color: "rgba(255,255,255,1)" },
@@ -58,21 +79,21 @@ export const ColorData = {
             containerBackground: "rgb(247, 249, 249)",
             containerBackground2: "rgb(237, 239, 239)",
             colorHover: "#00000040",
-            detailBorder: "rgba(0, 0, 0, 0.08)",
+            detailBorder: "rgb(239, 243, 244)",
         },
         blue: {
             textColor: "rgba(255, 255, 255, 1)",
             containerBackground: "rgb(30, 39, 50)",
             containerBackground2: "rgb(40, 49, 60)",
             colorHover: "#ffffff30",
-            detailBorder: "rgba(255, 255, 255, 0.08)",
+            detailBorder: "#38444d",
         },
         dark: {
             textColor: "rgba(255, 255, 255, 1)",
             containerBackground: "rgb(22, 24, 28)",
             containerBackground2: "rgb(28, 34, 38)",
             colorHover: "#ffffff40",
-            detailBorder: "rgba(255, 255, 255, 0.16)",
+            detailBorder: "rgb(47, 51, 54)",
         },
     },
     defaultTUICColor: {

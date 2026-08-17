@@ -7,7 +7,7 @@ import { ProcessedClass } from "@shared/sharedData";
 import { backgroundColorClass } from "@content/utils/color";
 import { fontSizeClass } from "@content/utils/fontSize";
 
-const eventHandle = (elem: Element, func: () => void) => {
+const eventHandle = (elem: HTMLElement, func: () => void) => {
     elem.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Enter") {
             func();

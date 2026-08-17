@@ -1,6 +1,6 @@
 import { injectSettingsStyle } from "@content/applyCSS";
 import { FAVORITE_ICON, HOME_ICON, SIDEBAR_BUTTON_ICON } from "@shared/icons";
-import { getPref } from "@content/settings";
+import { getPref, SettingGroupChildIds } from "@content/settings";
 import { ProcessedClass } from "@shared/sharedData";
 import { SidebarButtonSelectors } from "./sidebar";
 import { ButtonUnderTweetSelectors } from "./tweetSettings/_data";
@@ -23,7 +23,7 @@ export function updateStyles() {
     if (document.querySelector(".TUICSidebarButton .r-mbgqwd") != null) document.querySelector(".TUICSidebarButton .r-mbgqwd")?.classList?.remove("r-mbgqwd");
 }
 
-const tuicButtonUrl = {
+const tuicButtonUrl: Partial<Record<SettingGroupChildIds<"sidebarButtons">, string | string[]>> = {
     topics: "/topics",
     lists: "/lists",
     communities: ["/communities", "/communities/explore"],
@@ -36,14 +36,14 @@ const tuicButtonUrl = {
     settings: ["/settings", "/settings/"],
     jobs: "/jobs",
     spaces: "/i/spaces/start",
-    chat: "/i/chat",
+    //chat: "/i/chat",
 };
 
 // TODO: サイドバーボタン定義において svg() { return unselectedSvg; } と定義していて、クリック時は動的にここで変更している問題をどうにかできないか？
 function sidebarButtons() {
     // TUIC独自のサイドバーボタン(太線かどうかを変更)
     for (const i of document.querySelectorAll(".TUICSidebarButton")) {
-        const itemId = i.id.replace("TUICSidebar_", "");
+        const itemId = i.id.replace("TUICSidebar_", "") as SettingGroupChildIds<"sidebarButtons">;
 
         let locationBool = false;
         const includesCheck = (buttonUrl = "") => {

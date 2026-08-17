@@ -99,8 +99,10 @@ const exportText = ref<HTMLInputElement>();
 
 function displayPref() {
     if (getPref("inportExportOptions.includingCustomCSS")) {
-        const exportingPref = structuredClone(getPref(""));
-        exportingPref.CustomCSS = localStorage.getItem("TUIC_CSS");
+        const exportingPref = {
+            ...structuredClone(getPref("")),
+            CustomCSS: localStorage.getItem("TUIC_CSS"),
+        };
         exportText.value.value = JSON.stringify(exportingPref);
     } else {
         exportText.value.value = exportPref();

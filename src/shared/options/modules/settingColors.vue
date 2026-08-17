@@ -45,9 +45,9 @@ import { useStore } from "../store";
 import { ColorData } from "@shared/sharedData";
 import { cleanModifiedElements } from "@content/applyCSS";
 
-const ColorSettingRadio = (event) => {
+const ColorSettingRadio = (event: Event) => {
     const store = useStore();
-    store.editingColorType = event.currentTarget.getAttribute("value");
+    store.editingColorType = (event.currentTarget as HTMLElement).getAttribute("value") as "buttonColor" | "buttonColorLight" | "buttonColorDark";
 };
 
 const setDefaultTwitterColor = () => {

@@ -12,73 +12,61 @@ jobs:
   build-firefox:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - id: pnpm-version
-        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).devEngines.packageManager.version')" >> $GITHUB_OUTPUT
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
           cache: pnpm
       - name: Archive
         run: |
-          pnpm install
+          pnpm ci
           pnpm run build:firefox
           cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Firefox.xpi
           cp ./dist/index.js ./codeToDebug.js
       - name: Publish
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
-          name: Twitter_UI_Customizer_Firefox
           path: Twitter_UI_Customizer_Firefox.xpi
+          archive: false
       - name: Publish
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
-          name: codeToDebug
           path: codeToDebug.js
+          archive: false
 
   build-chromium:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - id: pnpm-version
-        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).devEngines.packageManager.version')" >> $GITHUB_OUTPUT
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
           cache: pnpm
       - name: Archive
         run: |
-          pnpm install
+          pnpm ci
           pnpm run build:chromium
           cp ./dist/twitter_ui_customizer-*.zip ./Twitter_UI_Customizer_Chromium.zip
       - name: Publish
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
-          name: Twitter_UI_Customizer_Chromium
           path: Twitter_UI_Customizer_Chromium.zip
+          archive: false
 
   build-chromium-crx:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - id: pnpm-version
-        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).devEngines.packageManager.version')" >> $GITHUB_OUTPUT
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
           cache: pnpm
       - name: Archive
         run: |
-          pnpm install
+          pnpm ci
           pnpm exec vite build --mode chromiumCRX
         env:
           GITHUB_REPO: ${{ github.repository }}
@@ -89,15 +77,15 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
           CHROME_EXTENSION_KEY: ${{ secrets.CHROME_EXTENSION_KEY }}
       - name: Publish
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
-          name: Twitter_UI_Customizer_Chromium_crx
           path: Twitter_UI_Customizer_Chromium.crx
+          archive: false
       - name: Publish
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
-          name: crxupdate
           path: crxupdate.xml
+          archive: false
 
   make-release:
     if: github.ref_type == 'tag'
@@ -107,18 +95,19 @@ jobs:
       contents: write
     steps:
       - name: loadFile
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           pattern: Twitter_UI_Customizer_*
           merge-multiple: true
+          skip-decompress: true
       - name: loadFile
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
-          name: crxupdate
+          name: crxupdate.xml
       - name: loadFile
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
-          name: codeToDebug
+          name: codeToDebug.js
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:

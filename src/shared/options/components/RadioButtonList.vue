@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { getSettingData, SettingKeys } from "@content/settings";
+import { getSettingData, SettingFullKeys } from "@content/settings";
 import RadioButton from "./RadioButton.vue";
 
-defineProps<{ id: SettingKeys }>();
+defineProps<{ id: SettingFullKeys<"select"> }>();
 </script>
 
 <style scoped></style>

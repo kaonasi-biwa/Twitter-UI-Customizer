@@ -23,7 +23,7 @@ const props = defineProps<{
     icon: Component | string;
 }>();
 
-const changePref = (path, valueName) => {
+const changePref = (path: string, valueName: string) => {
     setPref(path, valueName);
     savePref();
     cleanModifiedElements();

@@ -79,7 +79,7 @@ export function sidebarButtons() {
 function placeSidebarButtons(rootElement: HTMLElement) {
     sidebarButtonsCount = 0;
 
-    for (const i of getPref("sidebarButtons") as string[]) {
+    for (const i of getPref("sidebarButtons")) {
         let element = rootElement.querySelector<HTMLElement>(SidebarButtonSelectors[i]);
         if (element != null) {
             // NOTE: ボタンが既に存在する場合、その要素を移動する
