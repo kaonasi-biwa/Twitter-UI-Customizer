@@ -50,7 +50,7 @@
         "stylelint-use-nesting": "^6.0.2",
         "typescript": "npm:@typescript/typescript6@^6.0.2",
         "unocss": "^66.7.5",
-        "vite": "^7.3.6",
+        "vite": "^8.2.1",
         "vite-plugin-solid": "^2.11.14",
         "vite-svg-loader": "^5.1.1",
         "vue-tsc": "^3.3.9",
