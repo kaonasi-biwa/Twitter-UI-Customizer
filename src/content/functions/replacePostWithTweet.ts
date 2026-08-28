@@ -239,7 +239,7 @@ export function replacePost() {
         localizeElemText("#conversation-controls-details > span", translate("XtoTwitter-PostToTweet-replyRangeDetail"));
 
         // TLの「n件のツイートを表示」
-        for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] > div > [role="button"] > div > div > span`)) {
+        for (const elem of getNotReplacedElements(`[data-testid="cellInnerDiv"] > div > div > [role="button"] > div > div > span`)) {
             let n = 0;
             elem.textContent = translate("XtoTwitter-PostToTweet-tlShowMoreTweet").replaceAll("{count}", (match) => {
                 return n++ == 0 ? elem.textContent.match(/(\d+)/)[0] : "";
