@@ -1,27 +1,26 @@
 import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import type { Manifest } from "webextension-polyfill";
-import manifest from "../manifest.config";
+import manifest from "../manifest.config.ts";
 
 export async function changeManifest(target: string) {
-    if (target !== "firefox" && target !== "chromium" && target !== "chromiumCRX") return;
-    // CLI引数または_langList.jsonファイルからロケールを取得
+    if (target === "firefox-android") target = "firefox";
     const config = manifest;
 
     const targets = Object.keys(config).filter((k) => k !== "common");
 
     if (!targets.includes(target)) {
-        console.error(`Error: Invalid platform "${target ?? ""}". (${targets.join(", ")})`);
+        console.error(`Error: Invalid platform "${target}". (${targets.join(", ")})`);
         process.exit(1);
     }
 
     let output: Manifest.WebExtensionManifest & { update_url?: string };
     if (target == "chromiumCRX") {
-        output = Object.assign(config.common, config.chromium, config.chromiumCRX) as Manifest.WebExtensionManifest & { update_url: string };
+        output = Object.assign(config.common, config.chromium, config.chromiumCRX) satisfies Manifest.WebExtensionManifest & { update_url: string };
         const repo = process.env["GITHUB_REPO"];
         output.update_url = output.update_url.replace("$(github.repository)", repo);
     } else {
-        output = Object.assign(config.common, config[target]) as Manifest.WebExtensionManifest;
+        output = Object.assign(config.common, config[target]) satisfies Manifest.WebExtensionManifest;
     }
 
     if (!fsSync.existsSync("./dist")) {
@@ -33,7 +32,7 @@ export async function changeManifest(target: string) {
 
 if (process.argv[1] === import.meta.filename) {
     const target = process.argv[2];
-    if (target === "firefox" || target === "chromium" || target === "chromiumCRX") {
+    if (target === "firefox" || target === "firefox-android" || target === "chromium" || target === "chromiumCRX") {
         changeManifest(target);
     } else {
         console.error(`Error: Invalid platform "${target ?? ""}".`);

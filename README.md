@@ -3,10 +3,10 @@
 日本語 | [English](./README_EN.md)
 
 ![Header Image](./public/icon/header.png)
-[![Github Actions](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/packaging.yml)
-[![Lint](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/actions/workflows/lint.yml)
-[![Version](https://img.shields.io/github/v/release/kaonasi-biwa/Twitter-UI-Customizer?label=Version)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/releases/latest)
-[![License](https://img.shields.io/github/license/kaonasi-biwa/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/blob/main/LICENSE)  
+[![Github Actions](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/workflows/Build/badge.svg)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/packaging.yml)
+[![Lint](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/lint.yml/badge.svg)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/actions/workflows/lint.yml)
+[![Version](https://img.shields.io/github/v/release/Ablaze-MIRAI/Twitter-UI-Customizer?label=Version)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/releases/latest)
+[![License](https://img.shields.io/github/license/Ablaze-MIRAI/Twitter-UI-Customizer?label=License&color=blue)](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/blob/main/LICENSE)  
 <a href="https://addons.mozilla.org/firefox/addon/twitter-ui-customizer/"><img alt="Firefox Browser ADD-ONS" width="172" height="60" src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" /></a>
 <a href="https://chrome.google.com/webstore/detail/twitter-ui-customizer/hpmhdmlhnppmmipefebkhkbpdcjiidmh"><img alt="Chrome WebStore" width="191.8" height="58" src="https://developer.chrome.com/static/docs/webstore/branding/image/HRs9MPufa1J1h5glNhut.png" /></a>
 <a href="https://crowdin.com/project/twiter-ui-customizer"><img alt="crowdin" width="175" height="50" src="https://badges.crowdin.net/badge/light/crowdin-on-dark@2x.png" /></a>

@@ -9,40 +9,35 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+#  security-events: write
+#  actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+
 jobs:
   lint:
     name: Run lint and format
     runs-on: ubuntu-latest
-    #permissions:
-    #    contents: read
-    #    security-events: write
-    #    actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get pnpm version from package.json
-        id: pnpm-version
-        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).engines.pnpm')" >> $GITHUB_OUTPUT
+        uses: actions/checkout@v7
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version-file: "package.json"
-          cache: "pnpm"
+          node-version-file: package.json
+          cache: pnpm
 
       - name: Install npm packages
         run: |
-          pnpm install
+          pnpm ci
 
       #- name: Generate SARIF file
       #  run: |
-      #      pnpm lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
+      #      pnpm run lint:eslint -f @microsoft/eslint-formatter-sarif -o eslint-results.sarif
       #  continue-on-error: true
       #
       #- name: Upload SARIF file
@@ -53,20 +48,18 @@ jobs:
 
       - name: Run lint
         run: |
-          pnpm lint:tsc
-          pnpm lint:eslint
-          pnpm lint:stylelint
-          pnpm lint:prettier
-        continue-on-error: ${{ (github.repository_owner == 'kaonasi-biwa' && github.event_name != 'pull_request' ) || github.event_name == 'workflow_dispatch' }}
+          pnpm run lint:tsc
+          pnpm run lint:eslint
+          pnpm run lint:stylelint --custom-formatter @csstools/stylelint-formatter-github
+        continue-on-error: ${{ (github.repository_owner == 'Ablaze-MIRAI' && github.event_name != 'pull_request' ) || github.event_name == 'workflow_dispatch' }}
 
       - name: Run format
         if: github.event_name != 'pull_request'
         run: |
           git checkout -- .
           git pull
-          pnpm format:eslint
-          pnpm format:prettier
-          pnpm format:stylelint
+          pnpm run format:eslint
+          pnpm run format:stylelint
 
       - name: Commit
         if: github.event_name != 'pull_request'
@@ -85,7 +78,6 @@ jobs:
       - name: Re-Run lint
         if: github.event_name != 'pull_request'
         run: |
-          pnpm lint:tsc
-          pnpm lint:eslint
-          pnpm lint:stylelint
-          pnpm lint:prettier
+          pnpm run lint:tsc
+          pnpm run lint:eslint
+          pnpm run lint:stylelint --custom-formatter @csstools/stylelint-formatter-github

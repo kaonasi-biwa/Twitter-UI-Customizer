@@ -6,7 +6,7 @@ yarnを使用していた方は、pnpmをインストールして`node_modules`�
 
 **ビルドツール Vite導入により、デバッグ方法が変わりました！**  
 ビルド及びデバッグ方法については、[docs/vite_build](./docs/vite_build.md)を御覧ください。  
-この変更は[`41dff7b`](https://github.com/kaonasi-biwa/Twitter-UI-Customizer/commit/41dff7b4e8c01c33ef04d05b8ff5e9e649f2719d) (2023年9月2日)からの適用です。
+この変更は[`41dff7b`](https://github.com/Ablaze-MIRAI/Twitter-UI-Customizer/commit/41dff7b4e8c01c33ef04d05b8ff5e9e649f2719d) (2023年9月2日)からの適用です。
 
 ## いるかもわからぬ翻訳者の方へ
 

@@ -1,4 +1,5 @@
-import { transform, ReturnedRule, Visitor, CustomAtRules } from "lightningcss";
+import { transform } from "lightningcss";
+import type { ReturnedRule, Visitor, CustomAtRules } from "lightningcss";
 import postcss from "postcss";
 import postcssUnocss from "unocss/postcss";
 import type { UserConfig } from "unocss";
@@ -17,6 +18,11 @@ export const vitePluginUnoCSS = async (configOrPath?: string | UserConfig): Prom
                 }),
             ]).process("@unocss;", { from: "src/content/styles/uno.css" });
             //unoResult.messages.map((message) => console.log("[vitePluginUnocss]", message.file));
+        },
+        shouldTransformCachedModule(options) {
+            if (options.id.endsWith("src/content/styles/uno.css?transform-only")) {
+                return true;
+            }
         },
     };
 };

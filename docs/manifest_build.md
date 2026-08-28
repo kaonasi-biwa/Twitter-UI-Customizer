@@ -7,7 +7,7 @@
 
 ## manifest.json生成スクリプト
 
-`pnpm dlx tsx ./scripts/manifestChange.ts <引数>`  
+`node ./scripts/manifestChange.ts <引数>`  
 で使います  
 引数によってどのmanifest.jsonを使うかが変わります  
 以下のとおりです  

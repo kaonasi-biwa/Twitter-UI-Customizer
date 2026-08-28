@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import ICON_RESET from "@content/icons/common/reset.svg?component";
+import ICON_RESET from "@shared/icons/common/reset.svg?component";
 
 defineProps<{
     btnId: string;
@@ -19,3 +19,34 @@ const clickedBtn = () => {
     emit("clickedBtn");
 };
 </script>
+
+<style scoped>
+.TUICDefaultColor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px !important;
+    height: 36px !important;
+    border-color: #71767b !important;
+
+    &:is(:hover, :focus-visible) {
+        background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
+    }
+    &:active {
+        background: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 10%);
+    }
+}
+.TUICButtonRest_innersvg__container {
+    svg {
+        width: 22px;
+        height: 22px;
+        opacity: 1;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+</style>

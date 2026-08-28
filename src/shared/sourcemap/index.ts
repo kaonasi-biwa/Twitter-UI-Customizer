@@ -1,9 +1,5 @@
 import init, { NRSourceMap } from "@third-party/sourcemap/dist/sourcemap_js";
 
-//TODO: ChromeでWASMが動作するようする
-/**
- * @experimental Does not work on Chrome
- */
 export async function getSourceMap(sourcemapUrl: string, line: number, col: number): Promise<string> {
     const _inst = await init();
     const nrSourceMap = new NRSourceMap(await (await fetch(sourcemapUrl)).text());
@@ -17,47 +13,51 @@ export async function getSourceMap(sourcemapUrl: string, line: number, col: numb
 }
 
 export interface NRStack {
-    funcName: string;
+    //funcName: string;
     sourcemapUrl: string;
     line: number;
     col: number;
 }
 
-export async function parseErrorStringFF(stack: string): Promise<NRStack> {
-    const [funcName, urlLineCol] = stack.split("@", 2);
+interface FirefoxError extends Error {
+    fileName?: string;
+    lineNumber?: number;
+    columnNumber?: number;
+}
 
-    const [moz_ext, url, line, col] = urlLineCol.split(":");
+// https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Error/stack
+export async function parseErrorStringFF(e: FirefoxError): Promise<NRStack> {
+    //const [funcName] = e.stack.split("@", 1);
 
     return {
-        funcName,
-        sourcemapUrl: moz_ext + ":" + url + ".map",
-        line: Number(line),
-        col: Number(col),
+        //funcName,
+        sourcemapUrl: `${e.fileName}.map`,
+        line: e.lineNumber,
+        col: e.columnNumber,
     };
 
     //throwTestError@moz-extension://59481b91-5073-4ff5-9606-24dfcf0e60ea/index.js:3783:9
 }
 
-/**
- * @experimental getSourceMap does not work on Chrome
- */
-export async function parseErrorStringCH(stack: string): Promise<NRStack> {
+export async function parseErrorStringCH({ stack }: Error): Promise<NRStack> {
     //    at throwTestError (chrome-extension://cecnhkopjammcfjllglmcgdpacjnfeed/index.js:4032:9)
-    const ch_ext_index = stack.indexOf("chrome-extension://");
-    const funcName = stack.slice(0, ch_ext_index).replace(" at ", "").trim();
-    const urlLineCol = stack.slice(ch_ext_index, stack.length - 2);
+
+    //Error
+    //    at TUICObserver.callback (chrome-extension://cddgdkhokflaphfccdiljnapfogpdiic/index.js:7282:13)
+    //    at chrome-extension://cddgdkhokflaphfccdiljnapfogpdiic/index.js:7290:38
+
+    const firstStack = stack.split("\n")[1];
+    const ch_ext_index = firstStack.indexOf("chrome-extension://");
+    //const funcName = firstStack.slice(0, ch_ext_index).replace("    at ", "").replace(" (", "");
+    const endParensIndex = firstStack.indexOf(")", ch_ext_index);
+    const urlLineCol = firstStack.slice(ch_ext_index, endParensIndex !== -1 ? endParensIndex : firstStack.length);
 
     const [ch_ext, url, line, col] = urlLineCol.split(":");
 
     return {
-        funcName,
-        sourcemapUrl: ch_ext + ":" + url + ".map",
+        //funcName,
+        sourcemapUrl: `${ch_ext}:${url}.map`,
         line: Number(line),
         col: Number(col),
     };
-    // Uncaught (in promise) CompileError: WebAssembly.instantiateStreaming():
-    //     at __wbg_load (index.js:3573:34)
-    //     at __wbg_init (index.js:3618:38)
-    //     at async getSourceMap (index.js:3622:3)
-    //     at async index.js:3873:5
 }

@@ -1,7 +1,7 @@
-import { isSafemode } from "@modules/settings/safemode/isSafemode";
-import { getPref, setPref, savePref, mergePref } from "@modules/pref";
-import { titleObserverFunction } from "@modules/observer/titleObserver";
-import { updateClasses } from "@modules/htmlClass/classManager";
+import { isSafemode } from "@content/settings/ui/safemode";
+import { getPref, setPref, savePref, mergePref } from "@content/settings";
+import { setTitleObserver } from "@content/functions/replaceTitleX";
+import { cleanModifiedElements } from "@content/applyCSS";
 
 export const XToTwitterRestoreIcon = () => {
     const importPref = {
@@ -15,10 +15,10 @@ export const XToTwitterRestoreIcon = () => {
     };
     setPref("", mergePref(getPref(""), importPref));
     savePref();
-    updateClasses();
-    titleObserverFunction();
+    cleanModifiedElements();
+    setTitleObserver();
     if (!isSafemode) {
-        document.querySelector("#TUIC_setting").remove();
+        document.querySelector("#TUICSettings")?.remove();
     }
     if (!getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
         document.title = document.title.replace(" / Twitter", " / X");

@@ -75,9 +75,9 @@ main#container {
     div {
         display: flex;
         flex-direction: column;
-    }
-    div.bi {
-        width: fit-content;
+        &.bi {
+            width: fit-content;
+        }
     }
     .TUIC_options_openTwSetting_main {
         font-size: 1.3rem;
@@ -136,10 +136,8 @@ main#container {
             }
         }
     }
-}
 
-@media screen and (width <= 600px) {
-    .TUIC_options_thanks_members {
+    @media screen and (width <= 600px) {
         grid-template-columns: 1fr;
     }
 }

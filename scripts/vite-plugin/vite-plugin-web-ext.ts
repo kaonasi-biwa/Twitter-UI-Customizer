@@ -1,42 +1,57 @@
-import { Plugin } from "vite";
-import { ChildProcessWithoutNullStreams } from "node:child_process";
+import type { Plugin } from "vite";
+import fs from "node:fs";
 import { isMainThread } from "node:worker_threads";
-import dotenv from "dotenv";
-import { WebExtRunArgs, WebExtRun } from "./web-ext";
+import { type WebExtRunArgs, WebExtRun } from "./web-ext.ts";
 
-dotenv.config({ path: ".env.local" });
+const existEnvLocal = fs.existsSync(".env.local");
+if (existEnvLocal) process.loadEnvFile(".env.local");
 
 export default async (root: string, sourceDir: string, artifactsDir: string, mode: string): Promise<Plugin> => {
     let watch = false;
     const firefox_executable = process.env["TUIC_WEBEXT_FIREFOX_EXECUTABLE"];
-    let firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"];
+    const firefox_profile = process.env["TUIC_WEBEXT_FIREFOX_PROFILE"] ?? "development";
+    const adb_device_id = process.env["TUIC_WEBEXT_ADB_DEVICE_ID"];
+    const firefox_android_apk = process.env["TUIC_WEBEXT_FIREFOX_ANDROID_APP_ID"];
     const chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
     const chromium_profile = process.env["TUIC_WEBEXT_CHROMIUM_PROFILE"];
 
     const firefox_keep_profile_changes = process.env["TUIC_WEBEXT_FIREFOX_KEEP_PROFILE_CHANGES"] === "true";
     const chromium_keep_profile_changes = process.env["TUIC_WEBEXT_CHROMIUM_KEEP_PROFILE_CHANGES"] === "true";
-    // let webExtRunner: MultiExtensionRunner | null = null;
 
     // let worker;
-    let child: ChildProcessWithoutNullStreams;
     let webExtRunner: WebExtRun;
 
-    if (!firefox_profile) {
-        firefox_profile = "development";
+    if (existEnvLocal) {
+        switch (mode) {
+            case "firefox":
+                console.log("firefox_executable          ", firefox_executable);
+                console.log("firefox_profile             ", firefox_profile);
+                console.log("firefox_keep_profile_changes", firefox_keep_profile_changes);
+                break;
+            case "firefox-android":
+                console.log("adb_device_id               ", adb_device_id);
+                console.log("firefox_apk                 ", firefox_android_apk);
+                //console.log("firefox_profile             ", firefox_profile);
+                //console.log("firefox_keep_profile_changes", firefox_keep_profile_changes);
+                break;
+            case "chromium":
+                console.log("chromium_executable          ", chromium_executable);
+                console.log("chromium_profile             ", chromium_profile);
+                console.log("chromium_keep_profile_changes", chromium_keep_profile_changes);
+                break;
+        }
     }
-    console.log("firefox_executable");
-    console.log(firefox_executable);
-    console.log(chromium_profile);
-    //let chromium_executable = process.env["TUIC_WEBEXT_CHROMIUM_EXECUTABLE"];
+
     return {
         name: "web-ext",
         enforce: "post",
         apply: "build",
-        buildStart(options) {
-            // console.log(options.watch);
+        options(options) {
+            watch = options.watch !== undefined && options.watch !== false;
 
             switch (mode) {
                 case "firefox":
+                case "firefox-android":
                 case "chromium":
                 case "disable-web-ext":
                     break;
@@ -44,14 +59,11 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                     this.error("mode should be 'firefox', 'chromium', or 'disable-web-ext'");
             }
         },
-        options(options) {
-            watch = options.watch !== undefined && options.watch !== false;
-        },
         async closeBundle() {
             if (mode === "disable-web-ext") {
                 return;
             }
-            console.log("Running web-ext in " + (isMainThread ? "main thread" : "worker") + " at " + sourceDir);
+            console.log(`Running web-ext in ${isMainThread ? "main thread" : "worker"} at ${sourceDir}`);
 
             const args: WebExtRunArgs = {
                 mode,
@@ -59,6 +71,7 @@ export default async (root: string, sourceDir: string, artifactsDir: string, mod
                 sourceDir,
                 artifactsDir,
                 firefox: { executable: firefox_executable, profile: firefox_profile, keep_profile_changes: firefox_keep_profile_changes },
+                firefox_android: { apk: firefox_android_apk, adb_device: adb_device_id },
                 chromium: { executable: chromium_executable, profile: chromium_profile, keep_profile_changes: chromium_keep_profile_changes },
             };
             //TODO: この変数再利用＆Reload

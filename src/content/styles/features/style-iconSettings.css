@@ -28,7 +28,7 @@
         margin-left: auto;
     }
 
-    &:is([data-tuic-icon-type="dog"], [data-tuic-icon-type=^"officialLogo"], [data-tuic-icon-type="x-daruma"], [data-tuic-icon-type="custom"]) {
+    &:is([data-tuic-icon-type="dog"], [data-tuic-icon-type^="officialLogo"], [data-tuic-icon-type="x-daruma"], [data-tuic-icon-type="custom"]) {
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain !important;

@@ -36,7 +36,7 @@ export class Dialog {
     constructor(title: string, options: DialogInit = {}) {
         this.element = new DOMParser().parseFromString(
             `
-            <div class="tlui tlui-dialog has-padding">
+            <div class="tlui tlui-dialog has-padding TUICOriginalContent">
                 <div class="tlui-container">
                     <h1>${title}</h1>
                 </div>

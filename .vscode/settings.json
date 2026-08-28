@@ -3,31 +3,23 @@
     "[markdown][yaml]": {
         "editor.tabSize": 2,
     },
-    "editor.formatOnSave": false,
-    "[javascript][json]": {
-        "editor.formatOnSave": false,
-    },
     "editor.quickSuggestions": {
         "strings": true,
     },
     "files.autoSave": "onFocusChange",
     "json.schemaDownload.enable": true,
+    // Disable the default formatter, use eslint instead
+    "prettier.enable": false,
+    "editor.formatOnSave": false,
+    "[javascript][json][css][scss][postcss]": {
+        "editor.formatOnSave": false,
+    },
     // linter
+    // Auto fix
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
         "source.fixAll.stylelint": "explicit",
         "source.organizeImports": "never",
-    },
-    // prettier
-    "prettier.enable": true,
-    "[css][scss][postcss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "prettier.tabWidth": 4,
-        "prettier.semi": true,
-        "prettier.singleQuote": false,
-        "prettier.endOfLine": "auto",
-        "prettier.printWidth": 300,
     },
     // stylelint
     "css.validate": false,
@@ -37,23 +29,45 @@
         "css",
         "scss",
         "postcss",
-        "vue"
+        "vue",
     ],
     "stylelint.validate": [
         "css",
         "scss",
         "postcss",
-        "vue"
+        "vue",
     ],
     // eslint
+    // Enable eslint for all supported languages
     "eslint.validate": [
         "javascript",
+        "javascriptreact",
         "typescript",
         "typescriptreact",
         "vue",
+        //"html",
+        //"markdown",
+        "json",
+        "json5",
+        "jsonc",
+        "yaml",
+        //"toml",
+        //"xml",
+        //"gql",
+        //"graphql",
+        //"astro",
+        //"svelte",
+        //"css",
+        //"less",
+        //"scss",
+        //"pcss",
+        //"postcss",
     ],
+    // Silent the stylistic rules in your IDE, but still auto fix them
     "eslint.rules.customizations": [
+        /* eslint-disable jsonc/key-spacing, style/no-multi-spaces, style/comma-spacing */
         { "rule":   "style/*", "severity": "off", "fixable": true },
+        //{ "rule":  "format/*", "severity": "off", "fixable": true },
         { "rule": "*-indent" , "severity": "off", "fixable": true },
         { "rule": "*-spacing", "severity": "off", "fixable": true },
         { "rule": "*-spaces" , "severity": "off", "fixable": true },
@@ -62,5 +76,6 @@
         { "rule": "*-newline", "severity": "off", "fixable": true },
         { "rule": "*quotes"  , "severity": "off", "fixable": true },
         { "rule": "*semi"    , "severity": "off", "fixable": true },
+        /* eslint-enable jsonc/key-spacing, style/no-multi-spaces, style/comma-spacing */
     ],
 }

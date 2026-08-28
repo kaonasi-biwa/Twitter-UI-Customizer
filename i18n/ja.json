@@ -54,6 +54,7 @@
     "bottomTweetButtons-setting-noModal": "ブロックボタンなどの確認画面を表示しない",
     "bottomTweetButtons-setting-noNumber": "ツイート拡大表示時のボタン横の数字を非表示にする",
     "bottomTweetButtons-setting-likeToFavo": "「いいね」ボタンのアイコンと色を黄色の星に変更する",
+    "bottomTweetButtons-setting-hideOnTimeline": "タイムライン上ではツイート下ボタンを表示しない",
     "bottomTweetButtons-setting-showLinkCardInfo": "リンクカードにリンク先の情報を表示する",
     "bottomTweetButtons-setting-placeEngagementsLink": "エンゲージメントへのリンクを置く",
     "bottomTweetButtons-setting-placeEngagementsLink-likes": "いいねしたユーザー一覧を開く",
@@ -90,7 +91,6 @@
     "fixEngagements-settingTitle": "エンゲージメントに関する設定",
     "fixEngagements-shortName": "エンゲージメントへのリンクを省略表記にする",
 
-    "postingDialog-toolbar-settingTitle": "ツイート画面下部のツールバーの並び替え",
 
     "tweetViewSettings-other": " その他",
 
@@ -123,6 +123,7 @@
     "rightSidebar-links": "リンク集を非表示にする",
     "rightSidebar-searchBox": "検索箱を非表示にする",
     "rightSidebar-space": "「進行中のスペースを聞く」を非表示にする",
+    "rightSidebar-news": "「本日のニュース」を非表示にする",
 
     "invisibleItems-settingTitle": "非表示設定",
     "invisibleItems-twitterProPromotionBtn": "Twitter Pro プロモーションボタン",
@@ -164,6 +165,13 @@
     "timeline-discoverMore-detailOpen": "折りたたみ可能にし、デフォルトは開く",
     "timeline-discoverMore-detailClose": "折りたたみ可能にし、デフォルトは閉じる",
     "timeline-discoverMore-invisible": "非表示にする",
+    "timeline-pinningTab": "タイムラインのタブの固定",
+    "timeline-pinningTab-list1": "リスト等 (1番目)",
+    "timeline-pinningTab-list2": "リスト等 (2番目)",
+    "timeline-pinningTab-list3": "リスト等 (3番目)",
+    "timeline-pinningTab-list4": "リスト等 (4番目)",
+    "timeline-pinningTab-list5": "リスト等 (5番目)",
+    "timeline-pinningTab-none": "タブを固定しない",
     "customCSS-settingTitle": "カスタムCSS",
     "customCSS-save": "カスタムCSSを保存",
 
@@ -205,6 +213,7 @@
     "XToTwitter-settingTitle": "Twitterの帰還",
     "XtoTwitter-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
+    "XtoTwitter-PwaManifest": "PWA時のアイコンと名前をTwitterに変更する",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
 
     "uncategorizedSettings-settingTitle": "その他の設定",
@@ -222,8 +231,16 @@
     "dateAndTime.hide.tweetAboveDate":"ツイート上部の投稿時刻表示",
     "dateAndTime.hide.tweetDateInformation":"ツイート詳細の投稿時刻表示",
 
+    "dateAndTime.dateAboveTweet": "ツイート上部及び通知の時刻の表記",
+    "dateAndTime.dateAboveTweet.normal": "通常の表記を維持する",
+    "dateAndTime.dateAboveTweet.absolutely": "日付と時刻を表記する",
+    "dateAndTime.dateAboveTweet.absolutelyToday": "当日のみ絶対時刻を表記する",
+
+    "composetweet-toolbar-settingTitle": "ツイート画面下部のツールバーの並び替え",
     "composetweet-settingTitle": "ツイート投稿画面の表示",
     "composetweet-hideDraft": "下書きボタンを非表示にする",
+    "composetweet-remainOpened": "ツイート投稿画面を投稿後に自動で再表示する",
+    "composetweet-copyHashtag": "ツイート時にハッシュタグを自動でコピーする",
 
     "dmPage-setting-dm": "ダイレクトメッセージ",
     "dmPage-settingTitle": "ダイレクトメッセージの設定",
@@ -253,7 +270,7 @@
     "addonInfo-TUICOfficialTwitter": "公式アカウント(@TUIC_Official)",
     "addonInfo-github": "GitHub",
 
-    "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\r以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
+    "observerError-message": "Twitter UI Customizer内で3回以上エラーが発生したため、動作を停止しました。\n以下のエラーメッセージをコピーして開発者(@kaonasi_biwa)までご連絡ください 。",
 
     "common-yes": "はい",
     "common-no": "いいえ",
@@ -262,6 +279,7 @@
     "common-error": "エラー",
     "common-confirm": "確認",
     "common-hidebelow": "以下を非表示",
+    "common-hide": "非表示にする",
     "common-displaySetting": "表示設定",
     "common-copy-and-close": "コピーして閉じる",
     "common-copy-and-go": "コピーして進む",
@@ -270,7 +288,7 @@
     "common-go-and-openNewTab": "進む (外部ページを開きます)",
 
     "rescuePref-ButtonLabel": "twitter.comのTUICの設定を救出する",
-    "rescuePref-dialog": "まだ利用できるtwitter.comのホームページを利用して救出します。\rtwitter.comが開くので、TUICの表示設定に進み、下の方にある「エクスポート/インポート」から設定をエクスポートしてください。\rボタンを押すと外部ページを新しいタブで開きます。\rこのタブに戻ると設定のインポート画面が表示されます",
+    "rescuePref-dialog": "まだ利用できるtwitter.comのホームページを利用して救出します。\ntwitter.comが開くので、TUICの表示設定に進み、下の方にある「エクスポート/インポート」から設定をエクスポートしてください。\nボタンを押すと外部ページを新しいタブで開きます。\nこのタブに戻ると設定のインポート画面が表示されます",
     "rescuePref-detail": "エクスポートされた設定、CSSの順で表示されます。それぞれコピーしてx.comでインポート/保存してください。",
     "rescuePref-complete": "これで救出完了です。それぞれx.comのTUICで読み込んでください。カスタムアイコンに関しては、申し訳ございませんが対応しておりません。",
 

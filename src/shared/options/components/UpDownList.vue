@@ -2,11 +2,11 @@
     <div :TUICUDBox="id">
         <div class="TUIC_setting_UpdownList_listContainer">
             <h2 style="font-size: 15px" class="text-white font-tw wrap-break-word min-w-[0px] twcss-text-explicit TUIC_setting_text TUICUpDownTitle">
-                {{ TUICI18N.get("settingUI-upDownList-visible") }}
+                {{ translate("settingUI-upDownList-visible") }}
             </h2>
             <div id="TUIC_visible" class="TUIC_selectbox TUICSelectBox-left" :style="{ '--contentCount': _contentCount }">
                 <div v-for="i in list" :key="i" :value="i" :id="i" class="TUICUpDownContent" @click="clickEv(i)" :TUICSelectedUpDownContent="i === selectedElem">
-                    <span>{{ TUICI18N.get(getSettingI18n(id, i)) }}</span>
+                    <span>{{ translate(getSettingI18n(id, i)) }}</span>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
             <!--Spacer-->
             <div style="height: 32px"></div>
             <template v-for="item in UpdownButtonFuncs" :key="item.btnAction">
-                <button @click="item.func" :class="['TUIC_icon_button_con', item.btnAction]" :title="TUICI18N.get(item.tooltiptag)">
+                <button @click="item.func" :class="['TUIC_icon_button_con', item.btnAction]" :title="translate(item.tooltiptag)">
                     <component :is="item.iconSrc" />
                 </button>
                 <hr v-if="item.nextHr" class="TUIC_setting_UpdownListBtnDivider" />
@@ -22,7 +22,7 @@
         </div>
         <div class="TUIC_setting_UpdownList_listContainer">
             <h2 style="font-size: 15px" class="text-white font-tw wrap-break-word min-w-[0px] twcss-text-explicit TUIC_setting_text TUICUpDownTitle">
-                {{ TUICI18N.get("settingUI-upDownList-invisible") }}
+                {{ translate("settingUI-upDownList-invisible") }}
             </h2>
             <div id="TUIC_invisible" class="TUIC_selectbox TUICSelectBox-right" :style="{ '--contentCount': _contentCount }">
                 <div
@@ -36,7 +36,7 @@
                     @click="clickEv(i)"
                     :TUICSelectedUpDownContent="i === selectedElem"
                 >
-                    <span>{{ TUICI18N.get(getSettingI18n(id, i)) }}</span>
+                    <span>{{ translate(getSettingI18n(id, i)) }}</span>
                 </div>
             </div>
         </div>
@@ -48,26 +48,26 @@ import { ref } from "vue";
 
 // new URL("./img.png", import.meta.url).href;
 
-import ARROW_LEFT from "@content/icons/arrow_cutter/arrow_toleft.svg?component";
-import ARROW_RIGHT from "@content/icons/arrow_cutter/arrow_toright.svg?component";
-import ARROW_UP from "@content/icons/arrow_cutter/arrow_up.svg?component";
-import ARROW_DOWN from "@content/icons/arrow_cutter/arrow_down.svg?component";
-import RESET from "@content/icons/common/reset.svg?component";
+import ARROW_LEFT from "@shared/icons/arrow_cutter/arrow_toleft.svg?component";
+import ARROW_RIGHT from "@shared/icons/arrow_cutter/arrow_toright.svg?component";
+import ARROW_UP from "@shared/icons/arrow_cutter/arrow_up.svg?component";
+import ARROW_DOWN from "@shared/icons/arrow_cutter/arrow_down.svg?component";
+import RESET from "@shared/icons/common/reset.svg?component";
 
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
-import { TUICI18N } from "@modules/i18n";
-import { getPref, setPref, savePref, getSettingI18n, TUICSettingIDs, getSettingIDs, getDefaultPref } from "@modules/pref";
+import { translate } from "@content/i18n";
+import { getPref, setPref, savePref, getSettingI18n, getSettingIDs, getDefaultPref, SettingFullKeys } from "@content/settings";
 
-import { updateClasses } from "@modules/htmlClass/classManager";
+import { cleanModifiedElements } from "@content/applyCSS";
 
-const props = defineProps<{ id: TUICSettingIDs }>();
+const props = defineProps<{ id: SettingFullKeys<"order"> }>();
 
-const list = ref([]);
+const list = ref<string[]>([]);
 list.value = getPref(props.id);
-const selectedElem = ref("");
+const selectedElem = ref<string>("");
 
-const clickEv = (selectItem) => {
+const clickEv = (selectItem: string) => {
     selectedElem.value = selectItem;
 };
 
@@ -75,7 +75,7 @@ const apply2Settings = () => {
     const id = props.id;
     setPref(id, list.value);
     savePref();
-    updateClasses();
+    cleanModifiedElements();
 };
 
 const toLeft = () => {
@@ -116,7 +116,7 @@ const toDown = () => {
 
 const toDefault = () => {
     const settingId = props.id;
-    list.value = structuredClone(getDefaultPref(settingId).data);
+    list.value = structuredClone(getDefaultPref(settingId));
     selectedElem.value = "";
     apply2Settings();
 };
@@ -166,4 +166,75 @@ if (UDALL.length > 5) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+/* 表示非表示のセレクトボックス */
+.TUIC_selectbox {
+    padding-bottom: 5px;
+    margin-top: 10px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    background: black;
+    border: solid 1px #71767b;
+    border-radius: 6px;
+}
+
+.TUIC_selectbox::-webkit-scrollbar {
+    height: 8px;
+}
+
+#TUIC_invisible,
+#TUIC_visible {
+    height: 100%;
+    padding-bottom: 50px;
+    overflow-y: clip;
+    background: transparent;
+    border-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 20%);
+}
+
+#TUIC_invisible span,
+#TUIC_visible span {
+    color: var(--twitter-TUIC-color);
+    background: transparent;
+}
+
+#TUIC_invisible > div,
+#TUIC_visible > div {
+    /* height: 100$; */
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+#TUIC_invisible > div:is(:hover, :focus-visible),
+#TUIC_visible > div:is(:hover, :focus-visible) {
+    background-color: color-mix(in srgb, var(--TUIC-container-background), var(--twitter-TUIC-color) 5%);
+}
+
+#TUIC_invisible > div span,
+#TUIC_visible > div > span {
+    line-height: calc(1em + 5px);
+    white-space: nowrap;
+}
+
+[TUICSelectedUpDownContent="true"],
+[TUICSelectedUpDownContent="true"]:is(:hover, :focus-visible) {
+    background-color: #1da1f2 !important;
+}
+
+.TUIC_setting_UpdownList_listContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.TUICUpDownTitle {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.TUIC_setting_UpdownListBtnDivider {
+    width: 100%;
+    height: 1px;
+    margin: 5px 0;
+    background-color: #303438;
+    border: none;
+}
+</style>

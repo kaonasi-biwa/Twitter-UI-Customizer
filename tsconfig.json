@@ -1,22 +1,12 @@
 {
-    "compilerOptions": {
-        "jsx": "preserve",
-        "jsxImportSource": "solid-js",
-        "esModuleInterop": true,
-        "module": "ESNext",
-        "moduleResolution": "Bundler",
-        "isolatedModules": true,
-        "skipLibCheck": true,
-        "target": "ES2023",
-        "lib": ["ES2023", "DOM", "DOM.Iterable"],
-        "allowImportingTsExtensions": true,
-        "noEmit": true,
-        "types": ["@types/chrome", "vite/client"],
-        "paths": {
-            "@content/*": ["./src/content/*"],
-            "@shared/*": ["./src/shared/*"],
-            "@modules/*": ["./src/content/modules/*"],
-            "@third-party/*": ["./third-party/*"]
-        }
-    }
+    "files": [],
+    "include": [],
+    "references": [
+        {
+            "path": "tsconfig.main.json",
+        },
+        {
+            "path": "tsconfig.node.json",
+        },
+    ],
 }

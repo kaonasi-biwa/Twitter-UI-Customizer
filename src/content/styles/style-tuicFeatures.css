@@ -1,5 +1,6 @@
 @import url("./features/style-discoverMore.css");
 @import url("./features/style-iconSettings.css");
+@import url("./features/style-hideElements.css");
 
 .TUICTweetButtomBarBase > div > .r-13awgt0 {
     flex: inherit !important;
@@ -47,25 +48,25 @@
 }
 */
 
-.TUICSidebarButton:is(:hover, :focus-visible) > div {
-    background-color: var(--TUIC-sidebar-hover-color);
-}
-
-.TUICSidebarButton[data-focusvisible-polyfill] > div {
-    box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
-}
-
 .TUICSidebarButton {
+    &:hover > div {
+        background-color: var(--TUIC-sidebar-hover-color);
+    }
+    &:focus-visible > div {
+        box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
+    }
+
+    width: fit-content;
     padding-top: 4px;
     padding-bottom: 4px;
     text-decoration: none;
-}
 
-.TUICSidebarButton > div {
-    display: flex;
-}
-.TUICSidebarButton:active > div {
-    background-color: var(--TUIC-sidebar-active-color);
+    > div {
+        display: flex;
+    }
+    &:active > div {
+        background-color: var(--TUIC-sidebar-active-color);
+    }
 }
 
 .TUIC_DeleteButton {
@@ -74,14 +75,14 @@
 
 .TUICEngagementsBox {
     display: flex;
-}
 
-.TUICEngagementsBox > div > span {
-    transition: border-bottom 0.2s;
-}
+    > div > span {
+        transition: border-bottom 0.2s;
+    }
 
-.TUICEngagementsBox > div > span:is(:hover, :focus-visible) {
-    border-bottom: solid 0.05px;
+    > div > span:is(:hover, :focus-visible) {
+        border-bottom: solid 0.05px;
+    }
 }
 
 [tabindex="0"] > .TUIC_ButtonHover2:is(:hover, :focus-visible) > .TUIC_ButtonHover > div {
@@ -107,10 +108,10 @@
 
 .TUICButtonUnderTweet > div {
     display: flex;
-}
-.TUICButtonUnderTweet > div > div {
-    display: flex;
-    align-items: stretch;
+    > div {
+        display: flex;
+        align-items: stretch;
+    }
 }
 
 .TUIC_LinkCardInfo > a {
@@ -157,19 +158,6 @@
     padding-bottom: 0 !important;
 }
 
-:is(
-    :root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
-    :root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] [data-testid="DMDrawer"],
-    :root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] [data-tuic-zooming-tweet] [data-testid="app-text-transition-container"],
-    :root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
-    :root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
-    :root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
-    :root[data-tuic-settings*="|composetweet.hideDraft|"] [data-testid="unsentButton"],
-
-) {
-    display: none !important;
-}
-
 :root[data-tuic-settings*="|tweetDisplaySetting.invisible.bottomSpace|"] .TUIC_NONE_SPACE_BOTTOM_TWEET {
     margin-top: 0 !important;
 }
@@ -178,8 +166,7 @@
     overflow: clip;
 }
 
-/* :root[data-tuic-settings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] > div > div > div > div > nav[role="navigation"] { */
-[data-tuic-tabs-pinned] {
+:root[data-tuic-settings*="|profileSetting.tabs.pinnedTab|"] [data-testid="primaryColumn"] > div > div > div > div > div:has(> nav[role="navigation"]) {
     position: sticky;
     top: var(--TUIC-pinnedTab-top);
     z-index: 1;
@@ -197,10 +184,10 @@
 
 :root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) > div {
     color: rgb(255 212 0) !important;
-}
 
-:root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"] > div:is(:hover, :focus-visible) > div > div {
-    background-color: rgb(255 212 0 / 10%) !important;
+    > div {
+        background-color: rgb(255 212 0 / 10%) !important;
+    }
 }
 
 :root[data-tuic-settings*="|tweetDisplaySetting.option.likeToFavo|"] [data-testid="like"][data-focusvisible-polyfill] > div > div > div {
@@ -220,22 +207,44 @@
     fill: rgb(255 212 0) !important;
 }
 
-:root[data-tuic-settings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
-    display: none !important;
-}
-
-:root[data-tuic-settings*="|sidebarSetting.hideBadge.homeBadge|"] [data-testid="AppTabBar_Home_Link"] svg + div {
-    display: none !important;
-}
-
-:root[data-tuic-settings*="|sidebarSetting.hideBadge.notificationsBadge|"] [data-testid="AppTabBar_Notifications_Link"] svg + div {
-    display: none !important;
-}
-
-:root[data-tuic-settings*="|sidebarSetting.hideBadge.dmBadge|"] [data-testid="AppTabBar_DirectMessage_Link"] svg + div {
-    display: none !important;
-}
-
-:root[data-tuic-settings*="|invisibleItems.hideBelowGrok|"] [data-testid="GrokDrawer"] {
-    display: none !important;
+:root[data-tuic-settings*="|uncategorizedSettings.dimBackgroundTheme|"] {
+    .r-kemksi {
+        background-color: rgb(21 32 43 / 100%);
+    }
+    .r-5zmot {
+        background-color: rgb(21 32 43 / 65%);
+    }
+    .r-g2wdr4 {
+        background-color: rgb(31 40 51);
+    }
+    .r-2sztyj { /* rgb(47, 51, 54) */
+        border-top-color: #38444d;
+    }
+    .r-1igl3o0 {
+        border-bottom-color: #38444d;
+    }
+    .r-1kqtdi0 {
+        border-color: #38444d;
+    }
+    .r-gu4em3 {
+        background-color: #38444d;
+    }
+    .r-1bnu78o {
+        background-color: #425364; /* var(--color-gray-200) */
+    }
+    .r-1roi411 {
+        border-color: #425364; /* var(--color-gray-200) */
+    }
+    .r-1hdo0pc {
+        border-color: rgb(247 249 249 / 10%); /* var(--color-gray-1100),0.1 */
+    }
+    .r-qo02w8 { /* rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px */
+        box-shadow: rgb(136 153 166 / 20%) 0 0 15px, rgb(136 153 166 / 15%) 0 0 3px 1px;
+    }
+    [style="color: rgb(113, 118, 123);"] {
+        color: #8b98a5 !important; /* var(--color-gray-700) */
+    }
+    [style="background-color: rgb(0, 0, 0);"] {
+        background-color: #15202b !important; /* var(--color-background) */
+    }
 }

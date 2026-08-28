@@ -6,19 +6,19 @@
 </template>
 
 <script setup lang="ts">
-import BRAND_TWITTER from "@content/icons/brand/twitter.svg?component";
-import ICON_VERIFIED from "@content/icons/common/verified.svg?component";
-import ICON_MORE from "@content/icons/common/more.svg?component";
-import BRAND_X from "@content/icons/brand/x.svg?component";
+import BRAND_TWITTER from "@shared/icons/brand/twitter.svg?component";
+import ICON_VERIFIED from "@shared/icons/common/verified.svg?component";
+import ICON_MORE from "@shared/icons/common/more.svg?component";
+import BRAND_X from "@shared/icons/brand/x.svg?component";
 import IconButton from "@shared/settings/components/IconButton.vue";
 import defaultPrefButton from "../components/defaultPrefButton.vue";
 
 import { ColorData } from "@shared/sharedData";
 
-import { getPref, setPref, savePref, mergePref } from "@modules/pref";
-import { titleObserverFunction } from "@content/modules/observer/titleObserver";
-import { updateClasses } from "@content/modules/htmlClass/classManager";
-import { isSafemode } from "@content/modules/settings/safemode/isSafemode";
+import { getPref, setPref, savePref, mergePref } from "@content/settings";
+import { setTitleObserver } from "@content/functions/replaceTitleX";
+import { cleanModifiedElements } from "@content/applyCSS";
+import { isSafemode } from "@content/settings/ui/safemode";
 
 // copied from old component; @shared/options/modules/SettingsHeader.vue
 const buttonList = [
@@ -35,6 +35,7 @@ const buttonList = [
             XToTwitter: {
                 XToTwitter: true,
                 PostToTweet: true,
+                PwaManifest: true,
             },
             sidebarSetting: { homeIcon: "birdGoBack" },
         },
@@ -85,18 +86,24 @@ const buttonList = [
     },
 ];
 
-const clickEv = (index) => {
+const clickEv = (index: number) => {
     setPref("", mergePref(getPref(""), buttonList[index].changePref ?? {}));
     buttonList[index]?.changeFunc?.();
     savePref();
     if (!isSafemode) {
-        document.querySelector("#TUIC_setting").remove();
+        document.querySelector("#TUICSettings")?.remove();
     }
-    updateClasses();
-    titleObserverFunction();
+    cleanModifiedElements();
+    setTitleObserver();
     if (!getPref("XToTwitter.XToTwitter") && document.title.endsWith(" / Twitter")) {
         document.title = document.title.replace(" / Twitter", " / X");
     }
 };
 // end of copied codes
 </script>
+
+<style scoped>
+.TUIC_setting_easysetting_buttons_container {
+    margin-top: 15px;
+}
+</style>

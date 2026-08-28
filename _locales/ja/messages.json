@@ -8,7 +8,7 @@
         "description": "拡張機能の説明"
     },
     "notificationMessage": {
-        "message": "新しいバージョンが公開されました。\rアップデートしてください。\r$V1$→$V2$",
+        "message": "新しいバージョンが公開されました。\nアップデートしてください。\n$V1$→$V2$",
         "description": "アップデート通知",
         "placeholders": {
             "V1": {

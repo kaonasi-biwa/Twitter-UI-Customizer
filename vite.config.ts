@@ -1,18 +1,18 @@
-import { UserConfig, defineConfig } from "vite";
+import { type UserConfig, defineConfig, normalizePath } from "vite";
 
 import path from "node:path";
 import * as fs from "node:fs/promises";
 
 // Vite Plugins
 import svgLoader from "vite-svg-loader";
-import vitePluginWebExt from "./scripts/vite-plugin/vite-plugin-web-ext";
+import vitePluginWebExt from "./scripts/vite-plugin/vite-plugin-web-ext.ts";
 import vue from "@vitejs/plugin-vue";
 import { browserslistToTargets, composeVisitors } from "lightningcss";
-import { lightningcssPluginUnoCSS, vitePluginUnoCSS } from "./scripts/vite-plugin/unocss";
+import { lightningcssPluginUnoCSS, vitePluginUnoCSS } from "./scripts/vite-plugin/unocss.ts";
 import solidPlugin from "vite-plugin-solid";
 //
 
-import { changeManifest } from "./scripts/change-manifest";
+import { changeManifest } from "./scripts/change-manifest.ts";
 
 const r = (str: string): string => {
     return path.resolve(import.meta.dirname, str);
@@ -36,7 +36,6 @@ export default defineConfig(({ command, mode }) => {
             outDir,
             emptyOutDir: false,
             sourcemap: true,
-            // outDir,
             target: "es2023",
             assetsInlineLimit: 0,
             reportCompressedSize: false,
@@ -47,26 +46,28 @@ export default defineConfig(({ command, mode }) => {
                     "ent-popup_html": r("src/popup/popup.html"),
                     index: r("src/content/index.ts"),
                     background: r("src/background.ts"),
-                    //safemode: r("src/shared/options/injectSafeMode.ts"),
                 },
                 output: {
                     dynamicImportInCjs: true,
                     format: "es",
                     entryFileNames: "[name].js",
-                    manualChunks(id) {
-                        if (id.includes("node_modules")) {
-                            const arr_module_name = id.toString().split("node_modules/")[1].split("/");
+                    manualChunks(id, meta) {
+                        if (id.includes("node_modules") && meta.getModuleInfo(id)?.isIncluded !== false) {
+                            const arr_module_name = id.split("node_modules/")[1].split("/");
                             if (arr_module_name[0] === ".pnpm") {
-                                return arr_module_name[1].toString();
+                                return arr_module_name[1];
                             }
-                            return arr_module_name[0].toString();
-                        };
+                            return arr_module_name[0];
+                        }
                         if (id.includes("i18n")) {
                             return "i18n";
                         }
+                        if (id.includes("?vue&type=style&")) {
+                            return "vue";
+                        }
                     },
                     assetFileNames(assetInfo) {
-                        if (assetInfo.originalFileNames.some((v) => v.endsWith(".css"))) {
+                        if (assetInfo.names.some((v) => v.endsWith(".css"))) {
                             return "assets/css/[name][extname]";
                         }
                         if (assetInfo.originalFileNames.some((v) => v.endsWith(".svg"))) {
@@ -89,14 +90,10 @@ export default defineConfig(({ command, mode }) => {
             transformer: "lightningcss",
             lightningcss: {
                 targets: browserslistToTargets([
-                    "chrome 111",
-                    "firefox 115",
-                    //"safari 16.2",
+                    "chrome 111", //color-mix()
+                    "firefox 121", //:has()
+                    //"safari 16.2", //color-mix()
                 ]),
-                // https://lightningcss.dev/transpilation.html#feature-flags
-                nonStandard: {
-                    deepSelectorCombinator: true,
-                },
                 customAtRules: {
                     unocss: lightningcssPluginUnoCSS.customAtRules.unocss,
                 },
@@ -109,23 +106,18 @@ export default defineConfig(({ command, mode }) => {
             {
                 name: "copyResources",
                 enforce: "post",
-                options(options) {
-                    // this.addWatch;
-                    // console.log("watch");
-                    // console.log(options.watch);
-                    // if (options.watch) {
-                    //     options.watch.include = r("_locales/**");
-                    // }
-                    // console.log(options.watch);
+                buildStart() {
+                    this.addWatchFile(normalizePath(r("_locales")));
+                    this.addWatchFile(normalizePath(r("i18n")));
+                    this.addWatchFile(normalizePath(r("public")));
+                    this.addWatchFile(normalizePath(r("third-party")));
                 },
-                async buildStart(options) {
+                async renderStart(options) {
                     await Promise.all([
                         changeManifest(mode),
                         //fs.copyFile(rl("src/inject.js"), rl("dist/inject.js")),
                         //fs.copyFile(rl("src/safemode.html"), rl("dist/safemode.html")),
-                        //fs.cp(rl("src/content/styles"), rl("dist/styles"), { recursive: true }),
                         fs.cp(rl("_locales"), rl("dist/_locales"), { recursive: true }),
-                        //fs.cp(rl("icon"), rl("dist/icon"), { recursive: true }),
                     ]);
                     console.log("\x1b[32m✓\x1b[0m Copied injection scripts.");
                 },
@@ -137,11 +129,29 @@ export default defineConfig(({ command, mode }) => {
                     console.log(new Date().toLocaleString());
                 },
             },
+            {
+                name: "vueCSSUrlImport",
+                enforce: "post",
+                resolveId(id) {
+                    if (id === "virtual:vue.css?url") {
+                        return "\0virtual:vuecss?url";
+                    }
+                },
+                load(id) {
+                    if (id === "\0virtual:vuecss?url") {
+                        return `export default "/assets/css/vue.css"`;
+                    }
+                },
+            },
             vitePluginWebExt(import.meta.dirname, r("dist"), r("dist"), mode === "chromiumCRX" ? "disable-web-ext" : mode),
             vitePluginUnoCSS(),
             solidPlugin(),
             // Vue Plugins
-            vue(),
+            vue({
+                features: {
+                    optionsAPI: false,
+                },
+            }),
             svgLoader({
                 svgoConfig: {
                     plugins: ["prefixIds"],
@@ -152,7 +162,6 @@ export default defineConfig(({ command, mode }) => {
             alias: [
                 { find: "@content", replacement: r("src/content") },
                 { find: "@shared", replacement: r("src/shared") },
-                { find: "@modules", replacement: r("src/content/modules") },
                 { find: "@i18nData", replacement: r("i18n") },
                 { find: "@third-party", replacement: r("third-party") },
             ],

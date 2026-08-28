@@ -56,8 +56,11 @@
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
-        <SectionTitle2 style="margin-bottom: 15px" titleI18N="postingDialog-toolbar-settingTitle" />
+        <SectionTitle2 style="margin-bottom: 15px" titleI18N="composetweet-settingTitle" />
+        <settingSubtitle2 titleI18N="composetweet-toolbar-settingTitle" />
         <UpDownList style="margin-top: 20px" id="postingDialog.toolbar" />
+        <settingSubtitle2 titleI18N="settingSection-other" />
+        <CheckBoxList id="composetweet" />
     </div>
     <hr class="TUIC_setting_divider TUIC_setting_divider_nomargin" />
     <div>
@@ -75,11 +78,31 @@
 import UpDownList from "@shared/options/components/UpDownList.vue";
 import SectionTitle2 from "../components/SectionTitle2.vue";
 import settingSubtitle2 from "../components/settingSubtitle2.vue";
-import FIGURE_TWEETBUTTONS_BOTTOM from "@content/icons/figure/tweet_buttons.svg?component";
-import FIGURE_TWEETBUTTONS_TOP from "@content/icons/figure/tweet_buttons_top.svg?component";
-import FIGURE_TWEET_ENGAGEMENT from "@content/icons/figure/tweet_engagement.svg?component";
+import FIGURE_TWEETBUTTONS_BOTTOM from "@shared/icons/figure/tweet_buttons.svg?component";
+import FIGURE_TWEETBUTTONS_TOP from "@shared/icons/figure/tweet_buttons_top.svg?component";
+import FIGURE_TWEET_ENGAGEMENT from "@shared/icons/figure/tweet_engagement.svg?component";
 import CheckBox from "@shared/options/components/CheckBox.vue";
 import CheckBoxList from "@shared/options/components/CheckBoxList.vue";
 import RadioButtonList from "@shared/options/components/RadioButtonList.vue";
 import SettingSubTitle from "@shared/options/components/textParts/settingSubTitle.vue";
 </script>
+
+<style scoped>
+.TUIC_setting_TwButtonFigure {
+    width: 100%;
+    height: 100%;
+    margin: 20px 0;
+    border-radius: 10px 10px 0;
+}
+
+.TUIC_setting_TwButtonFigure_top {
+    border-radius: 10px 0 10px 10px;
+}
+
+.TUIC_setting_TwEngagementFigure {
+    width: 100%;
+    height: 100%;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+</style>

@@ -1,0 +1,81 @@
+/* プロフィールのサブスクリプションボタン */
+:root[data-tuic-settings*="|invisibleItems.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"] {
+    display: none !important;
+}
+
+/* 画面右下のDMドロワー */
+:root[data-tuic-settings*="|invisibleItems.hideBelowDM|"] :is([data-testid="DMDrawer"], [data-testid="chat-drawer-root"]) {
+    display: none !important;
+}
+
+/* ツイート下ボタン横の数字 */
+:root[data-tuic-settings*="|tweetDisplaySetting.option.noNumberBottomTweetButtons|"] [data-tuic-zooming-tweet] [data-testid="app-text-transition-container"] {
+    display: none !important;
+}
+
+/* 左下のアカウント切り替えの各要素 */
+:root[data-tuic-settings*="|accountSwitcher.icon|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child,
+:root[data-tuic-settings*="|accountSwitcher.nameID|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div,
+:root[data-tuic-settings*="|accountSwitcher.moreMenu|"] [data-testid="SideNav_AccountSwitcher_Button"] > div:first-child + div + div,
+:root[data-tuic-settings*="|accountSwitcher.icon|"][data-tuic-settings*="|accountSwitcher.nameID|"][data-tuic-settings*="|accountSwitcher.moreMenu|"] div:has(> div > [data-testid="SideNav_AccountSwitcher_Button"]) {
+    display: none !important;
+}
+
+/* ツイート投稿画面の下書きボタン */
+:root[data-tuic-settings*="|composetweet.hideDraft|"] [data-testid="unsentButton"] {
+    display: none !important;
+}
+
+/* サイドバーのボタンをCSSでも消しにかかる (なんで...？) */
+:root[data-tuic-settings*="|sidebarButtons.style.verifiedChoose|"] [role="banner"] > div > div > div > div > div > nav [href="/i/premium_sign_up"] {
+    display: none !important;
+}
+
+/* サイドバーのバッジ */
+:root[data-tuic-settings*="|sidebarSetting.hideBadge.homeBadge|"] [data-testid="AppTabBar_Home_Link"] svg + div,
+:root[data-tuic-settings*="|sidebarSetting.hideBadge.notificationsBadge|"] [data-testid="AppTabBar_Notifications_Link"] svg + div,
+:root[data-tuic-settings*="|sidebarSetting.hideBadge.dmBadge|"] [data-testid="AppTabBar_DirectMessage_Link"] svg + div {
+    display: none !important;
+}
+
+/* 画面右下のGrokボタン */
+:root[data-tuic-settings*="|invisibleItems.hideBelowGrok|"] [data-testid="GrokDrawer"] {
+    display: none !important;
+}
+
+/* ツイートの画像右下の画像を編集ボタン */
+:root[data-tuic-settings*="|tweetDisplaySetting.invisible.editImage|"] article div:has(> div > :is([href^="/i/imagine?postId="], [href^="https://grok.com/imagine?parent_x_post_id"])) {
+    display: none !important;
+}
+
+/* 右サイドバー */
+:root[data-tuic-settings*="|rightSidebar.verified|"] div + div:has(> div > :is([data-testid="super-upsell-UpsellCardRenderProperties"], aside[role="complementary"]) :is([href="/i/verified-choose"], [href="/i/premium_tier_switch"], [href^="/i/premium_sign_up"])),
+:root[data-tuic-settings*="|rightSidebar.trend|"] [data-testid="sidebarColumn"] div:has(> section [data-testid="trend"]),
+:root[data-tuic-settings*="|rightSidebar.news|"] [data-testid="sidebarColumn"] div:has(> [data-testid="news_sidebar"]),
+:root[data-tuic-settings*="|rightSidebar.links|"] [data-testid="sidebarColumn"] :has(> nav),
+:root[data-tuic-settings*="|rightSidebar.searchBox|"] [data-testid="sidebarColumn"] div:has(> div > div > div > form[role="search"]),
+:root[data-tuic-settings*="|rightSidebar.space|"] [data-testid="sidebarColumn"] div:has(> [data-testid="placementTracking"] [data-testid="pill-contents-container"]),
+:root[data-tuic-settings*="|rightSidebar.osusumeUser|"] [data-testid="sidebarColumn"] div:has([data-testid="UserCell"]):has(> div > aside > a[href^="/i/connect_people"]),
+:root[data-tuic-settings*="|rightSidebar.relevantPeople|"] [data-testid="sidebarColumn"] div:has(> aside [data-testid="UserCell"]):not(:has(> div > aside > a[href^="/i/connect_people"])) {
+    display: none !important;
+}
+
+/* 設定画面のプレミアム関連項目 */
+:root[data-tuic-settings*="|invisibleItems.config-premium|"] :is([href="/settings/monetization"], :not(nav[role="navigation"]) > [href^="/i/premium_sign_up"], [href="/settings/manage_subscriptions"]) {
+    display: none !important;
+}
+
+/* プロフィール周り */
+:root[data-tuic-settings*="|profileSetting.invisible.subscribe-profile|"] [data-testid="userActions"] + [style*="border-color"][style*="rgb(201, 54, 204)"],
+    :root[data-tuic-settings*="|profileSetting.invisible.profileHighlights|"] div[role="presentation"]:has(> [role="tab"][href$="/highlights"]),
+    :root[data-tuic-settings*="|profileSetting.invisible.profileArticles|"] div[role="presentation"]:has(> [role="tab"][href$="/articles"]),
+    :root[data-tuic-settings*="|profileSetting.invisible.profileAffiliates|"] div[role="presentation"]:has(> [role="tab"][href$="/affiliates"]),
+    :root[data-tuic-settings*="|profileSetting.invisible.profilePagePremium|"] [data-testid="primaryColumn"] div:has(> div > [role="link"][href="/i/premium_sign_up"]),
+    :root[data-tuic-settings*="|profileSetting.invisible.profileSummary|"] :is(
+        [data-testid^="UserAvatar-Container-"] + div,
+        [data-testid="primaryColumn"] div:has(> [data-testid="app-bar-back"]) + div + div
+    ) button:has(
+        path[d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466"]
+    ) {
+    display: none !important;
+}

@@ -59,6 +59,7 @@
     "bottomTweetButtons-setting-linkCopyURL-X": ".com",
     "bottomTweetButtons-setting-linkCopyURL-vxTwitter": "vxtwitter.com",
     "bottomTweetButtons-setting-linkCopyURL-fxTwitter": "fxtwitter.com",
+    "bottomTweetButtons-setting-linkCopyURL-fixupx": "fixupx.com",
     "sidebarButton-settingTitle": "Настройки левой боковой панели",
     "sidebarButton-setting-narrowBetweenButtons": "Уменьшить расстояние между кнопками, когда они становятся шире",
     "sidebarButton-setting-sidebarNoneScrollbar": "Скрыть полосу прокрутки в боковой панели",
@@ -112,11 +113,13 @@
     "twitterIcon-dog": "Doge",
     "twitterIcon-twitter": "Иконка Twitter",
     "twitterIcon-X": "X",
+    "twitterIcon-XDaruma": "Значок Daruma",
     "twitterIcon-custom": "Пользовательская",
     "twitterIcon-usedIcon": "Изображение, которое будет использоваться в качестве иконки",
     "twitterIcon-nowIcon": "Текущее изображение",
     "twitterIcon-roundIcon": "Округлить иконку только при установке пользовательской иконки",
     "twitterIcon-favicon": "Изменить иконки вкладок",
+    "twitterIcon-other": "Прочее",
     "XtoTwitter-XtoTwitter": "Изменить заголовок вкладки браузера с 'X' на 'Twitter'",
     "XtoTwitter-twitterIcon": "Вернуть значок Twitter",
     "uncategorizedSettings-settingTitle": "Дополнительные настройки",
@@ -127,5 +130,6 @@
     "import-settingTitle": "Импорт",
     "import-importAppend": "Импортировать и добавить настройки",
     "import-importReplace": "Импортировать и заменить настройки",
-    "import-select-explain": "В случае добавления импортируются только те элементы, которые содержатся в источнике импорта. В случае замены все настройки будут возвращены к значениям по умолчанию, после чего будет выполнено добавление."
+    "import-select-explain": "В случае добавления импортируются только те элементы, которые содержатся в источнике импорта. В случае замены все настройки будут возвращены к значениям по умолчанию, после чего будет выполнено добавление.",
+    "common-hide": "Скрыть"
 }
