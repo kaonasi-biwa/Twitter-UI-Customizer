@@ -110,7 +110,7 @@ export function replacePost() {
             localizeElemText(`[role="dialog"] [data-testid="empty_state_body_text"]`, translate("XtoTwitter-PostToTweet-unsentPageTitle"));
 
             //未送信ツイートのタブ
-            localizeElemText(`[href="/compose/tweet/unsent/drafts"][role="tab"] > div > div > span`, translate("XtoTwitter-PostToTweet-unsentPageTab1"));
+            localizeElemText(`[href="/compose/post/unsent/drafts"][role="tab"] > div > div > span`, translate("XtoTwitter-PostToTweet-unsentPageTab1"));
         }
 
         // 共有 > リンクをコピー
