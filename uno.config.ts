@@ -46,7 +46,8 @@ export default defineConfig({
             "white-space": "inherit",
             "word-wrap": "break-word",
         }, { layer: "base" }],
-        ["twcss-flex", { // css-175oi2r
+        ["twcss-flex", { // css-g5y9jx (css-175oi2r)
+            "align-content": "flex-start",
             "align-items": "stretch",
             "background-color": "rgba(0,0,0,0.00)",
             border: "0 solid black",
