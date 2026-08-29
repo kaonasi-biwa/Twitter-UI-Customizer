@@ -14,7 +14,7 @@ export default defineConfig({
         }),
     ],
     rules: [
-        ["twcss-text-explicit", {
+        ["twcss-text-explicit", { // css-146c3p1 (css-901oao)
             "background-color": "rgba(0,0,0,0.00)",
             border: "0 solid black",
             "box-sizing": "border-box",
@@ -30,7 +30,23 @@ export default defineConfig({
             "white-space": "pre-wrap",
             "word-wrap": "break-word",
         }, { layer: "base" }],
-        ["twcss-flex", {
+        ["twcss-text-inherit", { // css-1jxf684 (css-901oao css-16my406)
+            "background-color": "rgba(0,0,0,0.00)",
+            border: "0 solid black",
+            "box-sizing": "border-box",
+            color: "inherit",
+            display: "inline",
+            font: "inherit",
+            "list-style": "none",
+            margin: "0px",
+            padding: "0px",
+            position: "relative",
+            "text-align": "inherit",
+            "text-decoration": "none",
+            "white-space": "inherit",
+            "word-wrap": "break-word",
+        }, { layer: "base" }],
+        ["twcss-flex", { // css-175oi2r
             "align-items": "stretch",
             "background-color": "rgba(0,0,0,0.00)",
             border: "0 solid black",
@@ -48,23 +64,7 @@ export default defineConfig({
             "text-decoration": "none",
             "z-index": 0,
         }, { layer: "base" }],
-        ["twcss-text-inherit", {
-            "background-color": "rgba(0,0,0,0.00)",
-            border: "0 solid black",
-            "box-sizing": "border-box",
-            color: "inherit",
-            display: "inline",
-            font: "inherit",
-            "list-style": "none",
-            margin: "0px",
-            padding: "0px",
-            position: "relative",
-            "text-align": "inherit",
-            "text-decoration": "none",
-            "white-space": "inherit",
-            "word-wrap": "break-word",
-        }, { layer: "base" }],
-        ["twcss-cover-hidden", {
+        ["twcss-cover-hidden", { // css-9pa8cd
             bottom: "0px",
             height: "100%",
             left: "0px",
