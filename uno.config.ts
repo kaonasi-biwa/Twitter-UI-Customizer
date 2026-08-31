@@ -103,7 +103,7 @@ export default defineConfig({
                     text2: "rgba(113,118,123,1.00)",
                     border: "rgba(47,51,54,1.00)",
                 },
-                accsent: {
+                accent: {
                     blue: "rgba(29,155,240,1.00)",
                 },
                 red: "rgba(244,33,46,1.00)",

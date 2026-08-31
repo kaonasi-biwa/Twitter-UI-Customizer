@@ -12,7 +12,7 @@ const toastMessage = (message: string): (() => JSX.Element) => {
                             <div
                                 role="alert"
                                 data-testid="toast"
-                                class={`twcss-flex items-center bg-tw-accsent-blue flex-row justify-between ${
+                                class={`twcss-flex items-center bg-tw-accent-blue flex-row justify-between ${
                                     fontSizeClass("p-[11px]", "p-[11px]", "p-[12px]", "p-[13px]", "p-[14px]")
                                 } pointer-events-auto! top-[calc(env(safe-area-inset-bottom)-53)] self-center rounded-[4px] ${
                                     fontSizeClass("mb-[29px]", "mb-[30px]", "mb-[32px]", "mb-[35px]", "mb-[38px]")
