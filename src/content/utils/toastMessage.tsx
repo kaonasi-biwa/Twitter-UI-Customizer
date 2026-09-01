@@ -5,7 +5,7 @@ import { fontSizeClass } from "@content/utils/fontSize";
 const toastMessage = (message: string): (() => JSX.Element) => {
     return () => {
         return (
-            <div class="twcss-flex backface-hidden right-[0px] left-[0px] fixed bottom-[0px] pointer-events-none! TUICURLCopyLayer">
+            <div class="twcss-flex backface-hidden right-[0px] left-[0px] fixed bottom-[0px] pointer-events-none! TUICToastMessage">
                 <div class="twcss-flex pointer-events-none!">
                     <div class="twcss-flex pointer-events-none!">
                         <div class="twcss-flex pointer-events-none! mx-auto w-full max-w-[600px]">
