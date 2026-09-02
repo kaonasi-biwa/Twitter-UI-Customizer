@@ -33,12 +33,14 @@ export function hex2rgb(hex: string): [number, number, number] {
  *
  * @param {string} name 色の設定ID
  * @param {string} type 色の種類(基本的にはbackground,border,color)
- * @return {"buttonColor" | "buttonColorLight" | "buttonColorDark" | null} 色の取得に使用する背景色
+ * @param {"buttonColor" | "buttonColorLight" | "buttonColorDark"} mode 色の取得に使用する背景色
  */
-export function getColorFromPref(name: string, type: string, mode: "buttonColor" | "buttonColorLight" | "buttonColorDark" | null) {
-    let _mode = "";
-    _mode = mode ? mode : backgroundColorCheck() == "light" ? "buttonColorLight" : "buttonColorDark";
-    return getPref(`${_mode}.${name}.${type}`) ?? ColorData.defaultTUICColor?.["colors-" + _mode]?.[name]?.[type] ?? getPref(`buttonColor.${name}.${type}`) ?? ColorData.defaultTUICColor.colors[name][type];
+export function getColorFromPref(name: keyof typeof ColorData.defaultTUICColor.colors, type: "color" | "background" | "border", mode?: "buttonColor" | "buttonColorLight" | "buttonColorDark"): string {
+    const _mode = mode ? mode : backgroundColorCheck() === "light" ? "buttonColorLight" : "buttonColorDark";
+    return getPref(`${_mode}.${name}.${type}`)
+        ?? (_mode !== "buttonColor" ? ColorData.defaultTUICColor[`colors-${_mode}`]?.[name]?.[type] : undefined)
+        ?? getPref(`buttonColor.${name}.${type}`)
+        ?? ColorData.defaultTUICColor.colors[name][type];
 }
 
 /**

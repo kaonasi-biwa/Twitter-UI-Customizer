@@ -9,10 +9,102 @@ type TUICDefaultSettingsType =
     |   { type: "select"; default: string; values: { id: string; i18n: string }[] } //ラジオボタンなどの一つのみ設定するやつ
     |   { type: "boolean"; values: { id: string; i18n: string; default: boolean }[] }; //チェックボックスなどの一つ一つがboolean型の設定になるもの
 
-/** 全設定の ID */
-export type SettingKeys = keyof typeof DEFAULT_SETTINGS;
+/** 設定キーから型を取得します */
+export type SettingKeyType<T extends SettingKeys> = T extends "" ? Settings
+    : T extends `${infer Parent extends string}.${infer Child extends string}.${infer Grandchild extends string}`
+        ? Parent extends keyof Settings
+            ? Child extends keyof Settings[Parent]
+                ? Grandchild extends keyof Settings[Parent][Child]
+                    ? Settings[Parent][Child][Grandchild]
+                    : never
+                : never
+            : never
+        : T extends `${infer Parent extends string}.${infer Child extends string}`
+            ? Parent extends keyof Settings
+                ? Child extends keyof Settings[Parent]
+                    ? Settings[Parent][Child]
+                    : never
+                : never
+            : T extends keyof Settings
+                ? Settings[T]
+                : never;
 
+export type SettingKeys = "" | SettingFullKeys | keyof typeof DEFAULT_SETTINGS | keyof Settings
+    | (SettingFullKeys<"color"> extends `${infer GP}.${infer P}.${string}` ? `${GP}.${P}` : never);
+
+/** 実際の設定のID */
+export type SettingFullKeys<T extends "color" | "order" | "select" | "boolean" | "prefVersion" = "color" | "order" | "select" | "boolean" | "prefVersion"> = {
+    [K in keyof typeof DEFAULT_SETTINGS]: (typeof DEFAULT_SETTINGS)[K]["type"] extends T
+        ? (typeof DEFAULT_SETTINGS)[K]["type"] extends "color" | "boolean"
+            ? (typeof DEFAULT_SETTINGS)[K]["type"] extends "color"
+                ? `${K}.${(typeof DEFAULT_SETTINGS)[K]["values"][number]["id"]}.${"background" | "border" | "color"}`
+                : `${K}.${(typeof DEFAULT_SETTINGS)[K]["values"][number]["id"]}`
+            : K
+        : never;
+}[keyof typeof DEFAULT_SETTINGS] | (
+    T extends "color"
+        ? `${"buttonColorLight" | "buttonColorDark"}.${(typeof DEFAULT_SETTINGS)["buttonColor"]["values"][number]["id"]}.${"background" | "border" | "color"}`
+        : never
+    | T extends "boolean"
+        ? "uncategorizedSettings.dimBackgroundTheme"
+        : never
+    | T extends "prefVersion"
+        ? "prefVersion"
+        : never
+);
+
+/** 実際の設定の型 */
+export interface Settings extends SettingsType {}
+type SettingObject<K extends keyof typeof DEFAULT_SETTINGS> =
+    (typeof DEFAULT_SETTINGS)[K]["type"] extends "color"
+        ? Record<(typeof DEFAULT_SETTINGS)[K]["values"][number]["id"], { background?: string; border?: string; color?: string }>
+    : (typeof DEFAULT_SETTINGS)[K]["type"] extends "order" ? (typeof DEFAULT_SETTINGS)[K]["values"][number]["id"][]
+    : (typeof DEFAULT_SETTINGS)[K]["type"] extends "select" ? (typeof DEFAULT_SETTINGS)[K]["values"][number]["id"]
+    : (typeof DEFAULT_SETTINGS)[K]["type"] extends "boolean" ? Record<(typeof DEFAULT_SETTINGS)[K]["values"][number]["id"], boolean>
+    : never;
+type SettingsType = {
+    [K in keyof typeof DEFAULT_SETTINGS as K extends `${infer P}.${string}` ? P : K]: K extends `${infer P}.${string}`
+        ?   {
+                [K2 in Extract<keyof typeof DEFAULT_SETTINGS, `${P}.${string}`> as K2 extends `${string}.${infer C}` ? C : never]: SettingObject<K2>;
+            }
+        : SettingObject<K>;
+} & {
+    buttonColorLight: Record<(typeof DEFAULT_SETTINGS)["buttonColor"]["values"][number]["id"], {
+        background?: string; border?: string; color?: string;
+    }>;
+    buttonColorDark: Record<(typeof DEFAULT_SETTINGS)["buttonColor"]["values"][number]["id"], {
+        background?: string; border?: string; color?: string;
+    }>;
+    uncategorizedSettings: {
+        dimBackgroundTheme: boolean;
+    };
+    prefVersion: number;
+
+    // DEFAULT_SETTINGSにtimelineとtimeline.pinningTabがあり重複しているため、timelineの型を上書き定義
+    timeline: Record<(typeof DEFAULT_SETTINGS.timeline.values[number]["id"]), boolean> & {
+        pinningTab: (typeof DEFAULT_SETTINGS["timeline.pinningTab"]["values"][number]["id"]);
+    };
+};
+
+/** 設定のデフォルト値の型 */
+export type SettingKeyDefault<T extends SettingFullKeys<"boolean" | "order" | "select">> =
+    T extends SettingFullKeys<"order" | "select"> ? (typeof DEFAULT_SETTINGS)[T]["default"]
+    : T extends SettingFullKeys<"boolean">
+        ?   {
+                [K in SettingGroupKeys<"boolean">]: T extends `${K}.${infer C}`
+                    ? Extract<(typeof DEFAULT_SETTINGS)[K]["values"][number], { id: C }>["default"]
+                    : never;
+            }[SettingGroupKeys<"boolean">]
+        : never;
 /* eslint-enable style/indent, style/indent-binary-ops, style/no-multi-spaces, style/operator-linebreak */
+
+/** 全設定の ID; DEFAULT_SETTINGSのキー, typeで絞り込み可能 */
+export type SettingGroupKeys<T extends "color" | "order" | "select" | "boolean" = "color" | "order" | "select" | "boolean"> = {
+    [K in keyof typeof DEFAULT_SETTINGS]: (typeof DEFAULT_SETTINGS)[K]["type"] extends T ? K : never;
+}[keyof typeof DEFAULT_SETTINGS];
+
+export type SettingGroupChildIds<T extends SettingGroupKeys> = (typeof DEFAULT_SETTINGS)[T]["values"][number]["id"];
+
 /** 全設定のデフォルト値とメタデータ */
 export const DEFAULT_SETTINGS = {
     // 色の設定
@@ -34,6 +126,7 @@ export const DEFAULT_SETTINGS = {
             { id: "tweetButton", i18n: "settingColors-tweetButton" },
         ],
     },
+
     // ツイート関連の設定
     visibleButtons: {
         type: "order",
@@ -202,7 +295,7 @@ export const DEFAULT_SETTINGS = {
     },
     "postingDialog.toolbar": {
         type: "order",
-        default: ["fileInput", "gitSearchButton", "grokImgGen", "createPollButton", "addEmoji", "scheduleOption", "geoButton"],
+        default: ["fileInput", "gitSearchButton", "grokImgGen", "createPollButton", "addEmoji", "scheduleOption", "geoButton", "contentDisclosureButton"],
         values: [
             { id: "fileInput", i18n: "postingDialog-toolbar-items-fileInput" },
             { id: "gitSearchButton", i18n: "postingDialog-toolbar-items-gitSearchButton" },
@@ -324,10 +417,13 @@ export const DEFAULT_SETTINGS = {
     },
 
     // プロフィールの設定
-    "profileSetting.tabs": { type: "boolean", values: [
-        { id: "pinnedTab", i18n: "profileSetting-tabs-pinnedTab", default: false },
-        { id: "changeNameReplies", i18n: "profileSetting-changeName-replies", default: false },
-    ] },
+    "profileSetting.tabs": {
+        type: "boolean",
+        values: [
+            { id: "pinnedTab", i18n: "profileSetting-tabs-pinnedTab", default: false },
+            { id: "changeNameReplies", i18n: "profileSetting-changeName-replies", default: false },
+        ],
+    },
     "profileSetting.profileInitialTab": {
         type: "select",
         default: "tweets",

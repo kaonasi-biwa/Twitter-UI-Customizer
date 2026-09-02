@@ -57,17 +57,17 @@ import RESET from "@shared/icons/common/reset.svg?component";
 // import { ARROW_LEFT, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, RESET } from "@content/data/icons";
 
 import { translate } from "@shared/i18n";
-import { getPref, setPref, savePref, getSettingI18n, SettingKeys, getSettingIDs, getDefaultPref } from "@content/settings";
+import { getPref, setPref, savePref, getSettingI18n, getSettingIDs, getDefaultPref, SettingFullKeys } from "@content/settings";
 
 import { cleanModifiedElements } from "@content/applyCSS";
 
-const props = defineProps<{ id: SettingKeys }>();
+const props = defineProps<{ id: SettingFullKeys<"order"> }>();
 
-const list = ref([]);
+const list = ref<string[]>([]);
 list.value = getPref(props.id);
-const selectedElem = ref("");
+const selectedElem = ref<string>("");
 
-const clickEv = (selectItem) => {
+const clickEv = (selectItem: string) => {
     selectedElem.value = selectItem;
 };
 
@@ -116,7 +116,7 @@ const toDown = () => {
 
 const toDefault = () => {
     const settingId = props.id;
-    list.value = structuredClone(getDefaultPref(settingId).data);
+    list.value = structuredClone(getDefaultPref(settingId));
     selectedElem.value = "";
     apply2Settings();
 };

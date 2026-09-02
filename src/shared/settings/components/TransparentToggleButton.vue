@@ -18,7 +18,7 @@ defineProps<{
 const emit = defineEmits<(e: "btnClicked", value: boolean) => void>();
 defineExpose({ setCheckedValue });
 
-const transparentButton = ref(null);
+const transparentButton = ref<HTMLButtonElement>(null);
 
 const btnClicked = ($event: Event) => {
     // チェックを反転させて
@@ -28,7 +28,7 @@ const btnClicked = ($event: Event) => {
 };
 
 function setCheckedValue(value: boolean) {
-    transparentButton.value.dataset.checked = value;
+    transparentButton.value.dataset.checked = value.toString();
 }
 </script>
 

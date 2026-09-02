@@ -7,7 +7,7 @@ import { ProcessedClass } from "@shared/sharedData";
 import { backgroundColorClass } from "@content/utils/color";
 import { fontSizeClass } from "@content/utils/fontSize";
 
-const eventHandle = (elem: Element, func: () => void) => {
+const eventHandle = (elem: HTMLElement, func: () => void) => {
     elem.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Enter") {
             func();
@@ -64,7 +64,7 @@ const _data = {
                         style={{ "text-overflow": "unset", color: "rgb(139, 152, 165)" }}
                         onClick={eventFunc}
                     >
-                        <div class="css-175oi2r r-xoduu5">
+                        <div class="css-g5y9jx r-xoduu5">
                             <div class="css-175oi2r r-xoduu5 r-1p0dtai r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-1niwhzg r-sdzlij r-xf4iuw r-o7ynqc r-6416eg r-1ny4l3l TUIC_ButtonHover"></div>
                             <svg
                                 viewBox={`0 0 ${svgHeight} ${svgWidth}`}
@@ -118,7 +118,7 @@ const _data = {
                         moremenu.click();
                         (
                             await waitForElement<HTMLButtonElement>(
-                                `[role="menuitem"] [d="M18 6.59V1.2L8.71 7H5.5C4.12 7 3 8.12 3 9.5v5C3 15.88 4.12 17 5.5 17h2.09l-2.3 2.29 1.42 1.42 15.5-15.5-1.42-1.42L18 6.59zm-8 8V8.55l6-3.75v3.79l-6 6zM5 9.5c0-.28.22-.5.5-.5H8v6H5.5c-.28 0-.5-.22-.5-.5v-5zm6.5 9.24l1.45-1.45L16 19.2V14l2 .02v8.78l-6.5-4.06z"]`,
+                                `[role="menuitem"] [d="M16 6.586l4.293-4.293 1.414 1.414-18 18-1.414-1.414 2.657-2.658C3.795 17.063 3 15.875 3 14.5v-5C3 7.567 4.567 6 6.5 6h2.148l4.727-3.781.274-.219H16v4.586zM9.625 7.78L9.351 8H6.5C5.672 8 5 8.672 5 9.5v5c0 .828.672 1.5 1.5 1.5h.086L14 8.586V4.28l-4.375 3.5z"]`,
                             )
                         )[0]
                             .closest<HTMLElement>(`[role="menuitem"]`)

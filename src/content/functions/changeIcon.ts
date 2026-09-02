@@ -39,7 +39,7 @@ function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
             break;
         case "twitter":
             if (favicon && changeFavicon) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color")));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`)
             }
             elem.dataset.tuicIconType = "officialLogo-twitter";
@@ -60,14 +60,14 @@ function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
         case "twitterIcon-X":
             if (favicon && changeFavicon) {
                 //console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null))));
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color")));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
             elem.dataset.tuicIconType = "officialLogo-X";
             break;
         case "twitterIcon-XDaruma":
             if (favicon && changeFavicon) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color")));
             }
             elem.dataset.tuicIconType = "x-daruma";
             break;
@@ -85,7 +85,7 @@ function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
 
 //* setup icon observer
 export function changeIcon() {
-    const notProcessed = `:not([tuic-icon-type])`;
+    const notProcessed = `:not([data-tuic-icon-type])`;
     {
         const elem = document.querySelector<HTMLElement>(`header h1 a > div > svg${notProcessed}`);
         if (elem) {
@@ -125,17 +125,9 @@ export function changeIcon() {
     }
 }
 
-// 起動時のアイコン
-let initIconObserver: MutationObserver | null = null;
-
-export const initIconObserverFunction = () => {
-    if (initIconObserver) initIconObserver.disconnect();
-    else initIconObserver = new MutationObserver(initIconObserverFunction);
-
-    changeIconProcess(document.querySelector(`#placeholder > svg:not([data-tuic-icon-type])`), document.querySelector(`#placeholder`));
-
-    initIconObserver.observe(document.querySelector(`#placeholder > svg`), {
-        attributes: true,
-        attributeFilter: ["class"],
-    });
-};
+/** 起動中に表示されるロゴを変更します。 */
+export function changeLoadingLogo() {
+    const element = document.querySelector<HTMLElement>("#placeholder > svg");
+    if (!element) return;
+    changeIconProcess(element, element.parentElement);
+}

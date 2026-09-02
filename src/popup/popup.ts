@@ -1,8 +1,12 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const isFirefox = "browser" in window;
+const isFirefox = chrome.runtime.getURL("").startsWith("moz-extension://");
 
-let setting = {};
+let setting = {} as {
+    iconClick: boolean;
+    openTwitter: boolean;
+    runBrowser: boolean;
+};
 
 const i18nApply = async () => {
     for (const elem of Array.from(document.querySelectorAll(".i18n-t"))) {
@@ -55,7 +59,7 @@ window.onload = async () => {
     };
     // Firefoxの場合のみ有効
 
-    chrome.storage.sync.get("TUIC", async (settingT) => {
+    chrome.storage.sync.get<{ TUIC?: typeof setting }>("TUIC", async (settingT) => {
         const updateUrl = chrome.runtime.getManifest().update_url;
         const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
         setting = settingT.TUIC ?? {
@@ -63,7 +67,7 @@ window.onload = async () => {
             runBrowser: isWebstore,
             openTwitter: isWebstore,
         };
-        const settingList = ["iconClick", "openTwitter", "runBrowser"];
+        const settingList = ["iconClick", "openTwitter", "runBrowser"] as const;
         for (const i of settingList) {
             const elem = document.getElementById(i);
             if (elem instanceof HTMLInputElement) {

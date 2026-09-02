@@ -1,2 +1,6 @@
 minimumReleaseAge: '10080' # in minutes (7 days)
 blockExoticSubdeps: true
+allowBuilds:
+  esbuild: false
+  spawn-sync: false
+  unrs-resolver: false

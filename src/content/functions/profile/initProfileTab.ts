@@ -31,7 +31,8 @@ export function profileInitialTab() {
 
 function profileInitialTabRedirect(userName: string) {
     return () => {
-        if (getPref("profileSetting.profileInitialTab") != "tweets") {
+        const initialTab = getPref("profileSetting.profileInitialTab");
+        if (initialTab !== "tweets") {
             window.setTimeout(async () => {
                 await waitForElement(`a[href="/${userName}/photo"]`);
                 await waitForElement(`nav [role="presentation"]`);
@@ -39,7 +40,7 @@ function profileInitialTabRedirect(userName: string) {
                 for (let i = 0; i <= 25; i++) {
                     const re = await new Promise((resolve) => {
                         if (window.scrollY == 0) {
-                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[getPref("profileSetting.profileInitialTab")]}`).click();
+                            document.querySelector<HTMLAnchorElement>(`nav [role="presentation"] a${_data.selectors[initialTab]}`).click();
                             resolve(true);
                         }
                         resolve(false);

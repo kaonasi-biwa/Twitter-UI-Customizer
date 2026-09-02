@@ -1,6 +1,7 @@
 {
     "include": ["i18n/_langList.ts", "public", "src", "third-party"],
     "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.main.tsbuildinfo",
         "jsx": "preserve",
         "jsxImportSource": "solid-js",
         "module": "ESNext",
@@ -9,6 +10,9 @@
         "lib": ["ES2023", "DOM", "DOM.Iterable"],
         "esModuleInterop": true,
         "isolatedModules": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "noImplicitAny": false,
         "skipLibCheck": true,
         "noEmit": true,
         "types": ["@types/chrome", "vite/client", "vite-svg-loader"],

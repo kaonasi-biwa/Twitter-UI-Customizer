@@ -14,7 +14,7 @@
 import ColorSetting from "./ColorSetting.vue";
 import { ColorData } from "@shared/sharedData";
 
-const props = defineProps<{ id: string }>();
+const props = defineProps<{ id: keyof typeof ColorData.defaultTUICColor.colors }>();
 
 const _color = ColorData.defaultTUICColor.colors[props.id];
 const typeColor = _color["typeColor"] === "imageColor" ? "settingUI-colorPicker-svgColor" : "settingUI-colorPicker-textColor";

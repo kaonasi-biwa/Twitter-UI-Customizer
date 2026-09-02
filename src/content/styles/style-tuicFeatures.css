@@ -49,11 +49,10 @@
 */
 
 .TUICSidebarButton {
-    &:is(:hover, :focus-visible) > div {
+    &:hover > div {
         background-color: var(--TUIC-sidebar-hover-color);
     }
-
-    &[data-focusvisible-polyfill] > div {
+    &:focus-visible > div {
         box-shadow: var(--TUIC-sidebar-focus-color) 0 0 0 2px;
     }
 
@@ -214,5 +213,35 @@
     }
     .r-g2wdr4 {
         background-color: rgb(31 40 51);
+    }
+    .r-2sztyj { /* rgb(47, 51, 54) */
+        border-top-color: #38444d;
+    }
+    .r-1igl3o0 {
+        border-bottom-color: #38444d;
+    }
+    .r-1kqtdi0 {
+        border-color: #38444d;
+    }
+    .r-gu4em3 {
+        background-color: #38444d;
+    }
+    .r-1bnu78o {
+        background-color: #425364; /* var(--color-gray-200) */
+    }
+    .r-1roi411 {
+        border-color: #425364; /* var(--color-gray-200) */
+    }
+    .r-1hdo0pc {
+        border-color: rgb(247 249 249 / 10%); /* var(--color-gray-1100),0.1 */
+    }
+    .r-qo02w8 { /* rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px */
+        box-shadow: rgb(136 153 166 / 20%) 0 0 15px, rgb(136 153 166 / 15%) 0 0 3px 1px;
+    }
+    [style="color: rgb(113, 118, 123);"] {
+        color: #8b98a5 !important; /* var(--color-gray-700) */
+    }
+    [style="background-color: rgb(0, 0, 0);"] {
+        background-color: #15202b !important; /* var(--color-background) */
     }
 }

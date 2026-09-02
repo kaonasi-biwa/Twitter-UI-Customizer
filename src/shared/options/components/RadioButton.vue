@@ -14,7 +14,7 @@ import { cleanModifiedElements } from "@content/applyCSS";
 
 defineProps<{ id: string; valueName: string; name: string }>();
 
-const changePref = (path, valueName) => {
+const changePref = (path: string, valueName: string) => {
     setPref(path, valueName);
     savePref();
     cleanModifiedElements();

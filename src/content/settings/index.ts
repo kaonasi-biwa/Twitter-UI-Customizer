@@ -1,13 +1,14 @@
-import { DEFAULT_SETTINGS, type SettingKeys } from "./settings";
+import { DEFAULT_SETTINGS } from "./settings";
+import type { Settings, SettingKeys, SettingFullKeys, SettingKeyType, SettingGroupKeys, SettingKeyDefault, SettingGroupChildIds } from "./settings";
 
 // TODO: 暫定的対応
-export type { SettingKeys };
+export type { SettingGroupKeys, SettingFullKeys, SettingGroupChildIds } from "./settings";
 
-let settings = null;
+let settings: Settings = null;
 
-const getPointerFromKey = (object: object, key: string) => {
+const getPointerFromKey = (object: Record<string, unknown>, key: string) => {
     const keys = ["o", ...key.split(".").filter((k) => k !== "")];
-    let pointer = { o: object };
+    let pointer: Record<string, unknown> = { o: object };
     for (let i = 0; i < keys.length; i++) {
         const k = keys[i];
         if (i === keys.length - 1) {
@@ -19,7 +20,7 @@ const getPointerFromKey = (object: object, key: string) => {
             if (!(k in pointer)) {
                 pointer[k] = {};
             }
-            pointer = pointer[k];
+            pointer = pointer[k] as Record<string, unknown>;
         }
     }
 };
@@ -31,7 +32,9 @@ const getPointerFromKey = (object: object, key: string) => {
  * @param {object} source 使用するPrefのObject。
  * @return {unknown} 取得した値(identifierが空文字ならTUICのPref全体)
  */
-export function getPref<T = any>(identifier: string, source = settings): T {
+export function getPref<T extends SettingKeys>(identifier: T, source?: Settings): SettingKeyType<T>;
+export function getPref<T>(identifier: string, source?: Settings): T;
+export function getPref<T extends SettingKeys>(identifier: T, source: Settings = settings) {
     const { object, key } = getPointerFromKey(source, identifier);
     return object[key];
 }
@@ -44,9 +47,11 @@ export function getPref<T = any>(identifier: string, source = settings): T {
  * @param {string} value 設定する値
  * @param {object} source 使用するPrefのObject。
  */
-export function setPref(identifier: string, value: unknown, source = settings) {
+export function setPref<T extends SettingFullKeys | "">(identifier: T, value: SettingKeyType<T>, source?: Settings): void;
+export function setPref<T>(identifier: string, value: T, source?: Settings): void;
+export function setPref(identifier: string, value: unknown, source: Settings = settings) {
     if (identifier == "") {
-        settings = value;
+        settings = value as Settings;
     } else {
         const { object, key } = getPointerFromKey(source, identifier);
         object[key] = value;
@@ -59,7 +64,9 @@ export function setPref(identifier: string, value: unknown, source = settings) {
  * @param {string} identifier 取得するPrefへのパス(ピリオド区切り)。
  * @param {object} source 使用するPrefのObject。
  */
-export function deletePref(identifier: string, source = settings) {
+export function deletePref<T extends SettingFullKeys>(identifier: T, source?: Settings): void;
+export function deletePref(identifier: string, source?: Settings): void;
+export function deletePref(identifier: string, source: Settings = settings) {
     const { object, key } = getPointerFromKey(source, identifier);
     delete object[key];
 }
@@ -85,15 +92,15 @@ export function exportPref(): string {
  * @param {object} source マージ元
  * @param {object} target マージ先
  */
-export function mergePref(source: object, target: object) {
+export function mergePref<T extends Record<string, any>, U extends Record<string, any>>(source: T, target: U): T & U {
     for (const i in source) {
         if (!(i in target)) {
-            target[i] = source[i];
-        } else if (typeof source[i] == "object" && !Array.isArray(source[i])) {
+            (target as T | U)[i] = source[i];
+        } else if (typeof source[i] === "object" && !Array.isArray(source[i])) {
             mergePref(source[i], target[i]);
         }
     }
-    return target;
+    return target as T & U;
 }
 
 /**
@@ -104,12 +111,12 @@ export function mergePref(source: object, target: object) {
  * @param {string} nextKey 変更先のキー
  * @param {any} replaceValue 置き換える値
  */
-const changeBooleanKey = (previousKey: string, nextKey: string, source, replaceValue: string | boolean = true) => {
+const changeBooleanKey = (previousKey: string, nextKey: string, source: Settings, replaceValue: string | boolean = true) => {
     if (getPref(previousKey, source) === true) setPref(nextKey, replaceValue, source);
     deletePref(previousKey, source);
 };
 
-export async function updatePref(source = settings) {
+export async function updatePref(source: Settings = settings) {
     const prefVersion_ = getPref("prefVersion", source) ?? 0;
     setPref("prefVersion", prefVersion);
     switch (prefVersion_) {
@@ -155,8 +162,8 @@ export async function updatePref(source = settings) {
                 "otherBoolSetting.faviconSet": "twitterIcon.options.faviconSet",
                 "otherBoolSetting.roundIcon": "twitterIcon.options.roundIcon",
             };
-            for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey], source);
+            for (const [oldKey, newKey] of Object.entries(boolKeys)) {
+                changeBooleanKey(oldKey, newKey, source);
             }
 
             changeBooleanKey("invisibleItems.discoverMore", "timeline-discoverMore", source, "discoverMore_invisible");
@@ -186,14 +193,14 @@ export async function updatePref(source = settings) {
                 });
             }
 
-            if (typeof getPref("visibleButtons", source) == "object" && getPref("visibleButtons", source).includes("downvote-button")) {
+            if (typeof getPref("visibleButtons", source) == "object" && getPref<string[]>("visibleButtons", source).includes("downvote-button")) {
                 setPref(
                     "visibleButtons",
                     getPref("visibleButtons", source).filter((elem: string) => elem != "downvote-button"),
                     source,
                 );
             }
-            if (typeof getPref("sidebarButtons", source) == "object" && (getPref("sidebarButtons", source).includes("verified-orgs-signup") || getPref("sidebarButtons", source).includes("twiter-blue") || getPref("sidebarButtons", source).includes("circles"))) {
+            if (typeof getPref("sidebarButtons", source) == "object" && (getPref<string[]>("sidebarButtons", source).includes("verified-orgs-signup") || getPref<string[]>("sidebarButtons", source).includes("twiter-blue") || getPref<string[]>("sidebarButtons", source).includes("circles"))) {
                 setPref(
                     "sidebarButtons",
                     getPref("sidebarButtons", source).filter((elem: string) => elem != "sidebarButtons-circles" && elem != "twiter-blue" && elem != "verified-orgs-signup" && elem != "circles"),
@@ -216,8 +223,8 @@ export async function updatePref(source = settings) {
                 "otherBoolSetting.placeEngagementsLinkShort": "engagementsLink.option.placeEngagementsLinkShort",
                 "otherBoolSetting.showLinkCardInfo": "showLinkCardInfo.showLinkCardInfo",
             };
-            for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey], source);
+            for (const [oldKey, newKey] of Object.entries(boolKeys)) {
+                changeBooleanKey(oldKey, newKey, source);
             }
             // falls through
         }
@@ -227,8 +234,8 @@ export async function updatePref(source = settings) {
                 "tweetDisplaySetting.option.noModalbottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noModalbottomTweetButtons",
                 "tweetDisplaySetting.option.noNumberBottomTweetButtons": "tweetDisplaySetting.buttonsInvisible.noNumberBottomTweetButtons",
             };
-            for (const oldKey in boolKeys) {
-                changeBooleanKey(oldKey, boolKeys[oldKey], source);
+            for (const [oldKey, newKey] of Object.entries(boolKeys)) {
+                changeBooleanKey(oldKey, newKey, source);
             }
             // falls through
         }
@@ -247,57 +254,47 @@ export async function updatePref(source = settings) {
     }
 }
 
-let defaultData = null;
-
-export function mergeDefaultPref(source) {
-    if (defaultData == null) {
-        defaultData = {};
-        for (const elem in DEFAULT_SETTINGS) {
-            if (elem == "buttonColor") {
-                defaultData.buttonColor = {};
-                defaultData.buttonColorLight = {};
-                defaultData.buttonColorDark = {};
-            } else {
-                const defaultReturn = getDefaultPref(elem);
-                switch (defaultReturn.type) {
-                    case "boolean": {
-                        for (const data in defaultReturn.data) {
-                            setPref(`${elem}.${data}`, defaultReturn.data[data], defaultData);
-                        }
-                        break;
-                    }
-                    case "select": {
-                        setPref(elem, defaultReturn.data, defaultData);
-                        break;
-                    }
-                    case "order": {
-                        setPref(elem, structuredClone(defaultReturn.data), defaultData);
-                        break;
-                    }
+const defaultPref = generateDefaultPref();
+function generateDefaultPref() {
+    const defaultData = {
+        buttonColor: {},
+        buttonColorLight: {},
+        buttonColorDark: {},
+    } as Settings;
+    for (const elem in DEFAULT_SETTINGS) {
+        if (elem === "buttonColor") continue;
+        const prefData = DEFAULT_SETTINGS[elem as SettingGroupKeys];
+        switch (prefData.type) {
+            case "boolean": {
+                for (const data of prefData.values) {
+                    setPref(`${elem}.${data.id}`, data.default ?? false, defaultData);
                 }
+                break;
+            }
+            case "order": {
+                setPref(elem, structuredClone(prefData.default), defaultData);
+                break;
+            }
+            case "select": {
+                setPref(elem, prefData.default, defaultData);
+                break;
             }
         }
     }
-    return mergePref(structuredClone(defaultData), structuredClone(source));
+    return defaultData;
 }
 
-export function getDefaultPref(id: string) {
-    const prefData = DEFAULT_SETTINGS[id];
-    switch (prefData.type) {
-        case "boolean": {
-            const returnObject = {};
-            for (const elem of prefData.values) {
-                returnObject[elem.id] = elem.default ?? false;
-            }
-            return { data: returnObject, type: prefData.type };
-        }
-        case "order": {
-            return { data: structuredClone(prefData.default), type: prefData.type };
-        }
-        case "select": {
-            return { data: prefData.default, type: prefData.type };
-        }
+export function mergeDefaultPref(source: Partial<Settings>): Settings {
+    return mergePref(structuredClone(defaultPref), structuredClone(source));
+}
+
+export function getDefaultPref(): Settings;
+export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id: T): SettingKeyDefault<T>;
+export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id?: T) {
+    if (id === undefined) {
+        return structuredClone(defaultPref);
     }
+    return getPref<SettingKeyDefault<T>>(id, structuredClone(defaultPref));
 }
 
 const prefVersion = 5;
@@ -308,8 +305,8 @@ const prefVersion = 5;
  * @param {string} id 設定カテゴリーID
  * @return {string[]} 取得した値一覧
  */
-export function getSettingIDs<T extends SettingKeys>(id: T): (typeof DEFAULT_SETTINGS)[T]["values"][number]["id"][] {
-    return DEFAULT_SETTINGS[id].values.map((elem) => elem.id);
+export function getSettingIDs<T extends SettingGroupKeys>(id: T): SettingGroupChildIds<T>[] {
+    return DEFAULT_SETTINGS[id].values.map((elem: (typeof DEFAULT_SETTINGS)[T]["values"][number]) => elem.id);
 }
 
 /**
@@ -318,7 +315,7 @@ export function getSettingIDs<T extends SettingKeys>(id: T): (typeof DEFAULT_SET
  * @param {string} id 設定カテゴリーID
  * @return {{id:string,i18n:string}[]} 取得したデータ
  */
-export function getSettingData<T extends SettingKeys>(id: T): (typeof DEFAULT_SETTINGS)[T]["values"] {
+export function getSettingData<T extends SettingGroupKeys>(id: T): typeof DEFAULT_SETTINGS[T]["values"] {
     return DEFAULT_SETTINGS[id].values;
 }
 
@@ -329,8 +326,10 @@ export function getSettingData<T extends SettingKeys>(id: T): (typeof DEFAULT_SE
  * @param {string} id 設定自体のID(設定カテゴリーIDを除く)
  * @return {string} i18nのID
  */
-export function getSettingI18n<T extends SettingKeys>(id: T, itemValue: (typeof DEFAULT_SETTINGS)[T]["values"][number]["id"]): string {
+export function getSettingI18n<T extends SettingGroupKeys>(id: T, itemValue: SettingGroupChildIds<T>): (typeof DEFAULT_SETTINGS)[T]["values"][number]["i18n"];
+export function getSettingI18n<T>(id: string, itemValue: string): T;
+export function getSettingI18n<T extends SettingGroupKeys>(id: T, itemValue: SettingGroupChildIds<T>): (typeof DEFAULT_SETTINGS)[T]["values"][number]["i18n"] {
     return DEFAULT_SETTINGS[id].values.filter((elem) => elem.id == itemValue)[0]?.i18n ?? undefined;
 }
 
-settings = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(mergeDefaultPref({})));
+settings = JSON.parse(localStorage.getItem("TUIC") ?? JSON.stringify(defaultPref));

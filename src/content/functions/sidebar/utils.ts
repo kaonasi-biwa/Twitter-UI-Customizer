@@ -1,17 +1,19 @@
 import { waitForElement } from "@content/utils/element";
 
 export const buttonClickInMoreMenu = async (selector: string) => {
-    (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
-    const foundElem = (await waitForElement<HTMLAnchorElement>(`:is([role="group"],[data-testid="Dropdown"]) ${selector}`))[0];
-    foundElem.click();
-    (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`))[0].click();
-    setTimeout(() => {
-        if (document.querySelector(`[role="menu"]`))
-            document.querySelector<HTMLDivElement>(`[data-testid="AppTabBar_More_Menu"] > div > div`)?.click();
-    }, 500);
-    if (!foundElem) {
-        return false;
-    }
+    // NOTE: 「もっと表示」ボタンをクリックして、ドロップダウンメニューを開く
+    const moreMenuButton = (await waitForElement<HTMLAnchorElement>(`[data-testid="AppTabBar_More_Menu"]`))[0];
+    if (!moreMenuButton) return false;
+    moreMenuButton.click();
+
+    // NOTE: 指定されたセレクターに一致する要素をクリックする
+    const targetButton = (await waitForElement<HTMLAnchorElement>(`[role="menu"] [data-testid="Dropdown"] ${selector}`))[0];
+    if (!targetButton) return false;
+    targetButton.click();
+
+    // NOTE: 「もっと表示」ボタンをクリックして、ドロップダウンメニューを閉じる
+    moreMenuButton.click();
+
     return true;
 };
 

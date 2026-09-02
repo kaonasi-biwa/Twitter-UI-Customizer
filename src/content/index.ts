@@ -8,7 +8,7 @@ import { loadI18n, translate } from "@shared/i18n";
 import { injectSettingsStyle, injectSystemIconStyle, injectSettingsIconStyle, injectSystemStyle, cleanModifiedElements, injectCustomStyle } from "@content/applyCSS";
 import { isSafemode, runSafemode } from "@content/settings/ui/safemode";
 import { startTluiObserver } from "@shared/tlui/observer";
-import { initIconObserverFunction } from "@content/functions/changeIcon";
+import { changeLoadingLogo } from "@content/functions/changeIcon";
 import { setTitleObserver } from "@content/functions/replaceTitleX";
 import { runSettingComponentObserver } from "@content/settings/ui";
 import { placePrintPrefButton } from "./printPref";
@@ -82,9 +82,7 @@ import { waitForElement } from "@content/utils/element";
         injectSettingsIconStyle();
 
         // 起動時のTwitterアイコンを変更
-        if (document.querySelector(`#placeholder > svg`)) {
-            initIconObserverFunction();
-        }
+        changeLoadingLogo();
 
         // タイトル変更のためのObserver
         waitForElement("title").then(setTitleObserver);

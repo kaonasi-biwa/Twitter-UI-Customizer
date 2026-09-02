@@ -26,7 +26,7 @@ export function modifyPostingDialog() {
 async function sortPostingDialogButtons() {
     if (document.querySelector(`[data-testid="toolBar"] input[data-testid="fileInput"]:not(.${ProcessedClass})`)) {
         const buttons: Record<string, HTMLElement> = {};
-        const visibleButtons: string[] = getPref(`postingDialog.toolbar`);
+        const visibleButtons = getPref(`postingDialog.toolbar`);
         for (const buttonID of _data.all) {
             const toolbarButton = document.querySelector<HTMLElement>(`[data-testid="toolBar"] [role="tablist"] ${_data.selectors[buttonID]}`)?.closest<HTMLElement>(`[role="presentation"]`);
             if (toolbarButton) {
@@ -40,8 +40,8 @@ async function sortPostingDialogButtons() {
         const emptyElement = document.querySelector<HTMLElement>(`[data-testid="toolBar"] [role="tablist"] [role="presentation"]:not(.${ProcessedClass})`);
         const parentElement = document.querySelector(`[data-testid="toolBar"] input[data-testid="fileInput"]`).closest<HTMLElement>(`[role="presentation"]`).parentElement;
         for (const buttonID of visibleButtons) {
-            if (visibleButtons[buttonID]) {
-                parentElement.insertBefore(visibleButtons[buttonID], emptyElement);
+            if (buttons[buttonID]) {
+                parentElement.insertBefore(buttons[buttonID], emptyElement);
             }
         }
     }

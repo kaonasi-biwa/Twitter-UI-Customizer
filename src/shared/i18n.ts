@@ -1,14 +1,14 @@
 import { langList } from "@i18nData/_langList";
 
 const langRes = import.meta.glob(["@i18nData/*.json", "@i18nData/ti18n/*.json"]);
-const i18nCache = {};
+const i18nCache = {} as Record<typeof langList[number], Record<string, string>>;
 
 /** i18n データを読み込みます。 */
 export async function loadI18n(): Promise<void> {
     for (const language of langList) {
         i18nCache[language] = Object.assign(
-            (await langRes[`../i18n/${language}.json`]() as { default: object }).default,
-            (await langRes[`../i18n/ti18n/${language}.json`]() as { default: object }).default,
+            (await langRes[`../i18n/${language}.json`]() as { default: Record<string, string> }).default,
+            (await langRes[`../i18n/ti18n/${language}.json`]() as { default: Record<string, string> }).default,
         );
     }
 }
@@ -19,9 +19,9 @@ export async function loadI18n(): Promise<void> {
  * @param language 言語コード
  * @returns 翻訳されたテキストデータ
  */
-export function translate(key: string, language?: string): string {
-    const preferLanguage = language ?? document.documentElement.getAttribute("lang");
-    for (const lang of [preferLanguage, "en", "ja"]) {
+export function translate(key: string, language?: typeof langList[number]): string {
+    const preferLanguage = language ?? document.documentElement.getAttribute("lang") as typeof langList[number];
+    for (const lang of [preferLanguage, "en", "ja"] as const) {
         if (lang in i18nCache && key in i18nCache[lang]) {
             return i18nCache[lang][key];
         }
