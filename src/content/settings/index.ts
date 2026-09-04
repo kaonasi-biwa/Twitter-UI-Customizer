@@ -1,5 +1,5 @@
 import { DEFAULT_SETTINGS } from "./settings";
-import type { Settings, SettingKeys, SettingFullKeys, SettingKeyType, SettingGroupKeys, SettingKeyDefault, SettingGroupChildIds } from "./settings";
+import type { Settings, SettingKeys, SettingFullKeys, SettingGroupKeys, SettingKeyDefault, SettingGroupChildIds } from "./settings";
 
 // TODO: 暫定的対応
 export type { SettingGroupKeys, SettingFullKeys, SettingGroupChildIds } from "./settings";
@@ -99,6 +99,7 @@ export class NestedPreferences<T extends JsonValue> extends Preferences<T> {
 
 // MARK: Migrates
 
+// eslint-disable-next-line ts/no-unsafe-declaration-merging
 export interface MigratableNestedPreferences extends NestedPreferences<DefaultPreferencesData> {
     // NOTE: 古い設定は型定義から削除されていることがあるため、最新の設定型定義を補完しつつ、存在しないキーを受け入れるようにする
     // こうすることで、例えば以下のように推論される:
@@ -108,10 +109,11 @@ export interface MigratableNestedPreferences extends NestedPreferences<DefaultPr
     // 存在しなくなったが強制的に使用したい、かつ値に特定の型を要求するキーを使用する際、第二ジェネリクスで明示する必要が出てくることにより、多少明示的になる
 
     // TODO: V = any は型定義が厳密になれば T[K] に置き換えられる
-    get<V = any, K extends string = SettingKeys>(identifier: K): V;
-    set<K extends string = SettingKeys, V = any>(identifier: K, value: V): this;
-    delete<K extends string = SettingKeys>(identifier: K): this;
+    get: <V = any, K extends string = SettingKeys>(identifier: K) => V;
+    set: <K extends string = SettingKeys, V = any>(identifier: K, value: V) => this;
+    delete: <K extends string = SettingKeys>(identifier: K) => this;
 }
+// eslint-disable-next-line ts/no-unsafe-declaration-merging
 export class MigratableNestedPreferences extends NestedPreferences<DefaultPreferencesData> {
     /**
      * `oldKey` の設定が true であれば `newKey` に `newValue` を設定し、`oldKey` を削除します。
