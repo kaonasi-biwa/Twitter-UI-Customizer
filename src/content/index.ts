@@ -10,6 +10,7 @@ import { isSafemode, runSafemode } from "@content/settings/ui/safemode";
 import { startTluiObserver } from "@shared/tlui/observer";
 import { changeLoadingLogo } from "@content/functions/changeIcon";
 import { setTitleObserver } from "@content/functions/replaceTitleX";
+import { startTwemojiObserver, onTwemojiEnabled } from "@content/functions/twemoji";
 import { runSettingComponentObserver } from "@content/settings/ui";
 import { placePrintPrefButton } from "./printPref";
 import { getPref, mergeDefaultPref, setPref, updatePref } from "@content/settings";
@@ -89,6 +90,11 @@ import { waitForElement } from "@content/utils/element";
 
         // TLUI用のObserver
         startTluiObserver();
+
+        // 絵文字を画像に置き換えるためのObserver
+        startTwemojiObserver();
+        if (getPref("XToTwitter.useTwemoji")) onTwemojiEnabled();
+        // TODO: onTwemojiDisabled をどこから呼ぶ？　Preferences クラス (#295) などのイベント駆動が必要？
 
         // メインのObserver
         const observer = new TUICObserver(document.body);

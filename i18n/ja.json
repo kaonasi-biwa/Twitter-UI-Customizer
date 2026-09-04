@@ -214,6 +214,7 @@
     "XtoTwitter-XtoTwitter": "タブのタイトルの「X」を「Twitter」に変更する",
     "XtoTwitter-PostToTweet": "「投稿する」を「ツイートする」に戻す",
     "XtoTwitter-PwaManifest": "PWA時のアイコンと名前をTwitterに変更する",
+    "XtoTwitter-useTwemoji": "絵文字の見た目をTwemojiに戻す",
     "XtoTwitter-twitterIcon": "アイコンをTwitterに戻す",
 
     "uncategorizedSettings-settingTitle": "その他の設定",
