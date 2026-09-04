@@ -134,7 +134,7 @@ export class TUICObserver {
             console.error(e);
             causedErrorCount++;
             if (causedErrorCount >= 3) {
-                showErrorDialog(e);
+                showErrorDialog(e as Error);
             } else {
                 window.setTimeout(() => this.callback(), 3000);
             }

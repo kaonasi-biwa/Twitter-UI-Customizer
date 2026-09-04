@@ -1,7 +1,11 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { loadI18n } from "@content/i18n";
 
-let setting = {};
+let setting = {} as {
+    iconClick: boolean;
+    openTwitter: boolean;
+    runBrowser: boolean;
+};
 
 const i18nApply = async () => {
     for (const elem of [...document.querySelectorAll(".i18n-t")]) {
@@ -14,15 +18,15 @@ const i18nApply = async () => {
     }
 };
 
-const checkbox = (event) => {
-    const elem = event.target;
+const checkbox = (event: Event) => {
+    const elem = event.target as HTMLInputElement;
     setting[elem.id] = elem.checked;
     chrome.storage.sync.set({ TUIC: setting });
 };
 
 window.onload = () => {
     i18nApply();
-    chrome.storage.sync.get("TUIC", async (settingT) => {
+    chrome.storage.sync.get<{ TUIC?: typeof setting }>("TUIC", async (settingT) => {
         await loadI18n();
         const updateUrl = chrome.runtime.getManifest().update_url;
         const isWebstore = !(typeof updateUrl === "string" ? updateUrl.includes("google.com") : undefined);
@@ -31,7 +35,7 @@ window.onload = () => {
             runBrowser: isWebstore,
             openTwitter: isWebstore,
         };
-        const settingList = ["iconClick", "openTwitter", "runBrowser"];
+        const settingList = ["iconClick", "openTwitter", "runBrowser"] as const;
         for (const i of settingList) {
             const elem = document.querySelector<HTMLInputElement>(`#${i}`);
             if (setting[i]) {

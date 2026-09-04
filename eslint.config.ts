@@ -37,6 +37,7 @@ export default antfu(
             //tsconfigPath: "tsconfig.json",
             overrides: {
                 "ts/no-use-before-define": 0,
+                "unicorn/prefer-module": "error",
 
                 "ts/consistent-type-imports": 0, //["error", { fixStyle: "inline-type-imports" }],
             },
@@ -81,7 +82,6 @@ export default antfu(
         rules: {
             "no-cond-assign": ["error", "except-parens"],
             "no-alert": 0,
-            "unicorn/prefer-module": "error",
             "node/prefer-global/buffer": 0,
             "unocss/order": 0,
             "perfectionist/sort-imports": 0,

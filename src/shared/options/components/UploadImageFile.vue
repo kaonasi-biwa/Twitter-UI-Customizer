@@ -15,7 +15,7 @@ import { injectSettingsIconStyle, injectSettingsStyle } from "@content/applyCSS"
 import { translate } from "@content/i18n";
 import { ref } from "vue";
 
-const twitterIcon = ref(null);
+const twitterIcon = ref<HTMLInputElement>(null);
 
 async function changeCustomCSS() {
     if (twitterIcon.value.files.length >= 1) {
@@ -31,9 +31,9 @@ async function changeCustomCSS() {
                 context.arc(100, 100, 100, (0 * Math.PI) / 180, (360 * Math.PI) / 180);
                 context.clip();
                 const image = new Image();
-                image.onload = function (this: HTMLImageElement) {
+                image.onload = () => {
                     context.beginPath();
-                    context.drawImage(this, 0, 0, this.naturalHeight, this.naturalWidth, 0, 0, 200, 200);
+                    context.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, 0, 0, 200, 200);
                     localStorage.setItem("TUIC_IconImg_Favicon", element.toDataURL());
                     resolve(null);
                 };

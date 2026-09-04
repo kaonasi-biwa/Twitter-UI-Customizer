@@ -1,10 +1,10 @@
 /dist/
 /node_modules/
 .env.local
-/*.tsbuildinfo
 
 # old
 dependency-graph.svg
 *.zip
 *.xpi
 /manifest.json
+/*.tsbuildinfo

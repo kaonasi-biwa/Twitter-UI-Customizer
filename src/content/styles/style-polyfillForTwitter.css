@@ -29,10 +29,6 @@
 .r-115tad6 {
     color: rgb(139 152 165);
 }
-/* NOTE: ダークブルーの時、ツイート下のアイコンボタンの色 (Twitter 側で追加されたボタン) がおかしい問題を修正 #265 */
-:root[data-tuic-settings*="|uncategorizedSettings.dimBackgroundTheme|"] [style="color: rgb(113, 118, 123);"] {
-    color: #8b98a5 !important;
-}
 
 /* Twitter Blue以外の長文のもっと見るを非表示にするCSS */
 div[data-testid="tweetText"] {
@@ -45,6 +41,9 @@ header nav > a > div {
 */
 
 /* Twitterから削除されたダークブルー背景テーマ用のCSS */
+.r-1kfrmmb {
+    border-color: #38444d;
+}
 :root[data-theme="dim"] {
     /* app */
     --color-background: 210 34% 13%;

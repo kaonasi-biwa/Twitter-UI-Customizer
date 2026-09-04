@@ -26,7 +26,7 @@ const updateCheck = async () => {
 
 const replaceTwitterManifest = {
     enable: async (lang: string) => {
-        //const isFirefox = "browser" in globalThis;
+        //const isFirefox = chrome.runtime.getURL("").startsWith("moz-extension://");
         await chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: [
                 1,

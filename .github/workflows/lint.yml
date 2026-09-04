@@ -20,16 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Get pnpm version from package.json
-        id: pnpm-version
-        run: echo "PNPM_VERSION=$(node -p 'require(`./package.json`).devEngines.packageManager.version')" >> $GITHUB_OUTPUT
+        uses: actions/checkout@v7
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ steps.pnpm-version.outputs.PNPM_VERSION }}
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -39,7 +33,7 @@ jobs:
 
       - name: Install npm packages
         run: |
-          pnpm install
+          pnpm ci
 
       #- name: Generate SARIF file
       #  run: |

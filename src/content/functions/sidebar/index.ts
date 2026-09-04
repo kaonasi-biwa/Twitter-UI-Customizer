@@ -12,7 +12,7 @@ export const SidebarButtonSelectors = {
     communities: '[href$="/communities"],#TUICSidebar_communities',
     notifications: '[href*="/notifications"]',
     messages: '[href^="/messages"], #TUICSidebar_chat, [href="/i/chat"]',
-    bookmarks: '[href="/i/bookmarks"],#TUICSidebar_bookmarks',
+    bookmarks: '[href="/i/bookmarks"],[href="/i/history"],#TUICSidebar_bookmarks',
     profile: '[data-testid="AppTabBar_Profile_Link"]',
     moremenu: '[data-testid="AppTabBar_More_Menu"]',
     topics: "#TUICSidebar_topics",
@@ -42,7 +42,7 @@ export function sidebarButtons() {
 
     const bannerRoot = document.querySelector<HTMLElement>(`[role=banner] > ${"div >".repeat(5)} nav`);
     if (bannerRoot) {
-        const vanillaBookmark = document.querySelector(`[href="/i/bookmarks"]:not(#TUICSidebar_bookmarks)`);
+        const vanillaBookmark = document.querySelector(`:is([href="/i/bookmarks"],[href="/i/history"]):not(#TUICSidebar_bookmarks)`);
         const tuicBookmark = document.querySelector(`#TUICSidebar_bookmarks`);
         if (vanillaBookmark && tuicBookmark) {
             tuicBookmark.remove();
@@ -79,7 +79,7 @@ export function sidebarButtons() {
 function placeSidebarButtons(rootElement: HTMLElement) {
     sidebarButtonsCount = 0;
 
-    for (const i of getPref("sidebarButtons") as string[]) {
+    for (const i of getPref("sidebarButtons")) {
         let element = rootElement.querySelector<HTMLElement>(SidebarButtonSelectors[i]);
         if (element != null) {
             // NOTE: ボタンが既に存在する場合、その要素を移動する

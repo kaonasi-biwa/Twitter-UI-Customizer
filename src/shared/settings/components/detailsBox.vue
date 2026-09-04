@@ -25,7 +25,7 @@ defineProps<{
     iconOpened: Component;
 }>();
 
-const opened = ref(false);
+const opened = ref<boolean>(false);
 
 function toggled($event: ToggleEvent) {
     if (($event.currentTarget as HTMLDetailsElement).open) {

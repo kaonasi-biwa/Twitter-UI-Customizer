@@ -5,10 +5,10 @@
 <script setup lang="ts">
 import { Component } from "vue";
 import IconRadioButton from "./IconRadioButton.vue";
-import { getSettingData, SettingKeys } from "@content/settings";
+import { getSettingData, SettingFullKeys } from "@content/settings";
 
 const props = defineProps<{
-    id: SettingKeys;
+    id: SettingFullKeys<"select">;
     iconsList: Component[];
 }>();
 </script>

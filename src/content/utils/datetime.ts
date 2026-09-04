@@ -18,7 +18,7 @@ function getIntlFormat() {
     const changedLang = language !== document.documentElement.lang;
     if (changedLang) {
         language = document.documentElement.lang;
-        DateFormat = Intl.DateTimeFormat(language, { month: "short", day: "numeric" });
+        DateFormat = new Intl.DateTimeFormat(language, { month: "short", day: "numeric" });
     }
     if (
         changedLang

@@ -1,7 +1,8 @@
-import { DEFAULT_SETTINGS, type SettingKeys } from "./settings";
+import { DEFAULT_SETTINGS } from "./settings";
+import type { Settings, SettingKeys, SettingFullKeys, SettingKeyType, SettingGroupKeys, SettingKeyDefault, SettingGroupChildIds } from "./settings";
 
 // TODO: 暫定的対応
-export type { SettingKeys };
+export type { SettingGroupKeys, SettingFullKeys, SettingGroupChildIds } from "./settings";
 
 // MARK: Class
 
@@ -63,14 +64,14 @@ export class NestedPreferences<T extends JsonValue> extends Preferences<T> {
      * @param key ドット区切りのキー文字列
      * @return オブジェクトとキー名のペア
      */
-    #getPointer(object: any, key: string): { object: any; key: string } {
+    #getPointer(object: Record<string, unknown>, key: string): { object: any; key: string } {
         const keys = ["o", ...key.split(".").filter((k) => k !== "")];
-        let pointer = { o: object } as any;
+        let pointer: Record<string, unknown> = { o: object };
         for (const [i, key] of keys.slice(0, -1).entries()) {
             if (!(key in pointer)) {
                 throw new TypeError(`Cannot access property "${key}", because ${keys.slice(0, i).join(".")} is undefined`);
             }
-            pointer = pointer[key];
+            pointer = pointer[key] as Record<string, unknown>;
         }
         return {
             object: pointer,
@@ -301,67 +302,70 @@ export function savePreferences(preferences: DefaultPreferencesClass) {
  * @param target マージ先
  * @deprecated
  */
-export function mergePref(source: any, target: any): any {
+export function mergePref<T extends Record<string, any>, U extends Record<string, any>>(source: T, target: U): T & U {
     for (const i in source) {
         if (!(i in target)) {
-            target[i] = source[i];
-        } else if (typeof source[i] == "object" && !Array.isArray(source[i])) {
+            (target as T | U)[i] = source[i];
+        } else if (typeof source[i] === "object" && !Array.isArray(source[i])) {
             mergePref(source[i], target[i]);
         }
     }
-    return target;
+    return target as T & U;
 }
 
-let cachedDefaultData: NestedPreferences<any> | null = null;
-/**
- * @deprecated
- */
-export function mergeDefaultPref(source: any): any {
-    if (cachedDefaultData == null) {
-        let preferences = new NestedPreferences<any>({});
-        for (const key of Object.keys(DEFAULT_SETTINGS) as SettingKeys[]) {
-            if (key == "buttonColor") {
-                preferences.set("buttonColor", {});
-                preferences.set("buttonColorLight", {});
-                preferences.set("buttonColorDark", {});
-            } else {
-                const defaultData = getDefaultPref(key);
-                if (defaultData.type === "boolean") {
-                    const defaultDataKeys = Object.keys(defaultData.data) as (keyof typeof defaultData.data)[];
-                    for (const data of defaultDataKeys) {
-                        preferences.set(`${key}.${data}`, defaultData.data[data]);
-                    }
-                } else if (defaultData.type === "select") {
-                    preferences.set(key, defaultData.data);
-                } else if (defaultData.type === "order") {
-                    preferences.set(key, structuredClone(defaultData.data));
+const defaultPref = (() => {
+    const defaultData: Record<string, any> = {
+        buttonColor: {},
+        buttonColorLight: {},
+        buttonColorDark: {},
+    };
+    // NOTE: NestedPreferences#set は中間オブジェクトを自動生成しないため、
+    //       ドット入りキー（例: "timeline.pinningTab"）に対応できるよう自前で設定する
+    const setNested = (path: string, value: unknown) => {
+        const keys = path.split(".");
+        let pointer = defaultData;
+        for (const key of keys.slice(0, -1)) {
+            if (typeof pointer[key] !== "object" || pointer[key] === null) pointer[key] = {};
+            pointer = pointer[key];
+        }
+        pointer[keys[keys.length - 1]] = value;
+    };
+    for (const elem in DEFAULT_SETTINGS) {
+        if (elem === "buttonColor") continue;
+        const prefData = DEFAULT_SETTINGS[elem as SettingGroupKeys];
+        switch (prefData.type) {
+            case "boolean": {
+                for (const data of prefData.values) {
+                    setNested(`${elem}.${data.id}`, data.default ?? false);
                 }
+                break;
+            }
+            case "order": {
+                setNested(elem, structuredClone(prefData.default));
+                break;
+            }
+            case "select": {
+                setNested(elem, prefData.default);
+                break;
             }
         }
-        cachedDefaultData = preferences;
     }
-    return mergePref(structuredClone(cachedDefaultData), structuredClone(source));
+    return new NestedPreferences(defaultData as Settings);
+})();
+
+/** @deprecated */
+export function mergeDefaultPref(source: Partial<Settings>): Settings {
+    return mergePref(structuredClone(defaultPref.value), structuredClone(source));
 }
 
-/**
- * @deprecated
- */
-export function getDefaultPref(id: SettingKeys) {
-    const prefData = DEFAULT_SETTINGS[id];
-    if (prefData.type === "boolean") {
-        const returnObject: Record<typeof prefData.values[number]["id"], boolean> = {} as any;
-        for (const elem of prefData.values) {
-            returnObject[elem.id] = elem.default ?? false;
-        }
-        return { data: returnObject, type: prefData.type };
-    } else if (prefData.type === "order") {
-        return { data: structuredClone(prefData.default), type: prefData.type };
-    } else if (prefData.type === "select") {
-        return { data: prefData.default, type: prefData.type };
-    } else {
-        // NOTE: ここには来ないはず
-        throw new Error(`Invalid setting type: ${prefData.type}`);
+/** @deprecated */
+export function getDefaultPref(): Settings;
+export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id: T): SettingKeyDefault<T>;
+export function getDefaultPref<T extends SettingFullKeys<"boolean" | "order" | "select">>(id?: T) {
+    if (id === undefined) {
+        return structuredClone(defaultPref.value);
     }
+    return defaultPref.get(id);
 }
 
 /**
@@ -371,8 +375,8 @@ export function getDefaultPref(id: SettingKeys) {
  * @return {string[]} 取得した値一覧
  * @deprecated
  */
-export function getSettingIDs<T extends SettingKeys>(id: T): (typeof DEFAULT_SETTINGS)[T]["values"][number]["id"][] {
-    return DEFAULT_SETTINGS[id].values.map((elem) => elem.id);
+export function getSettingIDs<T extends SettingGroupKeys>(id: T): SettingGroupChildIds<T>[] {
+    return DEFAULT_SETTINGS[id].values.map((elem: (typeof DEFAULT_SETTINGS)[T]["values"][number]) => elem.id);
 }
 
 /**
@@ -382,7 +386,7 @@ export function getSettingIDs<T extends SettingKeys>(id: T): (typeof DEFAULT_SET
  * @return {{id:string,i18n:string}[]} 取得したデータ
  * @deprecated
  */
-export function getSettingData<T extends SettingKeys>(id: T): (typeof DEFAULT_SETTINGS)[T]["values"] {
+export function getSettingData<T extends SettingGroupKeys>(id: T): typeof DEFAULT_SETTINGS[T]["values"] {
     return DEFAULT_SETTINGS[id].values;
 }
 
@@ -394,6 +398,8 @@ export function getSettingData<T extends SettingKeys>(id: T): (typeof DEFAULT_SE
  * @return {string} i18nのID
  * @deprecated
  */
-export function getSettingI18n<T extends SettingKeys>(id: T, itemValue: (typeof DEFAULT_SETTINGS)[T]["values"][number]["id"]): string {
+export function getSettingI18n<T extends SettingGroupKeys>(id: T, itemValue: SettingGroupChildIds<T>): (typeof DEFAULT_SETTINGS)[T]["values"][number]["i18n"];
+export function getSettingI18n<T>(id: string, itemValue: string): T;
+export function getSettingI18n<T extends SettingGroupKeys>(id: T, itemValue: SettingGroupChildIds<T>): (typeof DEFAULT_SETTINGS)[T]["values"][number]["i18n"] {
     return DEFAULT_SETTINGS[id].values.filter((elem) => elem.id == itemValue)[0]?.i18n ?? undefined;
 }

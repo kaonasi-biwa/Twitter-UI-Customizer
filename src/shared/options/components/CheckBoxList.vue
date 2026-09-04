@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { getSettingData, SettingKeys } from "@content/settings";
+import { getSettingData, SettingGroupKeys } from "@content/settings";
 import CheckBox from "./CheckBox.vue";
 
-defineProps<{ id: SettingKeys }>();
+defineProps<{ id: SettingGroupKeys<"boolean"> }>();
 </script>
 
 <style scoped></style>

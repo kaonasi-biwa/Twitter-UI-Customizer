@@ -1,21 +1,25 @@
 import { hideElement, waitForElement } from "@content/utils/element";
 import { fontSizeClass } from "@content/utils/fontSize";
-import { getPref, getSettingIDs } from "@content/settings";
+import { getPref, getSettingIDs, SettingGroupChildIds } from "@content/settings";
 
-const _data = {
+const _data: {
+    all: SettingGroupChildIds<"sidebarSetting.moreMenuItems">[];
+    selectors: Partial<Record<SettingGroupChildIds<"sidebarSetting.moreMenuItems">, string>>;
+    type: Partial<Record<SettingGroupChildIds<"sidebarSetting.moreMenuItems">, "menu" | "menuitem" | "separator">>;
+} = {
     all: getSettingIDs("sidebarSetting.moreMenuItems"),
     selectors: {
         lists: `[href$="/lists"]`,
-        bookmarks: `[href="/i/bookmarks"]`,
+        bookmarks: `:is([href="/i/bookmarks"],[href="/i/history"])`,
         monetization: `:is([href="/settings/monetization"],[href="/i/monetization"])`,
-        separator: `[role="separator"]`,
+        //separator: `[role="separator"]`,
         creatorStudio: `:is([aria-controls$="_0_content"], [href="/i/jf/creators/studio"])`,
-        professionalTool: `[aria-controls$="_1_content"]`,
-        settingsAndSupport: `[aria-controls$="_2_content"][data-testid="settingsAndSupport"]`,
+        //professionalTool: `[aria-controls$="_1_content"]`,
+        //settingsAndSupport: `[aria-controls$="_2_content"][data-testid="settingsAndSupport"]`,
         communities: `[href$="/communities"]`,
         communitynotes: `[href="/i/communitynotes"]`,
         settings: `[href="/settings"]`,
-        pro: `[href="https://tweetdeck.twitter.com"]`,
+        //pro: `[href="https://tweetdeck.twitter.com"]`,
         ads: `:is([href*="ads.twitter.com"],[href*="ads.x.com"])`,
         premium: `:is([href="/i/verified-choose"],[href="/i/premium_sign_up"])`,
         jobs: `[href="/jobs"]`,
@@ -27,13 +31,13 @@ const _data = {
     type: {
         bookmarks: "menuitem",
         monetization: "menuitem",
-        separator: "separator",
+        //separator: "separator",
         creatorStudio: "menuitem",
-        professionalTool: "menu",
-        settingsAndSupport: "menu",
+        //professionalTool: "menu",
+        //settingsAndSupport: "menu",
         communities: "menuitem",
         settings: "menuitem",
-        pro: "menuitem",
+        //pro: "menuitem",
         ads: "menuitem",
         premium: "menuitem",
         jobs: "menuitem",

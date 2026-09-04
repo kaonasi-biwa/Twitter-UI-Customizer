@@ -39,7 +39,7 @@ function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
             break;
         case "twitter":
             if (favicon && changeFavicon) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(TWITTER.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color")));
                 //replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`)
             }
             elem.dataset.tuicIconType = "officialLogo-twitter";
@@ -60,14 +60,14 @@ function changeIconProcess(elem: HTMLElement, base: HTMLElement) {
         case "twitterIcon-X":
             if (favicon && changeFavicon) {
                 //console.log(encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null))));
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(X.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color")));
                 //.replace(`xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"`, `xmlns:xlink="http:%2F%2Fwww.w3.org%2F1999%2Fxlink"%20fill="${getColorFromPref("twitterIconFavicon", "color")}"`);
             }
             elem.dataset.tuicIconType = "officialLogo-X";
             break;
         case "twitterIcon-XDaruma":
             if (favicon && changeFavicon) {
-                favicon.href = "data:image/svg+xml," + encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color", null)));
+                favicon.href = "data:image/svg+xml," + encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIconFavicon", "color")));
             }
             elem.dataset.tuicIconType = "x-daruma";
             break;

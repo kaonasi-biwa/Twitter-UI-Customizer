@@ -67,7 +67,7 @@ export function injectSystemIconStyle() {
             --TUIC-twitter-icon:url('${chrome.runtime.getURL(X)}') !important;
         }
         [data-tuic-icon-type="x-daruma"] {
-            background-image: url('data:image/svg+xml,${encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIcon", "color", null)))}') !important;
+            background-image: url('data:image/svg+xml,${encodeURIComponent(XDaruma.replace("var(--TUIC-favicon-color)", getColorFromPref("twitterIcon", "color")))}') !important;
         }
     `);
 }
@@ -141,9 +141,9 @@ export function injectSettingsStyle() {
     const rule = sheet.cssRules[0] as CSSStyleRule;
 
     for (const elem of getSettingIDs("buttonColor")) {
-        for (const el of ["background", "border", "color"]) {
+        for (const el of ["background", "border", "color"] as const) {
             if (ColorData.defaultTUICColor.colors[elem][el]) {
-                rule.style.setProperty(`--twitter-${elem}-${el}`, getColorFromPref(elem, el, null));
+                rule.style.setProperty(`--twitter-${elem}-${el}`, getColorFromPref(elem, el));
             }
         }
     }
@@ -152,7 +152,7 @@ export function injectSettingsStyle() {
     rule.style.setProperty("--TUIC-container-background2", ColorData.TUICFixedColor[backgroundColor].containerBackground2);
     rule.style.setProperty("--TUIC-color-hover-efect", ColorData.TUICFixedColor[backgroundColor].colorHover);
 
-    rule.style.setProperty("--TUIC-sidebar-hover-color", backgroundColorCheck() == "light" ? "rgba(15,20,25,0.1)" : "rgba(247,249,249,0.1)");
+    rule.style.setProperty("--TUIC-sidebar-hover-color", `rgba(${backgroundColorClass("231,233,234", "247,249,249", "15,20,25")},0.1)`);
     rule.style.setProperty("--TUIC-sidebar-active-color", backgroundColorCheck() == "light" ? "rgba(15,20,25,0.2)" : "rgba(247,249,249,0.2)");
     rule.style.setProperty("--TUIC-sidebar-focus-color", backgroundColorCheck() == "light" ? "rgb(135,138,140)" : "rgb(251,252,252)");
 

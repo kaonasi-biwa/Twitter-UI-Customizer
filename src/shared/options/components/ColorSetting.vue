@@ -4,7 +4,7 @@
             {{ translate(text) }}
         </h4>
         <div class="TUIC_setting_input_container">
-            <template v-if="ColorData.defaultTUICColor.colors[id]?.ldColor && store.editingColorType == 'buttonColor'">
+            <template v-if="ColorData.defaultTUICColor.colors[props.id]?.ldColor && store.editingColorType == 'buttonColor'">
                 <label class="text-white font-tw wrap-break-word min-w-[0px] twcss-text-explicit TUIC_setting_text" style="font-size: 10px"> {{ translate("settingColors-pleaseLD") }} </label><br />
             </template>
             <template v-else>
@@ -31,21 +31,21 @@ import { ColorData } from "@shared/sharedData";
 import { getColorFromPref, hex2rgb, rgb2hex } from "@content/utils/color";
 
 const props = defineProps<{
-    id: string;
-    type: string;
+    id: keyof typeof ColorData.defaultTUICColor.colors;
+    type: "color" | "background" | "border";
     text: string;
 }>();
 
-const transparentButton = ref(null);
-const colorRoot = ref(null);
-const rColorPicker = ref(null);
+const transparentButton = ref<InstanceType<typeof TransparentToggleButton>>(null);
+const colorRoot = ref<HTMLDivElement>(null);
+const rColorPicker = ref<InstanceType<typeof RoundedColorPicker>>(null);
 
 const store = useStore();
 
-function colorChanged(value) {
+function colorChanged(value: string) {
     changeColor(props.id, props.type, store.editingColorType, value);
 }
-function TransparentToggleButtonClicked(value) {
+function TransparentToggleButtonClicked(value: boolean) {
     changeColorCheck(props.id, props.type, store.editingColorType, value);
 }
 function resetBtnClicked() {
@@ -63,10 +63,10 @@ const TUIC_color = computed(() => {
 });
 // TUIC_colorで取得した色をhex形式に変換して返す
 const TUICColor1 = computed(() => {
-    return rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)));
+    return rgb2hex(TUIC_color.value.slice(0, 3).map((elem) => Number(elem)) as [number, number, number]);
 });
 
-function defaultColor(colorAttr, colorType, colorKind) {
+function defaultColor(colorAttr: typeof props.id, colorType: typeof props.type, colorKind: typeof store.editingColorType) {
     if (getPref(`${colorKind}.${colorAttr}`) && getPref(`${colorKind}.${colorAttr}.${colorType}`)) deletePref(`${colorKind}.${colorAttr}.${colorType}`);
 
     const TUIC_color = getColorFromPref(colorAttr, colorType, colorKind).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
@@ -74,7 +74,7 @@ function defaultColor(colorAttr, colorType, colorKind) {
 
     // 各子コンポーネントの関数を呼び出し、デフォルトに設定した色を反映します
     rColorPicker.value.setInputValue(TUICColor1);
-    transparentButton.value.setCheckedValue(TUIC_color[3] == 0);
+    transparentButton.value.setCheckedValue(TUIC_color[3] === "0");
     colorRoot.value.classList.add("TUIC_ISNOTDEFAULT");
 
     savePref();
@@ -82,9 +82,9 @@ function defaultColor(colorAttr, colorType, colorKind) {
     injectSettingsStyle();
 }
 
-function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
+function changeColor(colorAttr: typeof props.id, colorType: typeof props.type, colorKind: typeof store.editingColorType, colorPickerVal: string) {
     const colorValue = hex2rgb(colorPickerVal);
-    const isChecked = transparentButton.value.checked;
+    const isChecked = transparentButton.value.isChecked;
 
     setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);
 
@@ -96,7 +96,7 @@ function changeColor(colorAttr, colorType, colorKind, colorPickerVal) {
     injectSettingsStyle();
 }
 
-function changeColorCheck(colorAttr, colorType, colorKind, isChecked) {
+function changeColorCheck(colorAttr: typeof props.id, colorType: typeof props.type, colorKind: typeof store.editingColorType, isChecked: boolean) {
     const colorValue = getColorFromPref(props.id, props.type, store.editingColorType).replace("rgba(", "").replace(")", "").replaceAll(" ", "").split(",");
 
     setPref(`${colorKind}.${colorAttr}.${colorType}`, `rgba(${colorValue[0]}, ${colorValue[1]}, ${colorValue[2]}, ${isChecked ? 0 : 1})`);

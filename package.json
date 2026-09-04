@@ -21,40 +21,40 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.13.1",
-        "pinia": "^3.0.4",
-        "solid-js": "^1.9.11",
-        "vue": "^3.5.30"
+        "pinia": "^4.0.2",
+        "solid-js": "^1.9.14",
+        "vue": "^3.5.41"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^7.7.3",
+        "@antfu/eslint-config": "^9.3.0",
         "@csstools/stylelint-formatter-github": "^2.0.0",
-        "@stylistic/stylelint-config": "^4.0.0",
-        "@types/chrome": "^0.1.38",
-        "@types/node": "^24.12.0",
+        "@stylistic/stylelint-config": "^5.0.0",
+        "@types/chrome": "^0.2.5",
+        "@types/node": "^24.13.3",
         "@types/webextension-polyfill": "^0.12.5",
-        "@unocss/eslint-plugin": "^66.6.6",
-        "@unocss/postcss": "^66.6.6",
-        "@vitejs/plugin-vue": "^6.0.5",
+        "@unocss/eslint-plugin": "^66.7.5",
+        "@unocss/postcss": "^66.7.5",
+        "@vitejs/plugin-vue": "^6.0.8",
         "crx": "^5.0.1",
-        "eslint": "^10.0.3",
-        "eslint-import-resolver-typescript": "^4.4.4",
-        "eslint-plugin-import-x": "^4.16.2",
+        "eslint": "^10.8.1",
+        "eslint-import-resolver-typescript": "^4.4.5",
+        "eslint-plugin-import-x": "^4.17.1",
         "eslint-plugin-solid": "^0.14.5",
-        "globals": "^17.4.0",
+        "globals": "^17.9.0",
         "lightningcss": "1.30.1",
-        "postcss": "^8.5.8",
-        "stylelint": "^17.4.0",
-        "stylelint-config-recess-order": "^7.6.1",
-        "stylelint-config-recommended-vue": "^1.6.1",
+        "postcss": "^8.5.26",
+        "stylelint": "^17.14.1",
+        "stylelint-config-recess-order": "^7.7.0",
+        "stylelint-config-recommended-vue": "^2.0.0",
         "stylelint-config-standard": "^40.0.0",
         "stylelint-use-nesting": "^6.0.2",
-        "typescript": "^5.9.3",
-        "unocss": "^66.6.6",
-        "vite": "^7.3.1",
-        "vite-plugin-solid": "^2.11.11",
+        "typescript": "npm:@typescript/typescript6@^6.0.2",
+        "unocss": "^66.7.5",
+        "vite": "^7.3.6",
+        "vite-plugin-solid": "^2.11.14",
         "vite-svg-loader": "^5.1.1",
-        "vue-tsc": "^3.2.6",
-        "web-ext": "^10.0.0"
+        "vue-tsc": "^3.3.9",
+        "web-ext": "^10.6.0"
     },
     "devEngines": {
         "runtime": {
@@ -64,7 +64,7 @@
         },
         "packageManager": {
             "name": "pnpm",
-            "version": ">=10.16",
+            "version": ">=11",
             "onFail": "error"
         }
     }

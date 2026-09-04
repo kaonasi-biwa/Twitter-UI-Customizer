@@ -86,7 +86,7 @@ const buttonList = [
     },
 ];
 
-const clickEv = (index) => {
+const clickEv = (index: number) => {
     setPref("", mergePref(getPref(""), buttonList[index].changePref ?? {}));
     buttonList[index]?.changeFunc?.();
     savePref();
