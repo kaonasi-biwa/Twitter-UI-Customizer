@@ -20,6 +20,7 @@
         "format:stylelint": "stylelint --fix **/*.{css,vue}"
     },
     "dependencies": {
+        "@twemoji/api": "^17.0.3",
         "bootstrap-icons": "^1.13.1",
         "pinia": "^4.0.2",
         "solid-js": "^1.9.14",
