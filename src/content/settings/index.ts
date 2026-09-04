@@ -132,11 +132,21 @@ export class MigratableNestedPreferences extends NestedPreferences<DefaultPrefer
         if (typeof this.get("timeline") !== "object") this.set("timeline", {});
         if (typeof this.get("rightSidebar") !== "object") this.set("rightSidebar", {});
         if (typeof this.get("XToTwitter") !== "object") this.set("XToTwitter", {});
+        if (typeof this.get("tweetDisplaySetting") !== "object") this.set("tweetDisplaySetting", {});
+
+        if (typeof this.get("profileSetting") !== "object") this.set("profileSetting", {});
+        if (typeof this.get("profileSetting.invisible") !== "object") this.set("profileSetting.invisible", {});
+
+        if (typeof this.get("sidebarSetting") !== "object") this.set("sidebarSetting", {});
+        if (typeof this.get("sidebarSetting.buttonConfig") !== "object") this.set("sidebarSetting.buttonConfig", {});
+
         if (typeof this.get("twitterIcon") === "string") {
             const twitterIconPref = this.get<string, "twitterIcon">("twitterIcon");
             this.set("twitterIcon", {});
             this.set("twitterIcon.icon", twitterIconPref);
         }
+        if (typeof this.get("twitterIcon") !== "object") this.set("twitterIcon", {});
+        if (typeof this.get("twitterIcon.options") !== "object") this.set("twitterIcon.options", {});
         if (typeof this.get("clientInfo") === "object") this.delete("clientInfo");
 
         const boolKeys = {
@@ -209,6 +219,16 @@ export class MigratableNestedPreferences extends NestedPreferences<DefaultPrefer
     /** 設定バージョンを 1 から 2 に移行します。 */
     #migrateToV2(): void {
         if (this.get<number, "prefVersion">("prefVersion") < 1) this.#migrateToV1();
+
+        if (typeof this.get("tweetDisplaySetting") !== "object") this.set("tweetDisplaySetting", {});
+        if (typeof this.get("tweetDisplaySetting.invisible") !== "object") this.set("tweetDisplaySetting.invisible", {});
+        if (typeof this.get("tweetDisplaySetting.option") !== "object") this.set("tweetDisplaySetting.option", {});
+        if (typeof this.get("tweetDisplaySetting.buttonsInvisible") !== "object") this.set("tweetDisplaySetting.buttonsInvisible", {});
+
+        if (typeof this.get("engagementsLink") !== "object") this.set("engagementsLink", {});
+        if (typeof this.get("engagementsLink.option") !== "object") this.set("engagementsLink.option", {});
+
+        if (typeof this.get("showLinkCardInfo") !== "object") this.set("showLinkCardInfo", {});
 
         const boolKeys = {
             "tweetDisplaySetting.twitter-pro-promotion-btn": "tweetDisplaySetting.invisible.twitter-pro-promotion-btn",
