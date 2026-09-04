@@ -94,7 +94,7 @@ import { waitForElement } from "@content/utils/element";
         // 絵文字を画像に置き換えるためのObserver
         startTwemojiObserver();
         if (getPref("XToTwitter.useTwemoji")) onTwemojiEnabled();
-        // TODO: onTwemojiDisabled をどこから呼ぶ？　Preferences クラス (#295) などのイベント駆動が必要？
+        // TODO: onTwemojiDisabled をどこから呼ぶ？ Preferences クラス (#295) などのイベント駆動が必要？
 
         // メインのObserver
         const observer = new TUICObserver(document.body);

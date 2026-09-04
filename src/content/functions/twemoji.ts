@@ -96,4 +96,3 @@ export function onTwemojiDisabled() {
         img.replaceWith(text);
     }
 }
-
